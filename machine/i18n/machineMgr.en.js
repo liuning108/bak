@@ -1,0 +1,23 @@
+define({
+	COLLECTION_MACHINE_MANAGEMENT:'Collection Machine Management',
+	COLLECTION_MACHINE_NO:'Collection Machine No',
+	COLLECTION_MACHINE_NAME:'Collection Machine Name',
+	COLLECTION_MACHINE_IP:'Collection Machine IP ',
+	COLLECTION_MACHINE_USER_NAME:'User Name',
+	COLLECTION_MACHINE_DESCRIPTION:'Description',
+	COLLECTION_MACHINE_DEFAULT:'Default Handling',
+    COLLECTION_MACHINE_DEFAULT_SET:'Set Default Handling',
+	COLLECTION_MACHINE_DEFAULT_CANCEL:'Cancel Default Handling',
+    COLLECTION_MACHINE_NEW:'NEW',
+    COLLECTION_MACHINE_TASK_MANAGEMENT:'Task Management',
+    COLLECTION_MACHINE_TASK_CHOOSABLE:'Choosable Task',
+    COLLECTION_MACHINE_TASK_ADD:'Add Task',
+    COLLECTION_MACHINE_TASK_EXIST:'Exist Task',
+    COLLECTION_MACHINE_TASK_REMOVE:'Remove Task',
+    COLLECTION_MACHINE_TASK_NAME:'Task Name',
+    COLLECTION_MACHINE_TASK_NO:'Task NO',
+    COLLECTION_MACHINE_MESSAGE_COMPLETE:'Please complete the current operation',
+    COLLECTION_MACHINE_MESSAGE_USERIP:"There has the same user and machine IP",
+    COLLECTION_MACHINE_MESSAGE_EXISTHANDLE:'Existing default processor, cannot install the machine as the default processor',
+    COLLECTION_MACHINE_MESSAGE_DELETE:'Confirm whether to delete this option'
+});

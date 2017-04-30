@@ -1,0 +1,91 @@
+/**
+ * 添加时，请按照字符排序
+ */
+portal.define({
+	EFF_DATE:"生效日期",
+	EXP_DATE:"失效日期",
+	FILE:"文件",
+	DB:"数据库",
+	EMS:"EMS",
+	EMS_TYPE:"专业",
+	EMS_VER:"EMS版本",
+	CODE_FORMAT:"仅能由字母、数字、下划线组成",
+	RETURN_FIELD:"返回字段",
+	COPY_NEW:"复制新建",
+	BATCH_NEW:"批量新建",
+	BATCH_ADD:"批量新增",
+	BATCH_EDIT:"批量编辑",
+	BATCH_DELETE:"批量删除",
+	DATA_TYPE:"数据类型",
+	DIRT:"方向",
+	UNIT:"单位",
+	PREC:"精度",
+	GRANU:"粒度",
+	DATA_SOURCE:"数据源",
+	DEFAULT_VAL:"默认值",
+	INPUT_NUMBER:"请输入数字",
+	STATE:"状态",
+	SEARCH:"搜索",
+	
+	DIM:"维度",
+	DIM_NAME:"维度名称",
+	DIM_CODE:"维度编码",
+	
+	KPI:"指标",
+	KPI_LIST:"指标清单",
+	KPI_NAME:"指标名称",
+	KPI_CODE:"指标编码",
+	KPI_TYPE:"指标类型",
+	
+	MO:"测量对象",
+	MO_LIST:"测量对象清单",
+	MO_NAME:"测量对象名称",
+	MO_CODE:"测量对象编码",
+	MO_TYPE:"测量对象类型",	
+	MO_NAME_DESC:"测量对象名描述",
+	
+	MODEL_PHY:"物理模型",
+	MODEL_PHY_LIST:"物理模型清单",
+	MODEL_PHY_NAME:"物理模型名称",
+	MODEL_PHY_CODE:"物理模型编码",
+	
+	MODEL_BUSI:"业务模型",
+	MODEL_BUSI_LIST:"业务模型清单",
+	MODEL_BUSI_NAME:"业务模型名称",
+	MODEL_BUSI_CODE:"业务模型编码",
+	BASE_INFO:"基本信息",
+	FIELD_INFO:"字段信息",
+	
+	BASE_INFO:"基本信息",
+	FIELD_INFO:"字段信息",
+	
+	FIELD_NAME:"字段名称",
+	FIELD_CODE:"字段编码",
+	FIELD_TYPE:"字段类型",	
+	VAFIELD:"字段全名",
+	SEL_EMS_TYPE:"请选择一个EMS专业。",
+	SEL_EMS_VER:"请选择一个EMS版本。",
+	SEL_EMS:"请选择一个EMS。",
+	
+	IS_ENABLED:"是否启用",
+	PARAM_NAME:"参数名",
+	PARAM_CODE:"参数编码",
+	PARAM_VALUE:"参数值",
+	PARAM_DEL_CONFIRM:"你确定要删除此参数吗?",
+	
+	ADAPTER:"适配器",
+	ADAPTER_NO:"适配器号",
+	ADAPTER_NAME:"适配器名称",
+	ADAPTER_LIST:"适配器清单",
+	PROTOCOL_TYPE:"协议",
+	
+	TASK:"任务",
+	TASK_NO:"任务号",
+	TASK_NAME:"任务名称",
+	TASK_LIST:"任务清单",
+	TASK_TYPE:"任务类型",
+	OPER_USER:"操作用户",
+	OPER_DATE:"操作时间",
+	
+	
+});
