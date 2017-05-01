@@ -1,0 +1,70 @@
+#boards{
+	padding-top: 20px;
+}
+
+#boards .boardsTitle{
+    line-height: 24px;
+    margin-left:50px;
+    font-size: 1pc;
+    font-weight: 700;
+}
+.boardItem {
+	margin-left:20px;
+	margin-top:20px;
+    box-sizing: border-box;
+    padding: 0 1pc 8px 0;
+    position: relative;
+    width: 25%;
+    height: 106px;
+    border-radius: 3px;
+    background: rgb(0, 121, 191);
+    float:left;
+}
+.boardItem:HOVER{
+	background: #005b90;
+	cursor: pointer;
+}
+.boardItem .title{
+	margin-left:10px;
+	margin-top:10px;
+	font-size: 1pc;
+    font-weight: 700;
+    display: inline-block;
+    overflow: hidden;
+    max-height: 40px;
+	color: #fff;
+}
+
+.create_boardItem {
+	margin-left:20px;
+	margin-top:20px;
+    box-sizing: border-box;
+    padding: 0 1pc 8px 0;
+    position: relative;
+    width: 25%;
+    height: 106px;
+    border-radius: 3px;
+    background: #e2e4e6;
+    float:left;
+    cursor: pointer;
+}
+
+.create_boardItem .title{
+    color: #8c8c8c;
+    display: table-cell;
+    height: 6pc;
+    font-weight: 400;
+    font-size:14px;
+    vertical-align: middle;
+    width: inherit;
+    text-align: center;
+    border-radius: 3px;
+   
+}
+.create_boardItem:HOVER {
+  background: #d6dadc;
+
+}
+.create_boardItem .title:HOVER{
+	  color: #4d4d5e;
+}

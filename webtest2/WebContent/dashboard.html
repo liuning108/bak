@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<title>仪表盘画布编辑</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="jquery-ui.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/dcmegamenu.css" rel="stylesheet" type="text/css" />
+<link href="css/dashboard.css" rel="stylesheet">
+
+
+</head>
+<body>
+    <div id="perviewDiv"></div>
+	<div id="editDiv" class="container-fluid fill">
+		<div class="row topNav">
+		 <div class="col-md-2 title col-fluid" >仪表盘画布编辑</div>
+		  <div class="col-md-7" >
+		     <ul id="mega-menu-1" class="mega-menu">
+					<li><a href="#">大屏</a>
+					        <ul style="height:100px">
+					            <li><a href="#" id="character">文字</a></li>
+					            <li><a href="#" id="nums">整数值</a></li>
+								<li><a href="#" id="gCirclePerTopNode">百分比状态饼图</a></li>
+								<li><a href="#" id="gCircleTopNode">文字状态饼图</a></li>
+								<li><a href="#" id="gDoubleTopNode">双指标图</a></li>
+								<li><a href="#" id="gBarCompNode">对比柱状图</a></li>
+								<li><a href="#" id="gVerListNode">竖形列表</a></li>
+								<li><a href="#" id="gVerList2Node">竖向列表</a></li>
+								<li><a href="#" id="gLanListNode">横向列表</a></li>
+								<li><a href="#" id="gDoubleListNode">双值列表</a></li>
+								<li><a href="#" id="gSingleListNode">单行列表</a></li>
+								<li><a href="#" id="gPieNode">饼图</a></li>
+								<li><a href="#" id="gProcessNode">流程</a></li>
+								<li><a href="#" id="gLineNode">折线图</a></li>
+								
+							</ul>
+				 	</li>
+					<li><a href="#">图形</a>
+						<ul style="height:80px">
+								<li><a href="#" id="xline">横线</a></li>
+								<li><a href="#" id="yline">竖线</a></li>
+						</ul>
+					</li>
+			 </ul>
+		  </div>
+		  <div class="col-md-2">
+		   <ul class="exportMenu" >
+		    <li>
+		     <a id="saveButton" class="btn btn-gray btn-sm btn-save">保存</a>
+		    </li>
+		    <li>
+		     <a id="perviewButton" class="btn btn-gray btn-sm btn-save">预览</a>
+		    </li>
+		    <li>
+		     <a id="mylist" class="btn btn-gray btn-sm btn-save">我的清单</a>
+		    </li>
+		   </ul>
+		  </div>
+		</div>
+		<div class="row ">
+		  <div class="col-md-10  col-fluid canvas_box_main">
+	        <div id="canvasPage">
+	        
+	        </div>
+		  </div>
+		  <div id="dashboardTabs" class="col-md-2  col-fluid ">
+			  
+		  </div>
+		 
+		</div>
+	</div>
+	<script type="text/javascript" src="js/classLibs/class.js"></script>
+	<script type="text/javascript" src="js/classLibs/GNode.js"></script>
+	<script type="text/javascript" src="js/libs/until.js"></script>
+	<script type="text/javascript" src="js/libs/jquery-3.1.1.js"></script> 
+	<script type="text/javascript" src="js/libs/jquery.tmpl.js"></script> 
+	<script type="text/javascript" src="js/libs/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/libs/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/libs/echarts.min.js"></script>
+	<script type="text/javascript" src="js/libs/raphael-min.js"></script>
+	
+	<script type="text/javascript" src="js/raphaelibs/raphael-chartsNumber.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/raphael-chartsListBar.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/raphael-areaLineBar.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/raphael-workflowPie.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/raphael-chartsprocess.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/shopcarClass.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/RegainNumsKPI.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/todayLoadNumberClass.js"></script>
+	<script type="text/javascript" src="js/raphaelibs/raphael-chartsListLineBar.js"></script>
+	
+	
+	
+	
+	<script type='text/javascript' src='js/libs/jquery.hoverIntent.minified.js'></script>
+    <script type='text/javascript' src='js/libs/jquery.dcmegamenu.1.3.3.js'></script>
+    <script type="text/javascript" src="js/pagelibs/dashboard.js"></script>
+    
+</body>
+
+<!-- Templates -->
+<div id="templates"></div>
+<!-- Templates End -->
+
+
+<!-- Modals -->
+<div class="modal fade" id="dashboardItemAttrbox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h6 class="modal-title" id="myModalLabel">配置</h6>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modals End -->
+</html>

@@ -1,0 +1,140 @@
+html, body {
+	font: 12px/1.14 "Helvetica Neue", Helvetica, "Lucida Grande",
+		"Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei",
+		"Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei",
+		"WenQuanYi Zen Hei Mono", LiGothicMed;
+	margin: 0px;
+	padding: 0px;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+a, a:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+.btn-sm {
+	font-size: 12px;
+	line-height: 1.5;
+	padding: 5px 15px;
+	background: #eeeeee;
+}
+
+.btn-sm:HOVER {
+	background: black;
+	color: #ffffff;
+}
+
+.row-fluid {
+	height: 91% !important;
+	!
+	important;
+}
+
+.col-fluid {
+	height: 100% !important;
+	!
+	important;
+}
+
+.fill {
+	min-height: 100%;
+	height: 100% !important; /* cross-browser */
+}
+
+.topNav {
+	height: 60px;
+}
+
+.canvas_box_main {
+	overflow-y: auto;
+	overflow-x: hidden;
+	background: #e9e9e9;
+	padding: 10px 0px;
+}
+
+#canvasPage {
+	position: relative;
+	width: 90%;
+	min-height: 95%;
+	height: 95%;
+	overflow: hidden;
+	margin: 0 auto;
+	background: #ffffff;
+}
+
+#perviewDiv {
+	background: #ffffff;
+	box-shadow: 2px 2px 1px #888888;
+}
+
+.previewBody {
+	background: #e9e9e9;
+}
+
+.tabpanelDiv {
+	margin-top: 20px;
+}
+
+.title {
+	font-size: 14px;
+	margin-right: 10px;
+	font-weight: bold;
+	color: #333;
+	background: #eeeeee;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.exportMenu {
+	line-height: 60px;
+}
+
+.exportMenu  li {
+	float: left;
+	margin-left: 5px;
+}
+
+.c {
+	position: absolute;
+	left: 20px;
+	top: 30px;
+	width: 400px;
+	height: 200px;
+	border: 1px dashed #28b779;
+	overflow: hidden;
+}
+.csize{
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    font-size: 12px;
+    width:65px;
+    opacity: 0.5;
+}
+
+.cul {
+	left: 0px;
+	top: -10px;
+}
+
+.cul li {
+	float: left;
+	margin-left: 10px;
+}
+
+.cul li a {
+	color: #c0c0c0 !important;
+}
+
+.canvasTabs_elems li {
+	margin-top: 10px;
+}
+
+.canvas {
+	width: 90%;
+	height: 90%;
+}
