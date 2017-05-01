@@ -35,7 +35,7 @@ define([
                     
                     view.afterRender();
                     var a=1;
-                    var data_no=['A','B','C','D']
+                    var data_no=['A','B','C','D','E','F']
                     $("#demo3_addData").click(function(){
                         //生成假数据
                           model={};
@@ -52,7 +52,13 @@ define([
                           a++;
                           //生成假数据
                           view.put(model);
+
                     })
+
+                    $("#demo3_getData").click(function(event) {
+                      /* Act on the event */
+                        view.getData();
+                    });
 
                 });
             },
