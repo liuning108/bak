@@ -1,0 +1,12 @@
+Raphael.fn.chartsListBar = function(config){
+  var paper =this;
+  var x =config.x||0;
+  var y= config.y||0;
+  var inst = {};
+  inst.x= config.x;
+  inst.y = config.y;
+  alert(inst.x);
+  return inst;
+}
+
+
