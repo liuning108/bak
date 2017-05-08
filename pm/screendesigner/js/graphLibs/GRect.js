@@ -10,8 +10,7 @@ define([
         },
         initLocation:function(){
              this.ft.attrs.translate.x=20;
-             this.ft.attrs.translate.y=30;
-        
+             this.ft.attrs.translate.y=30; 
         },
         addEvent: function() {
             this.doms['config'].click(function() {

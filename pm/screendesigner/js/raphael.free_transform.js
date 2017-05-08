@@ -1,17 +1,10 @@
-/*
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/mit-license.php
- *
- */
+
 (function (root, factory) {
 	if ( typeof define === 'function' && define.amd ) {
-		// AMD. Register as an anonymous module.
 		define(['oss_core/pm/screendesigner/js/raphael-min'], function(Raphael) {
-			// Use global variables if the locals are undefined.
 			return factory(Raphael || root.Raphael);
 		});
 	} else {
-		// RequireJS isn't being used. Assume underscore and backbone are loaded in <script> tags
 		factory(Raphael);
 	}
 }(this, function(Raphael) {

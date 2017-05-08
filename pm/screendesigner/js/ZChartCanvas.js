@@ -1,11 +1,14 @@
 define([
     "oss_core/pm/screendesigner/js/raphael-min",
     "oss_core/pm/screendesigner/js/raphael.free_transform",
+    "oss_core/pm/screendesigner/js/raphael-chartsNumber",
     "oss_core/pm/screendesigner/js/class",
 ], function() {
 
     var TypeMapping = {
-        'rect': "oss_core/pm/screendesigner/js/graphLibs/GRect"
+        'rect': "oss_core/pm/screendesigner/js/graphLibs/GRect",
+        'text': "oss_core/pm/screendesigner/js/graphLibs/GText",
+          
     };
     var uuid = function() {
         var s = [];
@@ -53,11 +56,10 @@ define([
             var type = TypeMapping[node_config.attrs.type];
             require([type], function(Node) {
                 var node = new Node({ 'paper': self.paper, 'attrs': node_config.attrs, 'canvas': self });
-                node.id = uuid();
+                node.id =node_config.id||uuid();
                 node.show();
                 self.nodes[node.id] = node;
                 if (fun) fun();
-
             })
 
         },

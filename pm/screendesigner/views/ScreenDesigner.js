@@ -7,7 +7,7 @@ define([
         "css!oss_core/pm/screendesigner/css/screendesigner.css",
         "oss_core/pm/screendesigner/js/raphael-min",
         "oss_core/pm/screendesigner/js/raphael.free_transform",
-
+       
 
     ],
     function(tpl, Zcharts) {
@@ -16,13 +16,14 @@ define([
             initialize: function() {},
             events: {
                 'click .rect': 'addRect',
+                'click .text': 'addText',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton'
             },
 
             render: function() {
                 this.$el.html(this.template());
-
+1
                 return this;
             },
 
@@ -106,11 +107,24 @@ define([
 
 
             },
+            addText:function(){
+                  var self = this;
+                  this.canvas.addNode({
+                    'attrs': {
+                        'x': 0,
+                        'y': 0,
+                        'w': '100',
+                        'h': '100',
+                        'type': 'text'
+                    }
+                });
+            },
             saveButton: function() {
                 var self = this;
                 var json = self.canvas.json();
                 fish.store.set('json', json);
                 fish.toast('info', '保存成功');
+                console.log(json)
             },
             perviewButton: function() {
                 $('body').empty();
