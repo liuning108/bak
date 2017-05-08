@@ -1,0 +1,64 @@
+
+ol, ul {
+	list-style: none;
+}
+
+a, a:hover {
+	color: #333;
+	text-decoration: none;
+}
+.mainContent{
+    
+	background: #e3e3e3;
+	padding-top:10px;
+	padding-bottom: 10px;
+}
+.editBody{
+	margin: 0px;
+	padding: 0px;
+}
+
+#canvasPage {
+	width: 90%;
+	margin: 0 auto;
+	box-shadow: 1px  1px #888888;
+	background: #ffffff;
+	
+}
+.title {
+	font-size: 14px;
+	margin-right: 10px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.exportMenu {
+	line-height: 60px;
+}
+
+.exportMenu  li {
+	float: left;
+	margin-left: 5px;
+}
+
+
+.cul {
+	left: 0px;
+	top: -10px;
+}
+
+.cul li {
+	float: left;
+	margin-left: 10px;
+}
+
+.cul li a {
+	color: #c0c0c0 !important;
+}
+
+.canvasTabs_elems li {
+	margin-top: 10px;
+}
+
