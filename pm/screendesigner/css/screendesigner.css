@@ -211,3 +211,86 @@ TODO:属性页板--子页板 (done)
     border: 1px solid #ccc;
     border-radius: 2px;
 }
+
+
+/* TODO: 纯CSS checkbox (done) */
+
+.switch {
+    cursor: pointer;
+    position: relative;
+}
+
+.switch input {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.switch span {
+    position: relative;
+    width: 42px;
+    height: 20px;
+    border-radius: 999em;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-color: rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+
+.switch input:checked+span {
+    background: #36b0c8;
+}
+
+.switch span:after {
+    content: "";
+    position: absolute;
+    background-color: #fff;
+    width: 26px;
+    top: 0;
+    bottom: 0;
+    border-radius: 30px;
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+    -webkit-transition: left 0.2s;
+    transition: left 0.2s;
+}
+
+.switch input:checked+span:after {
+    left: 16px;
+}
+
+
+/* TODO: 修改Slider样式 (done) */
+
+.editBody .ui-slider {
+    border: none;
+    height: 2px;
+    background-color: #e0e4e8;
+}
+
+.editBody .ui-slider .ui-slider-handle {
+    width: 10px;
+    height: 10px;
+    background-color: #36b0c8;
+    opacity: 0.8;
+    border: 0px solid transparent
+}
+
+.editBody .ui-slider .ui-slider-handle:hover {
+    box-shadow: none;
+}
+
+.sliderTooltip {
+    background-color: #000;
+    padding: 5px 0;
+    margin-top: -3px;
+    position: absolute;
+    display: none;
+    color: #fff;
+    width: 40px;
+    text-align: center;
+    opacity: 0.8;
+    border-radius: 5px;
+}
