@@ -1,16 +1,59 @@
 <div class="container-fluid editBody">
-    <div class="row">
-        <div class="col-md-2 title ">仪表盘画布编辑</div>
-        <div class="col-md-7" style="height:75px">
-            <div id="multipleItems">
+    <div class="row col_title">
+        <div class="col-md-5">
+            <ul id="mega-menu-1" class="mega-menu">
+                <li style="margin-left: 10px">
+                    <a href="#">
+                        <i class="icon-uniE60A i"></i>
+                        <p class="p">图表</p>
+                    </a>
+                    <ul style="height:100px">
+                        <li><a href="#" class="text">文字</a></li>
+                        <li><a href="#" id="nums">整数值</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-uniE60E i"></i>
+                        <p class="p">图形</p>
+                    </a>
+                    <ul style="height:80px">
+                        <li><a href="#" id="xline">横线</a></li>
+                        <li><a href="#" id="yline">竖线</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-other i"></i>
+                        <p class="p">其他</p>
+                    </a>
+                    <ul style="height:80px">
+                        <li><a href="#" id="xline">横线</a></li>
+                        <li><a href="#" id="yline">竖线</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-uniE607 i"></i>
+                        <p class="p">设置</p>
+                    </a>
+                    <ul style="height:80px">
+                        <li><a href="#" id="xline">横线</a></li>
+                        <li><a href="#" id="yline">竖线</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!--  <div id="multipleItems">
                 <div class="well">
                     <img style="margin: 0px" class="rect " src="oss_core/pm/screendesigner/images/rect.png" height="52" />
                 </div>
                 <div class="well">
-                	 <img style="margin: 0px" class="text" src="oss_core/pm/screendesigner/images/text.png" height="52" />
-
+                    <img style="margin: 0px" class="text" src="oss_core/pm/screendesigner/images/text.png" height="52" />
                 </div>
-                <div class="well">2</div>
+                <div class="well">
+                    <img style="margin: 0px" class="bar" src="oss_core/pm/screendesigner/images/bar.png" height="52" />
+                </div>
                 <div class="well">3</div>
                 <div class="well">4</div>
                 <div class="well">5</div>
@@ -29,50 +72,33 @@
                 <div class="well">18</div>
                 <div class="well">19</div>
                 <div class="well">20</div>
+            </div> -->
+        </div>
+        <div class="col-md-5">
+            <div class="m_tb_title">
+                <input type="text" value="" class="dashboard-name-input form-control" style="width: 230px" placeholder="仪表盘名称">
             </div>
         </div>
         <div class="col-md-2">
             <ul class="exportMenu">
                 <li>
                     <a id="saveButton" class="btn btn-gray btn-sm btn-save">保存</a>
-                </li>	
+                </li>
                 <li>
                     <a id="perviewButton" class="btn btn-gray btn-sm btn-save">预览</a>
                 </li>
             </ul>
         </div>
     </div>
-    <div class="row  ">
-        <div class="col-md-10 mainContent">
-            <div id="canvasPage">
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div id="tabs" class="ui-tabs">
-                <ul class="ui-tabs-nav">
-                    <li>
-                        <a href="#tabs-setting">设置</a>
-                    </li>
-                </ul>
-                <div id="tabs-setting" class="ui-tabs-panel">
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <label for="exampleInputName2">宽:</label>
-                            <input type="text" class="form-control" id="canvas_w" style="width:100px">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail2">高:</label>
-                            <input type="text" class="form-control" id="canvas_h" style="width:100px">
-                        </div>
-                    </form>
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <input type="checkbox" class="form-control" id="checkbox_bks">
-                            <label for="checkbox_bks">启动背景图</label>
-                        </div>
-                    </form>
+    <div class="row	 ">
+        <div class="col-md-10" style="padding: 0px; ">
+            <div class="mainContent">
+                <div id="canvasPage">
                 </div>
             </div>
+        </div>
+        <div class="col-md-2 configPanel " style="padding: 0px;margin:0px">
+
         </div>
     </div>
 </div>

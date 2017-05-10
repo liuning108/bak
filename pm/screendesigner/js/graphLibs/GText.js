@@ -9,6 +9,7 @@ define([
             var self = this;
             var title = this.attrs.title || '指标名称';
             var titleColor = this.attrs.titleColor || '#ddff00';
+            var numColor = this.attrs.numColor || '#ffffff';
             this.doms['title'] = this.paper.text(0, 0, title).attr({ 'fill': titleColor, 'font-size': 30, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
             self.setTitle(title);
             self.setTitleColor(titleColor);
@@ -16,8 +17,10 @@ define([
                 'x': 0,
                 'y': 0 + 40,
                 'value': 0,
-                attrs: { 'fill': '#ffffff', 'font-size': 30, 'font-family': '微软雅黑', 'font-weight': 'bold' }
+                attrs: { 'fill': numColor, 'font-size': 30, 'font-family': '微软雅黑', 'font-weight': 'bold' }
             });
+
+            self.setNumColor(numColor);
 
             this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
             this.doms['remove'] = this.paper.text(100, 10, '删除').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
@@ -39,11 +42,19 @@ define([
             console.log("" + color)
             this.attrs.titleColor = "" + color;
         },
+        setNumColor: function(color) {
+            this.doms['nums'].attr({ 'fill': "" + color });
+            this.attrs.numColor = "" + color;
+        },
         getTitle: function() {
             return this.attrs.title;
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+        getNumColor: function() {
+
+            return this.attrs.numColor;
         },
         addEvent: function() {
             var self = this;

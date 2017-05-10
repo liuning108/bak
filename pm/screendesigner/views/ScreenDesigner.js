@@ -4,26 +4,29 @@
 define([
         "text!oss_core/pm/screendesigner/templates/ScreenDesigner.html",
         "oss_core/pm/screendesigner/js/Zcharts",
+        "oss_core/pm/screendesigner/views/ScreenDesignerConfig",
         "css!oss_core/pm/screendesigner/css/screendesigner.css",
+        "css!oss_core/pm/screendesigner/css/dcmegamenu.css",
+        "css!oss_core/pm/screendesigner/css/icomoon.css",
         "oss_core/pm/screendesigner/js/raphael-min",
         "oss_core/pm/screendesigner/js/raphael.free_transform",
-       
-
+        "oss_core/pm/screendesigner/js/jquery.dcmegamenu.1.3.3",
+        "oss_core/pm/screendesigner/js/jquery.hoverIntent.minified"
     ],
-    function(tpl, Zcharts) {
+    function(tpl, Zcharts, SDconfigView) {
         return portal.BaseView.extend({
             template: fish.compile(tpl),
             initialize: function() {},
             events: {
                 'click .rect': 'addRect',
                 'click .text': 'addText',
+                'click .bar': 'addBar',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton'
             },
 
             render: function() {
                 this.$el.html(this.template());
-1
                 return this;
             },
 
@@ -32,20 +35,37 @@ define([
             },
 
             afterRender: function(data) {
-
                 this.RenderHTML();
                 this.RenderCanvas();
-
+                this.RenderView();
                 return this;
+            },
+            RenderView: function() {
+                var sdConfigView = new SDconfigView(this.canvas);
+                sdConfigView.render();
+                $(".configPanel").html(sdConfigView.$el);
+                sdConfigView.afterRender();
+            },
+            // TODO: 单击子节点,关闭子节点页板(done)
+            closeMenu: function() {
+                var $menu = $('#mega-menu-1')
+                var subNav = $menu.find('.sub');
+                $menu.removeClass('mega-hover');
+                $(subNav).hide();
             },
             RenderHTML: function() {
                 var self = this;
 
-                var height = $('body').height() - 200;
-                // $('#canvasPage').css('min-height',height);
-                // $('#canvasPage').css('min-width',$('#canvasPage').width());
-                //$('#canvasPage').css('height',height);
-
+                var height = $('body').height() - 150;
+                var w = $('.mainContent').width();
+                $('.mainContent').slimscroll({
+                    'width': w,
+                    'height': height,
+                    'alwaysVisible': false,
+                    'opacity ': .1,
+                    'size': 1,
+                    'color': '#e3e3e3'
+                });
                 $('#multipleItems').slick({
                     infinite: true,
                     speed: 500,
@@ -53,32 +73,21 @@ define([
                     slidesToScroll: 3,
                     adaptiveHeight: true,
                 });
-                $('.well').height(52);
 
-                $('#canvas_w').val(1920);
-                $('#canvas_h').val(1080);
 
-                $('#canvas_w').on('change', function() {
-                    var w = $(this).val();
-                    var h = $('#canvas_h').val();
-                    self.canvas.setViewBox(w, h)
-                })
 
-                $('#canvas_h').on('change', function() {
-                    var h = $(this).val();
-                    var w = $('#canvas_w').val();
-                    self.canvas.setViewBox(w, h)
-                })
+                // TODO: 初始化图列菜单(done)
+                $('#mega-menu-1').dcMegaMenu({
+                    rowItems: '3',
+                    speed: 0,
+                    effect: 'slide',
+                    fullWidth: false,
 
-                $('#checkbox_bks').on('click', function() {
-                    var chekced = $(this).is(':checked');
-                    if (chekced) {
-                        self.canvas.setBK({ 'background': 'url(oss_core/pm/screendesigner/images/bk1.jpg)  repeat' })
-                    } else {
-                        self.canvas.setBK({ 'background': '#fff' })
+                });
 
-                    }
-                })
+
+
+
 
             },
             RenderCanvas: function() {
@@ -90,8 +99,8 @@ define([
                         'nodes': []
                     }
                 }
-                json.dom = $('#canvasPage')[0],
-                    this.canvas = Zcharts.init(json);
+                json.dom = $('#canvasPage')[0];
+                this.canvas = Zcharts.init(json);
             },
             addRect: function() {
                 var self = this;
@@ -105,11 +114,10 @@ define([
                     }
                 });
 
-
             },
-            addText:function(){
-                  var self = this;
-                  this.canvas.addNode({
+            addText: function() {
+                var self = this;
+                this.canvas.addNode({
                     'attrs': {
                         'x': 0,
                         'y': 0,
@@ -118,6 +126,20 @@ define([
                         'type': 'text'
                     }
                 });
+                self.closeMenu();
+            },
+            addBar: function() {
+                var self = this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'x': 0,
+                        'y': 0,
+                        'w': '100',
+                        'h': '100',
+                        'type': 'bar'
+                    }
+                });
+                self.closeMenu();
             },
             saveButton: function() {
                 var self = this;
@@ -130,7 +152,8 @@ define([
                 $('body').empty();
                 var json = fish.store.get('json')
                 json.dom = $('body')[0],
-                    Zcharts.init(json);
+                    json.perview = true;
+                Zcharts.init(json);
             }
 
 

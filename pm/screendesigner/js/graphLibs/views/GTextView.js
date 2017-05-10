@@ -30,10 +30,13 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTextConfig.html",
             var title_colorpicker = this.$el.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.getTitleColor());
             title_colorpicker.on("move.colorpicker", function(e, color) {
-            	
-                    self.gText.setTitleColor(color)
-                })
-                //"set", this.gText.getTitleColor());
+                self.gText.setTitleColor(color)
+            })
+            var num_colorpicker=this.$el.find(".gtext_num_colorpicker").colorpicker();
+            num_colorpicker.colorpicker("set", this.gText.getNumColor());
+            num_colorpicker.on("move.colorpicker", function(e, color) {
+                self.gText.setNumColor(color);
+            })
             return this;
         }
 

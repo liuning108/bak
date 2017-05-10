@@ -1,64 +1,213 @@
+/*
+   TODO: 结构DIV基本样式(done)
+ */
 
-ol, ul {
-	list-style: none;
-}
-
-a, a:hover {
-	color: #333;
-	text-decoration: none;
-}
-.mainContent{
-    
-	background: #e3e3e3;
-	padding-top:10px;
-	padding-bottom: 10px;
-}
-.editBody{
-	margin: 0px;
-	padding: 0px;
+.comprivroot {
+    padding: 0px;
+    margin: 0px;
 }
 
-#canvasPage {
-	width: 90%;
-	margin: 0 auto;
-	box-shadow: 1px  1px #888888;
-	background: #ffffff;
-	
-}
-.title {
-	font-size: 14px;
-	margin-right: 10px;
-	font-weight: bold;
-	color: #333;
-	text-align: center;
-	padding-top: 20px;
+.editBody {
+    font: 12px/1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed;
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
 }
 
-.exportMenu {
-	line-height: 60px;
+.editBody ol, ul {
+    list-style: none;
 }
 
-.exportMenu  li {
-	float: left;
-	margin-left: 5px;
+.editBody a, a:hover {
+    color: #333;
+    text-decoration: none;
+}
+
+.editBody .bk_gray {
+    background: #e3e3e3;
+}
+
+.editBody .bk_fff {
+    background: #fff;
+}
+
+.editBody .mainContent {
+    background: #e3e3e3;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.editBody #canvasPage {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    background: #ffffff;
+}
+
+.editBody .i {
+    font-size: 20px;
+    color: #444;
+    line-height: 26px;
+}
+
+.editBody .p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.editBody .toolbar {
+    float: left;
+    margin-left: 10px;
+    height: 60px;
+}
+
+.editBody .btn-gray {
+    background: #eee;
+}
+
+.editBody .btn-sm {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 5px 15px
+}
+
+.editBody .dashboard-name-input {
+    border: 1px solid #ddd;
+    height: 32px;
+}
+
+.editBody .m_tb_title {
+    float: right;
+    padding: 15px 15px 0 0;
+}
+
+.editBody .col_title {
+    padding-top: 5px;
+    height: 60px;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+    background: #fff;
+    position: relative;
+    z-index: 199;
+}
+
+.editBody .title {
+    font-size: 14px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.editBody .exportMenu {
+    line-height: 60px;
+}
+
+.editBody .exportMenu li {
+    float: left;
+    margin-left: 5px;
 }
 
 
-.cul {
-	left: 0px;
-	top: -10px;
+/* TODO: 属性页面(done) */
+
+.sdesigner .ui-tabs .ui-tabs-nav {
+    padding: 0px 0 0;
+    margin-bottom: 0;
+    background-color: #dddddd;
+    box-shadow: none;
+    border: none;
 }
 
-.cul li {
-	float: left;
-	margin-left: 10px;
+.sdesigner .ui-tabs {
+    background-color: #dddddd;
+    border: 0;
+    padding: 0px;
+    margin: 0px;
 }
 
-.cul li a {
-	color: #c0c0c0 !important;
+.sdesigner .ui-tabs .ui-tabs-nav li {
+    padding: 0px;
+    margin: 0px;
+    color: #333;
+    font-weight: normal;
 }
 
-.canvasTabs_elems li {
-	margin-top: 10px;
+.sdesigner .ui-tabs .ui-tabs-nav li a {
+    border-bottom: none;
+    margin: 0px;
+    color: #333;
+    font-weight: normal;
 }
 
+.sdesigner .ui-tabs .ui-tabs-nav li.ui-tabs-active a {
+    border-bottom: none;
+    background-color: #fff;
+    margin: 0px;
+    color: #333;
+    font-weight: normal;
+}
+
+.sdesigner .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active>a, .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active>a:hover, .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active>a:focus {
+    margin-bottom: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.editBody .configPanel {
+    background: #fff;
+}
+
+
+/*
+TODO:属性页板--子页板 (done)
+*/
+
+.m_u_box {
+    padding: 0 15px;
+}
+
+.bi-attr-edit-list-div {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    margin: 0px;
+}
+
+.bi-attr-edit-list-div h4 {
+    line-height: 25px;
+    font-weight: bold;
+    color: #333;
+    font-size: 12px;
+}
+
+.bi-attr-edit-list-div-rengs {}
+
+.bi-attr-edit-list-div-rengs .form-control {
+    display: inline-block;
+}
+
+
+/* TODO: 基本表单元素样式 (doing)*/
+
+.bi-lable {
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 0, 5px;
+}
+
+.bi-input-text {
+    font-size: 12px;
+    height: 25px;
+    padding: 6px 12px;
+    line-height: 1;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
