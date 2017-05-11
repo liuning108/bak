@@ -26,6 +26,7 @@ define([
 
             RenderHTML: function() {
                 var self = this;
+                $("#tabs").tabs(); //Tab页
                 $('#canvas_w').val(1920);
                 $('#canvas_h').val(1080);
                 $('#canvas_w').on('change', function() {
@@ -39,23 +40,7 @@ define([
                     var w = $('#canvas_w').val();
                     self.canvas.setViewBox(w, h)
                 })
-
-                // $('#checkbox_bks').on('click', function() {
-                //     var chekced = $(this).is(':checked');
-                //     if (chekced) {
-                //         self.canvas.setBK({
-                //             'background': 'url(oss_core/pm/screendesigner/images/bk1.jpg)  repeat'
-                //         })
-                //     } else {
-                //         self.canvas.setBK({
-                //             'background': '#fff'
-                //         })
-                //
-                //     }
-                // });
-
-                $("#tabs").tabs();
-
+               
                 //TODO: 动态生成网格(done)
                 self.sliderTooltip('#slider1',0.3,0,1,0.01, function(value) {
                     $('#slider1_input').val(value);
@@ -80,6 +65,10 @@ define([
                 var ick=$fange.icheck();
                 $fange.eq(0).icheck('check');
                 $fange.on('lnChanged', function(){
+                    var i =$(this).val()
+                    self.setStyle(i);
+                });
+                $fange.on('change', function(){
                     var i =$(this).val()
                     self.setStyle(i);
                 });

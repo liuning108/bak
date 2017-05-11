@@ -24,9 +24,9 @@
             this._delegateEvent();
         },
         _delegateEvent: function() {
-            // this._on(this.element, {
-            //     'change': '_onChange'
-            // });
+            this._on(this.element, {
+                'change': '_onChange'
+            });
 
             this.$helper.on('click', $.proxy(this._onHelperClick, this));
         },
