@@ -2,16 +2,12 @@ define([
     "oss_core/pm/screendesigner/js/raphael-min",
     "oss_core/pm/screendesigner/js/raphael.free_transform",
     "oss_core/pm/screendesigner/js/raphael-chartsNumber",
-    "oss_core/pm/screendesigner/js/raphael-areaLineBar",
     "oss_core/pm/screendesigner/js/class",
 ], function() {
-
     var TypeMapping = {
         'rect': "oss_core/pm/screendesigner/js/graphLibs/GRect",
         'text': "oss_core/pm/screendesigner/js/graphLibs/GText",
         'bar': "oss_core/pm/screendesigner/js/graphLibs/GBar",
-
-
     };
     var uuid = function() {
         var s = [];
@@ -53,10 +49,11 @@ define([
             var self = this;
             self.w = w;
             self.h = h;
+
             self.paper.setViewBox(0, 0, self.w, self.h, true);
             self.paper.setSize('100%', '100%');
             if (self.perview == false) {
-                self.createGrid(w, h);
+                self.createGrid();
                 // TODO: IE浏览下需要自己控制窗口比列的高度(done)
                 if (fish.isIE) {
                     var d_w = $(self.dom).width();
@@ -67,9 +64,79 @@ define([
                 }
             }
         },
-        // TODO: 创建网络(doing)
-        createGrid: function(w, h) {
+        // TODO: 创建网络(done)
+        createGrid: function() {
+            var self = this;
+            var w = self.w;
+            var h = self.h;
+            self.removeGrid();
+            self.girdSet = self.paper.set();
+            //console.log(self.getGridOpacity());
+            for (var x = 0.5; x < w; x += self.getGridXNums()) {
+                var x_rect = self.paper.rect(x, 0, 0.2, h).attr({
+                    'fill': '#dfdfdf',
+                    'stroke': '#dfdfdf',
+                    'opacity': self.getGridOpacity()
+                }).toBack();
+                self.girdSet.push(x_rect)
+            }
 
+            for (var y = 0.5; y < h; y += self.getGridYNums()) {
+                var y_rect = self.paper.rect(0, y, w, 0.2).attr({
+                    'fill': '#dfdfdf',
+                    'stroke': '#dfdfdf',
+                    'opacity': self.getGridOpacity()
+                }).toBack();
+                self.girdSet.push(y_rect)
+            }
+
+        },
+        // TODO: 删除网格(done)
+        removeGrid: function() {
+            var self = this;
+            if (self.girdSet) {
+                self.girdSet.remove();
+            }
+        },
+        //TODO 设置网络的X数(done)
+        setGridXNums: function(value) {
+            var self = this;
+            self.gridxnums=value;
+            self.createGrid();
+        },
+        getGridXNums: function() {
+            var self = this;
+            return self.gridxnums||16;
+        },
+        //TODO 设置网络的y数(done)
+        setGridYNums: function(value) {
+            var self = this;
+            self.gridynums=value;
+            self.createGrid();
+        },
+        getGridYNums: function() {
+            var self = this;
+            return self.gridynums||16;
+        },
+        //TODO:设置网格透明度(done)
+        setGridOpacity: function(value) {
+            var self = this;
+            self.gridOpacity = value;
+            if (self.girdSet) {
+                self.girdSet.attr({
+                    opacity: value
+                })
+            }
+        },
+        //TODO:风格设计
+        setStyle:function(i,attrs){
+          var self=this;
+          this.style=i;
+          self.setBK(attrs);
+        },
+        getGridOpacity: function() {
+            var self = this;
+            return self.gridOpacity || 0;
         },
         addNode: function(node_config, fun) {
             var self = this;

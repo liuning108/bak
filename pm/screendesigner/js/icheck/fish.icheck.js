@@ -10,8 +10,9 @@
  * (c) 2013 Damir Sultanov, http://fronteed.com
  * MIT Licensed
  */
-!function() {
-    'use strict';
+! function() {
+
+
     $.widget("ui.icheck", {
         _create: function() {
             var type = this.element.attr('type');
@@ -23,9 +24,9 @@
             this._delegateEvent();
         },
         _delegateEvent: function() {
-            this._on(this.element, {
-                'change': '_onChange'
-            });
+            // this._on(this.element, {
+            //     'change': '_onChange'
+            // });
 
             this.$helper.on('click', $.proxy(this._onHelperClick, this));
         },
@@ -51,10 +52,11 @@
         _onChange: function() {
             var type = this.element.attr('type'),
                 checked;
-
             if (type === 'radio') {
                 this._offOtherCheck();
                 checked = true;
+                this.element.prop('checked');
+                this.element.trigger('lnChanged')
             } else {
                 checked = this.element.prop('checked');
                 this.$parent.removeClass('indeterminate');
@@ -72,7 +74,6 @@
             var that = this,
                 $form,
                 inputs;
-
             $form = this.element.closest('form');
             inputs = 'input[name="' + this.element.attr('name') + '"]';
             inputs = $form.length ? $form.find(inputs) : $(inputs);

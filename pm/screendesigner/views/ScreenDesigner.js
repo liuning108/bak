@@ -152,7 +152,7 @@ define([
                 $('body').empty();
                 var json = fish.store.get('json')
                 json.dom = $('body')[0],
-                    json.perview = true;
+                json.perview = true;
                 Zcharts.init(json);
             }
 

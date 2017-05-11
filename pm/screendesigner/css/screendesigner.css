@@ -185,14 +185,16 @@ TODO:属性页板--子页板 (done)
     font-size: 12px;
 }
 
-.bi-attr-edit-list-div-rengs {}
+.bi-attr-edit-list-div-rengs {
+    margin-bottom: 10px;
+}
 
 .bi-attr-edit-list-div-rengs .form-control {
     display: inline-block;
 }
 
 
-/* TODO: 基本表单元素样式 (doing)*/
+/* TODO: 基本表单元素样式 (done)*/
 
 .bi-lable {
     margin-right: 10px;
@@ -210,6 +212,19 @@ TODO:属性页板--子页板 (done)
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 2px;
+}
+
+.bi-input-number-range-input {
+    width: 60%;
+    display: inline-block;
+    padding: 3px 3px;
+    margin-top: 0;
+    text-align: center;
+    font-size: 12px;
+    height: 25px;
+    line-height: 2;
+    border-radius: 4px;
+    border: 1px solid #ccc;
 }
 
 
@@ -293,4 +308,15 @@ TODO:属性页板--子页板 (done)
     text-align: center;
     opacity: 0.8;
     border-radius: 5px;
+}
+
+.bi-radio-list-custom {
+    cursor: pointer;
+    font-size: 12px;
+    color: #333;
+    display: inline;
+    font-weight: normal;
+    margin-bottom: 0;
+    min-height: 20px;
+    max-width: 100%;
 }
