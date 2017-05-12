@@ -125,7 +125,7 @@
 
 #mega-menu-1 .sub li.mega-hdr li a:hover {
     color: #a32403;
-    background: #f5f5f5;
+    background: #eee;
 }
 
 #mega-menu-1 .sub ul li {
@@ -142,13 +142,11 @@
     margin: 0;
 }
 
-#mega-menu-1 li .sub-container.non-mega li a {
-    padding: 7px 5px 7px 22px;
-}
+#mega-menu-1 li .sub-container.non-mega li a {}
 
 #mega-menu-1 li .sub-container.non-mega li a:hover {
     color: #a32403;
-    background: #efefef;
+    background: #f9f9f9;
 }
 
 

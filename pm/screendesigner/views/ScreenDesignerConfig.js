@@ -40,7 +40,7 @@ define([
                     var w = $('#canvas_w').val();
                     self.canvas.setViewBox(w, h)
                 })
-               
+
                 //TODO: 动态生成网格(done)
                 self.sliderTooltip('#slider1',0.3,0,1,0.01, function(value) {
                     $('#slider1_input').val(value);
@@ -74,7 +74,7 @@ define([
                 });
 
             }, //end of RenderHTML
-            //TODO: 风格选择(doing);
+            //TODO: 风格选择(done);
             setStyle:function(i){
                 var self =this;
                 if(i==0){

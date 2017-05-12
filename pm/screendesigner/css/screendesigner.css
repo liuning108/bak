@@ -320,3 +320,50 @@ TODO:属性页板--子页板 (done)
     min-height: 20px;
     max-width: 100%;
 }
+
+
+/* TODO: tool_chart */
+
+.tool_chart {
+    padding: 25px;
+}
+
+.tool_chart li {
+    text-align: center;
+    border: 1px solid #eee;
+    margin: 2px;
+    height: 75px;
+    max-width: 72px;
+    margin: 2px !important;
+}
+
+.tool_chart li a {
+    color: #333;
+    height: auto;
+    padding: 10px 0;
+    width: 70px;
+}
+
+.tool_chart li i {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-image: url(../images/icon_chart.svg);
+    vertical-align: middle;
+}
+
+.tool_chart li a p {
+    padding-top: 5px;
+}
+
+i.icon_chart17 {
+    background-position: -832px -32px;
+}
+
+i.icon_chart18 {
+    background-position: -882px -32px;
+}
+
+i.icon_chart3 {
+    background-position: -132px -32px;
+}
