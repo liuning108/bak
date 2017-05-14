@@ -1,16 +1,20 @@
-<div class="modal-header">
-    <h4 class="modal-title">组件配置</h4>
-</div>
-<div class="modal-body">
-    <div class="panel panel-default">
-        <div class="panel-heading">基本配置</div>
-        <div class="panel-body">
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">设置</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">其他</a>
+            </li>
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
             <form class="form-inline">
                 <div class="form-group">
                     <label for="gtext_title">标题:</label>
                     <input type="text" class="gtext_title" name="gtext_title">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <label for="gtext_colorpicker">标题颜色:</label>
                     <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
                 </div>
@@ -23,5 +27,8 @@
                 </div>
             </form>
         </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+        </div>
+
     </div>
 </div>

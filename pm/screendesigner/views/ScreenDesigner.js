@@ -22,7 +22,8 @@ define([
                 'click .text': 'addText',
                 'click .bar': 'addBar',
                 'click #saveButton': 'saveButton',
-                'click #perviewButton': 'perviewButton'
+                'click #perviewButton': 'perviewButton',
+                'click .canvaset': 'RenderView',
             },
 
             render: function() {
@@ -40,6 +41,7 @@ define([
                 this.RenderView();
                 return this;
             },
+
             RenderView: function() {
                 var sdConfigView = new SDconfigView(this.canvas);
                 sdConfigView.render();

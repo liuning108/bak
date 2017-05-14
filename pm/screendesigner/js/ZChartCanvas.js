@@ -3,6 +3,7 @@ define([
     "oss_core/pm/screendesigner/js/raphael.free_transform",
     "oss_core/pm/screendesigner/js/raphael-chartsNumber",
     "oss_core/pm/screendesigner/js/class",
+
 ], function() {
     var TypeMapping = {
         'rect': "oss_core/pm/screendesigner/js/graphLibs/GRect",
@@ -38,7 +39,6 @@ define([
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
-
         },
         setBK: function(attrs) {
             var self = this;
@@ -63,6 +63,7 @@ define([
                     $(self.dom).height(h)
                 }
             }
+
         },
         // TODO: 创建网络(done)
         createGrid: function() {
@@ -101,22 +102,22 @@ define([
         //TODO 设置网络的X数(done)
         setGridXNums: function(value) {
             var self = this;
-            self.gridxnums=value;
+            self.gridxnums = value;
             self.createGrid();
         },
         getGridXNums: function() {
             var self = this;
-            return self.gridxnums||16;
+            return self.gridxnums || 16;
         },
         //TODO 设置网络的y数(done)
         setGridYNums: function(value) {
             var self = this;
-            self.gridynums=value;
+            self.gridynums = value;
             self.createGrid();
         },
         getGridYNums: function() {
             var self = this;
-            return self.gridynums||16;
+            return self.gridynums || 16;
         },
         //TODO:设置网格透明度(done)
         setGridOpacity: function(value) {
@@ -129,10 +130,10 @@ define([
             }
         },
         //TODO:风格设计
-        setStyle:function(i,attrs){
-          var self=this;
-          this.style=i;
-          self.setBK(attrs);
+        setStyle: function(i, attrs) {
+            var self = this;
+            this.style = i;
+            self.setBK(attrs);
         },
         getGridOpacity: function() {
             var self = this;

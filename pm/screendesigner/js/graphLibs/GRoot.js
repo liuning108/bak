@@ -17,7 +17,11 @@ define([], function() {
             this.createFt();
             this.hide();
             this.addEvent();
+            this.getData();
 
+        },
+        getData:function(){
+           console.log('GROOT getData ');
         },
         createFt: function() {
             this.ft = this.paper.freeTransform(this.domsSet, { keepRatio: true, 'rotate': false }, function(subject, events) {});
