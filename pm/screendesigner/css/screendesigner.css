@@ -1,3 +1,13 @@
+/* TODO: 基本样式 */
+
+.mt10 {
+    margin-top: 10px;
+}
+
+
+/* TODO: SDEdit页面样式(Note) */
+
+
 /*
    TODO: 结构DIV基本样式(done)
  */
@@ -366,4 +376,220 @@ i.icon_chart18 {
 
 i.icon_chart3 {
     background-position: -132px -32px;
+}
+
+
+/* TODO:  SDIndex 页面样式(note)*/
+
+#SDIndex {
+    background-color: #fff;
+    font: 12px/1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed;
+}
+
+#SDIndex .padder_lg_sm {
+    padding: 20px;
+}
+
+#SDIndex .padder_panel:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+
+#SDIndex .blank_disc {
+    width: 250px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 14px;
+    float: left;
+    margin: 15px;
+    cursor: pointer;
+}
+
+#SDIndex .blank_disc:hover {
+    border: 1px solid #36b0c8;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#SDIndex .blank_disc a {
+    color: #666;
+    display: block;
+    padding: 40px 0;
+}
+
+#SDIndex .mode_title {
+    font-size: 14px;
+    line-height: 30px;
+    padding: 0 20px;
+    font-weight: bold;
+    color: #758697;
+}
+
+#SDIndex .inst_item {
+    width: 250px;
+    background: #fff;
+    position: relative;
+    margin: 15px 10px;
+    float: left;
+    border: 1px solid #ddd;
+    min-height: 180px;
+    margin: 15px;
+    cursor: pointer;
+}
+
+#SDIndex .inst_item .inst_top_pic {
+    position: relative;
+    width: 100%;
+    height: 165px;
+}
+
+#SDIndex .inst_item .inst_text {
+    border-top: 1px solid #ddd;
+}
+
+#SDIndex .inst_item .inst_rlt {
+    width: 100%;
+    height: 100%;
+}
+
+#SDIndex .inst_item .inst_vo {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    line-height: 165px;
+    display: none;
+}
+
+#SDIndex .btn {
+    display: inline-block;
+    padding: 5px 25px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+#SDIndex .btn-green {
+    background: #0ca2bf;
+    color: #fff;
+}
+
+#SDIndex .btn-green:hover {
+    background: #36b0c8;
+    color: #fff;
+}
+
+#SDIndex .btn-sm {
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 5px 15px;
+}
+
+#SDIndex .inst_item .inst_top_pic:hover .inst_vo {
+    display: block;
+}
+
+#SDIndex .inst_item .inst_text p {
+    font-size: 14px;
+    padding: 0 10px;
+    height: 35px;
+    line-height: 35px;
+    color: #333;
+    overflow: hidden;
+    word-wrap: normal;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    margin: 0px;
+}
+
+#SDIndex .inst_opera {
+    padding: 0 10px;
+    color: #999;
+    font-size: 12px;
+    height: 30px;
+}
+
+
+/* TODO: 自定对话框 */
+
+.SDdialog {
+    min-width: 300px;
+    border-radius: 3px;
+    background: #fff;
+    font: 12px/1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed;
+    color: #758697;
+}
+
+.SDdialog .sd-modal-header {
+    border-radius: 3px 3px 0 0;
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.SDdialog .sd-modal-header h2 {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding-right: 12px;
+    line-height: 25px;
+    height: 40px;
+    padding: 0 20px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.SDdialog .sd-modal-header .title_r {
+    position: absolute;
+    right: 0;
+    line-height: 25px;
+    height: 40px;
+    color: #666;
+    top: 0;
+    font-size: 12px;
+    padding-right: 20px;
+}
+
+.SDdialog .sd-modal-header .title_r a {
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.SDdialog .btn-green {
+    background: #0ca2bf;
+    color: #fff;
+}
+
+.SDdialog .btn-green:hover {
+    background: #36b0c8;
+    color: #fff;
+}
+
+.SDdialog .btn-orange {
+    background: #ff5f5f;
+    color: #fff;
 }

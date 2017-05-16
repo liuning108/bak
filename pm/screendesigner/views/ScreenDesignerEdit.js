@@ -5,13 +5,7 @@ define([
         "text!oss_core/pm/screendesigner/templates/ScreenDesignerEdit.html",
         "oss_core/pm/screendesigner/js/Zcharts",
         "oss_core/pm/screendesigner/views/ScreenDesignerConfig",
-        "css!oss_core/pm/screendesigner/css/screendesigner.css",
-        "css!oss_core/pm/screendesigner/css/dcmegamenu.css",
-        "css!oss_core/pm/screendesigner/css/icomoon.css",
-        "oss_core/pm/screendesigner/js/raphael-min",
-        "oss_core/pm/screendesigner/js/raphael.free_transform",
-        "oss_core/pm/screendesigner/js/jquery.dcmegamenu.1.3.3",
-        "oss_core/pm/screendesigner/js/jquery.hoverIntent.minified"
+
     ],
     function(tpl, Zcharts, SDconfigView) {
         return portal.BaseView.extend({

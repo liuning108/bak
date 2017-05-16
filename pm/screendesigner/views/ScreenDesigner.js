@@ -2,10 +2,17 @@
  * 指标筛选弹出窗
  */
 define([
+
         "text!oss_core/pm/screendesigner/templates/ScreenDesigner.html",
         "oss_core/pm/screendesigner/views/ScreenDesignerEdit",
         "oss_core/pm/screendesigner/views/ScreenDesignerIndex",
-
+        "css!oss_core/pm/screendesigner/css/screendesigner.css",
+        "css!oss_core/pm/screendesigner/css/dcmegamenu.css",
+        "css!oss_core/pm/screendesigner/css/icomoon.css",
+        "oss_core/pm/screendesigner/js/raphael-min",
+        "oss_core/pm/screendesigner/js/raphael.free_transform",
+        "oss_core/pm/screendesigner/js/jquery.dcmegamenu.1.3.3",
+        "oss_core/pm/screendesigner/js/jquery.hoverIntent.minified"
     ],
     function(tpl, EditView, IndexView) {
 
@@ -13,11 +20,6 @@ define([
             template: fish.compile(tpl),
             initialize: function() {
                 var self = this;
-                // self.childViews = [new IndexView({'parentView': self}), new EditView({'parentView': self })];
-                // this.setViews({
-                //     '#new_context':  self.childViews
-                // })
-
             },
             render: function() {
                 this.$el.html(this.template());
