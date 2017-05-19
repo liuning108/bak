@@ -8,7 +8,7 @@ import com.ztesoft.zsmart.oss.opb.util.GeneralDAO;
 
 public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
     public abstract void saveOrUpdate(DynamicDict dict) throws BaseAppException;
-    public abstract boolean isExistTopic(DynamicDict data)  throws BaseAppException;
+    public abstract boolean isExistTopic(String topic_no)  throws BaseAppException;
     public  abstract void queryBScreenById(DynamicDict dict) throws BaseAppException;
 	@Override
 	public int delete(Object arg0) throws BaseAppException {

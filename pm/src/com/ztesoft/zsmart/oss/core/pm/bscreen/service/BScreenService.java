@@ -20,13 +20,15 @@ public class BScreenService implements IAction {
 				Method method =this.getClass().getMethod(methodName, DynamicDict.class);
 				method.invoke(this, dict);
 	        } catch (Exception e) {
-	        	throw new BaseAppException(e.getMessage());
+	        	e.printStackTrace();
+	        	new BaseAppException(e.getMessage());
 	        }
 	        return 0;
 	}
 	
 	
 	 public void saveOrUpdate(DynamicDict dict) throws BaseAppException {
+		 com.ztesoft.zsmart.web.servlet.UploadServlet s=null;
 		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
 		 bsm.saveOrUpdate(dict);
 	 }

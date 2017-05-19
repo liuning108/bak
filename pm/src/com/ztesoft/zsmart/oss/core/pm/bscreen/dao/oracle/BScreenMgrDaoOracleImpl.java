@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.bouncycastle.jcajce.provider.keystore.BC;
-import org.python.modules._hashlib.Hash;
-
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.jdbc.ParamArray;
 import com.ztesoft.zsmart.core.service.DynamicDict;
@@ -39,20 +38,14 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 	@Override
 	public void saveOrUpdate(DynamicDict dict) throws BaseAppException {
 		 // TODO 保存更新大屏主题 (doing)
+		com.ztesoft.zsmart.web.servlet.UploadServlet s;
 		System.out.println("保存更新大屏主题");
 		ArrayList<DynamicDict> list=(ArrayList<DynamicDict>) dict.getList("data"); 
 		System.out.println(list);  
+	
 		DynamicDict data= list.get(0);
-		  
-		  System.out.println(data.get("id")+""); 
-		  System.out.println(data.get("name"));
-		  System.out.println(data.get("attrs")+"");
-		  System.out.println(data.get("isShare"));
-		  System.out.println(data.get("state"));
-		  System.out.println(data.get("userid"));
-		  System.out.println(data.get("imagePath"));
-		  System.out.println(data.toString());
-		  if (isExistTopic(data)){
+		System.out.println(data.getString("id"));
+		  if (isExistTopic(data.getString("id"))){
 			  updateTopic(data);
 		  }else{
 			  saveTopic(data);
@@ -76,7 +69,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		ParamArray pa = new ParamArray();
 		String v_topic_no=BScreenUtil.getSeq("PM_BSTOPIC_SEQ");
 		String v_topic_name=BScreenUtil.toString(data.get("name"));
-		String v_attrs=BScreenUtil.toString(data.get("attrs"));
+		String v_attrs=JSON.toJSONString(BScreenUtil.Dic2Map((DynamicDict)data.get("attrs")));
 		String v_image_path=BScreenUtil.toString(data.get("imagePath"));
         String v_is_share=BScreenUtil.toString(data.get("isShare"));
 		String v_state=BScreenUtil.toString(data.get("state"));
@@ -98,7 +91,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 	}
 
 
-
+			
 	private void updateTopicNodes(DynamicDict data) throws BaseAppException {
 	     
 		  String topcNo=BScreenUtil.toString(data.get("id"));
@@ -117,10 +110,10 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 				 "values " + 
 				 "  (?, ?, ?, ?)";
 		 for (DynamicDict node:nodes){
-			  String attrs=BScreenUtil.toString(node.get("attrs"));
-			  
+			  Map attrsMap=BScreenUtil.Dic2Map((DynamicDict)node.get("attrs"));
+			  String attrs =JSON.toJSONString(attrsMap);
 			  String v_node_no=BScreenUtil.getSeq("PM_BSTNODES_SEQ");
-			  List<String> attrs_parts=BScreenUtil.splitByNumbers(attrs, 100); //按字符大小分割问题。
+			  List<String> attrs_parts=BScreenUtil.splitByNumbers(attrs, 1024); //按字符大小分割问题。
 			  for (int i=0;i<attrs_parts.size();i++){
 				  ParamArray add_pa = new ParamArray();
 				  String attr=attrs_parts.get(i);
@@ -130,19 +123,12 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 				  add_pa.set("", i);
 				  this.executeUpdate(add_sql, add_pa);
 			  }
-			  
-			
 		 }
 	     
 	}
-
-
-
 	@Override
-	public boolean isExistTopic(DynamicDict data) throws BaseAppException {
+	public boolean isExistTopic(String topic_no) throws BaseAppException {
 		// TODO 大屏主题是否存在(done)
-	
-		String topic_no=data.get("id")+"";
 		String sql ="select count(*) from PM_BSCREEN_TOPIC_LIST t where t.topic_no=?";
 		ParamArray pa = new ParamArray();
 		pa.set("", topic_no); 
@@ -155,44 +141,46 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 	public void queryBScreenById(DynamicDict dict) throws BaseAppException {
 		// TODO 查询BScreeen
 		String topID =BScreenUtil.toString(dict.get("topId"));
+		if(!isExistTopic(topID))return;
 		HashMap<String,Object> json = new HashMap<String,Object>();
-		System.out.println("queryBScreenById");
+		//获取主题信息
+		String topic_sql ="SELECT T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,T.ATTRS as attrs,T.IMAGE_PATH as IMAGE_PATH,T.IS_SHARE as IS_SHARE,T.STATE as STATE,T.OPER_USER as USER_ID FROM PM_BSCREEN_TOPIC_LIST T WHERE T.TOPIC_NO=?";
+        ParamArray topic_pa = new ParamArray();
+        topic_pa.set("", topID);
+        List<HashMap<String, String>> topicList=this.queryList(topic_sql, topic_pa);
+        HashMap<String, String> topic = topicList.get(0);
+        json = BScreenUtil.toConvert(topic);
+        String att =""+json.get("attrs");
+        json.put("attrs", JSON.parseObject(att));
+        //json.put("attrs", JSON.parse(BScreenUtil.toString(json.get("attrs"))));
+        //获取所有节点信息
 		String sql ="select distinct node_no from pm_bscreen_topic_nodes  nodes where nodes.topic_no =? order by node_no";
         ParamArray pa = new ParamArray();
         pa.set("", topID);
-        
         List<HashMap<String, String>> node_parts=this.queryList(sql, pa);
         String attrs_sql="select attrs,attr_seq from pm_bscreen_topic_nodes nodes where nodes.node_no=? order by attr_seq";
-        
-        
-        List<HashMap<String, String>> nodes= new ArrayList<HashMap<String,String>>();
+        List<JSONObject> nodes= new ArrayList<JSONObject>();
         for(HashMap<String, String> node_no:node_parts){
-        	HashMap<String, String> node= new HashMap<String, String>();
+        	HashMap<String, Object> node= new HashMap<String, Object>();
         	String no=node_no.get("NODE_NO");
         	node.put("id",no);
         	ParamArray attrs_pa = new ParamArray();
         	attrs_pa.set("", no);
         	StringBuffer attrs=new StringBuffer();
         	for(HashMap<String, String>attr_part:this.queryList(attrs_sql, attrs_pa)){
+        		
         		attrs.append(attr_part.get("ATTRS").trim());
         	}
-        	node.put("attrs",attrs.toString());
-        	nodes.add(node);
+        	node.put("attrs",JSON.parseObject(attrs.toString()));
+        	String json_nodes=JSON.toJSONString(node);
+            nodes.add(JSON.parseObject(json_nodes));
         }
-        
-        System.out.println(nodes.toString());
-        
-        
+        System.out.println(nodes);
+        System.out.println("--------------json---------");
+        System.out.println(json);
+        json.put("nodes", nodes);
+        	dict.add("topicJson", json);
+        	 System.out.println("--------------json---------");
 	}
-
-
-
-	
-
-	
-
-	
-
-	
 
 }
