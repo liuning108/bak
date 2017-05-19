@@ -68,7 +68,7 @@
 		if (!(target.childNodes.length == 1 && target.childNodes[0].nodeName == 'OBJECT')) target.svg = svg;
 
 		var ctx = target.getContext('2d');
-		if (typeof s.documentElement != 'undefined') {
+    		if (typeof s.documentElement != 'undefined') {
 			// load from xml doc
 			svg.loadXmlDoc(ctx, s);
 		}
@@ -879,7 +879,7 @@
 					}
 				}
 			};
-			
+
 			// Microsoft Edge fix
 			var allUppercase = new RegExp("^[A-Z\-]+$");
 			var normalizeAttributeName = function (name) {
@@ -1750,13 +1750,13 @@
 			this.getGradient = function() {
 				// OVERRIDE ME!
 			}
-			
+
 			this.gradientUnits = function () {
 				return this.attribute('gradientUnits').valueOrDefault('objectBoundingBox');
 			}
-			
+
 			this.attributesToInherit = ['gradientUnits'];
-			
+
 			this.inheritStopContainer = function (stopsContainer) {
 				for (var i=0; i<this.attributesToInherit.length; i++) {
 					var attributeToInherit = this.attributesToInherit[i];
@@ -1826,7 +1826,7 @@
 		svg.Element.linearGradient = function(node) {
 			this.base = svg.Element.GradientBase;
 			this.base(node);
-			
+
 			this.attributesToInherit.push('x1');
 			this.attributesToInherit.push('y1');
 			this.attributesToInherit.push('x2');
@@ -1868,7 +1868,7 @@
 		svg.Element.radialGradient = function(node) {
 			this.base = svg.Element.GradientBase;
 			this.base(node);
-			
+
 			this.attributesToInherit.push('cx');
 			this.attributesToInherit.push('cy');
 			this.attributesToInherit.push('r');
@@ -2931,6 +2931,7 @@
 						ctx.canvas.style.width = ctx.canvas.width + 'px';
 					}
 					if (e.style('height').hasValue()) {
+
 						ctx.canvas.height = e.style('height').toPixels('y');
 						ctx.canvas.style.height = ctx.canvas.height + 'px';
 					}
@@ -2968,7 +2969,7 @@
 
 				// clear and render
 				if (svg.opts['ignoreClear'] != true) {
-					ctx.clearRect(0, 0, cWidth, cHeight);
+                	ctx.clearRect(0, 0, cWidth, cHeight);
 				}
 				e.render(ctx);
 				if (isFirstRender) {
@@ -3086,7 +3087,7 @@
 				scaleWidth: dw,
 				scaleHeight: dh
 			}
-			
+
 			for(var prop in opts) {
 				if(opts.hasOwnProperty(prop)){
 					cOpts[prop] = opts[prop];

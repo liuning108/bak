@@ -1,5 +1,6 @@
 define([
     "oss_core/pm/screendesigner/js/raphael-min",
+    "oss_core/pm/screendesigner/js/raphael.export",
     "oss_core/pm/screendesigner/js/raphael.free_transform",
     "oss_core/pm/screendesigner/js/raphael-chartsNumber",
     "oss_core/pm/screendesigner/js/class",
@@ -39,6 +40,12 @@ define([
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
+        },
+        toSVG:function(){
+            this.removeGrid();
+            var svg =this.paper.toSVG();
+            this.createGrid();
+           return svg;
         },
         setBK: function(attrs) {
             var self = this;

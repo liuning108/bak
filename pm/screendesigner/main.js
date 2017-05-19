@@ -41,9 +41,7 @@ define([ 'frm/portal/Portal' ], function(app) {
 			var json = fish.store.get('json')
 				    console.log(json);
 			json.dom = $('body')[0],
-            alert(json.attrs.h);
-            alert($('body').height(json.attrs.h));
-			    json.perview = true;
+        	    json.perview = true;
 
 			Zcharts.init(json);
 		});

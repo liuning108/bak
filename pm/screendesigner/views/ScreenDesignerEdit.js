@@ -6,6 +6,10 @@ define([
         "oss_core/pm/screendesigner/js/Zcharts",
         "oss_core/pm/screendesigner/views/ScreenDesignerConfig",
         "oss_core/pm/screendesigner/actions/BScreenMgrAction",
+        "oss_core/pm/screendesigner/js/rgbcolor",
+        "oss_core/pm/screendesigner/js/StackBlur",
+        "oss_core/pm/screendesigner/js/canvg",
+
     ],
     function(tpl, Zcharts, SDconfigView, BScreenMgrAction) {
         return portal.BaseView.extend({
@@ -25,38 +29,58 @@ define([
             },
             showListButton: function() {
                 this.parentView.showDesigner();
+
             },
             upload: function() {
-                define.amd = false;
-                portal.require([
-                    "oss_core/pm/screendesigner/js/webupload/js/webuploader.min.js",
-                    "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
-                ], function() {
-                    alert($('#uplodImage849023809489028938409').length);
-                    var swfPath=portal.appGlobal.get('webroot')+"/oss_core/pm/screendesigner/js/webuploader/Uploader.swf";
-console.log(swfPath);
-                    var shiftUploader = WebUploader.create({
-                        auto: true,
-                        swf:swfPath,
-                        server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
-                        pick: "#uplodImage849023809489028938409",
-                        //fileNumLimit: 1,
-                        accept: {
-                            title: 'Images',
-                            extensions: 'gif,jpg,jpeg,bmp,png',
-                            mimeTypes: 'image/*'
-                        },
-                        resize: false
-                    });
-
-                    shiftUploader.on( 'fileQueued', function( file ) {
-                        alert(file);
-                    })
 
 
 
+                var svg_canvs = this.canvas;
+                var svg = svg_canvs.toSVG();
+                var canvas=document.getElementById('sSVGPic');
+                canvas.width=1920;
+                canvas.height =1080;
+               canvg(canvas, svg,{
+                    'ignoreClear':false,
+                    'ignoreDimensions':true,
+                    'renderCallback':function(){
+                        var dataURL = canvas.toDataURL("image/png");
+                        $("#myImg").attr('src',dataURL);
+                    }
+                });
 
-                })
+
+
+                //                 define.amd = false;
+                //                 portal.require([
+                //                     "oss_core/pm/screendesigner/js/webupload/js/webuploader.min.js",
+                //                     "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
+                //                 ], function() {
+                //                     alert($('#uplodImage849023809489028938409').length);
+                //                     var swfPath=portal.appGlobal.get('webroot')+"/oss_core/pm/screendesigner/js/webuploader/Uploader.swf";
+                // console.log(swfPath);
+                //                     var shiftUploader = WebUploader.create({
+                //                         auto: true,
+                //                         swf:swfPath,
+                //                         server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
+                //                         pick: "#uplodImage849023809489028938409",
+                //                         //fileNumLimit: 1,
+                //                         accept: {
+                //                             title: 'Images',
+                //                             extensions: 'gif,jpg,jpeg,bmp,png',
+                //                             mimeTypes: 'image/*'
+                //                         },
+                //                         resize: false
+                //                     });
+                //
+                //                     shiftUploader.on( 'fileQueued', function( file ) {
+                //                         alert(file);
+                //                     })
+                //
+                //
+                //
+                //
+                //                 })
             },
             render: function() {
                 this.$el.html(this.template());
@@ -203,10 +227,10 @@ console.log(swfPath);
                 console.log(json)
             },
             perviewButton: function() {
-                var self =this;
+                var self = this;
                 var json = self.canvas.json();
                 alert(json.x)
-                 json.perview = true;
+                json.perview = true;
                 fish.store.set('json', json);
                 window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html")
                 // $('body').empty();
