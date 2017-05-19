@@ -5,7 +5,7 @@ define([
         "text!oss_core/pm/screendesigner/templates/SDCreateByExist.html",
 
     ],
-    function(tpl) {
+    function(tpl) { 
         return portal.BaseView.extend({
             className : "ui-dialog dialog SDdialog",
             template: fish.compile(tpl),

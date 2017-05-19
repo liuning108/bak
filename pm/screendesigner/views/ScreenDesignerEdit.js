@@ -5,13 +5,13 @@ define([
         "text!oss_core/pm/screendesigner/templates/ScreenDesignerEdit.html",
         "oss_core/pm/screendesigner/js/Zcharts",
         "oss_core/pm/screendesigner/views/ScreenDesignerConfig",
-
+        "oss_core/pm/screendesigner/actions/BScreenMgrAction",
     ],
-    function(tpl, Zcharts, SDconfigView) {
+    function(tpl, Zcharts, SDconfigView, BScreenMgrAction) {
         return portal.BaseView.extend({
             template: fish.compile(tpl),
             initialize: function(options) {
-                this.parentView=options.parentView;
+                this.parentView = options.parentView;
             },
             events: {
                 'click .rect': 'addRect',
@@ -20,10 +20,43 @@ define([
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
-                'click #showListButton':'showListButton',
+                'click #showListButton': 'showListButton',
+                'click #uplodImage': 'upload'
             },
-            showListButton:function(){
+            showListButton: function() {
                 this.parentView.showDesigner();
+            },
+            upload: function() {
+                define.amd = false;
+                portal.require([
+                    "oss_core/pm/screendesigner/js/webupload/js/webuploader.min.js",
+                    "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
+                ], function() {
+                    alert($('#uplodImage849023809489028938409').length);
+                    var swfPath=portal.appGlobal.get('webroot')+"/oss_core/pm/screendesigner/js/webuploader/Uploader.swf";
+console.log(swfPath);
+                    var shiftUploader = WebUploader.create({
+                        auto: true,
+                        swf:swfPath,
+                        server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
+                        pick: "#uplodImage849023809489028938409",
+                        //fileNumLimit: 1,
+                        accept: {
+                            title: 'Images',
+                            extensions: 'gif,jpg,jpeg,bmp,png',
+                            mimeTypes: 'image/*'
+                        },
+                        resize: false
+                    });
+
+                    shiftUploader.on( 'fileQueued', function( file ) {
+                        alert(file);
+                    })
+
+
+
+
+                })
             },
             render: function() {
                 this.$el.html(this.template());
@@ -35,9 +68,11 @@ define([
             },
 
             afterRender: function() {
+                var self = this;
                 this.RenderHTML();
-                this.RenderCanvas();
-                this.RenderView();
+                this.RenderCanvas(function() {
+                    self.RenderView();
+                });
                 return this;
             },
 
@@ -93,17 +128,26 @@ define([
 
 
             },
-            RenderCanvas: function() {
-                var json = fish.store.get('json')
-                if (!json) {
-                    json = {
-                        'w': 1920,
-                        'h': 1080,
-                        'nodes': []
+            RenderCanvas: function(fun) {
+                var self = this;
+                BScreenMgrAction.queryBScreenById('PMS_20170518114958_10001347', function(data) {
+                    var json = data.topicJson;
+                    console.log(data.topicJson);
+                    if (!json) {
+                        json = {
+                            attrs: {
+                                'w': 1920,
+                                'h': 1080,
+                            },
+                            'nodes': []
+                        }
                     }
-                }
-                json.dom = $('#canvasPage')[0];
-                this.canvas = Zcharts.init(json);
+                    json.dom = $('#canvasPage')[0];
+
+                    self.canvas = Zcharts.init(json);
+                    fun();
+                })
+
             },
             addRect: function() {
                 var self = this;
@@ -147,16 +191,29 @@ define([
             saveButton: function() {
                 var self = this;
                 var json = self.canvas.json();
+                alert(json.nodes.length)
+                json.id = 'PMS_20170518114958_10001347';
+                BScreenMgrAction.saveOrUpdate(json, function(result) {
+                    console.log("-----")
+                    console.log(JSON.stringify(result.data));
+                    console.log("-----")
+                })
                 fish.store.set('json', json);
                 fish.toast('info', '保存成功');
                 console.log(json)
             },
             perviewButton: function() {
-                $('body').empty();
-                var json = fish.store.get('json')
-                json.dom = $('body')[0],
-                json.perview = true;
-                Zcharts.init(json);
+                var self =this;
+                var json = self.canvas.json();
+                alert(json.x)
+                 json.perview = true;
+                fish.store.set('json', json);
+                window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html")
+                // $('body').empty();
+                // var json = fish.store.get('json')
+                // json.dom = $('body')[0],
+                //     json.perview = true;
+                // Zcharts.init(json);
             }
 
 

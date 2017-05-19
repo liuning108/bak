@@ -25,9 +25,9 @@ define([
 
             add_dashboardFromExist:function(){
                 var view =new SDCreateByExist().render();
+                var w = 1024;
                 var options = {
-                       height: 610,
-                       width:1060,
+                       width:w,
                        modal: false,
                        draggable: false,
                        content: view.$el,

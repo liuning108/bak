@@ -25,17 +25,17 @@ define([
     var ZChartCanvas = Class.extend({
         init: function(option) {
             var self = this;
-            self.w = option.w;
-            self.h = option.h;
+            self.w =option.attrs.w;
+            self.h =option.attrs.h;
             self.dom = option.dom;
             self.perview = option.perview || false;
             self.paper = Raphael(self.dom);
             self.setViewBox(self.w, self.h)
 
-            if (option.bk_attrs) {
-                self.setBK(option.bk_attrs)
+            if (option.attrs.bk_attrs) {
+                self.setBK(option.attrs.bk_attrs)
             }
-            self.nodes = {};
+            self.nodes = [];
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
@@ -142,15 +142,17 @@ define([
         addNode: function(node_config, fun) {
             var self = this;
             var type = TypeMapping[node_config.attrs.type];
+
             require([type], function(Node) {
+
                 var node = new Node({
                     'paper': self.paper,
                     'attrs': node_config.attrs,
                     'canvas': self
                 });
-                node.id = node_config.id || uuid();
+                node.id = node_config.id || "";
                 node.show();
-                self.nodes[node.id] = node;
+                self.nodes.push(node);
                 if (fun) fun();
             })
 
@@ -158,13 +160,22 @@ define([
         json: function() {
             var self = this;
             var json = {};
-            json.w = self.w;
-            json.h = self.h;
-            json.bk_attrs = self.bk_attrs;
+            // TODO:
+            json.name='test';
+            json.id="";
+            json.imagePath="";
+            json.isShare=0;
+            json.state=0;
+            json.userid=1;
+            json.attrs={};
+            json.attrs.w = self.w;
+            json.attrs.h = self.h;
+            json.attrs.bk_attrs = self.bk_attrs;
             json.nodes = [];
             fish.each(self.nodes, function(node) {
                 json.nodes.push(node.json());
             })
+
             return json;
 
         }

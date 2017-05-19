@@ -428,7 +428,7 @@ i.icon_chart3 {
     color: #758697;
 }
 
-#SDIndex .inst_item {
+.inst_item {
     width: 250px;
     background: #fff;
     position: relative;
@@ -440,22 +440,22 @@ i.icon_chart3 {
     cursor: pointer;
 }
 
-#SDIndex .inst_item .inst_top_pic {
+.inst_item .inst_top_pic {
     position: relative;
     width: 100%;
     height: 165px;
 }
 
-#SDIndex .inst_item .inst_text {
+.inst_item .inst_text {
     border-top: 1px solid #ddd;
 }
 
-#SDIndex .inst_item .inst_rlt {
+.inst_item .inst_rlt {
     width: 100%;
     height: 100%;
 }
 
-#SDIndex .inst_item .inst_vo {
+.inst_item .inst_vo {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3);
@@ -505,11 +505,11 @@ i.icon_chart3 {
     padding: 5px 15px;
 }
 
-#SDIndex .inst_item .inst_top_pic:hover .inst_vo {
+.inst_item .inst_top_pic:hover .inst_vo {
     display: block;
 }
 
-#SDIndex .inst_item .inst_text p {
+.inst_item .inst_text p {
     font-size: 14px;
     padding: 0 10px;
     height: 35px;
@@ -523,7 +523,7 @@ i.icon_chart3 {
     margin: 0px;
 }
 
-#SDIndex .inst_opera {
+.inst_opera {
     padding: 0 10px;
     color: #999;
     font-size: 12px;
@@ -546,6 +546,7 @@ i.icon_chart3 {
     position: relative;
     margin: 0px;
     padding: 0px;
+    border-bottom: 1px solid #eaeaea;
 }
 
 .SDdialog .sd-modal-header h2 {
@@ -556,9 +557,20 @@ i.icon_chart3 {
     overflow: hidden;
     padding-right: 12px;
     line-height: 25px;
-    height: 40px;
+    height: 30px;
     padding: 0 20px;
-    border-bottom: 1px solid #eaeaea;
+}
+
+.SDdialog .sd-modal-body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.SDdialog .model_inner {
+    width: 160px;
+    float: left;
+    background: #f2f2f2;
+    height: 540px;
 }
 
 .SDdialog .sd-modal-header .title_r {
@@ -592,4 +604,38 @@ i.icon_chart3 {
 .SDdialog .btn-orange {
     background: #ff5f5f;
     color: #fff;
+}
+
+.SDdialog .model_inner ul {
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.SDdialog .model_inner ul li.active {
+    background: #fff;
+}
+
+.SDdialog .model_inner ul li {
+    height: 38px;
+    line-height: 38px;
+    border-radius: 5px 0 0 5px;
+}
+
+.SDdialog .model_inner ul li.active a {
+    color: #333;
+}
+
+.SDdialog .model_inner ul li a {
+    color: #666;
+    display: block;
+    line-height: 38px;
+    padding: 0 20px;
+}
+
+.SDdialog .model_c_main {
+    float: left;
+    width: 850px;
+    padding: 20px;
+    overflow-y: auto;
+    height: 560px;
 }
