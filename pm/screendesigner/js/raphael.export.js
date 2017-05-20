@@ -7,7 +7,6 @@
  */
 
 (function(R) {
-alert(R);
 	/**
 	* Escapes string for XML interpolation
 	* @param value string or number value to escape

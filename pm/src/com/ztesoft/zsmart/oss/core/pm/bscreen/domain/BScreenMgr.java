@@ -1,5 +1,8 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.domain;
 
+import java.util.List;
+import java.util.Map;
+
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.dao.BScreenMgrDao;
@@ -21,6 +24,20 @@ public class BScreenMgr extends AbstractBScreenMgr {
 	            JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
 		dao.queryBScreenById(dict);
 		
+	}
+
+	@Override
+	public List<Map<String, Object>> queryBScreenListByUserID(Long userId) throws BaseAppException {
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,
+	            JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return 	dao.queryBScreenListByUserID(userId);
+	}
+
+	@Override
+	public boolean deleteBScreenById(String id) throws BaseAppException {
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,
+	            JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return 	dao.deleteBScreenById(id);
 	}
 
 }

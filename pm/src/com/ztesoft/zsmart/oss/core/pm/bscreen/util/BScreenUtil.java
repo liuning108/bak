@@ -82,5 +82,15 @@ public static Map Dic2Map(DynamicDict dynamicDict) {
 	 }	
 	 return map;
 }
+public static List<Map<String, Object>> toConvert(List<HashMap<String, String>> list) {
+	List<Map<String, Object>>  newlist= new ArrayList<Map<String,Object>>();
+	for (HashMap<String, String> map :list){
+		HashMap<String, Object> bean =toConvert(map);
+		newlist.add(bean);
+	}
+
+	return newlist;
+}
+
 
 }

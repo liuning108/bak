@@ -26,6 +26,8 @@ define([
     var ZChartCanvas = Class.extend({
         init: function(option) {
             var self = this;
+            this.name=option.name;
+            this.style=option.attrs.style||0;
             self.w =option.attrs.w;
             self.h =option.attrs.h;
             self.dom = option.dom;
@@ -40,6 +42,18 @@ define([
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
+        },
+        setId:function(id){
+            var self=this;
+            self.id=id
+        },
+        setUserId:function(userid){
+           var self=this;
+           self.userid=userid
+        },
+        setName:function(name){
+           var self=this;
+           self.name=name;
         },
         toSVG:function(){
             this.removeGrid();
@@ -61,14 +75,15 @@ define([
             self.paper.setSize('100%', '100%');
             if (self.perview == false) {
                 self.createGrid();
-                // TODO: IE浏览下需要自己控制窗口比列的高度(done)
-                if (fish.isIE) {
-                    var d_w = $(self.dom).width();
-                    var sf = d_w / w;
-                    var h = sf * self.h;
-                    var old = $(self.dom).height();
-                    $(self.dom).height(h)
-                }
+            }
+            // TODO: IE浏览下需要自己控制窗口比列的高度(done)
+            if (fish.isIE) {
+                var d_w = $(self.dom).width();
+                var sf = d_w / w;
+                var h = sf * self.h;
+                var old = $(self.dom).height();
+                $(self.dom).height(h)
+
             }
 
         },
@@ -139,8 +154,8 @@ define([
         //TODO:风格设计
         setStyle: function(i, attrs) {
             var self = this;
-            this.style = i;
-            self.setBK(attrs);
+                this.style = i;
+             self.setBK(attrs);
         },
         getGridOpacity: function() {
             var self = this;
@@ -167,16 +182,17 @@ define([
         json: function() {
             var self = this;
             var json = {};
-            // TODO:
-            json.name='test';
-            json.id="";
+            // TODO:生成大屏JSOn配置信息
+            json.name=self.name;
+            json.id=this.id;
             json.imagePath="";
             json.isShare=0;
             json.state=0;
-            json.userid=1;
+            json.userid=self.userid;
             json.attrs={};
             json.attrs.w = self.w;
             json.attrs.h = self.h;
+            json.attrs.style=this.style;
             json.attrs.bk_attrs = self.bk_attrs;
             json.nodes = [];
             fish.each(self.nodes, function(node) {

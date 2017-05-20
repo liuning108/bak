@@ -15,6 +15,21 @@ define(function() {
 	 param.topId=id;
 	 portal.callService(this.service,param, success);
 	}
+	// TODO: 查询大屏列表
+    action.queryBScreenListByUserID=function(id,success){
+	 var param={};
+	 param.method="queryBScreenListByUserID"
+	 param.userId=id;
+	 portal.callService(this.service,param, success);
+	}
+	// TODO: 删除大屏设计
+    action.deleteBScreenById=function(id,success){
+	 var param={};
+	 param.method="deleteBScreenById"
+	 param.topicId=id;
+	 portal.callService(this.service,param, success);
+	}
+
 
 
 

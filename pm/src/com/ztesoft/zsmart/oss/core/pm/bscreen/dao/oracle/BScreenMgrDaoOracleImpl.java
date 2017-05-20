@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
@@ -53,9 +54,43 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		  updateTopicNodes(data);//更新所有子	  
 	}
 
-	private void updateTopic(DynamicDict data) {
+	private void updateTopic(DynamicDict data)  throws BaseAppException {
 		// TODO 更新大屏主题
 		System.out.println("更新大屏主题");
+		String sql=
+				"UPDATE PM_BSCREEN_TOPIC_LIST " +
+						"   SET TOPIC_NAME = ?, " + 
+						"       ATTRS = ?, " + 
+						"       IMAGE_PATH = ?, " + 
+						"       IS_SHARE = ?, " + 
+						"       STATE = ? " + 
+						" WHERE TOPIC_NO=? ";
+
+		
+		String v_topic_no=data.getString("id");
+		String v_topic_name=data.getString("name");
+		String v_attrs=JSON.toJSONString(BScreenUtil.Dic2Map((DynamicDict)data.get("attrs")));
+		String v_image_path="";
+        String v_is_share=data.getString("isShare");
+		String v_state=data.getString("state");
+		//TODO :保存大屏主题,还没使用的的字段
+		String v_bp_id="";
+		String v_class_no="";
+		//设置参数
+		ParamArray pa = new ParamArray();
+				pa.set("", v_topic_name);
+				System.out.println(v_topic_name);
+				pa.set("", v_attrs);
+				System.out.println(v_attrs);
+				pa.set("", v_image_path);
+				System.out.println(v_image_path);
+				pa.set("", v_is_share);
+				System.out.println(v_is_share);
+				pa.set("", v_state);
+				System.out.println(v_state);
+				pa.set("", v_topic_no);
+				System.out.println(v_topic_no);
+		this.executeUpdate(sql, pa);
 	}
 
 
@@ -70,10 +105,10 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		String v_topic_no=BScreenUtil.getSeq("PM_BSTOPIC_SEQ");
 		String v_topic_name=BScreenUtil.toString(data.get("name"));
 		String v_attrs=JSON.toJSONString(BScreenUtil.Dic2Map((DynamicDict)data.get("attrs")));
-		String v_image_path=BScreenUtil.toString(data.get("imagePath"));
+		String v_image_path="";
         String v_is_share=BScreenUtil.toString(data.get("isShare"));
 		String v_state=BScreenUtil.toString(data.get("state"));
-		String v_oper_user=BScreenUtil.toString(data.get("userid"));
+		Long v_oper_user=data.getLong("userid");
 		//TODO :保存大屏主题,还没使用的的字段
 		String v_bp_id="";
 		String v_class_no="";
@@ -85,7 +120,6 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		pa.set("", v_is_share);
 		pa.set("", v_state);
 		pa.set("", v_oper_user);
-	    System.out.println(v_topic_no+":"+v_topic_no);
 		this.executeUpdate(sql, pa);
 	    data.set("id", v_topic_no);//更新主键
 	}
@@ -181,6 +215,35 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         json.put("nodes", nodes);
         	dict.add("topicJson", json);
         	 System.out.println("--------------json---------");
+	}
+
+	@Override
+	public List<Map<String, Object>> queryBScreenListByUserID(Long userId) throws BaseAppException {
+		String sql="SELECT  T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,T.IS_SHARE ,T.OPER_USER,T.OPER_DATE  FROM PM_BSCREEN_TOPIC_LIST T WHERE T.OPER_USER=? OR IS_SHARE=3";
+		ParamArray pa = new ParamArray();
+		pa.set("", userId);
+		List<Map<String, Object>> result =BScreenUtil.toConvert(this.queryList(sql, pa));
+		return result;
+	}
+
+	@Override
+	public boolean deleteBScreenById(String id) throws BaseAppException {
+		boolean b = true;
+		System.out.println(id);
+		try{
+			String sql="DELETE PM_BSCREEN_TOPIC_LIST T WHERE T.TOPIC_NO=?";
+			ParamArray pa = new ParamArray();
+			pa.set("", id);
+			this.executeUpdate(sql, pa);
+			String deleteNodeSql="DELETE PM_BSCREEN_TOPIC_NODES T WHERE T.TOPIC_NO=?";
+			ParamArray pa2 = new ParamArray();
+			pa2.set("", id);
+			this.executeUpdate(deleteNodeSql, pa2);
+		}catch(Exception e){
+			e.printStackTrace();
+			b=false;
+		}
+		return b;
 	}
 
 }

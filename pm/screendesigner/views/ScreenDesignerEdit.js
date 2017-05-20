@@ -16,6 +16,7 @@ define([
             template: fish.compile(tpl),
             initialize: function(options) {
                 this.parentView = options.parentView;
+                this.params=options.params;
             },
             events: {
                 'click .rect': 'addRect',
@@ -32,9 +33,6 @@ define([
 
             },
             upload: function() {
-
-
-
                 var svg_canvs = this.canvas;
                 var svg = svg_canvs.toSVG();
                 var canvas=document.getElementById('sSVGPic');
@@ -43,44 +41,13 @@ define([
                canvg(canvas, svg,{
                     'ignoreClear':false,
                     'ignoreDimensions':true,
+
                     'renderCallback':function(){
                         var dataURL = canvas.toDataURL("image/png");
                         $("#myImg").attr('src',dataURL);
                     }
                 });
 
-
-
-                //                 define.amd = false;
-                //                 portal.require([
-                //                     "oss_core/pm/screendesigner/js/webupload/js/webuploader.min.js",
-                //                     "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
-                //                 ], function() {
-                //                     alert($('#uplodImage849023809489028938409').length);
-                //                     var swfPath=portal.appGlobal.get('webroot')+"/oss_core/pm/screendesigner/js/webuploader/Uploader.swf";
-                // console.log(swfPath);
-                //                     var shiftUploader = WebUploader.create({
-                //                         auto: true,
-                //                         swf:swfPath,
-                //                         server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
-                //                         pick: "#uplodImage849023809489028938409",
-                //                         //fileNumLimit: 1,
-                //                         accept: {
-                //                             title: 'Images',
-                //                             extensions: 'gif,jpg,jpeg,bmp,png',
-                //                             mimeTypes: 'image/*'
-                //                         },
-                //                         resize: false
-                //                     });
-                //
-                //                     shiftUploader.on( 'fileQueued', function( file ) {
-                //                         alert(file);
-                //                     })
-                //
-                //
-                //
-                //
-                //                 })
             },
             render: function() {
                 this.$el.html(this.template());
@@ -154,11 +121,12 @@ define([
             },
             RenderCanvas: function(fun) {
                 var self = this;
-                BScreenMgrAction.queryBScreenById('PMS_20170518114958_10001347', function(data) {
+                BScreenMgrAction.queryBScreenById(self.params.id, function(data) {
                     var json = data.topicJson;
                     console.log(data.topicJson);
                     if (!json) {
                         json = {
+                            name:'',
                             attrs: {
                                 'w': 1920,
                                 'h': 1080,
@@ -169,6 +137,9 @@ define([
                     json.dom = $('#canvasPage')[0];
 
                     self.canvas = Zcharts.init(json);
+                    self.canvas.setId(self.params.id);
+                    self.canvas.setUserId(self.params.userId);
+                    self.canvas.setName(json.name);
                     fun();
                 })
 
@@ -212,32 +183,52 @@ define([
                 });
                 self.closeMenu();
             },
+            checkSave:function(){
+              var self =this;
+              if(self.canvas.name.length<=0){
+                  fish.toast('info', '请输入仪表盘名称');
+                  return false;
+              }
+              return true;
+            },
             saveButton: function() {
+                if(!this.checkSave()){
+                    return;
+                }
                 var self = this;
                 var json = self.canvas.json();
-                alert(json.nodes.length)
-                json.id = 'PMS_20170518114958_10001347';
-                BScreenMgrAction.saveOrUpdate(json, function(result) {
-                    console.log("-----")
-                    console.log(JSON.stringify(result.data));
-                    console.log("-----")
-                })
-                fish.store.set('json', json);
-                fish.toast('info', '保存成功');
-                console.log(json)
+                var svg_canvs = this.canvas;
+                var svg = svg_canvs.toSVG();
+                var canvas=document.getElementById('sSVGPic');
+                canvas.width=this.canvas.w;
+                canvas.height =this.canvas.h;
+               canvg(canvas, svg,{
+                    'ignoreClear':false,
+                    'ignoreDimensions':true,
+                    'renderCallback':function(){
+                        var dataURL = canvas.toDataURL("image/png");
+                        //json.imagePath=dataURL;
+                        BScreenMgrAction.saveOrUpdate(json, function(result) {
+                            var topic=result.data[0];
+                            if(topic){
+                              fish.toast('info', '保存成功');
+                              self.canvas.setId(topic.id);
+                            }
+                        })//end of saveOfUpdate
+
+                    }
+                });
+
+
             },
             perviewButton: function() {
                 var self = this;
                 var json = self.canvas.json();
-                alert(json.x)
                 json.perview = true;
-                fish.store.set('json', json);
-                window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html")
-                // $('body').empty();
-                // var json = fish.store.get('json')
-                // json.dom = $('body')[0],
-                //     json.perview = true;
-                // Zcharts.init(json);
+                var id=fish.getUUID();
+                fish.store.set(id, json);
+                window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html?id="+id)
+
             }
 
 

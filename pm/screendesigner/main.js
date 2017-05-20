@@ -35,15 +35,31 @@ define([ 'frm/portal/Portal' ], function(app) {
 		portal.appGlobal.set("ssoMode", data.SSO_MODE);
 		return deferred.promise();
 	}).then(function(){
+         function getUrlParameter(sParam){
+			 var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		          sURLVariables = sPageURL.split('&'),
+		          sParameterName,
+		          i;
+
+		      for (i = 0; i < sURLVariables.length; i++) {
+		          sParameterName = sURLVariables[i].split('=');
+
+		          if (sParameterName[0] === sParam) {
+		              return sParameterName[1] === undefined ? true : sParameterName[1];
+		          }
+		      }
+		 }
 		require(["oss_core/pm/screendesigner/js/Zcharts"], function(Zcharts) {
+            var id=getUrlParameter("id");
+			var json = fish.store.get(id);
+			if (json){
+				json.dom = $('body')[0],
+				json.perview = true;
+				Zcharts.init(json);
+			}else{
+				fish.info('请重新预览');
+			}
 
-
-			var json = fish.store.get('json')
-				    console.log(json);
-			json.dom = $('body')[0],
-        	    json.perview = true;
-
-			Zcharts.init(json);
 		});
 	})
 

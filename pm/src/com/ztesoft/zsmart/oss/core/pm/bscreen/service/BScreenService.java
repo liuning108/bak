@@ -1,6 +1,8 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.service;
 
 import java.lang.reflect.Method;
+import java.util.List;
+import java.util.Map;
 
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
@@ -37,6 +39,26 @@ public class BScreenService implements IAction {
 		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
 		 bsm.queryBScreenById(dict);
 	 }
+	 
+	 public void queryBScreenListByUserID(DynamicDict dict)  throws BaseAppException{
+		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+		 Long userId =dict.getLong("userId");
+		 List<Map<String,Object>>  topiclist = bsm.queryBScreenListByUserID(userId);
+		 dict.add("topiclist", topiclist);
+	
+	 }
+	 
+	 
+	 public void deleteBScreenById(DynamicDict dict)  throws BaseAppException{
+		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+		 String id =dict.getString("topicId");
+		 boolean b=bsm.deleteBScreenById(id);
+		 dict.add("deleteTopic", b);
+	
+	 }
+	 
+	 
+	 
 
 
 }

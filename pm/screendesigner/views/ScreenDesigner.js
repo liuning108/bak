@@ -45,12 +45,13 @@ define([
                     'parentView': self
                 }).render();
             },
-            edit: function() {
+            edit: function(params) {
                   var self = this;
                 self.cleaupView(self.view);
                 self.EditView = new EditView({
                     'el': $('#new_context'),
-                    'parentView': self
+                    'parentView': self,
+                    'params':params
                 }).render();
 
 

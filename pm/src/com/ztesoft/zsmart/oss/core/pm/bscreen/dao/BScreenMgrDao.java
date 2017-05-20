@@ -1,6 +1,8 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.dao;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
@@ -10,6 +12,8 @@ public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
     public abstract void saveOrUpdate(DynamicDict dict) throws BaseAppException;
     public abstract boolean isExistTopic(String topic_no)  throws BaseAppException;
     public  abstract void queryBScreenById(DynamicDict dict) throws BaseAppException;
+    public  abstract List<Map<String, Object>> queryBScreenListByUserID(Long userId)throws BaseAppException;
+    public abstract boolean deleteBScreenById(String id) throws BaseAppException;
 	@Override
 	public int delete(Object arg0) throws BaseAppException {
 		// TODO Auto-generated method stub
@@ -46,5 +50,7 @@ public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 	
 }
