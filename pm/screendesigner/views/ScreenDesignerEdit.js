@@ -121,7 +121,8 @@ define([
             },
             RenderCanvas: function(fun) {
                 var self = this;
-                BScreenMgrAction.queryBScreenById(self.params.id, function(data) {
+                var id=self.params.copyId||self.params.id;
+                BScreenMgrAction.queryBScreenById(id, function(data) {
                     var json = data.topicJson;
                     console.log(data.topicJson);
                     if (!json) {
@@ -207,7 +208,7 @@ define([
                     'ignoreDimensions':true,
                     'renderCallback':function(){
                         var dataURL = canvas.toDataURL("image/png");
-                        //json.imagePath=dataURL;
+                        json.base64=dataURL;
                         BScreenMgrAction.saveOrUpdate(json, function(result) {
                             var topic=result.data[0];
                             if(topic){

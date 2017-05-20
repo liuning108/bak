@@ -40,6 +40,10 @@ define([
                    this.listenTo(view,'cancel',function(){
                        popup.close();
                    })
+                   this.listenTo(view,'copy',function(params){
+                       popup.close();
+                       this.parentView.edit(params);
+                   })
             },
 
             resize: function(h) {
@@ -66,11 +70,11 @@ define([
                 var inst_item=fish.compile(instItemTpl);
                 BScreenMgrAction.queryBScreenListByUserID(userId,function(data){
                         var list =data.topiclist;
-                        console.log(list);
                         parent.empty();
                         fish.each(list,function(data){
                            data.operDate=fish.dateutil.format(new Date(data.operDate), 'yyyy-mm-dd hh:ii:ss');
                            var $inst_item=$(inst_item(data)).appendTo(parent);
+                           $inst_item.find('.inst_top_pic').css(data.attrs.bk_attrs);
                            self.inst_itemEvent($inst_item)
                         })
                 }); //end of queryBScreenListByUserID();
