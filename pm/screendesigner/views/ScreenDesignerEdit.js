@@ -24,6 +24,8 @@ define([
                 'click .bar': 'addBar',
                 'click .stripBar':'addStripBar',
                 'click .PieRing':'addPieRing',
+                'click .Nodes':'addNodes',
+                'click .stripLine':'addStripLine',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -187,6 +189,23 @@ define([
                 this.canvas.addNode({
                     'attrs': {
                         'type': 'PieRing'
+                    }
+                });
+            },
+            addNodes:function(){
+
+                var self = this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'Nodes'
+                    }
+                });
+            },
+            addStripLine:function(){
+                var self = this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'StripLine'
                     }
                 });
             },

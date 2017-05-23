@@ -53,7 +53,7 @@ define([
             self.doms['nums'].setValue(fish.random(99, 999));
             setTimeout(function() {
                 self.getData();
-            }, 2000);
+            }, 5000);
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
@@ -98,7 +98,7 @@ define([
                 $panel.html(view.$el.html());
                 view.afterRender();
             });
-            
+
 
 
 

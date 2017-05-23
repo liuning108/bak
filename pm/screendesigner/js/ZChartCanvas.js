@@ -11,7 +11,9 @@ define([
         'text': "oss_core/pm/screendesigner/js/graphLibs/GText",
         'bar': "oss_core/pm/screendesigner/js/graphLibs/GBar",
         'StripBar':"oss_core/pm/screendesigner/js/graphLibs/GStripBar",
-        'PieRing':"oss_core/pm/screendesigner/js/graphLibs/GBar",
+        'PieRing':"oss_core/pm/screendesigner/js/graphLibs/GPieRing",
+        'Nodes':"oss_core/pm/screendesigner/js/graphLibs/GNodes",
+        'StripLine':"oss_core/pm/screendesigner/js/graphLibs/GStripLine",
     };
     var uuid = function() {
         var s = [];
