@@ -22,7 +22,7 @@
 
         var item_w = 30;
         var item_h = 140;
-        var span_w = 28;
+        var span_w = 8;
         var keys = config.keys;
         var fontStyle = {
             'fill': '#ffffff',

@@ -1,12 +1,13 @@
-/**
- * Raphael.Export https://github.com/ElbertF/Raphael.Export
- *
- * Licensed under the MIT license:
- * http://www.opensource.org/licenses/mit-license.php
- *
- */
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['oss_core/pm/screendesigner/js/raphael-min'], function(Raphael) {
+      return factory(Raphael || root.Raphael);
+    });
+  } else {
+    factory(Raphael);
+  }
+}(this, function(R) {
 
-(function(R) {
 	/**
 	* Escapes string for XML interpolation
 	* @param value string or number value to escape
@@ -420,4 +421,4 @@
 
 		return svg;
 	};
-})(window.Raphael);
+}));

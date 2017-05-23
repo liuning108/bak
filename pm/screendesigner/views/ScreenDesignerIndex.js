@@ -58,6 +58,8 @@ define([
               this.parentView.edit(params);
             },
             afterRender: function() {
+                 var height = $('body').height()-80;
+                $('#SDIndex').css({'minHeight':height});
                 this.inst_item();
                 return this;
             },
@@ -72,9 +74,13 @@ define([
                         var list =data.topiclist;
                         parent.empty();
                         fish.each(list,function(data){
-                           data.operDate=fish.dateutil.format(new Date(data.operDate), 'yyyy-mm-dd hh:ii:ss');
+                          data.operDate=data.operDate.replace('-','/'); //IE只支持"/"
+                          data.operDate=fish.dateutil.format(new Date(data.operDate), 'yyyy/mm/dd hh:ii:ss');
+
                            var $inst_item=$(inst_item(data)).appendTo(parent);
-                           $inst_item.find('.inst_top_pic').css(data.attrs.bk_attrs);
+                           if(data.attrs.bk_attrs){
+                             $inst_item.find('.inst_top_pic').css(data.attrs.bk_attrs);
+                           }
                            self.inst_itemEvent($inst_item)
                         })
                 }); //end of queryBScreenListByUserID();
@@ -110,7 +116,7 @@ define([
                             var json = data.topicJson;
                             var id=fish.getUUID();
                             fish.store.set(id, json);
-                            window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html?id="+id);
+                            window.open("oss_core/pm/screendesigner/perview.html?id="+id);
                      })
 
                })//en of click;

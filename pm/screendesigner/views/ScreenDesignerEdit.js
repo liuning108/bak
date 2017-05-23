@@ -22,6 +22,8 @@ define([
                 'click .rect': 'addRect',
                 'click .text': 'addText',
                 'click .bar': 'addBar',
+                'click .stripBar':'addStripBar',
+                'click .PieRing':'addPieRing',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -149,10 +151,6 @@ define([
                 var self = this;
                 this.canvas.addNode({
                     'attrs': {
-                        'x': 0,
-                        'y': 0,
-                        'w': '100',
-                        'h': '100',
                         'type': 'rect'
                     }
                 });
@@ -162,10 +160,6 @@ define([
                 var self = this;
                 this.canvas.addNode({
                     'attrs': {
-                        'x': 0,
-                        'y': 0,
-                        'w': '100',
-                        'h': '100',
                         'type': 'text'
                     }
                 });
@@ -175,14 +169,26 @@ define([
                 var self = this;
                 this.canvas.addNode({
                     'attrs': {
-                        'x': 0,
-                        'y': 0,
-                        'w': '100',
-                        'h': '100',
                         'type': 'bar'
                     }
                 });
                 self.closeMenu();
+            },
+            addStripBar:function(){
+                var self = this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'StripBar'
+                    }
+                });
+            },
+            addPieRing:function(){
+                var self = this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'PieRing'
+                    }
+                });
             },
             checkSave:function(){
               var self =this;
@@ -228,7 +234,7 @@ define([
                 json.perview = true;
                 var id=fish.getUUID();
                 fish.store.set(id, json);
-                window.open("http://127.0.0.1:8080/oss/oss_core/pm/screendesigner/perview.html?id="+id)
+                window.open("oss_core/pm/screendesigner/perview.html?id="+id)
 
             }
 

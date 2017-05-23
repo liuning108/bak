@@ -97,8 +97,11 @@ define([
                 var $panel = $('.configPanel');
                 $panel.html(view.$el.html());
                 view.afterRender();
+            });
+            
 
-            })
+
+
             // TODO:配置删除(node)
             this.doms['remove'].click(function() {
                 fish.confirm('确认是否删除该组件').result.then(function() {

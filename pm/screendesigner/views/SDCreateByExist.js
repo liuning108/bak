@@ -53,7 +53,7 @@ define([
                            self.inst_itemEvent($inst_item);
                            console.log("-----data");
                            console.log(data);
-                           $inst_item.css(data.attrs.bk_attrs);
+                           $inst_item.find('.inst_top_pic').css(data.attrs.bk_attrs);
                         })
                 }); //end of queryBScreenListByUserID();
             },//end of inst_item;

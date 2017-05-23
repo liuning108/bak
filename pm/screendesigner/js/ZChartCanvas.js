@@ -10,6 +10,8 @@ define([
         'rect': "oss_core/pm/screendesigner/js/graphLibs/GRect",
         'text': "oss_core/pm/screendesigner/js/graphLibs/GText",
         'bar': "oss_core/pm/screendesigner/js/graphLibs/GBar",
+        'StripBar':"oss_core/pm/screendesigner/js/graphLibs/GStripBar",
+        'PieRing':"oss_core/pm/screendesigner/js/graphLibs/GBar",
     };
     var uuid = function() {
         var s = [];
@@ -38,7 +40,7 @@ define([
             if (option.attrs.bk_attrs) {
                 self.setBK(option.attrs.bk_attrs)
             }
-            self.nodes = [];
+            self.nodes = {};
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
@@ -172,9 +174,9 @@ define([
                     'attrs': node_config.attrs,
                     'canvas': self
                 });
-                node.id = node_config.id || "";
+                node.id = uuid();
                 node.show();
-                self.nodes.push(node);
+                self.nodes[node.id]=node;
                 if (fun) fun();
             })
 

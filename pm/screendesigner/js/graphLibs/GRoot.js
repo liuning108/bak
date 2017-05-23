@@ -24,9 +24,12 @@ define([], function() {
            console.log('GROOT getData ');
         },
         createFt: function() {
-            this.ft = this.paper.freeTransform(this.domsSet, { keepRatio: true, 'rotate': false }, function(subject, events) {});
-
+            this.ft = this.paper.freeTransform(this.domsSet, { keepRatio: true, 'rotate': false,attrs:{'fill':'#36b0c8','stroke':'#36b0c8'},scale:[ 'bboxCorners', 'bboxSides' ],draw:['bbox']}, function(subject, events) {});
             if (this.attrs.ft_attrs) {
+                this.attrs.ft_attrs.center.x=this.ft.attrs.center.x
+                this.attrs.ft_attrs.center.y=this.ft.attrs.center.y
+                this.attrs.ft_attrs.size.x=this.ft.attrs.size.x
+                this.attrs.ft_attrs.size.y=this.ft.attrs.size.y
                 this.ft.attrs = this.attrs.ft_attrs;
             } else {
                 this.initLocation();

@@ -90,7 +90,7 @@ define([
                     })
                 } else {
                     self.canvas.setStyle(i, {
-                        'background': 'url(oss_core/pm/screendesigner/images/bk1.jpg)  repeat'
+                        'background': 'url(oss_core/pm/screendesigner/images/bk1.jpg)  50% 50% / auto 100% repeat'
                     })
 
                 }
