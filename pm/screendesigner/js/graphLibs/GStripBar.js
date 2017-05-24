@@ -30,6 +30,7 @@ define([
             })
             regainNumsKPI.show();
             this.doms['regainNumsKPI']=regainNumsKPI.allitem();
+            regainNumsKPI.animate();
 			//this.doms['regainNumsKPI'].hide();
             //this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
         },

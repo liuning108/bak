@@ -14,8 +14,8 @@
         var x = config.x || 0;
         var y = config.y || 0;
         var r = config.r || 170;
-        var list_x = config.listx || 109
-        var list_y = config.listy || 590;
+        var list_x = config.listx;
+        var list_y = config.listy;
         var modes = config.modes || [];
         var width = config.width || 30;
         var paper = this;
@@ -181,10 +181,10 @@
         }
         //end of initiation  data
 
-        obj_instance.inputData = function(datas) {
-            glows.remove()
+        obj_instance.inputData = function(datas,fun) {
+            //glows.remove()
             computingPercent(datas);
-            drawPie();
+            drawPie(fun);
         }
 
         obj_instance.allItem = function() {
@@ -195,7 +195,7 @@
         //start of private fun
 
 
-        function drawPie() {
+        function drawPie(fun) {
 
             for (var i = 0; i < modes.length; i++) {
                 if (i == 0) {
@@ -212,12 +212,9 @@
                 modes[i].path.value = modes[i].value;
                 modes[i].path.animate({
                     arcpie: [x, y, modes[i].sa, modes[i].ea, r3, arc_width, modes[i].value]
-                }, 1500, function() {
-                    //glows.push(this.glow({'width':5,color:this.mycolor}));
-                });
-
-
+                }, 1500);
             }
+            if(fun)fun();
         } //end of drawPie;
 
         function computingPercent(datas) {

@@ -25,6 +25,20 @@ define([
 	        this.doms['label_r3']=paper.rect(x+235-45+75+75,y+20,20,20).attr({'fill':'#ff0000','stroke-width':0});
 
 		},
+        getData: function() {
+            var self = this;
+            var datas = [];
+			var sum=0;
+            for (var i = 0; i < this.names.length; i++) {
+				var val =fish.random(10, 100);
+                datas.push({
+                    name: this.names[i],
+                    value: val
+                })
+				sum+=val;
+            }
+            this.nodes.inputData(datas);
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;

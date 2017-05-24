@@ -73,8 +73,11 @@ define([
                 })
 				sum+=val;
             }
-            this.pie.inputData(datas);
-            this.doms['nums'].setValue(sum);
+            this.pie.inputData(datas,function(){
+                self.doms['nums'].setValue(sum);
+            });
+            //alert(sum);
+
         },
         addEvent: function() {
 
