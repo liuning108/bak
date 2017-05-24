@@ -16,7 +16,7 @@ define([
                 'y': y,
                 'keys': this.names
             });
-        
+
             this.doms['linebar'] =this.linebar.allItem();
 
             var initDatas=[]

@@ -5,8 +5,8 @@ define([
 
     var GNodes = GRoot.extend({
         initElement: function() {
-            var x = 100;
-            var y = 100;
+            var x = 0;
+            var y = 0;
 			var paper=this.paper;
 			this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
 

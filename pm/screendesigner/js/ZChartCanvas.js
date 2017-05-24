@@ -14,6 +14,8 @@ define([
         'PieRing':"oss_core/pm/screendesigner/js/graphLibs/GPieRing",
         'Nodes':"oss_core/pm/screendesigner/js/graphLibs/GNodes",
         'StripLine':"oss_core/pm/screendesigner/js/graphLibs/GStripLine",
+        'PileBar':"oss_core/pm/screendesigner/js/graphLibs/GPileBar",
+        'Annular':"oss_core/pm/screendesigner/js/graphLibs/GAnnular"
     };
     var uuid = function() {
         var s = [];

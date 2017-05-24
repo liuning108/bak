@@ -18,10 +18,19 @@ define([], function() {
             this.hide();
             this.addEvent();
             this.getData();
+            this.perview();
 
         },
         getData:function(){
            console.log('GROOT getData ');
+        },
+        perview:function(){
+            if(this.canvas.perview){
+                this.ft.unplug();
+                if(this.doms['config'])this.doms['config'].remove();
+                if(this.doms['remove'])this.doms['remove'].remove();
+
+            }
         },
         createFt: function() {
             this.ft = this.paper.freeTransform(this.domsSet, { keepRatio: true, 'rotate': false,attrs:{'fill':'#36b0c8','stroke':'#36b0c8'},scale:[ 'bboxCorners', 'bboxSides' ],draw:['bbox']}, function(subject, events) {});

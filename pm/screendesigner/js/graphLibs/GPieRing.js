@@ -6,8 +6,8 @@ define([
     var GPieRing = GRoot.extend({
         initElement: function() {
             var paper = this.paper;
-            var x = 500;
-            var y = 500;
+            var x = 0;
+            var y = 0;
             this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
             var colors = ['#f89d2c', '#f299bd', '#e8410e', '#30cd2f', '#dbdb01', '#8e228f']
             var modes = [];
@@ -20,7 +20,7 @@ define([
                 })
             }
 
-			
+
 
 
 
