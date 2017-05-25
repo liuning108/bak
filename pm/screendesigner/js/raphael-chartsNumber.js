@@ -26,7 +26,7 @@
       }
       var result = '';
       if (format) {
-        result = setNumberformat(Math.floor(num))
+        result = Math.floor(num);
       } else {
         result = Math.floor(num);
       }

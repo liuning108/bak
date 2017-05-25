@@ -1,17 +1,18 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
     "text!oss_core/pm/screendesigner/templates/GRectConfig.html",
+     "oss_core/pm/screendesigner/js/graphLibs/views/GStripBarView",
     "oss_core/pm/screendesigner/js/graphLibs/raphaelLibs/RegainNumsKPI",
 
-], function(GRoot, tpl) {
-
-    var GStripBar = GRoot.extend({
+], function(GRoot, tpl,View) {
+  var GStripBar = GRoot.extend({
         initElement: function() {
             var x = 0;
             var y = 0;
             var paper = this.paper;
+            this.attrs.title=this.attrs.title||'停复机在途复机量';
 			this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x+1,y,532,377);
-			this.doms['title']= paper.text(x+532/2,y,'停复机在途复机量').attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
+			this.doms['title']= paper.text(x+532/2,y,this.attrs.title).attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
 			this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
 
             var regainNumsKPI = new RegainNumsKPI(paper, {
@@ -31,6 +32,20 @@ define([
             regainNumsKPI.show();
             this.doms['regainNumsKPI']=regainNumsKPI.allitem();
             regainNumsKPI.animate();
+
+            this.doms['config'] = this.paper.text(30,30, '配置').attr({
+                    'fill': 'red',
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });;
+
+            this.doms['remove'] = this.paper.text(30,60, '删除').attr({
+                    'fill': 'red',
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });;
 			//this.doms['regainNumsKPI'].hide();
             //this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
         },
@@ -39,6 +54,23 @@ define([
             this.ft.attrs.translate.y = 30;
         },
         addEvent: function() {
+            var self=this;
+
+            // TODO:配置属性(node)
+            this.doms['config'].click(function() {
+                var view = new View(self);
+                view.render();
+                var $panel = $('.configPanel');
+                $panel.html(view.$el.html());
+                view.afterRender();
+            });
+
+            // TODO:配置删除(node)
+            this.doms['remove'].click(function() {
+                fish.confirm('确认是否删除该组件').result.then(function() {
+                    self.remove();
+                });
+            })//end of remove
 
         }
 

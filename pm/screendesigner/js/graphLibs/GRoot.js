@@ -69,6 +69,11 @@ define([], function() {
             this.ft.unplug();
             delete this.canvas.nodes[this.id];
         },
+        setTitle:function(value){
+            if(!this.doms['title'])return;
+            this.attrs.title=value;
+            this.doms['title'].attr("text",value)
+        },
         json: function() {
             var json = {}
             json.id = this.id;

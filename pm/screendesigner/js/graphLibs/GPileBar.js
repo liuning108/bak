@@ -1,7 +1,8 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
     "oss_core/pm/screendesigner/js/graphLibs/raphaelLibs/todayLoadNumberClass",
-], function(GRoot, tpl) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView"
+], function(GRoot, tpl,View) {
 
     var GPileBar = GRoot.extend({
         initElement: function() {
@@ -9,7 +10,8 @@ define([
             var y = 0;
             var paper = this.paper;
 		    this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x,y,532,377);
-			this.doms['title'] = paper.text(x+532/2,y,'C网今日新装量').attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
+            this.attrs.title=this.attrs.title||'C网今日新装量'
+            this.doms['title'] = paper.text(x+532/2,y,this.attrs.title).attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
             this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
             var loadNumber = new todayLoadNumberClass(paper, {
                 'x': x + 82,
@@ -152,13 +154,44 @@ define([
 
            loadNumber.animate(sum3gkpi,sum4gkpi);
 
+
+
+           this.doms['config'] = this.paper.text(30,30, '配置').attr({
+                   'fill': 'red',
+                   'font-size': 18,
+                   'font-family': '微软雅黑',
+                   'font-weight': 'bold'
+               });;
+
+           this.doms['remove'] = this.paper.text(30,60, '删除').attr({
+                   'fill': 'red',
+                   'font-size': 18,
+                   'font-family': '微软雅黑',
+                   'font-weight': 'bold'
+               });;
+
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
         addEvent: function() {
+            var self=this;
+            // TODO:配置属性(node)
+            this.doms['config'].click(function() {
+                var view = new View(self);
+                view.render();
+                var $panel = $('.configPanel');
+                $panel.html(view.$el.html());
+                view.afterRender();
+            });
 
+            // TODO:配置删除(node)
+            this.doms['remove'].click(function() {
+                fish.confirm('确认是否删除该组件').result.then(function() {
+                    self.remove();
+                });
+            })//end of remove
         }
 
     })

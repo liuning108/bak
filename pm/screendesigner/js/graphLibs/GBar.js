@@ -12,7 +12,8 @@ define([
             var paper=this.paper;
             this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x-25,y-140,532,377);
             this.xAxisNames = this.attrs.xAxisNames||['南京' ,'无锡' ,'徐州' ,'常州' ,'苏州' ,'南通'  ,'淮安' ,'盐城' ,'扬州' ,'镇江' ,'泰州' ,'宿迁','连云港'];
-            this.doms['title'] =this.paper.text(x+240,y-140,'C网超3分钟未峻工量').attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
+           this.attrs.title=this.attrs.title||'C网超3分钟未峻工量';
+            this.doms['title'] =this.paper.text(x+240,y-140,this.attrs.title).attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
             this.top = this.paper.areaLineBar({
                 'keys': this.xAxisNames,
                 'x': x,
@@ -52,6 +53,7 @@ define([
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
+
         getData: function() {
             var self=this;
             var  datas=[];

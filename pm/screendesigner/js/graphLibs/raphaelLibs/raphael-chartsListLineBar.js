@@ -273,7 +273,7 @@
             }
         } //end of max;
 
-        for (var i=0;i<inst.maxItem;i++){
+        for (var i=0;i<inst.maxItem+1;i++){
             var initDatas=[]
             fish.each(inst.config.keys,function(name){
                 initDatas.push({

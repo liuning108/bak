@@ -7,8 +7,8 @@ define([
 
     var GStripBar = GRoot.extend({
         initElement: function() {
-            var x = 500;
-            var y = 500;
+            var x = 0;
+            var y = 0;
             var paper = this.paper;
             this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
             this.linebar=paper.chartListLineBar({
@@ -19,7 +19,12 @@ define([
 
             this.doms['linebar'] =this.linebar.allItem();
 
-            var initDatas=[]
+            this.doms['remove'] = this.paper.text(0,-350, '删除').attr({
+                    'fill': 'red',
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });;
 
 
         },
@@ -44,7 +49,13 @@ define([
             this.ft.attrs.translate.y = 30;
         },
         addEvent: function() {
-
+            var self=this;
+            // TODO:配置删除(node)
+            this.doms['remove'].click(function() {
+                fish.confirm('确认是否删除该组件').result.then(function() {
+                    self.remove();
+                });
+            })//end of remove
         }
 
     })

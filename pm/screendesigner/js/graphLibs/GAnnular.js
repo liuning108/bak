@@ -1,7 +1,8 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
     "oss_core/pm/screendesigner/js/graphLibs/raphaelLibs/raphael-chartsPie",
-], function(GRoot, tpl) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/GAnnularView"
+], function(GRoot, tpl,View) {
 
     var GAnnular = GRoot.extend({
         initElement: function() {
@@ -9,9 +10,11 @@ define([
             var y = 0;
             var paper = this.paper;
 			this.names=this.attrs.names||['乐享4G-99','乐享4G-59','流量升级包-30','乐享4G-129','乐享4G-199','乐享4G-399','飞Young4G-99']
+            this.attrs.title=this.attrs.title|| '当月套餐';
+
             var colors=['#ff7f50','#ff8212', '#c5ff55','#30cd2f', '#30cd2f','#5599f2','#fe62ae','#c050c8']
 			this.doms['gb'] = paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png', x, y, 532, 377);
-            this.doms['title'] = paper.text(x + 532 / 2, y, '当月套餐').attr({
+            this.doms['title'] = paper.text(x + 532 / 2, y, this.attrs.title).attr({
                 'fill': '#ebeb6d',
                 'font-size': 24,
                 'font-family': '微软雅黑',
@@ -39,6 +42,20 @@ define([
             });
 
             this.doms['pie'] = this.pie.allitem();
+
+            this.doms['config'] = this.paper.text(30,30, '配置').attr({
+                    'fill': 'red',
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });;
+
+            this.doms['remove'] = this.paper.text(30,60, '删除').attr({
+                    'fill': 'red',
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });;
         },
 		getData: function() {
             var self = this;
@@ -63,7 +80,27 @@ define([
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
+
         addEvent: function() {
+            var self=this;
+
+            // TODO:配置属性(node)
+            this.doms['config'].click(function() {
+                var view = new View(self);
+                view.render();
+                var $panel = $('.configPanel');
+                $panel.html(view.$el.html());
+                view.afterRender();
+            });
+
+
+            // TODO:配置删除(node)
+            this.doms['remove'].click(function() {
+                fish.confirm('确认是否删除该组件').result.then(function() {
+                    self.remove();
+                });
+            })//end of remove
+
 
         }
 

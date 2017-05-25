@@ -1,7 +1,6 @@
 define([
-    "text!oss_core/pm/screendesigner/js/graphLibs/views/GBarView.html",
+    "text!oss_core/pm/screendesigner/js/graphLibs/views/GStripBarView.html",
 ], function(tpl) {
-
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
         template: fish.compile(tpl),
@@ -18,24 +17,12 @@ define([
             var self = this;
             var $parent =$("#tabs");
             $parent.tabs(); //Tab页
-            var $g_x=$parent.find('.g_x');
-            var $g_x_sure=$parent.find('.g_x_sure');
-            $g_x.val(this.g.getXAxisNams().join(','));
-            $g_x_sure.off('click');
-            $g_x_sure.on('click',function(){
-                  var names=$g_x.val().split(",");
-                  self.g.setXAxisNams(names);
-                  return false;
-            })
-          //Title
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');
             $title.on('change',function(){
                   self.g.setTitle($(this).val());
             })
-
-
 
         }
 
