@@ -62,7 +62,7 @@ RegainNumsKPI.prototype.darwElem=function(index){
         var  shownums= Math.round(this.config.nums*per*0.01);
         var width = Math.floor((this.config.nums_width)/this.config.nums);
         elementConfig.arrayRects = [];
-        for (var i = 0;i<this.config.nums;i++){
+        for (var i = 0;i<this.config.nums;i+=this.config.step){
         	var rect = paper.rect(x+((i+1)*14.4),y,width,20,2);
 			self.set.push(rect);
         	    rect.attr({'fill':'#83e6fc','stroke-width':0})

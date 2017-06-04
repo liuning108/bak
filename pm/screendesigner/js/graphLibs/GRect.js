@@ -16,7 +16,7 @@ define([
              this.ft.attrs.translate.y=30;
         },
         addEvent: function() {
-            this.doms['config'].click(function() {
+            this.doms['config'].click(function(e) {
                 var options = {
                     height: 300,
                     width:500,
@@ -27,6 +27,7 @@ define([
                 };
                 var popup = fish.popup(options);
                 popup.show();
+				e.stopImmediatePropagation();
             })
         }
 

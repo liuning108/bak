@@ -17,28 +17,89 @@ define([], function() {
             this.createFt();
             this.hide();
             this.addEvent();
-            this.getData();
-            this.perview();
+            this.addBoxEvent();
+
+            // TODO: 优化SVN
+            if (this.canvas.perview) {
+                this.getData(); //在预览情况下，才有动画和通过间隔来获取数据
+                this.perview();
+            }
+
 
         },
-        getData:function(){
-           console.log('GROOT getData ');
+        addBoxEvent: function() {
+            var self = this;
+            if (this.doms['config']) this.doms['config'].toFront();
+            if (this.doms['remove']) this.doms['remove'].toFront();
+            this.gbox.hover(function() {
+                this.attr({
+                    'fill-opacity': 0.1
+                })
+            }, function() {
+                this.attr({
+                    'fill-opacity': 0
+                })
+            })
+            this.gbox.click(function(e) {
+                if (self.doms['config']) {
+                    self.doms['config'].trigger('click', e);
+
+                }
+                e.stopImmediatePropagation();
+            })
         },
-        perview:function(){
-            if(this.canvas.perview){
+        getData: function() {
+            console.log('GROOT getData ');
+        },
+        perview: function() {
+            if (this.canvas.perview) {
                 this.ft.unplug();
-                if(this.doms['config'])this.doms['config'].remove();
-                if(this.doms['remove'])this.doms['remove'].remove();
+                if (this.doms['config']) this.doms['config'].remove();
+                if (this.doms['remove']) this.doms['remove'].remove();
 
             }
         },
+        move: function() {
+
+        },
+        ftcallBack:function(subject,events){
+            var self =this;
+         var eve= events.join(', ').trim();
+          if ('drag start'==eve){
+
+          }
+          if('drag end'==eve){
+
+          }
+        },
         createFt: function() {
-            this.ft = this.paper.freeTransform(this.domsSet, { keepRatio: true, 'rotate': false,attrs:{'fill':'#36b0c8','stroke':'#36b0c8'},scale:[ 'bboxCorners', 'bboxSides' ],draw:['bbox']}, function(subject, events) {});
+            var self = this;
+
+
+            var gbbox = this.domsSet.getBBox(true);
+            this.gbox = this.paper.rect(gbbox.x, gbbox.y, gbbox.width, gbbox.height).attr({
+                'fill': '#36b0c8',
+                'fill-opacity': 0
+            })
+            this.domsSet.push(this.gbox);
+
+            this.ft = this.paper.freeTransform(this.domsSet, {
+                keepRatio: true,
+                'rotate': false,
+                attrs: {
+                    'fill': '#36b0c8',
+                    'stroke': '#36b0c8'
+                },
+                scale: ['bboxCorners', 'bboxSides'],
+                draw: ['bbox']
+            }, function(subject, events) {
+               self.ftcallBack(subject,events)
+            });
             if (this.attrs.ft_attrs) {
-                this.attrs.ft_attrs.center.x=this.ft.attrs.center.x
-                this.attrs.ft_attrs.center.y=this.ft.attrs.center.y
-                this.attrs.ft_attrs.size.x=this.ft.attrs.size.x
-                this.attrs.ft_attrs.size.y=this.ft.attrs.size.y
+                this.attrs.ft_attrs.center.x = this.ft.attrs.center.x
+                this.attrs.ft_attrs.center.y = this.ft.attrs.center.y
+                this.attrs.ft_attrs.size.x = this.ft.attrs.size.x
+                this.attrs.ft_attrs.size.y = this.ft.attrs.size.y
                 this.ft.attrs = this.attrs.ft_attrs;
             } else {
                 this.initLocation();
@@ -69,10 +130,10 @@ define([], function() {
             this.ft.unplug();
             delete this.canvas.nodes[this.id];
         },
-        setTitle:function(value){
-            if(!this.doms['title'])return;
-            this.attrs.title=value;
-            this.doms['title'].attr("text",value)
+        setTitle: function(value) {
+            if (!this.doms['title']) return;
+            this.attrs.title = value;
+            this.doms['title'].attr("text", value)
         },
         json: function() {
             var json = {}

@@ -31,6 +31,7 @@ define([
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
+                'click #canvasPage':'RenderView',
                 'click #showListButton': 'showListButton',
                 'click #uplodImage': 'upload'
             },

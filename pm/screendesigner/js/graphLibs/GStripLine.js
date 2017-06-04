@@ -32,6 +32,7 @@ define([
 
             var self = this;
             var initDatas=[];
+            var intervalTime=1000*60*5;
             fish.each(this.names,function(name){
                 initDatas.push({
                     'name':name,
@@ -42,7 +43,7 @@ define([
 
             setTimeout(function() {
                 self.getData();
-            }, 3000);
+            }, intervalTime);
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
@@ -51,10 +52,11 @@ define([
         addEvent: function() {
             var self=this;
             // TODO:配置删除(node)
-            this.doms['remove'].click(function() {
+            this.doms['remove'].click(function(e) {
                 fish.confirm('确认是否删除该组件').result.then(function() {
                     self.remove();
                 });
+                e.stopImmediatePropagation();
             })//end of remove
         }
 

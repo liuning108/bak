@@ -83,6 +83,7 @@ define([
             }, //end of RenderHTML
             //TODO: 风格选择(done);
             setStyle: function(i) {
+                //'url(oss_core/pm/screendesigner/images/bk1.jpg)  50% 50% / auto 100% repeat'
                 var self = this;
                 if (i == 0) {
                     self.canvas.setStyle(i, {
@@ -90,7 +91,7 @@ define([
                     })
                 } else {
                     self.canvas.setStyle(i, {
-                        'background': 'url(oss_core/pm/screendesigner/images/bk1.jpg)  50% 50% / auto 100% repeat'
+                        'background':'#000'
                     })
 
                 }

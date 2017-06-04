@@ -1,8 +1,7 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
-    "text!oss_core/pm/screendesigner/templates/GRectConfig.html",
     "oss_core/pm/screendesigner/js/graphLibs/views/GTextView"
-], function(GRoot, tpl, View) {
+], function(GRoot, View) {
 
     var GText = GRoot.extend({
         initElement: function() {
@@ -50,10 +49,11 @@ define([
         getData: function() {
 
             var self = this;
+            var intervalTime=1000*60*5;
             self.doms['nums'].setValue(fish.random(99, 999));
             setTimeout(function() {
                 self.getData();
-            }, 5000);
+            }, intervalTime);
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
@@ -91,19 +91,20 @@ define([
         addEvent: function() {
             var self = this;
             // TODO:配置属性(node)
-            this.doms['config'].click(function() {
+            this.doms['config'].click(function(e) {
                 var view = new View(self);
                 view.render();
                 var $panel = $('.configPanel');
                 $panel.html(view.$el.html());
                 view.afterRender();
+                e.stopImmediatePropagation();
             });
             // TODO:配置删除(node)
-            this.doms['remove'].click(function() {
+            this.doms['remove'].click(function(e) {
                 fish.confirm('确认是否删除该组件').result.then(function() {
                     self.remove();
                 });
-
+                e.stopImmediatePropagation();
             })
 
         }

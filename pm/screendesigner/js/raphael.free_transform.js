@@ -7,6 +7,15 @@
     factory(Raphael);
   }
 }(this, function(Raphael) {
+
+Raphael.el.trigger = function(eventName,e){
+    for(var i = 0, len = this.events.length; i < len; i++) {
+        if (this.events[i].name == eventName) {
+            this.events[i].f.call(this,e);
+        }
+    }
+}
+
   Raphael.fn.freeTransform = function(subject, options, callback) {
     var
       ft, i, mapped, timeout,

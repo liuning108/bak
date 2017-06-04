@@ -9,6 +9,7 @@ define([
         "css!oss_core/pm/screendesigner/css/screendesigner.css",
         "css!oss_core/pm/screendesigner/css/dcmegamenu.css",
         "css!oss_core/pm/screendesigner/css/icomoon.css",
+        "css!oss_core/pm/screendesigner/js/colorpicker/colorpicker.css",
         "oss_core/pm/screendesigner/js/raphael-min",
         "oss_core/pm/screendesigner/js/raphael.free_transform",
         "oss_core/pm/screendesigner/js/jquery.dcmegamenu.1.3.3",

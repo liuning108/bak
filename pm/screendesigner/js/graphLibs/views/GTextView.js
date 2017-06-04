@@ -1,6 +1,6 @@
 define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTextConfig.html",
-    "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker",
-    "css!oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker.css"
+    "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
+
 ], function(tpl) {
 
     return portal.CommonView.extend({

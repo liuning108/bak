@@ -48,6 +48,17 @@ define([
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
             })
+            this.setCanvasEvent();
+        },
+        setCanvasEvent:function(){
+        //  var self=this;
+        //  self.rect=self.paper.rect(0,0,self.w,self.h).attr({'fill':'red','opacity':0}).toBack();
+        //  self.rect.click(function(){
+        //      alert(2);
+        //      alert($('.canvasPage').length);
+        //      $('.canvasPage').trigger('click');
+        //  })
+
         },
         setId:function(id){
             var self=this;

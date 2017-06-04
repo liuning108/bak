@@ -63,7 +63,7 @@ define([
                 this.inst_item();
                 return this;
             },
-              // TODO: topiclist初始页面(doing)
+              // TODO: topiclist初始页面(done)
             inst_item:function(){
 
                 var self =this;
@@ -74,9 +74,9 @@ define([
                         var list =data.topiclist;
                         parent.empty();
                         fish.each(list,function(data){
-                          data.operDate=data.operDate.replace('-','/'); //IE只支持"/"
+                          data.operDate=data.operDate.replace('.0','');  //IE,firefox只支持 带参格式"/"
+                          data.operDate=data.operDate.replace(/-/g,'/'); //IE,firefox只支持yyyy/mm/dd 带参格式"/"
                           data.operDate=fish.dateutil.format(new Date(data.operDate), 'yyyy/mm/dd hh:ii:ss');
-
                            var $inst_item=$(inst_item(data)).appendTo(parent);
                            if(data.attrs.bk_attrs){
                              $inst_item.find('.inst_top_pic').css(data.attrs.bk_attrs);
@@ -85,7 +85,7 @@ define([
                         })
                 }); //end of queryBScreenListByUserID();
             },//end of inst_item
-           // TODO: topiclist初始事件(doing)
+           // TODO: topiclist初始事件(done)
             inst_itemEvent:function($inst_item){
                 var self =this;
                 //删除事件

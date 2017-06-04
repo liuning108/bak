@@ -118,7 +118,7 @@ todayLoadNumberClass.prototype.allitem=function(){
 
 todayLoadNumberClass.prototype.animate = function(sum3gkpi,sum4gkpi){
 	var self = this;
-
+   var intervalTime=1000*60*5;
 	  function run (){
 
          for (var i =0 ; i<self.elements.length;i++){
@@ -144,7 +144,7 @@ todayLoadNumberClass.prototype.animate = function(sum3gkpi,sum4gkpi){
            var sum =self.getSum();
            sum3gkpi.setValue({'value':sum.sum_3g,'rate':sum.rate3});
            sum4gkpi.setValue({'value':sum.sum_4g,'rate':sum.rate4});
-             setTimeout(run,2000);
+           setTimeout(run,intervalTime);
       }
 
       run();
