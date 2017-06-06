@@ -28,6 +28,10 @@ define([
                 'click .stripLine':'addStripLine',
                 'click .pileBar':'addPileBar',
                 'click .annular':'addAnnular',
+                'click .character':'addCharacter',
+                'click .circleNum':'addCircleNum',
+                'click .arcProcess':'addArcProcess',
+                'click .labelBar':'addLabelBar',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -227,6 +231,42 @@ define([
                         'type': 'Annular'
                     }
                 });
+            },
+            addCharacter:function(){
+                  var self =this;
+                  this.canvas.addNode({
+                      'attrs': {
+                          'type': 'Character'
+                      }
+                  });
+                  self.closeMenu();
+            },
+            addCircleNum:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'CircleNum'
+                    }
+                });
+                self.closeMenu();
+            },
+            addLabelBar:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'LabelBar'
+                    }
+                });
+                self.closeMenu();
+            },
+            addArcProcess:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'ArcProcess'
+                    }
+                });
+                self.closeMenu();
             },
             checkSave:function(){
               var self =this;

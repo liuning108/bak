@@ -17,13 +17,10 @@
       'font-family': '微软雅黑',
       'font-weight': 'bold'
     };
-    var showLabel = config.showLabel || 0;
+    var showLabel = config.showLabel || '';
     var format = config.format || false;
     this.customAttributes.charsbarnum = function(num, num2) {
-      var label = '';
-      if (num2 == 1) {
-        label = "¥"
-      }
+      var label = this.data('label');
       var result = '';
       if (format) {
         result = Math.floor(num);
@@ -31,20 +28,23 @@
         result = Math.floor(num);
       }
       return {
-        'text': label + result,
+        'text': result+label
 
       }
     }
-    var numobj = this.text(x, y, 0).attr(attrs).attr({
-      'charsbarnum': [0, showLabel]
+    var numobj = this.text(x, y, 0).attr(attrs)
+    numobj.data('label', showLabel);
+    numobj.attr({
+      'charsbarnum': [0, 1]
     });
+
 
     function setValue(val) {
       value = val;
-      numobj.attr("charsbarnum", [0, showLabel]);
+      numobj.attr("charsbarnum", [0, 1]);
       numobj.animate({
-        'charsbarnum': [value, showLabel]
-      }, 2000);
+        'charsbarnum': [value, 1]
+    }, 2000);
     }
 
     function getValue() {

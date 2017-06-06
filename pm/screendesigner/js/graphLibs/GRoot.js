@@ -79,7 +79,8 @@ define([], function() {
             var gbbox = this.domsSet.getBBox(true);
             this.gbox = this.paper.rect(gbbox.x, gbbox.y, gbbox.width, gbbox.height).attr({
                 'fill': '#36b0c8',
-                'fill-opacity': 0
+                'fill-opacity': 0,
+                'stroke-width':0
             })
             this.domsSet.push(this.gbox);
 

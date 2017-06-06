@@ -15,7 +15,11 @@ define([
         'Nodes':"oss_core/pm/screendesigner/js/graphLibs/GNodes",
         'StripLine':"oss_core/pm/screendesigner/js/graphLibs/GStripLine",
         'PileBar':"oss_core/pm/screendesigner/js/graphLibs/GPileBar",
-        'Annular':"oss_core/pm/screendesigner/js/graphLibs/GAnnular"
+        'Annular':"oss_core/pm/screendesigner/js/graphLibs/GAnnular",
+        'Character':"oss_core/pm/screendesigner/js/graphLibs/GCharacter",
+        'CircleNum':"oss_core/pm/screendesigner/js/graphLibs/GCircleNum",
+        'ArcProcess':"oss_core/pm/screendesigner/js/graphLibs/GArcProcess",
+        'LabelBar':"oss_core/pm/screendesigner/js/graphLibs/GLabelBar",
     };
     var uuid = function() {
         var s = [];
