@@ -10,8 +10,9 @@ define([
             self.createRoundedRectangleFN();
             var x=0;
             var y=0;
-
-            this.names = this.attrs.names || ['华北', '西南', '华东', '华南']
+  　　var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+           //this.names = this.attrs.names || ['华北', '西南', '华东', '华南']
+            this.names = this.attrs.names || hn_area
             this.colors=['#5a9bd5','#01d15e','#ffc101','#e97870']
 
             for (var i =0;i<this.names.length;i++)
@@ -41,12 +42,12 @@ define([
             //     'font-family': '微软雅黑',
             //     'font-weight': 'bold'
             // });;
-            // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['remove'] = this.paper.text(0,-30, '删除').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
 
         },
         createItem:function(index,x,y,name,color,per,value){
@@ -113,17 +114,17 @@ define([
 
 
         addEvent: function() {
-            if(!this.doms['config'])return;
+          //  if(!this.doms['config'])return;
             var self = this;
             // TODO:配置属性(node)
-            this.doms['config'].click(function(e) {
-                var view = new View(self);
-                view.render();
-                var $panel = $('.configPanel');
-                $panel.html(view.$el.html());
-                view.afterRender();
-                e.stopImmediatePropagation();
-            });
+            // this.doms['config'].click(function(e) {
+            //     var view = new View(self);
+            //     view.render();
+            //     var $panel = $('.configPanel');
+            //     $panel.html(view.$el.html());
+            //     view.afterRender();
+            //     e.stopImmediatePropagation();
+            // });
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
                 fish.confirm('确认是否删除该组件').result.then(function() {
