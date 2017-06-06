@@ -71,7 +71,8 @@ define([
             item.text=paper.text(item_x+item_w/2,item_y+item_h/2,name).attr(font_style);
             var process_w=300*per;
             var process_x=item_x+item_w+20;
-            item.process=paper.rect(process_x,item_y+13,process_w,13,6).attr({fill: color})
+            item.process=paper.rect(process_x,item_y+13,0,13,6).attr({fill: color})
+            item.process.animate({'width':process_w},1900)
             var num_x=process_x+process_w+30;
             item.num=paper.chartsNumbser({
                 'x': num_x,

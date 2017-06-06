@@ -667,3 +667,17 @@ i.icon_chart10 {
     overflow-y: auto;
     height: 560px;
 }
+
+.GICON{
+    width: 64px;
+    height: 64px;
+    float:left;
+    cursor: pointer;
+    border: 1px solid #e0e4e8;
+    margin-left: 6px;
+    text-align:center;
+    align-content: center;
+}
+.GICON:hover{
+    background: #ededed;
+}

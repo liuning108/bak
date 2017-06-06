@@ -32,6 +32,9 @@ define([
                 'click .circleNum':'addCircleNum',
                 'click .arcProcess':'addArcProcess',
                 'click .labelBar':'addLabelBar',
+                'click .progressBar':'addProgressBar',
+                'click .IconBar':'addIconBar',
+                'click .MoveBar':'addMoveBar',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -264,6 +267,35 @@ define([
                 this.canvas.addNode({
                     'attrs': {
                         'type': 'ArcProcess'
+                    }
+                });
+                self.closeMenu();
+            },
+            addProgressBar:function(){
+
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'ProgressBar'
+                    }
+                });
+                self.closeMenu();
+
+            },
+            addIconBar:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'IconBar'
+                    }
+                });
+                self.closeMenu();
+            },
+            addMoveBar:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'MoveBar'
                     }
                 });
                 self.closeMenu();

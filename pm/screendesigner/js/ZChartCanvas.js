@@ -20,6 +20,10 @@ define([
         'CircleNum':"oss_core/pm/screendesigner/js/graphLibs/GCircleNum",
         'ArcProcess':"oss_core/pm/screendesigner/js/graphLibs/GArcProcess",
         'LabelBar':"oss_core/pm/screendesigner/js/graphLibs/GLabelBar",
+        'ProgressBar':"oss_core/pm/screendesigner/js/graphLibs/GProgressBar",
+        'IconBar':"oss_core/pm/screendesigner/js/graphLibs/GIconBar",
+        'MoveBar':"oss_core/pm/screendesigner/js/graphLibs/GMoveBar",
+
     };
     var uuid = function() {
         var s = [];

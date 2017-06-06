@@ -19,6 +19,7 @@
     };
     var showLabel = config.showLabel || '';
     var format = config.format || false;
+    var doneFun =config.donefun||function(){};
     this.customAttributes.charsbarnum = function(num, num2) {
       var label = this.data('label');
       var result = '';
@@ -39,12 +40,14 @@
     });
 
 
-    function setValue(val) {
+    function setValue(val,fun) {
       value = val;
       numobj.attr("charsbarnum", [0, 1]);
       numobj.animate({
         'charsbarnum': [value, 1]
-    }, 2000);
+    }, 2000,function(){
+            if(fun)fun();
+    });
     }
 
     function getValue() {
@@ -68,7 +71,7 @@
       return result;
     }
 
-    setValue(value);
+    setValue(value,doneFun);
     // var result={
     //    'setValue':setValue,
     //    'getValue':getValue,
