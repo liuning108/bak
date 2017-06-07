@@ -13,8 +13,8 @@ define([
             var x=0;
             var y=0;
             var r=100;
-            var val_rate=fish.random(10, 100);
-
+            var val_rate=this.attrs.ratevalue||fish.random(90, 98);
+            this.attrs.ratevalue=val_rate;
             self.createArcProcessAttrs();
 
              this.doms['bgArc'] = paper.path().attr({
@@ -79,6 +79,14 @@ define([
             self.setTitle(title);
             self.setTitleColor(titleColor);
 
+        },
+        getRateValue:function(){
+            return this.attrs.ratevalue;
+        },
+        setRateValue:function(val){
+
+               this.doms['nums'].setValue(parseFloat(val));
+               this.attrs.ratevalue=val;
         },
 
         createArcProcessAttrs:function(){

@@ -47,11 +47,13 @@ define([
             self.dom = option.dom;
             self.perview = option.perview || false;
             self.paper = Raphael(self.dom);
+            self.bgitem=option.attrs.bgitem||0;
             self.setViewBox(self.w, self.h)
 
             if (option.attrs.bk_attrs) {
-                self.setBK(option.attrs.bk_attrs)
+                self.setBK(option.attrs.bk_attrs);
             }
+
             self.nodes = {};
             fish.each(option.nodes, function(node_config) {
                 self.addNode(node_config, function() {})
@@ -91,6 +93,9 @@ define([
             self.bk_attrs = attrs;
             $(self.dom).css(attrs)
         },
+
+
+
         setViewBox: function(w, h) {
             var self = this;
             self.w = w;
@@ -215,6 +220,7 @@ define([
             json.state=0;
             json.userid=self.userid;
             json.attrs={};
+            json.attrs.bgitem=self.bgitem;
             json.attrs.w = self.w;
             json.attrs.h = self.h;
             json.attrs.style=this.style;

@@ -425,6 +425,13 @@ i.icon_chart29 {
 i.icon_chart30 {
     background-position: -732px -83px;
 }
+i.icon_chart31{
+    background-position: -782px -83px;
+}
+
+i.icon_chart32{
+    background-position: -830px -88px;
+}
 
 
 i.icon_chart19 {
@@ -708,5 +715,38 @@ i.icon_chart10 {
     align-content: center;
 }
 .GICON:hover{
+    background: #ededed;
+}
+
+.bgItem{
+    width: 74px;
+    height: 46px;
+
+    float:left;
+    cursor: pointer;
+    border: 1px solid #c9dff5;
+    margin-left: 6px;
+    text-align:center;
+    align-content: center;
+
+}
+.bgItem .glyphicon{
+ position: relative;
+ display: none;
+ color: #0cdbbb;
+ top:-10px;
+ left:20px;
+ z-index: 5;
+
+}
+
+.bgItem img{
+    display: inline;
+    top:2.5px;
+    left: 0px;
+     position: relative;
+}
+
+.bgItem:hover{
     background: #ededed;
 }

@@ -79,19 +79,52 @@ define([
                     var i = $(this).val()
                     self.setStyle(i);
                 });
+                // TODO: 选择背景图
+                var $bgItem= $("#"+self.canvas.bgitem);
+                if($bgItem.length>0){
+                    $bgItem.data("select",1);
+                    $bgItem.find(".glyphicon").show();
+                }
+
+                $('.bgItem').off('click')
+                $('.bgItem').on('click',function(){
+                     var flag=$(this).data('select');
+                     var id=$(this).attr('id');
+                     if(flag==1){
+                       $(this).data('select',0);
+                       $(this).find('.glyphicon').hide();
+                       var bk={'background':'none'};
+                       self.canvas.setBK(bk);
+                       self.bkimage=false;
+                       self.setStyle(self.canvas.style);
+                       self.canvas.bgitem=0;
+                     }else {
+
+                        var image_src = $(this).data('src');
+                        var bk={'background':'url('+image_src+') 50% 50% / auto 100% repeat'}
+                        self.bkimage=bk;
+                        self.canvas.setBK(bk);
+                        $(this).find('.glyphicon').show();
+                        self.canvas.bgitem=id;
+                       $(this).data('select',1);
+                     }
+                })
+
+
 
             }, //end of RenderHTML
             //TODO: 风格选择(done);
             setStyle: function(i) {
                 //'url(oss_core/pm/screendesigner/images/bk1.jpg)  50% 50% / auto 100% repeat'
                 var self = this;
+                var bk_arrts=self.bkimage;
                 if (i == 0) {
-                    self.canvas.setStyle(i, {
-                        'background': '#fff'
+                    self.canvas.setStyle(i, bk_arrts|| {
+                        'background-color': '#fff'
                     })
                 } else {
-                    self.canvas.setStyle(i, {
-                        'background':'#000'
+                    self.canvas.setStyle(i, bk_arrts||{
+                        'background-color':'#000'
                     })
 
                 }

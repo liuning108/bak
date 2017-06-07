@@ -23,10 +23,10 @@
     this.customAttributes.charsbarnum = function(num, num2) {
       var label = this.data('label');
       var result = '';
-      if (format) {
-        result = Math.floor(num);
-      } else {
-        result = Math.floor(num);
+      result=Number(num).toFixed(1);
+      affix_num=result.split(".")[1];
+      if(affix_num==0){
+          result=result.split(".")[0];
       }
       return {
         'text': result+label
@@ -79,6 +79,11 @@
     // }
     numobj.setValue = setValue;
     numobj.getValue = getValue;
+
+    numobj.setUnit=function(unit){
+       numobj.data('label', unit);
+       numobj.setValue(value,doneFun);
+    }
     return numobj;
   }
 }));

@@ -33,6 +33,15 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GArcProcessConfig.ht
             title_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setTitleColor(color)
             })
+            //getRateValue
+            //setRateValue
+            $parent.find('.g_nums').on('change',function(){
+                 self.gText.setRateValue($(this).val());
+            })
+
+            $parent.find('.g_nums').val(this.gText.getRateValue());
+
+
 
             return this;
         }

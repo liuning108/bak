@@ -19,8 +19,8 @@ define([
             {
 
                 var name=this.names[i];
-                var value=fish.random(58, 166);
-                var per=value/180;
+                var value=fish.random(80, 98);
+                var per=value/100;
                 var color=this.colors[i%this.colors.length];
                 var item=self.createItem(i,x,y,name,color,per,value);
                 this.doms['item'+i]=item.set;

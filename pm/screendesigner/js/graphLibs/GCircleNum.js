@@ -12,6 +12,8 @@ define([
             var x=0;
             var y=0;
             var r=100;
+            this.attrs.unit=this.attrs.unit||'';
+            this.attrs.val=this.attrs.val||fish.random(300,999);
 
             this.doms['circle']=this.paper.circle(x,y,r).attr({
                 'fill':titleColor,
@@ -29,8 +31,8 @@ define([
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': x,
                 'y': y,
-                'value': 0,
-                'showLabel':'万',
+                'value': this.attrs.val,
+                'showLabel':this.attrs.unit,
                 attrs: {
                     'fill': '#ffffff',
                     'font-size': r/3,
@@ -56,17 +58,31 @@ define([
         },
 
         getData: function() {
-            var self = this;
-            var intervalTime=1000*60*5;
-            self.doms['nums'].setValue(fish.random(99, 666));
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
+            // var self = this;
+            // var intervalTime=1000*60*5;
+            // self.doms['nums'].setValue(fish.random(99, 666));
+            // setTimeout(function() {
+            //     self.getData();
+            // }, intervalTime);
         },
-
+        setUnit:function(unit){
+            this.doms['nums'].setUnit(unit);
+            this.attrs.unit=unit;
+        },
+        getUnit:function(){
+          return this.attrs.unit;
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
+        },
+
+        setValue:function(val){
+         this.doms['nums'].setValue(val);
+         this.attrs.val=val;
+        },
+        getValue:function(){
+         return this.attrs.val;
         },
         setTitle: function(text) {
             this.doms['title'].attr({

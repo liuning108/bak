@@ -1,4 +1,4 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCharacterConfig.html",
+define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCircleNumConfig.html",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
 ], function(tpl) {
@@ -33,7 +33,17 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCharacterConfig.htm
             title_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setTitleColor(color)
             })
-            
+
+            $parent.find('.g_nums').on('change',function(){
+                 self.gText.setValue($(this).val());
+            })
+            $parent.find('.g_nums').val(this.gText.getValue());
+
+            $parent.find('.g_unit').on('change',function(){
+                 self.gText.setUnit($(this).val());
+            })
+            $parent.find('.g_unit').val(this.gText.getUnit());
+
             return this;
         }
 
