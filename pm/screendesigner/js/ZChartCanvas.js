@@ -23,7 +23,8 @@ define([
         'ProgressBar':"oss_core/pm/screendesigner/js/graphLibs/GProgressBar",
         'IconBar':"oss_core/pm/screendesigner/js/graphLibs/GIconBar",
         'MoveBar':"oss_core/pm/screendesigner/js/graphLibs/GMoveBar",
-
+        'NumsBar':"oss_core/pm/screendesigner/js/graphLibs/GNumsBar",
+        'CircularRing':'oss_core/pm/screendesigner/js/graphLibs/GCircularRing'
     };
     var uuid = function() {
         var s = [];

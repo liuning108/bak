@@ -35,6 +35,8 @@ define([
                 'click .progressBar':'addProgressBar',
                 'click .IconBar':'addIconBar',
                 'click .MoveBar':'addMoveBar',
+                'click .numsBar':'addNumsBar',
+                'click .circularRing':'addCircularRing',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -296,6 +298,24 @@ define([
                 this.canvas.addNode({
                     'attrs': {
                         'type': 'MoveBar'
+                    }
+                });
+                self.closeMenu();
+            },
+            addNumsBar:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'NumsBar'
+                    }
+                });
+                self.closeMenu();
+            },
+            addCircularRing:function(){
+                var self =this;
+                this.canvas.addNode({
+                    'attrs': {
+                        'type': 'CircularRing'
                     }
                 });
                 self.closeMenu();

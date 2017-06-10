@@ -58,6 +58,8 @@ define([
         },
 
         getData: function() {
+
+
             // var self = this;
             // var intervalTime=1000*60*5;
             // self.doms['nums'].setValue(fish.random(99, 666));
