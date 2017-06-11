@@ -24,7 +24,12 @@ define([
         'IconBar':"oss_core/pm/screendesigner/js/graphLibs/GIconBar",
         'MoveBar':"oss_core/pm/screendesigner/js/graphLibs/GMoveBar",
         'NumsBar':"oss_core/pm/screendesigner/js/graphLibs/GNumsBar",
-        'CircularRing':'oss_core/pm/screendesigner/js/graphLibs/GCircularRing'
+        'CircularRing':'oss_core/pm/screendesigner/js/graphLibs/GCircularRing',
+        'PieBase':'oss_core/pm/screendesigner/js/graphLibs/GPieBase',
+        'LineBase':'oss_core/pm/screendesigner/js/graphLibs/GLineBase',
+        'StripLineBase':'oss_core/pm/screendesigner/js/graphLibs/GStripLineBase',
+        'TableBase':'oss_core/pm/screendesigner/js/graphLibs/GTableBase',
+        'BarBase':'oss_core/pm/screendesigner/js/graphLibs/GBarBase',
     };
     var uuid = function() {
         var s = [];

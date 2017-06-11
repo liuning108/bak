@@ -37,6 +37,11 @@ define([
                 'click .MoveBar':'addMoveBar',
                 'click .numsBar':'addNumsBar',
                 'click .circularRing':'addCircularRing',
+                'click .PieBase':'addPieBase',
+                'click .LineBase':'addLineBase',
+                'click .TableBase':'addTableBase',
+                'click .BarBase':'addBarBase',
+                'click .StripLineBase':'addStripLineBase',
                 'click #saveButton': 'saveButton',
                 'click #perviewButton': 'perviewButton',
                 'click .canvaset': 'RenderView',
@@ -168,6 +173,7 @@ define([
                         'type': 'rect'
                     }
                 });
+                self.closeMenu();
 
             },
             addText: function() {
@@ -195,6 +201,7 @@ define([
                         'type': 'StripBar'
                     }
                 });
+                self.closeMenu();
             },
             addPieRing:function(){
                 var self = this;
@@ -203,6 +210,7 @@ define([
                         'type': 'PieRing'
                     }
                 });
+                self.closeMenu();
             },
             addNodes:function(){
 
@@ -212,6 +220,7 @@ define([
                         'type': 'Nodes'
                     }
                 });
+                self.closeMenu();
             },
             addStripLine:function(){
                 var self = this;
@@ -236,6 +245,7 @@ define([
                         'type': 'Annular'
                     }
                 });
+                self.closeMenu();
             },
             addCharacter:function(){
                   var self =this;
@@ -320,6 +330,52 @@ define([
                 });
                 self.closeMenu();
             },
+            addPieBase:function(){
+              var self =this;
+              this.canvas.addNode({
+                  'attrs': {
+                      'type': 'PieBase'
+                  }
+              });
+              self.closeMenu();
+            },
+            addLineBase:function(){
+              var self =this;
+              this.canvas.addNode({
+                  'attrs': {
+                      'type': 'LineBase'
+                  }
+              });
+              self.closeMenu();
+            },
+            addStripLineBase:function(){
+              var self =this;
+              this.canvas.addNode({
+                  'attrs': {
+                      'type': 'StripLineBase'
+                  }
+              });
+              self.closeMenu();
+            },
+            addTableBase:function(){
+              var self =this;
+              this.canvas.addNode({
+                  'attrs': {
+                      'type': 'TableBase'
+                  }
+              });
+              self.closeMenu();
+
+            },
+            addBarBase:function(){
+              var self =this;
+              this.canvas.addNode({
+                  'attrs': {
+                      'type': 'BarBase'
+                  }
+              });
+              self.closeMenu();
+            },
             checkSave:function(){
               var self =this;
               if(self.canvas.name.length<=0){
@@ -328,6 +384,7 @@ define([
               }
               return true;
             },
+
             saveButton: function() {
                 if(!this.checkSave()){
                     return;
