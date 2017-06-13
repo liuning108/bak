@@ -11,18 +11,39 @@
         <div id="tabs-setting" class="ui-tabs-panel">
             <div class="m_u_box">
                 <div class="bi-attr-edit-list-div">
-                    <h4>文本图标题设定</h4>
+                    <h4>数字图设置</h4>
+                    <!-- TODO:  位数(done)-->
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-3">
+                                <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
+                                 数字位数:
+                                </label>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div id="digit_nums" style="position:relative; top:12px;"></div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <input id="digit_nums_input" type="text" class="bi-input-number-range-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <!--TODO:  -->
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
                                 <form class="from-inline">
                                     <div class="form-group">
-                                        <label for="gtext_title" class="bi-lable">标题:</label>
-                                        <input type="text" class="gtext_title" name="gtext_title">
+                                        <label for="unit_title" class="bi-lable">数字单位:</label>
+                                        <input type="text" class="unit_title" name="unit_title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="gtext_colorpicker" class="bi-lable">标题颜色:</label>
+                                        <label for="gtext_colorpicker" class="bi-lable">数值颜色:</label>
                                         <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="panel_colorpicker" class="bi-lable">面板颜色:</label>
+                                        <input type="text" class="panel_colorpicker" name="panel_colorpicker">
                                     </div>
                                 </form>
                             </div>

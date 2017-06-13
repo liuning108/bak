@@ -5,7 +5,7 @@ define([
 
 ], function(GRoot, tpl) {
 
-    var GStripBar = GRoot.extend({
+    var GStripLine = GRoot.extend({
         initElement: function() {
             var x = 0;
             var y = 0;
@@ -16,17 +16,13 @@ define([
                 'y': y,
                 'keys': this.names
             });
-
             this.doms['linebar'] =this.linebar.allItem();
-
             this.doms['remove'] = this.paper.text(0,-350, '删除').attr({
                     'fill': 'red',
                     'font-size': 18,
                     'font-family': '微软雅黑',
                     'font-weight': 'bold'
                 });;
-
-
         },
         getData: function() {
 
@@ -46,8 +42,8 @@ define([
             }, intervalTime);
         },
         initLocation: function() {
-            this.ft.attrs.translate.x = 20;
-            this.ft.attrs.translate.y = 30;
+            this.ft.attrs.translate.x = 30;
+            this.ft.attrs.translate.y = 380;
         },
         addEvent: function() {
             var self=this;
@@ -62,7 +58,7 @@ define([
 
     })
 
-    return GStripBar;
+    return GStripLine;
 
 
 })

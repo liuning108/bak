@@ -80,9 +80,9 @@
     numobj.setValue = setValue;
     numobj.getValue = getValue;
 
-    numobj.setUnit=function(unit){
+    numobj.setUnit=function(unit,fun){
        numobj.data('label', unit);
-       numobj.setValue(value,doneFun);
+       numobj.setValue(value,fun||function(){});
     }
     return numobj;
   }

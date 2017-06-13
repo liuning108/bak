@@ -7,32 +7,38 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            var titleColor = this.attrs.titleColor || '#fde148';
+            var panelColor =this.attrs.PanelColor||'#006699';
+            this.attrs.titleColor=titleColor;
+            this.attrs.PanelColor=panelColor;
+            this.attrs.unit=this.attrs.unit||'元';
             var paper =this.paper;
             var x=0;
             var y =0;
             this.val=297270446;
             this.digits=[];
+            this.digits_text=this.paper.set();
+            this.digits_panel=this.paper.set();
             this.attrs.digits =this.attrs.digits|| 9;
 
 
             for (var i =0 ;i<this.attrs.digits; i++){
-              var digit_Item=self.createdigit(i,x,y)
+              var digit_Item=self.createdigit(i,x,y,titleColor,panelColor)
               this.digits.push(digit_Item);
               this.doms['digit'+i]=digit_Item.set;
+              this.digits_text.push(digit_Item.set[0]);
+              this.digits_panel.push(digit_Item.set[1]);
             }
 
 
-
-            var lastDig = this.digits[this.digits.length-1];
-            var unit_x=(lastDig.x+(lastDig.w+10))+lastDig.w/2;
-            var unit_y=lastDig.y+lastDig.h/2;
-            var unit=paper.text(unit_x,unit_y,'元').attr({
-                'fill': '#fde148',
+             var unitxy=self.getUnitXY();
+            var unit=paper.text(unitxy.x,unitxy.y,this.attrs.unit).attr({
+                'fill': titleColor,
                 'font-size': 42,
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });
+             this.digits_text.push(unit);
             this.doms['unit']=unit;
 
             // this.doms['title'] = this.paper.text(0, 0, title).attr({
@@ -45,12 +51,12 @@ define([
             // self.setTitleColor(titleColor);
             //
             //
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
             this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -59,8 +65,16 @@ define([
             });;
 
             this.setValue(this.val);
-            this.getData();
 
+        },
+        getUnitXY:function(){
+            var lastDig = this.digits[this.digits.length-1];
+            var unit_x=(lastDig.x+(lastDig.w+this.attrs.unit.length*12))+lastDig.w/2;
+            var unit_y=lastDig.y+lastDig.h/2;
+            return {
+                x:unit_x,
+                y:unit_y
+            };
         },
         getData:function(){
 
@@ -82,7 +96,7 @@ define([
         prefixInteger:function(val,length){
           return (Array(length).join('0') + val).slice(-length);
         },
-        createdigit:function(index,x,y){
+        createdigit:function(index,x,y,titleColor,panelColor){
              var paper =this.paper;
              var item ={};
              var w=60;
@@ -93,12 +107,12 @@ define([
              item.w=w;
              item.h=h;
              item.set =paper.set();
-             item.bgRect=paper.rect(item.x,item.y,w,h).attr({'fill':'#006699','stroke-width':0});
+             item.bgRect=paper.rect(item.x,item.y,w,h).attr({'fill':panelColor,'stroke-width':0});
              var num_x=item.x+w/2;
              var num_y=item.y+h/2;
 
              item.num=paper.text(num_x,num_y,"0").attr({
-                 'fill': '#fde148',
+                 'fill': titleColor,
                  'font-size': 42,
                  'font-family': '微软雅黑',
                  'font-weight': 'bold'
@@ -108,31 +122,58 @@ define([
              return item;
 
         },
+        getDigits:function(){
+            return this.attrs.digits;
+        },
+        setDigits:function(digits){
+             var self =this;
+             if (this.attrs.digits==digits)return;
+            console.log(digits);
+             this.attrs.digits=digits;
+             self.redarw();
+        },
+
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
         setTitle: function(text) {
+
             this.doms['title'].attr({
                 'text': text
             });
             this.attrs.title = text;
         },
         setTitleColor: function(color) {
-            this.doms['title'].attr({
-                'fill': "" + color
-            });
-            console.log("" + color)
+            this.digits_text.attr({
+               'fill': "" + color
+            })
             this.attrs.titleColor = "" + color;
         },
+        setPanelColor:function(color){
+            this.digits_panel.attr({
+               'fill': "" + color
+            })
+            this.attrs.PanelColor = "" + color;
+        },
 
+        getUnit:function(){
+          return this.attrs.unit;
+        },
+       setUnit:function(text){
+               this.attrs.unit=text;
+               var unit_x=this.getUnitXY().x;
+               this.doms['unit'].attr({"text":text,'x':unit_x});
+        },
         getTitle: function() {
             return this.attrs.title;
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
-
+        getPanelColor:function(){
+              return this.attrs.PanelColor;
+        },
         addEvent: function() {
                 var self = this;
             // TODO:配置删除(node)

@@ -7,7 +7,7 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            var titleColor = this.attrs.titleColor || '#00abff';
             var icon_path =this.attrs.iconPath || '1.png'
             this.attrs.iconPath=icon_path;
             var paper=this.paper;

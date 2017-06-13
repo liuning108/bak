@@ -223,12 +223,14 @@ define([
                 self.closeMenu();
             },
             addStripLine:function(){
+
                 var self = this;
                 this.canvas.addNode({
                     'attrs': {
                         'type': 'StripLine'
                     }
                 });
+                self.closeMenu();
             },
             addPileBar:function(){
                 var self = this;
@@ -237,6 +239,7 @@ define([
                         'type': 'PileBar'
                     }
                 });
+                self.closeMenu();
             },
             addAnnular:function(){
                 var self = this;

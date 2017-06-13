@@ -42,7 +42,16 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GProgressBarConfig.h
             label_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setProcessColor(color)
             })
-
+            //分子标题
+           $parent.find('.member_title').val(this.gText.getMemberTitle());
+           $parent.find('.member_title').on('change',function(){
+                  self.gText.setMemberTitle($(this).val());
+           });
+           //分母标题
+           $parent.find('.denominator_title').val(this.gText.getDenominatorTitle());
+           $parent.find('.denominator_title').on('change',function(){
+                  self.gText.setDenominatorTitle($(this).val());
+           });
             return this;
         }
 

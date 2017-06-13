@@ -335,20 +335,31 @@ TODO:属性页板--子页板 (done)
 /* TODO: tool_chart */
 
 .tool_chart {
-    padding: 25px;
+    padding: 0px;
+    margin: 0px !important;
 }
 
 .tool_chart li {
-    text-align: center;
+    width: 100% !important;
+    /*text-align: center;
     border: 1px solid #eee;
     margin: 2px;
     height: 75px;
     max-width: 72px;
-    margin: 2px !important;
+    margin: 2px !important;*/
+}
+
+.tool_chart li .tool_chart_box {
+    width: 100% !important;
+    float: left;
 }
 
 .tool_chart li a {
+    border: 1px solid red;
     color: #333;
+    float: left !important;
+    border: 1px solid #eee;
+    margin: 2px;
     height: auto;
     padding: 10px 0;
     width: 70px;
@@ -364,6 +375,14 @@ TODO:属性页板--子页板 (done)
 
 .tool_chart li a p {
     padding-top: 5px;
+}
+
+.tool_chart h4 {
+    height: 30px;
+    line-height: 30px;
+    padding: 0 20px;
+    background: #f5f5f5;
+    font-size: 12px;
 }
 
 i.icon_chart17 {
@@ -425,14 +444,14 @@ i.icon_chart29 {
 i.icon_chart30 {
     background-position: -732px -83px;
 }
-i.icon_chart31{
+
+i.icon_chart31 {
     background-position: -782px -83px;
 }
 
-i.icon_chart32{
+i.icon_chart32 {
     background-position: -830px -88px;
 }
-
 
 i.icon_chart19 {
     background-position: -932px -32px;
@@ -443,10 +462,11 @@ i.icon_chart10 {
 }
 
 i.icon_chart33 {
-  background-position: -482px -32px;
+    background-position: -482px -32px;
 }
-i.icon_chart35{
-      background-position: -832px -32px;
+
+i.icon_chart35 {
+    background-position: -832px -32px;
 }
 
 
@@ -711,49 +731,48 @@ i.icon_chart35{
     height: 560px;
 }
 
-.GICON{
+.GICON {
     width: 64px;
     height: 64px;
-    float:left;
+    float: left;
     cursor: pointer;
     border: 1px solid #e0e4e8;
     margin-left: 6px;
-    text-align:center;
+    text-align: center;
     align-content: center;
 }
-.GICON:hover{
+
+.GICON:hover {
     background: #ededed;
 }
 
-.bgItem{
+.bgItem {
     width: 74px;
     height: 46px;
-
-    float:left;
+    float: left;
     cursor: pointer;
     border: 1px solid #c9dff5;
     margin-left: 6px;
-    text-align:center;
+    text-align: center;
     align-content: center;
-
-}
-.bgItem .glyphicon{
- position: relative;
- display: none;
- color: #0cdbbb;
- top:-10px;
- left:20px;
- z-index: 5;
-
 }
 
-.bgItem img{
+.bgItem .glyphicon {
+    position: relative;
+    display: none;
+    color: #0cdbbb;
+    top: -10px;
+    left: 20px;
+    z-index: 5;
+}
+
+.bgItem img {
     display: inline;
-    top:2.5px;
+    top: 2.5px;
     left: 0px;
-     position: relative;
+    position: relative;
 }
 
-.bgItem:hover{
+.bgItem:hover {
     background: #ededed;
 }

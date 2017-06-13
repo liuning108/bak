@@ -60,7 +60,7 @@
         inst.elements = [];
         inst.max = 0;
         inst.limit_max = 0;
-        inst.set=paper.set();
+        inst.set = paper.set();
 
         inst.inputData = function(datas, now) {
             if (inst.datas.length > inst.maxItem) {
@@ -119,7 +119,7 @@
                     var item_y = item.y - (inst.config.high - (35 * i));
                     var val = findValueByKey(item.datas, key);
                     inst.listbar[key].text = paper.text(item_x + 100 / 2, item_y + 30 / 2, key).attr(inst.styles.FontStyle2);
-                   inst.set.push(inst.listbar[key].text)
+                    inst.set.push(inst.listbar[key].text)
                     inst.listbar[key].value = paper.chartsNumbser({
                         'x': item_x + 80 + 100 / 2,
                         'y': item_y + 30 / 2,
@@ -273,18 +273,18 @@
             }
         } //end of max;
 
-        for (var i=0;i<inst.maxItem+1;i++){
-            var initDatas=[]
-            fish.each(inst.config.keys,function(name){
+        for (var i = 0; i < inst.maxItem + 1; i++) {
+            var initDatas = []
+            fish.each(inst.config.keys, function(name) {
                 initDatas.push({
-                    'name':name,
-                    'value':fish.random(99, 999),
+                    'name': name,
+                    'value': fish.random(99, 999),
                 })
             })
-            inst.inputData(initDatas,''+i);
+            inst.inputData(initDatas, '' + i);
         }
 
-        inst.allItem=function(){
+        inst.allItem = function() {
             return inst.set;
         }
 

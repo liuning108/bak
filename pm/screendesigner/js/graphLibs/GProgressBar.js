@@ -9,6 +9,8 @@ define([
             var title = this.attrs.title || '文字名称';
             var titleColor = this.attrs.titleColor || '#e7e7e7';
             var processColor= this.attrs.processColor||'#01b1f1';
+            this.attrs.memberTitle=this.attrs.memberTitle||'增幅';
+            this.attrs.denominatorTitle=this.attrs.denominatorTitle||'总量'
             this.attrs.processColor=processColor;
             var paper =this.paper;
             var set =paper.set();
@@ -45,8 +47,8 @@ define([
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': nums_x,
                 'y': nums_y,
-                'value': 0,
-                'showLabel':'(增幅)/',
+                'value': num1,
+                'showLabel':self.getValueUnit(),
                 attrs: {
                     'fill': titleColor,
                     'font-size': 20,
@@ -57,30 +59,27 @@ define([
 
 
 
-            var nums_box =this.doms['nums'].getBBox(true);
-            var nums2_x=nums_box.x+nums_box.width*1.7;
-            var nums2_y=title_y;
-
-
-            this.doms['nums2'] = this.paper.chartsNumbser({
-                'x': nums2_x,
-                'y': nums2_y,
-                'value': 999,
-                'showLabel':'(总量)',
-                attrs: {
-                    'fill': titleColor,
-                    'font-size': 20,
-                    'font-family': '微软雅黑',
-                    'font-weight': 'bold'
-                }
-            });
-
-            this.doms['nums'].setValue(num1,function(){
-                var nums_box =self.doms['nums'].getBBox(true);
-                var nums2_x=nums_box.x+nums_box.width*1.5;
-                self.doms['nums2'].attr({"x":nums2_x});
-            })
-
+            // var nums_box =this.doms['nums'].getBBox(true);
+            // var nums2_x=nums_box.x+nums_box.width*1.7;
+            // var nums2_y=title_y;
+            //
+            //
+            // this.doms['nums2'] = this.paper.chartsNumbser({
+            //     'x': nums2_x,
+            //     'y': nums2_y,
+            //     'value': 999,
+            //     'showLabel':'('+this.attrs.denominatorTitle+')',
+            //     attrs: {
+            //         'fill': titleColor,
+            //         'font-size': 20,
+            //         'font-family': '微软雅黑',
+            //         'font-weight': 'bold'
+            //     }
+            // });
+            //
+            // this.doms['nums'].setValue(num1,function(){
+            //     self.changePostions(nums_box);
+            // })
 
             var nums3_x=nums_x+40;
             var nums3_y=nums_y-30;
@@ -103,8 +102,6 @@ define([
             self.setTitle(title);
             self.setTitleColor(titleColor);
 
-
-
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -119,7 +116,26 @@ define([
             });;
 
         },
-
+        getValueUnit:function(){
+            var num2_text='999('+this.attrs.denominatorTitle+')';
+           return '('+this.attrs.memberTitle+')/'+num2_text;
+        },
+        getMemberTitle:function(){
+         return this.attrs.memberTitle;
+        },
+        setMemberTitle:function(title){
+            var self =this;
+            this.attrs.memberTitle=title;
+            this.doms['nums'].setUnit(self.getValueUnit());
+        },
+        getDenominatorTitle:function(){
+          return this.attrs.denominatorTitle;
+        },
+        setDenominatorTitle:function(title){
+            var self =this;
+            this.attrs.denominatorTitle=title;
+            this.doms['nums'].setUnit(self.getValueUnit());
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
@@ -136,10 +152,6 @@ define([
             });
 
             this.doms['nums'].attr({
-                'fill': "" + color
-            });
-
-            this.doms['nums2'].attr({
                 'fill': "" + color
             });
             console.log("" + color)

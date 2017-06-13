@@ -8,10 +8,10 @@ define([], function() {
             this.domsSet = this.paper.set();
             this.doms = {};
             this.ft = null;
-
             this.initAll();
         },
         initAll: function() {
+
             this.initElement();
             this.merge();
             this.createFt();
@@ -84,18 +84,19 @@ define([], function() {
             })
             this.domsSet.push(this.gbox);
 
-            this.ft = this.paper.freeTransform(this.domsSet, {
-                keepRatio: true,
-                'rotate': false,
-                attrs: {
-                    'fill': '#36b0c8',
-                    'stroke': '#36b0c8'
-                },
-                scale: ['bboxCorners', 'bboxSides'],
-                draw: ['bbox']
-            }, function(subject, events) {
-               self.ftcallBack(subject,events)
-            });
+                this.ft = this.paper.freeTransform(this.domsSet, {
+                    keepRatio: true,
+                    'rotate': false,
+                    attrs: {
+                        'fill': '#1dd7fc',
+                        'stroke': '#1dd7fc'
+                    },
+                    scale: ['bboxCorners', 'bboxSides'],
+                    draw: ['bbox']
+                }, function(subject, events) {
+                   self.ftcallBack(subject,events)
+               });
+
             if (this.attrs.ft_attrs) {
                 this.attrs.ft_attrs.center.x = this.ft.attrs.center.x
                 this.attrs.ft_attrs.center.y = this.ft.attrs.center.y
@@ -112,7 +113,7 @@ define([], function() {
         initLocation: function() {},
         merge: function() {
             var self = this;
-            fish.each(this.doms, function(dom) {
+            fish.each(this.doms, function(dom,index) {
                 self.domsSet.push(dom)
             })
         },
@@ -125,6 +126,15 @@ define([], function() {
 
             this.domsSet.hide();
 
+        },
+        redarw:function(){
+          this.domsSet.remove();
+          this.doms = {};
+          this.domsSet=this.paper.set();
+          this.ft.unplug();
+          this.ft=null;
+          this.initAll();
+          this.show();
         },
         remove: function() {
             this.domsSet.remove();
