@@ -128,7 +128,6 @@ define([
         setDigits:function(digits){
              var self =this;
              if (this.attrs.digits==digits)return;
-            console.log(digits);
              this.attrs.digits=digits;
              self.redarw();
         },

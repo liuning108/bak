@@ -127,7 +127,7 @@ define([], function() {
             this.domsSet.hide();
 
         },
-        redarw:function(){
+        redraw:function(){
           this.domsSet.remove();
           this.doms = {};
           this.domsSet=this.paper.set();

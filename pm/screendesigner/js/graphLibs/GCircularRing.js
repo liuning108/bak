@@ -17,7 +17,6 @@ define([
             var outR=r+thickness;
             var paper=this.paper;
             var colors=['#1c7099','#1790cf','#1bb2d8','#99d2dd','#88b0bb'];
-            
             var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
             var datas=[];
             var sum =0;

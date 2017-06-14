@@ -13,25 +13,26 @@ define([
             return this;
         },
 
-
         afterRender: function() {
             var self = this;
             var $parent =$("#tabs");
             $parent.tabs(); //Tab页
             var $g_x=$parent.find('.g_x');
             var $g_x_sure=$parent.find('.g_x_sure');
-            $g_x.val(this.g.getXAxisNams().join(','));
+            $g_x.val(this.g.getNames().join(','));
             $g_x_sure.off('click');
             $g_x_sure.on('click',function(){
                   var names=$g_x.val().split(",");
-                  self.g.setXAxisNams(names);
+                  self.g.setNames(names);
                   return false;
             })
-        
+            //ON /OFF
+            $parent.find('.switchGrid').on('change',function(){
+                var checked=$(this).is(':checked');
+                self.g.setSwitchWarring(checked);
+            })
 
-
-
-        }
+        },
 
 
     })
