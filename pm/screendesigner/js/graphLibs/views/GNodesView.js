@@ -27,11 +27,72 @@ define([
                   return false;
             })
             //ON /OFF
-            $parent.find('.switchGrid').on('change',function(){
+
+            var $switchGrid=$parent.find('.switchGrid');
+            var falg =self.g.getSwitchWarring()=='on'?true:false;
+
+
+            $switchGrid.attr("checked" ,falg);
+            self.levelConfig($parent,falg);
+            $switchGrid.on('change',function(){
                 var checked=$(this).is(':checked');
+                self.levelConfig($parent,checked);
                 self.g.setSwitchWarring(checked);
+
             })
 
+
+            var font_colorpicker = $parent.find(".font_text_colorpicker").colorpicker();
+            font_colorpicker.colorpicker("set", self.g.getFontColors());
+            font_colorpicker.on("move.colorpicker", function(e, color) {
+              self.g.setFontColors(color)
+            });
+
+
+            //正常
+            $('.normal_text').val(self.g.getNormalText());
+            $('.normal_text').off("change");
+            $('.normal_text').on("change",function(){
+               self.g.setNormalText($(this).val());
+            })
+
+            var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
+            title_colorpicker.colorpicker("set", self.g.getColors(0));
+            title_colorpicker.on("move.colorpicker", function(e, color) {
+              self.g.setColors(0,color)
+            });
+
+            //urgency
+            $('.urgency_text').val(self.g.getUrgencyText());
+            $('.urgency_text').off("change");
+            $('.urgency_text').on("change",function(){
+               self.g.setUrgencyText($(this).val());
+            })
+            var title_colorpicker2 = $parent.find(".gtext_colorpicker2").colorpicker();
+            title_colorpicker2.colorpicker("set", self.g.getColors(1));
+            title_colorpicker2.on("move.colorpicker", function(e, color) {
+                    self.g.setColors(1,color);
+            });
+            //risk
+            $('.risk_text').val(self.g.getRiskText());
+            $('.risk_text').off("change");
+            $('.risk_text').on("change",function(){
+               self.g.setRiskText($(this).val());
+            })
+            var title_colorpicker3 = $parent.find(".gtext_colorpicker3").colorpicker();
+            title_colorpicker3.colorpicker("set", self.g.getColors(2));
+            title_colorpicker3.on("move.colorpicker", function(e, color) {
+                  self.g.setColors(2,color);
+            });
+
+        },
+        levelConfig:function($parent,flag){
+          var $levelconfg=$parent.find('.levelConfig')
+          if (flag){
+           $levelconfg.show();
+          }else{
+           $levelconfg.hide();
+          }
         },
 
 

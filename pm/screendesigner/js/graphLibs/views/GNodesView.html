@@ -1,63 +1,103 @@
 <div class="sdesigner">
-    <div id="tabs" class="ui-tabs">
-        <ul class="ui-tabs-nav">
-            <li>
-                <a href="#tabs-setting">设置</a>
-            </li>
-            <li>
-                <a href="#tabs-other-setting">数据源</a>
-            </li>
-        </ul>
-        <div id="tabs-setting" class="ui-tabs-panel">
-            <div class="m_u_box">
+  <div id="tabs" class="ui-tabs">
+    <ul class="ui-tabs-nav">
+      <li>
+        <a href="#tabs-setting">设置</a>
+      </li>
+      <li>
+        <a href="#tabs-other-setting">数据源</a>
+      </li>
+    </ul>
+    <div id="tabs-setting" class="ui-tabs-panel">
+      <div class="m_u_box">
 
 
 
-                <div class="bi-attr-edit-list-div">
-                    <h4>节点设置</h4>
-                    <div class="bi-attr-edit-list-div-rengs">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <form class="from-inline">
-                                    <div class="form-group">
-                                        <label for="g_x" class="bi-lable">节点:</label>
-                                        <input type="text" class="g_x" name="g_x">
-                                        <label class="g_x_sure">确定</label>
-                                    </div>
+        <div class="bi-attr-edit-list-div">
+          <h4>节点设置</h4>
+          <div class="bi-attr-edit-list-div-rengs">
+            <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="g_x" class="bi-lable">节点列表:</label>
+                    <input type="text" class="g_x" name="g_x">
+                    <label class="g_x_sure">确定</label>
+                  </div>
+                  <div class="form-group">
+                    <label for="font_text_colorpicker" class="bi-lable">字体颜色:</label>
+                    <input type="text" class="font_text_colorpicker" name="font_text_colorpicker">
+                  </div>
+                  <div class="form-group">
+                    <label for="g_x" class="bi-lable">背景颜色:</label>
+                  </div>
 
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                <div class="bi-attr-edit-list-div">
-                    <h4>预警设置</h4>
+        <div class="bi-attr-edit-list-div">
+          <h4>预警设置</h4>
 
-                    <!-- TODO: 开 /  关(doing) -->
-                    <div class="bi-attr-edit-list-div-rengs">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-4">
-                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">开/关:</lable>
-                            </div>
-                            <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
-                                <label class="switch">
+          <!-- TODO: 开 /  关(doing) -->
+          <div class="bi-attr-edit-list-div-rengs">
+            <div class="row">
+              <div class="col-md-4 col-sm-4">
+                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">开/关:</lable>
+              </div>
+              <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                <label class="switch">
                                     <input type="checkbox" checked="true" class='switchGrid'>
                                     <span style=""></span>
                                  </label>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
+              </div>
             </div>
-        </div>
-        <div id="tabs-other-setting" class="ui-tabs-panel">
+          </div>
+          <!-- TODO: 预警值标1(doing) -->
+          <div class="bi-attr-edit-list-div-rengs levelConfig">
+            <div class="row">
+              <div class="col-md-12">
+
+                  <div class="form-group">
+                    <div class="table-responsive">
+                      <table class="table" >
+                        <tr>
+                           <th>名称</th>
+                           <th>颜色</th>
+                           <th>值(<=)</th>
+                        </tr>
+                        <tr>
+                          <td class="table-input"><input type="text" class="normal_text"></input></td>
+                          <td><input type="text" class="gtext_colorpicker" name="gtext_colorpicker"></td>
+                          <td>100</td>
+                        </tr>
+                        <tr>
+                          <td class="table-input"><input type="text" class="urgency_text"></input></td>
+                          <td><input type="text" class="gtext_colorpicker2" name="gtext_colorpicker2"></td>
+                          <td>200</td>
+                        </tr>
+                        <tr>
+                          <td class="table-input"><input type="text" class="risk_text"></input></td>
+                          <td><input type="text" class="gtext_colorpicker3" name="gtext_colorpicker3"></td>
+                          <td>300</td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+
         </div>
 
+
+
+
+      </div>
     </div>
+    <div id="tabs-other-setting" class="ui-tabs-panel">
+    </div>
+
+  </div>
 </div>

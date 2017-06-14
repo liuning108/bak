@@ -46,9 +46,10 @@
         inst.config.keys = config.keys;
         inst.config.space = config.space || 118;
         inst.config.circle_r = 20;
-        var colors = ['#02b8ed', '#dca708', '#f70202'];
+        var colors = config.colors||['#02b8ed', '#dca708', '#f70202'];
+        var font_color=config.fontColor||"#fff";
         inst.styles.labelFontStyle = {
-            'fill': '#ffffff',
+            'fill': font_color,
             'font-size': 18,
             'font-family': '微软雅黑',
             'font-weight': 'bold'
@@ -75,7 +76,7 @@
             'opacity': 0.9
         }
         inst.styles.valueFontStyle = {
-            'fill': '#ffffff',
+            'fill': font_color,
             'font-size': 18,
             'font-family': '微软雅黑',
             'font-weight': 'bold'

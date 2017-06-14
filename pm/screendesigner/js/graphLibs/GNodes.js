@@ -11,9 +11,16 @@ define([
       var paper = this.paper;
      this.attrs.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
      this.attrs.switchWarring=this.attrs.switchWarring||"on";
-      this.nodes = paper.chartsProcess({
+     this.attrs.normalText=this.attrs.normalText||'正常';
+     this.attrs.UrgencyText=this.attrs.UrgencyText||'紧急';
+     this.attrs.RiskText=this.attrs.RiskText||'危机';
+     this.attrs.colors=this.attrs.colors||['#02b8ed', '#dca708', '#f70202'];
+     this.attrs.fontColor=this.attrs.fontColor||"#fff";
+     this.nodes = paper.chartsProcess({
         'x': x,
         'y': y,
+        'colors':this.attrs.colors,
+        'fontColor':this.attrs.fontColor,
         'keys': this.attrs.names
       })
       this.doms['nodes'] = this.nodes.allItem();
@@ -41,7 +48,7 @@ define([
     createWaring:function(x,y){
         var paper =this.paper;
         this.waring_arr=paper.set();
-        this.doms['label_t1'] = paper.text(x + 235, y + 30, '正常').attr({
+        this.doms['label_t1'] = paper.text(x + 235, y + 30, this.attrs.normalText).attr({
           'fill': '#02b7ec',
           'font-size': 18,
           'font-family': '微软雅黑',
@@ -55,7 +62,7 @@ define([
         })
         this.waring_arr.push(this.doms['label_r1']);
 
-        this.doms['label_t2'] = paper.text(x + 235 + 75, y + 30, '紧急').attr({
+        this.doms['label_t2'] = paper.text(x + 235 + 75, y + 30, this.attrs.UrgencyText).attr({
           'fill': '#fcc314',
           'font-size': 18,
           'font-family': '微软雅黑',
@@ -67,7 +74,7 @@ define([
           'stroke-width': 0
         })
             this.waring_arr.push(this.doms['label_r2']);
-        this.doms['label_t3'] = paper.text(x + 235 + 75 + 75, y + 30, '危险').attr({
+        this.doms['label_t3'] = paper.text(x + 235 + 75 + 75, y + 30, this.attrs.RiskText).attr({
           'fill': '#ff0000',
           'font-size': 18,
           'font-family': '微软雅黑',
@@ -112,10 +119,43 @@ define([
     getSwitchWarring:function(){
         return  this.attrs.switchWarring;
     },
+    getNormalText:function(){
+      return this.attrs.normalText;
+    },
+    setNormalText:function(val){
+      this.attrs.normalText=val;
+      this.redraw();
+    },
+    getUrgencyText:function(){
+      return this.attrs.UrgencyText;
+    },
+    setUrgencyText:function(val){
+        this.attrs.UrgencyText=val;
+        this.redraw();
+    },
+    getRiskText:function(){
+      return this.attrs.RiskText;
+    },
+    setRiskText:function(val){
+      this.attrs.RiskText=val;
+      this.redraw();
+    },
+    getColors:function(index){
+        return this.attrs.colors[index];
+    },
+    setColors:function(index,color){
+        this.attrs.colors[index]=""+color;
+        this.redraw();
+    },
+    getFontColors:function(){
+      return this.attrs.fontColor;
+    },
+    setFontColors:function(color){
+      this.attrs.fontColor=""+color;
+      this.redraw();
+    },
     addEvent: function() {
       var self = this;
-
-
       // TODO:配置属性(node)
       this.doms['config'].click(function(e) {
         var view = new View(self);

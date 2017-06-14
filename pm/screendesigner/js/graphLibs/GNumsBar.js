@@ -129,7 +129,7 @@ define([
              var self =this;
              if (this.attrs.digits==digits)return;
              this.attrs.digits=digits;
-             self.redarw();
+             self.redraw();
         },
 
         initLocation: function() {

@@ -776,3 +776,18 @@ i.icon_chart35 {
 .bgItem:hover {
     background: #ededed;
 }
+
+.table-input{
+  margin: 0px !important;
+  padding:0px !important;
+
+}
+
+.table-input input[type="text"]{
+  margin: 0px;
+  padding: 0px;
+  padding-left: 5px;
+  border:  none;
+  width: 90% !important;
+
+}

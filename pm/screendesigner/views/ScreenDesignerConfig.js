@@ -120,7 +120,7 @@ define([
                 var bk_arrts=self.bkimage;
                 if (i == 0) {
                     self.canvas.setStyle(i, bk_arrts|| {
-                        'background-color': '#fff'
+                        'background-color': '#fdfdfd'
                     })
                 } else {
                     self.canvas.setStyle(i, bk_arrts||{
