@@ -16,18 +16,22 @@ define([
      this.attrs.RiskText=this.attrs.RiskText||'危机';
      this.attrs.colors=this.attrs.colors||['#02b8ed', '#dca708', '#f70202'];
      this.attrs.fontColor=this.attrs.fontColor||"#fff";
+     this.attrs.values=this.attrs.values||[50,70,90];
      this.nodes = paper.chartsProcess({
         'x': x,
         'y': y,
         'colors':this.attrs.colors,
         'fontColor':this.attrs.fontColor,
+        'waring':this.attrs.values,
         'keys': this.attrs.names
       })
       this.doms['nodes'] = this.nodes.allItem();
 
 
       if(this.attrs.switchWarring=="on"){
-           this.createWaring(x,y);
+
+          var box=this.doms['nodes'].getBBox(true);
+           this.createWaring(x,y,box.width/3);
       };
 
 
@@ -45,47 +49,59 @@ define([
         'font-weight': 'bold'
       });;
     },
-    createWaring:function(x,y){
+    createWaring:function(x,y,w){
         var paper =this.paper;
         this.waring_arr=paper.set();
-        this.doms['label_t1'] = paper.text(x + 235, y + 30, this.attrs.normalText).attr({
-          'fill': '#02b7ec',
-          'font-size': 18,
-          'font-family': '微软雅黑',
-          'font-weight': 'bold'
-        })
-        this.waring_arr.push(this.doms['label_t1']);
+        var space=14;
+        var box={
+            'x':x+w,
+            'y':y,
+            'width':0,
+            'height':0,
+        }
+        var texts =[this.attrs.normalText,this.attrs.UrgencyText,this.attrs.RiskText];
 
-        this.doms['label_r1'] = paper.rect(x + 235 - 45, y + 20, 20, 20).attr({
-          'fill': '#02b7ec',
-          'stroke-width': 0
-        })
-        this.waring_arr.push(this.doms['label_r1']);
+       var items=[];
+        for (var i=0;i<texts.length;i++){
+            var item=this.createIconTextItem(i,box,space,y,texts)
+            items.push(item)
+            this.waring_arr.push(item);
+        }
 
-        this.doms['label_t2'] = paper.text(x + 235 + 75, y + 30, this.attrs.UrgencyText).attr({
-          'fill': '#fcc314',
+        var boxW= this.getMaxBox(items,'width');
+        for (var i=1;i<items.length;i++){
+              var item =items[i];
+              var tx=(boxW+space)*i;
+              item.translate(tx,0);
+        }
+
+
+
+    },
+    createIconTextItem:function(i,box,space,y,texts){
+        var paper=this.paper;
+        var item_x=box.x+box.width+space;
+        var item=this.paper.set();
+        // draw text
+        this.doms['label'+i] = paper.text(item_x, y + 30, texts[i]).attr({
+          'fill': this.getColors(i),
           'font-size': 18,
           'font-family': '微软雅黑',
           'font-weight': 'bold'
         })
-        this.waring_arr.push(this.doms['label_t2']);
-        this.doms['label_r2'] = paper.rect(x + 235 - 45 + 75, y + 20, 20, 20).attr({
-          'fill': '#fcc314',
+        box =this.doms['label'+i].getBBox(true);
+        //draw icon
+        this.doms['icon'+i] = paper.rect(0, y + 20, 20, 20).attr({
+          'fill': this.getColors(i),
           'stroke-width': 0
         })
-            this.waring_arr.push(this.doms['label_r2']);
-        this.doms['label_t3'] = paper.text(x + 235 + 75 + 75, y + 30, this.attrs.RiskText).attr({
-          'fill': '#ff0000',
-          'font-size': 18,
-          'font-family': '微软雅黑',
-          'font-weight': 'bold'
-        })
-         this.waring_arr.push(this.doms['label_t3']);
-        this.doms['label_r3'] = paper.rect(x + 235 - 45 + 75 + 75, y + 20, 20, 20).attr({
-          'fill': '#ff0000',
-          'stroke-width': 0
-        })
-        this.waring_arr.push(this.doms['label_r3']);
+
+
+        var iconBox=this.doms['icon'+i].getBBox();
+        this.doms['icon'+i].attr({'x':box.x-(iconBox.width+space)});
+        item.push(this.doms['label'+i]);
+        item.push(this.doms['icon'+i]);
+        return item;
     },
     getData: function() {
       var self = this;
@@ -100,6 +116,15 @@ define([
         sum += val;
       }
       this.nodes.inputData(datas);
+    },
+    getMaxBox:function(items,name){
+        var max =items[0].getBBox()[name];
+        for (var i=1;i<items.length;i++){
+            if(max<items[i].getBBox()[name]){
+                max=items[i].getBBox()[name]
+            }
+        }
+        return max
     },
     initLocation: function() {
       this.ft.attrs.translate.x = 20;
@@ -146,6 +171,16 @@ define([
     setColors:function(index,color){
         this.attrs.colors[index]=""+color;
         this.redraw();
+    },
+    getDefaultWaringColor:function(){
+        return ['#02b8ed', '#dca708', '#f70202']
+    },
+    getValues:function(){
+      return this.attrs.values;
+    },
+    setValues:function(index,val){
+       this.attrs.values[index]=val;
+       this.redraw();
     },
     getFontColors:function(){
       return this.attrs.fontColor;
