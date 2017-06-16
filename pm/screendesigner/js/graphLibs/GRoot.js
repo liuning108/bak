@@ -146,6 +146,14 @@ define([], function() {
             this.attrs.title = value;
             this.doms['title'].attr("text", value)
         },
+        ConfigEffect:function(){
+            if (TweenMax.isTweening(".configPanel")){
+                console.log("configPanel is TWEENING")
+                return
+            };
+            TweenMax.from(".configPanel", 1, {x:"200px"});
+
+        },
         json: function() {
             var json = {}
             json.id = this.id;

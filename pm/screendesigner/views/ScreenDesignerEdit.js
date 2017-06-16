@@ -80,6 +80,7 @@ define([
             },
 
             afterRender: function() {
+
                 var self = this;
                 this.RenderHTML();
                 this.RenderCanvas(function() {
@@ -93,6 +94,12 @@ define([
                 sdConfigView.render();
                 $(".configPanel").html(sdConfigView.$el);
                 sdConfigView.afterRender();
+                if (!TweenMax.isTweening(".configPanel")){
+                    TweenMax.from(".configPanel", 1, {x:"200px"});
+                };
+
+                //TweenMax.from(".configPanel", 1, {opacity:0.5});
+
             },
             // TODO: 单击子节点,关闭子节点页板(done)
             closeMenu: function() {

@@ -13,7 +13,9 @@ define([
         "oss_core/pm/screendesigner/js/raphael-min",
         "oss_core/pm/screendesigner/js/raphael.free_transform",
         "oss_core/pm/screendesigner/js/jquery.dcmegamenu.1.3.3",
-        "oss_core/pm/screendesigner/js/jquery.hoverIntent.minified"
+        "oss_core/pm/screendesigner/js/jquery.hoverIntent.minified",
+        "oss_core/pm/screendesigner/js/TweenMax.min",
+
     ],
     function(tpl, EditView, IndexView) {
 

@@ -101,6 +101,7 @@ define([
         var $panel = $('.configPanel');
         $panel.html(view.$el.html());
         view.afterRender();
+        self.ConfigEffect();
         e.stopImmediatePropagation();
       });
 
