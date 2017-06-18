@@ -7,115 +7,174 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
-            var paper=this.paper;
-            var x=0;
-            var y=0;
-            var space=100;
-            this.names=['地区','3G','4G','排名'];
+            this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.divideColor = this.attrs.divideColor || '#006598';
+            var paper = this.paper;
+            var x = 0;
+            var y = 0;
+            var space = 100;
+            this.attrs.titles = this.attrs.titles || ['地区', '3G', '4G'];
+            this.attrs.isSeqPos = this.attrs.isSeqPos || 1;
+            this.attrs.seqColor = this.attrs.seqColor || '#beb148';
+            this.attrs.seqName  =  this.attrs.seqName || "序号";
+            this.attrs.seqShow =this.attrs.seqShow || 'on'
 
-            var datas=[
-               ['长沙',fish.random(800,999),fish.random(800,999),1],
-               ['株洲',fish.random(700,800),fish.random(700,800),2],
-               ['湘潭',fish.random(600,700),fish.random(600,700),3],
-               ['邵阳',fish.random(500,600),fish.random(500,600),4],
-               ['岳阳',fish.random(400,500),fish.random(400,999),5],
-               ['常德',fish.random(300,400),fish.random(300,400),6],
-               ['益阳',fish.random(200,300),fish.random(200,300),7],
-               ['娄底',fish.random(100,200),fish.random(100,200),8],
-               ['郴州',fish.random(90,100),fish.random(90,100),9],
-               ['衡阳',fish.random(80,90),fish.random(80,90),10],
+
+            //this.attrs.titles.push('序号');
+
+            var heardes = this.attrs.titles;
+            if (this.attrs.seqShow=='on'){
+                if (this.attrs.isSeqPos == 1) {
+                    heardes = [this.attrs.seqName].concat(heardes);
+                } else {
+                    heardes = heardes.concat([this.attrs.seqName]);
+                };
+            }
+            console.log(heardes);
+            console.log("----------");
+            var datas = [
+                ['长沙', fish.random(800, 999), fish.random(800, 999)],
+                ['株洲', fish.random(700, 800), fish.random(700, 800)],
+                ['湘潭', fish.random(600, 700), fish.random(600, 700)],
+                ['邵阳', fish.random(500, 600), fish.random(500, 600)],
+                ['岳阳', fish.random(400, 500), fish.random(400, 999)],
+                ['常德', fish.random(300, 400), fish.random(300, 400)],
+                ['益阳', fish.random(200, 300), fish.random(200, 300)],
+                ['娄底', fish.random(100, 200), fish.random(100, 200)],
+                ['郴州', fish.random(90, 100), fish.random(90, 100)],
+                ['衡阳', fish.random(80, 90), fish.random(80, 90)],
             ]
 
-            var set= paper.set();
+            var set = paper.set();
             var item_box;
-            for (var i = 0 ; i <this.names.length;i++){
-                var name=this.names[i];
-                var item_x=x+(i*space);
-                this.doms['header'+i]=paper.text(item_x,y,name).attr({
-                      'fill': '#fff',
-                      'font-size': 18,
-                      'font-family': '微软雅黑',
-                      'font-weight': 'bold'
+            for (var i = 0; i < heardes.length; i++) {
+                var name = heardes[i];
+                var item_x = x + (i * space);
+                this.doms['header' + i] = paper.text(item_x, y, name).attr({
+                    'fill': this.attrs.titleColor,
+                    'font-size': 18,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
                 })
-                item_box=this.doms['header'+i].getBBox();
-                set.push(this.doms['header'+i])
+                item_box = this.doms['header' + i].getBBox();
+                set.push(this.doms['header' + i])
             }
-            var box =set.getBBox();
-            this.doms['headerLine']=paper.rect(x-item_box.width,y+box.height,box.width+item_box.width,1).attr({'stroke':'#006598','stroke-width':1});
+            var box = set.getBBox();
 
-           var data_x=x;
-           var data_y=y+box.height+box.height;
-            for (var i=0;i<datas.length;i++){
-              var data=datas[i];
-              var item_x=data_x;
-              var item_y=data_y+(box.height*i);
-              for(var j=0;j<data.length;j++){
-                var j_x=data_x+(j*space);
-                var color='#fff';
-                if(j==data.length-1)color='#beb148';
-                this.doms['data'+i+'_'+j]=paper.text(j_x,item_y,data[j]).attr({
-                      'fill': color,
-                      'font-size': 18,
-                      'font-family': '微软雅黑',
-                      'font-weight': 'bold'
-                })
+            this.titlesSet = set;
+            this.doms['headerLine'] = paper.rect(x - item_box.width, y + box.height, box.width + item_box.width, 1).attr({
+                'stroke': this.attrs.divideColor,
+                'stroke-width': 1
+            });
+            var data_x = x;
+            var data_y = y + box.height + box.height;
+            for (var i = 0; i < datas.length; i++) {
+                var data;
+                if (this.attrs.seqShow=='on'){
+                    if (this.attrs.isSeqPos == 1) {
+                        data = ([i + 1]).concat(datas[i]);
+                    } else {
+                        data = (datas[i]).concat([i + 1]);
+                    }
+                }else{
+                    data=datas[i];
+                }
 
-              }
+                var item_x = data_x;
+                var item_y = data_y + (box.height * i);
+                for (var j = 0; j < data.length; j++) {
+                    var j_x = data_x + (j * space);
+                    var color = '#fff';
+                    if (this.attrs.seqShow=='on'){
+                        if (j == data.length - 1 && this.attrs.isSeqPos == 2) color = this.attrs.seqColor;
+                        if (j == 0 && this.attrs.isSeqPos == 1) color = this.attrs.seqColor;
+                    }
+                    this.doms['data' + i + '_' + j] = paper.text(j_x, item_y, data[j]).attr({
+                        'fill': color,
+                        'font-size': 18,
+                        'font-family': '微软雅黑',
+                        'font-weight': 'bold'
+                    })
+
+                }
 
             }
-            // this.doms['title'] = this.paper.text(0, 0, title).attr({
-            //     'fill': titleColor,
-            //     'font-size': 30,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // self.setTitle(title);
-            // self.setTitleColor(titleColor);
-            //
-            //
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
+            this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
 
         },
+        setSeqShow:function(val){
+          this.attrs.seqShow=val;
+          this.redraw();
+        },
+        getSeqShow:function(){
+            return this.attrs.seqShow;
+        },
+        setSeqColor:function(color){
+            this.attrs.seqColor=""+color;
+            this.redraw();
+        },
+        getSeqColor:function(){
+            return this.attrs.seqColor;
+        },
+        getSeqName:function(){
+            return this.attrs.seqName;
+        },
+        setSeqName:function(val){
+            this.attrs.seqName = val;
+            this.redraw();
+        },
+        setSeqPos: function(val) {
 
+            this.attrs.isSeqPos = val
+
+            this.redraw();
+        },
+        getSeqPos: function() {
+            return this.attrs.isSeqPos;
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
-        setTitle: function(text) {
-            this.doms['title'].attr({
-                'text': text
-            });
-            this.attrs.title = text;
-        },
         setTitleColor: function(color) {
-            this.doms['title'].attr({
+            this.titlesSet.attr({
                 'fill': "" + color
             });
-            console.log("" + color)
             this.attrs.titleColor = "" + color;
         },
-
         getTitle: function() {
-            return this.attrs.title;
+            return this.attrs.titles;
+        },
+        setTitle: function(titles) {
+            this.attrs.titles = titles;
+            this.redraw();
+        },
+        getDivideColor: function() {
+            return this.attrs.divideColor;
+        },
+        setDivideColor: function(color) {
+            this.doms['headerLine'].attr({
+                'stroke': "" + color
+            })
+            this.attrs.divideColor = "" + color;
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
 
         addEvent: function() {
-          if(!this.doms['config'])return;
+            if (!this.doms['config']) return;
             var self = this;
             // TODO:配置属性(node)
             this.doms['config'].click(function(e) {
