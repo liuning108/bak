@@ -84,18 +84,18 @@ define([
       // self.setTitleColor(titleColor);
       //
       //
-      // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-      //     'fill': 'red',
-      //     'font-size': 18,
-      //     'font-family': '微软雅黑',
-      //     'font-weight': 'bold'
-      // });;
-      // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-      //     'fill': 'red',
-      //     'font-size': 18,
-      //     'font-family': '微软雅黑',
-      //     'font-weight': 'bold'
-      // });;
+    //   this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+    //       'fill': 'red',
+    //       'font-size': 18,
+    //       'font-family': '微软雅黑',
+    //       'font-weight': 'bold'
+    //   });;
+    //   this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+    //       'fill': 'red',
+    //       'font-size': 18,
+    //       'font-family': '微软雅黑',
+    //       'font-weight': 'bold'
+    //   });;
 
     },
     createPireBaseAttr: function() {

@@ -8,40 +8,40 @@ define([
             var self = this;
             var title = this.attrs.title || '文字名称';
             var titleColor = this.attrs.titleColor || '#ddff00';
-            var x=0;
-            var y=0;
-            var w=260;
-            var h=15;
-            var space_h=10;
-            var n=10;
-            var paper=this.paper;
+            var x = 0;
+            var y = 0;
+            var w = 2260;
+            var h = 15;
+            var space_h = 10;
+            var n = 10;
+            var paper = this.paper;
 
-          var names=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','益阳','娄底','郴州']
-          var items=[];
-           for (var i=0;i<n;i++){
-             var per =(n-i)*10/100;
-             var item =this.createItme(i,x,y,w,h,space_h,per,names[i]);
-             items.push(item);
-             this.doms['item'+i]=item.set;
-           }
-           var lastItem=items[items.length-1];
-           var max=6000;
-           var step=4;
-           var step_num=Math.floor(max/(step));
-           var step_len=w/(step);
-           var x_nums={};
-           x_nums.x=lastItem.x+lastItem.box.width;
-           x_nums.y=(lastItem.y+h+space_h)-lastItem.box.height/2
-            for(var i=0;i<=step;i++){
-              var num=step_num*i;
-              var len=step_len*i;
-              x_nums.rect=paper.text(x_nums.x+len,x_nums.y,num).attr({
-                'fill': '#fff',
-                'font-size': 12,
-                'font-family': '微软雅黑',
-                'font-weight': 'bold'
-              });
-              this.doms['x_nums'+i]=x_nums.rect;
+            var names = ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州']
+            var items = [];
+            for (var i = 0; i < n; i++) {
+                var per = (n - i) * 10 / 100;
+                var item = this.createItme(i, x, y, w, h, space_h, per, names[i]);
+                items.push(item);
+                this.doms['item' + i] = item.set;
+            }
+            var lastItem = items[items.length - 1];
+            var max = 6000;
+            var step = 4;
+            var step_num = Math.floor(max / (step));
+            var step_len = w / (step);
+            var x_nums = {};
+            x_nums.x = lastItem.x + lastItem.box.width;
+            x_nums.y = (lastItem.y + h + space_h) - lastItem.box.height / 2
+            for (var i = 0; i <= step; i++) {
+                var num = step_num * i;
+                var len = step_len * i;
+                x_nums.rect = paper.text(x_nums.x + len, x_nums.y, num).attr({
+                    'fill': '#fff',
+                    'font-size': 12,
+                    'font-family': '微软雅黑',
+                    'font-weight': 'bold'
+                });
+                this.doms['x_nums' + i] = x_nums.rect;
             }
 
 
@@ -74,28 +74,34 @@ define([
             // });;
 
         },
-        createItme:function(i,x,y,w,h,space_h,per,name){
+        createItme: function(i, x, y, w, h, space_h, per, name) {
 
-          var paper=this.paper;
-          var item ={};
-          item.set=paper.set();
-          item.x=x;
-          item.y=y+(i*(h+space_h));
-          item.text=paper.text(item.x,item.y,name).attr({
-            'fill': '#fff',
-            'font-size': 12,
-            'font-family': '微软雅黑',
-            'font-weight': 'bold'
-          });
-          item.box=item.text.getBBox();
+            var paper = this.paper;
+            var item = {};
+            item.set = paper.set();
+            item.x = x;
+            item.y = y + (i * (h + space_h));
+            item.text = paper.text(item.x, item.y, name).attr({
+                'fill': '#fff',
+                'font-size': 12,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });
+            item.box = item.text.getBBox();
 
-          item.rect= paper.rect(item.x+item.box.width,item.y-item.box.height/2,w,h).attr({'stroke':'#005e88','stroke-width':1});
-          item.process=paper.rect(item.x+item.box.width,item.y-item.box.height/2,w*per,h).attr({'fill':'#4cd5f4','stroke-width':0});
-          item.set.push(item.text);
-          item.set.push(item.rect);
-          item.set.push(item.process);
+            item.rect = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w, h).attr({
+                'stroke': '#005e88',
+                'stroke-width': 1
+            });
+            item.process = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w * per, h).attr({
+                'fill': '#4cd5f4',
+                'stroke-width': 0
+            });
+            item.set.push(item.text);
+            item.set.push(item.rect);
+            item.set.push(item.process);
 
-          return item;
+            return item;
 
         },
         initLocation: function() {
@@ -124,7 +130,7 @@ define([
         },
 
         addEvent: function() {
-           if(!this.doms['config'])return;
+            if (!this.doms['config']) return;
             var self = this;
             // TODO:配置属性(node)
             this.doms['config'].click(function(e) {

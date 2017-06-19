@@ -17,34 +17,59 @@ define([], function() {
             this.createFt();
             this.hide();
             this.addEvent();
-            this.addBoxEvent();
+
 
             // TODO: 优化SVN
             if (this.canvas.perview) {
+
                 this.getData(); //在预览情况下，才有动画和通过间隔来获取数据
                 this.perview();
+            }else{
+                this.addBoxEvent();
             }
 
 
         },
         addBoxEvent: function() {
             var self = this;
-            if (this.doms['config']) this.doms['config'].toFront();
-            if (this.doms['remove']) this.doms['remove'].toFront();
+            if (this.doms['config']){
+                this.doms['config'].attr({"opacity":0});
+            }
+            if (this.doms['remove']){
+                this.doms['remove'].attr({"opacity":0});
+            }
+
             this.gbox.hover(function() {
                 this.attr({
-                    'fill-opacity': 0.1
+                    'fill-opacity': 0.3 ,
+                    'cursor':'pointer',
                 })
+
             }, function() {
                 this.attr({
-                    'fill-opacity': 0
+                    'fill-opacity': 0,
+                    'stroke-width':0
                 })
             })
             this.gbox.click(function(e) {
                 if (self.doms['config']) {
                     self.doms['config'].trigger('click', e);
-
                 }
+                if(self.canvas.ft){
+                    self.canvas.ft.setOpts( {draw: [''] });
+                    self.canvas.ft.apply();
+                   if(self.canvas.CompontentRemove){
+                      self.canvas.CompontentRemove.attr({'opacity':0});
+                   }
+                }
+                self.canvas.ft=self.ft;
+                if(self.doms['remove']){
+                self.canvas.CompontentRemove=self.doms['remove'];
+                self.canvas.CompontentRemove.attr({'opacity':1,'cursor':'pointer'});
+                self.canvas.CompontentRemove.toFront();
+                }
+                self.canvas.ft.setOpts( {draw: ['bbox'] });
+                self.canvas.ft.apply();
                 e.stopImmediatePropagation();
             })
         },
@@ -75,13 +100,14 @@ define([], function() {
         createFt: function() {
             var self = this;
 
-
+        if (!this.canvas.perview) {
             var gbbox = this.domsSet.getBBox(true);
             this.gbox = this.paper.rect(gbbox.x, gbbox.y, gbbox.width, gbbox.height).attr({
                 'fill': '#36b0c8',
                 'fill-opacity': 0,
                 'stroke-width':0
             })
+        }
             this.domsSet.push(this.gbox);
 
                 this.ft = this.paper.freeTransform(this.domsSet, {
@@ -92,7 +118,7 @@ define([], function() {
                         'stroke': '#1dd7fc'
                     },
                     scale: ['bboxCorners', 'bboxSides'],
-                    draw: ['bbox']
+                    draw: []
                 }, function(subject, events) {
                    self.ftcallBack(subject,events)
                });

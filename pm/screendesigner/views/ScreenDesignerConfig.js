@@ -32,6 +32,15 @@ define([
             },
             RenderHTML: function() {
                 var self = this;
+
+                if(self.canvas.ft){
+                    self.canvas.ft.setOpts({draw:[]});
+                    self.canvas.ft.apply();
+                    if(self.canvas.CompontentRemove){
+                       self.canvas.CompontentRemove.attr({'opacity':0});
+                    }
+                }
+
                 $("#tabs").tabs(); //Tab页
                 $('#canvas_w').val(self.canvas.w);
                 $('#canvas_h').val(self.canvas.h);

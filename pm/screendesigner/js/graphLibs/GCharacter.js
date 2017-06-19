@@ -16,7 +16,7 @@ define([
             });;
             self.setTitle(title);
             self.setTitleColor(titleColor);
-
+             
 
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
                 'fill': 'red',

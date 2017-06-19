@@ -114,7 +114,7 @@ define([
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
-
+            
         },
         getValueUnit:function(){
             var num2_text='999('+this.attrs.denominatorTitle+')';
