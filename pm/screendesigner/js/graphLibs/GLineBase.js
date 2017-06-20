@@ -10,7 +10,7 @@ define([
             var titleColor = this.attrs.titleColor || '#ddff00';
             var x = 0;
             var y = 0;
-            var w = 2260;
+            var w = 260;
             var h = 15;
             var space_h = 10;
             var n = 10;

@@ -13,14 +13,14 @@ define([
       var y=0;
       var r=100;
       var colors=['#1c7099','#1790cf','#1bb2d8','#99d2dd','#88b0bb'];
-      var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+      this.attrs.xAxisData=this.attrs.xAxisData||['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+      this.attrs.SeriesData=this.attrs.SeriesData||self.createRandom(this.attrs.xAxisData,200,999);
       var datas=[];
       var sum =0;
-      for (var i=0;i<hn_area.length;i++){
+      for (var i=0;i<this.attrs.xAxisData.length;i++){
           var item={};
-          item.name=hn_area[i];
-
-          item.value=fish.random(200,999);
+          item.name=this.attrs.xAxisData[i];
+          item.value=this.attrs.SeriesData[i]||0;
           sum=sum+item.value;
           datas.push(item);
       }
@@ -31,6 +31,7 @@ define([
       for(var i=0;i<datas.length;i++){
            var data_item=datas[i];
            var per=data_item.value/sum;
+           if(per==0)per=0.01;
            start=0+end;
 
            end=start+(359.99*per);
@@ -65,39 +66,33 @@ define([
           this.doms['item'+i]=item;
 
       }
-      // this.createPireBaseAttr();
-      //
-      // var pie_sector=paper.path().attr({
-      //    'fill':'red',
-      //    'stroke-width':0,
-      //    'PieBase':[0,0,150,1,30]
-      // })
-      //
-      // this.doms['pie']=pie_sector;
-      // this.doms['title'] = this.paper.text(0, 0, title).attr({
-      //     'fill': titleColor,
-      //     'font-size': 30,
-      //     'font-family': '微软雅黑',
-      //     'font-weight': 'bold'
-      // });;
-      // self.setTitle(title);
-      // self.setTitleColor(titleColor);
-      //
-      //
-    //   this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-    //       'fill': 'red',
-    //       'font-size': 18,
-    //       'font-family': '微软雅黑',
-    //       'font-weight': 'bold'
-    //   });;
-    //   this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-    //       'fill': 'red',
-    //       'font-size': 18,
-    //       'font-family': '微软雅黑',
-    //       'font-weight': 'bold'
-    //   });;
+      this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+          'fill': 'red',
+          'font-size': 18,
+          'font-family': '微软雅黑',
+          'font-weight': 'bold'
+      });;
+      this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+          'fill': 'red',
+          'font-size': 18,
+          'font-family': '微软雅黑',
+          'font-weight': 'bold'
+      });;
 
     },
+    getXAxisData:function(){
+        return this.attrs.xAxisData;
+    },
+    getSeriesData:function(){
+        return this.attrs.SeriesData;
+    },
+    setXAxisData:function(data){
+      this.attrs.xAxisData=data;
+    },
+    setSeriesData:function(data){
+         this.attrs.SeriesData=data;
+    },
+
     createPireBaseAttr: function() {
       var self = this;
       var paper = this.paper;

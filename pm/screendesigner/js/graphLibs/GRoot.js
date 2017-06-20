@@ -115,7 +115,8 @@ define([], function() {
                     'rotate': false,
                     attrs: {
                         'fill': '#1dd7fc',
-                        'stroke': '#1dd7fc'
+                        'stroke': '#ffffff',
+                        'stroke-width':2
                     },
                     scale: ['bboxCorners', 'bboxSides'],
                     draw: []
@@ -186,6 +187,13 @@ define([], function() {
             json.attrs = this.attrs;
             json.attrs.ft_attrs = this.ft.attrs;
             return json;
+        },
+        createRandom:function(array,min,max){
+           var datas =[];
+           for (var i=0;i<array.length;i++){
+               datas.push(fish.random(min,max));
+           }
+           return datas;
         }
     })
     return GRoot;

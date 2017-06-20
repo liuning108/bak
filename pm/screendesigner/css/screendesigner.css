@@ -17,7 +17,6 @@
     margin: 0px;
 }
 
-
 .editBody {
     font: 12px/1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed;
     margin: 0px;
@@ -76,6 +75,11 @@
 
 .editBody .btn-gray {
     background: #eee;
+}
+
+.editBody .btn-blue {
+    background: #3FA7DC;
+    color: #fff;
 }
 
 .editBody .btn-sm {
@@ -789,4 +793,9 @@ i.icon_chart35 {
     padding-left: 5px;
     border: none;
     width: 90% !important;
+}
+
+.editBody .json-menu {
+    height: 30px;
+    background: #f0f0f0;
 }

@@ -256,14 +256,14 @@ Raphael.el.trigger = function(eventName,e){
           cx: ft.attrs.center.x + ft.attrs.translate.x,
           cy: ft.attrs.center.y + ft.attrs.translate.y,
           r: Math.max(radius.x, radius.y) * ft.opts.distance
-        });
+         })
       }
 
       if (ft.handles.center) {
         ft.handles.center.disc.toFront().attr({
           cx: ft.attrs.center.x + ft.attrs.translate.x,
           cy: ft.attrs.center.y + ft.attrs.translate.y
-        });
+        }).attr({'opacity':0});;
       }
 
       if (ft.opts.rotate.indexOf('self') >= 0) {
