@@ -18,11 +18,17 @@ define([
             var y=0;
             var w=400;
             var h=12;
+            var num1=this.attrs.num||0;
+            this.attrs.num=num1;
+            var den =this.attrs.den||0.001;
+            this.attrs.den=den;
+            var perValue=(num1/fish.max([num1,den]) )*100;
+
             var rect =paper.rect(x,y,w,h,6).attr({
                                                  'fill':'#e7e7e7',
                                                  'stroke-width':0
                                               });
-            var p_w=w*0.6;
+            var p_w=w*(perValue/100);
             this.process = paper.rect(x,y,0,h,6).attr({
                                                 'fill':processColor,
                                                 'stroke-width':0
@@ -32,6 +38,8 @@ define([
             set.push(rect);
             set.push(this.process);
             this.doms['process']=set;
+
+
             var title_x=x+40;
             var title_y=y-20;
             this.doms['title'] = this.paper.text(title_x, title_y, title).attr({
@@ -43,7 +51,6 @@ define([
 
             var nums_x=title_x+(w/1.5);
             var nums_y=title_y;
-            var num1=fish.random(200,999);
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': nums_x,
                 'y': nums_y,
@@ -57,34 +64,10 @@ define([
                 }
             });
 
-
-
-            // var nums_box =this.doms['nums'].getBBox(true);
-            // var nums2_x=nums_box.x+nums_box.width*1.7;
-            // var nums2_y=title_y;
-            //
-            //
-            // this.doms['nums2'] = this.paper.chartsNumbser({
-            //     'x': nums2_x,
-            //     'y': nums2_y,
-            //     'value': 999,
-            //     'showLabel':'('+this.attrs.denominatorTitle+')',
-            //     attrs: {
-            //         'fill': titleColor,
-            //         'font-size': 20,
-            //         'font-family': '微软雅黑',
-            //         'font-weight': 'bold'
-            //     }
-            // });
-            //
-            // this.doms['nums'].setValue(num1,function(){
-            //     self.changePostions(nums_box);
-            // })
-
             var nums3_x=nums_x+40;
             var nums3_y=nums_y-30;
 
-            var perValue=(num1/999)*100;
+
 
             this.doms['nums3'] = this.paper.chartsNumbser({
                 'x': nums3_x,
@@ -114,10 +97,18 @@ define([
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
-            
+
         },
+        setFractions:function(data){
+               this.attrs.num=data[0];
+               this.attrs.den=data[1];
+        },
+        getFractions:function(){
+              return [this.attrs.num,this.attrs.den];
+        },
+
         getValueUnit:function(){
-            var num2_text='999('+this.attrs.denominatorTitle+')';
+            var num2_text=this.attrs.den+'('+this.attrs.denominatorTitle+')';
            return '('+this.attrs.memberTitle+')/'+num2_text;
         },
         getMemberTitle:function(){

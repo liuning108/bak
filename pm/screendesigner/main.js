@@ -18,7 +18,7 @@ define([ 'frm/portal/Portal' ], function(app) {
 		portal.appGlobal.set("commoni18n", {});//框架公用的
 		portal.appGlobal.set("customi18n", {});//客户定制的
 
-		var i18nArr = ["i18n/common." + data.language];
+	var i18nArr = ["i18n/common." + data.language];
 		if(data.CUSTOM_LANGUAGE){
 			i18nArr.push("i18n/custom." + data.CUSTOM_LANGUAGE);
 		}

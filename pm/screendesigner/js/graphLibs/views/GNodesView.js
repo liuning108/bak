@@ -24,10 +24,10 @@ define([
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: self.g.getNames()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: self.g.getSeriesDatas()
                 }
             }
             self.editor.set(json);
@@ -38,6 +38,9 @@ define([
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.g.setNames(json.xAxis.data);
+                        self.g.setSeriesDatas(json.series.data);
+                        self.g.redraw();
                      }
                    });
 
@@ -46,17 +49,8 @@ define([
         afterRender: function() {
             var self = this;
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
             $parent.tabs(); //Tab页
-            var $g_x=$parent.find('.g_x');
-            var $g_x_sure=$parent.find('.g_x_sure');
-            $g_x.val(this.g.getNames().join(','));
-            $g_x_sure.off('click');
-            $g_x_sure.on('click',function(){
-                  var names=$g_x.val().split(",");
-                  self.g.setNames(names);
-                  return false;
-            })
+            self.jsonEditor($parent);
             //ON /OFF
 
             var $switchGrid=$parent.find('.switchGrid');

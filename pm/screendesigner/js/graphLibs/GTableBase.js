@@ -32,7 +32,7 @@ define([
             }
             console.log(heardes);
             console.log("----------");
-            var datas = [
+            var datas =this.attrs.datas || [
                 ['长沙', fish.random(800, 999), fish.random(800, 999)],
                 ['株洲', fish.random(700, 800), fish.random(700, 800)],
                 ['湘潭', fish.random(600, 700), fish.random(600, 700)],
@@ -44,6 +44,7 @@ define([
                 ['郴州', fish.random(90, 100), fish.random(90, 100)],
                 ['衡阳', fish.random(80, 90), fish.random(80, 90)],
             ]
+            this.attrs.datas =datas;
 
             var set = paper.set();
             var item_box;
@@ -112,6 +113,12 @@ define([
                 'font-weight': 'bold'
             });;
 
+        },
+        getDatas:function() {
+            return this.attrs.datas;
+        },
+        setDatas:function(datas) {
+           this.attrs.datas=datas;
         },
         setSeqShow:function(val){
           this.attrs.seqShow=val;

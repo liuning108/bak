@@ -15,7 +15,8 @@ define([
             var paper =this.paper;
             var x=0;
             var y =0;
-            this.val=297270446;
+            this.val=this.attrs.val||fish.random(297270446,497270446);
+            this.attrs.val=this.val;
             this.digits=[];
             this.digits_text=this.paper.set();
             this.digits_panel=this.paper.set();
@@ -66,6 +67,12 @@ define([
 
             this.setValue(this.val);
 
+        },
+        getVal:function() {
+            return this.attrs.val;
+        },
+        setVal:function(val) {
+          this.attrs.val =val;
         },
         getUnitXY:function(){
             var lastDig = this.digits[this.digits.length-1];

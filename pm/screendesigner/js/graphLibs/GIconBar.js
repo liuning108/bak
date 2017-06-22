@@ -13,7 +13,8 @@ define([
             var paper=this.paper;
             var x=0;
             var y=0;
-            var nums=fish.random(100,999);
+            var nums=this.attrs.val||0;
+            this.attrs.val=nums;
             this.path="oss_core/pm/screendesigner/js/graphLibs/images/icons/"
 
 
@@ -69,7 +70,12 @@ define([
           });
           this.attrs.iconPath=icon;
         },
-
+        setVal:function(val) {
+           this.attrs.val=val;
+        },
+        getVal:function() {
+           return this.attrs.val;
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;

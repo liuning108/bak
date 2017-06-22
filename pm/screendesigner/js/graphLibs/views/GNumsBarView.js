@@ -24,11 +24,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html"
                 'mode': 'code'
             });
             var json = {
-                xAxis: {
-                    data: [1,2,3]
-                },
                 series: {
-                    data: [1,2,3]
+                    data: [self.gText.getVal()]
                 }
             }
             self.editor.set(json);
@@ -37,8 +34,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html"
                    .off('click')
                    .on('click', function() {
                      var json = self.editor.get();
-                     if(json.xAxis.data && json.series.data){
-                        //set datas
+                     if(json.series.data){
+                        self.gText.setVal(json.series.data[0]||0);
+                        self.gText.redraw();
                      }
                    });
 

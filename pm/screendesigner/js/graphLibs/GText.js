@@ -9,6 +9,7 @@ define([
             var title = this.attrs.title || '指标名称';
             var titleColor = this.attrs.titleColor || '#ddff00';
             var numColor = this.attrs.numColor || '#ffffff';
+            this.attrs.value=this.attrs.value||0;
             this.doms['title'] = this.paper.text(0, 0, title).attr({
                 'fill': titleColor,
                 'font-size': 30,
@@ -20,7 +21,7 @@ define([
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': 0,
                 'y': 0 + 40,
-                'value': 0,
+                'value': this.attrs.value,
                 attrs: {
                     'fill': numColor,
                     'font-size': 30,
@@ -44,6 +45,12 @@ define([
                 'font-weight': 'bold'
             });;
 
+        },
+        getValue:function() {
+           return this.attrs.value;
+        },
+        setValue:function(val) {
+          this.attrs.value=val;
         },
 
         getData: function() {

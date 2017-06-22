@@ -17,6 +17,7 @@ define([
      this.attrs.colors=this.attrs.colors||['#02b8ed', '#dca708', '#f70202'];
      this.attrs.fontColor=this.attrs.fontColor||"#fff";
      this.attrs.values=this.attrs.values||[50,70,90];
+     this.attrs.datas=this.attrs.datas||this.createRandom(this.attrs.names,10,100);
      this.nodes = paper.chartsProcess({
         'x': x,
         'y': y,
@@ -26,7 +27,7 @@ define([
         'keys': this.attrs.names
       })
       this.doms['nodes'] = this.nodes.allItem();
-
+      this.initData();
 
       if(this.attrs.switchWarring=="on"){
 
@@ -103,6 +104,12 @@ define([
         item.push(this.doms['icon'+i]);
         return item;
     },
+    getSeriesDatas:function() {
+        return  this.attrs.datas;
+    },
+    setSeriesDatas:function(datas) {
+      this.attrs.datas=datas;
+    },
     getData: function() {
       var self = this;
       var datas = [];
@@ -116,6 +123,18 @@ define([
         sum += val;
       }
       this.nodes.inputData(datas);
+    },
+    initData:function() {
+        var self = this;
+        var datas = [];
+        for (var i = 0; i < this.attrs.names.length; i++) {
+          var val =self.attrs.datas[i]||0
+          datas.push({
+            name: this.attrs.names[i],
+            value: val
+          })
+        }
+        this.nodes.inputData(datas);
     },
     getMaxBox:function(items,name){
         var max =items[0].getBBox()[name];

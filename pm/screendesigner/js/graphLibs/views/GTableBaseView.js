@@ -25,10 +25,10 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.htm
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: self.gText.getTitle()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: self.gText.getDatas()
                 }
             }
             self.editor.set(json);
@@ -39,6 +39,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.htm
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.gText.setTitle(json.xAxis.data);
+                        self.gText.setDatas(json.series.data);
+                        self.gText.redraw();
                      }
                    });
 
@@ -52,12 +55,6 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.htm
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-            $parent.find('.gtext_title').val(this.gText.getTitle());
-            $parent.find('.gtext_title').on('change',function(){
-                   var titles=$(this).val().split(",");
-                   self.gText.setTitle(titles);
-            })
-
             //TODO:表头色
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.getTitleColor());
