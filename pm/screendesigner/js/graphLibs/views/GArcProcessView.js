@@ -27,11 +27,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GArcProcessConfig.ht
                 'mode': 'code'
             });
             var json = {
-                xAxis: {
-                    data: [1,2,3]
-                },
                 series: {
-                    data: [1,2,3]
+                    data: [this.gText.getRateValue()]
                 }
             }
             self.editor.set(json);
@@ -40,8 +37,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GArcProcessConfig.ht
                    .off('click')
                    .on('click', function() {
                      var json = self.editor.get();
-                     if(json.xAxis.data && json.series.data){
+                     if( json.series.data){
                         //set datas
+                        self.gText.setRateValue(json.series.data[0]);
                      }
                    });
 
@@ -63,16 +61,6 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GArcProcessConfig.ht
             title_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setTitleColor(color)
             })
-            //getRateValue
-            //setRateValue
-            $parent.find('.g_nums').on('change',function(){
-                 self.gText.setRateValue($(this).val());
-            })
-
-            $parent.find('.g_nums').val(this.gText.getRateValue());
-
-
-
             return this;
         }
 

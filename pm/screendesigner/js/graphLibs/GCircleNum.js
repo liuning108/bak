@@ -54,7 +54,7 @@ define([
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
-       
+
 
         },
 

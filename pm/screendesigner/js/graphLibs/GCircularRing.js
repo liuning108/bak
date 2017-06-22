@@ -17,14 +17,16 @@ define([
             var outR=r+thickness;
             var paper=this.paper;
             var colors=['#1c7099','#1790cf','#1bb2d8','#99d2dd','#88b0bb'];
-            var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+            var hn_area=this.attrs.xAxisData||['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+            this.attrs.xAxisData=hn_area;
+            this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
             var datas=[];
             var sum =0;
+
             for (var i=0;i<hn_area.length;i++){
                 var item={};
                 item.name=hn_area[i];
-
-                item.value=fish.random(200,999);
+                item.value=this.attrs.seriesData[i]||0;
                 sum=sum+item.value;
                 datas.push(item);
             }
@@ -70,23 +72,34 @@ define([
 
             }
 
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
+            this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
 
 
 
         },
-
+       getXAxisData:function() {
+          return this.attrs.xAxisData
+       },
+       setXAxisData:function(datas) {
+            this.attrs.xAxisData=datas;
+       },
+       setSeriesData:function(data) {
+            this.attrs.seriesData=data;
+       },
+       getSeriesData:function() {
+             return this.attrs.seriesData;
+       },
         createArcRingAttrs:function(){
             var paper=this.paper;
             var self =this;

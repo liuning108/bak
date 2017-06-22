@@ -28,10 +28,10 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCircularRingConfig.
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: self.gText.getXAxisData()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: self.gText.getSeriesData()
                 }
             }
             self.editor.set(json);
@@ -42,6 +42,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCircularRingConfig.
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.gText.setXAxisData(json.xAxis.data);
+                        self.gText.setSeriesData(json.series.data)
+                        self.gText.redraw();
                      }
                    });
 
