@@ -17,6 +17,7 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html"
             this.gText.setTitle(target.val());
         },
 
+
         jsonEditor:function($parent){
             var self =this;
             var $editor_content = $parent.find("#json-editor");
@@ -53,7 +54,6 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html"
             $("#tabs").tabs(); //Tab页
             var $parent = $("#tabs");
             self.jsonEditor($parent);
-
             $parent.find('.gtext_title').on('change', function() {
                 self.gtext_title($(this));
             })

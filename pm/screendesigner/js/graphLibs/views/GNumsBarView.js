@@ -1,7 +1,8 @@
 define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html",
+    "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
-], function(tpl) {
+], function(tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -13,12 +14,42 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html"
             this.$el.html(this.template());
             return this;
         },
+        jsonEditor:function($parent){
+            var self =this;
+            var $editor_content = $parent.find("#json-editor");
+            $editor_content.css({
+                'height': "600px"
+            });
+            self.editor = new JSONEditor($editor_content[0], {
+                'mode': 'code'
+            });
+            var json = {
+                xAxis: {
+                    data: [1,2,3]
+                },
+                series: {
+                    data: [1,2,3]
+                }
+            }
+            self.editor.set(json);
+            $editor_content.find(".jsoneditor-menu").remove();
+            $parent.find(".btn-sure")
+                   .off('click')
+                   .on('click', function() {
+                     var json = self.editor.get();
+                     if(json.xAxis.data && json.series.data){
+                        //set datas
+                     }
+                   });
+
+        },
 
         afterRender: function() {
 
             var self = this;
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
+            self.jsonEditor($parent);
             //位数
             $('#digit_nums_input').val(self.gText.getDigits());
             self.sliderTooltip('#digit_nums', self.gText.getDigits(), 1, 20, 1, function(value) {
