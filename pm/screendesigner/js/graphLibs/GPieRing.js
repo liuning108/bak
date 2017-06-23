@@ -21,10 +21,6 @@ define([
         })
       }
 
-
-
-
-
       this.pie = paper.workflowPie({
         'x': x,
         'y': y,
