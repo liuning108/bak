@@ -24,10 +24,10 @@ define([
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: this.g.getXAxisNames()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: this.g.getSeriesData()
                 }
             }
             self.editor.set(json);
@@ -38,6 +38,9 @@ define([
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.g.setXAxisNames(json.xAxis.data)
+                        self.g.setSeriesData(json.series.data)
+                        self.g.redraw();
                      }
                    });
 

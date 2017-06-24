@@ -10,8 +10,9 @@ define([
       var y = 0;
       var paper = this.paper;
       this.names = this.attrs.names || ['乐享4G-99', '乐享4G-59', '流量升级包-30', '乐享4G-129', '乐享4G-199', '乐享4G-399', '飞Young4G-99']
+      this.attrs.names=this.names;
       this.attrs.title = this.attrs.title || '当月套餐';
-
+      this.attrs.seriesData=this.attrs.seriesData||this.createRandom(this.names,10,100);
       var colors = ['#ff7f50', '#ff8212', '#c5ff55', '#30cd2f', '#30cd2f', '#5599f2', '#fe62ae', '#c050c8']
       //	this.doms['gb'] = paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png', x, y, 532, 377);
       this.doms['gb'] = paper.rect(x, y, 532, 377).attr({
@@ -63,6 +64,19 @@ define([
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });;
+      this.initData();
+    },
+    setXAxisNames:function (names) {
+        this.attrs.names=names;
+    },
+    getXAxisNames:function () {
+        return this.attrs.names;
+    },
+    setSeriesData:function(datas) {
+       this.attrs.seriesData=datas;
+    },
+    getSeriesData:function() {
+        return this.attrs.seriesData;
     },
     getData: function() {
       var self = this;
@@ -70,6 +84,26 @@ define([
       var sum = 0;
       for (var i = 0; i < this.names.length; i++) {
         var val = fish.random(10, 100);
+        datas.push({
+          name: this.names[i],
+          value: val
+        })
+        sum += val;
+      }
+      this.pie.inputData(datas);
+      //alert(sum);
+      var intervalTime=1000*60*5;
+      setTimeout(function() {
+        self.getData();
+      }, intervalTime);
+
+    },
+    initData: function() {
+      var self = this;
+      var datas = [];
+      var sum = 0;
+      for (var i = 0; i < this.names.length; i++) {
+        var val = this.attrs.seriesData[i];
         datas.push({
           name: this.names[i],
           value: val

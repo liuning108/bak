@@ -16,16 +16,19 @@ define([
             var n = 10;
             var paper = this.paper;
 
-            var names = ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州']
+            var names =this.attrs.names|| ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州'];
+            this.attrs.names=names;
+            this.attrs.xAxisDatas =this.attrs.xAxisDatas|| this.createRandom(names,10,90);
+            var max = Math.floor(1.1*fish.max(this.attrs.xAxisDatas));
             var items = [];
             for (var i = 0; i < n; i++) {
-                var per = (n - i) * 10 / 100;
+                var per = this.attrs.xAxisDatas[i]/ max;
                 var item = this.createItme(i, x, y, w, h, space_h, per, names[i]);
                 items.push(item);
                 this.doms['item' + i] = item.set;
             }
             var lastItem = items[items.length - 1];
-            var max = 6000;
+
             var step = 4;
             var step_num = Math.floor(max / (step));
             var step_len = w / (step);
@@ -60,18 +63,18 @@ define([
             // self.setTitleColor(titleColor);
             //
             //
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
+            this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
 
         },
         createItme: function(i, x, y, w, h, space_h, per, name) {
@@ -103,6 +106,18 @@ define([
 
             return item;
 
+        },
+        getXAxisNames:function () {
+            return this.attrs.names;
+        },
+        setXAxisNames:function (names) {
+            this.attrs.names=names;
+        },
+        getXAxisDatas:function () {
+            return this.attrs.xAxisDatas
+        },
+        setXAxisDatas:function (datas) {
+            this.attrs.xAxisDatas=datas;
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;

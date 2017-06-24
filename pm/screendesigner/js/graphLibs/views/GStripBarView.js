@@ -23,10 +23,10 @@ define([
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: self.g.getXAxisNames()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: self.g.getXAxisDatas()
                 }
             }
             self.editor.set(json);
@@ -37,6 +37,9 @@ define([
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.g.setXAxisNames(json.xAxis.data);
+                        self.g.setXAxisDatas(json.series.data)
+                        self.g.redraw();
                      }
                    });
 
@@ -46,8 +49,9 @@ define([
         afterRender: function() {
             var self = this;
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
+
             $parent.tabs(); //Tab页
+                self.jsonEditor($parent);
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');

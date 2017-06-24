@@ -29,10 +29,10 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLineBaseConfig.html
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: this.gText.getXAxisNames()
                 },
                 series: {
-                    data: [1,2,3]
+                    data: this.gText.getXAxisDatas()
                 }
             }
             self.editor.set(json);
@@ -43,6 +43,11 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLineBaseConfig.html
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.gText.setXAxisNames(json.xAxis.data);
+                        self.gText.setXAxisDatas(json.series.data);
+
+                        self.gText.redraw();
+
                      }
                    });
 

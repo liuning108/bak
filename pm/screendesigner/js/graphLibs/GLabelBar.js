@@ -10,17 +10,20 @@ define([
             self.createRoundedRectangleFN();
             var x=0;
             var y=0;
-  　　var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
+  　　       var hn_area=['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
            //this.names = this.attrs.names || ['华北', '西南', '华东', '华南']
             this.names = this.attrs.names || hn_area
+            this.attrs.names=this.names;
+            this.attrs.datas=this.attrs.datas||this.createRandom(this.names,80,98);
             this.colors=['#5a9bd5','#01d15e','#ffc101','#e97870']
+            var max =Math.floor(1.1*fish.max(this.attrs.datas));
 
             for (var i =0;i<this.names.length;i++)
             {
 
                 var name=this.names[i];
-                var value=fish.random(80, 98);
-                var per=value/100;
+                var value=this.attrs.datas[i];
+                var per=value/max;
                 var color=this.colors[i%this.colors.length];
                 var item=self.createItem(i,x,y,name,color,per,value);
                 this.doms['item'+i]=item.set;
@@ -36,12 +39,12 @@ define([
             // self.setTitleColor(titleColor);
             //
             //
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
             this.doms['remove'] = this.paper.text(0,-30, '删除').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -106,6 +109,18 @@ define([
           };
 
         },
+        getXAxisNames:function () {
+            return this.attrs.names;
+        },
+        setXAxisNames:function (datas) {
+            this.attrs.names=datas;
+        },
+        getXAxisDatas:function () {
+            return this.attrs.datas;
+        },
+        setXAxisDatas:function (datas) {
+             this.attrs.datas=datas;
+        },
 
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
@@ -117,15 +132,15 @@ define([
           //  if(!this.doms['config'])return;
             var self = this;
             // TODO:配置属性(node)
-            // this.doms['config'].click(function(e) {
-            //     var view = new View(self);
-            //     view.render();
-            //     var $panel = $('.configPanel');
-            //     $panel.html(view.$el.html());
-            //     view.afterRender();
-            //     self.ConfigEffect();
-            //     e.stopImmediatePropagation();
-            // });
+            this.doms['config'].click(function(e) {
+                var view = new View(self);
+                view.render();
+                var $panel = $('.configPanel');
+                $panel.html(view.$el.html());
+                view.afterRender();
+                self.ConfigEffect();
+                e.stopImmediatePropagation();
+            });
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
                 fish.confirm('确认是否删除该组件').result.then(function() {

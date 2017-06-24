@@ -10,6 +10,8 @@ define([
       var x = 0;
       var y = 0;
       this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
+      this.attrs.names =this.names;
+      this.attrs.seriesData=this.attrs.seriesData||this.createRandom(this.attrs.names,10,100);
       var colors = ['#f89d2c', '#f299bd', '#e8410e', '#30cd2f', '#dbdb01', '#8e228f']
       var modes = [];
       for (var i = 0; i < this.names.length; i++) {
@@ -63,11 +65,25 @@ define([
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });;
+      this.initData();
 
       //this.doms['rect'] = this.paper.rect(0, 0, 100, 100).attr('fill', 'red');
 
       //this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
 
+    },
+    getXAxisNames:function() {
+      return  this.attrs.names;
+    },
+    setXAxisNames:function(datas) {
+          this.attrs.names=datas;
+    },
+    getSeriesData:function()
+    {
+        return this.attrs.seriesData;
+    },
+    setSeriesData:function(datas){
+        this.attrs.seriesData=datas;
     },
     initLocation: function() {
       this.ft.attrs.translate.x = 20;
@@ -79,6 +95,24 @@ define([
       var sum = 0;
       for (var i = 0; i < this.names.length; i++) {
         var val = fish.random(10, 100);
+        datas.push({
+          name: this.names[i],
+          value: val
+        })
+        sum += val;
+      }
+      this.pie.inputData(datas, function() {
+        self.doms['nums'].setValue(sum);
+      });
+      //alert(sum);
+
+    },
+    initData: function() {
+      var self = this;
+      var datas = [];
+      var sum = 0;
+      for (var i = 0; i < this.names.length; i++) {
+        var val = self.attrs.seriesData[i]
         datas.push({
           name: this.names[i],
           value: val

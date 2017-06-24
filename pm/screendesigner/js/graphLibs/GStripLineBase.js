@@ -1,6 +1,6 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
-    "oss_core/pm/screendesigner/js/graphLibs/views/GCharacterView"
+    "oss_core/pm/screendesigner/js/graphLibs/views/GStripLineBaseView"
 ], function(GRoot, View) {
 
     var GCharacter = GRoot.extend({
@@ -9,8 +9,10 @@ define([
             var title = this.attrs.title || '文字名称';
             var titleColor = this.attrs.titleColor || '#ddff00';
             var paper =this.paper;
-
-            var n=10;
+            this.attrs.xAxisNames=this.attrs.xAxisNames||this.createSeqNums(2008,10);
+            this.attrs.xAxisDatas = this.attrs.xAxisDatas || this.createRandom(this.attrs.xAxisNames,10,90);
+            var max = 1.1*fish.max(this.attrs.xAxisDatas);
+            var n=this.attrs.xAxisNames.length;
             var items=[];
             var x=0;
             var y=0;
@@ -19,13 +21,13 @@ define([
             var space_w=20;
             var r=5;
 
-
             this.doms['y_axis']=paper.rect(x,y,1,h).rotate(180,x,y).attr({'stroke':'#11bde8','stroke-width':2});
-            var max=6000;
-            var box_w=this.getBox(max).width;
+           //var max=6000;
+            var box_w=this.getBox(Math.floor(max)).width;
             var step=5;
             var step_num=Math.floor(max/(step-1));
             var step_h=h/(step-1);
+
             for(var i=0;i<step;i++){
                var step_y=-(step_h*i);
                var num=step_num*i
@@ -40,11 +42,11 @@ define([
 
             this.doms['x_axis']=paper.rect(x,y,(w+space_w)*n,1).attr({'stroke':'#11bde8','stroke-width':2});
 
-            var year=2008;
-            for(var i=0;i<n;i++){
-              var per=fish.random(10,90)/100;
 
-              var item  = this.createPointItem(i,x,y,w,h,space_w,r,per,year+i);
+            for(var i=0;i<n;i++){
+              var per=this.attrs.xAxisDatas[i]/max;
+
+              var item  = this.createPointItem(i,x,y,w,h,space_w,r,per,this.attrs.xAxisNames[i]);
               items.push(item);
               this.doms['item'+i]=item.set;
             }
@@ -89,19 +91,31 @@ define([
             // self.setTitleColor(titleColor);
 
 
-            // this.doms['config'] = this.paper.text(100, -30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
+            this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
 
+        },
+        getXAxisNames:function() {
+           return this.attrs.xAxisNames;
+        },
+        setXAxisNames:function(datas) {
+            this.attrs.xAxisNames=datas;
+        },
+        getXAxisDatas:function () {
+            return this.attrs.xAxisDatas;
+        },
+        setXAxisDatas:function (datas) {
+            this.attrs.xAxisDatas=datas;
         },
         getBox:function(val){
 

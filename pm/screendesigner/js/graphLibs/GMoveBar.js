@@ -8,14 +8,17 @@ define([
             var self = this;
             var title = this.attrs.title || '文字名称';
             var titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.datas=this.attrs.datas||this.createRandom(this.createSeqNums(1,12),10,90);
             var x=0;
             var y=0;
-            var index=12;
+            var index=this.attrs.datas.length;
+            var last_data=this.attrs.datas[this.attrs.datas.length-1];
+            var max=Math.floor(1.1*fish.max(this.attrs.datas));
             var space=13;
             var w=20;
             var sum=0;
             for (var i=0;i<index;i++){
-                var per=fish.random(10,90);
+                var per=(this.attrs.datas[i]/max)*100;
                 sum+=per;
                 var bar = this.createBar(i,x,y,space,w,per);
                 this.doms['bar'+i]=bar.set;
@@ -25,7 +28,7 @@ define([
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': nums_x,
                 'y': y-50,
-                'value': sum,
+                'value': last_data,
                 attrs: {
                     'fill': '#01b4f8',
                     'font-size': 42,
@@ -44,12 +47,12 @@ define([
             // self.setTitleColor(titleColor);
             //
             //
-            // this.doms['config'] = this.paper.text(x, y-30, '配置').attr({
-            //     'fill': 'red',
-            //     'font-size': 18,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
+            this.doms['config'] = this.paper.text(x, y-30, '配置').attr({
+                'fill': 'red',
+                'font-size': 18,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });;
             this.doms['remove'] = this.paper.text(x+40, y-30, '删除').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -87,8 +90,12 @@ define([
 
         },
 
-
-
+        setXAxisDatas:function (datas) {
+           this.attrs.datas=datas;
+        },
+        getXAxisDatas:function() {
+            return this.attrs.datas;
+        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
@@ -118,15 +125,15 @@ define([
 
             var self = this;
             // TODO:配置属性(node)
-            // this.doms['config'].click(function(e) {
-            //     var view = new View(self);
-            //     view.render();
-            //     var $panel = $('.configPanel');
-            //     $panel.html(view.$el.html());
-            //     view.afterRender();
-            //     self.ConfigEffect();
-            //     e.stopImmediatePropagation();
-            // });
+            this.doms['config'].click(function(e) {
+                var view = new View(self);
+                view.render();
+                var $panel = $('.configPanel');
+                $panel.html(view.$el.html());
+                view.afterRender();
+                self.ConfigEffect();
+                e.stopImmediatePropagation();
+            });
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
                 fish.confirm('确认是否删除该组件').result.then(function() {

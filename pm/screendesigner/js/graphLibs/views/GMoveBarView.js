@@ -28,11 +28,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GMoveBarConfig.html"
                 'mode': 'code'
             });
             var json = {
-                xAxis: {
-                    data: [1,2,3]
-                },
+
                 series: {
-                    data: [1,2,3]
+                    data:  self.gText.getXAxisDatas()
                 }
             }
             self.editor.set(json);
@@ -41,8 +39,10 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GMoveBarConfig.html"
                    .off('click')
                    .on('click', function() {
                      var json = self.editor.get();
-                     if(json.xAxis.data && json.series.data){
+                     if( json.series.data){
                         //set datas
+                        self.gText.setXAxisDatas(json.series.data);
+                        self.gText.redraw();
                      }
                    });
 

@@ -188,6 +188,13 @@ define([], function() {
             json.attrs.ft_attrs = this.ft.attrs;
             return json;
         },
+        createSeqNums:function(start,nums,min,max) {
+            var arrays = [];
+            for (var i = 0; i < nums; i++) {
+               arrays.push(start+i);
+            }
+            return arrays
+        },
         createRandom:function(array,min,max){
            var datas =[];
            for (var i=0;i<array.length;i++){

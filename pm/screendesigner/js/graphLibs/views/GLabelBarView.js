@@ -29,10 +29,10 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLabelBarConfig.html
             });
             var json = {
                 xAxis: {
-                    data: [1,2,3]
+                    data: self.gText.getXAxisNames()
                 },
                 series: {
-                    data: [1,2,3]
+                    data:  self.gText.getXAxisDatas()
                 }
             }
             self.editor.set(json);
@@ -43,6 +43,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLabelBarConfig.html
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
                         //set datas
+                        self.gText.setXAxisNames(json.xAxis.data);
+                        self.gText.setXAxisDatas(json.series.data);
+                        self.gText.redraw();
                      }
                    });
 
@@ -55,15 +58,15 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLabelBarConfig.html
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-            $parent.find('.gtext_title').on('change',function(){
-                   self.gtext_title($(this));
-            })
-            $parent.find('.gtext_title').val(this.gText.getTitle());
-            var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
-            title_colorpicker.colorpicker("set", this.gText.getTitleColor());
-            title_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.setTitleColor(color)
-            })
+            // $parent.find('.gtext_title').on('change',function(){
+            //        //self.gtext_title($(this));
+            // })
+            // $parent.find('.gtext_title').val(this.gText.getTitle());
+            // var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
+            // title_colorpicker.colorpicker("set", this.gText.getTitleColor());
+            // title_colorpicker.on("move.colorpicker", function(e, color) {
+            //     self.gText.setTitleColor(color)
+            // })
 
             return this;
         }

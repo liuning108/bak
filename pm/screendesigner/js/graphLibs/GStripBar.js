@@ -20,7 +20,8 @@ define([
             'stroke-dasharray':'-'
         })
             this.doms['title']= paper.text(x+532/2,y,this.attrs.title).attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
-			this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+			this.attrs.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+            this.attrs.xAxisDatas=this.attrs.xAxisDatas||this.createRandom(this.attrs.xAxisNames,0,0);
             var v_setp=19
             if(this.canvas.perview){
                 v_setp=1;
@@ -34,7 +35,7 @@ define([
                 waring: 80,
                 error: 100,
             });
-            fish.each(this.xAxisNames, function(name) {
+            fish.each(this.attrs.xAxisNames,function(name,index) {
                 regainNumsKPI.add({
                     'name': name,
                     'value': 0
@@ -60,6 +61,18 @@ define([
                 });;
 			//this.doms['regainNumsKPI'].hide();
             //this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;
+        },
+        getXAxisNames:function() {
+             return this.attrs.xAxisNames;
+        },
+        setXAxisNames:function (datas) {
+            this.attrs.xAxisNames=datas;
+        },
+        getXAxisDatas:function () {
+           return this.attrs.xAxisDatas;
+        },
+        setXAxisDatas:function(datas) {
+          this.attrs.xAxisDatas=datas;
         },
         getData:function() {
                this.regainNumsKPI.animate();
