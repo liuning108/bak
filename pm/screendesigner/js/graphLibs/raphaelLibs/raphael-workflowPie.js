@@ -19,6 +19,7 @@
         var modes = config.modes || [];
         var width = config.width || 30;
         var paper = this;
+        var labelStyle=config.labelStyle||1;
         obj_instance.set = paper.set();
         var radians = Math.PI / 180;
         paper.customAttributes.arcpie = function(centerX, centerY, startAngle, endAngle, innerR, outerR, value) {
@@ -109,6 +110,7 @@
                     var fontw_n = this.name.length;
                     if (fontw_n > 3.4) fontw_n = 3.4;
                     var fontw = fontw_n * 23;
+                    var labelStyle=this.data("labelStyle");
                     this.nameValue.attr({
                         'x':v_outerX2 + fontw,
                         'y':v_outerY2,
@@ -116,7 +118,7 @@
                         'font-size': 22,
                         'font-family': '微软雅黑',
                         'font-weight': 'bold',
-                        'text':Math.floor(value)
+                        'text':labelStyle
                     });
                 }
             }
@@ -210,6 +212,13 @@
                     width = 100;
                 }
                 modes[i].path.value = modes[i].value;
+                var val="";
+                if(labelStyle==1){
+                  val=modes[i].value;
+                }else{
+                  val=Math.floor(modes[i].percent*100)+"%"
+                }
+                modes[i].path.data('labelStyle',val);
                 modes[i].path.animate({
                     arcpie: [x, y, modes[i].sa, modes[i].ea, r3, arc_width, modes[i].value]
                 }, 1500);

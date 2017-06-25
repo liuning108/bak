@@ -1,17 +1,22 @@
-define([
-    "text!oss_core/pm/screendesigner/js/graphLibs/views/GPieRingView.html",
+define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
+    "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
+
 ], function(tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
         template: fish.compile(tpl),
-        initialize: function(g) {
-            this.g = g;
+        initialize: function(gText) {
+            this.gText = gText;
         },
         render: function() {
             this.$el.html(this.template());
             return this;
+        },
+
+        gtext_title: function(target) {
+            this.gText.setTitle(target.val());
         },
         jsonEditor:function($parent){
             var self =this;
@@ -24,10 +29,10 @@ define([
             });
             var json = {
                 xAxis: {
-                    data: self.g.getXAxisNames()
+                    data: self.gText.getXAxisName()
                 },
                 series: {
-                    data: self.g.getSeriesData()
+                    data: self.gText.getXAxisDatas()
                 }
             }
             self.editor.set(json);
@@ -37,9 +42,10 @@ define([
                    .on('click', function() {
                      var json = self.editor.get();
                      if(json.xAxis.data && json.series.data){
-                         self.g.setXAxisNames(json.xAxis.data);
-                         self.g.setSeriesData(json.series.data);
-                         self.g.redraw();
+                        //set datas
+                        self.gText.setXAxisName(json.xAxis.data);
+                        self.gText.setXAxisDatas(json.series.data)
+                        self.gText.redraw();
                      }
                    });
 
@@ -47,24 +53,13 @@ define([
 
 
         afterRender: function() {
-            var self = this;
-            var $parent =$("#tabs");
-            $parent.tabs(); //Tab页
-            self.jsonEditor($parent);
-            $parent.find('.labelSelect').off('change')
-                   .val(self.g.attrs.labelStyle)
-                   .on('change',function() {
-                       var val =$(this).val();
-                       self.g.attrs.labelStyle=val;
-                       self.g.redraw();
-                   })
-            var $title =$parent.find('.g_titile');
-            $title.val(this.g.attrs.title);
-            $title.off('change');
-            $title.on('change',function(){
-                  self.g.setTitle($(this).val());
-            })
 
+            var self = this;
+            $("#tabs").tabs(); //Tab页
+            var $parent =$("#tabs");
+            self.jsonEditor($parent);
+
+            return this;
         }
 
 

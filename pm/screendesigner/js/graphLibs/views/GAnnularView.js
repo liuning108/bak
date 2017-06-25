@@ -1,7 +1,8 @@
 define([
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GAnnularView.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-], function(tpl,JSONEditor) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
+], function(tpl,JSONEditor,ViewUtils) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -48,16 +49,61 @@ define([
 
 
         afterRender: function() {
+
             var self = this;
             var $parent =$("#tabs");
             $parent.tabs(); //Tab页
             self.jsonEditor($parent);
+
+
+            $parent.find('.labelSelect').off('change')
+                   .val(self.g.attrs.labelStyle)
+                   .on('change',function(){
+                       var val =$(this).val();
+                       self.g.attrs.labelStyle=val;
+                       self.g.redraw();
+                   })
+
+            $parent.find('.switchGrid').attr('checked',self.g.attrs.bgShow)
+                   .off('change')
+                   .on('change',function() {
+                       var checked=$(this).is(':checked')
+                       self.g.attrs.bgShow=checked;
+                       self.g.redraw();
+                   })
+
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');
             $title.on('change',function(){
                   self.g.setTitle($(this).val());
             })
+
+            var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
+            title_colorpicker.colorpicker("set", self.g.attrs.titleColor);
+            title_colorpicker.on("move.colorpicker", function(e, color) {
+                self.g.attrs.titleColor=""+color;
+                self.g.redraw();
+            })
+
+            var gtext_colorpicker_label = $parent.find(".gtext_colorpicker_label").colorpicker();
+            gtext_colorpicker_label.colorpicker("set", self.g.attrs.boradColor);
+            gtext_colorpicker_label.on("move.colorpicker", function(e, color) {
+                self.g.attrs.boradColor=""+color;
+                self.g.redraw();
+            })
+
+            ViewUtils.sliderTooltip('#slider2', self.g.attrs.ww, 532, 1080, 1, function(value) {
+                $('#slider2_input').val(value);
+                self.g.attrs.ww=value;
+                self.g.redraw();
+            });
+            ViewUtils.sliderTooltip('#slider3', self.g.attrs.hh, 377, 1080, 1, function(value) {
+                $('#slider3_input').val(value);
+                self.g.attrs.hh=value;
+                self.g.redraw();
+            });
+
 
         }
 

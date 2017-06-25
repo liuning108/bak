@@ -12,6 +12,7 @@
         var x = config.x || 0;
         var y = config.y || 0;
         var r = config.r || 170;
+        var labelStyle=config.labelStyle||1;
         var list_x = config.listx
         var list_y = config.listy
 
@@ -103,6 +104,11 @@
         //start of private fun
 
         function orderby() {
+            var sum = 0;
+            for (var i = 0; i < items.length; i++) {
+                sum = sum + items[i].value;
+            }
+            if(sum==0)sum=0.001;
             for (var i = 0; i < items.length; i++) {
                 for (var j = 0; j < items.length; j++) {
                     if (items[i].value > items[j].value) {
@@ -115,7 +121,15 @@
 
             for (var i = 0; i < items.length; i++) {
                 var item = items[i]
-                item.cnum.setValue(items[i].value)
+                if(labelStyle==1){
+                  item.cnum.setValue(items[i].value)
+                  item.cnum.setUnit("");
+                }else {
+                  item.cnum.setValue(Math.floor((items[i].value/sum)*100))
+                  item.cnum.setUnit("%");
+                }
+
+
                 var item_y = list_y + (i * 45)
                 item.label.animate({
                     'y': item_y
@@ -146,6 +160,7 @@
                     width = 100;
                 }
                 modes[i].path.mycolor = modes[i].color;
+
                 modes[i].path.animate({
                     arcpie2: [x, y, modes[i].sa, modes[i].ea, r3, r3 + width]
                 }, 1500, function() {

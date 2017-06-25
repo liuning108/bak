@@ -1,4 +1,4 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCharacterConfig.html",
+define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 

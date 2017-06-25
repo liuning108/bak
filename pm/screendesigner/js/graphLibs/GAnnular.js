@@ -13,22 +13,29 @@ define([
       this.attrs.names=this.names;
       this.attrs.title = this.attrs.title || '当月套餐';
       this.attrs.seriesData=this.attrs.seriesData||this.createRandom(this.names,10,100);
+      this.attrs.labelStyle= this.attrs.labelStyle||1;
+      this.attrs.bgShow=this.attrs.bgShow||false;
+      this.attrs.titleColor=this.attrs.titleColor||"#ebeb6d";
+      this.attrs.boradColor=this.attrs.boradColor||'#595959';
+      this.attrs.ww=this.attrs.ww||532;
+      this.attrs.hh= this.attrs.hh||377;
       var colors = ['#ff7f50', '#ff8212', '#c5ff55', '#30cd2f', '#30cd2f', '#5599f2', '#fe62ae', '#c050c8']
-      //	this.doms['gb'] = paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png', x, y, 532, 377);
-      this.doms['gb'] = paper.rect(x, y, 532, 377).attr({
-        'fill': '#36b0c8',
+      //	this.doms['gb'] = paper.image('oss_`core/pm/screendesigner/js/graphLibs/images/bgline.png', x, y, 532, 377);
+      if(this.attrs.bgShow){
+      this.doms['gb'] = paper.rect(x, y,  this.attrs.ww,  this.attrs.hh).attr({
         'fill-opacity': 0,
-        'stroke': '#595959',
+        'stroke': this.attrs.boradColor,
         'stroke-width': 5,
         'stroke-dasharray': '-'
-      })
-      this.doms['title'] = paper.text(x + 532 / 2, y, this.attrs.title).attr({
-        'fill': '#ebeb6d',
+       })
+      }
+      this.doms['title'] = paper.text(x + this.attrs.ww / 2, y, this.attrs.title).attr({
+        'fill': this.attrs.titleColor,
         'font-size': 24,
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });
-      var pie_x = x + 532 / 1.5;
+      var pie_x = x + this.attrs.ww / 1.5;
       var pie_y = y + 377 / 2;
       var r = 100;
       var models = [];
@@ -46,6 +53,7 @@ define([
         'r': r,
         'listx': pie_x - 2 * r,
         'listy': pie_y - 1.5 * r,
+        'labelStyle':this.attrs.labelStyle,
         'modes': models
       });
 

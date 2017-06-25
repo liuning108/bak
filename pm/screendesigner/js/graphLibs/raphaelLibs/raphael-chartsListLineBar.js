@@ -141,22 +141,22 @@
                     var key = inst.config.keys[i];
                     var item_x = item.x + 50;
                     var item_y = item.y - (inst.config.high - (35 * i));
-                    inst.listbar[key].text.animate({
+                    inst.listbar[key].text.attr({
                         'x': item_x + 100 / 2,
                         'y': item_y + 30 / 2
-                    }, 500);
+                    });
                     var val = findValueByKey(item.datas, key);
                     inst.listbar[key].value.setValue(val);
-                    inst.listbar[key].value.animate({
+                    inst.listbar[key].value.attr({
                         'x': item_x + 80 + 100 / 2,
                         'y': item_y + 30 / 2
-                    }, 500);
+                    });
                     var per_list = val / max_limit;
-                    inst.listbar[key].rect.animate({
+                    inst.listbar[key].rect.attr({
                         'x': item_x,
                         'y': item_y,
                         'width': 100 * per_list
-                    }, 500);
+                    });
 
                 }
             }
@@ -273,7 +273,7 @@
             }
         } //end of max;
 
-        for (var i = 0; i < inst.maxItem + 1; i++) {
+        for (var i = 0; i < inst.maxItem -1; i++) {
             var initDatas = []
             fish.each(inst.config.keys, function(name) {
                 initDatas.push({
@@ -281,7 +281,7 @@
                     'value': fish.random(99, 999),
                 })
             })
-            inst.inputData(initDatas, '' + i);
+            inst.inputData(initDatas, '');
         }
 
         inst.allItem = function() {

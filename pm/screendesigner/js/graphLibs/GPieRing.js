@@ -12,6 +12,7 @@ define([
       this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
       this.attrs.names =this.names;
       this.attrs.seriesData=this.attrs.seriesData||this.createRandom(this.attrs.names,10,100);
+      this.attrs.labelStyle=this.attrs.labelStyle||1;
       var colors = ['#f89d2c', '#f299bd', '#e8410e', '#30cd2f', '#dbdb01', '#8e228f']
       var modes = [];
       for (var i = 0; i < this.names.length; i++) {
@@ -29,6 +30,7 @@ define([
         'r': 70,
         'listx': x - 300,
         'listy': y - 190,
+        'labelStyle':this.attrs.labelStyle,
         'modes': modes
       });
       this.attrs.title = this.attrs.title || '流程总数'

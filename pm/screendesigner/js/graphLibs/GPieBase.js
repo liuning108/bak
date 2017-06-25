@@ -17,6 +17,7 @@ define([
       this.attrs.SeriesData=this.attrs.SeriesData||self.createRandom(this.attrs.xAxisData,200,999);
       var datas=[];
       var sum =0;
+      this.attrs.labelStyle=this.attrs.labelStyle||1;
       for (var i=0;i<this.attrs.xAxisData.length;i++){
           var item={};
           item.name=this.attrs.xAxisData[i];
@@ -40,7 +41,19 @@ define([
            item.data('id','item'+i)
            item.data('color',color);
            item.data('name',data_item.name);
-           item.data('val',Math.floor(per*100)+"%");
+           var val=""
+           if(this.attrs.labelStyle==2){
+            val=data_item.value;
+            }else if (this.attrs.labelStyle==3) {
+                 val=Math.floor(per*100)+"%";
+           }else {
+               val="";
+
+           }
+
+           console.log(this.attrs.labelStyle)
+
+           item.data('val',val);
            if(this.canvas.perview){
                item.attr({
                   'stroke-width':0,
@@ -112,7 +125,8 @@ define([
           var c_outerY1 = cy + (r+space_font) * Math.sin((-center_endAngle) * rad);
 
           if(!this.text){
-           this.text=paper.text(c_outerX1,c_outerY1,this.data('name')).attr({
+            var t =this.data('name')+"\n"+this.data("val");
+           this.text=paper.text(c_outerX1,c_outerY1,t).attr({
                         'font-size':fontSize,
                         'fill': this.data('color'),
                         'font-family': '微软雅黑',

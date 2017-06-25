@@ -19,6 +19,8 @@ define([
         'stroke-dasharray': '-'
       })
       this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+     this.attrs.xAxisNames =this.xAxisNames ;
+     this.attrs.datas= this.attrs.datas||this.createRandom( this.xAxisNames,10,90);
       this.attrs.title = this.attrs.title || 'C网超3分钟未峻工量';
       this.doms['title'] = this.paper.text(x + 240, y - 140, this.attrs.title).attr({
         'fill': '#ebeb6d',
@@ -91,6 +93,7 @@ define([
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });;
+      this.initDatas();
 
     },
     initLocation: function() {
@@ -114,13 +117,32 @@ define([
         self.getData();
       }, intervalTime);
     },
-    //TODO  获得X轴的名称
-    getXAxisNams: function() {
-      return this.xAxisNames;
+
+    getXAxisDatas:function() {
+        return this.attrs.datas;
     },
-    setXAxisNams: function(names) {
+    setXAxisDatas:function(datas) {
+        this.attrs.datas=datas;
+    },
+    initDatas:function() {
+        var self = this;
+        var datas = [];
+        for (var i = 0; i < this.xAxisNames.length; i++) {
+
+          datas.push({
+            name: this.xAxisNames[i],
+            value: this.attrs.datas[i]
+          })
+        };
+        this.top.inputData(datas)
+    },
+    //TODO  获得X轴的名称
+    getXAxisNames: function() {
+      return this.attrs.xAxisNames;
+    },
+    setXAxisNames: function(names) {
       this.attrs.xAxisNames = names;
-      this.redraw();
+    //  this.redraw();
     },
     redraw: function() {
       var option = {};

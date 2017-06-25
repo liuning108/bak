@@ -20,6 +20,7 @@ define([
             var hn_area=this.attrs.xAxisData||['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
             this.attrs.xAxisData=hn_area;
             this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
+            this.attrs.labelStyle=this.attrs.labelStyle||1;
             var datas=[];
             var sum =0;
 
@@ -45,7 +46,15 @@ define([
                  item.data('id','item'+i)
                  item.data('color',color);
                  item.data('name',data_item.name);
-                 item.data('val',Math.floor(per*100)+"%");
+                 var val="";
+                 if(this.attrs.labelStyle==1){
+                  val=Math.floor(per*100)+"%";
+                 }else if (this.attrs.labelStyle==2) {
+                   val=data_item.value;
+                 }else {
+                  val="";
+                 }
+                 item.data('val',val);
                  if(this.canvas.perview){
                      item.attr({
                         'stroke-width':0,
@@ -136,11 +145,13 @@ define([
                     this.label=paper.text(c_outerX1,c_outerY1,this.data('val')).attr({
                         'fill': this.data('color'),
                         'font-family': '微软雅黑',
+                        'font-size': 18,
                         'font-weight': 'bold'
                     });
                     this.label2=paper.text(c_outerX2,c_outerY2,this.data('name')).attr({
                         'fill': '#fff',
                         'font-family': '微软雅黑',
+                        'font-size': 18,
                         'font-weight': 'bold'
                     });
                     self.doms['text'+this.data('id')]=this.label;

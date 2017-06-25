@@ -54,6 +54,13 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html"
             $("#tabs").tabs(); //Tab页
             var $parent = $("#tabs");
             self.jsonEditor($parent);
+            $parent.find('.labelSelect').off('change')
+                   .val(self.gText.attrs.labelStyle)
+                   .on('change',function() {
+                       var val=$(this).val()
+                       self.gText.attrs.labelStyle=val;
+                       self.gText.redraw()
+                   });
             $parent.find('.gtext_title').on('change', function() {
                 self.gtext_title($(this));
             })

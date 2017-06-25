@@ -25,6 +25,9 @@ define([
         'font-weight': 'bold'
       });
       this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+      this.attrs.xAxisNames=this.xAxisNames;
+      this.attrs.datas=this.attrs.datas||[this.createRandom(this.xAxisNames,100,300),this.createRandom(this.xAxisNames,100,300)]
+      this.attrs.labels=this.attrs.labels||['3G','4G'];
       var loadNumber = new todayLoadNumberClass(paper, {
         'x': x + 82,
         'y': y + 30,
@@ -33,98 +36,29 @@ define([
         'element_distance': 26
 
       });
-
-      loadNumber.add({
-        'name': '南京',
-        'value_3g': 42,
-        'value_4g': 62
-      })
-
-      loadNumber.add({
-        'name': '无锡',
-        'value_3g': 39,
-        'value_4g': 49
-      })
-
-
-      loadNumber.add({
-        'name': '徐州',
-        'value_3g': 22,
-        'value_4g': 33
-      })
-
-      loadNumber.add({
-        'name': '常州',
-        'value_3g': 47,
-        'value_4g': 99
-      })
-
-
-      loadNumber.add({
-        'name': '苏州',
-        'value_3g': 46,
-        'value_4g': 55
-      })
-
-      loadNumber.add({
-        'name': '南通',
-        'value_3g': 33,
-        'value_4g': 38
-      })
-
-      loadNumber.add({
-        'name': '连云港',
-        'value_3g': 20,
-        'value_4g': 44
-      })
-
-      loadNumber.add({
-        'name': '淮安',
-        'value_3g': 55,
-        'value_4g': 56
-      })
+      for (var i = 0; i < this.xAxisNames.length; i++) {
+          var name =this.xAxisNames[i]
+          loadNumber.add({
+            'name': name,
+            'value_3g': this.attrs.datas[0][i],
+            'value_4g': this.attrs.datas[1][i]
+          })
+      }
 
 
 
-      loadNumber.add({
-        'name': '盐城',
-        'value_3g': 55,
-        'value_4g': 36
-      })
-
-      loadNumber.add({
-        'name': '扬州',
-        'value_3g': 22,
-        'value_4g': 43
-      })
-
-      loadNumber.add({
-        'name': '镇江',
-        'value_3g': 33,
-        'value_4g': 45
-      })
-      loadNumber.add({
-        'name': '泰州',
-        'value_3g': 25,
-        'value_4g': 33
-      })
-      loadNumber.add({
-        'name': '宿迁',
-        'value_3g': 30,
-        'value_4g': 40
-      })
       loadNumber.show();
 
 
       this.doms['loadNumber'] = loadNumber.allitem();
-      var title3G = paper.text(x + 82 + 55 + 10 + 145 + 27, y + 45, '3G').attr({
+      var title3G = paper.text(x + 82 + 55 + 10 + 145 + 27, y + 45, this.attrs.labels[0]).attr({
         'fill': '#4bcaff',
         'font-size': 24,
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });
       this.doms['title3G'] = title3G;
-      var title4G = paper.text(x + 82 + 55 + 10 + 145 + 100 + 27, y + 45, '4G').attr({
+      var title4G = paper.text(x + 82 + 55 + 10 + 145 + 100 + 27, y + 45, this.attrs.labels[1]).attr({
         'fill': '#ffdb11',
         'font-size': 24,
         'font-family': '微软雅黑',
@@ -191,6 +125,24 @@ define([
     },
     getData: function() {
       this.loadNumber.animate(this.sum3gkpi, this.sum4gkpi);
+    },
+    getXAxisNames:function () {
+     return this.attrs.xAxisNames;
+    },
+    setXAxisNames:function (datas) {
+      this.attrs.xAxisNames=datas;
+    },
+    getXAxisDatas:function() {
+        return this.attrs.datas;
+    },
+    setXAxisDatas:function(data) {
+        this.attrs.datas=data
+    },
+    getLabels:function () {
+        return this.attrs.labels;
+    },
+    setLabels:function(labels) {
+         this.attrs.labels=labels;
     },
     initLocation: function() {
       this.ft.attrs.translate.x = 20;
