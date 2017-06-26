@@ -69,6 +69,17 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.htm
             divide_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setDivideColor(color)
             })
+
+            //
+
+            var value_colorpicker = $parent.find(".value_colorpicker").colorpicker();
+
+            value_colorpicker.colorpicker("set", this.gText.attrs.valueColor);
+            value_colorpicker.on("move.colorpicker", function(e, color) {
+                self.gText.attrs.valueColor=""+color;
+                self.gText.redraw();
+            });
+
             //TODO Seq's Postions
             $parent.find('.seq_select')
                    .val(this.gText.getSeqPos())

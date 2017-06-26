@@ -7,7 +7,8 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.titleColor =this.attrs.titleColor || '#ddff00';
+            this.attrs.lineColor=this.attrs.lineColor||'#4cd5f4';
             var x = 0;
             var y = 0;
             var w = 260;
@@ -39,30 +40,13 @@ define([
                 var num = step_num * i;
                 var len = step_len * i;
                 x_nums.rect = paper.text(x_nums.x + len, x_nums.y, num).attr({
-                    'fill': '#fff',
+                    'fill': this.attrs.titleColor,
                     'font-size': 12,
                     'font-family': '微软雅黑',
                     'font-weight': 'bold'
                 });
                 this.doms['x_nums' + i] = x_nums.rect;
             }
-
-
-
-
-
-
-
-            // this.doms['title'] = this.paper.text(0, 0, title).attr({
-            //     'fill': titleColor,
-            //     'font-size': 30,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // self.setTitle(title);
-            // self.setTitleColor(titleColor);
-            //
-            //
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -85,23 +69,23 @@ define([
             item.x = x;
             item.y = y + (i * (h + space_h));
             item.text = paper.text(item.x, item.y, name).attr({
-                'fill': '#fff',
+                'fill': this.attrs.titleColor,
                 'font-size': 12,
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });
             item.box = item.text.getBBox();
 
-            item.rect = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w, h).attr({
-                'stroke': '#005e88',
-                'stroke-width': 1
-            });
+            // item.rect = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w, h).attr({
+            //     'stroke': '#005e88',
+            //     'stroke-width': 1
+            // });
             item.process = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w * per, h).attr({
-                'fill': '#4cd5f4',
+                'fill': this.attrs.lineColor,
                 'stroke-width': 0
             });
             item.set.push(item.text);
-            item.set.push(item.rect);
+            //item.set.push(item.rect);
             item.set.push(item.process);
 
             return item;
@@ -128,6 +112,7 @@ define([
                 'text': text
             });
             this.attrs.title = text;
+
         },
         setTitleColor: function(color) {
             this.doms['title'].attr({

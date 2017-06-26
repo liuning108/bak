@@ -9,6 +9,7 @@ define([
             var title = this.attrs.title || '文字名称';
             this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
             this.attrs.divideColor = this.attrs.divideColor || '#006598';
+            this.attrs.valueColor=this.attrs.valueColor||'#fff';
             var paper = this.paper;
             var x = 0;
             var y = 0;
@@ -85,7 +86,7 @@ define([
                 var item_y = data_y + (box.height * i);
                 for (var j = 0; j < data.length; j++) {
                     var j_x = data_x + (j * space);
-                    var color = '#fff';
+                    var color = this.attrs.valueColor;
                     if (this.attrs.seqShow=='on'){
                         if (j == data.length - 1 && this.attrs.isSeqPos == 2) color = this.attrs.seqColor;
                         if (j == 0 && this.attrs.isSeqPos == 1) color = this.attrs.seqColor;

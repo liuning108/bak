@@ -7,7 +7,11 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.titleColor = this.attrs.titleColor || '#f9ffd0';
+            this.attrs.axisColor=this.attrs.axisColor||'#11bde8';
+            this.attrs.lineColor=this.attrs.lineColor||'#11bde8';
+            this.attrs.dotColor=this.attrs.dotColor||'#11bde8';
+            this.attrs.areaColor=this.attrs.areaColor||'#164e62';
             var paper =this.paper;
             this.attrs.xAxisNames=this.attrs.xAxisNames||this.createSeqNums(2008,10);
             this.attrs.xAxisDatas = this.attrs.xAxisDatas || this.createRandom(this.attrs.xAxisNames,10,90);
@@ -21,7 +25,7 @@ define([
             var space_w=20;
             var r=5;
 
-            this.doms['y_axis']=paper.rect(x,y,1,h).rotate(180,x,y).attr({'stroke':'#11bde8','stroke-width':2});
+            this.doms['y_axis']=paper.rect(x,y,1,h).rotate(180,x,y).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
            //var max=6000;
             var box_w=this.getBox(Math.floor(max)).width;
             var step=5;
@@ -32,7 +36,7 @@ define([
                var step_y=-(step_h*i);
                var num=step_num*i
                this.doms['y_axis_num'+i]=paper.text(x,step_y,num).attr({
-                   'fill': '#fff',
+                   'fill':  this.attrs.titleColor,
                    'font-size': 12,
                    'font-family': '微软雅黑',
                });;
@@ -40,7 +44,7 @@ define([
                this.doms['y_axis_num'+i].attr({'x':x-box_w});
             }
 
-            this.doms['x_axis']=paper.rect(x,y,(w+space_w)*n,1).attr({'stroke':'#11bde8','stroke-width':2});
+            this.doms['x_axis']=paper.rect(x,y,(w+space_w)*n,1).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
 
 
             for(var i=0;i<n;i++){
@@ -71,8 +75,8 @@ define([
             bg_path.push(y);
             bg_path.push('z');
 
-            var curve=paper.path(curve_path).attr({'stroke':'#11bde8','stroke-width':1});
-            var bgPath=paper.path(bg_path).attr({'fill':'#164e62','stroke-width':0,'opacity':0.3});
+            var curve=paper.path(curve_path).attr({'stroke':this.attrs.lineColor,'stroke-width':1});
+            var bgPath=paper.path(bg_path).attr({'fill':this.attrs.areaColor,'stroke-width':0,'opacity':0.4});
             this.doms['curve']=curve;
             this.doms['bgPath']=bgPath;
 
@@ -80,15 +84,6 @@ define([
 
 
 
-
-            // this.doms['title'] = this.paper.text(0, 0, title).attr({
-            //     'fill': titleColor,
-            //     'font-size': 30,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // self.setTitle(title);
-            // self.setTitleColor(titleColor);
 
 
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
@@ -135,10 +130,10 @@ define([
           item.set=paper.set();
           item.x=x+(i*(w+space_w));
           item.y=y-(h*per);
-          item.circle= paper.circle(item.x,item.y,r).attr({"stroke-width":0,'fill':"#11bde8"});
+          item.circle= paper.circle(item.x,item.y,r).attr({"stroke-width":0,'fill':this.attrs.dotColor});
 
           item.name=paper.text(item.x,y+15,name).attr({
-              'fill': '#fff',
+              'fill': this.attrs.titleColor,
               'font-size': 12,
               'font-family': '微软雅黑',
           });

@@ -59,15 +59,51 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineBaseConfig
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-            $parent.find('.gtext_title').on('change',function(){
-                   self.gtext_title($(this));
-            })
-            $parent.find('.gtext_title').val(this.gText.getTitle());
+
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
-            title_colorpicker.colorpicker("set", this.gText.getTitleColor());
+            title_colorpicker.colorpicker("set", this.gText.attrs.titleColor);
             title_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.setTitleColor(color)
-            })
+                 self.gText.attrs.titleColor=""+color;
+                 self.gText.redraw();
+            });
+
+            var axis_colorpicker = $parent.find(".axis_colorpicker").colorpicker();
+            axis_colorpicker.colorpicker("set", this.gText.attrs.axisColor);
+            axis_colorpicker.on("move.colorpicker", function(e, color) {
+                 self.gText.attrs.axisColor=""+color;
+                 self.gText.redraw();
+            });
+
+            var line_colorpicker = $parent.find(".line_colorpicker").colorpicker();
+            line_colorpicker.colorpicker("set", this.gText.attrs.lineColor);
+            line_colorpicker.on("move.colorpicker", function(e, color) {
+                 self.gText.attrs.lineColor=""+color;
+                 self.gText.redraw();
+            });
+
+            var dot_colorpicker = $parent.find(".dot_colorpicker").colorpicker();
+            dot_colorpicker.colorpicker("set", this.gText.attrs.dotColor);
+            dot_colorpicker.on("move.colorpicker", function(e, color) {
+                 self.gText.attrs.dotColor=""+color;
+                 self.gText.redraw();
+            });
+
+            var area_colorpicker = $parent.find(".area_colorpicker").colorpicker();
+            area_colorpicker.colorpicker("set", this.gText.attrs.areaColor);
+            area_colorpicker.on("move.colorpicker", function(e, color) {
+                 self.gText.attrs.areaColor=""+color;
+                 self.gText.redraw();
+            });
+
+
+
+
+
+
+
+
+
+
 
             return this;
         }
