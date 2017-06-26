@@ -59,6 +59,42 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.htm
             var $parent =$("#tabs");
             self.jsonEditor($parent);
 
+            var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
+            title_colorpicker.colorpicker("set", this.gText.attrs.titleColor);
+            title_colorpicker.on("move.colorpicker", function(e, color) {
+               self.gText.attrs.titleColor=""+color
+               self.gText.redraw();
+            })
+
+
+            var line_colorpicker = $parent.find(".line_colorpicker").colorpicker();
+            line_colorpicker.colorpicker("set", this.gText.attrs.lineColor);
+            line_colorpicker.on("move.colorpicker", function(e, color) {
+               self.gText.attrs.lineColor=""+color
+               self.gText.redraw();
+            })
+
+            var dot_colorpicker = $parent.find(".dot_colorpicker").colorpicker();
+            dot_colorpicker.colorpicker("set", this.gText.attrs.dotColor);
+            dot_colorpicker.on("move.colorpicker", function(e, color) {
+               self.gText.attrs.dotColor=""+color
+               self.gText.redraw();
+            })
+
+            var label_colorpicker = $parent.find(".label_colorpicker").colorpicker();
+            label_colorpicker.colorpicker("set", this.gText.attrs.labelColor);
+            label_colorpicker.on("move.colorpicker", function(e, color) {
+               self.gText.attrs.labelColor=""+color
+               self.gText.redraw();
+            })
+
+            $parent.find('.labelSelect').val(self.gText.attrs.labelStyle)
+                   .off('change')
+                   .on('change',function() {
+                        var val= $(this).val();
+                        self.gText.attrs.labelStyle=val;
+                        self.gText.redraw();
+                   })
             return this;
         }
 

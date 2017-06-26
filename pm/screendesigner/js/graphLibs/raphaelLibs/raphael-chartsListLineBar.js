@@ -1,3 +1,4 @@
+
 (function(root, factory) {
     if (typeof define === 'function' && define.amd) {
         define(['oss_core/pm/screendesigner/js/raphael-min'], function(Raphael) {
@@ -19,8 +20,13 @@
         inst.config.keys = config.keys;
         inst.config.item_space = config.item_space || 80;
         inst.config.width = config.width || 70;
+        inst.titleColor=config.titleColor||'#fff';
+        inst.lineColor=config.lineColor||'#c7f404';
+        inst.dotColor=config.dotColor||'#fff';
+        inst.labelColor=config.labelColor||'#fff';
+        inst.labelStyle=config.labelStyle||1;
         inst.styles.labelFontStyle = {
-            'fill': '#ffffff',
+            'fill': inst.titleColor,
             'font-size': 18,
             'font-family': '微软雅黑',
             'font-weight': 'bold'
@@ -33,23 +39,23 @@
         inst.styles.processStyle = {
             'stroke-width': 0,
             'stroke': 'none',
-            'fill': '#feff3b'
+            'fill': config.titleColor
         };
         inst.styles.circleStyle = {
             'stroke-width': 0,
-            'fill': '#ffffff',
+            'fill': inst.dotColor,
             'stroke': 'none'
         }
         inst.config.circleR = 10;
         inst.config.high = 350;
         inst.styles.valueFontStyle = {
-            'fill': '#ffffff',
+            'fill': inst.titleColor,
             'font-size': 24,
             'font-family': '微软雅黑',
             'font-weight': 'bold'
         }
         inst.styles.FontStyle2 = {
-            'fill': '#ffffff',
+            'fill': inst.labelColor,
             'font-size': 20,
             'font-family': '微软雅黑',
             'font-weight': 'bold'
@@ -101,11 +107,14 @@
             var item = inst.datas[inst.datas.length - 1];
             var max_big = 0;
             var max_limit = 0;
+            var sum =0;
             for (var i = 0; i < item.datas.length; i++) {
                 if (max_big < item.datas[i].value) {
                     max_big = item.datas[i].value;
                 }
+                sum+=item.datas[i].value;
             }
+
             max_limit = max_big + (max_big * 0.2);
             if (!inst.listbar) {
                 inst.listbar = {};
@@ -126,6 +135,16 @@
                         'value': val,
                         attrs: inst.styles.FontStyle2
                     });
+
+                    if(inst.labelStyle==1){
+                         inst.listbar[key].value.setUnit("");
+                         inst.listbar[key].value.setValue(val);
+
+                    }else{
+                         inst.listbar[key].value.setUnit("%");
+                         inst.listbar[key].value.setValue(Math.floor((val/sum)*100));
+
+                    }
                     inst.set.push(inst.listbar[key].value)
                     var per_list = val / max_limit;
                     inst.listbar[key].rect = paper.rect(item_x, item_y, 100 * per_list, 30).attr({
@@ -146,7 +165,16 @@
                         'y': item_y + 30 / 2
                     });
                     var val = findValueByKey(item.datas, key);
-                    inst.listbar[key].value.setValue(val);
+                    if(inst.labelStyle==1){
+                         inst.listbar[key].value.setUnit("");
+                         inst.listbar[key].value.setValue(val);
+
+                    }else{
+                         inst.listbar[key].value.setUnit("%");
+                         inst.listbar[key].value.setValue(Math.floor((val/sum)*100));
+
+                    }
+                    //inst.listbar[key].value.setValue(val);
                     inst.listbar[key].value.attr({
                         'x': item_x + 80 + 100 / 2,
                         'y': item_y + 30 / 2
@@ -185,7 +213,7 @@
                 }
                 if (!inst.curve) {
                     inst.curve = paper.path(inst.point_paths).attr({
-                        'stroke': '#c7f404',
+                        'stroke': inst.lineColor,
                         'stroke-width': 3
                     }).toBack();
                     inst.set.push(inst.curve);

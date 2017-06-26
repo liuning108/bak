@@ -1,52 +1,47 @@
 define([
     "oss_core/pm/screendesigner/js/graphLibs/GRoot",
-    "oss_core/pm/screendesigner/js/graphLibs/views/GMoveBarView"
-], function(GRoot, View) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/GMoveBarView",
+    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
+], function(GRoot, View,ViewUtils) {
 
     var GMoveBar = GRoot.extend({
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.avgColor=this.attrs.avgColor||'#01b4f8';
             this.attrs.datas=this.attrs.datas||this.createRandom(this.createSeqNums(1,12),10,90);
             var x=0;
             var y=0;
             var index=this.attrs.datas.length;
             var last_data=this.attrs.datas[this.attrs.datas.length-1];
             var max=Math.floor(1.1*fish.max(this.attrs.datas));
+            this.avg = ViewUtils.avg(this.attrs.datas);
+
             var space=13;
             var w=20;
-            var sum=0;
             for (var i=0;i<index;i++){
                 var per=(this.attrs.datas[i]/max)*100;
-                sum+=per;
-                var bar = this.createBar(i,x,y,space,w,per);
+                var bar = this.createBar(i,x,y,space,w,per,this.attrs.datas[i]);
                 this.doms['bar'+i]=bar.set;
             }
             var width=x+(index*(w+space));
             var nums_x=width/2;
+            var color=this.attrs.avgColor;
+            if(last_data>this.avg){
+                color=this.attrs.titleColor;
+            }
             this.doms['nums'] = this.paper.chartsNumbser({
                 'x': nums_x,
                 'y': y-50,
                 'value': last_data,
                 attrs: {
-                    'fill': '#01b4f8',
+                    'fill': color,
                     'font-size': 42,
                     'font-family': '微软雅黑',
                     'font-weight': 'bold'
                 }
             });
-
-            // this.doms['title'] = this.paper.text(0, 0, title).attr({
-            //     'fill': titleColor,
-            //     'font-size': 30,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // self.setTitle(title);
-            // self.setTitleColor(titleColor);
-            //
-            //
             this.doms['config'] = this.paper.text(x, y-30, '配置').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -61,20 +56,20 @@ define([
             });;
 
         },
-        createBar:function(index,x,y,space,w,per){
+        createBar:function(index,x,y,space,w,per,value){
               var paper =this.paper;
               var h=140;
               var item={};
               item.set=paper.set();
               item.x=x+(index*(w+space));
               item.y=y;
-              var bg=paper.rect(item.x,item.y,w,h).attr({
-                                             'fill':'#efefef',
-                                             'stroke-width':0
-                                         });
-              var  color="#01b4f8";
-              if(per>60){
-                color='#ffa500';
+            //   var bg=paper.rect(item.x,item.y,w,h).attr({
+            //                                  'fill':'#efefef',
+            //                                  'stroke-width':0
+            //                              });
+              var  color=this.attrs.avgColor;
+              if(value>this.avg){
+                color=this.attrs.titleColor;
               }
 
               item.process=paper.rect(item.x,item.y+h,w,0).attr({
@@ -83,7 +78,7 @@ define([
                                           }).rotate(180);
 
               item.process.animate({'height':h*per/100},1900);
-              item.set.push(bg);
+             // item.set.push(bg);
               item.set.push(item.process);
 
               return item;

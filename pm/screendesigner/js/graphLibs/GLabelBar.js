@@ -17,6 +17,8 @@ define([
             this.attrs.datas=this.attrs.datas||this.createRandom(this.names,80,98);
             this.colors=['#5a9bd5','#01d15e','#ffc101','#e97870']
             var max =Math.floor(1.1*fish.max(this.attrs.datas));
+             this.attrs.labelStyle= this.attrs.labelStyle||1;
+            
 
             for (var i =0;i<this.names.length;i++)
             {
@@ -29,16 +31,7 @@ define([
                 this.doms['item'+i]=item.set;
             }
 
-            // this.doms['title'] = this.paper.text(0, 0, title).attr({
-            //     'fill': titleColor,
-            //     'font-size': 30,
-            //     'font-family': '微软雅黑',
-            //     'font-weight': 'bold'
-            // });;
-            // self.setTitle(title);
-            // self.setTitleColor(titleColor);
-            //
-            //
+
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -89,6 +82,13 @@ define([
                     'font-weight': 'bold'
                 }
             });
+            if( this.attrs.labelStyle==1){
+                 item.num.setValue(value)
+                 item.num.setUnit("")
+            }else{
+                item.num.setValue(Math.floor(per*100));
+                 item.num.setUnit("%")
+            }
 
             set.push(item.header)
             set.push(item.text)

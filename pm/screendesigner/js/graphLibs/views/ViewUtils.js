@@ -3,6 +3,14 @@ define([
 ], function() {
 
     return {
+        avg:function(array) {
+          var sum=0;
+          for (var i = 0; i < array.length; i++) {
+               var num=array[i]
+               sum+=num;
+          }
+         return sum/array.length;
+        },
         // TODO: 自定义Slider(done)
         sliderTooltip: function(id, init_value, min, max, step, fun) {
 

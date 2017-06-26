@@ -58,15 +58,31 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GBarBaseConfig.html"
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-            $parent.find('.gtext_title').on('change',function(){
-                   self.gtext_title($(this));
-            })
-            $parent.find('.gtext_title').val(this.gText.getTitle());
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
-            title_colorpicker.colorpicker("set", this.gText.getTitleColor());
+            title_colorpicker.colorpicker("set", this.gText.attrs.titleColor);
             title_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.setTitleColor(color)
+                self.gText.attrs.titleColor=""+color;
+                self.gText.redraw();
             })
+
+            var axis_colorpicker = $parent.find(".axis_colorpicker").colorpicker();
+            axis_colorpicker.colorpicker("set", this.gText.attrs.axisColor);
+            axis_colorpicker.on("move.colorpicker", function(e, color) {
+                self.gText.attrs.axisColor=""+color;
+                self.gText.redraw();
+            })
+
+            var bar_colorpicker = $parent.find(".bar_colorpicker").colorpicker();
+            bar_colorpicker.colorpicker("set", this.gText.attrs.barColor);
+            bar_colorpicker.on("move.colorpicker", function(e, color) {
+                self.gText.attrs.barColor=""+color;
+                self.gText.redraw();
+            })
+
+
+
+
+
 
             return this;
         }

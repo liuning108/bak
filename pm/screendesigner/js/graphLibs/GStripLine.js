@@ -11,11 +11,21 @@ define([
             var y = 0;
             var paper = this.paper;
             this.names = this.attrs.names || ['CRM下单', '服务单', '资源变更单', '流程启动', '派单', '归档']
+            this.attrs.titleColor=this.attrs.titleColor||"#fff";
+            this.attrs.lineColor=this.attrs.lineColor||'#c7f404';
+            this.attrs.dotColor=this.attrs.dotColor||'#fff';
+            this.attrs.labelColor=this.attrs.labelColor||'#fff';
+            this.attrs.labelStyle=this.attrs.labelStyle||1;
             this.attrs.names =this.names;
             this.attrs.datas=this.attrs.datas||this.createRandom(this.names,99,999);
             this.linebar=paper.chartListLineBar({
                 'x': x,
                 'y': y,
+                'titleColor':this.attrs.titleColor,
+                'lineColor':this.attrs.lineColor,
+                'dotColor':this.attrs.dotColor,
+                'labelColor':this.attrs.labelColor,
+                'labelStyle':this.attrs.labelStyle,
                 'keys': this.names
             });
             this.doms['linebar'] =this.linebar.allItem();
@@ -67,7 +77,7 @@ define([
         },
         getXAxisName:function() {
             return this.attrs.names;
-            
+
         },
         setXAxisName:function(datas) {
             this.attrs.names=datas;

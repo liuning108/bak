@@ -58,16 +58,13 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GLabelBarConfig.html
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-            // $parent.find('.gtext_title').on('change',function(){
-            //        //self.gtext_title($(this));
-            // })
-            // $parent.find('.gtext_title').val(this.gText.getTitle());
-            // var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
-            // title_colorpicker.colorpicker("set", this.gText.getTitleColor());
-            // title_colorpicker.on("move.colorpicker", function(e, color) {
-            //     self.gText.setTitleColor(color)
-            // })
-
+            $parent.find('.lableSelect').val(self.gText.attrs.labelStyle)
+                   .off('change')
+                   .on('change',function() {
+                       var val = $(this).val();
+                       self.gText.attrs.labelStyle=val;
+                       self.gText.redraw();
+                   })
             return this;
         }
 

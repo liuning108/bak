@@ -7,10 +7,13 @@ define([
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.titleColor = this.attrs.titleColor || '#fff';
+            this.attrs.axisColor=this.attrs.axisColor||'#11bde8';
+            this.attrs.barColor=this.attrs.barColor||"#11bde8";
             var paper =this.paper;
             this.attrs.names=this.attrs.names||['1月','2月','3月','4月','5月','6月'];
             this.attrs.datas=this.attrs.datas||this.createRandom(this.attrs.names,10,90);
+
             var max=Math.floor(1.1*fish.max(this.attrs.datas));
 
             var n=this.attrs.names.length;
@@ -23,7 +26,7 @@ define([
             var r=5;
 
 
-            this.doms['y_axis']=paper.rect(x+w+2,y,1,h).rotate(180,x,y).attr({'stroke':'#11bde8','stroke-width':2});
+            this.doms['y_axis']=paper.rect(x+w+2,y,1,h).rotate(180,x,y).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
 
             var box_w=this.getBox(max).width;
             var step=5;
@@ -33,7 +36,7 @@ define([
                var step_y=-(step_h*i);
                var num=step_num*i
                this.doms['y_axis_num'+i]=paper.text(x,step_y,num).attr({
-                   'fill': '#fff',
+                   'fill': this.attrs.titleColor,
                    'font-size': 12,
                    'font-family': '微软雅黑',
                });;
@@ -41,7 +44,7 @@ define([
                this.doms['y_axis_num'+i].attr({'x':x-box_w-w});
             }
 
-            this.doms['x_axis']=paper.rect(x-w,y,(w+space_w)*n,1).attr({'stroke':'#11bde8','stroke-width':2});
+            this.doms['x_axis']=paper.rect(x-w,y,(w+space_w)*n,1).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
 
             var year=1;
             for(var i=0;i<n;i++){
@@ -98,10 +101,10 @@ define([
           item.set=paper.set();
           item.x=x+(i*(w+space_w));
           item.y=y;
-          item.circle= paper.rect(item.x,item.y,w,h*per).rotate(180,item.x,item.y).attr({"stroke-width":0,'fill':"#11bde8"});
+          item.circle= paper.rect(item.x,item.y,w,h*per).rotate(180,item.x,item.y).attr({"stroke-width":0,'fill':this.attrs.barColor});
 
           item.name=paper.text(item.x-w/2,y+15,name).attr({
-              'fill': '#fff',
+              'fill':this.attrs.titleColor ,
               'font-size': 12,
               'font-family': '微软雅黑',
           });
