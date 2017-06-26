@@ -63,6 +63,61 @@ define([
                   self.g.setTitle($(this).val());
             })
 
+            var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
+            title_colorpicker.colorpicker("set", this.g.attrs.titleColor);
+            title_colorpicker.on("move.colorpicker", function(e, color) {
+               self.g.attrs.titleColor=""+color
+               self.g.redraw();
+            })
+
+            var chart_colorpicker = $parent.find(".chart_colorpicker").colorpicker();
+            chart_colorpicker.colorpicker("set", this.g.attrs.chartColor);
+            chart_colorpicker.on("move.colorpicker", function(e, color) {
+               self.g.attrs.chartColor=""+color
+               self.g.redraw();
+            })
+
+
+            var value_colorpicker = $parent.find(".value_colorpicker").colorpicker();
+            value_colorpicker.colorpicker("set", self.g.attrs.valueColor);
+            value_colorpicker.on("move.colorpicker", function(e, color) {
+               self.g.attrs.valueColor=""+color
+               self.g.redraw();
+            })
+
+
+            var c1_colorpicker = $parent.find(".c1_colorpicker").colorpicker();
+            c1_colorpicker.colorpicker("set", self.g.attrs.c1Color);
+            c1_colorpicker.on("move.colorpicker", function(e, color) {
+               self.g.attrs.c1Color=""+color
+               self.g.redraw();
+            })
+
+            var c2_colorpicker = $parent.find(".c2_colorpicker").colorpicker();
+            c2_colorpicker.colorpicker("set", self.g.attrs.c2Color);
+            c2_colorpicker.on("move.colorpicker", function(e, color) {
+               self.g.attrs.c2Color=""+color
+               self.g.redraw();
+            })
+
+
+
+
+
+
+
+
+            $parent.find('.labelSelect').val(self.g.attrs.labelStyle)
+                  .off('change')
+                  .on('change',function() {
+                      var val =$(this).val();
+                      self.g.attrs.labelStyle=val;
+                      self.g.redraw();
+                  })
+
+
+
+
         }
 
 

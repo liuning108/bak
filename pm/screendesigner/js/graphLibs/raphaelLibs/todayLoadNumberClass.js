@@ -42,15 +42,15 @@ todayLoadNumberClass.prototype.darwElem = function(index){
 
         var text= paper.text(this.config.x+10,this.config.y+interval+11,element.name);
         this.set.push(text);
-        text.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
+        text.attr({'fill':this.config.chartColor,'font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
         text.attr({'font-size':18})
 
         var rect_3g =paper.rect(this.config.x+40,this.config.y+interval,(this.config.element_width-40)/2*rate.value3,this.config.element_high);
         this.set.push(rect_3g);
-        rect_3g.attr({'fill':'#00a0e9','stroke-width':0,'fill-opacity':1});
+        rect_3g.attr({'fill':this.config.c1Color,'stroke-width':0,'fill-opacity':1});
         var rect_3g_value= paper.text(this.config.x+(this.config.element_width)/2-40/2,this.config.y+interval+11,element.value_3g);
         this.set.push(rect_3g_value);
-        rect_3g_value.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
+        rect_3g_value.attr({'fill':this.config.valueColor,'font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
         rect_3g_value.attr({'font-size':20})
         element.rect_3g_value=rect_3g_value;
         element.rect_3g=rect_3g;
@@ -58,10 +58,10 @@ todayLoadNumberClass.prototype.darwElem = function(index){
 
         var rect_4g =paper.rect(this.config.x+(this.config.element_width)/2+21,this.config.y+interval,(this.config.element_width-39)/2*rate.value4,this.config.element_high);
         this.set.push(rect_4g);
-        rect_4g.attr({'fill':'#e89f21','stroke-width':0,'fill-opacity':1});
+        rect_4g.attr({'fill':this.config.c2Color,'stroke-width':0,'fill-opacity':1});
         var rect_4g_value= paper.text(this.config.x+(this.config.element_width)-35,this.config.y+interval+11,element.value_4g);
          this.set.push(rect_4g_value);
-        rect_4g_value.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
+        rect_4g_value.attr({'fill':this.config.valueColor,'font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
         rect_4g_value.attr({'font-size':20})
         element.rect_4g_value=rect_4g_value;
         element.rect_4g=rect_4g;
@@ -198,7 +198,7 @@ sumkpi.prototype.show =function(){
      self.set.push(lable_title);
        lable_title.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'})
          lable_title.attr({'font-size':20})
-         lable_title.attr({'fill':'#ffffff'})
+         lable_title.attr({'fill':this.config.chartColor})
          this.element.lable_title=lable_title;
 
 }

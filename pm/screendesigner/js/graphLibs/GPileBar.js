@@ -9,9 +9,15 @@ define([
       var x = 0;
       var y = 0;
       var paper = this.paper;
+       this.attrs.titleColor=this.attrs.titleColor||"#ebeb6d"
+       this.attrs.chartColor=this.attrs.chartColor||"#fff"
+       this.attrs.valueColor=this.attrs.valueColor||'#fff';
+       this.attrs.labelStyle=this.attrs.labelStyle||1;
+       this.attrs.c1Color=this.attrs.c1Color||'#00a0e9';
+       this.attrs.c2Color=this.attrs.c2Color||'#e89f21';
+
       //  this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x,y,532,377);
       this.doms['gb'] = paper.rect(x, y, 532, 377).attr({
-        'fill': '#36b0c8',
         'fill-opacity': 0,
         'stroke': '#595959',
         'stroke-width': 5,
@@ -19,7 +25,7 @@ define([
       })
       this.attrs.title = this.attrs.title || 'C网今日新装量'
       this.doms['title'] = paper.text(x + 532 / 2, y, this.attrs.title).attr({
-        'fill': '#ebeb6d',
+        'fill': this.attrs.titleColor,
         'font-size': 24,
         'font-family': '微软雅黑',
         'font-weight': 'bold'
@@ -33,8 +39,11 @@ define([
         'y': y + 30,
         'element_width': 180,
         'element_high': 24,
-        'element_distance': 26
-
+        'element_distance': 26,
+        'chartColor':this.attrs.chartColor,
+        'valueColor':this.attrs.valueColor,
+        'c1Color':this.attrs.c1Color,
+        'c2Color':this.attrs.c2Color
       });
       for (var i = 0; i < this.xAxisNames.length; i++) {
           var name =this.xAxisNames[i]
@@ -52,14 +61,14 @@ define([
 
       this.doms['loadNumber'] = loadNumber.allitem();
       var title3G = paper.text(x + 82 + 55 + 10 + 145 + 27, y + 45, this.attrs.labels[0]).attr({
-        'fill': '#4bcaff',
+        'fill': this.attrs.c1Color,
         'font-size': 24,
         'font-family': '微软雅黑',
         'font-weight': 'bold'
       });
       this.doms['title3G'] = title3G;
       var title4G = paper.text(x + 82 + 55 + 10 + 145 + 100 + 27, y + 45, this.attrs.labels[1]).attr({
-        'fill': '#ffdb11',
+        'fill':this.attrs.c2Color,
         'font-size': 24,
         'font-family': '微软雅黑',
         'font-weight': 'bold'
@@ -76,7 +85,8 @@ define([
         'y': y + 72,
         'item_width': 50,
         'space_high': 15,
-        'fill': '#00b7ee'
+        'fill': this.attrs.c1Color,
+        'chartColor':this.attrs.chartColor
 
       });
 
@@ -93,8 +103,8 @@ define([
         'y': y + 72,
         'item_width': 50,
         'space_high': 15,
-        'fill': '#e89f21'
-
+        'fill': this.attrs.c2Color,
+        'chartColor':this.attrs.chartColor
       });
       sum4gkpi.show();
       this.doms['sum4gkpi'] = sum4gkpi.allitem();

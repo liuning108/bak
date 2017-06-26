@@ -58,14 +58,12 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.htm
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             self.jsonEditor($parent);
-
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.attrs.titleColor);
             title_colorpicker.on("move.colorpicker", function(e, color) {
                self.gText.attrs.titleColor=""+color
                self.gText.redraw();
             })
-
 
             var line_colorpicker = $parent.find(".line_colorpicker").colorpicker();
             line_colorpicker.colorpicker("set", this.gText.attrs.lineColor);
@@ -94,7 +92,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.htm
                         var val= $(this).val();
                         self.gText.attrs.labelStyle=val;
                         self.gText.redraw();
-                   })
+                   });
+            
             return this;
         }
 
