@@ -3,6 +3,26 @@ define([
 ], function() {
 
     return {
+        changeText:function($text,g,name,fun) {
+            var check=fun||function(){return true};
+            $text.val(g.attrs[name])
+                 .off('change')
+                 .on('change',function() {
+                    if (check()){
+                         g.attrs[name] = $(this).val();
+                         g.redraw();
+                    }
+                 })
+        },
+        changeColor:function($colorpicker,g,name) {
+            var colorpicker =$colorpicker.colorpicker();
+            colorpicker.colorpicker("set", g.attrs[name]);
+            colorpicker.off("move.colorpicker");
+            colorpicker.on("move.colorpicker", function(e, color) {
+                g.attrs[name]=""+color;
+                g.redraw();
+            })
+        },
         avg:function(array) {
           var sum=0;
           for (var i = 0; i < array.length; i++) {

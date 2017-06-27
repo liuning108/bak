@@ -17,6 +17,10 @@
         var y = config.y ||0;
 
         var obj_instance = {};
+        obj_instance.colors=config.colors||['#ffffff','#ffcc00','#ff3600'];
+        obj_instance.labelColor=config.labelColor||'#fff';
+        obj_instance.valueColor=config.valueColor||'#fff';
+        obj_instance.LineColor=config.LineColor||'#51f711'
         obj_instance.waring = config.waring;
         obj_instance.curve=paper.path("");
 
@@ -25,7 +29,7 @@
         var span_w = 8;
         var keys = config.keys;
         var fontStyle = {
-            'fill': '#ffffff',
+            'fill': obj_instance.labelColor,
             'font-size': 17.59,
             'font-family': '微软雅黑',
             'font-weight': 'bold'
@@ -67,7 +71,7 @@
                 'value': 0,
                 'format': false,
                 attrs: {
-                    'fill': '#ffffff',
+                    'fill': obj_instance.valueColor,
                     'font-size': 18,
                     'font-family': '微软雅黑',
                     'font-weight': 'bold'
@@ -116,17 +120,17 @@
                     }, 1000);
                     if (item.value >= obj_instance.waring[2]) {
                         item.valuebg.animate({
-                            'fill': '#ff3600',
+                            'fill': obj_instance.colors[2],
                             opacity: '0.4'
                         }, 1000)
                     } else if (item.value >= obj_instance.waring[1]) {
                         item.valuebg.animate({
-                            'fill': '#ffcc00',
+                            'fill': obj_instance.colors[1],
                             opacity: '0.4'
                         }, 1000)
                     } else {
                         item.valuebg.animate({
-                            'fill': '#ffffff',
+                            'fill': obj_instance.colors[0],
                             opacity: '0.1'
                         }, 1000)
                     }
@@ -181,7 +185,7 @@
                     } else {
                         obj_instance.curve.animate({
                             'path': point_paths,
-                            'stroke': '#51f711',
+                            'stroke': obj_instance.LineColor,
                             'stroke-width': 3
 
                         }, 1000);

@@ -380,6 +380,8 @@ define([
             }
             var self = this;
             var json = self.canvas.json();
+            console.log("----save--");
+            console.log(json);
             var svg_canvs = this.canvas;
             var svg = svg_canvs.toSVG();
             var canvas = document.getElementById('sSVGPic');

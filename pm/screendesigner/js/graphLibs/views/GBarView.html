@@ -20,18 +20,159 @@
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
-                                <form class="from-inline">
                                     <div class="form-group">
-                                        <label for="g_titile" class="bi-lable">名称:</label>
+                                        <label for="g_titile" class="bi-lable">标题名称:</label>
                                         <input type="text" class="g_titile" name="g_titile">
                                     </div>
-                                </form>
+                                    <div class="form-group">
+                                        <label for="title_colorpicker" class="bi-lable">标题颜色:</label>
+                                        <input type="text" class="title_colorpicker" name="title_colorpicker">
+                                   </div>
+                                   <div class="form-group">
+                                       <label for="label_colorpicker" class="bi-lable">标签颜色:</label>
+                                       <input type="text" class="label_colorpicker" name="label_colorpicker">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="value_colorpicker" class="bi-lable">数值颜色:</label>
+                                      <input type="text" class="value_colorpicker" name="value_colorpicker">
+                                 </div>
+                                 <div class="form-group">
+                                     <label for="line_colorpicker" class="bi-lable">折线颜色:</label>
+                                     <input type="text" class="line_colorpicker" name="line_colorpicker">
+                                </div>
+                                    <div class="form-group bar_colorpickerDiv">
+                                        <label for="bar_colorpicker" class="bi-lable">条形颜色:</label>
+                                        <input type="text" class="bar_colorpicker" name="bar_colorpicker">
+                                   </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                
+                <div class="bi-attr-edit-list-div">
+                    <h4>预警设置</h4>
+
+                    <!-- TODO: 开 /  关(doing) -->
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">开/关:</lable>
+                            </div>
+                            <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                                <label class="switch">
+                                    <input type="checkbox" checked="true" class='switchGrid'>
+                                    <span style=""></span>
+                                 </label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TODO: 预警值标1(doing) -->
+                    <div class="bi-attr-edit-list-div-rengs levelConfig">
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                <form class="table-input-form" action="#" method="post" autocomplete="off">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th>名称</th>
+                                                <th>颜色</th>
+                                                <th>值(<=)</th>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-input"><input type="text" class="normal_text" name="normal_text"></input>
+                                                </td>
+                                                <td><input type="text" class="gtext_colorpicker" name="gtext_colorpicker"></td>
+                                                <td class="table-input"><input type="text" class="normal_value v"  name="normal_value" data-rule="required;integer[+0]"></input>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="table-input"><input type="text" class="urgency_text" name="urgency_text"></input>
+                                                </td>
+                                                <td><input type="text" class="gtext_colorpicker2" name="gtext_colorpicker2"></td>
+                                                <td class="table-input"><input type="text" class="urgency_value v" name="urgency_value" data-rule="required;integer[+0];match[gt, normal_value]; " data-msg-match="必需大于上一个数值"></input>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="table-input"><input type="text" class="risk_text" name="risk_text"></input>
+                                                </td>
+                                                <td><input type="text" class="gtext_colorpicker3" name="gtext_colorpicker3" ></td>
+                                                <td class="table-input"><input type="text" class="risk_value v" name="risk_value" data-rule="required;integer[+0];match[gt, urgency_value];"  data-msg-match="必需大于上一个数值"></input>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>线框设置</h4>
+                <!-- TODO: 显示 / 隐藏(done) -->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <lable class="bi-lable" style="margin-right:0px;margin-left:10px">显示/隐藏:</lable>
+                        </div>
+                        <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                            <label class="switch">
+                                <input type="checkbox" checked="true" class='switchGrid2'>
+                                <span style=""></span>
+                             </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="gtext_colorpicker_label" class="bi-lable">线框颜色:</label>
+                                    <input type="text" class="gtext_colorpicker_label" name="gtext_colorpicker_label">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO:  宽-->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
+                             宽度
+                            </label>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div id="slider2" style="position:relative; top:12px;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <input id="slider2_input" type="text" class="bi-input-number-range-input" readonly>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO:  高-->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
+                             高度
+                            </label>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div id="slider3" style="position:relative; top:12px;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <input id="slider3_input" type="text" class="bi-input-number-range-input" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
 
 
