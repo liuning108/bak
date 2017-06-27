@@ -1,7 +1,8 @@
 define([
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-], function(tpl,JSONEditor) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
+], function(tpl,JSONEditor,ViewUtils) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -55,7 +56,7 @@ define([
             var $parent =$("#tabs");
 
             $parent.tabs(); //Tab页
-                self.jsonEditor($parent);
+            self.jsonEditor($parent);
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');
@@ -101,19 +102,34 @@ define([
             })
 
 
+            $parent.find('.switchGrid').attr('checked',self.g.attrs.bgShow)
+                   .off('change')
+                   .on('change',function() {
+                       var checked=$(this).is(':checked')
+                       self.g.attrs.bgShow=checked;
+                       self.g.redraw();
+                   })
 
+            var gtext_colorpicker_label = $parent.find(".gtext_colorpicker_label").colorpicker();
+            gtext_colorpicker_label.colorpicker("set", self.g.attrs.bgColor);
+            gtext_colorpicker_label.on("move.colorpicker", function(e, color) {
+               self.g.attrs.bgColor=""+color
+               self.g.redraw();
+            })
 
+            ViewUtils.sliderTooltip('#slider2', self.g.attrs.ww, 532, 1080, 1, function(value) {
+                $('#slider2_input').val(value);
+                if(self.g.attrs.ww==value) return;
+                self.g.attrs.ww=value;
+                self.g.redraw();
+            });
+            ViewUtils.sliderTooltip('#slider3', self.g.attrs.hh, 377, 1080, 1, function(value) {
+                $('#slider3_input').val(value);
+                if(self.g.attrs.hh==value) return;
+                self.g.attrs.hh=value;
+                self.g.redraw();
+            });
 
-
-
-
-            $parent.find('.labelSelect').val(self.g.attrs.labelStyle)
-                  .off('change')
-                  .on('change',function() {
-                      var val =$(this).val();
-                      self.g.attrs.labelStyle=val;
-                      self.g.redraw();
-                  })
 
 
 

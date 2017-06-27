@@ -30,11 +30,11 @@ RegainNumsKPI.prototype.animate=function(){
 			        var rect =elem_config.arrayRects[i];
 
 			        if(elem_config.value>=this.config.error){
-        	    	  rect.animate({'fill':'#fb4848'})
+        	    	  rect.animate({'fill':this.config.barColor})
         	         }else if (elem_config.value>=this.config.waring){
-        	    	  rect.animate({'fill':'#f0f465'})
+        	    	  rect.animate({'fill':this.config.barColor})
         	         }else{
-        	         	rect.animate({'fill':'#83e6fc'})
+        	         	rect.animate({'fill':this.config.barColor})
         	         }
 			        if (i>shownums){
                  rect.animate({'fill-opacity':0.2},400);
@@ -53,7 +53,7 @@ RegainNumsKPI.prototype.darwElem=function(index){
         var elementy=this.config.y+(index*23.5);
         var eleText =paper.text(this.config.x,elementy,elementConfig.name);
         self.set.push(eleText);
-        eleText.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
+        eleText.attr({'fill':this.config.chartColor,'font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
         eleText.attr('font-size',18);
         var x =this.config.x+15;
         var y = elementy-8;
@@ -65,11 +65,11 @@ RegainNumsKPI.prototype.darwElem=function(index){
         for (var i = 0;i<this.config.nums;i+=this.config.step){
         	var rect = paper.rect(x+((i+1)*14.4),y,width,20,2);
 			self.set.push(rect);
-        	    rect.attr({'fill':'#83e6fc','stroke-width':0})
+        	    rect.attr({'fill':this.config.barColor,'stroke-width':0})
         	    if(elementConfig.value>=this.config.error){
-        	    	rect.attr({'fill':'#fb4848'})
+        	    	rect.attr({'fill':this.config.barColor})
         	    }else if (elementConfig.value>=this.config.waring){
-        	    	rect.attr({'fill':'#f0f465'})
+        	    	rect.attr({'fill':this.config.barColor})
         	    }
         	    if (i>shownums){
                   rect.attr({'fill-opacity':0.4});
@@ -82,7 +82,7 @@ RegainNumsKPI.prototype.darwElem=function(index){
         var eleValue =paper.text(valuex,y+10,elementConfig.value);
 		self.set.push(eleValue);
            eleValue.attr({'fill':'#ffffff','font-size':25,'font-family': '微软雅黑','font-weight':'bold'});
-           eleValue.attr({'fill':'#FFFFFF'});
+           eleValue.attr({'fill':this.config.valueColor});
           eleValue.attr('font-size',18);
           elementConfig.eleValue=eleValue;
 }

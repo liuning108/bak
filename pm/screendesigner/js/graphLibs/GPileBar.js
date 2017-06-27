@@ -3,7 +3,6 @@ define([
   "oss_core/pm/screendesigner/js/graphLibs/raphaelLibs/todayLoadNumberClass",
   "oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView"
 ], function(GRoot, tpl, View) {
-
   var GPileBar = GRoot.extend({
     initElement: function() {
       var x = 0;
@@ -15,16 +14,23 @@ define([
        this.attrs.labelStyle=this.attrs.labelStyle||1;
        this.attrs.c1Color=this.attrs.c1Color||'#00a0e9';
        this.attrs.c2Color=this.attrs.c2Color||'#e89f21';
+       this.attrs.bgShow=this.attrs.bgShow||false;
+       this.attrs.bgColor=this.attrs.bgColor||"#595959"
+       this.attrs.ww=this.attrs.ww||532;
+       this.attrs.hh=this.attrs.hh||377;
+
 
       //  this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x,y,532,377);
-      this.doms['gb'] = paper.rect(x, y, 532, 377).attr({
-        'fill-opacity': 0,
-        'stroke': '#595959',
-        'stroke-width': 5,
-        'stroke-dasharray': '-'
-      })
+      if(this.attrs.bgShow==true){
+          this.doms['gb'] = paper.rect(x, y, this.attrs.ww, this.attrs.hh).attr({
+            'fill-opacity': 0,
+            'stroke': this.attrs.bgColor,
+            'stroke-width': 5,
+            'stroke-dasharray': '-'
+          })
+      }
       this.attrs.title = this.attrs.title || 'C网今日新装量'
-      this.doms['title'] = paper.text(x + 532 / 2, y, this.attrs.title).attr({
+      this.doms['title'] = paper.text(x + this.attrs.ww / 2, y, this.attrs.title).attr({
         'fill': this.attrs.titleColor,
         'font-size': 24,
         'font-family': '微软雅黑',

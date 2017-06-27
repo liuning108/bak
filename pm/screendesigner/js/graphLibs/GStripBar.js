@@ -11,15 +11,25 @@ define([
             var y = 0;
             var paper = this.paper;
             this.attrs.title=this.attrs.title||'停复机在途复机量';
-		//	this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x+1,y,532,377);
-        this.doms['gb'] =paper.rect(x,y,532, 377).attr({
-            'fill': '#36b0c8',
-            'fill-opacity': 0,
-            'stroke':'#595959',
-            'stroke-width':5,
-            'stroke-dasharray':'-'
-        })
-            this.doms['title']= paper.text(x+532/2,y,this.attrs.title).attr({'fill':'#ebeb6d','font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
+            this.attrs.titleColor=this.attrs.titleColor||'#ebeb6d';
+            this.attrs.chartColor=this.attrs.chartColor||'#fff';
+            this.attrs.valueColor=this.attrs.valueColor||'#fff';
+            this.attrs.barColor=this.attrs.barColor||'#83e6fc';
+            this.attrs.bgShow=this.attrs.bgShow||false;
+            this.attrs.bgColor=this.attrs.bgColor||'#595959'
+            this.attrs.ww=this.attrs.ww||532;
+            this.attrs.hh=this.attrs.hh||377;
+
+            if(this.attrs.bgShow==true){
+                this.doms['gb'] =paper.rect(x,y,this.attrs.ww, this.attrs.hh).attr({
+                    'fill': '#36b0c8',
+                    'fill-opacity': 0,
+                    'stroke':this.attrs.bgColor,
+                    'stroke-width':5,
+                    'stroke-dasharray':'-'
+                })
+            }
+            this.doms['title']= paper.text(x+this.attrs.ww/2,y,this.attrs.title).attr({'fill':this.attrs.titleColor,'font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
 			this.attrs.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
             this.attrs.xAxisDatas=this.attrs.xAxisDatas||this.createRandom(this.attrs.xAxisNames,0,0);
             var v_setp=19
@@ -34,6 +44,9 @@ define([
                 step:v_setp,
                 waring: 80,
                 error: 100,
+                chartColor:this.attrs.chartColor,
+                valueColor:this.attrs.valueColor,
+                barColor:this.attrs.barColor
             });
             fish.each(this.attrs.xAxisNames,function(name,index) {
                 regainNumsKPI.add({

@@ -95,11 +95,13 @@ define([
 
             ViewUtils.sliderTooltip('#slider2', self.g.attrs.ww, 532, 1080, 1, function(value) {
                 $('#slider2_input').val(value);
+                if(self.g.attrs.ww==value) return;
                 self.g.attrs.ww=value;
                 self.g.redraw();
             });
             ViewUtils.sliderTooltip('#slider3', self.g.attrs.hh, 377, 1080, 1, function(value) {
                 $('#slider3_input').val(value);
+                if(self.g.attrs.hh==value) return;
                 self.g.attrs.hh=value;
                 self.g.redraw();
             });
