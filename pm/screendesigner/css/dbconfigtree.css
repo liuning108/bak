@@ -5,7 +5,6 @@
 
 .db_panel_side .panel_row_r1 {
   padding: 15px 10px 20px 10px;
-  border-bottom: 1px solid #f1f1f1;
   position: relative;
 }
 
@@ -29,12 +28,32 @@
 
 .db_panel_side .panel_row_r1 .db_edit_plane {
   position: absolute;
-  width: 160px;
+  width: 200px;
   height: 300px;
-  background: red;
-  left: -170px;
+  background: #fff;
+  left: -210px;
   z-index: 999;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px 0px 0px;
   display: none;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body {
+  padding: 15px 10px 20px 10px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist {
+  padding: 15px 10px 20px 10px;
+  min-height: 150px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.db_panel_side .serverCommand {
+  margin-bottom: 10px;
 }
 
 .db_panel_side .g_tt {
@@ -58,6 +77,16 @@
   padding: 0 15px;
   font-size: 13px;
   margin: 0px;
+  display: inline-block;
+}
+
+.db_panel_side .dbTipMessage {
+  font-size: 10px;
+  display: none;
+}
+
+.db_panel_side .g_field_context:hover .dbTipMessage {
+  display: inline-block;
 }
 
 .db_panel_side .g_field {
@@ -115,11 +144,11 @@
   border-radius: 3px;
 }
 
-.db_panel_side .db_sure {
+.db_panel_side .db_sure, .db_panel_side .db_edit_plane_sure {
   background: #0baee8 !important;
 }
 
-.db_panel_side .db_cancel {
+.db_panel_side .db_cancel, .db_panel_side .db_edit_plane_cancel {
   background: #999 !important;
 }
 
@@ -133,4 +162,10 @@
 
 .db_panel_side .martop5px {
   margin-top: 10px;
+}
+
+.db_panel_side .dbChoice {
+  border-left: 5px solid  #02b8ed;
+  margin-bottom: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }

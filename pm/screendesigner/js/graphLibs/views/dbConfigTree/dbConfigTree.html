@@ -4,15 +4,36 @@
         <h2>服务名</h2>
         <a href="#" class="x_table_i">
             <i class="icon-uniE600"></i>
-           <span>新装量服务</span>
+            <span class="dbServerName">新装量服务</span>
        </a>
-        <div class="db_edit clearfix">
+        <div class="db_edit clearfix serverCommand">
             <ul>
-                <li><a href="#">切换</a></li>
-
+                <li><a href="#" class="choiceDBSource">切换</a></li>
             </ul>
         </div>
         <div class="db_edit_plane">
+            <div class="g_tt">
+                <h3>切换服务</h3>
+            </div>
+            <div>
+                <div class="db_edit_body">
+                    <div class="db_search">
+                        <span>查询:</span><input type="serach" placeholder="请输入要查询的服务名" />
+                    </div>
+                    <div class="dbserverlist">
+                        <ul>
+                            <li> <input type="radio" name="dbServer"><span>激活服务<span></li>
+                          <li> <input type="radio" name="dbServer"><span>流程服务<span></li>
+                       </ul>
+                   </div>
+                </div>
+
+          <div class="db_edit clearfix martop5px">
+              <ul>
+                  <li><a href="#" class="db_edit_plane_sure" >确定</a></li>
+                  <li><a href="#" class="db_edit_plane_cancel">取消</a></li>
+              </ul>
+          </div>
 
         </div>
 
@@ -20,100 +41,29 @@
     <div class="g_field">
         <div class="g_field_data">
             <div class="g_tt">
-                <h3>所有数据字段</h3>
+                <h3 class="coa">所选数据字段</h3>
             </div>
             <div class="g_field_context">
                 <div class="g_tt">
-                    <h4>维度（X轴）</h4>
+                    <h4>维度（X轴)</h4><span class="dbTipMessage">只能选1个维度</span>
                 </div>
-                <ul>
-                    <li>
+                <ul class="xAxisUL" >
 
-                        <span>
-                          <i class="g_ico icon-uniE6012"></i>
-                          地区
-                      </span>
-                    </li>
                 </ul>
                 <div class="g_tt">
-                    <h4>指标（Y轴）</h4>
+                    <h4>指标（Y轴）</h4><span class="dbTipMessage">只能选2个指标</span>
                 </div>
-                <ul class="none-bottom">
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          3G新装量
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          4G新装量
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐A新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐B新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
-                    <li>
-                        <span>
-                          <i class="g_ico icon-uniE6002"></i>
-                          套餐C新装数
-                      </span>
-                    </li>
+                <ul class="none-bottom yAxisUL">
+
                 </ul>
             </div>
         </div>
     </div>
     <div class="dbCommand">
-        <div class="db_edit clearfix martop5px">
+        <div class="db_edit clearfix martop5px" >
             <ul>
                 <li><a href="#" class="db_edit_btn">編辑</a></li>
-                <li><a href="#" class="db_sure">确定</a></li>
+                <li><a href="#" class="db_sure" >确定</a></li>
                 <li><a href="#" class="db_cancel">取消</a></li>
             </ul>
         </div>
