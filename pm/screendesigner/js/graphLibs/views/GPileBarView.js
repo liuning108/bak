@@ -1,8 +1,9 @@
 define([
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
-], function(tpl,JSONEditor,ViewUtils) {
+    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils",
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+], function(tpl,JSONEditor,ViewUtils,DBConfigTreeView) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -16,6 +17,7 @@ define([
         },
 
         jsonEditor:function($parent){
+
             var self =this;
             var $editor_content = $parent.find("#json-editor");
             $editor_content.css({
@@ -56,6 +58,12 @@ define([
             var $parent =$("#tabs");
 
             $parent.tabs(); //Tab页
+
+        
+
+            var dbCofnfigTree= new DBConfigTreeView({'el':'.dbCofnfigTree'}).render();
+            dbCofnfigTree.afterRender();
+
             self.jsonEditor($parent);
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
