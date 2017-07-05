@@ -122,7 +122,7 @@ ul {
 }
 
 .sdesigner {
-  animation: opactAnim 500ms;
+  animation: opactAnim 1s;
 }
 
 .sdesigner .ui-tabs {
@@ -774,7 +774,7 @@ i.icon_chart35 {
 @keyframes opactAnim {
   0% {
     opacity: 0;
-    transform: rotateY(90deg);
+    transform: rotateY(-90deg);
   }
   100% {
     opacity: 1;
