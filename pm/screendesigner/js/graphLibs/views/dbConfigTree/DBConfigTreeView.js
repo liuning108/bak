@@ -31,6 +31,7 @@ define([
 
         renderServerXAxis:function (el,db) {
               var self =this;
+              el.find('.xnums').text(db.xNums);
               el.find('.xAxisUL').empty();
               fish.each(db.xAxis,function(obj) {
                  $li = $(self.xLiTpl(obj)).appendTo(el.find('.xAxisUL'));
@@ -46,6 +47,7 @@ define([
 
         renderServerYAxis:function(el,db) {
             var self =this;
+            el.find('.ynums').text(db.yNums);
             el.find('.yAxisUL').empty();
             fish.each(db.yAxis,function(obj) {
                  $li = $(self.yLiTpl(obj)).appendTo(el.find('.yAxisUL'));
@@ -85,28 +87,47 @@ define([
 
         },
         dbEdit:function(el,$parent){
+           var self =this;
             el.hide();
             $parent.find('.db_sure').show();
             $parent.find('.db_cancel').show();
             $parent.find('.serverCommand').show();
             $parent.find('[data-choice=n]').show();
-            $parent.find('[data-choice=y]').addClass('dbChoice');
-            $parent.find('.coa').text('所有数据字段');
 
+            fish.each($parent.find('.xAxisUL').find('[data-choice=y]'),function(dom,index) {
+              $(dom).addClass('dbChoice').data('index',index);
+            });
+            fish.each($parent.find('.yAxisUL').find('[data-choice=y]'),function(dom,index) {
+              $(dom).addClass('dbChoice').data('index',index);
+            });
+
+            $parent.find('.coa').text('所有数据字段');
+            var xClickIndex=0;
             $parent.find('.xAxisUL').find('[data-choice]').off('click')
                    .on('click',function() {
-                         $parent.find('.xAxisUL').find('li').removeClass('dbChoice');
-                        $(this).addClass('dbChoice');
+                      self.choiceFieldByNums($(this),$parent,'.xAxisUL',self.config.db.xNums,xClickIndex++);
                    })
 
+            var yClickIndex=0;
            $parent.find('.yAxisUL').find('[data-choice]').off('click')
                           .on('click',function() {
-                               var array=$parent.find('.yAxisUL').find('.dbChoice')
-                               $(array.get(0)).removeClass('dbChoice');
-                               $(this).addClass('dbChoice');
+                              self.choiceFieldByNums($(this),$parent,'.yAxisUL',self.config.db.yNums,yClickIndex++);
                           })
-
-
+        },
+        choiceFieldByNums:function(el,$parent,className,nums,clickIndex) {
+          if (el.hasClass("dbChoice")){
+              el.removeClass('dbChoice');
+          }else{
+            var array=$parent.find(className).find('.dbChoice')
+            minDom=fish.min(array,function(dom){
+              return $(dom).data('index');
+            })
+            if(array.length>=nums){
+              $(minDom).removeClass('dbChoice');
+            }
+            el.addClass('dbChoice');
+            el.data("index",clickIndex);
+          }
         },
         dbCancel:function (el,$parent) {
             el.hide();

@@ -49,8 +49,10 @@ define([
 
             $parent.tabs(); //Tab页
 
-            var dbTreeJson = {
+            var dbTreeJson ={
                 'serverName': '新装量服务',
+                'xNums':1,
+                'yNums':2,
                 'xAxis': [
                     {
                         name: '地区',
