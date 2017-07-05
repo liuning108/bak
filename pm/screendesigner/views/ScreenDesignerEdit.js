@@ -91,9 +91,9 @@ define([
             sdConfigView.render();
             $(".configPanel").html(sdConfigView.$el);
             sdConfigView.afterRender();
-            if (!TweenMax.isTweening(".configPanel")) {
-                TweenMax.from(".configPanel", 1, {x: "200px"});
-            };
+            // if (!TweenMax.isTweening(".configPanel")) {
+            //     TweenMax.from(".configPanel", 1, {x: "200px"});
+            // };
 
             //TweenMax.from(".configPanel", 1, {opacity:0.5});
 

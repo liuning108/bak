@@ -99,7 +99,8 @@ ul
     li
       float: left
       margin-left: 5px
-
+.sdesigner
+  animation: opactAnim 500ms
 .sdesigner .ui-tabs
   .ui-tabs-nav
     padding: 0px 0 0
@@ -146,6 +147,7 @@ ul
 
 .editBody .configPanel
   background: #fff
+
 
 .m_u_box
   padding: 0 15px
@@ -652,3 +654,11 @@ i
 .editBody .json-menu
   height: 30px
   background: #f0f0f0
+
+@keyframes  opactAnim
+  0%
+    opacity: 0
+    transform: rotateY(90deg)
+  100%
+    opacity: 1
+    transform: rotateY(0deg)
