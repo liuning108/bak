@@ -12,6 +12,7 @@
   margin: 0px;
   padding: 0px;
   background: #fff;
+  animation: pageAnim 500ms ease-in-out forwards;
 }
 
 .editBody ol {
@@ -122,7 +123,7 @@ ul {
 }
 
 .sdesigner {
-  animation: opactAnim 1s;
+  animation: opactAnim 300ms;
 }
 
 .sdesigner .ui-tabs {
@@ -514,6 +515,13 @@ i.icon_chart35 {
   position: relative;
   width: 100%;
   height: 165px;
+  transition: all 300ms;
+  transform: scale(0.98);
+}
+
+.inst_item .inst_top_pic:hover {
+  transform: scale(1);
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.3);
 }
 
 .inst_item .inst_text {
@@ -606,6 +614,7 @@ i.icon_chart35 {
   background: #fff;
   font: 12px / 1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed;
   color: #758697;
+  animation: SDdialogAnim 300ms;
 }
 
 .SDdialog .sd-modal-header {
@@ -811,22 +820,59 @@ i.icon_chart35 {
   background: #f0f0f0;
 }
 
-@keyframes opactAnim {
+.mega-menu {
+  animation: LeftAnim 1s;
+}
+
+.exportMenu {
+  animation: RightAnim 1s;
+}
+
+@keyframes RightAnim {
   0% {
     opacity: 0;
-    transform: rotateY(-90deg);
+    transform: translateX(500px);
   }
   100% {
     opacity: 1;
-    transform: rotateY(0deg);
+  }
+}
+
+@keyframes LeftAnim {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pageAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-500px);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opactAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
   }
 }
 
 @keyframes SDdialogAnim {
   0% {
-    opacity: 0.5;
+    transform: translateY(-10px);
   }
   100% {
-    opacity: 1;
+    transform: translateY(0px);
   }
 }

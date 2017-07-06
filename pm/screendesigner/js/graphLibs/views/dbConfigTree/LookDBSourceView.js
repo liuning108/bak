@@ -3,7 +3,7 @@
  */
 define(["text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSource.html"], function(tpl) {
   return portal.BaseView.extend({
-    className: "ui-dialog dialog SDdialog",
+    className: "ui-dialog dialog SDdialog LookDBSourceDialog",
     template: fish.compile(tpl),
     initialize: function() {},
     events:{
