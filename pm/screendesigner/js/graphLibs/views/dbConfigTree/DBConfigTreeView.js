@@ -2,10 +2,11 @@ define([
     "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html",
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView",
     "css!oss_core/pm/screendesigner/css/dbconfigtree.css",
 
 
-], function(tpl,tplXLi,tplYLi) {
+], function(tpl,tplXLi,tplYLi,lookDBSourceView) {
 
     return portal.CommonView.extend({
         template: fish.compile(tpl),
@@ -81,6 +82,26 @@ define([
                    .on('click',function() {
                        self.choiceDBSource($parent);
                    });
+            $parent.find('.lookDBSource').off('click')
+                   .on('click',function() {
+                           self.lookDBSource();
+                   })
+        },
+        lookDBSource:function() {
+          var view =new lookDBSourceView().render();
+          var w = 1024;
+          var options = {
+                 width:w,
+                 modal: false,
+                 draggable: false,
+                 content: view.$el,
+                 autoResizable: true,
+                 modal: true
+          };
+          var popup = fish.popup(options);
+          this.listenTo(view,'close',function(){
+              popup.close();
+          })
         },
         choiceDBSource:function($parent) {
              $parent.find('.db_edit_plane').show();

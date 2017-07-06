@@ -707,6 +707,46 @@ i.icon_chart35 {
   height: 560px;
 }
 
+.SDdialog .model_c_dbsource {
+  float: left;
+  width: 1020px;
+  overflow-y: auto;
+  height: 560px;
+}
+
+.SDdialog .model_c_dbsource .ui-jqgrid th {
+  border: none;
+}
+
+.SDdialog .model_c_dbsource .ui-jqgrid .ui-jqgrid-view .ui-jqgrid-hdiv .ui-jqgrid-htable th.ui-th-column {
+  background-color: #f3f3f3;
+  color: #222;
+  text-align: center;
+  font-weight: normal;
+  border: none;
+  border-right: 1px solid #CCC;
+  padding-left: 0px;
+}
+
+.SDdialog .model_c_dbsource .jqgrow:nth-child(2n+1) {
+  background-color: #fff;
+}
+
+.SDdialog .model_c_dbsource .ui-jqgrid td {
+  border: 1px solid #CCC;
+  border-top: none;
+  border-right: none;
+  color: #758697;
+}
+
+.SDdialog .model_c_dbsource .ui-jqgrid-btable tr:hover {
+  background-color: #f6f6f6;
+}
+
+.SDdialog .model_c_dbsource .jqgfirstrow td {
+  border: none;
+}
+
 .GICON {
   width: 64px;
   height: 64px;
@@ -779,5 +819,14 @@ i.icon_chart35 {
   100% {
     opacity: 1;
     transform: rotateY(0deg);
+  }
+}
+
+@keyframes SDdialogAnim {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

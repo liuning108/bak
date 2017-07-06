@@ -6,7 +6,7 @@ define([
         "text!oss_core/pm/screendesigner/templates/inst_item.html",
         "oss_core/pm/screendesigner/views/SDCreateByExist",
         "oss_core/pm/screendesigner/actions/BScreenMgrAction",
-        
+
 
     ],
     function(tpl,instItemTpl,SDCreateByExist,BScreenMgrAction) {
