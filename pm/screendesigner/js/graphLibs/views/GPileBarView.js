@@ -55,36 +55,44 @@ define([
                 'yNums':2,
                 'xAxis': [
                     {
+                        id:fish.getUUID(),
                         name: '地区',
                         choice: 'y'
                     },
                     {
+                        id:fish.getUUID(),
                         name: '时间',
                         choice: 'n'
                     }
                 ],
                 'yAxis': [
                     {
+                        id:fish.getUUID(),
                         name: '3G新装量',
                         choice: 'y'
                     },
                     {
+                        id:fish.getUUID(),
                         name: '4G新装量',
                         choice: 'y',
                     },
                     {
+                        id:fish.getUUID(),
                         name: '套餐A新装量',
                         choice: 'n',
                     },
                     {
+                        id:fish.getUUID(),
                         name: '套餐B新装量',
                         choice: 'n',
                     },
                     {
+                        id:fish.getUUID(),
                         name: '套餐C新装量',
                         choice: 'n',
                     },
                     {
+                        id:fish.getUUID(),
                         name: '套餐D新装量',
                         choice: 'n',
                     }

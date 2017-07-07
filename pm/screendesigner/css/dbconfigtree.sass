@@ -138,6 +138,19 @@
           left: -15px
         span
           font-weight: bold
+    .xmessage ,.ymessage
+      text-align: center
+      display: none
+      color: red
+      transition: 0.5s
+      position:  relative
+      animation:  messageAnim 500ms cubic-bezier(0.18, 0.89, 0.42, 1.32)
+
+@keyframes  messageAnim
+  0%
+    transform: translateY(-100px)
+  100%
+    transform: translateY(0)
 
 
 @keyframes  spinny2
