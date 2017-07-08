@@ -165,6 +165,8 @@ define([
       var newDB = this.modifiedDB($parent);
       if (this.checkDB($parent)) {
         this.config.db = newDB
+        console.log('newDB')
+
         $parent.find('.xmessage').hide();
         $parent.find('.ymessage').hide();
         el.hide();
@@ -208,6 +210,7 @@ define([
         return id
       });
       this[count] = choiceIds.length;
+      console.log(choiceIds)
       fish.each(db[prop], function(Item) {
         Item.choice = fish.contains(choiceIds, Item.id)
           ? 'y'

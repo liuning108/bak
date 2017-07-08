@@ -1,6 +1,11 @@
 define([
-    "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html", "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min", "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils", "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView"
-], function(tpl, JSONEditor, ViewUtils, DBConfigTreeView) {
+    "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html",
+    "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
+    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils",
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+    "oss_core/pm/screendesigner/js/dbHelper/DBHelper"
+
+], function(tpl, JSONEditor, ViewUtils, DBConfigTreeView,dbHelper) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -49,57 +54,17 @@ define([
 
             $parent.tabs(); //Tab页
 
-            var dbTreeJson ={
-                'serverName': '新装量服务',
+            self.g.attrs.dbServer = {
+                'serverName':'新装量预览服务',
+                'islocal':true,
+                'xAxis':['field_1'],
+                'yAxis':['field_2','field_3'],
                 'xNums':1,
-                'yNums':2,
-                'xAxis': [
-                    {
-                        id:fish.getUUID(),
-                        name: '地区',
-                        choice: 'y'
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '时间',
-                        choice: 'n'
-                    }
-                ],
-                'yAxis': [
-                    {
-                        id:fish.getUUID(),
-                        name: '3G新装量',
-                        choice: 'y'
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '4G新装量',
-                        choice: 'y',
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '套餐A新装量',
-                        choice: 'n',
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '套餐B新装量',
-                        choice: 'n',
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '套餐C新装量',
-                        choice: 'n',
-                    },
-                    {
-                        id:fish.getUUID(),
-                        name: '套餐D新装量',
-                        choice: 'n',
-                    }
-
-                ]
-
+                'yNums':2
             }
+            //
+            var dbTreeJson = dbHelper.getJson(self.g);
+            console.log(dbTreeJson);
             var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree', 'db': dbTreeJson}).render();
             dbCofnfigTreeView.afterRender();
 
