@@ -60,7 +60,9 @@ define([
                 'xAxis':['field_1'],
                 'yAxis':['field_2','field_3'],
                 'xNums':1,
-                'yNums':2
+                'yNums':2,
+                'xMinNums':1,
+                'yMinNums':2
             }
             //
             var dbTreeJson = dbHelper.getJson(self.g);

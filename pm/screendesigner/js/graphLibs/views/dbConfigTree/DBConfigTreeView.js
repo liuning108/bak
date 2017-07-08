@@ -71,7 +71,8 @@ define([
       })
     },
     lookDBSource: function() {
-      var view = new lookDBSourceView().render();
+    console.log(this.config.db);
+      var view = new lookDBSourceView({db:this.config.db}).render();
       var w = 1024;
       var options = {
         width: w,
@@ -79,7 +80,8 @@ define([
         draggable: false,
         content: view.$el,
         autoResizable: true,
-        modal: true
+        modal: true,
+        db:this.config.db
       };
       var popup = fish.popup(options);
       this.listenTo(view, 'close', function() {
@@ -185,12 +187,12 @@ define([
       var flag = true;
       $parent.find('.xmessage,.ymessage').hide();
 
-      if (this.xc <= 0) {
-        $parent.find('.xmessage').show().text('至少要有1个维度')
+      if (this.xc < this.config.db.xMinNums) {
+        $parent.find('.xmessage').show().text('至少要有'+this.config.db.xMinNums+'个维度')
         flag = false;
       }
-      if (this.yc <= 0) {
-        $parent.find('.ymessage').show().text('至少要有1个指标')
+      if (this.yc < this.config.db.yMinNums) {
+        $parent.find('.ymessage').show().text('至少要有'+this.config.db.yMinNums+'个指标')
         flag = false;
       }
 
