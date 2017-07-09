@@ -13,7 +13,17 @@ define([
             var paper =this.paper;
             this.attrs.names=this.attrs.names||['1月','2月','3月','4月','5月','6月'];
             this.attrs.datas=this.attrs.datas||this.createRandom(this.attrs.names,10,90);
-
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'码号销售预览服务',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+            this.Data2Graph();
             var max=Math.floor(1.1*fish.max(this.attrs.datas));
 
             var n=this.attrs.names.length;
@@ -111,6 +121,16 @@ define([
           item.set.push(item.name);
           item.set.push(item.circle);
           return item;
+        },
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            json.xAxis={};
+            json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisNames(json.xAxis.data)
+            this.setXAxisDatas(json.series.data)
+
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;

@@ -1,8 +1,8 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GBarBaseConfig.html",
-"oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-    "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
+define([
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+    "text!oss_core/pm/screendesigner/js/graphLibs/views/GBarBaseConfig.html", "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min", "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
-], function(tpl,JSONEditor) {
+], function(DBConfigTreeView,tpl, JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -18,15 +18,11 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GBarBaseConfig.html"
         gtext_title: function(target) {
             this.gText.setTitle(target.val());
         },
-        jsonEditor:function($parent){
-            var self =this;
+        jsonEditor: function($parent) {
+            var self = this;
             var $editor_content = $parent.find("#json-editor");
-            $editor_content.css({
-                'height': "600px"
-            });
-            self.editor = new JSONEditor($editor_content[0], {
-                'mode': 'code'
-            });
+            $editor_content.css({'height': "600px"});
+            self.editor = new JSONEditor($editor_content[0], {'mode': 'code'});
             var json = {
                 xAxis: {
                     data: this.gText.getXAxisNames()
@@ -37,56 +33,49 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GBarBaseConfig.html"
             }
             self.editor.set(json);
             $editor_content.find(".jsoneditor-menu").remove();
-            $parent.find(".btn-sure")
-                   .off('click')
-                   .on('click', function() {
-                     var json = self.editor.get();
-                     if(json.xAxis.data && json.series.data){
-                        //set datas
-                        self.gText.setXAxisNames(json.xAxis.data);
-                        self.gText.setXAxisDatas(json.series.data);
-                        self.gText.redraw()
-                     }
-                   });
+            $parent.find(".btn-sure").off('click').on('click', function() {
+                var json = self.editor.get();
+                if (json.xAxis.data && json.series.data) {
+                    //set datas
+                    self.gText.setXAxisNames(json.xAxis.data);
+                    self.gText.setXAxisDatas(json.series.data);
+                    self.gText.redraw()
+                }
+            });
 
         },
-
 
         afterRender: function() {
 
             var self = this;
             $("#tabs").tabs(); //Tab页
-            var $parent =$("#tabs");
-            self.jsonEditor($parent);
+            var $parent = $("#tabs");
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
+
+            //self.jsonEditor($parent);
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.attrs.titleColor);
             title_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.attrs.titleColor=""+color;
+                self.gText.attrs.titleColor = "" + color;
                 self.gText.redraw();
             })
 
             var axis_colorpicker = $parent.find(".axis_colorpicker").colorpicker();
             axis_colorpicker.colorpicker("set", this.gText.attrs.axisColor);
             axis_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.attrs.axisColor=""+color;
+                self.gText.attrs.axisColor = "" + color;
                 self.gText.redraw();
             })
 
             var bar_colorpicker = $parent.find(".bar_colorpicker").colorpicker();
             bar_colorpicker.colorpicker("set", this.gText.attrs.barColor);
             bar_colorpicker.on("move.colorpicker", function(e, color) {
-                self.gText.attrs.barColor=""+color;
+                self.gText.attrs.barColor = "" + color;
                 self.gText.redraw();
             })
 
-
-
-
-
-
             return this;
         }
-
 
     })
 });

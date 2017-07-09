@@ -1,6 +1,7 @@
 define([
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GBarView.html", "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min", "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
-], function(tpl, JSONEditor, ViewUtils) {
+], function(DBConfigTreeView,tpl, JSONEditor, ViewUtils) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -63,7 +64,8 @@ define([
             $('.m_u_box').slimscroll({
                 height: '700px',
             });
-            self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.g}).render().afterRender()
+            //self.jsonEditor($parent);
             //Title
             var $title = $parent.find('.g_titile');
             $title.val(this.g.attrs.title);

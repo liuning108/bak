@@ -55,7 +55,12 @@ define([
             for (var i=0;i<data_len;i++){
                 nums.push(fish.random(30,200));
             }
-            table[yItem.id]=nums
+            table[yItem.id]=yItem.data||nums
+            if(serverSkeleton.xAxis.length<=0){
+               if(table[yItem.id].length>data_len){
+                   data_len=table[yItem.id].length;
+               }
+            }
         })
         var keys =fish.keys(table)
         var datas=[];

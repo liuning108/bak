@@ -31,6 +31,7 @@ define([
                                                             'xMinNums':1,
                                                             'yMinNums':1
                                                         }
+            this.Data2Graph();
 
             if(this.attrs.bgShow==true){
                 this.doms['gb'] =paper.rect(x,y,this.attrs.ww, this.attrs.hh).attr({
@@ -103,6 +104,16 @@ define([
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
+        },
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            json.xAxis={};
+            json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisNames(json.xAxis.data);
+            this.setXAxisDatas(json.series.data)
+
         },
         addEvent: function() {
             var self=this;

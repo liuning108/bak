@@ -54,7 +54,7 @@ define([
 
             $parent.tabs(); //Tab页
             var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.g}).render().afterRender()
-            self.jsonEditor($parent);
+            //self.jsonEditor($parent);
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');

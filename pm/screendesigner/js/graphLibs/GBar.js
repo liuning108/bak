@@ -28,9 +28,22 @@ define([
       this.attrs.bgColor=this.attrs.bgColor||'#595959'
       this.attrs.ww=this.attrs.ww||532;
       this.attrs.hh=this.attrs.hh||377;
+      this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+      this.attrs.xAxisNames =this.xAxisNames ;
+      this.attrs.datas= this.attrs.datas||this.createRandom( this.xAxisNames,10,90);
+      this.attrs.dbServer = this.attrs.dbServer||{
+                                                      'serverName':'峻工量预览服务',
+                                                      'islocal':true,
+                                                      'xAxis':['field_1'],
+                                                      'yAxis':['field_2'],
+                                                      'xNums':1,
+                                                      'yNums':1,
+                                                      'xMinNums':1,
+                                                      'yMinNums':1
+                                                  }
+        this.Data2Graph()
 
 
-      //    this.doms['gb']=paper.image('oss_core/pm/screendesigner/js/graphLibs/images/bgline.png',x-25,y-140,532,377);
      if(this.attrs.bgShow==true){
           this.doms['gb'] = paper.rect(x - 25, y - 140, this.attrs.ww, this.attrs.hh).attr({
             'fill-opacity': 0,
@@ -39,9 +52,7 @@ define([
             'stroke-dasharray': '-'
           })
       }
-      this.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
-     this.attrs.xAxisNames =this.xAxisNames ;
-     this.attrs.datas= this.attrs.datas||this.createRandom( this.xAxisNames,10,90);
+
       this.attrs.title = this.attrs.title || 'C网超3分钟未峻工量';
       this.doms['title'] = this.paper.text(x + 240, y - 140, this.attrs.title).attr({
         'fill': this.attrs.titleColor,
@@ -173,6 +184,16 @@ define([
     //TODO  获得X轴的名称
     getXAxisNames: function() {
       return this.attrs.xAxisNames;
+    },
+    toGraph:function(choiceTreeJson) {
+        var json={};
+        json.xAxis={};
+        json.xAxis.data=choiceTreeJson.xAxis[0].data;
+        json.series={};
+        json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+        this.setXAxisNames(json.xAxis.data)
+        this.setXAxisDatas(json.series.data)
+
     },
     setXAxisNames: function(names) {
       this.attrs.xAxisNames = names;

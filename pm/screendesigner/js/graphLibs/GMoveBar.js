@@ -11,6 +11,19 @@ define([
             this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
             this.attrs.avgColor=this.attrs.avgColor||'#01b4f8';
             this.attrs.datas=this.attrs.datas||this.createRandom(this.createSeqNums(1,12),10,90);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'投诉数预览服务',
+                                                            'islocal':true,
+                                                            'xAxis':[],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':0,
+                                                            'yNums':1,
+                                                            'xMinNums':0,
+                                                            'yMinNums':1
+                                                        }
+            this.Data2Graph();
+
+
             var x=0;
             var y=0;
             var index=this.attrs.datas.length;
@@ -115,7 +128,15 @@ define([
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            // json.xAxis={};
+            // json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisDatas(json.series.data)
 
+        },
         addEvent: function() {
 
             var self = this;
