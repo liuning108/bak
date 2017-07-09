@@ -1,4 +1,6 @@
-define([], function() {
+define([
+    'oss_core/pm/screendesigner/js/dbHelper/DBHelper'
+], function(dbHelper) {
     var GRoot = Class.extend({
         init: function(option) {
             this.id = option.id;
@@ -29,6 +31,9 @@ define([], function() {
             }
 
 
+        },
+        toGraph:function() {
+            console.log('需要重写toGraph');
         },
         addBoxEvent: function() {
             var self = this;
@@ -163,6 +168,14 @@ define([], function() {
           this.initAll();
           this.show();
         },
+        Data2Graph:function() {
+           this.toGraph(dbHelper.toChoiceDB(this.getDBTreeJson()))
+        },
+
+        getDBTreeJson:function() {
+            return dbHelper.getJson(this);
+        },
+
         remove: function() {
             this.domsSet.remove();
             this.ft.unplug();

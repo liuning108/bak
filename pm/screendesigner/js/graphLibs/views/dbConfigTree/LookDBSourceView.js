@@ -34,17 +34,13 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBS
         }else{
 
         }
-        console.log(mydata);
         var colModels=this.config.db.colModels;
-        console.log(colModels);
-
-
           var opt = {
            data: mydata,
            height:540,
            width:1020,
            colModel: colModels
-       };
+          };
        $grid = this.$el.find("#lookDbSourceGird").grid(opt);
       return this;
     },

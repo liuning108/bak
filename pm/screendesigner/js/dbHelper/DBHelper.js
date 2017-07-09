@@ -16,8 +16,8 @@ define([
     dbHelper.getLocalJson=function(server) {
         var serverSkeleton =virtualDB[server.serverName];
         serverSkeleton.islocal=true;
-        dbHelper.choiceY(serverSkeleton.xAxis,server.xAxis);
-        dbHelper.choiceY(serverSkeleton.yAxis,server.yAxis);
+        dbHelper.choiceY(serverSkeleton.xAxis,server.xAxis,'x');
+        dbHelper.choiceY(serverSkeleton.yAxis,server.yAxis,'y');
         serverSkeleton.xNums=server.xNums;
         serverSkeleton.yNums=server.yNums;
         serverSkeleton.xMinNums=server.xMinNums;
@@ -29,16 +29,15 @@ define([
 
     dbHelper.createColModel=function(serverSkeleton) {
          var heards=serverSkeleton.xAxis.concat(serverSkeleton.yAxis);
-         console.log('createColModel')
-         console.log(heards);
          var colModels= fish.map(heards,function(head) {
                      var col={
                          name: head.id,
-                         label:head.name
+                         label:head.name,
+                         axis: head.axis,
+                         choice:head.choice
                      }
                      return col;
                 });
-         console.log(colModels);
          return colModels;
     }
 
@@ -74,10 +73,48 @@ define([
 
     }
 
-    dbHelper.choiceY=function(array,ids) {
+    dbHelper.choiceY=function(array,ids,xy) {
         fish.each(array,function(item) {
             item.choice=fish.contains(ids,item.id)?'y':'n';
+            item.axis=xy
         })
+    }
+
+    dbHelper.toChoiceDB=function(db) {
+        var cDB={}
+
+        var tables = this.toTable(db.datas);
+        var colModels =db.colModels;
+        arrayXY=fish.partition(tables,function(col) {
+                                var model=fish.find(colModels,function(model) {
+                                          return model.name==col.name;
+                                        });
+                                 return   model.axis=='x'
+                             })
+        cDB.xAxis=this.choiceFilter(arrayXY[0],colModels);
+        cDB.yAxis=this.choiceFilter(arrayXY[1],colModels);
+        return cDB;
+    }
+    dbHelper.choiceFilter=function(array,colModels) {
+         var mapArray= fish.map(array,function(item) {
+
+          var info=fish.find(colModels,function(mode) {
+            return  mode.name==item.name
+          })
+          item.label=info.label;
+          item.choice=info.choice
+          return item;
+        })
+        return fish.where(mapArray,{'choice':'y'})
+    }
+    dbHelper.toTable=function(datas) {
+         var keys=fish.keys(datas[0])
+         return fish.map(keys,function(key) {
+               var item ={};
+               item.name=key
+               item.data=fish.pluck(datas,key);
+               return item
+         })
     }
 
     dbHelper.getAjaxJson=function(server) {

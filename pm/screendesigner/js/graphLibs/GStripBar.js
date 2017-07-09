@@ -19,6 +19,18 @@ define([
             this.attrs.bgColor=this.attrs.bgColor||'#595959'
             this.attrs.ww=this.attrs.ww||532;
             this.attrs.hh=this.attrs.hh||377;
+            this.attrs.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
+            this.attrs.xAxisDatas=this.attrs.xAxisDatas||this.createRandom(this.attrs.xAxisNames,0,0);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'停复机预览服务',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
 
             if(this.attrs.bgShow==true){
                 this.doms['gb'] =paper.rect(x,y,this.attrs.ww, this.attrs.hh).attr({
@@ -30,9 +42,7 @@ define([
                 })
             }
             this.doms['title']= paper.text(x+this.attrs.ww/2,y,this.attrs.title).attr({'fill':this.attrs.titleColor,'font-size':24,'font-family': '微软雅黑','font-weight':'bold'});
-			this.attrs.xAxisNames = this.attrs.xAxisNames || ['南京', '无锡', '徐州', '常州', '苏州', '南通', '淮安', '盐城', '扬州', '镇江', '泰州', '宿迁', '连云港'];
-            this.attrs.xAxisDatas=this.attrs.xAxisDatas||this.createRandom(this.attrs.xAxisNames,0,0);
-            var v_setp=19
+			var v_setp=19
             if(this.canvas.perview){
                 v_setp=1;
             }

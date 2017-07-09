@@ -1,6 +1,6 @@
 define([
-  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html", "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView", "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
-], function(tpl, tplXLi, tplYLi, lookDBSourceView) {
+ "oss_core/pm/screendesigner/js/dbHelper/DBHelper", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html", "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView", "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
+], function(dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
 
   return portal.CommonView.extend({
     template: fish.compile(tpl),
@@ -8,6 +8,7 @@ define([
     yLiTpl: fish.compile(tplYLi),
     initialize: function(config) {
       this.config = config;
+      this.config.db=this.config.g.getDBTreeJson();
     },
     render: function() {
       this.$el.html(this.template());
@@ -167,8 +168,6 @@ define([
       var newDB = this.modifiedDB($parent);
       if (this.checkDB($parent)) {
         this.config.db = newDB
-        console.log('newDB')
-
         $parent.find('.xmessage').hide();
         $parent.find('.ymessage').hide();
         el.hide();
@@ -180,9 +179,30 @@ define([
         $parent.find('.db_edit_plane').hide();
         $parent.find('.coa').text('所有数据字段');
         this.renderDBtoHTML($parent, this.config.db)
+        this.changeServer();
+        this.config.g.toGraph(dbHelper.toChoiceDB(this.config.db));
+        this.config.g.redraw()
       }
 
     },
+    /**
+      ex:
+    {
+     'serverName':'新装量预览服务',
+     'islocal':true,
+     xAxis':['field_1'],
+    'yAxis':['field_2','field_3'],
+    }
+    **/
+    changeServer:function() {
+        var db = this.config.db;
+        var g=this.config.g;
+        g.attrs.dbServer.serverName=db.serverName;
+        g.attrs.dbServer.islocal=db.islocal;
+        g.attrs.dbServer.xAxis=fish.pluck(fish.where(db.xAxis,{'choice':'y'}),'id');
+        g.attrs.dbServer.yAxis=fish.pluck(fish.where(db.yAxis,{'choice':'y'}),'id');
+    },
+
     checkDB: function($parent) {
       var flag = true;
       $parent.find('.xmessage,.ymessage').hide();
@@ -201,8 +221,10 @@ define([
     },
     modifiedDB: function($parent) {
       var newDB = $.extend(true, {}, this.config.db)
+
       this.modifiedX($parent, newDB)
       this.modifiedY($parent, newDB)
+      newDB.colModels=dbHelper.createColModel(newDB);
       return newDB;
     },
     modifiedXY: function($parent, axis, prop, count, db) {

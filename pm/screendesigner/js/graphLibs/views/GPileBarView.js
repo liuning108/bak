@@ -1,11 +1,9 @@
 define([
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html",
-    "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-    "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils",
-    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
-    "oss_core/pm/screendesigner/js/dbHelper/DBHelper"
-
-], function(tpl, JSONEditor, ViewUtils, DBConfigTreeView,dbHelper) {
+     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
+      "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils",
+      "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView"
+], function(tpl, JSONEditor, ViewUtils, DBConfigTreeView) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -54,23 +52,9 @@ define([
 
             $parent.tabs(); //Tab页
 
-            self.g.attrs.dbServer = {
-                'serverName':'新装量预览服务',
-                'islocal':true,
-                'xAxis':['field_1'],
-                'yAxis':['field_2','field_3'],
-                'xNums':1,
-                'yNums':2,
-                'xMinNums':1,
-                'yMinNums':2
-            }
-            //
-            var dbTreeJson = dbHelper.getJson(self.g);
-            console.log(dbTreeJson);
-            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree', 'db': dbTreeJson}).render();
-            dbCofnfigTreeView.afterRender();
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.g}).render().afterRender()
 
-            self.jsonEditor($parent);
+            //self.jsonEditor($parent);
             var $title = $parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');

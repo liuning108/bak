@@ -1,8 +1,9 @@
 define([
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GStripBarView.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils"
-], function(tpl,JSONEditor,ViewUtils) {
+], function(DBConfigTreeView,tpl,JSONEditor,ViewUtils) {
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
         template: fish.compile(tpl),
@@ -52,7 +53,8 @@ define([
             var $parent =$("#tabs");
 
             $parent.tabs(); //Tab页
-                self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.g}).render().afterRender()
+            self.jsonEditor($parent);
             var $title =$parent.find('.g_titile');
             $title.val(this.g.attrs.title);
             $title.off('change');
