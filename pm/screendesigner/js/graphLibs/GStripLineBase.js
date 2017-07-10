@@ -15,6 +15,17 @@ define([
             var paper =this.paper;
             this.attrs.xAxisNames=this.attrs.xAxisNames||this.createSeqNums(2008,10);
             this.attrs.xAxisDatas = this.attrs.xAxisDatas || this.createRandom(this.attrs.xAxisNames,10,90);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'码号销售年度指标',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+
             var max = 1.1*fish.max(this.attrs.xAxisDatas);
             var n=this.attrs.xAxisNames.length;
             var items=[];
@@ -164,6 +175,17 @@ define([
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            json.xAxis={};
+            json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisNames(json.xAxis.data)
+            this.setXAxisDatas(json.series.data)
+
         },
 
         addEvent: function() {

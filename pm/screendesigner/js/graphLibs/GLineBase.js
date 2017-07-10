@@ -20,6 +20,20 @@ define([
             var names =this.attrs.names|| ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州'];
             this.attrs.names=names;
             this.attrs.xAxisDatas =this.attrs.xAxisDatas|| this.createRandom(names,10,90);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'地区码号销售',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+
+            this.Data2Graph();
+
+
             var max = Math.floor(1.1*fish.max(this.attrs.xAxisDatas));
             var items = [];
             for (var i = 0; i < n; i++) {
@@ -127,6 +141,17 @@ define([
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            json.xAxis={};
+            json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisNames(json.xAxis.data)
+            this.setXAxisDatas(json.series.data)
+
         },
 
         addEvent: function() {

@@ -18,6 +18,19 @@ define([
      this.attrs.fontColor=this.attrs.fontColor||"#fff";
      this.attrs.values=this.attrs.values||[50,70,90];
      this.attrs.datas=this.attrs.datas||this.createRandom(this.attrs.names,10,100);
+     this.attrs.dbServer = this.attrs.dbServer||{
+                                                     'serverName':'流程预览服务',
+                                                     'islocal':true,
+                                                     'xAxis':['field_1'],
+                                                     'yAxis':['field_2'],
+                                                     'xNums':1,
+                                                     'yNums':1,
+                                                     'xMinNums':1,
+                                                     'yMinNums':1
+                                                 }
+
+     this.Data2Graph();
+
      this.nodes = paper.chartsProcess({
         'x': x,
         'y': y,
@@ -27,7 +40,7 @@ define([
         'keys': this.attrs.names
       })
       this.doms['nodes'] = this.nodes.allItem();
-      this.initData();
+     this.initData();
 
       if(this.attrs.switchWarring=="on"){
 
@@ -207,6 +220,16 @@ define([
     setFontColors:function(color){
       this.attrs.fontColor=""+color;
       this.redraw();
+    },
+    toGraph:function(choiceTreeJson) {
+        var json={};
+        json.xAxis={};
+        json.xAxis.data=choiceTreeJson.xAxis[0].data;
+        json.series={};
+        json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+        this.attrs.names=json.xAxis.data;
+        this.setSeriesDatas(json.series.data);
+
     },
     addEvent: function() {
       var self = this;

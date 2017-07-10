@@ -1,4 +1,4 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.html",
+define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GCharacterConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
@@ -54,7 +54,7 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GStripLineConfig.htm
             var self = this;
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
+          //  self.jsonEditor($parent);
             $parent.find('.gtext_title').on('change',function(){
                    self.gtext_title($(this));
             })

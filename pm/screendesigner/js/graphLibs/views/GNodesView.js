@@ -1,7 +1,8 @@
 define([
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GNodesView.html",
      "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-], function(tpl,JSONEditor) {
+], function(DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -50,9 +51,9 @@ define([
             var self = this;
             var $parent =$("#tabs");
             $parent.tabs(); //Tab页
-            self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.g}).render().afterRender()
+            //self.jsonEditor($parent);
             //ON /OFF
-
             var $switchGrid=$parent.find('.switchGrid');
             var falg =self.g.getSwitchWarring()=='on'?true:false;
 
