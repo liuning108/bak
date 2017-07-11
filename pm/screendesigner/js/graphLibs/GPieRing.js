@@ -14,6 +14,20 @@ define([
       this.attrs.seriesData=this.attrs.seriesData||this.createRandom(this.attrs.names,10,100);
       this.attrs.labelStyle=this.attrs.labelStyle||1;
       var colors = ['#f89d2c', '#f299bd', '#e8410e', '#30cd2f', '#dbdb01', '#8e228f']
+      this.attrs.dbServer = this.attrs.dbServer||{
+                                                      'serverName':'流程预览服务',
+                                                      'islocal':true,
+                                                      'xAxis':['field_1'],
+                                                      'yAxis':['field_2'],
+                                                      'xNums':1,
+                                                      'yNums':1,
+                                                      'xMinNums':1,
+                                                      'yMinNums':1
+                                                  }
+      this.Data2Graph();
+
+
+
       var modes = [];
       for (var i = 0; i < this.names.length; i++) {
         var name = this.names[i];
@@ -107,6 +121,16 @@ define([
         self.doms['nums'].setValue(sum);
       });
       //alert(sum);
+
+    },
+    toGraph:function(choiceTreeJson) {
+        var json={};
+        json.xAxis={};
+        json.xAxis.data=choiceTreeJson.xAxis[0].data;
+        json.series={};
+        json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+        this.setXAxisNames(json.xAxis.data)
+        this.setSeriesData(json.series.data)
 
     },
     initData: function() {

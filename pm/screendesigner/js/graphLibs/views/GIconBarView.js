@@ -1,8 +1,10 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GIconBarConfig.html",
+define([
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+    "text!oss_core/pm/screendesigner/js/graphLibs/views/GIconBarConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
-], function(tpl,JSONEditor) {
+], function(DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -51,8 +53,9 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GIconBarConfig.html"
 
             var self = this;
             $("#tabs").tabs(); //Tab页
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
+          //  self.jsonEditor($parent);
             $parent.find('.gtext_title').on('change',function(){
                    self.gtext_title($(this));
             })

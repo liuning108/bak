@@ -14,6 +14,17 @@ define([
             var r=100;
             this.attrs.unit=this.attrs.unit||'';
             this.attrs.val=this.attrs.val||fish.random(300,999);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'实时数据预览服务',
+                                                            'islocal':true,
+                                                            'xAxis':[],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':0,
+                                                            'yNums':1,
+                                                            'xMinNums':0,
+                                                            'yMinNums':1
+                                                        }
+           this.Data2Graph();
 
             this.doms['circle']=this.paper.circle(x,y,r).attr({
                 'fill':titleColor,
@@ -58,6 +69,14 @@ define([
 
         },
 
+        toGraph: function(choiceTreeJson) {
+          var json = {}
+          json.series = {}
+          json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
+          this.setValue(json.series.data[0]);
+        },
+
+
         getData: function() {
 
 
@@ -81,7 +100,7 @@ define([
         },
 
         setValue:function(val){
-         this.doms['nums'].setValue(val);
+         if(this.doms['nums'])this.doms['nums'].setValue(val);
          this.attrs.val=val;
         },
         getValue:function(){

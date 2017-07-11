@@ -9,12 +9,26 @@ define([
             var paper=this.paper;
             var title = this.attrs.title || '文字名称';
             var titleColor = this.attrs.titleColor || '#01b1f1';
-
             var x=0;
             var y=0;
             var r=100;
             var val_rate=this.attrs.ratevalue||fish.random(90, 98);
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'实时数据预览服务',
+                                                            'islocal':true,
+                                                            'xAxis':[],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':0,
+                                                            'yNums':1,
+                                                            'xMinNums':0,
+                                                            'yMinNums':1
+                                                        }
+
+             this.Data2Graph();
+
+             if(val_rate>100)val_rate=100;
             this.attrs.ratevalue=val_rate;
+
             self.createArcProcessAttrs();
 
              this.doms['bgArc'] = paper.path().attr({
@@ -85,7 +99,7 @@ define([
         },
         setRateValue:function(val){
 
-               this.doms['nums'].setValue(parseFloat(val));
+               if(this.doms['nums'])this.doms['nums'].setValue(parseFloat(val));
                this.attrs.ratevalue=val;
         },
 
@@ -142,6 +156,14 @@ define([
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+
+        toGraph:function(choiceTreeJson) {
+
+          var json ={}
+          json.series={};
+          json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+          this.setRateValue(json.series.data[0]);
         },
 
         addEvent: function() {

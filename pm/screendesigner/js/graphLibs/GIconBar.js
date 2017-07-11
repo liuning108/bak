@@ -16,6 +16,17 @@ define([
             var nums=this.attrs.val||0;
             this.attrs.val=nums;
             this.path="oss_core/pm/screendesigner/js/graphLibs/images/icons/"
+            this.attrs.dbServer = this.attrs.dbServer || {
+              'serverName': '实时数据预览服务',
+              'islocal': true,
+              'xAxis': [],
+              'yAxis': ['field_2'],
+              'xNums': 0,
+              'yNums': 1,
+              'xMinNums': 0,
+              'yMinNums': 1
+            }
+            this.Data2Graph()
 
 
             this.doms['icon']=paper.image(this.path+icon_path, x, y, 128, 128);
@@ -103,7 +114,12 @@ define([
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
-
+        toGraph: function(choiceTreeJson) {
+          var json = {}
+          json.series = {}
+          json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
+          this.setVal(json.series.data[0]);
+        },
         addEvent: function() {
             if(!this.doms['config'])return;
             var self = this;

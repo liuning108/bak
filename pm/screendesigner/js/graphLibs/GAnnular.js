@@ -20,7 +20,19 @@ define([
       this.attrs.ww=this.attrs.ww||532;
       this.attrs.hh= this.attrs.hh||377;
       var colors = ['#ff7f50', '#ff8212', '#c5ff55', '#30cd2f', '#30cd2f', '#5599f2', '#fe62ae', '#c050c8']
-      //	this.doms['gb'] = paper.image('oss_`core/pm/screendesigner/js/graphLibs/images/bgline.png', x, y, 532, 377);
+      this.attrs.dbServer = this.attrs.dbServer||{
+                                                      'serverName':'当月新装用户数预览服务',
+                                                      'islocal':true,
+                                                      'xAxis':['field_1'],
+                                                      'yAxis':['field_2'],
+                                                      'xNums':1,
+                                                      'yNums':1,
+                                                      'xMinNums':1,
+                                                      'yMinNums':1
+                                                  }
+
+    this.Data2Graph();
+
       if(this.attrs.bgShow){
       this.doms['gb'] = paper.rect(x, y,  this.attrs.ww,  this.attrs.hh).attr({
         'fill-opacity': 0,
@@ -129,6 +141,16 @@ define([
     initLocation: function() {
       this.ft.attrs.translate.x = 20;
       this.ft.attrs.translate.y = 30;
+    },
+    toGraph:function(choiceTreeJson) {
+        var json={};
+        json.xAxis={};
+        json.xAxis.data=choiceTreeJson.xAxis[0].data;
+        json.series={};
+        json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+        this.setXAxisNames(json.xAxis.data)
+        this.setSeriesData(json.series.data)
+
     },
 
     addEvent: function() {

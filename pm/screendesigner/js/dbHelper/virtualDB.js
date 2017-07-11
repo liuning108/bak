@@ -316,6 +316,136 @@ define([], function() {
     ]
   })
 
+
+
+  dbs.push({
+    serverName: '当月新装用户数预览服务',
+    xAxis: [
+      {
+        id: 'field_1',
+        name: 'package',
+        data: [
+          "流量升级包-30",
+          "乐享4G-99",
+          "飞Young4G-99",
+          "乐享4G-399",
+          "乐享4G-59",
+          "乐享4G-129",
+          "乐享4G-199",
+        ]
+      }
+    ],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'month'
+      }, {
+        id: 'field_3',
+        name: 'day'
+      }
+    ]
+  })
+
+
+  dbs.push({
+    serverName: '实时数据预览服务',
+    xAxis: [],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: '当日施工调度人数',
+        data: [
+          77,
+
+        ]
+      }, {
+        id: 'field_3',
+        name: '装机数',
+        data: [
+          992,
+
+        ]
+      }, {
+        id: 'field_4',
+        name: '自动激活单数',
+        data: [
+          523,
+        ]
+      },
+      {
+        id: 'field_5',
+        name: '呼叫全程成功率',
+        data: [
+          98.7,
+        ]
+      },
+      {
+        id: 'field_6',
+        name: '端到端接通率',
+        data: [
+          99.7,
+        ]
+      },
+      {
+        id: 'field_7',
+        name: '基站数',
+        data: [
+          3.5,
+        ]
+      },
+      {
+        id: 'field_8',
+        name: 'HLR',
+        data: [
+          300,
+        ]
+      },
+      {
+        id: 'field_9',
+        name: 'VLR注册用户增幅数',
+        data: [
+          130,
+        ]
+      },
+      {
+        id: 'field_10',
+        name: 'WLAN注册用户增幅数',
+        data: [
+          230,
+        ]
+      }
+
+
+    ]
+  })
+
+
+  dbs.push({
+    serverName: '网络规模预览服务',
+    xAxis: [],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: '话务量',
+        data: [
+          255,
+          777
+
+        ]
+      }, {
+        id: 'field_3',
+        name: '流量',
+        data: [
+          344,
+          800
+        ]
+      }]
+  })
+
+
+
+
+
   return fish.indexBy(dbs, 'serverName')
 
 });
