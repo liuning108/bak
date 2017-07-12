@@ -22,6 +22,19 @@ define([
             this.digits_panel=this.paper.set();
             this.attrs.digits =this.attrs.digits|| 9;
 
+            this.attrs.dbServer = this.attrs.dbServer || {
+              'serverName': '实时数据预览服务',
+              'islocal': true,
+              'xAxis': [],
+              'yAxis': ['field_2'],
+              'xNums': 0,
+              'yNums': 1,
+              'xMinNums': 0,
+              'yMinNums': 1
+            }
+
+            this.Data2Graph()
+
 
             for (var i =0 ;i<this.attrs.digits; i++){
               var digit_Item=self.createdigit(i,x,y,titleColor,panelColor)
@@ -179,6 +192,13 @@ define([
         },
         getPanelColor:function(){
               return this.attrs.PanelColor;
+        },
+        toGraph: function(choiceTreeJson) {
+
+          var json = {}
+          json.series = {}
+          json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
+          this.setVal(json.series.data[0]||0);
         },
         addEvent: function() {
                 var self = this;

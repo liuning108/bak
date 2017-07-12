@@ -21,6 +21,19 @@ define([
             this.attrs.xAxisData=hn_area;
             this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
             this.attrs.labelStyle=this.attrs.labelStyle||1;
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'地区码号销售指标',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+
+            this.Data2Graph();
+
             var datas=[];
             var sum =0;
 
@@ -191,6 +204,18 @@ define([
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+
+
+        toGraph:function(choiceTreeJson) {
+            var json={};
+            json.xAxis={};
+            json.xAxis.data=choiceTreeJson.xAxis[0].data;
+            json.series={};
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            this.setXAxisData(json.xAxis.data);
+            this.setSeriesData(json.series.data)
+
         },
 
         addEvent: function() {

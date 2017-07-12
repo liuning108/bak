@@ -19,6 +19,17 @@ define([
             this.attrs.seqColor = this.attrs.seqColor || '#beb148';
             this.attrs.seqName  =  this.attrs.seqName || "序号";
             this.attrs.seqShow =this.attrs.seqShow || 'on'
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'地区码号销售',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2','field_3'],
+                                                            'xNums':99,
+                                                            'yNums':99,
+                                                            'xMinNums':0,
+                                                            'yMinNums':1
+                                                        }
+          this.Data2Graph();
 
 
             //this.attrs.titles.push('序号');
@@ -166,7 +177,7 @@ define([
         },
         setTitle: function(titles) {
             this.attrs.titles = titles;
-            this.redraw();
+
         },
         getDivideColor: function() {
             return this.attrs.divideColor;
@@ -179,6 +190,21 @@ define([
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
+        },
+
+        toGraph:function(choiceTreeJson) {
+            var array = choiceTreeJson.xAxis.concat( choiceTreeJson.yAxis)
+            var labels =fish.pluck(array,'label')
+            var mids =fish.pluck(array,'data');
+            var datas=fish.zip.apply(null,mids)
+            var json = {};
+            json.xAxis={};
+            json.series={};
+            json.xAxis.data=labels;
+            json.series.data=datas;
+            this.setTitle(json.xAxis.data);
+            this.setDatas(json.series.data);
+
         },
 
         addEvent: function() {

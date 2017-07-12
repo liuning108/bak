@@ -10,6 +10,7 @@ define([
             this.domsSet = this.paper.set();
             this.doms = {};
             this.ft = null;
+            this.dbHelper=dbHelper;
             this.initAll();
         },
         initAll: function() {

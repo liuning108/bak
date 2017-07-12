@@ -1,7 +1,10 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html",
+
+define([
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
-], function(tpl, JSONEditor) {
+], function(DBConfigTreeView,tpl, JSONEditor) {
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
         template: fish.compile(tpl),
@@ -53,7 +56,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GPieBaseConfig.html"
             var self = this;
             $("#tabs").tabs(); //Tab页
             var $parent = $("#tabs");
-            self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
+            //self.jsonEditor($parent);
             $parent.find('.labelSelect').off('change')
                    .val(self.gText.attrs.labelStyle)
                    .on('change',function() {

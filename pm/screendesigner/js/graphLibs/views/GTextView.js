@@ -55,7 +55,7 @@ define([
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
             var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
-            self.jsonEditor($parent);
+        //    self.jsonEditor($parent);
             $parent.find('.gtext_title').on('change',function(){
                    self.gtext_title($(this));
             })

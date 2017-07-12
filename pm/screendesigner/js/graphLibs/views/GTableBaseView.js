@@ -1,8 +1,9 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.html",
+define([
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
-
-], function(tpl,JSONEditor) {
+], function(DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -54,7 +55,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GTableBaseConfig.htm
             var self = this;
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
+            //self.jsonEditor($parent);
             //TODO:表头色
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.getTitleColor());

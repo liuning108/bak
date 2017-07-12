@@ -1,8 +1,10 @@
-define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html",
+define([
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
+    "text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
-], function(tpl,JSONEditor) {
+], function(DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -47,7 +49,8 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/GNumsBarConfig.html"
             var self = this;
             $("#tabs").tabs(); //Tab页
             var $parent =$("#tabs");
-            self.jsonEditor($parent);
+            var dbCofnfigTreeView = new DBConfigTreeView({'el': '.dbCofnfigTree','g': self.gText}).render().afterRender()
+          //  self.jsonEditor($parent);
             //位数
             $('#digit_nums_input').val(self.gText.getDigits());
             self.sliderTooltip('#digit_nums', self.gText.getDigits(), 1, 20, 1, function(value) {
