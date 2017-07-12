@@ -2,14 +2,16 @@
  * 指标筛选弹出窗
  */
 define([
+        "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
         "text!oss_core/pm/screendesigner/templates/SDCreateByExist.html",
         "text!oss_core/pm/screendesigner/templates/inst_item_copy.html",
         "oss_core/pm/screendesigner/actions/BScreenMgrAction",
 
     ],
-    function(tpl,instItemTpl,BScreenMgrAction){
+    function(i18nData,tpl,instItemTpl,BScreenMgrAction){
         return portal.BaseView.extend({
             className : "ui-dialog dialog SDdialog",
+            resource : fish.extend({}, i18nData),
             template: fish.compile(tpl),
             initialize: function() {},
             events: {
@@ -27,7 +29,7 @@ define([
                 this.trigger('cancel')
             },
             render: function() {
-                this.$el.html(this.template());
+                this.$el.html(this.template(this.resource));
                 return this;
             },
 
@@ -49,7 +51,7 @@ define([
                         parent.empty();
                         fish.each(list,function(data){
                            data.operDate=fish.dateutil.format(new Date(data.operDate), 'yyyy-mm-dd hh:ii:ss');
-                           var $inst_item=$(inst_item(data)).appendTo(parent);
+                           var $inst_item=$(inst_item(fish.extend(data, i18nData))).appendTo(parent);
                            self.inst_itemEvent($inst_item);
                            console.log("-----data");
                            console.log(data);

@@ -2,6 +2,7 @@
  * 指标筛选弹出窗
  */
 define([
+    "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "text!oss_core/pm/screendesigner/templates/ScreenDesignerEdit.html",
     "oss_core/pm/screendesigner/js/Zcharts",
     "oss_core/pm/screendesigner/views/ScreenDesignerConfig",
@@ -10,9 +11,10 @@ define([
     "oss_core/pm/screendesigner/js/StackBlur",
     "oss_core/pm/screendesigner/js/canvg",
     "css!oss_core/pm/screendesigner/jsoneditor/jsoneditor.css"
-], function(tpl, Zcharts, SDconfigView, BScreenMgrAction) {
+], function(i18nData,tpl, Zcharts, SDconfigView, BScreenMgrAction) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
+        resource : fish.extend({}, i18nData),
         initialize: function(options) {
             this.parentView = options.parentView;
             this.params = options.params;
@@ -70,7 +72,7 @@ define([
 
         },
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.resource));
             return this;
         },
 
