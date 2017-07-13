@@ -59,9 +59,9 @@ define([
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
-            this.doms['remove'] = this.paper.text(60, -r, '删除').attr({
+            this.doms['remove'] = this.paper.text(60, -r, 'X').attr({
                 'fill': 'red',
-                'font-size': 18,
+                'font-size': 20,
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
@@ -133,8 +133,8 @@ define([
         addEvent: function() {
             var self = this;
             // TODO:配置属性(node)
+              var view = new View(self);
             this.doms['config'].click(function(e) {
-                var view = new View(self);
                 view.render();
                 var $panel = $('.configPanel');
                 $panel.html(view.$el.html());
@@ -144,7 +144,7 @@ define([
             });
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
-                fish.confirm('确认是否删除该组件').result.then(function() {
+                fish.confirm(view.resource.ISDEL).result.then(function() {
                     self.remove();
                 });
                 e.stopImmediatePropagation();

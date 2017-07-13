@@ -2,10 +2,10 @@
     <div id="tabs" class="ui-tabs">
         <ul class="ui-tabs-nav">
             <li>
-                <a href="#tabs-setting">设置</a>
+                <a href="#tabs-setting">{{SETTING}}</a>
             </li>
             <li>
-                <a href="#tabs-other-setting">数据源</a>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
             </li>
             <!-- <li>
                 <a href="#tabs-json-editor">JSON</a>
@@ -17,17 +17,17 @@
 
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>节点设置</h4>
+                    <h4>{{BASIC_SETTING}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="form-group">
-                                    <label for="font_text_colorpicker" class="bi-lable">字体颜色:</label>
+                                    <label for="font_text_colorpicker" class="bi-lable">{{FONT_COLOR}}:</label>
                                     <input type="text" class="font_text_colorpicker" name="font_text_colorpicker">
                                 </div>
                                 <div class="form-group bgColorPickerDiv">
-                                    <label for="bg_colorpicker" class="bi-lable">背景颜色:</label>
+                                    <label for="bg_colorpicker" class="bi-lable">{{BACKGROUND_COLOR}}:</label>
                                     <input type="text" class="bg_colorpicker" name="bg_colorpicker">
                                 </div>
 
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>预警设置</h4>
+                    <h4>{{WARNING_SETTING}}</h4>
 
                     <!-- TODO: 开 /  关(doing) -->
                     <div class="bi-attr-edit-list-div-rengs">
@@ -63,9 +63,9 @@
                                     <div class="table-responsive">
                                         <table class="table">
                                             <tr>
-                                                <th>名称</th>
-                                                <th>颜色</th>
-                                                <th>值(<=)</th>
+                                                <th>{{NAME}}</th>
+                                                <th>{{COLOR}}</th>
+                                                <th>{{VALUE}}(<=)</th>
                                             </tr>
                                             <tr>
                                                 <td class="table-input"><input type="text" class="normal_text" name="normal_text"></input>
@@ -79,14 +79,14 @@
                                                 <td class="table-input"><input type="text" class="urgency_text" name="urgency_text"></input>
                                                 </td>
                                                 <td><input type="text" class="gtext_colorpicker2" name="gtext_colorpicker2"></td>
-                                                <td class="table-input"><input type="text" class="urgency_value" name="urgency_value" data-rule="required;integer[+0];match[gt, normal_value]; " data-msg-match="必需大于上一个数值"></input>
+                                                <td class="table-input"><input type="text" class="urgency_value" name="urgency_value" data-rule="required;integer[+0];match[gt, normal_value]; " data-msg-match="{{MUST_BE_GREATER_THAN_VALUE}}"></input>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td class="table-input"><input type="text" class="risk_text" name="risk_text"></input>
                                                 </td>
                                                 <td><input type="text" class="gtext_colorpicker3" name="gtext_colorpicker3" ></td>
-                                                <td class="table-input"><input type="text" class="risk_value" name="risk_value" data-rule="required;integer[+0];match[gt, urgency_value];"  data-msg-match="必需大于上一个数值"></input>
+                                                <td class="table-input"><input type="text" class="risk_value" name="risk_value" data-rule="required;integer[+0];match[gt, urgency_value];"  data-msg-match="{{MUST_BE_GREATER_THAN_VALUE}}"></input>
                                                 </td>
                                             </tr>
                                         </table>

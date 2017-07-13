@@ -96,7 +96,7 @@ define([
                 $inst_item.find('.delete').off('click');
                 $inst_item.find('.delete').on('click',function(){
                       var id=$(this).parent().data('id');
-                      fish.confirm('确认是否删除该选项').result.then(function() {
+                      fish.confirm(self.resource.ISDELOPTION).result.then(function() {
                           BScreenMgrAction.deleteBScreenById(id,function(){
                               $('#item_'+id).remove();
                           })

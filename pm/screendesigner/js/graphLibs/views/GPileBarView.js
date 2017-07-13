@@ -1,18 +1,20 @@
 define([
+  "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GPileBarView.html",
      "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
       "oss_core/pm/screendesigner/js/graphLibs/views/ViewUtils",
       "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView"
-], function(tpl, JSONEditor, ViewUtils, DBConfigTreeView) {
+], function(i18nData,tpl, JSONEditor, ViewUtils, DBConfigTreeView) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
         template: fish.compile(tpl),
+          resource : fish.extend({}, i18nData),
         initialize: function(g) {
             this.g = g;
         },
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.resource));
             return this;
         },
 

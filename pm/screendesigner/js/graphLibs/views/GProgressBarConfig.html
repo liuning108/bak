@@ -2,10 +2,10 @@
     <div id="tabs" class="ui-tabs">
         <ul class="ui-tabs-nav">
             <li>
-                <a href="#tabs-setting">设置</a>
+                <a href="#tabs-setting">{{SETTING}}</a>
             </li>
             <li>
-                <a href="#tabs-other-setting">数据源</a>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
             </li>
             <!-- <li>
                 <a href="#tabs-json-editor">JSON</a>
@@ -15,22 +15,22 @@
             <div class="m_u_box">
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>进度设定</h4>
+                    <h4>{{BASIC_SETTING}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
                                 <form class="from-inline">
                                     <div class="form-group">
-                                        <label for="gtext_title" class="bi-lable">标题:</label>
+                                        <label for="gtext_title" class="bi-lable">{{TITLE}}:</label>
                                         <input type="text" class="gtext_title" name="gtext_title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="gtext_colorpicker" class="bi-lable">标题颜色:</label>
+                                        <label for="gtext_colorpicker" class="bi-lable">{{TITLE_COLOR}}:</label>
                                         <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="gprocess_colorpicker" class="bi-lable">进度颜色:</label>
+                                        <label for="gprocess_colorpicker" class="bi-lable">{{COLOR}}:</label>
                                         <input type="text" class="gprocess_colorpicker" name="gprocess_colorpicker">
                                     </div>
                                 </form>
@@ -42,17 +42,17 @@
 
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>单位设置</h4>
+                    <h4>{{UNIT}} {{SETTING}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
                                 <form class="from-inline">
                                     <div class="form-group">
-                                        <label for="member_title" class="bi-lable">分子单位:</label>
+                                        <label for="member_title" class="bi-lable">{{NUMERATOR}}{{UNIT}}:</label>
                                         <input type="text" class="member_title" name="member_title">
                                     </div>
                                     <div class="form-group">
-                                        <label for="denominator_title" class="bi-lable">分母单位:</label>
+                                        <label for="denominator_title" class="bi-lable">{{DENOMINATOR}}{{UNIT}}:</label>
                                         <input type="text" class="denominator_title" name="denominator_title">
                                     </div>
 

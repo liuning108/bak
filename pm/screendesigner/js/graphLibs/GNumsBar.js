@@ -11,7 +11,7 @@ define([
             var panelColor =this.attrs.PanelColor||'#006699';
             this.attrs.titleColor=titleColor;
             this.attrs.PanelColor=panelColor;
-            this.attrs.unit=this.attrs.unit||'元';
+            this.attrs.unit=this.attrs.unit||'';
             var paper =this.paper;
             var x=0;
             var y =0;
@@ -71,9 +71,9 @@ define([
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
-            this.doms['remove'] = this.paper.text(160, -30, '删除').attr({
+            this.doms['remove'] = this.paper.text(160, -30, 'X').attr({
                 'fill': 'red',
-                'font-size': 18,
+                'font-size': 20,
                 'font-family': '微软雅黑',
                 'font-weight': 'bold'
             });;
@@ -98,13 +98,13 @@ define([
         },
         getData:function(){
 
-            var self = this;
-            var intervalTime=1000*2 ;
-            this.setValue(this.val);
-            this.val=fish.random(this.val,this.val+3000);
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
+            // var self = this;
+            // var intervalTime=1000*2 ;
+            // this.setValue(this.val);
+            // this.val=fish.random(this.val,this.val+3000);
+            // setTimeout(function() {
+            //     self.getData();
+            // }, intervalTime);
         },
         setValue:function(val){
            var text=this.prefixInteger(val,this.attrs.digits);
@@ -202,9 +202,10 @@ define([
         },
         addEvent: function() {
                 var self = this;
+                  var view = new View(self);
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
-                fish.confirm('确认是否删除该组件').result.then(function() {
+                fish.confirm(view.resource.ISDEL).result.then(function() {
                     self.remove();
                 });
                 e.stopImmediatePropagation();
@@ -213,7 +214,6 @@ define([
 
             // TODO:配置属性(node)
             this.doms['config'].click(function(e) {
-                var view = new View(self);
                 view.render();
                 var $panel = $('.configPanel');
                 $panel.html(view.$el.html());

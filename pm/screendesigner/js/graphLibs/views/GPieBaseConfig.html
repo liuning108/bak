@@ -2,10 +2,10 @@
     <div id="tabs" class="ui-tabs">
         <ul class="ui-tabs-nav">
             <li>
-                <a href="#tabs-setting">设置</a>
+                <a href="#tabs-setting">{{SETTING}}</a>
             </li>
             <li>
-                <a href="#tabs-other-setting">数据源</a>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
             </li>
             <!-- <li>
                 <a href="#tabs-json-editor">JSON</a>
@@ -14,17 +14,17 @@
         <div id="tabs-setting" class="ui-tabs-panel">
             <div class="m_u_box">
                 <div class="bi-attr-edit-list-div">
-                    <h4>显示配置</h4>
+                    <h4>{{BASIC_SETTING}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
                                 <form class="from-inline">
                                     <div class="form-group">
-                                        <label for="gtext_title" class="bi-lable">显示:</label>
+                                        <label for="gtext_title" class="bi-lable">{{DISPLAY}}:</label>
                                         <select class="labelSelect">
-                                            <option value="1">标签</option>
-                                            <option value="2">标签+值</option>
-                                            <option value="3">标签+百分比</option>
+                                            <option value="1">{{LABEL}}</option>
+                                            <option value="2">{{LABEL}}+{{VALUE}}</option>
+                                            <option value="3">{{LABEL}}+{{PERCENT}}</option>
                                         </select>
                                     </div>
                                 </form>

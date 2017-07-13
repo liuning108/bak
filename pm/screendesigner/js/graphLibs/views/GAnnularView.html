@@ -2,10 +2,10 @@
     <div id="tabs" class="ui-tabs">
         <ul class="ui-tabs-nav">
             <li>
-                <a href="#tabs-setting">设置</a>
+                <a href="#tabs-setting">{{SETTING}}</a>
             </li>
             <li>
-                <a href="#tabs-other-setting">数据源</a>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
             </li>
             <!-- <li>
                 <a href="#tabs-json-editor">JSON</a>
@@ -15,23 +15,23 @@
             <div class="m_u_box">
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>显示设置</h4>
+                    <h4>{{BASIC_SETTING}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                         <div class="row">
                             <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="g_titile" class="bi-lable">名称:</label>
+                                        <label for="g_titile" class="bi-lable">{{NAME}}:</label>
                                         <input type="text" class="g_titile" name="g_titile">
                                     </div>
                                     <div class="form-group">
-                                        <label for="gtext_colorpicker" class="bi-lable">名称颜色:</label>
+                                        <label for="gtext_colorpicker" class="bi-lable">{{NAME_COLOR}}:</label>
                                         <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
                                     </div>
                                     <div class="form-group">
-                                        <label for="g_titile" class="bi-lable">显示:</label>
+                                        <label for="g_titile" class="bi-lable">{{DISPLAY}}:</label>
                                         <select class="labelSelect">
-                                            <option value="1">值</option>
-                                            <option value="2">百分比</option>
+                                            <option value="1">{{VALUE}}</option>
+                                            <option value="2">{{PERCENT}}</option>
                                         </select>
                                     </div>
                             </div>
@@ -40,12 +40,12 @@
                 </div>
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>线框设置</h4>
+                    <h4>{{WIREFRAME_SETTING}}</h4>
                 <!-- TODO: 显示 / 隐藏(done) -->
                 <div class="bi-attr-edit-list-div-rengs">
                     <div class="row">
                         <div class="col-md-4 col-sm-4">
-                            <lable class="bi-lable" style="margin-right:0px;margin-left:10px">显示/隐藏:</lable>
+                            <lable class="bi-lable" style="margin-right:0px;margin-left:10px">{{SHOW_HIDE}}:</lable>
                         </div>
                         <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
                             <label class="switch">
@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="gtext_colorpicker_label" class="bi-lable">线框颜色:</label>
+                                    <label for="gtext_colorpicker_label" class="bi-lable">{{WIREFRAME_COLOR}}:</label>
                                     <input type="text" class="gtext_colorpicker_label" name="gtext_colorpicker_label">
                                 </div>
                         </div>
@@ -70,7 +70,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3">
                             <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
-                             宽度
+                             {{WIDTH}}
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-3">
@@ -86,7 +86,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-3">
                             <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
-                             高度
+                             {{HEIGHT}}
                             </label>
                         </div>
                         <div class="col-md-3 col-sm-3">

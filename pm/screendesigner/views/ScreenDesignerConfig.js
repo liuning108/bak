@@ -2,10 +2,12 @@
  * 指标筛选弹出窗
  */
 define([
+    "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "text!oss_core/pm/screendesigner/templates/ScreenDesignerConfig.html", "oss_core/pm/screendesigner/js/icheck/fish.icheck", "css!oss_core/pm/screendesigner/js/icheck/icheck.css"
-], function(tpl) {
+], function(i18nData,tpl) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
+        resource : fish.extend({}, i18nData),
         initialize: function(canvas) {
             this.canvas = canvas;
         },
@@ -14,7 +16,7 @@ define([
             'change #canvas_name': 'canvas_name'
         },
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.resource));
             return this;
         },
         afterRender: function(data) {

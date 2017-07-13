@@ -398,7 +398,7 @@ define([
                     BScreenMgrAction.saveOrUpdate(json, function(result) {
                         var topic = result.data[0];
                         if (topic) {
-                            fish.toast('info', '保存成功');
+                            fish.toast('info', self.resource.SUCCESSFULLY);
                             self.canvas.setId(topic.id);
                         }
                     }) //end of saveOfUpdate

@@ -1,25 +1,25 @@
 <div class="db_panel_side">
     <div class="panel_row_r1">
 
-        <h2>服务名</h2>
+        <h2>{{SERVICE_NAME}}</h2>
         <a href="#" class="x_table_i">
             <i class="icon-uniE600"></i>
-            <span class="dbServerName">新装量服务</span>
+            <span class="dbServerName"></span>
        </a>
         <div class="db_edit clearfix serverCommand">
             <ul>
-                <li><a href="#" class="lookDBSource">查看</a></li>
-                <li><a href="#" class="choiceDBSource">切换</a></li>
+                <li><a href="#" class="lookDBSource">{{LOOK}}</a></li>
+                <li><a href="#" class="choiceDBSource">{{SWITCH}}</a></li>
             </ul>
         </div>
         <div class="db_edit_plane">
             <div class="g_tt">
-                <h3>切换服务</h3>
+                <h3>{{SWITCH}}</h3>
             </div>
             <div>
                 <div class="db_edit_body">
                     <div class="db_search">
-                        <span>查询:</span><input type="serach" placeholder="请输入要查询的服务名" />
+                        <span>{{QUERY}}:</span><input type="serach" />
                     </div>
                     <div class="dbserverlist">
                         <ul>
@@ -31,8 +31,8 @@
 
           <div class="db_edit clearfix martop5px">
               <ul>
-                  <li><a href="#" class="db_edit_plane_sure" >确定</a></li>
-                  <li><a href="#" class="db_edit_plane_cancel">取消</a></li>
+                  <li><a href="#" class="db_edit_plane_sure" >{{SURE}}</a></li>
+                  <li><a href="#" class="db_edit_plane_cancel">{{CANCEL}}</a></li>
               </ul>
           </div>
 
@@ -42,19 +42,19 @@
     <div class="g_field">
         <div class="g_field_data">
             <div class="g_tt">
-                <h3 class="coa">所选数据字段</h3>
+                <h3 class="coa">{{SEL_FIELDS}}</h3>
             </div>
 
             <div class="g_field_context">
                 <div class="g_tt">
-                    <h4>维度（X轴)</h4><span class="dbTipMessage">只能选<span class="xnums">1</span>个维度</span>
+                    <h4>{{DIME}}</h4><span class="dbTipMessage">{{TIPNUM}}<span class="xnums">1</span></span>
                 </div>
                 <div class="xmessage"></div>
                 <ul class="xAxisUL" >
 
                 </ul>
                 <div class="g_tt">
-                    <h4>指标（Y轴）</h4><span class="dbTipMessage">只能选<span class="ynums">2</span>个指标</span>
+                    <h4>{{INDICATOR}}</h4><span class="dbTipMessage">{{TIPNUM}}<span class="ynums">2</span></span>
                 </div>
                 <div class="ymessage"></div>
                 <ul class="none-bottom yAxisUL">
@@ -66,9 +66,9 @@
     <div class="dbCommand">
         <div class="db_edit clearfix martop5px" >
             <ul>
-                <li><a href="#" class="db_edit_btn">編辑</a></li>
-                <li><a href="#" class="db_sure" >确定</a></li>
-                <li><a href="#" class="db_cancel">取消</a></li>
+                <li><a href="#" class="db_edit_btn">{{EDIT}}</a></li>
+                <li><a href="#" class="db_sure" >{{SURE}}</a></li>
+                <li><a href="#" class="db_cancel">{{CANCEL}}</a></li>
             </ul>
         </div>
 

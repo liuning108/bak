@@ -39,7 +39,7 @@ define([
       self.setNumColor(numColor);
 
       this.doms['config'] = this.paper.text(100, -20, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
-      this.doms['remove'] = this.paper.text(100, 10, '删除').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+      this.doms['remove'] = this.paper.text(100, 10, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
 
     },
     getValue: function() {
@@ -100,8 +100,8 @@ define([
     addEvent: function() {
       var self = this;
       // TODO:配置属性(node)
-      this.doms['config'].click(function(e) {
         var view = new View(self);
+      this.doms['config'].click(function(e) {
         view.render();
         var $panel = $('.configPanel');
         $panel.html(view.$el.html());
@@ -111,7 +111,7 @@ define([
       });
       // TODO:配置删除(node)
       this.doms['remove'].click(function(e) {
-        fish.confirm('确认是否删除该组件').result.then(function() {
+        fish.confirm(view.resource.ISDEL).result.then(function() {
           self.remove();
         });
         e.stopImmediatePropagation();

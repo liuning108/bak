@@ -3,24 +3,26 @@ define([], function() {
   var dbs = [];
   dbs.push({
     serverName: '新装量预览服务',
+    serverLabel:'NETWORK_OVERVIEW_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'area',
+        name: 'Citys',
         data: [
-          '南京',
-          '无锡',
-          '徐州',
-          '常州',
-          '苏州',
-          '南通',
-          '淮安',
-          '盐城',
-          '扬州',
-          '镇江',
-          '泰州',
-          '宿迁',
-          '连云港'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'Shang',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+          'Chenz',
+          'Yongz',
+          'Huaih',
+          'XiaXi'
         ]
       }
     ],
@@ -40,24 +42,26 @@ define([], function() {
 
   dbs.push({
     serverName: '停复机预览服务',
+    serverLabel:'NETWORK_OVERVIEW_B_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'area',
+        name: 'Citys',
         data: [
-          '南京',
-          '无锡',
-          '徐州',
-          '常州',
-          '苏州',
-          '南通',
-          '淮安',
-          '盐城',
-          '扬州',
-          '镇江',
-          '泰州',
-          '宿迁',
-          '连云港'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'Shang',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+          'Chenz',
+          'Yongz',
+          'Huaih',
+          'XiaXi'
         ]
       }
     ],
@@ -74,24 +78,26 @@ define([], function() {
 
   dbs.push({
     serverName: '峻工量预览服务',
+    serverLabel:'NETWORK_OVERVIEW_C_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'area',
+        name: 'Citys',
         data: [
-          '南京',
-          '无锡',
-          '徐州',
-          '常州',
-          '苏州',
-          '南通',
-          '淮安',
-          '盐城',
-          '扬州',
-          '镇江',
-          '泰州',
-          '宿迁',
-          '连云港'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'Shang',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+          'Chenz',
+          'Yongz',
+          'Huaih',
+          'XiaXi'
         ]
       }
     ],
@@ -106,19 +112,23 @@ define([], function() {
     ]
   })
 
+
+
   dbs.push({
     serverName: '码号销售预览服务',
+    serverLabel:'NETWORK_OVERVIEW_D_SERVICE',
     xAxis: [
       {
         id: 'field_1',
         name: 'month',
         data: [
-          '1月',
-          '2月',
-          '3月',
-          '4月',
-          '5月',
-          '6月'
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.'
         ]
       }
     ],
@@ -135,25 +145,26 @@ define([], function() {
 
   dbs.push({
     serverName: '指标完成率预览服务',
+    serverLabel:'NETWORK_OVERVIEW_E_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'month',
+        name: 'Citys',
         data: [
-          '长沙',
-          '株洲',
-          '湘潭',
-          '衡阳',
-          '邵阳',
-          '岳阳',
-          '常德',
-          '张家界',
-          '益阳',
-          '娄底',
-          '郴州',
-          '永州',
-          '怀化',
-          '湘西'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'Shang',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+          'Chenz',
+          'Yongz',
+          'Huaih',
+          'XiaXi'
         ]
       }
     ],
@@ -170,6 +181,7 @@ define([], function() {
 
   dbs.push({
     serverName: '投诉数预览服务',
+    serverLabel:'NETWORK_OVERVIEW_F_SERVICE',
     xAxis: [],
     yAxis: [
       {
@@ -229,21 +241,24 @@ define([], function() {
 
   dbs.push({
     serverName: '地区码号销售',
+    serverLabel:'NETWORK_OVERVIEW_G_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'area',
+        name: 'Citys',
         data: [
-          '长沙',
-          '株洲',
-          '湘潭',
-          '衡阳',
-          '邵阳',
-          '岳阳',
-          '常德',
-          '怀化',
-          '益阳',
-          '娄底'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'Shang',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+
+
         ]
       }
     ],
@@ -254,27 +269,36 @@ define([], function() {
       }, {
         id: 'field_3',
         name: '4G'
+      }
+      , {
+        id: 'field_4',
+        name: 'base station'
+      }
+      , {
+        id: 'field_5',
+        name: '2G'
       }
     ]
   })
 
   dbs.push({
     serverName: '码号销售年度指标',
+    serverLabel:'NETWORK_OVERVIEW_H_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'years',
+        name: 'months',
         data: [
-          '2008',
-          '2009',
-          '2010',
-          '2011',
-          '2012',
-          '2013',
-          '2014',
-          '2015',
-          '2016',
-          '2017'
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
         ]
       }
     ],
@@ -285,33 +309,41 @@ define([], function() {
       }, {
         id: 'field_3',
         name: '4G'
+      },
+      {
+        id: 'field_4',
+        name: 'Voice '
+      }, {
+        id: 'field_5',
+        name: 'data'
       }
     ]
   })
 
   dbs.push({
     serverName: '流程预览服务',
+    serverLabel:'NETWORK_OVERVIEW_I_SERVICE',
     xAxis: [
       {
         id: 'field_1',
         name: 'nodes',
         data: [
-          "CRM下单",
-          "服务单",
-          "资源变更单",
-          "流程启动",
-          "派单",
-          "归档"
+          "CRM",
+          "OSS",
+          "Resource",
+          "Running",
+          "Doing",
+          "SAVE"
         ]
       }
     ],
     yAxis: [
       {
         id: 'field_2',
-        name: '待处理'
+        name: 'wait'
       }, {
         id: 'field_3',
-        name: '处理中'
+        name: 'doing'
       }
     ]
   })
@@ -320,18 +352,19 @@ define([], function() {
 
   dbs.push({
     serverName: '当月新装用户数预览服务',
+    serverLabel:'NETWORK_OVERVIEW_J_SERVICE',
     xAxis: [
       {
         id: 'field_1',
         name: 'package',
         data: [
-          "流量升级包-30",
-          "乐享4G-99",
-          "飞Young4G-99",
-          "乐享4G-399",
-          "乐享4G-59",
-          "乐享4G-129",
-          "乐享4G-199",
+          "package-30",
+          "package4G-99",
+          "package2G-99",
+          "package-399",
+          "package-59",
+          "package-129",
+          "package-199",
         ]
       }
     ],
@@ -349,46 +382,47 @@ define([], function() {
 
   dbs.push({
     serverName: '实时数据预览服务',
+    serverLabel:'NETWORK_OVERVIEW_K_SERVICE',
     xAxis: [],
     yAxis: [
       {
         id: 'field_2',
-        name: '当日施工调度人数',
+        name: 'People',
         data: [
           77,
 
         ]
       }, {
         id: 'field_3',
-        name: '装机数',
+        name: 'installed machine',
         data: [
           992,
 
         ]
       }, {
         id: 'field_4',
-        name: '自动激活单数',
+        name: 'auto activate nums',
         data: [
           523,
         ]
       },
       {
         id: 'field_5',
-        name: '呼叫全程成功率',
+        name: 'CSSR',
         data: [
           98.7,
         ]
       },
       {
         id: 'field_6',
-        name: '端到端接通率',
+        name: 'port to port',
         data: [
           99.7,
         ]
       },
       {
         id: 'field_7',
-        name: '基站数',
+        name: 'baseStation ',
         data: [
           3.5,
         ]
@@ -402,23 +436,30 @@ define([], function() {
       },
       {
         id: 'field_9',
-        name: 'VLR注册用户增幅数',
+        name: 'VLR People',
         data: [
           130,
         ]
       },
       {
         id: 'field_10',
-        name: 'WLAN注册用户增幅数',
+        name: 'WLAN People',
         data: [
           230,
         ]
       },
       {
         id: 'field_11',
-        name: '码号销金额',
+        name: 'phone number',
         data: [
           123123230,
+        ]
+      },
+      {
+        id: 'field_12',
+        name: 'baseStation ',
+        data: [
+          34572,
         ]
       }
 
@@ -429,11 +470,12 @@ define([], function() {
 
   dbs.push({
     serverName: '网络规模预览服务',
+    serverLabel:'NETWORK_OVERVIEW_H_SERVICE',
     xAxis: [],
     yAxis: [
       {
         id: 'field_2',
-        name: '话务量',
+        name: 'Voice ',
         data: [
           255,
           777
@@ -441,7 +483,7 @@ define([], function() {
         ]
       }, {
         id: 'field_3',
-        name: '流量',
+        name: 'data',
         data: [
           344,
           800
@@ -452,25 +494,26 @@ define([], function() {
 
   dbs.push({
     serverName: '地区码号销售指标',
+    serverLabel:'NETWORK_OVERVIEW_J_SERVICE',
     xAxis: [
       {
         id: 'field_1',
-        name: 'area',
+        name: 'Citys',
         data: [
-          '长沙',
-          '株洲',
-          '湘潭',
-          '衡阳',
-          '邵阳',
-          '岳阳',
-          '常德',
-          '张家界',
-          '益阳',
-          '娄底',
-          '郴州',
-          '永州',
-          '怀化',
-          '湘西'
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'CHA',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+          'Chenz',
+          'Yongz',
+          'Huaih',
+          'XiaXi'
         ]
       }
     ],
@@ -481,6 +524,17 @@ define([], function() {
       }, {
         id: 'field_3',
         name: '4G'
+      },
+      {
+        id: 'field_4',
+        name: 'Voice '
+      }, {
+        id: 'field_5',
+        name: 'data'
+      },
+       {
+        id: 'field_6',
+        name: 'baseStation '
       }
     ]
   })

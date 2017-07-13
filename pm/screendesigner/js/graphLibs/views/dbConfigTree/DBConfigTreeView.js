@@ -1,17 +1,19 @@
 define([
+  "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
  "oss_core/pm/screendesigner/js/dbHelper/DBHelper", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html", "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView", "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
-], function(dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
+], function(i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
 
   return portal.CommonView.extend({
     template: fish.compile(tpl),
     xLiTpl: fish.compile(tplXLi),
     yLiTpl: fish.compile(tplYLi),
+    resource : fish.extend({}, i18nData),
     initialize: function(config) {
       this.config = config;
       this.config.db=this.config.g.getDBTreeJson();
     },
     render: function() {
-      this.$el.html(this.template());
+      this.$el.html(this.template(this.resource));
       return this;
     },
 
@@ -21,7 +23,7 @@ define([
       this.renderServerYAxis(el, db);
     },
     renderServerName: function(el, db) {
-      el.find('.dbServerName').text(db.serverName);
+      el.find('.dbServerName').text(db.serverLabel);
     },
 
     renderServerXAxis: function(el, db) {
@@ -123,7 +125,7 @@ define([
         }
       })
 
-      $parent.find('.coa').text('所有数据字段');
+      $parent.find('.coa').text(this.resource.ALLF);
       var xClickIndex = 0;
       $parent.find('.xAxisUL').find('li').off('click').on('click', function() {
         self.choiceFieldByNums($(this), $parent, '.xAxisUL', self.config.db.xNums, xClickIndex++);
@@ -157,7 +159,7 @@ define([
       $parent.find('[data-choice=n]').hide();
       $parent.find('[data-choice=y]').removeClass('dbChoice');
       $parent.find('.db_edit_plane').hide();
-      $parent.find('.coa').text('所选数据字段');
+      $parent.find('.coa').text(this.resource.ALLF);
       $parent.find('[data-choice]').off("click");
       $parent.find('.xmessage').hide();
       $parent.find('.ymessage').hide();
@@ -177,7 +179,7 @@ define([
         $parent.find('[data-choice=n]').hide();
         $parent.find('[data-choice=y]').removeClass('dbChoice');
         $parent.find('.db_edit_plane').hide();
-        $parent.find('.coa').text('所有数据字段');
+        $parent.find('.coa').text(this.resource.SEL_FIELDS);
         this.renderDBtoHTML($parent, this.config.db)
         this.changeServer();
         this.config.g.toGraph(dbHelper.toChoiceDB(this.config.db));
@@ -208,11 +210,11 @@ define([
       $parent.find('.xmessage,.ymessage').hide();
 
       if (this.xc < this.config.db.xMinNums) {
-        $parent.find('.xmessage').show().text('至少要有'+this.config.db.xMinNums+'个维度')
+        $parent.find('.xmessage').show().text(this.resource.TMBAL+":"+this.config.db.xMinNums)
         flag = false;
       }
       if (this.yc < this.config.db.yMinNums) {
-        $parent.find('.ymessage').show().text('至少要有'+this.config.db.yMinNums+'个指标')
+        $parent.find('.ymessage').show().text(this.resource.TMBAL+":"+this.config.db.yMinNums)
         flag = false;
       }
 
