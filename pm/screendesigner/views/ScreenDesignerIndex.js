@@ -118,9 +118,9 @@ define([
                      var id=$(this).parent().data('id');
                      BScreenMgrAction.queryBScreenById(id,function(data){
                             var json = data.topicJson;
-                            var id=fish.getUUID();
-                            fish.store.set(id, json);
-                            window.open("oss_core/pm/screendesigner/perview.html?id="+id);
+                            var uuid=fish.getUUID();
+                            fish.store.set(uuid, json);
+                            window.open("oss_core/pm/screendesigner/bghtml.html?id="+id);
                      })
 
                })//en of click;
