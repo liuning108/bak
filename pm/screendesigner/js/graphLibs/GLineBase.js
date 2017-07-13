@@ -6,7 +6,7 @@ define([
     var GLineBase = GRoot.extend({
         initElement: function() {
             var self = this;
-            var title = this.attrs.title || '文字名称';
+            var title = this.attrs.title || 'TEXT NAME';
             this.attrs.titleColor =this.attrs.titleColor || '#ddff00';
             this.attrs.lineColor=this.attrs.lineColor||'#4cd5f4';
             var x = 0;
@@ -32,13 +32,13 @@ define([
                                                         }
 
             this.Data2Graph();
-
-
+            names=this.attrs.names;
+            maxWidthName=this.getMaxWidthName(names);
             var max = Math.floor(1.1*fish.max(this.attrs.xAxisDatas));
             var items = [];
             for (var i = 0; i < n; i++) {
                 var per = this.attrs.xAxisDatas[i]/ max;
-                var item = this.createItme(i, x, y, w, h, space_h, per, names[i]);
+                var item = this.createItme(i, x, y, w, h, space_h, per, names[i],maxWidthName);
                 items.push(item);
                 this.doms['item' + i] = item.set;
             }
@@ -75,7 +75,7 @@ define([
             });;
 
         },
-        createItme: function(i, x, y, w, h, space_h, per, name) {
+        createItme: function(i, x, y, w, h, space_h, per, name,www) {
 
             var paper = this.paper;
             var item = {};
@@ -94,16 +94,32 @@ define([
             //     'stroke': '#005e88',
             //     'stroke-width': 1
             // });
-            item.process = paper.rect(item.x + item.box.width, item.y - item.box.height / 2, w * per, h).attr({
+            item.process = paper.rect(item.x + www, item.y - item.box.height / 2, w * per, h).attr({
                 'fill': this.attrs.lineColor,
                 'stroke-width': 0
             });
+
             item.set.push(item.text);
             //item.set.push(item.rect);
             item.set.push(item.process);
 
             return item;
 
+        },
+        getMaxWidthName:function(names) {
+            var paper = this.paper;
+          var name =fish.max(names,function(name) {
+              return name.length;
+          });
+          var text = paper.text(0, 0, name).attr({
+              'fill': this.attrs.titleColor,
+              'font-size': 12,
+              'font-family': '微软雅黑',
+              'font-weight': 'bold'
+             });
+          var box =text.getBBox();
+          text.remove();
+          return box.width;
         },
         getXAxisNames:function () {
             return this.attrs.names;
