@@ -453,6 +453,30 @@ define([], function() {
 
 
   dbs.push({
+    serverName: '网络规模预览服务',
+    serverLabel:'NetWorkQryService',
+    xAxis: [],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'Voice ',
+        data: [
+          255,
+          777
+
+        ]
+      }, {
+        id: 'field_3',
+        name: 'Data',
+        data: [
+          344,
+          800
+        ]
+      }]
+  })
+
+
+  dbs.push({
     serverName: '地区码号销售指标',
     serverLabel:'NetworkOverviewQryService',
     xAxis: [

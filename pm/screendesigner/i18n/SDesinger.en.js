@@ -98,7 +98,7 @@ define({
   QUERY:'query',
   SURE:"Sure",
   SEL_FIELDS:"Selected data fields",
-  DIME:"Dimensionality (X axis)",
+  DIME:"Dimension (X axis)",
   INDICATOR:"Indicator (Y axis)",
   ALLF:"ALL fields ",
   TIPNUM:"Can only choose",
