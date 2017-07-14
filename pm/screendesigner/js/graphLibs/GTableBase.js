@@ -13,7 +13,7 @@ define([
             var paper = this.paper;
             var x = 0;
             var y = 0;
-            var space = 100;
+            var space = 50;
             this.attrs.titles = this.attrs.titles || ['地区', '3G', '4G'];
             this.attrs.isSeqPos = this.attrs.isSeqPos || 1;
             this.attrs.seqColor = this.attrs.seqColor || '#beb148';
@@ -59,10 +59,11 @@ define([
             this.attrs.datas =datas;
 
             var set = paper.set();
+            var maxBoxW=this.getHearderMaxBox(heardes);
             var item_box;
             for (var i = 0; i < heardes.length; i++) {
                 var name = heardes[i];
-                var item_x = x + (i * space);
+                var item_x = x + (i * (space+maxBoxW));
                 this.doms['header' + i] = paper.text(item_x, y, name).attr({
                     'fill': this.attrs.titleColor,
                     'font-size': 18,
@@ -96,7 +97,7 @@ define([
                 var item_x = data_x;
                 var item_y = data_y + (box.height * i);
                 for (var j = 0; j < data.length; j++) {
-                    var j_x = data_x + (j * space);
+                    var j_x = data_x + (j * (space+maxBoxW));
                     var color = this.attrs.valueColor;
                     if (this.attrs.seqShow=='on'){
                         if (j == data.length - 1 && this.attrs.isSeqPos == 2) color = this.attrs.seqColor;
@@ -207,6 +208,22 @@ define([
 
         },
 
+        getHearderMaxBox:function (names) {
+          var paper = this.paper;
+          var name =fish.max(names,function(name) {
+              return name.length;
+          });
+          var text = paper.text(0, 0, name).attr({
+              'fill': this.attrs.titleColor,
+              'font-size': 12,
+              'font-family': '微软雅黑',
+              'font-weight': 'bold'
+             });
+          var box =text.getBBox();
+          text.remove();
+          return box.width;
+
+        },
         addEvent: function() {
             if (!this.doms['config']) return;
             var self = this;

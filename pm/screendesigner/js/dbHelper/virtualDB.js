@@ -239,47 +239,7 @@ define([], function() {
     ]
   })
 
-  dbs.push({
-    serverName: '地区码号销售',
-    serverLabel:'NETWORK_OVERVIEW_G_SERVICE',
-    xAxis: [
-      {
-        id: 'field_1',
-        name: 'Citys',
-        data: [
-          'Chang',
-          'Zhu',
-          'Xiang',
-          'Heng',
-          'Shao',
-          'Yue',
-          'Shang',
-          'Zhang',
-          'Yiya',
-          'Loudi',
 
-
-        ]
-      }
-    ],
-    yAxis: [
-      {
-        id: 'field_2',
-        name: '3G'
-      }, {
-        id: 'field_3',
-        name: '4G'
-      }
-      , {
-        id: 'field_4',
-        name: 'base station'
-      }
-      , {
-        id: 'field_5',
-        name: '2G'
-      }
-    ]
-  })
 
   dbs.push({
     serverName: '码号销售年度指标',
@@ -381,7 +341,7 @@ define([], function() {
 
 
   dbs.push({
-    serverName: '实时数据预览服务',
+    serverName: '实时数据预览服务2',
     serverLabel:'NETWORK_OVERVIEW_K_SERVICE',
     xAxis: [],
     yAxis: [
@@ -469,7 +429,7 @@ define([], function() {
 
 
   dbs.push({
-    serverName: '网络规模预览服务',
+    serverName: '网络规模预览服务2',
     serverLabel:'NETWORK_OVERVIEW_H_SERVICE',
     xAxis: [],
     yAxis: [
@@ -494,11 +454,11 @@ define([], function() {
 
   dbs.push({
     serverName: '地区码号销售指标',
-    serverLabel:'NETWORK_OVERVIEW_J_SERVICE',
+    serverLabel:'NetworkOverviewQryService',
     xAxis: [
       {
         id: 'field_1',
-        name: 'Citys',
+        name: 'City',
         data: [
           'Chang',
           'Zhu',
@@ -510,35 +470,396 @@ define([], function() {
           'Zhang',
           'Yiya',
           'Loudi',
-          'Chenz',
-          'Yongz',
-          'Huaih',
-          'XiaXi'
+        ]
+      },
+      {
+        id: 'field_11',
+        name: 'Date',
+        data: [
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
         ]
       }
     ],
     yAxis: [
       {
         id: 'field_2',
-        name: '3G'
+        name: 'Data traffic'
       }, {
         id: 'field_3',
-        name: '4G'
+        name: '3G Data traffic'
       },
       {
         id: 'field_4',
-        name: 'Voice '
+        name: '4G Data traffic '
       }, {
         id: 'field_5',
-        name: 'data'
+        name: 'Base station number'
       },
        {
         id: 'field_6',
-        name: 'baseStation '
-      }
+        name: '3G Base station number'
+      },
+      {
+       id: 'field_7',
+       name: '4G Base station number'
+     },
+     {
+      id: 'field_8',
+      name: 'Voice traffic'
+     },
+     {
+       id: 'field_9',
+       name: '2G Voice traffic'
+     },
+     {
+       id: 'field_10',
+       name: '3G Voice traffic'
+     },
+     {
+       id: 'field_12',
+       name: ' Total Base station',
+       data:[34572,34572,34572,34572,34572,34572,34572,34572,34572,34572]
+     },
+
     ]
   })
 
+
+  dbs.push({
+    serverName: '地区码号销售',
+    serverLabel:'NetworkOverviewQryService',
+    xAxis: [
+      {
+        id: 'field_1',
+        name: 'City',
+        data: [
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'CHA',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+        ]
+      },
+      {
+        id: 'field_11',
+        name: 'Date',
+        data: [
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
+        ]
+      }
+    ],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'Data traffic'
+      }, {
+        id: 'field_3',
+        name: '3G Data traffic'
+      },
+      {
+        id: 'field_4',
+        name: '4G Data traffic '
+      }, {
+        id: 'field_5',
+        name: 'Base station number'
+      },
+       {
+        id: 'field_6',
+        name: '3G Base station number'
+      },
+      {
+       id: 'field_7',
+       name: '4G Base station number'
+     },
+     {
+      id: 'field_8',
+      name: 'Voice traffic'
+     },
+     {
+       id: 'field_9',
+       name: '2G Voice traffic'
+     },
+     {
+       id: 'field_10',
+       name: '3G Voice traffic'
+     },
+     {
+       id: 'field_12',
+       name: ' Total Base station',
+       data:[34572,34572,34572,34572,34572,34572,34572,34572,34572,34572]
+     },
+
+    ]
+  })
+
+
+  dbs.push({
+    serverName: '码号销售年度指标',
+    serverLabel:'NetworkOverviewQryService',
+    xAxis: [
+      {
+        id: 'field_1',
+        name: 'City',
+        data: [
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'CHA',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+        ]
+      },
+      {
+        id: 'field_11',
+        name: 'Date',
+        data: [
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
+        ]
+      }
+    ],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'Data traffic'
+      }, {
+        id: 'field_3',
+        name: '3G Data traffic'
+      },
+      {
+        id: 'field_4',
+        name: '4G Data traffic '
+      }, {
+        id: 'field_5',
+        name: 'Base station number'
+      },
+       {
+        id: 'field_6',
+        name: '3G Base station number'
+      },
+      {
+       id: 'field_7',
+       name: '4G Base station number'
+     },
+     {
+      id: 'field_8',
+      name: 'Voice traffic'
+     },
+     {
+       id: 'field_9',
+       name: '2G Voice traffic'
+     },
+     {
+       id: 'field_10',
+       name: '3G Voice traffic'
+     },
+     {
+       id: 'field_12',
+       name: ' Total Base station',
+       data:[34572,34572,34572,34572,34572,34572,34572,34572,34572,34572]
+     },
+
+    ]
+  })
+
+
+  dbs.push({
+    serverName: '码号销售预览服务',
+    serverLabel:'NetworkOverviewQryService',
+    xAxis: [
+      {
+        id: 'field_1',
+        name: 'City',
+        data: [
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'CHA',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+        ]
+      },
+      {
+        id: 'field_11',
+        name: 'Date',
+        data: [
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
+        ]
+      }
+    ],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'Data traffic'
+      }, {
+        id: 'field_3',
+        name: '3G Data traffic'
+      },
+      {
+        id: 'field_4',
+        name: '4G Data traffic '
+      }, {
+        id: 'field_5',
+        name: 'Base station number'
+      },
+       {
+        id: 'field_6',
+        name: '3G Base station number'
+      },
+      {
+       id: 'field_7',
+       name: '4G Base station number'
+     },
+     {
+      id: 'field_8',
+      name: 'Voice traffic'
+     },
+     {
+       id: 'field_9',
+       name: '2G Voice traffic'
+     },
+     {
+       id: 'field_10',
+       name: '3G Voice traffic'
+     },
+     {
+       id: 'field_12',
+       name: ' Total Base station',
+       data:[34572,34572,34572,34572,34572,34572,34572,34572,34572,34572]
+     },
+
+    ]
+  })
+
+
+  dbs.push({
+    serverName: '实时数据预览服务',
+    serverLabel:'NetworkOverviewQryService',
+    xAxis: [
+      {
+        id: 'field_1',
+        name: 'City',
+        data: [
+          'Chang',
+          'Zhu',
+          'Xiang',
+          'Heng',
+          'Shao',
+          'Yue',
+          'CHA',
+          'Zhang',
+          'Yiya',
+          'Loudi',
+        ]
+      },
+      {
+        id: 'field_11',
+        name: 'Date',
+        data: [
+          'Jun.',
+          'Feb.',
+          'Mar.',
+          'Apr.',
+          'May',
+          'Jun.',
+          'Jul.',
+          'Aug.',
+          'Sept.',
+          'Oct.'
+        ]
+      }
+    ],
+    yAxis: [
+      {
+        id: 'field_2',
+        name: 'Data traffic'
+      }, {
+        id: 'field_3',
+        name: '3G Data traffic'
+      },
+      {
+        id: 'field_4',
+        name: '4G Data traffic '
+      }, {
+        id: 'field_5',
+        name: 'Base station number'
+      },
+       {
+        id: 'field_6',
+        name: '3G Base station number'
+      },
+      {
+       id: 'field_7',
+       name: '4G Base station number'
+     },
+     {
+      id: 'field_8',
+      name: 'Voice traffic'
+     },
+     {
+       id: 'field_9',
+       name: '2G Voice traffic'
+     },
+     {
+       id: 'field_10',
+       name: '3G Voice traffic'
+     },
+     {
+       id: 'field_12',
+       name: ' Total Base station',
+       data:[34572,34572,34572,34572,34572,34572,34572,34572,34572,34572]
+     },
+
+    ]
+  })
 
 
 

@@ -48,6 +48,11 @@
   min-height: 150px;
 }
 
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist ul li:hover {
+  cursor: pointer;
+  color: #32ddff !important;
+}
+
 .db_panel_side .panel_row_r1 .db_edit_plane ul {
   margin: 0px;
   padding: 0px;
