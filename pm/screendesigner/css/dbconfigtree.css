@@ -28,15 +28,24 @@
 
 .db_panel_side .panel_row_r1 .db_edit_plane {
   position: absolute;
-  width: 200px;
-  height: 300px;
+  width: 340px;
+  height: 400px;
   background: #fff;
-  left: -210px;
+  left: -350px;
+  top: -20px;
   z-index: 999;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   padding: 0px 0px 0px 0px;
   animation: spinny 300ms linear;
   display: none;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .addNewServer {
+  width: 100%;
+  padding: 15px 10px 20px 10px;
+  background-color: #32ddff;
+  color: #fff;
+  float: right;
 }
 
 .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body {
@@ -45,7 +54,7 @@
 
 .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist {
   padding: 15px 10px 20px 10px;
-  min-height: 150px;
+  min-height: 230px;
 }
 
 .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist ul li:hover {
@@ -198,6 +207,117 @@
   transition: 0.5s;
   position: relative;
   animation: messageAnim 500ms cubic-bezier(0.18, 0.89, 0.42, 1.32);
+}
+
+.serachStyle1 {
+  border: solid 1px #d6d6d6;
+  padding: 5px;
+}
+
+span.serachStyle1 {
+  cursor: pointer;
+}
+
+.dbconfig-button-plus {
+  padding: 5px;
+  background-color: #039cfd;
+  border-color: #039cfd;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dbconfig-button-plus:hover {
+  background-color: #027dcb;
+  border-color: #027dcb;
+}
+
+.dbconfig-button-plus:before {
+  content: "\f067";
+  font: normal normal normal 14px/1 FontAwesome;
+  display: inline-block;
+  font-size: 12px;
+  padding-right: 2px;
+}
+
+.closeButton {
+  position: relative;
+  color: #c1c1c1 !important;
+  font-size: 20px;
+  font-weight: bold;
+  top: -10px;
+}
+
+.closeButton:hover {
+  color: #e74c3c !important;
+}
+
+.configPanel {
+  padding: 10px;
+}
+
+.configPanel .row {
+  margin-top: 5px;
+}
+
+.configPanel .radio-inline {
+  padding-top: 5px;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+
+.configPanel .form-control {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.configPanel .form-control:focus, .configPanel .form-control:active:focus {
+  outline-color: none !important;
+  box-shadow: none;
+  border: 1px solid #42a5f5;
+}
+
+.configPanel .req:before {
+  content: "*";
+  color: red;
+  padding-right: 4px;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.configDBSourceFooter {
+  height: 40px;
+  padding: 2px;
+  margin-top: 10px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.configDBSourceFooter .nextbutton {
+  color: #fff;
+  background-color: #039cfd;
+  border-color: #039cfd;
+}
+
+.configDBSourceFooter .nextbutton:hover {
+  color: #fff;
+  background-color: #027dcb;
+  border-color: #027dcb;
+}
+
+.configDBSourceFooter .cancel {
+  color: #717171;
+  background-color: #fff;
+  border: 1px solid #d9dbdc;
+}
+
+.configDBSourceFooter .cancel:hover {
+  border-color: #d9dbdc;
+  background: #f3f4f4;
+  color: #717171;
 }
 
 @keyframes messageAnim {

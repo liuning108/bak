@@ -1,0 +1,113 @@
+<div class="sd-modal-header">
+    <h2>Config New Server</h2>
+    <div class="title_r">
+        <a class="btn btn-sm  closeButton configDBSourceClose">X</a>
+    </div>
+</div>
+<div class="sd-modal-body">
+    <div class="model_c_dbsource">
+
+        <div class="configPanel col-md-12">
+           <div class="row">
+            <div class="col-md-6">
+                <div class="form-group ">
+                    <div class="col-md-12">
+                        <label  class="control-label req">Server Name</label>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group ">
+                    <div class="col-md-12">
+                        <label  class="control-label req">Server Type</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="radio-inline">
+                          <input type="radio" name="SERVER_TYPE" checked="checked">SQL
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="SERVER_TYPE">API
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+            <!--2-->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <div class="col-md-12">
+                            <label  class="control-label req">JDBC Driver Class</label>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <div class="col-md-12">
+                            <label  class="control-label req">JDBC URL</label>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+           </div>
+          <!--3-->
+           <div class="row">
+               <div class="col-md-6">
+                   <div class="form-group ">
+                       <div class="col-md-12">
+                           <label  class="control-label req">User Name</label>
+                       </div>
+                       <div class="col-md-12">
+                           <input type="text" class="form-control">
+                       </div>
+                   </div>
+               </div>
+
+               <div class="col-md-6">
+                   <div class="form-group ">
+                       <div class="col-md-12">
+                           <label  class="control-label req">Password</label>
+                       </div>
+                       <div class="col-md-12">
+                           <input type="password" class="form-control">
+                       </div>
+                   </div>
+               </div>
+
+          </div>
+
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="form-group ">
+                      <div class="col-md-12">
+                          <label  class="control-label req">SQL</label>
+                      </div>
+                      <div class="col-md-12">
+                         <textarea class="sql">    select area, 3g ,4g from dual;</textarea>
+                      </div>
+                  </div>
+              </div>
+         </div>
+
+        </div>
+       <div class="col-md-12 configDBSourceFooter">
+           <div style="float:right;margin-top:10px">
+             <button class="btn btn_minwidth btn-primary nextbutton">下一步</button>
+             <button class="btn btn_minwidth btn-primary cancel configDBSourceClose">取消</button>
+            </div>
+       </div>
+
+    </div>
+</div>

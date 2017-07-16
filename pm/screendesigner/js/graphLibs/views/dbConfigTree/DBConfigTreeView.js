@@ -1,7 +1,13 @@
 define([
+    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/ConfigDBSourceView",
   "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
- "oss_core/pm/screendesigner/js/dbHelper/DBHelper", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html", "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView", "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
-], function(i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
+ "oss_core/pm/screendesigner/js/dbHelper/DBHelper",
+ "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html",
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView",
+
+ "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
+], function(ConfigDBSourceView,i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
 
   return portal.CommonView.extend({
     template: fish.compile(tpl),
@@ -72,9 +78,30 @@ define([
       $parent.find('.lookDBSource').off('click').on('click', function() {
         self.lookDBSource();
       })
+
+      $parent.find('.dbconfig-button-plus').off('click').on('click',function() {
+        self.createNewDBSource();
+      })
+    },
+    createNewDBSource:function() {
+        var view = new ConfigDBSourceView({db:this.config.db}).render();
+        var w = 1024;
+        var options = {
+          width: w,
+          modal: false,
+          draggable: false,
+          content: view.$el,
+          autoResizable: true,
+          modal: true,
+          db:this.config.db
+        };
+        var popup = fish.popup(options);
+        this.listenTo(view, 'close', function() {
+          popup.close();
+        })
+
     },
     lookDBSource: function() {
-    console.log(this.config.db);
       var view = new lookDBSourceView({db:this.config.db}).render();
       var w = 1024;
       var options = {
