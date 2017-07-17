@@ -240,6 +240,7 @@ span.serachStyle1 {
 }
 
 .closeButton {
+  line-height: 50px;
   position: relative;
   color: #c1c1c1 !important;
   font-size: 20px;
@@ -386,6 +387,20 @@ span.serachStyle1 {
 .PrevbuttonClass {
   position: relative;
   left: -800px;
+}
+
+.configDBSourceDialog {
+  margin: 0px;
+  padding: 0px;
+}
+
+.configDBSourceDialog .sd-modal-header {
+  height: 40px;
+}
+
+.configDBSourceDialog .sd-modal-header h2 {
+  margin: 0px;
+  line-height: 40px;
 }
 
 @keyframes messageAnim {
