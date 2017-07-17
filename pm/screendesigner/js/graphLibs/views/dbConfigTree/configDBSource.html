@@ -7,7 +7,7 @@
 <div class="sd-modal-body">
     <div class="model_c_dbsource">
 
-        <div class="configPanel col-md-12">
+        <div class="configPanel configPanelStyle col-md-12">
            <div class="row">
             <div class="col-md-6">
                 <div class="form-group ">
@@ -102,12 +102,63 @@
          </div>
 
         </div>
-       <div class="col-md-12 configDBSourceFooter">
-           <div style="float:right;margin-top:10px">
-             <button class="btn btn_minwidth btn-primary nextbutton">下一步</button>
-             <button class="btn btn_minwidth btn-primary cancel configDBSourceClose">取消</button>
-            </div>
-       </div>
+
+        <div class="dbResultPanel col-md-12" style="display:none">
+          <div id="resultGrid"></div>
+          <div class="configAxis configPanelStyle col-md-12" style="padding:0px">
+            <div class="row">
+             <div class="col-md-5">
+                 <div class="form-group ">
+                     <div class="col-md-12 xyHeadBox">
+                         <label  class="control-label titleH1">Indicator (Y axis)</label>
+                     </div>
+                     <div class="col-md-12 xypanel ">
+                        <ul>
+                           <li>
+                               <input type="checkbox" name="indi">area
+                           </li>
+                           <li>
+                              <input type="checkbox" name="indi">3g
+                           </li>
+                           <li>
+                              <input type="checkbox" name="indi">4g
+                           </li>
+
+                        </ul>
+
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-2 xyswitchbtns" >
+                  <div class="buttons">
+                      <button type="button" name="button">>></button>
+                      <button type="button" name="button"><<</button>
+                   </div>
+             </div>
+
+             <div class="col-md-5">
+                 <div class="form-group ">
+                     <div class="col-md-12 xyHeadBox">
+                         <label  class="control-label titleH1">Dimension(X axis)</label>
+                     </div>
+                     <div class="col-md-12 xypanel">
+
+                     </div>
+                 </div>
+             </div>
+             </div>
+
+          </div>
+        </div>
+
 
     </div>
+</div>
+<div class="col-md-12 configDBSourceFooter">
+    <div style="float:right;margin-top:5px">
+      <button class="btn btn_minwidth btn-primary  blueBtn nextbutton">Next</button>
+      <button class="btn btn_minwidth btn-primary  blueBtn Prevbutton" style="display:none">Prev</button>
+      <button class="btn btn_minwidth btn-primary  blueBtn doneButton" style="display:none">Done</button>
+      <button class="btn btn_minwidth btn-primary cancel configDBSourceClose">Cancel</button>
+     </div>
 </div>
