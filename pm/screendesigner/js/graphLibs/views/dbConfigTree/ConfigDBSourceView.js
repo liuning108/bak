@@ -1,30 +1,87 @@
 
 define([
+         "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/indiLi.html",
+         "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dimeLi.html",
          "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/configDBSource.html",
          "oss_core/pm/screendesigner/js/codemirror/codemirror",
          "oss_core/pm/screendesigner/js/codemirror/sql",
          "css!oss_core/pm/screendesigner/js/codemirror/codemirror.css"
         ],
-        function(tpl,CodeMirror) {
+        function(indiLiTpl,dimeLiTpl,tpl,CodeMirror) {
   return portal.BaseView.extend({
     className: "ui-dialog dialog SDdialog configDBSourceDialog",
     template: fish.compile(tpl),
+    indiTpl:fish.compile(indiLiTpl),
+    dimeTpl:fish.compile(dimeLiTpl),
     initialize: function(config) {
         this.config=config
     },
     events:{
       'click .configDBSourceClose':'close',
       'click .nextbutton':'next',
-      'click .Prevbutton':'prev'
+      'click .Prevbutton':'prev',
+      'click .radioSQL':'radioSQL',
+      'click .radioAPI':'radioAPI',
+      'click .toDime':'toDime',
+      'click .toIndi':'toIndi',
+      'click .doneButton':'doneButton'
+
     },
+    doneButton:function() {
+     fish.success('create success');
+     this.trigger('close')
+    },
+    toIndi:function() {
+      var $indis=$("input[name='dime']:checkbox:checked")
+      var models=fish.map($indis,function(chk){
+            $(chk).parent().remove();
+            return {
+                 label:$(chk).val(),
+             }
+         })
+      this.switchAxisUL(models,'.indisUL',this.indiTpl)
+    },
+    toDime:function() {
+      var $indis=$("input[name='indi']:checkbox:checked")
+      var models=fish.map($indis,function(chk){
+            $(chk).parent().remove();
+            return {
+                 label:$(chk).val(),
+             }
+         })
+      this.switchAxisUL(models,'.dimeUL',this.dimeTpl)
+    },
+
+    switchAxisUL:function(models,selector,tplFun) {
+      var $ul =this.$el.find(selector)
+       fish.each(models,function(model) {
+         $ul.append(tplFun(model));
+       })
+    },
+
+
+
+
     render: function() {
       this.$el.html(this.template());
       return this;
+    },
+    radioSQL:function() {
+         this.$el.find('.sqlItem').show();
+         this.$el.find('.apiItem').hide();
+
+    },
+    radioAPI:function() {
+        this.$el.find('.apiItem').show();
+        this.$el.find('.sqlItem').hide();
+
+
     },
     next:function(e) {
       $(e.target).hide();
       this.$el.find('.configPanel').hide();
       this.$el.find('.Prevbutton').show();
+      this.$el.find('.Prevbutton').addClass("PrevbuttonClass")
       this.$el.find('.dbResultPanel').show();
       this.$el.find('.doneButton').show();
 
@@ -56,32 +113,43 @@ define([
         {grid_area:"JKL",grid_3g:"130",grid_4g:"230"},
         ];
 
+        var colModels=[{
+            name: 'grid_area',
+            label: 'area',
+            sortable:false
+
+        }, {
+            name: 'grid_3g',
+            label: '3g',
+            sortable:false
+
+        }, {
+            name: 'grid_4g',
+            label: '4g',
+            sortable:false
+        }];
+
         var opt = {
          data: mydata,
          height:240,
          width:1000,
          rownumbers:true,
-         colModel: [{
-             name: 'grid_area',
-             label: 'area',
-             sortable:false
-
-         }, {
-             name: 'grid_3g',
-             label: '3g',
-             sortable:false
-
-         }, {
-             name: 'grid_4g',
-             label: '4g',
-             sortable:false
-         }]
+         colModel: colModels
        };
 
       $grid = this.$el.find("#resultGrid").grid(opt);
-
-
+      this.colModelsToIndi(colModels);
     },
+
+      colModelsToIndi:function(colModels) {
+          var self =this;
+          var $ul =this.$el.find('.indisUL')
+          $ul.empty();
+         fish.each(colModels,function(model) {
+           $ul.append(self.indiTpl(model));
+         })
+
+      },
 
 
 

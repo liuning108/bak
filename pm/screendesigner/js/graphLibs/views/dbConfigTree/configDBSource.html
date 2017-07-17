@@ -27,10 +27,10 @@
                     </div>
                     <div class="col-md-12">
                         <label class="radio-inline">
-                          <input type="radio" name="SERVER_TYPE" checked="checked">SQL
+                          <input type="radio"  class="radioSQL" name="SERVER_TYPE" value="SQL" checked="checked" >SQL
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="SERVER_TYPE">API
+                            <input type="radio" class="radioAPI" name="SERVER_TYPE" value="API">API
                         </label>
 
                     </div>
@@ -38,7 +38,7 @@
             </div>
             </div>
             <!--2-->
-            <div class="row">
+            <div class="row sqlItem">
                 <div class="col-md-6">
                     <div class="form-group ">
                         <div class="col-md-12">
@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-6">
+                <div class="col-md-6 sqlItem">
                     <div class="form-group ">
                         <div class="col-md-12">
                             <label  class="control-label req">JDBC URL</label>
@@ -63,7 +63,7 @@
 
            </div>
           <!--3-->
-           <div class="row">
+           <div class="row sqlItem">
                <div class="col-md-6">
                    <div class="form-group ">
                        <div class="col-md-12">
@@ -75,7 +75,7 @@
                    </div>
                </div>
 
-               <div class="col-md-6">
+               <div class="col-md-6 ">
                    <div class="form-group ">
                        <div class="col-md-12">
                            <label  class="control-label req">Password</label>
@@ -88,7 +88,7 @@
 
           </div>
 
-          <div class="row">
+          <div class="row sqlItem">
               <div class="col-md-12">
                   <div class="form-group ">
                       <div class="col-md-12">
@@ -100,6 +100,21 @@
                   </div>
               </div>
          </div>
+
+
+         <div class="row apiItem" style="display:none">
+             <div class="col-md-12">
+                 <div class="form-group ">
+                     <div class="col-md-12">
+                         <label  class="control-label req">Class Path</label>
+                     </div>
+                     <div class="col-md-12">
+
+                         <input type="text" class="form-control" placeholder='com.ztesfot...' >
+                     </div>
+                 </div>
+             </div>
+        </div>
 
         </div>
 
@@ -113,16 +128,16 @@
                          <label  class="control-label titleH1">Indicator (Y axis)</label>
                      </div>
                      <div class="col-md-12 xypanel ">
-                        <ul>
-                           <li>
-                               <input type="checkbox" name="indi">area
+                        <ul class="indisUL">
+                           <!-- <li>
+                               <input type="checkbox" name="indi" value="area">area
                            </li>
                            <li>
-                              <input type="checkbox" name="indi">3g
+                              <input type="checkbox" name="indi" value="3g">3g
                            </li>
                            <li>
-                              <input type="checkbox" name="indi">4g
-                           </li>
+                              <input type="checkbox" name="indi" value="4g">4g
+                           </li> -->
 
                         </ul>
 
@@ -131,8 +146,8 @@
              </div>
              <div class="col-md-2 xyswitchbtns" >
                   <div class="buttons">
-                      <button type="button" name="button">>></button>
-                      <button type="button" name="button"><<</button>
+                      <button type="button" name="button" class="toDime" > >> </button>
+                      <button type="button" name="button" class="toIndi"> << </button>
                    </div>
              </div>
 
@@ -142,7 +157,9 @@
                          <label  class="control-label titleH1">Dimension(X axis)</label>
                      </div>
                      <div class="col-md-12 xypanel">
+                         <ul class="dimeUL">
 
+                         </ul>
                      </div>
                  </div>
              </div>
