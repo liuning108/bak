@@ -1,181 +1,41 @@
-<div class="sd-modal-header" style="background-color: #fbfbfb">
-    <h2>Config New Server</h2>
+<div class="modal-header ui-draggable-handle">
+
+<button type="button" class="close" data-dismiss="" aria-label="Close"><span aria-hidden="true">×</span></button>
+<h4 class="modal-title js-adapter-detail-title">Config New Server</h4>
+    <!-- <h2>Config New Server</h2>
     <div class="title_r">
         <a class="btn btn-sm  closeButton configDBSourceClose">X</a>
+    </div> -->
+</div>
+<div class="modal-body">
+    <div class="sd-modal-box">
+        <div class="sd-block tab-wizard" id="configDBTabs" style="width:800px">
+           <ul  class="nav nav-tabs">
+             <li>
+               <a href="#tabs-a">First</a>
+             </li>
+             <li>
+               <a href="#tabs-b">Second</a>
+             </li>
+
+           </ul>
+            <div id="tabs-a" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
+               First
+            </div>
+            <div id="tabs-b" class="fadeInUp animated  tab-pane" style="height:320px;">
+               Second
+            </div>
+
+        </div>
     </div>
 </div>
-<div class="sd-modal-body">
-    <div class="model_c_dbsource">
 
-        <div class="configPanel configPanelStyle col-md-12">
-           <div class="row">
-            <div class="col-md-6">
-                <div class="form-group ">
-                    <div class="col-md-12">
-                        <label  class="control-label req">Server Name</label>
-                    </div>
-                    <div class="col-md-12">
-                        <input type="text" class="form-control">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group ">
-                    <div class="col-md-12">
-                        <label  class="control-label req">Server Type</label>
-                    </div>
-                    <div class="col-md-12">
-                        <label class="radio-inline">
-                          <input type="radio"  class="radioSQL" name="SERVER_TYPE" value="SQL" checked="checked" >SQL
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" class="radioAPI" name="SERVER_TYPE" value="API">API
-                        </label>
-
-                    </div>
-                </div>
-            </div>
-            </div>
-            <!--2-->
-            <div class="row sqlItem">
-                <div class="col-md-6">
-                    <div class="form-group ">
-                        <div class="col-md-12">
-                            <label  class="control-label req">JDBC Driver Class</label>
-                        </div>
-                        <div class="col-md-12">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 sqlItem">
-                    <div class="form-group ">
-                        <div class="col-md-12">
-                            <label  class="control-label req">JDBC URL</label>
-                        </div>
-                        <div class="col-md-12">
-                            <input type="text" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-           </div>
-          <!--3-->
-           <div class="row sqlItem">
-               <div class="col-md-6">
-                   <div class="form-group ">
-                       <div class="col-md-12">
-                           <label  class="control-label req">User Name</label>
-                       </div>
-                       <div class="col-md-12">
-                           <input type="text" class="form-control">
-                       </div>
-                   </div>
-               </div>
-
-               <div class="col-md-6 ">
-                   <div class="form-group ">
-                       <div class="col-md-12">
-                           <label  class="control-label req">Password</label>
-                       </div>
-                       <div class="col-md-12">
-                           <input type="password" class="form-control">
-                       </div>
-                   </div>
-               </div>
-
-          </div>
-
-          <div class="row sqlItem">
-              <div class="col-md-12">
-                  <div class="form-group ">
-                      <div class="col-md-12">
-                          <label  class="control-label req">SQL</label>
-                      </div>
-                      <div class="col-md-12">
-                         <textarea class="sql2" id="sql_code"></textarea>
-                      </div>
-                  </div>
-              </div>
-         </div>
-
-
-         <div class="row apiItem" style="display:none">
-             <div class="col-md-12">
-                 <div class="form-group ">
-                     <div class="col-md-12">
-                         <label  class="control-label req">Class Path</label>
-                     </div>
-                     <div class="col-md-12">
-
-                         <input type="text" class="form-control" placeholder='com.ztesfot...' >
-                     </div>
-                 </div>
-             </div>
-        </div>
-
-        </div>
-
-        <div class="dbResultPanel col-md-12" style="display:none">
-          <div id="resultGrid"></div>
-          <div class="configAxis configPanelStyle col-md-12" style="padding:0px">
-            <div class="row">
-             <div class="col-md-5">
-                 <div class="form-group ">
-                     <div class="col-md-12 xyHeadBox">
-                         <label  class="control-label titleH1">Indicator (Y axis)</label>
-                     </div>
-                     <div class="col-md-12 xypanel ">
-                        <ul class="indisUL">
-                           <!-- <li>
-                               <input type="checkbox" name="indi" value="area">area
-                           </li>
-                           <li>
-                              <input type="checkbox" name="indi" value="3g">3g
-                           </li>
-                           <li>
-                              <input type="checkbox" name="indi" value="4g">4g
-                           </li> -->
-
-                        </ul>
-
-                     </div>
-                 </div>
-             </div>
-             <div class="col-md-2 xyswitchbtns" >
-                  <div class="buttons">
-                      <button type="button" name="button" class="toDime" > >> </button>
-                      <button type="button" name="button" class="toIndi"> << </button>
-                   </div>
-             </div>
-
-             <div class="col-md-5">
-                 <div class="form-group ">
-                     <div class="col-md-12 xyHeadBox">
-                         <label  class="control-label titleH1">Dimension(X axis)</label>
-                     </div>
-                     <div class="col-md-12 xypanel">
-                         <ul class="dimeUL">
-
-                         </ul>
-                     </div>
-                 </div>
-             </div>
-             </div>
-
-          </div>
-        </div>
-
-
-    </div>
 </div>
-<div class="col-md-12 configDBSourceFooter"  style="background-color: #fbfbfb">
-    <div style="float:right;margin-top:5px">
+<div class="modal-footer" >
+    <!-- <div style="float:right;margin-top:5px">
       <button class="btn btn_minwidth btn-primary  blueBtn nextbutton">Next</button>
       <button class="btn btn_minwidth btn-primary  blueBtn Prevbutton" style="display:none">Prev</button>
       <button class="btn btn_minwidth btn-primary  blueBtn doneButton" style="display:none">Done</button>
       <button class="btn btn_minwidth btn-primary cancel configDBSourceClose">Cancel</button>
-     </div>
+     </div> -->
 </div>

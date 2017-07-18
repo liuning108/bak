@@ -9,7 +9,7 @@ define([
         ],
         function(indiLiTpl,dimeLiTpl,tpl,CodeMirror) {
   return portal.BaseView.extend({
-    className: "ui-dialog dialog SDdialog configDBSourceDialog",
+    className: "ui-dialog dialog configDBSourceDialog",
     template: fish.compile(tpl),
     indiTpl:fish.compile(indiLiTpl),
     dimeTpl:fish.compile(dimeLiTpl),
@@ -155,22 +155,23 @@ define([
 
 
     afterRender: function() {
-        var $sql=this.$el.find('.sql2')
-        var editor = CodeMirror.fromTextArea($sql[0], {
-                                    mode: 'text/x-plsql',
-                                    indentWithTabs: true,
-                                    smartIndent: true,
-                                    lineNumbers: true,
-                                    matchBrackets : true,
-                                    autofocus:true
-                             });
-            editor.setSize('height','220px');
-            editor.setValue("select area,3g,4g from dual;");
-            setTimeout(function() {
-                editor.refresh();
-            },20);
-
-      this.createResultGrid();
+      this.$el.find('#configDBTabs').tabs();
+      //   var $sql=this.$el.find('.sql2')
+      //   var editor = CodeMirror.fromTextArea($sql[0], {
+      //                               mode: 'text/x-plsql',
+      //                               indentWithTabs: true,
+      //                               smartIndent: true,
+      //                               lineNumbers: true,
+      //                               matchBrackets : true,
+      //                               autofocus:true
+      //                        });
+      //       editor.setSize('height','220px');
+      //       editor.setValue("select area,3g,4g from dual;");
+      //       setTimeout(function() {
+      //           editor.refresh();
+      //       },20);
+      //
+      // this.createResultGrid();
 
     },
     close: function() {

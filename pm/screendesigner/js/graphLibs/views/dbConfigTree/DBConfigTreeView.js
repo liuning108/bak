@@ -85,9 +85,10 @@ define([
     },
     createNewDBSource:function() {
         var view = new ConfigDBSourceView({db:this.config.db}).render();
-        var w = 1024;
+        var w = 842;
         var options = {
           width: w,
+          height:509,
           modal: false,
           draggable: false,
           content: view.$el,
