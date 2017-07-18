@@ -27,7 +27,9 @@
   background-color: #f7f7f7;
   white-space: nowrap;
 }
-.CodeMirror-linenumbers {}
+.CodeMirror-linenumbers {
+  width: 29px !important
+}
 .CodeMirror-linenumber {
   padding: 0 3px 0 5px;
   min-width: 20px;
@@ -110,22 +112,23 @@
 .cm-link {text-decoration: underline;}
 .cm-strikethrough {text-decoration: line-through;}
 
-.cm-s-default .cm-keyword {color: #708;}
+.cm-s-default .cm-keyword {color: #bf28d5;font-weight: bold;    font-style: italic;}
 .cm-s-default .cm-atom {color: #219;}
-.cm-s-default .cm-number {color: #164;}
+.cm-s-default .cm-number {color: #269b6d;font-weight: bold;    font-style: italic;}
 .cm-s-default .cm-def {color: #00f;}
 .cm-s-default .cm-variable,
 .cm-s-default .cm-punctuation,
 .cm-s-default .cm-property,
 .cm-s-default .cm-operator {}
 .cm-s-default .cm-variable-2 {color: #05a;}
-.cm-s-default .cm-variable-3, .cm-s-default .cm-type {color: #085;}
+.cm-s-default .cm-variable-3 {color: #085;}
 .cm-s-default .cm-comment {color: #a50;}
-.cm-s-default .cm-string {color: #a11;}
+.cm-s-default .cm-string {color: #a11; font-weight: bold;    font-style: italic;
+}
 .cm-s-default .cm-string-2 {color: #f50;}
 .cm-s-default .cm-meta {color: #555;}
 .cm-s-default .cm-qualifier {color: #555;}
-.cm-s-default .cm-builtin {color: #30a;}
+.cm-s-default .cm-builtin {color: #6526fa;font-weight: bold;    font-style: italic;}
 .cm-s-default .cm-bracket {color: #997;}
 .cm-s-default .cm-tag {color: #170;}
 .cm-s-default .cm-attribute {color: #00c;}
@@ -153,6 +156,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   position: relative;
   overflow: hidden;
   background: white;
+  border: 1px solid #cfdadd
 }
 
 .CodeMirror-scroll {
@@ -219,6 +223,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   z-index: 4;
 }
 .CodeMirror-gutter-elt {
+  width: 15px !important;
   position: absolute;
   cursor: default;
   z-index: 4;

@@ -155,13 +155,20 @@ define([
 
 
     afterRender: function() {
-        var $sql=this.$el.find('.sql')
-        CodeMirror.fromTextArea($sql[0], {
-                                lineNumbers: true,
-                                matchBrackets: true,
-                                indentUnit: 4,
-                                mode: "text/x-sql"
+        var $sql=this.$el.find('.sql2')
+        var editor = CodeMirror.fromTextArea($sql[0], {
+                                    mode: 'text/x-plsql',
+                                    indentWithTabs: true,
+                                    smartIndent: true,
+                                    lineNumbers: true,
+                                    matchBrackets : true,
+                                    autofocus:true
                              });
+            editor.setSize('height','220px');
+            editor.setValue("select area,3g,4g from dual;");
+            setTimeout(function() {
+                editor.refresh();
+            },20);
 
       this.createResultGrid();
 
