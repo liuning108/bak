@@ -78,20 +78,26 @@ define([
 
     },
     next:function(e) {
-      $(e.target).hide();
-      this.$el.find('.configPanel').hide();
+        if($(e.target).text()=='Next'){
+            $(e.target).text('Save')
+            this.$el.find("#configDBTabs").tabs("showTab",1,true);
+        }else{
+            this.close()
+        }
+
       this.$el.find('.Prevbutton').show();
-      this.$el.find('.Prevbutton').addClass("PrevbuttonClass")
-      this.$el.find('.dbResultPanel').show();
-      this.$el.find('.doneButton').show();
+    //   this.$el.find('.Prevbutton').addClass("PrevbuttonClass")
+    //   this.$el.find('.dbResultPanel').show();
+    //   this.$el.find('.doneButton').show();
 
     },
     prev:function(e) {
       $(e.target).hide();
-      this.$el.find('.dbResultPanel').hide();
-      this.$el.find('.nextbutton').show();
-      this.$el.find('.configPanel').show();
-      this.$el.find('.doneButton').hide();
+       this.$el.find("#configDBTabs").tabs("showTab",0,true);
+    //   this.$el.find('.dbResultPanel').hide();
+     this.$el.find('.nextbutton').text("Next");
+    //   this.$el.find('.configPanel').show();
+    //   this.$el.find('.doneButton').hide();
 
 
 
@@ -156,21 +162,46 @@ define([
 
     afterRender: function() {
       this.$el.find('#configDBTabs').tabs();
-      //   var $sql=this.$el.find('.sql2')
-      //   var editor = CodeMirror.fromTextArea($sql[0], {
-      //                               mode: 'text/x-plsql',
-      //                               indentWithTabs: true,
-      //                               smartIndent: true,
-      //                               lineNumbers: true,
-      //                               matchBrackets : true,
-      //                               autofocus:true
-      //                        });
-      //       editor.setSize('height','220px');
-      //       editor.setValue("select area,3g,4g from dual;");
-      //       setTimeout(function() {
-      //           editor.refresh();
-      //       },20);
-      //
+
+      var $combobox1 = this.$el.find('#sqlcombo').combobox({
+        placeholder: 'Select a DB Source',
+        dataTextField: 'name',
+        dataValueField: 'value',
+        dataSource: [
+            {name: 'Oracle', value: 'oracle'},
+            {name: 'Mysql', value: 'sql'},
+        ],
+        template: '<li><a href="#">test</a></li>'
+    });
+
+    var $combobox2 = this.$el.find('#apicombo').combobox({
+      placeholder: 'Select a API Source',
+      dataTextField: 'name',
+      dataValueField: 'value',
+      dataSource: [
+          {name: 'PM Voice Data API Server', value: 'API1'},
+          {name: 'PM Traffice Data API Server ', value: 'API2'},
+      ],
+      template: '<li><a href="#">test</a></li>'
+  });
+
+
+
+        var $sql=this.$el.find('.sql2')
+        var editor = CodeMirror.fromTextArea($sql[0], {
+                                    mode: 'text/x-plsql',
+                                    indentWithTabs: true,
+                                    smartIndent: true,
+                                    lineNumbers: true,
+                                    matchBrackets : true,
+                                    autofocus:true
+                             });
+            editor.setSize('height','180px');
+            editor.setValue("select area,3g,4g from dual;");
+            setTimeout(function() {
+                editor.refresh();
+            },20);
+
       // this.createResultGrid();
 
     },

@@ -12,18 +12,90 @@
         <div class="sd-block tab-wizard" id="configDBTabs" style="width:800px">
            <ul  class="nav nav-tabs">
              <li>
-               <a href="#tabs-a">First</a>
+               <a href="#tabs-a" class="arror">
+                   Basic Information
+                   <span class="badge badge-default pull-right wizard-step">1</span>
+
+               </a>
              </li>
              <li>
-               <a href="#tabs-b">Second</a>
+               <a href="#tabs-b">
+                   Mapping Fields
+                   <span class="badge badge-default pull-right wizard-step">2</span>
+               </a>
              </li>
 
            </ul>
-            <div id="tabs-a" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
-               First
-            </div>
-            <div id="tabs-b" class="fadeInUp animated  tab-pane" style="height:320px;">
-               Second
+             <div class="tab-content panel-body border n-scroll-y n-scroll-x">
+                <div id="tabs-a" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
+                   <div class="row">
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">Server Name</label>
+                               </div>
+                               <div class="col-md-12">
+                                <input type="text" class="form-control col-md-12" name="" value="">
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">Server Type</label>
+                               </div>
+                               <div class="col-md-12">
+                                   <div class="radio-inline" style="margin-left:40px">
+                                       <input type="radio"  name="SERVER_TYPE" value="" class="form-control radioSQL" checked="checked">SQL
+                                   </div>
+                                   <div class="radio-inline" style="margin-left:20px">
+                                       <input type="radio" name="SERVER_TYPE" value="" class="form-control radioAPI">API
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                   <div class="row">
+                       <div class="col-md-6 sqlItem fadeInUp animated">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">SQL Source</label>
+                               </div>
+                               <div class="col-md-12">
+                                     <input type="text" name="combobox1" id="sqlcombo" class="form-control">
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6 apiItem fadeInUp animated" style="display:none">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">API Source</label>
+                               </div>
+                               <div class="col-md-12">
+                                     <input type="text" name="combobox1" id="apicombo" class="form-control">
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="row">
+                       <div class="col-md-12">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">SQL</label>
+                               </div>
+                               <div class="col-md-12">
+                                   <textarea class="sql2"></textarea>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+
+                </div>
+                <div id="tabs-b" class="fadeInUp animated  tab-pane" style="height:320px;">
+                   Doing ...
+                </div>
             </div>
 
         </div>
@@ -32,6 +104,10 @@
 
 </div>
 <div class="modal-footer" >
+    <div class="col-md-12">
+        <button type="button" class="btn btn-default pull-left Prevbutton" style="display:none">Prev</button>
+        <button class="btn btn-success  nextbutton">Next</button>
+    </div>
     <!-- <div style="float:right;margin-top:5px">
       <button class="btn btn_minwidth btn-primary  blueBtn nextbutton">Next</button>
       <button class="btn btn_minwidth btn-primary  blueBtn Prevbutton" style="display:none">Prev</button>
