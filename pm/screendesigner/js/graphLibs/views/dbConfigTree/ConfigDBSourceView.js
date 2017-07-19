@@ -22,7 +22,28 @@ define([
       'click .radioAPI': 'radioAPI',
       'click .toDime': 'toDime',
       'click .toIndi': 'toIndi',
-      'click .doneButton': 'doneButton'
+      'click .doneButton': 'doneButton',
+      'click .modifiedDB':'modifiedDB'
+
+    },
+    modifiedDB:function(e) {
+       var $parent=this.$el.find(e.target).parent()
+       var $span =$parent.find("span");
+       var text =$span.text();
+                 $span.hide();
+       var $input=$parent.find("input")
+       $input.show();
+       $input.val(text);
+       $input.off('keypress')
+             .on('keypress',function(e){
+                 if(e.keyCode=="13"){
+                     $span.text($input.val());
+                     $input.hide();
+                     $span.show();
+                 }
+
+               })
+
 
     },
     doneButton: function() {

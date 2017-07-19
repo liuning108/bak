@@ -654,6 +654,11 @@ span.serachStyle1 {
   box-shadow: 1px 1px 0.5px 0px #b3b3b3;
 }
 
+.fieldsList .list-group .list-group-item .modifiedDB:hover {
+  color: #646464 !important;
+  font-size: 15px;
+}
+
 .fieldsList .list-group .list-group-item .dor {
   position: absolute;
   right: 10px;
@@ -667,6 +672,12 @@ span.serachStyle1 {
 
 .fieldsList .list-group .list-group-item:hover .dor {
   display: inline-block;
+}
+
+.axisInputName {
+  display: inline-block;
+  color: #5c6975;
+  width: 80%;
 }
 
 @keyframes messageAnim {
