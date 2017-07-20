@@ -436,6 +436,16 @@ span.serachStyle1 {
   float: none;
 }
 
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .m-b-sm {
+  color: #758697;
+  background: #ddd;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #eee;
+  font-weight: normal;
+}
+
 .configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .row {
   margin-bottom: 10px;
 }
@@ -649,7 +659,7 @@ span.serachStyle1 {
   padding: 0 10px;
   font-size: 12px;
   line-height: 28px;
-  width: 90%;
+  width: 100%;
   cursor: pointer;
   box-shadow: 1px 1px 0.5px 0px #b3b3b3;
 }
@@ -678,6 +688,63 @@ span.serachStyle1 {
   display: inline-block;
   color: #5c6975;
   width: 80%;
+}
+
+.dbtypeing {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.dbtypeing .itemSelect {
+  border: none !important;
+}
+
+.dbtypeing .dsitem {
+  position: relative;
+  width: 140px !important;
+  height: 140px !important;
+  display: inline-block;
+  margin: 10px 15px !important;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+  border: 1px solid #D2D2D2;
+}
+
+.dbtypeing .dsitem .dbSelect {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border: none;
+  bottom: 0 !important;
+  right: 0 !important;
+  display: none;
+}
+
+.dbtypeing .dsitem:hover {
+  box-shadow: 0 0 8px #999;
+  border-color: #fff;
+}
+
+.sqlImage {
+  background: url("../images/SQL.png") no-repeat;
+  background-size: 72px  72px;
+  background-position: 34px 34px;
+  display: inline;
+  width: 72px;
+  height: 72px;
+  position: relative;
+}
+
+.apiImage {
+  background: url("../images/API.png") no-repeat;
+  background-size: 72px  72px;
+  background-position: 34px 34px;
+  display: inline;
+  width: 72px;
+  height: 72px;
+  position: relative;
 }
 
 @keyframes messageAnim {

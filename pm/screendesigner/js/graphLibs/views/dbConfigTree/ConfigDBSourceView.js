@@ -13,6 +13,7 @@ define([
     dimeTpl: fish.compile(dimeLiTpl),
     initialize: function(config) {
       this.config = config
+      this.state=0;
     },
     events: {
       'click .configDBSourceClose': 'close',
@@ -23,8 +24,22 @@ define([
       'click .toDime': 'toDime',
       'click .toIndi': 'toIndi',
       'click .doneButton': 'doneButton',
-      'click .modifiedDB':'modifiedDB'
+      'click .modifiedDB':'modifiedDB',
+      'click .dsitem':'selectDBType'
 
+    },
+    selectDBType:function(e) {
+
+        this.$el.find('.dbSelect').hide();
+        var $target=this.$el.find(e.target);
+        $target.find('.dbSelect').show();
+        var type = $target.data("type")
+        if(type=='sql'){
+          this.radioSQL()
+        }else{
+          this.radioAPI()
+        }
+         // itemSelect
     },
     modifiedDB:function(e) {
        var $parent=this.$el.find(e.target).parent()
@@ -89,26 +104,37 @@ define([
 
     },
     next: function(e) {
-      if ($(e.target).text() == 'Next') {
-        $(e.target).text('Save')
-        this.$el.find("#configDBTabs").tabs("showTab", 1, true);
-      } else {
-        this.close()
+      var  target=$(e.target);
+      var currentState= this.state;
+      if (currentState==0){
+           $(e.target).text("Next");
+           var nextState=1;
+           this.state=nextState;
+           this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
       }
 
+      if (currentState==1){
+        $(e.target).text("Next");
+        var nextState=2;
+        this.state=nextState;
+        this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
+      }
+      if (currentState==2){
+        this.doneButton();
+      }
       this.$el.find('.Prevbutton').show();
-      //   this.$el.find('.Prevbutton').addClass("PrevbuttonClass")
-      //   this.$el.find('.dbResultPanel').show();
-      //   this.$el.find('.doneButton').show();
 
     },
     prev: function(e) {
-      $(e.target).hide();
-      this.$el.find("#configDBTabs").tabs("showTab", 0, true);
-      //   this.$el.find('.dbResultPanel').hide();
+      var target=this.$el.find(e.target);
+      var currentState= this.state
+      var nextState=currentState-1;
+      if (nextState==0){
+        $(e.target).hide();
+      }
+      this.state=nextState;
+      this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
       this.$el.find('.nextbutton').text("Next");
-      //   this.$el.find('.configPanel').show();
-      //   this.$el.find('.doneButton').hide();
 
     },
     createResultGrid: function() {
@@ -250,11 +276,15 @@ define([
         autofocus: true
       });
       editor.setSize('height', '180px');
-      editor.setValue("select area,3g,4g from dual;");
+      editor.setValue("select Area, 3G_Data_traffic ,\n 4G_Data_traffic, 3G_Base_station_number,\n 4G_Base_station_number, 2G_Voice_traffic, \n 3G_Voice_traffic from dual;");
       setTimeout(function() {
         editor.refresh();
-      }, 20);
+      }, 1000);
+      this.$el.find('#xyFields').slimscroll({height:'320px'});
+    
+
       this.sortableMappingFields()
+
       // this.createResultGrid();
 
     },

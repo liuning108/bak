@@ -12,25 +12,58 @@
         <div class="sd-block tab-wizard" id="configDBTabs" style="width:800px">
            <ul  class="nav nav-tabs">
              <li>
+               <a href="#tabs-z" class="arror">
+                   Select Service Type
+                   <span class="badge badge-default pull-right wizard-step">1</span>
+
+               </a>
+             </li>
+             <li>
                <a href="#tabs-a" class="arror">
                    Basic Information
-                   <span class="badge badge-default pull-right wizard-step">1</span>
+                   <span class="badge badge-default pull-right wizard-step">2</span>
 
                </a>
              </li>
              <li>
                <a href="#tabs-b">
                    Mapping Fields
-                   <span class="badge badge-default pull-right wizard-step">2</span>
+                   <span class="badge badge-default pull-right wizard-step">3</span>
                </a>
              </li>
 
            </ul>
              <div class="tab-content panel-body border n-scroll-y n-scroll-x">
+               <div id="tabs-z" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
+                      <div class="row">
+                         <div class="col-md-12">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                   <label class="control-label req">Service Type</label>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="dbtypeing">
+                                  <div class="dsitem itemSelect sqlImage"  data-type="sql">
+                                     <img src="oss_core/pm/screendesigner/images/dbSelect.png" class="dbSelect" style="display:inline">
+                                  </div>
+                                  <div class="dsitem  apiImage" data-type="api">
+                                  <img src="oss_core/pm/screendesigner/images/dbSelect.png" class="dbSelect">
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+
+                         </div>
+                      </div>
+               </div>
                 <div id="tabs-a" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
                    <div class="row">
                        <div class="col-md-6">
+
                            <div class="form-group">
+
                                <div class="col-md-12">
                                     <label class="control-label req">Service Name</label>
                                </div>
@@ -40,23 +73,32 @@
                            </div>
                        </div>
                        <div class="col-md-6">
-                           <div class="form-group">
-                               <div class="col-md-12">
-                                    <label class="control-label req">Service Type</label>
-                               </div>
-                               <div class="col-md-12">
-                                   <div class="radio-inline" style="margin-left:40px">
-                                       <input type="radio"  name="SERVER_TYPE" value="" class="form-control radioSQL" checked="checked">SQL
+                           <div class="col-md-12 sqlItem fadeInUp animated">
+                               <div class="form-group">
+                                   <div class="col-md-12">
+                                        <label class="control-label req">SQL Source</label>
                                    </div>
-                                   <div class="radio-inline" style="margin-left:20px">
-                                       <input type="radio" name="SERVER_TYPE" value="" class="form-control radioAPI">API
+                                   <div class="col-md-12">
+                                         <input type="text" name="combobox1" id="sqlcombo" class="form-control">
                                    </div>
                                </div>
                            </div>
+
+                           <div class="col-md-12 apiItem fadeInUp animated" style="display:none">
+                               <div class="form-group">
+                                   <div class="col-md-12">
+                                        <label class="control-label req">API Source</label>
+                                   </div>
+                                   <div class="col-md-12">
+                                         <input type="text" name="combobox1" id="apicombo" class="form-control">
+                                   </div>
+                               </div>
+                           </div>
+
                        </div>
                    </div>
                    <div class="row">
-                       <div class="col-md-6 sqlItem fadeInUp animated">
+                       <!-- <div class="col-md-6 sqlItem fadeInUp animated">
                            <div class="form-group">
                                <div class="col-md-12">
                                     <label class="control-label req">SQL Source</label>
@@ -65,17 +107,8 @@
                                      <input type="text" name="combobox1" id="sqlcombo" class="form-control">
                                </div>
                            </div>
-                       </div>
-                       <div class="col-md-6 apiItem fadeInUp animated" style="display:none">
-                           <div class="form-group">
-                               <div class="col-md-12">
-                                    <label class="control-label req">API Source</label>
-                               </div>
-                               <div class="col-md-12">
-                                     <input type="text" name="combobox1" id="apicombo" class="form-control">
-                               </div>
-                           </div>
-                       </div>
+                       </div> -->
+
                    </div>
 
                    <div class="row sqlItem">
@@ -85,7 +118,7 @@
                                     <label class="control-label req">SQL</label>
                                </div>
                                <div class="col-md-12">
-                                   <textarea class="sql2"></textarea>
+                                   <textarea class="sql2">select * from dual</textarea>
                                </div>
                            </div>
                        </div>
@@ -93,9 +126,9 @@
 
 
                 </div>
-                <div id="tabs-b" class="fadeInUp animated  tab-pane" style="height:320px;">
-
-                    <div class="col-md-2">
+                <div id="tabs-b"  class="fadeInUp animated  tab-pane" style="height:320px;">
+                     <div id="xyFields">
+                     <div class="col-md-2">
                         <img src="oss_core/pm/screendesigner/images/task-detail.png" style="width: 80px; margin-top:10px">
                     </div>
                   <div class="col-md-5">
@@ -106,19 +139,47 @@
                       <ul class="list-group"  id="sortable4">
                           <li class="list-group-item">
                             <i class="icon-uniE600 modifiedDB"></i>
-                            <span>area</span>
+                            <span>Area</span>
                             <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
                             <i class="glyphicon glyphicon-arrow-right dor"></i>
                           </li>
                           <li class="list-group-item">
                             <i class="icon-uniE600 modifiedDB"></i>
-                            <span>3g</span>
+                            <span>3G_Data_traffic</span>
                             <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
                             <i class="glyphicon glyphicon-arrow-right dor"></i>
                           </li>
                           <li class="list-group-item">
                             <i class="icon-uniE600 modifiedDB"></i>
-                            <span>4g</span>
+                            <span>4G_Data_traffic</span>
+                            <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
+                            <i class="glyphicon glyphicon-arrow-right dor"></i>
+                          </li>
+
+                          <li class="list-group-item">
+                            <i class="icon-uniE600 modifiedDB"></i>
+                            <span>3G_Base_station_number</span>
+                            <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
+                            <i class="glyphicon glyphicon-arrow-right dor"></i>
+                          </li>
+
+                          <li class="list-group-item">
+                            <i class="icon-uniE600 modifiedDB"></i>
+                            <span>4G_Base_station_number</span>
+                            <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
+                            <i class="glyphicon glyphicon-arrow-right dor"></i>
+                          </li>
+
+                          <li class="list-group-item">
+                            <i class="icon-uniE600 modifiedDB"></i>
+                            <span>2G_Voice_traffic</span>
+                            <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
+                            <i class="glyphicon glyphicon-arrow-right dor"></i>
+                          </li>
+
+                          <li class="list-group-item">
+                            <i class="icon-uniE600 modifiedDB"></i>
+                            <span>3G_Voice_traffic</span>
                             <input type="text" name="" value="" class="form-control axisInputName" style="display:none">
                             <i class="glyphicon glyphicon-arrow-right dor"></i>
                           </li>
@@ -133,7 +194,7 @@
                       <div class="m-b-sm">
                         <b>Dimension (X axis)</b>
                       </div>
-                      <div class="fieldsList">
+                      <div class="fieldsList" id="xFields">
                         <ul class="list-group"  id="sortable5" >
 
                         </ul>
@@ -143,11 +204,11 @@
                       <div class="m-b-sm">
                           <b>Indicator (Y axis)</b>
                       </div>
-                      <div class="fieldsList" >
-                        <ul class="list-group" id="sortable6">
+                      <div class="fieldsList"  >
+                        <ul class="list-group" id="sortable6" id="yFields">
 
                         </ul>
-                      </div>
+                    </div>
                     </div>
 
                   </div>
@@ -155,6 +216,7 @@
 
 
 
+                </div>
                 </div>
             </div>
 
@@ -165,8 +227,8 @@
 </div>
 <div class="modal-footer" >
     <div class="col-md-12">
-        <button type="button" class="btn btn-default pull-left Prevbutton" style="display:none">Prev</button>
-        <button class="btn btn-success  nextbutton">Next</button>
+        <button type="button" class="btn btn-default pull-left Prevbutton"  style="display:none">Prev</button>
+        <button class="btn btn-success  nextbutton" data-state="0" >Next</button>
     </div>
     <!-- <div style="float:right;margin-top:5px">
       <button class="btn btn_minwidth btn-primary  blueBtn nextbutton">Next</button>
