@@ -1,11 +1,12 @@
 define([
+  "oss_core/pm/screendesigner/actions/BScreenMgrAction",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/indiLi.html",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dimeLi.html",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/configDBSource.html",
   "oss_core/pm/screendesigner/js/codemirror/codemirror",
   "oss_core/pm/screendesigner/js/codemirror/sql",
   "css!oss_core/pm/screendesigner/js/codemirror/codemirror.css"
-], function(indiLiTpl, dimeLiTpl, tpl, CodeMirror) {
+], function(action,indiLiTpl, dimeLiTpl, tpl, CodeMirror) {
   return portal.BaseView.extend({
     className: "ui-dialog dialog configDBSourceDialog",
     template: fish.compile(tpl),
@@ -232,6 +233,9 @@ define([
     },
 
     afterRender: function() {
+      action.getSource(function(data){
+         console.log(data);
+      })
       this.$el.find('#configDBTabs').tabs();
 
       var $combobox1 = this.$el.find('#sqlcombo').combobox({
@@ -281,7 +285,7 @@ define([
         editor.refresh();
       }, 1000);
       this.$el.find('#xyFields').slimscroll({height:'320px'});
-    
+
 
       this.sortableMappingFields()
 

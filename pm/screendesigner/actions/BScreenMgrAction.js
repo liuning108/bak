@@ -1,6 +1,11 @@
 define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
+	// TODO: 获得数据源
+	action.getSource=function(success){
+		  var param={};
+      portal.callService("MPM_UTIL_DATA_SOURCE",param, success);
+	}
 	// TODO: 更新大屏仪表盘
 	action.saveOrUpdate=function(json,success){
       var param={};
