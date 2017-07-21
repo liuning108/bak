@@ -1,5 +1,6 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.domain;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +14,7 @@ public class BScreenMgr extends AbstractBScreenMgr {
 
 	@Override
 	public void saveOrUpdate(DynamicDict dict) throws BaseAppException {
+		///JdbcUtil.getDbIdentifier("")
 		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,
 	            JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
 		dao.saveOrUpdate(dict);
@@ -38,6 +40,13 @@ public class BScreenMgr extends AbstractBScreenMgr {
 		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,
 	            JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
 		return 	dao.deleteBScreenById(id);
+	}
+
+	@Override
+	public List<String> getFields(HashMap<String, String> param) throws BaseAppException {
+		// TODO Auto-generated method stub
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return dao.getFields(param);
 	}
 
 }

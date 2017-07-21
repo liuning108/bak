@@ -1,21 +1,32 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.dao.oracle;
 
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 
+import com.alibaba.druid.util.jdbc.ResultSetMetaDataBase.ColumnMetaData;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.jdbc.ParamArray;
+import com.ztesoft.zsmart.core.jdbc.ds.DbIdentifier;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.utils.ZSmartLogger;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.dao.BScreenMgrDao;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.util.BScreenUtil;
+import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
+import com.ztesoft.zsmart.oss.opb.util.JdbcUtil;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
+
 
 /**
  * [描述] <br>
@@ -25,7 +36,7 @@ import ch.qos.logback.core.net.SyslogOutputStream;
  * @taskId <br>
  * @CreateDate 2016-8-8 <br>
  * @since V7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.config.machine.dom.oracle <br>
+ * @see com.ztesoft.zsmart.oss.core.pm.config.machine.dao.oracle <br>
  */
 public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 	
@@ -37,26 +48,46 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 
 
 	@Override
-	public void saveOrUpdate(DynamicDict dict) throws BaseAppException {
+	public void saveOrUpdate(DynamicDict dict) throws BaseAppException {		
 		 // TODO 保存更新大屏主题 (doing)
-		com.ztesoft.zsmart.web.servlet.UploadServlet s;
+		com.ztesoft.zsmart.web.filter.LocaleFilter s;
 		System.out.println("保存更新大屏主题");
 		ArrayList<DynamicDict> list=(ArrayList<DynamicDict>) dict.getList("data"); 
-		System.out.println(list);  
-	
 		DynamicDict data= list.get(0);
-		System.out.println(data.getString("id"));
-		  if (isExistTopic(data.getString("id"))){
+		String topicId=data.getString("id");
+		  if (isExistTopic(topicId)){
+			  String imagePath =saveImage(data.getString("base64"),topicId);
+			  data.set("imagePath", imagePath);
 			  updateTopic(data);
 		  }else{
+			  String v_topic_no=BScreenUtil.getSeq("PM_BSTOPIC_SEQ");
+			  data.set("id", v_topic_no);
+			  String imagePath =saveImage(data.getString("base64"),v_topic_no);
+			  data.set("imagePath", imagePath);
 			  saveTopic(data);
 		  }
+		 
+		  
+		
 		  updateTopicNodes(data);//更新所有子	  
+	}
+
+	private String saveImage(String base64,String topicId) {
+		// TODO Auto-generated method stub
+		URL path =this.getClass().getResource("/../../"); //得到当前目录真实目录文件
+		File dirs=new File(path.getPath()+"/upload/bsimage");
+		String filename =BScreenUtil.saveImage(dirs,base64,topicId); //生成topicId.png存放在dirs中。 
+		if(filename==null){
+			return "";
+		}else{
+			return "upload/bsimage/"+filename;
+		}
+
 	}
 
 	private void updateTopic(DynamicDict data)  throws BaseAppException {
 		// TODO 更新大屏主题
-		System.out.println("更新大屏主题");
+		System.out.println("更新大屏主题22");
 		String sql=
 				"UPDATE PM_BSCREEN_TOPIC_LIST " +
 						"   SET TOPIC_NAME = ?, " + 
@@ -70,7 +101,8 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		String v_topic_no=data.getString("id");
 		String v_topic_name=data.getString("name");
 		String v_attrs=JSON.toJSONString(BScreenUtil.Dic2Map((DynamicDict)data.get("attrs")));
-		String v_image_path="";
+		String v_image_path=data.getString("imagePath");
+		System.out.println(v_image_path);
         String v_is_share=data.getString("isShare");
 		String v_state=data.getString("state");
 		//TODO :保存大屏主题,还没使用的的字段
@@ -79,17 +111,11 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		//设置参数
 		ParamArray pa = new ParamArray();
 				pa.set("", v_topic_name);
-				System.out.println(v_topic_name);
 				pa.set("", v_attrs);
-				System.out.println(v_attrs);
 				pa.set("", v_image_path);
-				System.out.println(v_image_path);
 				pa.set("", v_is_share);
-				System.out.println(v_is_share);
 				pa.set("", v_state);
-				System.out.println(v_state);
 				pa.set("", v_topic_no);
-				System.out.println(v_topic_no);
 		this.executeUpdate(sql, pa);
 	}
 
@@ -102,10 +128,10 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 						" values " + 
 						"  (?, ?, ?, ?, ?, ?, ?, sysdate, null, null)";
 		ParamArray pa = new ParamArray();
-		String v_topic_no=BScreenUtil.getSeq("PM_BSTOPIC_SEQ");
+		String v_topic_no=data.getString("id");
 		String v_topic_name=BScreenUtil.toString(data.get("name"));
 		String v_attrs=JSON.toJSONString(BScreenUtil.Dic2Map((DynamicDict)data.get("attrs")));
-		String v_image_path="";
+		String v_image_path=data.getString("imagePath");
         String v_is_share=BScreenUtil.toString(data.get("isShare"));
 		String v_state=BScreenUtil.toString(data.get("state"));
 		Long v_oper_user=data.getLong("userid");
@@ -219,10 +245,14 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 
 	@Override
 	public List<Map<String, Object>> queryBScreenListByUserID(Long userId) throws BaseAppException {
-		String sql="SELECT  T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,T.IS_SHARE ,T.OPER_USER,T.OPER_DATE  FROM PM_BSCREEN_TOPIC_LIST T WHERE T.OPER_USER=? OR IS_SHARE=3";
+		String sql="SELECT  T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,ATTRS,T.IMAGE_PATH as IMAGE_PATH,T.IS_SHARE ,T.OPER_USER,T.OPER_DATE  FROM PM_BSCREEN_TOPIC_LIST T WHERE T.OPER_USER=? OR IS_SHARE=3 ORDER BY T.OPER_DATE";
 		ParamArray pa = new ParamArray();
 		pa.set("", userId);
 		List<Map<String, Object>> result =BScreenUtil.toConvert(this.queryList(sql, pa));
+		for (Map<String, Object> map :result){
+			String att =""+map.get("attrs");
+			map.put("attrs", JSON.parseObject(att));
+		}
 		return result;
 	}
 
@@ -244,6 +274,37 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 			b=false;
 		}
 		return b;
+	}
+
+	@Override
+	public List<String> getFields(HashMap<String, String> param) throws BaseAppException {
+		// TODO Auto-generated method stub
+		String source= param.get("sourceID");
+		String sql = param.get("sql");
+		Map<String,String> info = getSource(source);
+		JdbcTemplate jdbcTemp=(SQLUtil.getJdbcTemplate(info));
+		SqlRowSet sqlRowSet  = jdbcTemp.queryForRowSet(sql);
+		SqlRowSetMetaData sqlRsmd = sqlRowSet.getMetaData();  
+		int columnCount = sqlRsmd.getColumnCount();
+		List<String> fields =new ArrayList<String>();
+		for (int i = 1; i <= columnCount; i++) {  
+			fields.add(sqlRsmd.getColumnName(i));  
+		}  
+		
+		return fields;
+	}
+
+	private Map<String,String> getSource(String sourceID) throws BaseAppException {
+		// TODO Auto-generated method stub
+		Map<String,String> result =new HashMap<String, String>();
+		String sql ="select VALUE,NAME from tfm_config t where t.parent_id=?";
+		ParamArray pa = new ParamArray();
+		pa.set("", sourceID);
+		for(Map<String, String> item : this.queryList(sql, pa)){
+			result.put(item.get("NAME"), item.get("VALUE"));
+		}
+	    	
+		return result;
 	}
 
 }

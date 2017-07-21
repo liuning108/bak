@@ -1,15 +1,23 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.util;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
+
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.utils.DateUtil;
 import com.ztesoft.zsmart.oss.opb.util.SeqUtil;
+
+import sun.misc.BASE64Decoder;
 
 public class BScreenUtil {
 	
@@ -91,6 +99,27 @@ public static List<Map<String, Object>> toConvert(List<HashMap<String, String>> 
 
 	return newlist;
 }
+public static String saveImage(File dirs,String base64, String topicId) {
+	try {
+		String base64Image = base64.split(",")[1];
+		BufferedImage image = null;
+		byte[] imageByte;
+		BASE64Decoder decoder = new BASE64Decoder();
+		imageByte = decoder.decodeBuffer(base64Image);
+		ByteArrayInputStream bis = new ByteArrayInputStream(imageByte);
+		image = ImageIO.read(bis);
+		bis.close();
+		File outputfile = new File(dirs.getAbsolutePath()+"/"+topicId+".png");
+		ImageIO.write(image, "png", outputfile);
+		return outputfile.getName();
+	}catch(Exception e){
+		e.printStackTrace();
+		return null;
+	}
+}
+
+
+
 
 
 }

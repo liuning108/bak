@@ -1,5 +1,6 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.domain;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,5 +16,7 @@ public abstract class AbstractBScreenMgr {
 	public abstract List<Map<String, Object>> queryBScreenListByUserID(Long userId) throws BaseAppException;
 
 	public abstract boolean deleteBScreenById(String id)throws BaseAppException;
+
+	public abstract List<String> getFields (HashMap<String, String> param) throws BaseAppException;
 
 }
