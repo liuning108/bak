@@ -2,7 +2,7 @@ package com.ztesoft.zsmart.oss.core.pm.config.machine.domain;
 
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
-import com.ztesoft.zsmart.oss.core.pm.config.machine.dom.MachineMgrDao;
+import com.ztesoft.zsmart.oss.core.pm.config.machine.dao.MachineMgrDao;
 import com.ztesoft.zsmart.oss.opb.util.GeneralDAOFactory;
 import com.ztesoft.zsmart.oss.opb.util.JdbcUtil;
 

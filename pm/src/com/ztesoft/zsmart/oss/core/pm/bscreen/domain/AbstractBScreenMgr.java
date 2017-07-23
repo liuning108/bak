@@ -17,6 +17,8 @@ public abstract class AbstractBScreenMgr {
 
 	public abstract boolean deleteBScreenById(String id)throws BaseAppException;
 
-	public abstract List<String> getFields (HashMap<String, String> param) throws BaseAppException;
+	public abstract Map<String,Object>  getFields (Map<String, String> param) throws BaseAppException;
+
+	public abstract Map<String,Object>saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException;
 
 }

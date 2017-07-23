@@ -43,10 +43,17 @@ public class BScreenMgr extends AbstractBScreenMgr {
 	}
 
 	@Override
-	public List<String> getFields(HashMap<String, String> param) throws BaseAppException {
+	public Map<String,Object> getFields(Map<String, String> param) throws BaseAppException {
 		// TODO Auto-generated method stub
 		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
 		return dao.getFields(param);
+	}
+
+	@Override
+	public Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException {
+		// TODO Auto-generated method stub
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return dao.saveOrUpdateSourceService(map);
 	}
 
 }

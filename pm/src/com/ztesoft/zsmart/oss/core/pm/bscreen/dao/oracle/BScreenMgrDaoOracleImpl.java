@@ -2,6 +2,7 @@ package com.ztesoft.zsmart.oss.core.pm.bscreen.dao.oracle;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -277,21 +278,18 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 	}
 
 	@Override
-	public List<String> getFields(HashMap<String, String> param) throws BaseAppException {
+	public Map<String,Object>  getFields(Map<String, String> param) throws BaseAppException {
 		// TODO Auto-generated method stub
-		String source= param.get("sourceID");
+		String source= param.get("source");
 		String sql = param.get("sql");
 		Map<String,String> info = getSource(source);
-		JdbcTemplate jdbcTemp=(SQLUtil.getJdbcTemplate(info));
-		SqlRowSet sqlRowSet  = jdbcTemp.queryForRowSet(sql);
-		SqlRowSetMetaData sqlRsmd = sqlRowSet.getMetaData();  
-		int columnCount = sqlRsmd.getColumnCount();
-		List<String> fields =new ArrayList<String>();
-		for (int i = 1; i <= columnCount; i++) {  
-			fields.add(sqlRsmd.getColumnName(i));  
-		}  
-		
-		return fields;
+		if(info==null){
+			 Map<String,Object > error = new HashMap<String, Object>();
+			 error.put("message", "Data Source Error");
+			 error.put("fields", new ArrayList<String>());
+			 return error;
+		}
+		return SQLUtil.getFields(SQLUtil.getJdbcTemplate(info), sql);
 	}
 
 	private Map<String,String> getSource(String sourceID) throws BaseAppException {
@@ -300,11 +298,149 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		String sql ="select VALUE,NAME from tfm_config t where t.parent_id=?";
 		ParamArray pa = new ParamArray();
 		pa.set("", sourceID);
-		for(Map<String, String> item : this.queryList(sql, pa)){
+		
+	    List<HashMap<String, String>>  list=	this.queryList(sql, pa);
+	    if(list.isEmpty())return null;
+		for(HashMap<String, String> item : list){
 			result.put(item.get("NAME"), item.get("VALUE"));
 		}
 	    	
 		return result;
+	}
+
+	@Override
+	public Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException {
+	   
+		if(isExistSourceService(map)){
+			updateSourceService(map);
+		}else{
+			saveSourceService(map);
+		}
+		
+		saveUpdateSourceServiceAttrs(map);
+		
+	
+		return null;
+	}
+
+	private void saveUpdateSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
+		deleteSourceServiceAttrs(map);
+		saveSourceServiceAttrs(map);
+	}
+
+	private void saveSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
+		// TODO Auto-generated method stub
+		String sql= ""
+				+ "INSERT INTO pm_bscreen_service_col ( "
+				+ "    service_no, "
+				+ "    service_col_no, "
+				+ "    attr_seq, "
+				+ "    attrs "
+				+ ") VALUES ( "
+				+ "    ?, "
+				+ "    ?, "
+				+ "    ?, "
+				+ "    ? "
+				+ ")";
+	
+		ParamArray pa = new ParamArray();
+		String no =""+map.get("no");
+		String col_no=BScreenUtil.getSeq("PM_BSSERCOL_SEQ");
+		String attrs=map.get("attrs");
+		
+		List<String> attrs_parts=BScreenUtil.splitByNumbers(attrs, 1024); //按字符大小分割问题。
+		for (int i=0;i<attrs_parts.size();i++){
+		    ParamArray add_pa = new ParamArray();
+			String attr=attrs_parts.get(i);
+			add_pa.set("", no);
+			add_pa.set("", col_no);
+			add_pa.set("", i);
+			add_pa.set("", attr);
+			this.executeUpdate(sql, add_pa);
+		}	
+	
+	}
+
+	private void deleteSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
+		// TODO Auto-generated method stub
+		String sql ="delete  PM_BSCREEN_SERVICE_COL where service_no=?";
+		ParamArray pa = new ParamArray();
+		String no =map.get("no");
+		pa.set("", no);
+		this.executeUpdate(sql, pa);
+	}
+
+	private void updateSourceService(Map<String, String> map) throws BaseAppException {
+		String sql = ""
+				+ "UPDATE pm_bscreen_service_list "
+				+ "    SET "
+				+ "          service_name =?, "
+				+ "          service_type =?, "
+				+ "          service_source =?, "
+				+ "          oper_user =?, "
+				+ "          oper_date =sysdate "
+				+ "          "
+				+ "WHERE "
+				+ "        service_no =?";
+		ParamArray pa = new ParamArray();
+		String no = map.get("no");
+		String name = map.get("name");
+		String type = map.get("type");
+		String source=map.get("source");
+		String userId=map.get("userId");
+		pa.set("", name); //name
+		pa.set("", type); //type
+		pa.set("", source); //Source
+		pa.set("", userId); //userId
+		pa.set("", no); //no
+		this.executeUpdate(sql, pa);
+	}
+
+	private boolean isExistSourceService(Map<String, String> map) throws BaseAppException {
+		String sql ="select count(*) from PM_BSCREEN_SERVICE_LIST t where t.SERVICE_NO=?";
+		String no =map.get("no");
+		ParamArray pa = new ParamArray();
+		pa.set("", no);
+		return this.queryInt(sql,pa)>0?true:false;
+	}
+
+	private void saveSourceService(Map<String, String> map) throws BaseAppException {
+		String sql = ""
+				+ "INSERT INTO pm_bscreen_service_list ( "
+				+ "    service_no, "
+				+ "    service_name, "
+				+ "    service_type, "
+				+ "    service_source, "
+				+ "    oper_user, "
+				+ "    oper_date, "
+				+ "    bp_id "
+				+ ") VALUES ( "
+				+ "     ?, "
+				+ "     ?, "
+				+ "     ?, "
+				+ "     ?, "
+				+ "     ?, "
+				+ "     sysdate, "
+				+ "     null "
+				+ ")";
+		ParamArray pa = new ParamArray();
+		String no =BScreenUtil.getSeq("PM_BSSERVICE_SEQ");
+		map.put("no", no);
+		String name = map.get("name");
+		String type = map.get("type");
+		String source=map.get("source");
+		String userId=map.get("userId");
+		
+		pa.set("", no); //no
+		pa.set("", name); //name
+		pa.set("", type); //type
+		pa.set("", source); //Source
+		pa.set("", userId); //userId
+		this.executeUpdate(sql, pa);
+		
+		
+		
+		
 	}
 
 }

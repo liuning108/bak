@@ -14,8 +14,10 @@ public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
     public  abstract void queryBScreenById(DynamicDict dict) throws BaseAppException;
     public  abstract List<Map<String, Object>> queryBScreenListByUserID(Long userId)throws BaseAppException;
     public abstract boolean deleteBScreenById(String id) throws BaseAppException;
-    public abstract List<String> getFields(HashMap<String, String> param) throws BaseAppException;
-	@Override
+    public abstract Map<String,Object>  getFields(Map<String, String> param) throws BaseAppException;
+	public abstract Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException;
+
+    @Override
 	public int delete(Object arg0) throws BaseAppException {
 		// TODO Auto-generated method stub
 		return 0;
@@ -51,6 +53,7 @@ public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	
 	
 	

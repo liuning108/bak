@@ -117,6 +117,31 @@ public static String saveImage(File dirs,String base64, String topicId) {
 		return null;
 	}
 }
+public static Map Dic2Map2(DynamicDict dynamicDict) {
+	 Map map =new HashMap();
+	 for ( String key :dynamicDict.valueMap.keySet()){
+		 Object value =dynamicDict.valueMap.get(key);
+		 if (value instanceof  DynamicDict){
+			 map.put(key, BScreenUtil.Dic2Map((DynamicDict)value));
+		 }else
+		 {
+			 if(value instanceof ArrayList){
+				 ArrayList<DynamicDict> list =(ArrayList<DynamicDict>) value;
+				 ArrayList<Map> maps =  new  ArrayList<Map>();
+				 for (DynamicDict dict:list){
+					Map m= BScreenUtil.Dic2Map(dict);
+					maps.add(m);
+				 }
+				 map.put(key,maps);
+			 }else{
+				 map.put(key,value);
+			 }
+			
+		 }
+		 
+	 }	
+	 return map;
+}
 
 
 
