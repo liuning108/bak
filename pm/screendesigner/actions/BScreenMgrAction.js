@@ -1,9 +1,23 @@
 define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
+	action.saveOrUpdateSourceService=function(json,success) {
+		var param={};
+ 		param.method="saveOrUpdateSourceService"
+		param.json = json;
+		portal.callService(this.service,param, success);
+	},
+
+	action.getFields=function(source,sql,success){
+		var param={};
+		param.method="getFields"
+  	    param.source=source;
+		param.sql=sql;
+  	    portal.callService(this.service,param, success);
+	}
 	// TODO: 获得数据源
 	action.getSource=function(success){
-		  var param={};
+	  var param={};
       portal.callService("MPM_UTIL_DATA_SOURCE",param, success);
 	}
 	// TODO: 更新大屏仪表盘

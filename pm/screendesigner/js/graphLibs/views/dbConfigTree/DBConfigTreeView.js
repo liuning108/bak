@@ -84,7 +84,18 @@ define([
       })
     },
     createNewDBSource:function() {
-        var view = new ConfigDBSourceView({db:this.config.db}).render();
+        var view = new ConfigDBSourceView({
+            no:'0',
+            name:'',
+            type: '1',
+            source:'',
+            userId: portal.appGlobal.get("userId"),
+            attrs:{
+                sql:'',
+                x_colModels:[],
+                y_colModels:[],
+            }
+        }).render();
         var w = 842;
         var options = {
           width: w,
