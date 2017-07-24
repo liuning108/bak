@@ -1,12 +1,20 @@
 define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
+
+	action.getSourceServiceListByUserID = function(userId,success) {
+		var param={};
+		param.method="getSourceServiceList"
+		param.userId = userId;
+		portal.callService(this.service,param, success);
+	}
+
 	action.saveOrUpdateSourceService=function(json,success) {
 		var param={};
  		param.method="saveOrUpdateSourceService"
 		param.json = json;
 		portal.callService(this.service,param, success);
-	},
+	}
 
 	action.getFields=function(source,sql,success){
 		var param={};

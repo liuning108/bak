@@ -1,18 +1,20 @@
 define([
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/serviceLi.html",
+  "oss_core/pm/screendesigner/actions/BScreenMgrAction",
     "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/ConfigDBSourceView",
   "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
  "oss_core/pm/screendesigner/js/dbHelper/DBHelper",
  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html",
   "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView",
-
  "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
-], function(ConfigDBSourceView,i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
+], function(serviceLiTpl,action,ConfigDBSourceView,i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
 
   return portal.CommonView.extend({
     template: fish.compile(tpl),
     xLiTpl: fish.compile(tplXLi),
     yLiTpl: fish.compile(tplYLi),
+    serviceLiTplFun:fish.compile(serviceLiTpl),
     resource : fish.extend({}, i18nData),
     initialize: function(config) {
       this.config = config;
@@ -84,6 +86,8 @@ define([
       })
     },
     createNewDBSource:function() {
+       var self =this;
+         var $parent = this.$el.find(".db_panel_side");
         var view = new ConfigDBSourceView({
             no:'0',
             name:'',
@@ -110,6 +114,7 @@ define([
         var popup = fish.popup(options);
         this.listenTo(view, 'close', function() {
           popup.close();
+          self.choiceDBSource($parent)
         })
 
     },
@@ -131,7 +136,16 @@ define([
       })
     },
     choiceDBSource: function($parent) {
-      $parent.find('.db_edit_plane').show();
+        var self =this;
+        var userId =portal.appGlobal.get("userId");
+         action.getSourceServiceListByUserID(userId,function(data){
+                var $ul=$parent.find('.db_edit_plane').find('.dbserverlistUL');
+                $ul.empty();
+               fish.each(data.serviceList.datas,function(data){
+                 $ul.append(self.serviceLiTplFun(data));
+               })
+               $parent.find('.db_edit_plane').show();
+         })
 
     },
     dbEdit: function(el, $parent) {

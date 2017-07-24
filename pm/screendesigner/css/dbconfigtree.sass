@@ -41,10 +41,50 @@
                 padding: 15px 10px 20px 10px
                 .dbserverlist
                     padding: 15px 10px 20px 10px
-                    min-height: 230px
-                    ul li:hover
-                          cursor: pointer
-                          color:  #32ddff !important
+                    min-height: 260px
+                    max-height: 260px
+                    overflow: auto
+                    .dbserverlistUL
+                       li
+                         box-sizing: border-box
+                         height: 40px
+                         border: 1px solid #eee
+                         margin-bottom: 5px
+                         line-height: 40px
+                         padding-left: 20px
+                         padding-right: 20px
+                         font-size: 14px
+                         color: #666
+                         overflow: hidden
+                         .modifiedService
+                           margin-right: 5px
+
+
+                         .icommand
+                             display: inline
+                             float: right
+                             font-size: 12px
+                             i
+                               margin-left: 5px
+                         .glyphicon
+                           display:  none
+                           line-height: 40px
+                           color: #fff
+                           transition: all 0.5s
+
+                       li:hover
+                            cursor: pointer
+                            color:  #fff !important
+                            background: #02b8ed
+                            box-shadow: 0 0 14px rgba(56, 56, 56, 0.25);
+                            .serviceBtn
+                              display: inline
+                            .glyphicon
+                              display: inline
+                              &:hover
+                                font-size: 20px
+
+
             ul
                 margin: 0px
                 padding: 0px
@@ -163,8 +203,8 @@ span.serachStyle1
 
 .dbconfig-button-plus
     padding:  5px
-    background-color: #039cfd
-    border-color: #039cfd
+    background-color: #02b8ed
+    border-color: #02b8ed
     color: #fff
     cursor: pointer
     &:hover

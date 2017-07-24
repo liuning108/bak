@@ -14,9 +14,10 @@ define([
     indiTpl: fish.compile(indiLiTpl),
     dimeTpl: fish.compile(dimeLiTpl),
     liItemTplFun:fish.compile(LiItemTpl),
-    initialize: function(config) {
+    initialize: function(config,parent) {
       this.config = config
       this.state=0;
+      this.parent=parent;
     },
     events: {
       'click .configDBSourceClose': 'close',

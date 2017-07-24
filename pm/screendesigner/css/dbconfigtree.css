@@ -54,12 +54,62 @@
 
 .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist {
   padding: 15px 10px 20px 10px;
-  min-height: 230px;
+  min-height: 260px;
+  max-height: 260px;
+  overflow: auto;
 }
 
-.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist ul li:hover {
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li {
+  box-sizing: border-box;
+  height: 40px;
+  border: 1px solid #eee;
+  margin-bottom: 5px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  color: #666;
+  overflow: hidden;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .modifiedService {
+  margin-right: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icommand {
+  display: inline;
+  float: right;
+  font-size: 12px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icommand i {
+  margin-left: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .glyphicon {
+  display: none;
+  line-height: 40px;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover {
   cursor: pointer;
-  color: #32ddff !important;
+  color: #fff !important;
+  background: #02b8ed;
+  box-shadow: 0 0 14px rgba(56, 56, 56, 0.25);
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .serviceBtn {
+  display: inline;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .glyphicon {
+  display: inline;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .glyphicon:hover {
+  font-size: 20px;
 }
 
 .db_panel_side .panel_row_r1 .db_edit_plane ul {
@@ -220,8 +270,8 @@ span.serachStyle1 {
 
 .dbconfig-button-plus {
   padding: 5px;
-  background-color: #039cfd;
-  border-color: #039cfd;
+  background-color: #02b8ed;
+  border-color: #02b8ed;
   color: #fff;
   cursor: pointer;
 }
