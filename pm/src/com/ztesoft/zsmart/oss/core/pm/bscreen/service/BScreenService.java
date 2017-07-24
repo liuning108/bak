@@ -69,8 +69,8 @@ public class BScreenService implements IAction {
 			 map.put("source", json.getString("source"));
 			 map.put("userId", json.getString("userId"));
 		  String  attrs =JSON.toJSONString(BScreenUtil.Dic2Map2((DynamicDict)json.get("attrs")));
-		  map.put("attrs", (attrs));
-		  bsm.saveOrUpdateSourceService(map);
+		  map.put("attrs", attrs);
+		  dict.add("saveUpdateSourceService", bsm.saveOrUpdateSourceService(map));
 	 }
 	 
 	 public void getFields(DynamicDict dict) throws BaseAppException{
@@ -81,6 +81,32 @@ public class BScreenService implements IAction {
     	 dict.add("fields", bsm.getFields(param));
     	  
 	 }
+	 
+	 
+	 public void getSourceServiceList(DynamicDict dict) throws BaseAppException{
+		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+         Map<String,String > param = new HashMap<String, String>();
+    	 param.put("userId", dict.getString("userId"));
+    	 dict.add("serviceList", bsm.getSourceServiceList(param));
+    	  
+	 }
+	 
+	 public void getSourceServiceById(DynamicDict dict) throws BaseAppException{
+		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+         Map<String,String > param = new HashMap<String, String>();
+    	 param.put("Id", dict.getString("Id"));
+    	 dict.add("sourceService", bsm.getSourceServiceById(param));
+    	  
+	 }
+	 
+	 public void delSourceServiceById(DynamicDict dict) throws BaseAppException{
+		 AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+         Map<String,String > param = new HashMap<String, String>();
+    	 param.put("Id", dict.getString("Id"));
+    	 dict.add("delSourceService", bsm.delSourceServiceById(param));
+	 }
+	 
+	 
 	 
 	 
 	 

@@ -16,6 +16,9 @@ public abstract class BScreenMgrDao  extends GeneralDAO<Object>{
     public abstract boolean deleteBScreenById(String id) throws BaseAppException;
     public abstract Map<String,Object>  getFields(Map<String, String> param) throws BaseAppException;
 	public abstract Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException;
+	public abstract Map<String, Object> getSourceServiceList(Map<String, String> param) throws BaseAppException;
+	public abstract Map<String, Object> getSourceServiceById(Map<String, String> param) throws BaseAppException;
+	public abstract Map<String, Object> delSourceServiceById(Map<String, String> param) throws BaseAppException;
 
     @Override
 	public int delete(Object arg0) throws BaseAppException {

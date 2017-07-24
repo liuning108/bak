@@ -21,4 +21,10 @@ public abstract class AbstractBScreenMgr {
 
 	public abstract Map<String,Object>saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException;
 
+	public abstract Map<String,Object> getSourceServiceList(Map<String, String> param) throws BaseAppException;
+
+	public abstract Map<String,Object> getSourceServiceById(Map<String, String> param)  throws BaseAppException;
+
+	public abstract Map<String,Object> delSourceServiceById(Map<String, String> param)  throws BaseAppException;
+
 }

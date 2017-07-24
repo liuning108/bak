@@ -310,7 +310,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 
 	@Override
 	public Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException {
-	   
+		Map<String, Object> result = new HashMap<String, Object>();
 		if(isExistSourceService(map)){
 			updateSourceService(map);
 		}else{
@@ -319,8 +319,9 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		
 		saveUpdateSourceServiceAttrs(map);
 		
-	
-		return null;
+		result.put("no", map.get("no"));
+		result.put("name", map.get("name"));
+		return result;
 	}
 
 	private void saveUpdateSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
@@ -438,9 +439,66 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 		pa.set("", userId); //userId
 		this.executeUpdate(sql, pa);
 		
+	}
+
+	@Override
+	public Map<String, Object> getSourceServiceList(Map<String, String> param) throws BaseAppException {
+		Map<String,Object > result = new HashMap<String, Object>();
+		String sql =
+				"SELECT  T.SERVICE_NO,T.SERVICE_NAME,T.SERVICE_TYPE,T.SERVICE_SOURCE,T.OPER_USER ,T.OPER_DATE FROM PM_BSCREEN_SERVICE_LIST  T  WHERE  T.OPER_USER=?";
+		ParamArray pa = new ParamArray();
+		pa.set("", param.get("userId"));
+		result.put("datas", BScreenUtil.toConvert(this.queryList(sql, pa)));
+		return result;
+	}
+
+	@Override
+	public Map<String, Object> getSourceServiceById(Map<String, String> param) throws BaseAppException {
+		Map<String,Object > result = new HashMap<String, Object>();
+		Map<String,Object> json = new HashMap<String,Object>();
+		String id =param.get("Id");
+	
+		String sql = "SELECT SERVICE_NO no, SERVICE_NAME name, SERVICE_TYPE TYPE, SERVICE_SOURCE source, OPER_USER USER_ID, OPER_DATE OPER_DATE, BP_ID bpId FROM PM_BSCREEN_SERVICE_LIST  T WHERE T.SERVICE_NO=?";
 		
+		ParamArray pa = new ParamArray();
+		pa.set("",id);
+		json=BScreenUtil.toConvert(this.query(sql, pa));
 		
+		String sql2="SELECT  DISTINCT SERVICE_COL_NO  FROM PM_BSCREEN_SERVICE_COL WHERE SERVICE_NO=?";
+		ParamArray pa2 = new ParamArray();
+		pa2.set("",id);
+		HashMap<String, String> node_attrs=this.query(sql2, pa2);
 		
+		String attrs_sql=
+				"SELECT SERVICE_NO, SERVICE_COL_NO, ATTR_SEQ, ATTRS FROM PM_BSCREEN_SERVICE_COL T WHERE T.SERVICE_COL_NO=? ORDER BY ATTR_SEQ";
+        	HashMap<String, Object> node= new HashMap<String, Object>();
+        	String no=node_attrs.get("SERVICE_COL_NO");
+        	ParamArray attrs_pa = new ParamArray();
+        	attrs_pa.set("", no);
+        	StringBuffer attrs=new StringBuffer();
+        	for(HashMap<String, String>attr_part:this.queryList(attrs_sql, attrs_pa)){
+        		attrs.append(attr_part.get("ATTRS").trim());
+        	}
+        	json.put("attrs", JSON.parseObject(attrs.toString()));
+        	result.put("data", json);
+		return result;
+		
+	}
+
+	@Override
+	public Map<String, Object> delSourceServiceById(Map<String, String> param) throws BaseAppException {
+		
+		Map<String, Object> result = new HashMap<String, Object>();
+    	ParamArray pa = new ParamArray();
+    	pa.set("", param.get("Id"));
+        String subSql=
+        		 "DELETE PM_BSCREEN_SERVICE_COL  WHERE SERVICE_NO=?";
+        String parentSql=
+       		 "DELETE PM_BSCREEN_SERVICE_LIST  WHERE SERVICE_NO=?";
+        this.executeUpdate(subSql, pa);
+        this.executeUpdate(parentSql, pa);
+        result.put("delId", param.get("Id"));
+		return result;
 	}
 
 }

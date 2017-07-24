@@ -56,4 +56,22 @@ public class BScreenMgr extends AbstractBScreenMgr {
 		return dao.saveOrUpdateSourceService(map);
 	}
 
+	@Override
+	public Map<String, Object> getSourceServiceList(Map<String, String> param) throws BaseAppException {
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return dao.getSourceServiceList(param);
+	}
+
+	@Override
+	public Map<String, Object> getSourceServiceById(Map<String, String> param) throws BaseAppException {
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return dao.getSourceServiceById(param);
+	}
+
+	@Override
+	public Map<String, Object> delSourceServiceById(Map<String, String> param) throws BaseAppException {
+		BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class,JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+		return dao.delSourceServiceById(param);
+	}
+
 }
