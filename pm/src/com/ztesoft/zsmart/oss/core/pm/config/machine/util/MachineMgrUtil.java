@@ -35,5 +35,6 @@ public class MachineMgrUtil {
         String adapterNo = codePrefix + "_" + DateUtil.date2String(new Date(), DateUtil.DATETIME_FORMAT_2) + "_" + seq;
         return adapterNo;
     }
+    
 
 }
