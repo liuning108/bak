@@ -1,24 +1,25 @@
 define([
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/serviceLi.html",
   "oss_core/pm/screendesigner/actions/BScreenMgrAction",
-    "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/ConfigDBSourceView",
+  "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/ConfigDBSourceView",
   "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
- "oss_core/pm/screendesigner/js/dbHelper/DBHelper",
- "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html",
-  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html", "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html",
+  "oss_core/pm/screendesigner/js/dbHelper/DBHelper",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/dbConfigTree.html",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/xLi.html",
+  "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/yLi.html",
   "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBSourceView",
- "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
-], function(serviceLiTpl,action,ConfigDBSourceView,i18nData,dbHelper,tpl, tplXLi, tplYLi, lookDBSourceView) {
+  "css!oss_core/pm/screendesigner/css/dbconfigtree.css"
+], function(serviceLiTpl, action, ConfigDBSourceView, i18nData, dbHelper, tpl, tplXLi, tplYLi, lookDBSourceView) {
 
   return portal.CommonView.extend({
     template: fish.compile(tpl),
     xLiTpl: fish.compile(tplXLi),
     yLiTpl: fish.compile(tplYLi),
-    serviceLiTplFun:fish.compile(serviceLiTpl),
-    resource : fish.extend({}, i18nData),
+    serviceLiTplFun: fish.compile(serviceLiTpl),
+    resource: fish.extend({}, i18nData),
     initialize: function(config) {
       this.config = config;
-      this.config.db=this.config.g.getDBTreeJson();
+      this.config.db = this.config.g.getDBTreeJson();
     },
     render: function() {
       this.$el.html(this.template(this.resource));
@@ -81,45 +82,45 @@ define([
         self.lookDBSource();
       })
 
-      $parent.find('.dbconfig-button-plus').off('click').on('click',function() {
+      $parent.find('.dbconfig-button-plus').off('click').on('click', function() {
         self.createNewDBSource();
       })
     },
-    createNewDBSource:function() {
-       var self =this;
-         var $parent = this.$el.find(".db_panel_side");
-        var view = new ConfigDBSourceView({
-            no:'0',
-            name:'',
-            type: '1',
-            source:'',
-            userId: portal.appGlobal.get("userId"),
-            attrs:{
-                sql:'',
-                x_colModels:[],
-                y_colModels:[],
-            }
-        }).render();
-        var w = 842;
-        var options = {
-          width: w,
-          height:509,
-          modal: false,
-          draggable: false,
-          content: view.$el,
-          autoResizable: true,
-          modal: true,
-          db:this.config.db
-        };
-        var popup = fish.popup(options);
-        this.listenTo(view, 'close', function() {
-          popup.close();
-          self.choiceDBSource($parent)
-        })
+    createNewDBSource: function(json) {
+      var self = this;
+      var $parent = this.$el.find(".db_panel_side");
+      var view = new ConfigDBSourceView(json||{
+        no: '0',
+        name: '',
+        type: '1',
+        source: '',
+        userId: portal.appGlobal.get("userId"),
+        attrs: {
+          sql: '',
+          x_colModels: [],
+          y_colModels: []
+        }
+      }).render();
+      var w = 842;
+      var options = {
+        width: w,
+        height: 509,
+        modal: false,
+        draggable: false,
+        content: view.$el,
+        autoResizable: true,
+        modal: true,
+        db: this.config.db
+      };
+      var popup = fish.popup(options);
+      this.listenTo(view, 'close', function() {
+        popup.close();
+        self.choiceDBSource($parent)
+      })
 
     },
     lookDBSource: function() {
-      var view = new lookDBSourceView({db:this.config.db}).render();
+      var view = new lookDBSourceView({db: this.config.db}).render();
       var w = 1024;
       var options = {
         width: w,
@@ -128,7 +129,7 @@ define([
         content: view.$el,
         autoResizable: true,
         modal: true,
-        db:this.config.db
+        db: this.config.db
       };
       var popup = fish.popup(options);
       this.listenTo(view, 'close', function() {
@@ -136,16 +137,40 @@ define([
       })
     },
     choiceDBSource: function($parent) {
-        var self =this;
-        var userId =portal.appGlobal.get("userId");
-         action.getSourceServiceListByUserID(userId,function(data){
-                var $ul=$parent.find('.db_edit_plane').find('.dbserverlistUL');
-                $ul.empty();
-               fish.each(data.serviceList.datas,function(data){
-                 $ul.append(self.serviceLiTplFun(data));
+      var self = this;
+      var userId = portal.appGlobal.get("userId");
+      action.getSourceServiceListByUserID(userId, function(data) {
+        var $ul = $parent.find('.db_edit_plane').find('.dbserverlistUL');
+        $ul.empty();
+        fish.each(data.serviceList.datas, function(data) {
+          $ul.append(self.serviceLiTplFun(data));
+        })
+
+          //删除服务
+          $ul.find('.removeIcon').off('click')
+             .on('click',function() {
+                     var no  = $(this).data('no');
+                     fish.confirm('Confirm whether to delete this service').result.then(function() {
+                       action.delSourceServiceById(no,function(data){
+                            //fish.success('删除成功');
+                            self.choiceDBSource($parent);
+                       })
+                    });
+             });
+          //修改服务
+            $ul.find('.pencilIcon').off('click')
+               .on('click',function() {
+                 var no  = $(this).data('no');
+                 action.getSourceServiceById(no,function(data) {
+                       self.createNewDBSource(data.sourceService.data)
+                 })
+
                })
-               $parent.find('.db_edit_plane').show();
-         })
+
+
+
+        $parent.find('.db_edit_plane').show();
+      })
 
     },
     dbEdit: function(el, $parent) {
@@ -249,13 +274,13 @@ define([
     'yAxis':['field_2','field_3'],
     }
     **/
-    changeServer:function() {
-        var db = this.config.db;
-        var g=this.config.g;
-        g.attrs.dbServer.serverName=db.serverName;
-        g.attrs.dbServer.islocal=db.islocal;
-        g.attrs.dbServer.xAxis=fish.pluck(fish.where(db.xAxis,{'choice':'y'}),'id');
-        g.attrs.dbServer.yAxis=fish.pluck(fish.where(db.yAxis,{'choice':'y'}),'id');
+    changeServer: function() {
+      var db = this.config.db;
+      var g = this.config.g;
+      g.attrs.dbServer.serverName = db.serverName;
+      g.attrs.dbServer.islocal = db.islocal;
+      g.attrs.dbServer.xAxis = fish.pluck(fish.where(db.xAxis, {'choice': 'y'}), 'id');
+      g.attrs.dbServer.yAxis = fish.pluck(fish.where(db.yAxis, {'choice': 'y'}), 'id');
     },
 
     checkDB: function($parent) {
@@ -263,11 +288,11 @@ define([
       $parent.find('.xmessage,.ymessage').hide();
 
       if (this.xc < this.config.db.xMinNums) {
-        $parent.find('.xmessage').show().text(this.resource.TMBAL+":"+this.config.db.xMinNums)
+        $parent.find('.xmessage').show().text(this.resource.TMBAL + ":" + this.config.db.xMinNums)
         flag = false;
       }
       if (this.yc < this.config.db.yMinNums) {
-        $parent.find('.ymessage').show().text(this.resource.TMBAL+":"+this.config.db.yMinNums)
+        $parent.find('.ymessage').show().text(this.resource.TMBAL + ":" + this.config.db.yMinNums)
         flag = false;
       }
 
@@ -279,7 +304,7 @@ define([
 
       this.modifiedX($parent, newDB)
       this.modifiedY($parent, newDB)
-      newDB.colModels=dbHelper.createColModel(newDB);
+      newDB.colModels = dbHelper.createColModel(newDB);
       return newDB;
     },
     modifiedXY: function($parent, axis, prop, count, db) {

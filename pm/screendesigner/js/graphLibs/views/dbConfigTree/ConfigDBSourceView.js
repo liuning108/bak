@@ -84,15 +84,11 @@ define([
             this.config.attrs.x_colModels=this.getColModelsInfo(this.$el.find('#sortable5'));
             this.config.attrs.y_colModels=this.getColModelsInfo(this.$el.find('#sortable6'));
             action.saveOrUpdateSourceService(this.config,function(data) {
-                fish.success('create success');
+                fish.success('success');
                 self.trigger('close')
             })
-
-
-
         }else{
             fish.warn('Indicator (the Y axis) cannot be empty');
-
         }
 
     },

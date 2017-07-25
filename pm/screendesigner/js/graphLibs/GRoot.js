@@ -13,6 +13,7 @@ define([
             this.dbHelper=dbHelper;
             this.initAll();
         },
+
         initAll: function() {
 
             this.initElement();

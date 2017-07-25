@@ -2,6 +2,20 @@ define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
 
+	action.getSourceServiceById = function(no , success) {
+		var param={};
+		param.method="getSourceServiceById"
+		param.Id = no;
+		portal.callService(this.service,param, success);
+	}
+
+	action.delSourceServiceById = function(no,success) {
+		var param={};
+		param.method="delSourceServiceById"
+		param.Id = no;
+		portal.callService(this.service,param, success);
+	}
+
 	action.getSourceServiceListByUserID = function(userId,success) {
 		var param={};
 		param.method="getSourceServiceList"
