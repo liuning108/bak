@@ -162,6 +162,12 @@ define([
           $ul.append(self.serviceLiTplFun(data));
         })
 
+        //选择服务
+        $ul.find('li').off('click').on('click', function() {
+            $ul.find('li').removeClass("actionService");
+            $(this).addClass("actionService");
+        })
+
         //删除服务
         $ul.find('.removeIcon').off('click').on('click', function() {
           var no = $(this).data('no');

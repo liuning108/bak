@@ -120,7 +120,21 @@
   margin-left: 5px;
 }
 
-.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .glyphicon {
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .chosiceIcon {
+  display: none;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li.actionService {
+  border-color: #02b8ed;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li.actionService .chosiceIcon {
+  display: inline;
+  padding-right: 5px;
+  color: #02b8ed;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icomandGly {
   display: none;
   line-height: 40px;
   color: #fff;
@@ -138,11 +152,15 @@
   display: inline;
 }
 
-.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .glyphicon {
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .chosiceIcon {
+  color: #fff !important;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .icomandGly {
   display: inline;
 }
 
-.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .glyphicon:hover {
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .icomandGly:hover {
   font-size: 20px;
 }
 
