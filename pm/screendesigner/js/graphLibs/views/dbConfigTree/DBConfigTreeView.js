@@ -85,11 +85,26 @@ define([
       $parent.find('.dbconfig-button-plus').off('click').on('click', function() {
         self.createNewDBSource();
       })
+
+      $parent.find('.serachBtn').off('click').on('click', function() {
+        self.serachSourceService($parent);
+      })
+    },
+    serachSourceService: function($parent) {
+      var text = $parent.find(".serachServiceInput").val().toLowerCase();
+      var $ul = $parent.find(".dbserverlistUL");
+      if (text.length <= 0) {
+        $ul.find('li').show();
+        return;
+      }
+      $ul.find('li').hide();
+      var li = $ul.find('li[data-name*=' + text + ']')
+      li.show();
     },
     createNewDBSource: function(json) {
       var self = this;
       var $parent = this.$el.find(".db_panel_side");
-      var view = new ConfigDBSourceView(json||{
+      var view = new ConfigDBSourceView(json || {
         no: '0',
         name: '',
         type: '1',
@@ -143,31 +158,28 @@ define([
         var $ul = $parent.find('.db_edit_plane').find('.dbserverlistUL');
         $ul.empty();
         fish.each(data.serviceList.datas, function(data) {
+          data.serviceNameLowerCase=(""+data.serviceName).toLowerCase();
           $ul.append(self.serviceLiTplFun(data));
         })
 
-          //删除服务
-          $ul.find('.removeIcon').off('click')
-             .on('click',function() {
-                     var no  = $(this).data('no');
-                     fish.confirm('Confirm whether to delete this service').result.then(function() {
-                       action.delSourceServiceById(no,function(data){
-                            //fish.success('删除成功');
-                            self.choiceDBSource($parent);
-                       })
-                    });
-             });
-          //修改服务
-            $ul.find('.pencilIcon').off('click')
-               .on('click',function() {
-                 var no  = $(this).data('no');
-                 action.getSourceServiceById(no,function(data) {
-                       self.createNewDBSource(data.sourceService.data)
-                 })
+        //删除服务
+        $ul.find('.removeIcon').off('click').on('click', function() {
+          var no = $(this).data('no');
+          fish.confirm('Confirm whether to delete this service').result.then(function() {
+            action.delSourceServiceById(no, function(data) {
+              //fish.success('删除成功');
+              self.choiceDBSource($parent);
+            })
+          });
+        });
+        //修改服务
+        $ul.find('.pencilIcon').off('click').on('click', function() {
+          var no = $(this).data('no');
+          action.getSourceServiceById(no, function(data) {
+            self.createNewDBSource(data.sourceService.data)
+          })
 
-               })
-
-
+        })
 
         $parent.find('.db_edit_plane').show();
       })

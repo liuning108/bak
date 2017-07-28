@@ -52,6 +52,40 @@
   padding: 15px 10px 20px 10px;
 }
 
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search i {
+  position: relative;
+  left: 23px;
+  top: 3px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input {
+  padding-left: 30px;
+  width: 150px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:hover {
+  border: 1px solid #666;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:active, .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #42a5f5;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search .serachBtn {
+  border: 1px solid #cfdadd;
+  color: #666;
+  line-height: 19px;
+  padding: 6px;
+  padding-top: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search .serachBtn:hover {
+  background-color: #f5f5f5;
+  border-color: #d6d6d6;
+}
+
 .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist {
   padding: 15px 10px 20px 10px;
   min-height: 260px;

@@ -2,7 +2,7 @@
 define(['frm/portal/Portal'], function(app) {
     portal.appGlobal.set("commoni18n", {'en':'','zh':''});
   	portal.appGlobal.set("customi18n", {'en':'','zh':''});
-  
+
 require(["oss_core/pm/screendesigner/js/Zcharts","oss_core/pm/screendesigner/actions/BScreenMgrAction"], function(Zcharts,BScreenMgrAction) {
     function getUrlParameter(sParam) {
       var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -21,7 +21,6 @@ require(["oss_core/pm/screendesigner/js/Zcharts","oss_core/pm/screendesigner/act
       }
     }
     var id = getUrlParameter("id");
-
     BScreenMgrAction.queryBScreenById(id,function(data){
            var json = data.topicJson;
              json.dom = $('body')[0],
