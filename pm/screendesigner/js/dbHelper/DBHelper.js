@@ -1,4 +1,7 @@
-define(['oss_core/pm/screendesigner/js/dbHelper/virtualDB'], function(virtualDB) {
+define([
+    "oss_core/pm/screendesigner/actions/BScreenMgrAction",
+       'oss_core/pm/screendesigner/js/dbHelper/virtualDB'],
+        function(action,virtualDB) {
     var dbHelper = {}
 
     dbHelper.getServiceDataInfo = function(g) {
@@ -26,11 +29,13 @@ define(['oss_core/pm/screendesigner/js/dbHelper/virtualDB'], function(virtualDB)
 
     dbHelper.queryServer = function(server) {
         var deferred = $.Deferred();
-        setTimeout(function() {
-            var serverSkeleton = virtualDB[server.serverName];
+
+
+        action.getServerSkeleton(server.serverName,function(data) {
+             var skeleton = data.serverSkeleton||{'data':virtualDB[server.serverName]}
+             var serverSkeleton=skeleton.data;
             if (!serverSkeleton) {
                 fish.warn("Can't find "+server.serverName+" service, use the default service")
-
                 server.serverName = "NetworkOverviewDemoQryService"
                 serverSkeleton = virtualDB[server.serverName];
             }
@@ -83,7 +88,9 @@ define(['oss_core/pm/screendesigner/js/dbHelper/virtualDB'], function(virtualDB)
             for (var i = 0; i < data_len; i++) {
                 nums.push(fish.random(30, 200));
             }
-            table[yItem.id] = yItem.data || nums
+            var numValue =fish.isNumber(yItem.data)?Number(yItem.data):0;
+
+            table[yItem.id] =numValue || nums
             if (serverSkeleton.xAxis.length <= 0) {
                 if (table[yItem.id].length > data_len) {
                     data_len = table[yItem.id].length;

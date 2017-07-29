@@ -86,56 +86,6 @@ define([], function() {
     })
 
 
-    dbs.push({
-        serverName: 'NetworkOverviewDemoQryService2',
-        serverLabel: 'NetworkOverviewDemoQryService2',
-        xAxis: [
-            {
-                id: 'field_1',
-                name: 'City',
-                data: [
-                    'Chang',
-                    'Zhu',
-                    'Xiang',
-                    'Heng',
-                    'Shao',
-                    'Yue',
-                    'CHA',
-                    'Zhang',
-                    'Yiya',
-                    'Loudi'
-                ]
-            }, {
-                id: 'field_11',
-                name: 'Date',
-                data: [
-                    'Jun.',
-                    'Feb.',
-                    'Mar.',
-                    'Apr.',
-                    'May',
-                    'Jun.',
-                    'Jul.',
-                    'Aug.',
-                    'Sept.',
-                    'Oct.'
-                ]
-            }
-        ],
-        yAxis: [
-            {
-                id: 'field_2',
-                name: '3G'
-            }, {
-                id: 'field_3',
-                name: '4G'
-            }
-        ]
-    })
-
-
-
-
 
 
     return fish.indexBy(dbs, 'serverName')

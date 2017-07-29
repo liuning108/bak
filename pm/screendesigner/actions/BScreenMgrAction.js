@@ -2,6 +2,13 @@ define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
 
+	action.getServerSkeleton=function(no,success) {
+		var param={};
+		param.method="getServerSkeleton"
+		param.Id = no;
+		portal.callService(this.service,param, success);
+	}
+
 	action.getSourceServiceById = function(no , success) {
 		var param={};
 		param.method="getSourceServiceById"
