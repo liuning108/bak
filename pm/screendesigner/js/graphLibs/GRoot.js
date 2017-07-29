@@ -13,7 +13,6 @@ define([
             this.ft = null;
             this.dbHelper=dbHelper;
             this.initAttrs();
-            console.log($.Deferred);
             dbHelper.getServiceDataInfo(this).done(
                  function(data){
                          self.initAll();

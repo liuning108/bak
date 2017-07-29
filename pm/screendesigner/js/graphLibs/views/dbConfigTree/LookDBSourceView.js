@@ -29,11 +29,7 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBS
     afterRender: function() {
         var self =this;
         var  mydata =[];
-        if(this.config.db.islocal){
-           mydata = this.config.db.datas;
-        }else{
-
-        }
+             mydata = this.config.db.datas;
         var colModels=this.config.db.colModels;
           var opt = {
            data: mydata,
