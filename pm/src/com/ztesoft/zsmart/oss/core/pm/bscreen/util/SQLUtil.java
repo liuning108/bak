@@ -13,7 +13,6 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 
 /**
- * 
  * [描述] <br>
  * 
  * @author [作者名]<br>
@@ -25,12 +24,11 @@ import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
  */
 public class SQLUtil {
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param info 
+     * @param info
      * @return <br>
      */
     public static DataSource getJdbcTemplate(Map<String, String> info) {
@@ -43,13 +41,37 @@ public class SQLUtil {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
      * @param dataSource 
      * @param sql 
+     * @return <br>
+     */
+    public static Map<String, Object> getDatas(DataSource dataSource, String sql) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        List<Map<String, Object>> datas = new ArrayList<Map<String, Object>>();
+        try {
+            JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+            datas = jdbcTemplate.queryForList(sql);
+            param.put("message", "ok");
+            param.put("datas", datas);
+        }
+        catch (Exception e) {
+            param.put("message", e.getMessage());
+            param.put("fields", new ArrayList<String>());
+        }
+        return param;
+    }
+
+    /**
+     * [方法描述] <br>
+     * 
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param dataSource
+     * @param sql
      * @return <br>
      */
     public static Map<String, Object> getFields(DataSource dataSource, String sql) {

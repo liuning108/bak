@@ -20,6 +20,19 @@ import com.ztesoft.zsmart.oss.opb.util.GeneralDAO;
  * @see com.ztesoft.zsmart.oss.core.pm.bscreen.dao <br>
  */
 public abstract class BScreenMgrDao extends GeneralDAO<Object> {
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> getServerSkeleton(Map<String, String> param) throws BaseAppException;
+    
     /**
      * 
      * [方法描述] <br>
@@ -176,5 +189,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
         // TODO Auto-generated method stub
         return 0;
     }
+
+
 
 }

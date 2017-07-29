@@ -268,4 +268,47 @@ public class BScreenUtil {
         return map;
     }
 
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param x_colModels
+     * @param datas
+     * @return <br>
+     */ 
+    public static List<Map<String, Object>> toAxis(List<Map<String, Object>> colModels, List<Map<String, Object>> datas) {
+        List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
+        for (Map<String, Object> models : colModels ){
+            Map<String,Object> item=new HashMap<String, Object>();
+            String id = ""+models.get("name");
+            String name = ""+models.get("as");
+            List<Object> model_datas=BScreenUtil.pluck(datas,id);
+            item.put("id", id);
+            item.put("name",name);
+            item.put("data", model_datas);
+            result.add(item);
+            
+        }
+        return result;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param datas
+     * @param id
+     * @return <br>
+     */ 
+    private static List<Object> pluck(List<Map<String, Object>> datas, String name) {
+           List<Object> result =new ArrayList<Object> ();
+           for(Map<String,Object > item : datas){
+               Object value =item.get(name);
+               result.add(value);
+           }
+        return result;
+    }
+
 }

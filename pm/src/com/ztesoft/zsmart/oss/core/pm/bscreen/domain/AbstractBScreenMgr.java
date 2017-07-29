@@ -18,6 +18,18 @@ import com.ztesoft.zsmart.core.service.DynamicDict;
  * @see com.ztesoft.zsmart.oss.core.pm.bscreen.domain <br>
  */
 public abstract class AbstractBScreenMgr {
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> getServerSkeleton(Map<String, String> param) throws BaseAppException;
     /**
      * 
      * [方法描述] <br>
@@ -134,5 +146,8 @@ public abstract class AbstractBScreenMgr {
      *             <br>
      */
     public abstract Map<String, Object> delSourceServiceById(Map<String, String> param) throws BaseAppException;
+
+   
+   
 
 }

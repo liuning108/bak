@@ -85,4 +85,20 @@ public class BScreenMgr extends AbstractBScreenMgr {
         return dao.delSourceServiceById(param);
     }
 
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, Object> getServerSkeleton(Map<String, String> param) throws BaseAppException {
+        BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        return dao.getServerSkeleton(param);
+
+    }
+
 }

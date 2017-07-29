@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
@@ -20,9 +18,7 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.dao.BScreenMgrDao;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.util.BScreenUtil;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
 
-
 /**
- * 
  * [描述] <br>
  * 
  * @author [作者名]<br>
@@ -35,7 +31,7 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
 public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
 
     /**
-     * logger 
+     * logger
      */
     ZSmartLogger logger = ZSmartLogger.getLogger(this.getClass());
 
@@ -63,13 +59,12 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     }
 
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param base64 
-     * @param topicId 
+     * @param base64
+     * @param topicId
      * @return <br>
      */
     private String saveImage(String base64, String topicId) {
@@ -85,20 +80,19 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         }
 
     }
-    
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param data 
+     * @param data
      * @throws BaseAppException <br>
      */
     private void updateTopic(DynamicDict data) throws BaseAppException {
         // TODO 更新大屏主题
         String sql = "UPDATE PM_BSCREEN_TOPIC_LIST " + "   SET TOPIC_NAME = ?, " + "       ATTRS = ?, " + "       IMAGE_PATH = ?, "
-                + "       IS_SHARE = ?, " + "       STATE = ? " + " WHERE TOPIC_NO=? ";
+            + "       IS_SHARE = ?, " + "       STATE = ? " + " WHERE TOPIC_NO=? ";
 
         String v_topic_no = data.getString("id");
         String v_topic_name = data.getString("name");
@@ -119,21 +113,20 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         pa.set("", v_topic_no);
         this.executeUpdate(sql, pa);
     }
-    
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param data 
+     * @param data
      * @throws BaseAppException <br>
      */
     private void saveTopic(DynamicDict data) throws BaseAppException {
         // TODO 保存大屏主题
         String sql = "insert into pm_bscreen_topic_list "
-                + "  (topic_no, topic_name, attrs, image_path, is_share, state, oper_user, oper_date, bp_id, class_no) " + " values "
-                + "  (?, ?, ?, ?, ?, ?, ?, sysdate, null, null)";
+            + "  (topic_no, topic_name, attrs, image_path, is_share, state, oper_user, oper_date, bp_id, class_no) " + " values "
+            + "  (?, ?, ?, ?, ?, ?, ?, sysdate, null, null)";
         ParamArray pa = new ParamArray();
         String v_topic_no = data.getString("id");
         String v_topic_name = BScreenUtil.toString(data.get("name"));
@@ -158,12 +151,11 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     }
 
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param data 
+     * @param data
      * @throws BaseAppException <br>
      */
     private void updateTopicNodes(DynamicDict data) throws BaseAppException {
@@ -215,7 +207,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         HashMap<String, Object> json = new HashMap<String, Object>();
         // 获取主题信息
         String topic_sql = "SELECT T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,T.ATTRS as attrs,T.IMAGE_PATH as IMAGE_PATH,"
-                         + "T.IS_SHARE as IS_SHARE,T.STATE as STATE,T.OPER_USER as USER_ID FROM PM_BSCREEN_TOPIC_LIST T WHERE T.TOPIC_NO=?";
+            + "T.IS_SHARE as IS_SHARE,T.STATE as STATE,T.OPER_USER as USER_ID FROM PM_BSCREEN_TOPIC_LIST T WHERE T.TOPIC_NO=?";
         ParamArray topic_pa = new ParamArray();
         topic_pa.set("", topID);
         List<HashMap<String, String>> topicList = this.queryList(topic_sql, topic_pa);
@@ -253,7 +245,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     @Override
     public List<Map<String, Object>> queryBScreenListByUserID(Long userId) throws BaseAppException {
         String sql = "SELECT  T.TOPIC_NO as ID ,T.TOPIC_NAME as NAME,ATTRS,T.IMAGE_PATH as IMAGE_PATH,"
-                   + "T.IS_SHARE ,T.OPER_USER,T.OPER_DATE  FROM PM_BSCREEN_TOPIC_LIST T WHERE T.OPER_USER=? OR IS_SHARE=3 ORDER BY T.OPER_DATE";
+            + "T.IS_SHARE ,T.OPER_USER,T.OPER_DATE  FROM PM_BSCREEN_TOPIC_LIST T WHERE T.OPER_USER=? OR IS_SHARE=3 ORDER BY T.OPER_DATE";
         ParamArray pa = new ParamArray();
         pa.set("", userId);
         List<Map<String, Object>> result = BScreenUtil.toConvert(this.queryList(sql, pa));
@@ -297,14 +289,14 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         }
         return SQLUtil.getFields(SQLUtil.getJdbcTemplate(info), sql);
     }
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
-     * @taskId <br> 
-     * @param sourceID 
-     * @return map 
+     * @taskId <br>
+     * @param sourceID
+     * @return map
      * @throws BaseAppException <br>
      */
     private Map<String, String> getSource(String sourceID) throws BaseAppException {
@@ -341,33 +333,32 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         result.put("name", map.get("name"));
         return result;
     }
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @throws BaseAppException <br>
      */
     private void saveUpdateSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
         deleteSourceServiceAttrs(map);
         saveSourceServiceAttrs(map);
     }
-    
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @throws BaseAppException <br>
      */
     private void saveSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
         // TODO Auto-generated method stub
         String sql = "" + "INSERT INTO pm_bscreen_service_col ( " + "    service_no, " + "    service_col_no, " + "    attr_seq, " + "    attrs "
-                + ") VALUES ( " + "    ?, " + "    ?, " + "    ?, " + "    ? " + ")";
+            + ") VALUES ( " + "    ?, " + "    ?, " + "    ?, " + "    ? " + ")";
 
         ParamArray pa = new ParamArray();
         String no = "" + map.get("no");
@@ -386,13 +377,13 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         }
 
     }
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @throws BaseAppException <br>
      */
     private void deleteSourceServiceAttrs(Map<String, String> map) throws BaseAppException {
@@ -403,19 +394,19 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         pa.set("", no);
         this.executeUpdate(sql, pa);
     }
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @throws BaseAppException <br>
      */
     private void updateSourceService(Map<String, String> map) throws BaseAppException {
         String sql = "" + "UPDATE pm_bscreen_service_list " + "    SET " + "          service_name =?, " + "          service_type =?, "
-                + "          service_source =?, " + "          oper_user =?, " + "          oper_date =sysdate " + "          " + "WHERE "
-                + "        service_no =?";
+            + "          service_source =?, " + "          oper_user =?, " + "          oper_date =sysdate " + "          " + "WHERE "
+            + "        service_no =?";
         ParamArray pa = new ParamArray();
         String no = map.get("no");
         String name = map.get("name");
@@ -429,13 +420,13 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         pa.set("", no); // no
         this.executeUpdate(sql, pa);
     }
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @return boolean
      * @throws BaseAppException <br>
      */
@@ -446,20 +437,19 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         pa.set("", no);
         return this.queryInt(sql, pa) > 0 ? true : false;
     }
-    
+
     /**
+     * [方法描述] <br>
      * 
-     * [方法描述] <br> 
-     *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param map 
+     * @param map
      * @throws BaseAppException <br>
      */
     private void saveSourceService(Map<String, String> map) throws BaseAppException {
         String sql = "" + "INSERT INTO pm_bscreen_service_list ( " + "    service_no, " + "    service_name, " + "    service_type, "
-                + "    service_source, " + "    oper_user, " + "    oper_date, " + "    bp_id " + ") VALUES ( " + "     ?, " + "     ?, " + "     ?, "
-                + "     ?, " + "     ?, " + "     sysdate, " + "     null " + ")";
+            + "    service_source, " + "    oper_user, " + "    oper_date, " + "    bp_id " + ") VALUES ( " + "     ?, " + "     ?, " + "     ?, "
+            + "     ?, " + "     ?, " + "     sysdate, " + "     null " + ")";
         ParamArray pa = new ParamArray();
         String no = BScreenUtil.getSeq("PM_BSSERVICE_SEQ");
         map.put("no", no);
@@ -481,7 +471,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     public Map<String, Object> getSourceServiceList(Map<String, String> param) throws BaseAppException {
         Map<String, Object> result = new HashMap<String, Object>();
         String sql = "SELECT  T.SERVICE_NO,T.SERVICE_NAME,T.SERVICE_TYPE,T.SERVICE_SOURCE,T.OPER_USER ,"
-                    + "T.OPER_DATE FROM PM_BSCREEN_SERVICE_LIST  T  WHERE  T.OPER_USER=?";
+            + "T.OPER_DATE FROM PM_BSCREEN_SERVICE_LIST  T  WHERE  T.OPER_USER=?";
         ParamArray pa = new ParamArray();
         pa.set("", param.get("userId"));
         result.put("datas", BScreenUtil.toConvert(this.queryList(sql, pa)));
@@ -495,7 +485,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         String id = param.get("Id");
 
         String sql = "SELECT SERVICE_NO no, SERVICE_NAME name, SERVICE_TYPE TYPE, SERVICE_SOURCE source, "
-                + "OPER_USER USER_ID, OPER_DATE OPER_DATE, BP_ID bpId FROM PM_BSCREEN_SERVICE_LIST  T WHERE T.SERVICE_NO=?";
+            + "OPER_USER USER_ID, OPER_DATE OPER_DATE, BP_ID bpId FROM PM_BSCREEN_SERVICE_LIST  T WHERE T.SERVICE_NO=?";
 
         ParamArray pa = new ParamArray();
         pa.set("", id);
@@ -507,7 +497,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         HashMap<String, String> node_attrs = this.query(sql2, pa2);
 
         String attrs_sql = "SELECT SERVICE_NO, SERVICE_COL_NO, ATTR_SEQ, ATTRS "
-                + "FROM PM_BSCREEN_SERVICE_COL T WHERE T.SERVICE_COL_NO=? ORDER BY ATTR_SEQ";
+            + "FROM PM_BSCREEN_SERVICE_COL T WHERE T.SERVICE_COL_NO=? ORDER BY ATTR_SEQ";
         HashMap<String, Object> node = new HashMap<String, Object>();
         String no = node_attrs.get("SERVICE_COL_NO");
         ParamArray attrs_pa = new ParamArray();
@@ -534,6 +524,35 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         this.executeUpdate(parentSql, pa);
         result.put("delId", param.get("Id"));
         return result;
+    }
+
+    @Override
+    public Map<String, Object> getServerSkeleton(Map<String, String> param) throws BaseAppException {
+        Map<String, Object> map = new HashMap<String, Object>();
+        Map<String, Object> result = this.getSourceServiceById(param);
+        Map<String, Object> json = (Map<String, Object>) result.get("data");
+        Map<String, Object> attrs = (Map<String, Object>) json.get("attrs");
+        Map<String, Object> skeleton = new HashMap<String, Object>();
+        String sql = "" + attrs.get("sql");
+        String source = "" + json.get("source");
+        Map<String, String> info = getSource(source);
+        Map<String, Object> sqlDatas = SQLUtil.getDatas(SQLUtil.getJdbcTemplate(info), sql);
+        List<Map<String, Object>> datas = (List<Map<String, Object>>) sqlDatas.get("datas");
+        List<Map<String, Object>> x_colModels = (List<Map<String, Object>>) attrs.get("x_colModels");
+        List<Map<String, Object>> y_colModels = (List<Map<String, Object>>) attrs.get("y_colModels");
+
+        String serverName = param.get("Id");
+        String serverLabel = "" + json.get("name");
+        List<Map<String, Object>> xAxis = BScreenUtil.toAxis(x_colModels, datas);
+        List<Map<String, Object>> yAxis = BScreenUtil.toAxis(y_colModels, datas);
+
+        skeleton.put("serverName", serverName);
+        skeleton.put("serverLabel", serverLabel);
+        skeleton.put("xAxis", xAxis);
+        skeleton.put("yAxis", yAxis);
+        map.put("data", skeleton);
+
+        return map;
     }
 
 }

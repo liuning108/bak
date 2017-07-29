@@ -17,7 +17,6 @@ import com.ztesoft.zsmart.oss.opb.util.GeneralDMOFactory;
 import com.ztesoft.zsmart.oss.opb.util.SessionManage;
 
 /**
- * 
  * [描述] <br>
  * 
  * @author [作者名]<br>
@@ -30,15 +29,13 @@ import com.ztesoft.zsmart.oss.opb.util.SessionManage;
 public class BScreenService implements IAction {
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @return int 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @return int
+     * @throws BaseAppException <br>
      */
     @Override
     public int perform(DynamicDict dict) throws BaseAppException {
@@ -56,14 +53,27 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
+     */
+    public void getServerSkeleton(DynamicDict dict) throws BaseAppException {
+        AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("Id", dict.getString("Id"));
+        dict.add("serverSkeleton", bsm.getServerSkeleton(param));
+    }
+
+    /**
+     * [方法描述] <br>
+     * 
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
 
     public void saveOrUpdate(DynamicDict dict) throws BaseAppException {
@@ -72,14 +82,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void queryBScreenById(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -87,14 +95,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void queryBScreenListByUserID(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -105,14 +111,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void deleteBScreenById(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -123,14 +127,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void saveOrUpdateSourceService(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -147,14 +149,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
-     * @taskId <br> 
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @taskId <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void getFields(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -166,14 +166,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void getSourceServiceList(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -184,14 +182,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void getSourceServiceById(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
@@ -202,14 +198,12 @@ public class BScreenService implements IAction {
     }
 
     /**
-     * 
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict 
-     * @throws BaseAppException
-     *             <br>
+     * @param dict
+     * @throws BaseAppException <br>
      */
     public void delSourceServiceById(DynamicDict dict) throws BaseAppException {
         AbstractBScreenMgr bsm = (AbstractBScreenMgr) GeneralDMOFactory.create(AbstractBScreenMgr.class);
