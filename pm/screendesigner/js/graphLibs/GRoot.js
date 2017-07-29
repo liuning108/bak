@@ -3,6 +3,7 @@ define([
 ], function(dbHelper) {
     var GRoot = Class.extend({
         init: function(option) {
+            var self =this;
             this.id = option.id;
             this.canvas = option.canvas;
             this.paper = option.paper;
@@ -11,7 +12,20 @@ define([
             this.doms = {};
             this.ft = null;
             this.dbHelper=dbHelper;
-            this.initAll();
+            this.initAttrs();
+            console.log($.Deferred);
+            dbHelper.getServiceDataInfo(this).done(
+                 function(data){
+                         self.initAll();
+                         self.show();
+                 }
+            )
+
+
+
+        },
+        initAttrs:function(){
+            console.log('需要重写initAttrs该方法');
         },
 
         initAll: function() {
@@ -21,17 +35,12 @@ define([
             this.createFt();
             this.hide();
             this.addEvent();
-
-
             // TODO: 优化SVN
             if (this.canvas.perview) {
-
-                this.getData(); //在预览情况下，才有动画和通过间隔来获取数据
                 this.perview();
             }else{
                 this.addBoxEvent();
             }
-
 
         },
         toGraph:function() {

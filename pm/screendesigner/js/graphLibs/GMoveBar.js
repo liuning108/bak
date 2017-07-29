@@ -5,14 +5,9 @@ define([
 ], function(GRoot, View,ViewUtils) {
 
     var GMoveBar = GRoot.extend({
-        initElement: function() {
-            var self = this;
-            var title = this.attrs.title || '文字名称';
-            this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
-            this.attrs.avgColor=this.attrs.avgColor||'#01b4f8';
-            this.attrs.datas=this.attrs.datas||this.createRandom(this.createSeqNums(1,12),10,90);
+        initAttrs: function() {
             this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'投诉数预览服务',
+                                                            'serverName':'NetworkOverviewDemoQryService',
                                                             'islocal':true,
                                                             'xAxis':[],
                                                             'yAxis':['field_2'],
@@ -21,6 +16,14 @@ define([
                                                             'xMinNums':0,
                                                             'yMinNums':1
                                                         }
+        },
+        initElement: function() {
+            var self = this;
+            var title = this.attrs.title || '文字名称';
+            this.attrs.titleColor = this.attrs.titleColor || '#ddff00';
+            this.attrs.avgColor=this.attrs.avgColor||'#01b4f8';
+            this.attrs.datas=this.attrs.datas||this.createRandom(this.createSeqNums(1,12),10,90);
+
             this.Data2Graph();
 
 

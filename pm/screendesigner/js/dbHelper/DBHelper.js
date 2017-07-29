@@ -3,18 +3,35 @@ define([
 ], function(virtualDB) {
     var dbHelper = {}
 
+    dbHelper.getServiceDataInfo=function(g){
+         var server = g.attrs.dbServer;
+         var deferred = $.Deferred();
+         setTimeout(function(){
+             deferred.resolve();
+         },10000)
+         return deferred;
+    }
 
     dbHelper.getJson = function(g) {
         var server = g.attrs.dbServer;
-        var json = (server.islocal)
-            ? dbHelper.getLocalJson(server)
-            : dbHelper.getAjaxJson(server);
+        var json = dbHelper.getLocalJson(server);
         return json
 
     }
 
-    dbHelper.getLocalJson=function(server) {
+    dbHelper.queryServer=function(server){
         var serverSkeleton =virtualDB[server.serverName];
+        if (!serverSkeleton){
+           server.serverName="NetworkOverviewDemoQryService"
+           serverSkeleton = virtualDB[server.serverName];
+        }
+        return serverSkeleton
+    }
+
+    dbHelper.getLocalJson=function(server) {
+
+        var serverSkeleton =dbHelper.queryServer(server)
+
         serverSkeleton.islocal=true;
         dbHelper.choiceY(serverSkeleton.xAxis,server.xAxis,'x');
         dbHelper.choiceY(serverSkeleton.yAxis,server.yAxis,'y');
@@ -122,8 +139,6 @@ define([
          })
     }
 
-    dbHelper.getAjaxJson=function(server) {
-    }
 
     return dbHelper
 

@@ -4,6 +4,18 @@ define([
 ], function(GRoot, View) {
 
     var GLineBase = GRoot.extend({
+        initAttrs: function() {
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'NetworkOverviewDemoQryService',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+        },
         initElement: function() {
             var self = this;
             var title = this.attrs.title || 'TEXT NAME';
@@ -20,16 +32,7 @@ define([
             var names =this.attrs.names|| ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州'];
             this.attrs.names=names;
             this.attrs.xAxisDatas =this.attrs.xAxisDatas|| this.createRandom(names,10,90);
-            this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'地区码号销售',
-                                                            'islocal':true,
-                                                            'xAxis':['field_1'],
-                                                            'yAxis':['field_2'],
-                                                            'xNums':1,
-                                                            'yNums':1,
-                                                            'xMinNums':1,
-                                                            'yMinNums':1
-                                                        }
+
 
             this.Data2Graph();
             names=this.attrs.names;

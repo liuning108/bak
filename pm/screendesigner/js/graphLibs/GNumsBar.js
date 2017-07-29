@@ -4,6 +4,18 @@ define([
 ], function(GRoot, View) {
 
     var GNumsBar = GRoot.extend({
+        initAttrs: function() {
+            this.attrs.dbServer = this.attrs.dbServer || {
+              'serverName': 'NetworkOverviewDemoQryService',
+              'islocal': true,
+              'xAxis': [],
+              'yAxis': ['field_2'],
+              'xNums': 0,
+              'yNums': 1,
+              'xMinNums': 0,
+              'yMinNums': 1
+            }
+        },
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
@@ -22,16 +34,6 @@ define([
             this.digits_panel=this.paper.set();
             this.attrs.digits =this.attrs.digits|| 9;
 
-            this.attrs.dbServer = this.attrs.dbServer || {
-              'serverName': '实时数据预览服务',
-              'islocal': true,
-              'xAxis': [],
-              'yAxis': ['field_2'],
-              'xNums': 0,
-              'yNums': 1,
-              'xMinNums': 0,
-              'yMinNums': 1
-            }
 
             this.Data2Graph()
 

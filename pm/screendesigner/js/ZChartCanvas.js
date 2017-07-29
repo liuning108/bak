@@ -207,9 +207,8 @@ define([
                     'paper': self.paper,
                     'attrs': node_config.attrs,
                     'canvas': self
-                });
+                })
                 node.id = uuid();
-                node.show();
                 self.nodes[node.id]=node;
                 if (fun) fun();
             })

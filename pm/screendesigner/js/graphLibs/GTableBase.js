@@ -4,6 +4,18 @@ define([
 ], function(GRoot, View) {
 
     var GTableBase = GRoot.extend({
+        initAttrs: function() {
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'NetworkOverviewDemoQryService',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2','field_3'],
+                                                            'xNums':99,
+                                                            'yNums':99,
+                                                            'xMinNums':0,
+                                                            'yMinNums':1
+                                                        }
+        },
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
@@ -19,16 +31,7 @@ define([
             this.attrs.seqColor = this.attrs.seqColor || '#beb148';
             this.attrs.seqName  =  this.attrs.seqName || "序号";
             this.attrs.seqShow =this.attrs.seqShow || 'on'
-            this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'地区码号销售',
-                                                            'islocal':true,
-                                                            'xAxis':['field_1'],
-                                                            'yAxis':['field_2','field_3'],
-                                                            'xNums':99,
-                                                            'yNums':99,
-                                                            'xMinNums':0,
-                                                            'yMinNums':1
-                                                        }
+
           this.Data2Graph();
 
 

@@ -4,6 +4,20 @@ define([
 ], function(GRoot, View) {
 
     var GCircularRing = GRoot.extend({
+        initAttrs: function() {
+            this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
+            this.attrs.labelStyle=this.attrs.labelStyle||1;
+            this.attrs.dbServer = this.attrs.dbServer||{
+                                                            'serverName':'NetworkOverviewDemoQryService',
+                                                            'islocal':true,
+                                                            'xAxis':['field_1'],
+                                                            'yAxis':['field_2'],
+                                                            'xNums':1,
+                                                            'yNums':1,
+                                                            'xMinNums':1,
+                                                            'yMinNums':1
+                                                        }
+        },
         initElement: function() {
             var self = this;
             var paper =this.paper;
@@ -19,18 +33,7 @@ define([
             var colors=['#1c7099','#1790cf','#1bb2d8','#99d2dd','#88b0bb'];
             var hn_area=this.attrs.xAxisData||['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
             this.attrs.xAxisData=hn_area;
-            this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
-            this.attrs.labelStyle=this.attrs.labelStyle||1;
-            this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'地区码号销售指标',
-                                                            'islocal':true,
-                                                            'xAxis':['field_1'],
-                                                            'yAxis':['field_2'],
-                                                            'xNums':1,
-                                                            'yNums':1,
-                                                            'xMinNums':1,
-                                                            'yMinNums':1
-                                                        }
+
 
             this.Data2Graph();
 

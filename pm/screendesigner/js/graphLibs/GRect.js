@@ -4,6 +4,20 @@ define([
 	    ], function(GRoot,tpl) {
 
     var GRect = GRoot.extend({
+		initAttrs: function() {
+            this.attrs.dbServer = this.attrs.dbServer || {
+                'serverName': 'NetworkOverviewDemoQryService',
+                'islocal': true,
+                'xAxis': ['field_1'],
+                'yAxis': [
+                    'field_2', 'field_3'
+                ],
+                'xNums': 1,
+                'yNums': 2,
+                'xMinNums': 1,
+                'yMinNums': 2
+            }
+        },
         initElement: function() {
             this.doms['rect'] = this.paper.rect(0, 0, 100, 100).attr('fill', 'red');
             this.doms['config'] = this.paper.text(100, -20, '配置').attr({ 'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold' });;

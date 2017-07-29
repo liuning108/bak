@@ -4,18 +4,11 @@ define([
 ], function(GRoot, View) {
 
     var GCircleNum = GRoot.extend({
-        initElement: function() {
-            var self = this;
-            var title = this.attrs.title || '文字名称';
-            var titleColor = this.attrs.titleColor || '#ddff00';
-
-            var x=0;
-            var y=0;
-            var r=100;
+        initAttrs: function() {
             this.attrs.unit=this.attrs.unit||'';
             this.attrs.val=this.attrs.val||fish.random(300,999);
             this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'实时数据预览服务',
+                                                            'serverName':'NetworkOverviewDemoQryService',
                                                             'islocal':true,
                                                             'xAxis':[],
                                                             'yAxis':['field_2'],
@@ -24,6 +17,16 @@ define([
                                                             'xMinNums':0,
                                                             'yMinNums':1
                                                         }
+        },
+        initElement: function() {
+            var self = this;
+            var title = this.attrs.title || 'TEXT NAME';
+            var titleColor = this.attrs.titleColor || '#ddff00';
+
+            var x=0;
+            var y=0;
+            var r=100;
+
            this.Data2Graph();
 
             this.doms['circle']=this.paper.circle(x,y,r).attr({

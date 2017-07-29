@@ -4,6 +4,19 @@ define([
 ], function(GRoot, View) {
 
     var GIconBar = GRoot.extend({
+        initAttrs: function() {
+            this.path="oss_core/pm/screendesigner/js/graphLibs/images/icons/"
+            this.attrs.dbServer = this.attrs.dbServer || {
+              'serverName': 'NetworkOverviewDemoQryService',
+              'islocal': true,
+              'xAxis': [],
+              'yAxis': ['field_2'],
+              'xNums': 0,
+              'yNums': 1,
+              'xMinNums': 0,
+              'yMinNums': 1
+            }
+        },
         initElement: function() {
             var self = this;
             var title = this.attrs.title || '文字名称';
@@ -15,17 +28,7 @@ define([
             var y=0;
             var nums=this.attrs.val||0;
             this.attrs.val=nums;
-            this.path="oss_core/pm/screendesigner/js/graphLibs/images/icons/"
-            this.attrs.dbServer = this.attrs.dbServer || {
-              'serverName': '实时数据预览服务',
-              'islocal': true,
-              'xAxis': [],
-              'yAxis': ['field_2'],
-              'xNums': 0,
-              'yNums': 1,
-              'xMinNums': 0,
-              'yMinNums': 1
-            }
+
             this.Data2Graph()
 
 

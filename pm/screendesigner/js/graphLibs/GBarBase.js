@@ -4,17 +4,14 @@ define([
 ], function(GRoot, View) {
 
     var GBarBase = GRoot.extend({
-        initElement: function() {
-            var self = this;
-            var title = this.attrs.title || '文字名称';
+        initAttrs: function() {
             this.attrs.titleColor = this.attrs.titleColor || '#fff';
             this.attrs.axisColor=this.attrs.axisColor||'#11bde8';
             this.attrs.barColor=this.attrs.barColor||"#11bde8";
-            var paper =this.paper;
             this.attrs.names=this.attrs.names||['1月','2月','3月','4月','5月','6月'];
             this.attrs.datas=this.attrs.datas||this.createRandom(this.attrs.names,10,90);
             this.attrs.dbServer = this.attrs.dbServer||{
-                                                            'serverName':'码号销售预览服务',
+                                                            'serverName':'NetworkOverviewDemoQryService',
                                                             'islocal':true,
                                                             'xAxis':['field_1'],
                                                             'yAxis':['field_2'],
@@ -23,6 +20,11 @@ define([
                                                             'xMinNums':1,
                                                             'yMinNums':1
                                                         }
+        },
+        initElement: function() {
+            var self = this;
+            var title = this.attrs.title || '文字名称';
+            var paper =this.paper;
             this.Data2Graph();
             var max=Math.floor(1.1*fish.max(this.attrs.datas));
 

@@ -3,6 +3,19 @@ define([
 ], function(GRoot, View) {
 
   var GProgressBar = GRoot.extend({
+      initAttrs: function() {
+          this.attrs.dbServer = this.attrs.dbServer||{
+            'serverName': 'NetworkOverviewDemoQryService',
+            'islocal': true,
+            'xAxis': [],
+            'yAxis': ['field_2'],
+            'xNums': 0,
+            'yNums': 1,
+            'xMinNums': 0,
+            'yMinNums': 1
+
+          }
+      },
     initElement: function() {
       var self = this;
       var title = this.attrs.title || '文字名称';
@@ -21,17 +34,7 @@ define([
       this.attrs.num = num1;
       var den = this.attrs.den || 0.001;
       this.attrs.den = den;
-      this.attrs.dbServer = this.attrs.dbServer||{
-        'serverName': '网络规模预览服务',
-        'islocal': true,
-        'xAxis': [],
-        'yAxis': ['field_2'],
-        'xNums': 0,
-        'yNums': 1,
-        'xMinNums': 0,
-        'yMinNums': 1
 
-      }
       this.Data2Graph()
 
       var perValue = (num1 / fish.max([num1, den])) * 100;
