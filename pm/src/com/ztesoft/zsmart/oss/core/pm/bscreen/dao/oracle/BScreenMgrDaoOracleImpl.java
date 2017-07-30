@@ -159,7 +159,6 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
      * @throws BaseAppException <br>
      */
     private void updateTopicNodes(DynamicDict data) throws BaseAppException {
-
         String topcNo = BScreenUtil.toString(data.get("id"));
         // TODO 删除所有子节点
         String delsql = "delete pm_bscreen_topic_nodes nodes " + " where nodes.topic_no=?";
@@ -171,8 +170,12 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         String add_sql = "insert into pm_bscreen_topic_nodes " + "  (topic_no, node_no, attrs, attr_seq) " + "values " + "  (?, ?, ?, ?)";
         for (DynamicDict node : nodes) {
             Map attrsMap = BScreenUtil.dic2Map((DynamicDict) node.get("attrs"));
+            Map dbServer = (Map) attrsMap.get("dbServer");
             String attrs = JSON.toJSONString(attrsMap);
             String v_node_no = BScreenUtil.getSeq("PM_BSTNODES_SEQ");
+            if (dbServer != null) {
+                saveOrUpdateNodeService(topcNo, v_node_no, "" + dbServer.get("serverName"));
+            }
             List<String> attrs_parts = BScreenUtil.splitByNumbers(attrs, 1024); // 按字符大小分割问题。
             for (int i = 0; i < attrs_parts.size(); i++) {
                 ParamArray add_pa = new ParamArray();
@@ -185,6 +188,49 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
             }
         }
 
+    }
+
+    /**
+     * [方法描述] <br>
+     * 
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param topcNo
+     * @param v_node_no
+     * @param object <br>
+     */
+    private void saveOrUpdateNodeService(String topcNo, String v_node_no, String no) {
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("no", no);
+        try {
+            if (isExistSourceService(param)) {
+                String sql =" DELETE FROM PM_BSCREEN_NODES_SERVFIELD WHERE TOPIC_NO =?";
+                ParamArray pa = new ParamArray();
+                pa.set("", topcNo);
+                this.executeUpdate(sql,pa);
+                String add_sql = ""
+                    + "INSERT INTO PM_BSCREEN_NODES_SERVFIELD ( "
+                    + "    CLASS_NO, "
+                    + "    TOPIC_NO, "
+                    + "    NODE_NO, "
+                    + "    SERVICE_NO "
+                    + ") VALUES ( "
+                    + "    0 , "
+                    + "    ?, "
+                    + "    ?, "
+                    + "    ? "
+                    + ")";
+                ParamArray pa2 = new ParamArray();
+                pa2.set("", topcNo);
+                pa2.set("", v_node_no);
+                pa2.set("", no);
+                this.executeUpdate(add_sql, pa2);
+         
+                
+            }
+        }
+        catch (Exception e) {
+        }
     }
 
     @Override
@@ -231,7 +277,6 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
             attrs_pa.set("", no);
             StringBuffer attrs = new StringBuffer();
             for (HashMap<String, String> attr_part : this.queryList(attrs_sql, attrs_pa)) {
-
                 attrs.append(attr_part.get("ATTRS").trim());
             }
             node.put("attrs", JSON.parseObject(attrs.toString()));
