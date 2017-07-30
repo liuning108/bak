@@ -161,7 +161,8 @@ define([
                     data.serviceNameLowerCase = ("" + data.serviceName).toLowerCase();
                     $ul.append(self.serviceLiTplFun(data));
                 })
-
+                var serverNameId="#server_"+self.config.db.serverName;
+                 $ul.find(serverNameId).addClass("actionService");
                 //选择服务
                 $ul.find('li').off('click').on('click', function() {
                     $ul.find('li').removeClass("actionService");
@@ -358,14 +359,20 @@ define([
                 return;
             }
             var serverName = $actionLi.data("no")
+            var xAxis =[];
+            var yAxis =[];
+            if (serverName==this.config.g.attrs.dbServer.serverName){
+                xAxis=this.config.g.attrs.dbServer.xAxis;
+                yAxis=this.config.g.attrs.dbServer.yAxis;
+            }
 
             var g = {};
             g.attrs = {};
 
             g.attrs.dbServer={
                 'serverName' : serverName,
-                'xAxis' : [],
-                'yAxis' : [],
+                'xAxis' : xAxis,
+                'yAxis' : yAxis,
                 'xNums' : this.config.g.attrs.dbServer.xNums,
                 'yNums' : this.config.g.attrs.dbServer.yNums,
                 'xMinNums' : this.config.g.attrs.dbServer.xMinNums,

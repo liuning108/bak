@@ -29,8 +29,6 @@ define([
 
     dbHelper.queryServer = function(server) {
         var deferred = $.Deferred();
-
-
         action.getServerSkeleton(server.serverName,function(data) {
              var skeleton = data.serverSkeleton||{'data':virtualDB[server.serverName]}
              var serverSkeleton=skeleton.data;
