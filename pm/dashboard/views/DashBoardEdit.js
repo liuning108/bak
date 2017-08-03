@@ -46,10 +46,14 @@ define([
         },
         ecartBar:function() {
 
-          var myChart = echarts.init($('.chartNode')[0]);
+          var node =$('.dashNode').find(".dashCanvas");
+          $( ".dashNode" ).draggable({ containment: "#dashboardCanvas", scroll: false });
+
+
+          var myChart = echarts.init(node[0]);
           // 指定图表的配置项和数据
            var option = {
-              
+
                tooltip: {},
                legend: {
                    data:['销量']
@@ -66,6 +70,9 @@ define([
            };
 
             myChart.setOption(option);
+            $( ".dashNode" ).resizable({ containment: "#dashboardCanvas" ,stop:function(){
+                myChart.resize();
+            }});
 
         },
 
