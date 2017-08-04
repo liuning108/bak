@@ -41,19 +41,33 @@ define([
       this.RenderHTML();
       //this.ecartBar()
 
+
+
+
       var dash_w = $("#dashboardCanvas").outerWidth()
       var radio = (9 / 16);
+      var canvas_json = fish.store.get("canvas_json");
+      console.log(canvas_json);
+      if(!canvas_json){
+        canvas_json ={
+          radio: radio,
+          size:{
+            w: dash_w,
+            h: dash_w * radio
+          },
+          attrs:{nodes:[]}
+        }
+      }
+      var factor=dash_w/canvas_json.size.w;
       this.dcharts = Dcharts.init({
         containment: "#dashboardCanvas",
-        ratio: radio,
-        oSize: {
+        ratio: canvas_json.radio,
+        size: {
           w: dash_w,
-          h: dash_w * radio,
+          h: canvas_json.size.h*factor
         },
-        tSize: {
-          w: dash_w,
-          h: dash_w * radio
-        }
+        factor: factor,
+        nodes:canvas_json.attrs.nodes
 
       });
 
@@ -62,56 +76,7 @@ define([
 
       return this;
     },
-    ecartBar: function() {
 
-      var node = $('.dashNode').find(".dashCanvas");
-      $(".dashNode").draggable({
-        containment: "#dashboardCanvas",
-        scroll: false
-      });
-
-
-      var myChart = echarts.init(node[0]);
-      // 指定图表的配置项和数据
-      var option = {
-
-        tooltip: {},
-        legend: {
-          data: ['销量']
-        },
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-          name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }]
-      };
-
-      myChart.setOption(option);
-      $(".dashNode").resizable({
-        containment: "#dashboardCanvas",
-        stop: function() {
-          myChart.resize();
-        }
-      });
-
-    },
-
-    RenderView: function() {
-      // var sdConfigView = new SDconfigView(this.canvas);
-      // sdConfigView.render();
-      // $(".configPanel").html(sdConfigView.$el);
-      // sdConfigView.afterRender();
-      // if (!TweenMax.isTweening(".configPanel")) {
-      //     TweenMax.from(".configPanel", 1, {x: "200px"});
-      // };
-
-      //TweenMax.from(".configPanel", 1, {opacity:0.5});
-
-    },
     // TODO: 单击子节点,关闭子节点页板(done)
     closeMenu: function() {
       var $menu = $('#mega-menu-dash')
@@ -122,8 +87,10 @@ define([
     addBarBase: function() {
       this.dcharts.addNode({
         type: 'bar',
-        w:400,
-        h:400
+        w: 400,
+        h: 400,
+        x:1,
+        y:1,
       })
       this.closeMenu();
     },
@@ -172,18 +139,47 @@ define([
 
 
     saveButton: function() {
-
-
+      var json = this.dcharts.getJson();
+      fish.store.set("canvas_json",json)
+      fish.success('Save Success');
     },
     perviewButton: function() {
-      // var self = this;
-      // var json = self.canvas.json();
-      // json.perview = true;
-      // var id = fish.getUUID();
-      // fish.store.set(id, json);
-      // window.open("oss_core/pm/screendesigner/perview.html?id=" + id)
+      var id = "dashboard-perview";
+      var $tpl = $("<div class='container-fluid editBody' style='margin:10px'>").data({
+        menuId: false,
+        menuUrl: '',
+        privCode: '',
+        menuName: '',
+        menuType: ''
+      }).attr({
+        menuId: false,
+        menuUrl: null
+      });
+      $("#divContent").tabs("option", "panelTemplate", $tpl).tabs("add", {
+        active: true,
+        id: id,
+        label: 'perview'
+      });
+      $tpl.append("<div id='dashboard-perview-canvas' class='dashboardCanvas' ></div>");
+      $("#dashboard-perview-canvas").empty();
 
-    }
+      var radio = (9 / 16);
+      var dash_w = $("#dashboard-perview-canvas").outerWidth()
+      var canvasjson = this.dcharts.getJson();
+          var factor=dash_w/canvasjson.size.w;
+
+
+      Dcharts.init({
+        containment: "#dashboard-perview-canvas",
+        ratio: radio,
+        size: {
+          w: dash_w,
+          h: canvasjson.size.h*factor
+        },
+        factor: factor,
+        nodes:canvasjson.attrs.nodes
+      });
+    } //end of div
 
   });
 });
