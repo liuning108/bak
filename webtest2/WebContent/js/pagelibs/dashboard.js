@@ -1,8 +1,8 @@
 /*!
  *   dashboard.js
  *   仪表盘画布编辑 页面处理
- *   2017-3-5  刘宁 
- *     
+ *   2017-3-5  刘宁
+ *
  */
 var g_dashboard={}; //仪表盘画布属性，方法
 
@@ -17,7 +17,7 @@ g_dashboard.items={};
 g_dashboard.style=1;
 g_dashboard.isNew=true;
 //屏幕的比例为64:36 (16:9)
-g_dashboard.gnum=64;	
+g_dashboard.gnum=64;
 
 /*!
  *  仪表盘画布方法
@@ -25,7 +25,7 @@ g_dashboard.gnum=64;
 
 //页面初始
 g_dashboard.init=function(data){
-	
+
 
 	g_dashboard.style=data.style;
 	if (!g_dashboard.isNew){
@@ -36,11 +36,11 @@ g_dashboard.init=function(data){
 		g_dashboard.name="仪表盘"
 	}
 	g_dashboard.canvasTabs(); //创建画布属性栏
-	
-	
+
+
 	//创建画布
 	var canvasPageWidth=$('#canvasPage').width();
-	
+
 	var grid=canvasPageWidth/g_dashboard.gnum;
 	g_dashboard.grid=grid;
 	$('#canvasPage').height(grid*36);
@@ -58,7 +58,7 @@ g_dashboard.init=function(data){
 	  until.createGrid($('#canvasPage'));
 	  g_dashboard.w=$('#canvasPage').width();
 	  g_dashboard.h=$('#canvasPage').height();
-	  
+
 	  for (var i =0;i<data.items.length;i++){
 		  var item= data.items[i];
 		 item.x=until.vmap(item.x,0,data.w,0,g_dashboard.w);
@@ -69,10 +69,10 @@ g_dashboard.init=function(data){
 	    		options:item
 	    	})
 	  }
-	 
-	 
-   
-	
+
+
+
+
 	//预览
 	$("#perviewButton").on('click',function(){
 		$('#editDiv').hide();
@@ -80,18 +80,18 @@ g_dashboard.init=function(data){
 	    var h=($("body").width()/g_dashboard.gnum)*36;
 		var dashboard_win={
 				'w':w,
-				'h':h	
+				'h':h
 		      };
 		$('#perviewDiv').width(dashboard_win.w);
 		$('#perviewDiv').height(dashboard_win.h);
 		$('body').addClass("previewBody");
 		if(g_dashboard.style==2){
-			$('#perviewDiv').css({'background':'url(images/bk1.jpg)  50% 50% / auto 100% no-repeat'})	
+			$('#perviewDiv').css({'background':'url(images/bk1.jpg)  50% 50% / auto 100% no-repeat'})
 		}
-	
+
 		until.processDashBoard('#perviewDiv',g_dashboard,dashboard_win)
 	}) //end of preview;
-	
+
 	$("#saveButton").on('click',function(){
 		var array=[]
 		for(var i in g_dashboard.items){
@@ -107,21 +107,21 @@ g_dashboard.init=function(data){
 			  success: function(data){
 				  alert('保存成功')
 				  if(g_dashboard.isNew){
-					  location.href="dashboard.html?id="+g_dashboard.id; 
+					  location.href="dashboard.html?id="+g_dashboard.id;
 				  }
 			  },
 			  error:function(XMLHttpRequest, textStatus, errorThrown){
-				alert("error"+XMLHttpRequest.status);  
+				alert("error"+XMLHttpRequest.status);
 			  },
 			  contentType: "application/json",
 			});
-		
+
 	})
-	
+
 	$("#mylist").on("click",function(){
 		location.href="index.html";
 	})
-  
+
   //图表创建 -start
     $("#character").on('click',function(){
     	until.createGNewItem({
@@ -136,7 +136,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}) //end of  #character just test
-	
+
 	 $("#gCircleTopNode").on('click',function(){
 		 until.createGNewItem({
 	    		options:{
@@ -150,7 +150,7 @@ g_dashboard.init=function(data){
 	    		}
 	    	})
 	}) //end of  #gCircleTopNode just test
-	
+
 	 $("#gCirclePerTopNode").on('click',function(){
 		 until.createGNewItem({
 	    		options:{
@@ -164,7 +164,7 @@ g_dashboard.init=function(data){
 	    		}
 	    	})
 	}) //end of  #gCircleTopNode just test
-	
+
 	$("#gDoubleTopNode").on('click',function(){
 		 until.createGNewItem({
 	    		options:{
@@ -178,7 +178,7 @@ g_dashboard.init=function(data){
 	    		}
 	    	})
 	}) //end of  #gCircleTopNode just test
-	
+
 	$("#xline").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -191,8 +191,8 @@ g_dashboard.init=function(data){
                   'perview':false,
     		}
     	})
-	}); //end of #xline 
-	
+	}); //end of #xline
+
 	$("#yline").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -206,7 +206,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	});//end of  #yline
-	
+
 	$("#nums").on("click",function(){
 		until.createGNewItem({
     		options:{
@@ -220,7 +220,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	});//end of #nums
-	
+
 	$("#gBarCompNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -234,7 +234,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	})//end of gBarCompNode
-	
+
 	$("#gVerListNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -248,7 +248,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}) // end of gVerListNode
-	
+
 	$("#gLanListNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -262,7 +262,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}); // end of  gLanListNode
-	
+
 	$("#gVerList2Node").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -276,7 +276,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}) //end of gVerList2Node
-	
+
 	$("#gDoubleListNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -290,7 +290,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	})
-	
+
 	$("#gSingleListNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -304,7 +304,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}) //end of gSingleListNode
-	
+
 	$("#gPieNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -318,7 +318,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	})
-	
+
 	$("#gProcessNode").on('click',function(){
 		until.createGNewItem({
     		options:{
@@ -332,7 +332,7 @@ g_dashboard.init=function(data){
     		}
     	})
 	}) //end of gProcessNode
-	
+
 	$("#gLineNode").on("click",function(){
 		until.createGNewItem({
     		options:{
@@ -347,10 +347,10 @@ g_dashboard.init=function(data){
     	})
 	})
 	//图表创建 -end
-  
-	
 
-	
+
+
+
 } //end of init;
 
 //图表创建
@@ -371,16 +371,16 @@ g_dashboard.canvasTabs=function(){
 			if(g_dashboard.gridchkboxflag){
 			  until.createGrid($('#canvasPage'),g_dashboard.color);
 			}
-		
+
 		})
-		
+
 		$('#setB').on('click',function(){
 			$('#canvasPage').css({'background':'url(images/bk1.jpg) 50% 50% / auto 100% no-repeat'});
 			g_dashboard.color='#343434'
 			g_dashboard.style=2;
 			$('#canvasPage').find('#grid').remove();
 		})
-		
+
 		$('#gridchkBox').click(function(){
 			var checked=$(this).prop("checked");
 			g_dashboard.gridchkboxflag=checked;
@@ -390,7 +390,7 @@ g_dashboard.canvasTabs=function(){
 				$('#canvasPage').find('#grid').remove();
 			}
 		})
-		
+
 		 if(g_dashboard.style==2){
 			 $('#setB').trigger("click");
 		  }
@@ -406,7 +406,7 @@ g_dashboard.canvasTabs=function(){
 		 $( "#canvasTabs" ).tmpl({}).appendTo( "#dashboardTabs" );
 		  canvasTabsInit();
 	}
-	
+
 }
 //添加一个元素
 g_dashboard.canvasTabsAddItem=function(id,name){
@@ -432,7 +432,7 @@ $(function(){
 	 //创建仪表盘菜单
 	$('#mega-menu-1').dcMegaMenu({
 		rowItems: '3',
-		speed: 0,	
+		speed: 0,
 		effect: 'slide',
 		fullWidth: false
 	});
@@ -452,8 +452,5 @@ $(function(){
 		  },
 		});
 	}
-		
+
 })
-
-
-
