@@ -2,11 +2,12 @@
  * 指标筛选弹出窗
  */
 define([
+  "oss_core/pm/dashboard/js/html2canvas",
   "oss_core/pm/dashboard/js/Dcharts",
   "oss_core/pm/dashboard/js/echarts-all-3",
   "i18n!oss_core/pm/dashboard/i18n/SDesinger",
   "text!oss_core/pm/dashboard/templates/DashBoardEdit.html"
-], function(Dcharts, echarts, i18nData, tpl) {
+], function(html2canvas,Dcharts, echarts, i18nData, tpl) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     resource: fish.extend({}, i18nData),
@@ -44,7 +45,7 @@ define([
 
 
 
-      var dash_w = $("#dashboardCanvas").outerWidth()
+      var dash_w = $("#dashboardCanvasEdit").outerWidth()
       var radio = (9 / 16);
       var canvas_json = fish.store.get("canvas_json");
       console.log(canvas_json);
@@ -60,7 +61,7 @@ define([
       }
       var factor=dash_w/canvas_json.size.w;
       this.dcharts = Dcharts.init({
-        containment: "#dashboardCanvas",
+        containment: "#dashboardCanvasEdit",
         ratio: canvas_json.radio,
         size: {
           w: dash_w,
@@ -139,8 +140,19 @@ define([
 
 
     saveButton: function() {
+
       var json = this.dcharts.getJson();
       fish.store.set("canvas_json",json)
+    //   var hh =$("#dashboardCanvasEdit").outerHeight() *2;
+    //   html2canvas(document.getElementById('dashboardCanvasEdit'),{
+    //         allowTaint:true,
+    //         height: hh,
+    //      onrendered:function(canvas) {
+    //          var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    //           window.location.href=image; // it will save locally
+    //      },
+    //  });
+
       fish.success('Save Success');
     },
     perviewButton: function() {

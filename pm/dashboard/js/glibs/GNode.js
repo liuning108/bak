@@ -10,6 +10,8 @@ define([
       this.createGNode();
     },
     createGNode:function(){
+
+
       this.myChart = echarts.init( this.gcanvas.find('.dashCanvas')[0]);
       var option = {
         tooltip: {},
@@ -33,7 +35,7 @@ define([
     resizableStop:function(event, ui) {
       this.options.w=ui.size.width;
       this.options.h=ui.size.height;
-      this.myChart.resize();
+       this.myChart.resize();
     },
     draggableStop:function(event, ui) {
       this.options.x=ui.position.left;
@@ -58,6 +60,7 @@ define([
         }
       });
       this.gcanvas.resizable({
+        autoHide:true,
         containment: canvasDom,
         stop: function(event, ui) {
           self.resizableStop(event, ui);

@@ -21,11 +21,22 @@ define([
       })
 
     },
+    canvasResizableStop:function(event, ui) {
+        this.options.size.h = ui.size.height;
+
+    },
     initCanvas: function() {
+      var self = this;
       this.$canvasDom = $(this.options.containment);
       this.$canvasDom.width(this.options.size.w);
       this.$canvasDom.height(this.options.size.h);
       this.factor = Number(this.options.factor);
+      this.$canvasDom.resizable({
+          handles : 's',
+          stop:function(event, ui){
+            self.canvasResizableStop(event, ui)
+          }
+      });
     },
 
     addNode: function(node_config) {

@@ -6,6 +6,7 @@ define([
     "css!oss_core/pm/dashboard/css/dcmegamenu2.css",
     "css!oss_core/pm/dashboard/css/icomoon.css",
     "css!oss_core/pm/dashboard/js/colorpicker/colorpicker.css",
+    "oss_core/pm/dashboard/js/raphael-min",
     "oss_core/pm/dashboard/js/jquery.dcmegamenu.1.3.3",
     "oss_core/pm/dashboard/js/jquery.hoverIntent.minified",
 
