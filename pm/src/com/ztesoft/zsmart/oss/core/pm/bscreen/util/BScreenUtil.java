@@ -1,7 +1,5 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.util;
 
-
-
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -19,11 +17,6 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.utils.DateUtil;
 import com.ztesoft.zsmart.oss.opb.util.SeqUtil;
-
-
-
-
-
 
 /**
  * 
@@ -81,7 +74,7 @@ public class BScreenUtil {
      * @taskId <br>
      * @param paramString 
      * @return result 
-     * @throws BaseAppException
+     * @throws BaseAppException 
      *             <br>
      */
 
@@ -165,8 +158,7 @@ public class BScreenUtil {
      * @author [作者名]<br>
      * @taskId <br>
      * @param dynamicDict 
-     * @return  map 
-     * <br>
+     * @return map <br>
      */
     public static Map dic2Map(DynamicDict dynamicDict) {
         Map map = new HashMap();
@@ -202,17 +194,17 @@ public class BScreenUtil {
         return newlist;
     }
 
-    /**
-     * 
-     * [方法描述] <br>
-     * 
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @param dirs 
-     * @param base64 
-     * @param topicId 
-     * @return <br>
-     */
+   /**
+    * 
+    * [方法描述] <br> 
+    *  
+    * @author [作者名]<br>
+    * @taskId <br>
+    * @param dirs 
+    * @param base64 
+    * @param topicId 
+    * @return <br>
+    */
     public static String saveImage(File dirs, String base64, String topicId) {
         try {
             String base64Image = base64.split(",")[1];
@@ -269,45 +261,48 @@ public class BScreenUtil {
     }
 
     /**
+     * 
      * [方法描述] <br> 
      *  
      * @author [作者名]<br>
      * @taskId <br>
-     * @param x_colModels
-     * @param datas
+     * @param colModels  
+     * @param datas 
      * @return <br>
-     */ 
+     */
     public static List<Map<String, Object>> toAxis(List<Map<String, Object>> colModels, List<Map<String, Object>> datas) {
-        List<Map<String, Object>> result = new ArrayList<Map<String,Object>>();
-        for (Map<String, Object> models : colModels ){
-            Map<String,Object> item=new HashMap<String, Object>();
-            String id = ""+models.get("name");
-            String name = ""+models.get("as");
-            List<Object> model_datas=BScreenUtil.pluck(datas,id);
+        List<Map<String, Object>> result = new ArrayList<Map<String, Object>>();
+        for (Map<String, Object> models : colModels) {
+            Map<String, Object> item = new HashMap<String, Object>();
+            String id = "" + models.get("name");
+            String name = "" + models.get("as");
+            List<Object> model_datas = BScreenUtil.pluck(datas, id);
             item.put("id", id);
-            item.put("name",name);
+            item.put("name", name);
             item.put("data", model_datas);
             result.add(item);
-            
+
         }
         return result;
     }
 
     /**
-     * [方法描述] <br> 
-     *  
+     * 
+     * [方法描述] <br>
+     * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param datas
-     * @param id
+     * @param datas 
+     * @param name 
      * @return <br>
-     */ 
+     */
+
     private static List<Object> pluck(List<Map<String, Object>> datas, String name) {
-           List<Object> result =new ArrayList<Object> ();
-           for(Map<String,Object > item : datas){
-               Object value =item.get(name);
-               result.add(value);
-           }
+        List<Object> result = new ArrayList<Object>();
+        for (Map<String, Object> item : datas) {
+            Object value = item.get(name);
+            result.add(value);
+        }
         return result;
     }
 

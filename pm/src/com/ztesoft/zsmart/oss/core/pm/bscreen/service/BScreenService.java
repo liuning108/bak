@@ -33,7 +33,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @return int
      * @throws BaseAppException <br>
      */
@@ -57,7 +57,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getServerSkeleton(DynamicDict dict) throws BaseAppException {
@@ -72,7 +72,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
 
@@ -86,7 +86,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void queryBScreenById(DynamicDict dict) throws BaseAppException {
@@ -99,7 +99,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void queryBScreenListByUserID(DynamicDict dict) throws BaseAppException {
@@ -115,7 +115,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void deleteBScreenById(DynamicDict dict) throws BaseAppException {
@@ -131,7 +131,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void saveOrUpdateSourceService(DynamicDict dict) throws BaseAppException {
@@ -153,7 +153,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getFields(DynamicDict dict) throws BaseAppException {
@@ -170,7 +170,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getSourceServiceList(DynamicDict dict) throws BaseAppException {
@@ -186,7 +186,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getSourceServiceById(DynamicDict dict) throws BaseAppException {
@@ -202,7 +202,7 @@ public class BScreenService implements IAction {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void delSourceServiceById(DynamicDict dict) throws BaseAppException {

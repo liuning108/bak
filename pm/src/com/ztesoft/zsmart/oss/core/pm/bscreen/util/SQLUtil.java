@@ -28,7 +28,7 @@ public class SQLUtil {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param info
+     * @param info 
      * @return <br>
      */
     public static DataSource getJdbcTemplate(Map<String, String> info) {
@@ -70,8 +70,8 @@ public class SQLUtil {
      * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param dataSource
-     * @param sql
+     * @param dataSource 
+     * @param sql 
      * @return <br>
      */
     public static Map<String, Object> getFields(DataSource dataSource, String sql) {

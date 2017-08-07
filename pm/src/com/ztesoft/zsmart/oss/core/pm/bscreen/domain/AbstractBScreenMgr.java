@@ -18,18 +18,20 @@ import com.ztesoft.zsmart.core.service.DynamicDict;
  * @see com.ztesoft.zsmart.oss.core.pm.bscreen.domain <br>
  */
 public abstract class AbstractBScreenMgr {
-    
+
     /**
      * 
-     * [方法描述] <br> 
-     *  
+     * [方法描述] <br>
+     * 
      * @author [作者名]<br>
      * @taskId <br>
-     * @param param
-     * @return
-     * @throws BaseAppException <br>
+     * @param param 
+     * @return map
+     * @throws BaseAppException
+     *             <br>
      */
     public abstract Map<String, Object> getServerSkeleton(Map<String, String> param) throws BaseAppException;
+
     /**
      * 
      * [方法描述] <br>
@@ -60,9 +62,9 @@ public abstract class AbstractBScreenMgr {
      * [方法描述] <br>
      * 
      * @author [作者名]<br>
-     * @taskId <br>
+     * @taskId <br> 
      * @param userId 
-     * @return list 
+     * @return list
      * @throws BaseAppException
      *             <br>
      */
@@ -76,7 +78,7 @@ public abstract class AbstractBScreenMgr {
      * @author [作者名]<br>
      * @taskId <br>
      * @param id 
-     * @return boolean 
+     * @return boolean
      * @throws BaseAppException
      *             <br>
      */
@@ -91,7 +93,7 @@ public abstract class AbstractBScreenMgr {
      * @param param 
      * @return map
      * @throws BaseAppException
-     *              <br>
+     *             <br>
      */
     public abstract Map<String, Object> getFields(Map<String, String> param) throws BaseAppException;
 
@@ -102,8 +104,8 @@ public abstract class AbstractBScreenMgr {
      * @author [作者名]<br>
      * @taskId <br>
      * @param map 
-     * @return map
-     * @throws BaseAppException
+     * @return map 
+     * @throws BaseAppException 
      *             <br>
      */
     public abstract Map<String, Object> saveOrUpdateSourceService(Map<String, String> map) throws BaseAppException;
@@ -141,13 +143,10 @@ public abstract class AbstractBScreenMgr {
      * @author [作者名]<br>
      * @taskId <br>
      * @param param 
-     * @return map  
+     * @return map
      * @throws BaseAppException
      *             <br>
      */
     public abstract Map<String, Object> delSourceServiceById(Map<String, String> param) throws BaseAppException;
-
-   
-   
 
 }
