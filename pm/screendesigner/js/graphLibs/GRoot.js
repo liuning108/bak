@@ -124,8 +124,7 @@ define([
             })
         }
             this.domsSet.push(this.gbox);
-
-                this.ft = this.paper.freeTransform(this.domsSet, {
+            this.ft = this.paper.freeTransform(this.domsSet, {
                     keepRatio: true,
                     'rotate': false,
                     attrs: {
@@ -146,13 +145,19 @@ define([
                 this.attrs.ft_attrs.size.y = this.ft.attrs.size.y
                 this.ft.attrs = this.attrs.ft_attrs;
             } else {
-                this.initLocation();
+               this.initLocation2();
             }
             this.ft.apply();
 
 
         },
-        initLocation: function() {},
+        initLocation2: function() {
+          var gbbox = this.domsSet.getBBox(true);
+          console.log("initLocation2_x-->" + this.ft.attrs.center.x);
+          console.log("initLocation2_x-->" + this.ft.attrs.center.y);
+          this.ft.attrs.translate.x = (this.canvas.w)/2-this.ft.attrs.center.x;
+          this.ft.attrs.translate.y = (this.canvas.h)/2-this .ft.attrs.center.y;
+        },
         merge: function() {
             var self = this;
             fish.each(this.doms, function(dom,index) {
