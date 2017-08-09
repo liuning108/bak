@@ -26,7 +26,6 @@ define([
     },
     showListButton: function() {
       this.parentView.showDesigner();
-
     },
 
     render: function() {

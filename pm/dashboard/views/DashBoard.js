@@ -1,6 +1,7 @@
 define([
 
     "text!oss_core/pm/dashboard/templates/DashBoard.html",
+    "oss_core/pm/dashboard/views/DashBoardIndex",
     "oss_core/pm/dashboard/views/DashBoardEdit",
     "css!oss_core/pm/dashboard/css/dashboard.css",
     "css!oss_core/pm/dashboard/css/dcmegamenu2.css",
@@ -10,7 +11,7 @@ define([
     "oss_core/pm/dashboard/js/jquery.dcmegamenu.1.3.3",
     "oss_core/pm/dashboard/js/jquery.hoverIntent.minified",
 
-], function(tpl, EditView) {
+], function(tpl,IndexView, EditView) {
 
     return portal.BaseView.extend({
         template: fish.compile(tpl),
@@ -34,10 +35,10 @@ define([
         index: function() {
 
 
-            // var self = this;
-            // self.cleaupView(self.view);
-            // self.view = new IndexView({'el': $('#new_context'), 'parentView': self}).render();
-            this.edit({});
+            var self = this;
+            self.cleaupView(self.view);
+            self.view = new IndexView({'el': $('#new_context_dashBoard'), 'parentView': self}).render();
+            // this.edit({});
         },
 
         edit: function(params) {
