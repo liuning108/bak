@@ -144,19 +144,21 @@ define([
                 this.attrs.ft_attrs.size.x = this.ft.attrs.size.x
                 this.attrs.ft_attrs.size.y = this.ft.attrs.size.y
                 this.ft.attrs = this.attrs.ft_attrs;
+                this.ft.apply();
             } else {
                this.initLocation2();
             }
-            this.ft.apply();
+
 
 
         },
         initLocation2: function() {
           var gbbox = this.domsSet.getBBox(true);
-          console.log("initLocation2_x-->" + this.ft.attrs.center.x);
-          console.log("initLocation2_x-->" + this.ft.attrs.center.y);
+          this.ft.attrs.scale.x=this.canvas.w/(1920);
+          this.ft.attrs.scale.y=this.ft.attrs.scale.x
           this.ft.attrs.translate.x = (this.canvas.w)/2-this.ft.attrs.center.x;
           this.ft.attrs.translate.y = (this.canvas.h)/2-this .ft.attrs.center.y;
+          this.ft.apply();
         },
         merge: function() {
             var self = this;

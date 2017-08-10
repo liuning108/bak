@@ -104,31 +104,32 @@ define([
 
         setViewBox: function(w, h) {
             var self = this;
-            self.w = w;
+            self.w = w
             self.h = h;
 
             self.paper.setViewBox(0, 0, self.w, self.h, true);
-
-            self.paper.circle(self.w/2,self.h/2,10).attr({stroke: "red"}).toFront();
-            self.paper.rect(self.w/2-250,self.h/2-250,500,500).attr({stroke: "red"}).toFront();
             self.paper.setSize('100%', '100%');
             if (self.perview == false) {
                 self.createGrid();
             }
+
+            if(self.w<$(self.dom).width()){
+                $(self.dom).width(self.w)
+            }
             var d_w = $(self.dom).width();
-            var sf = d_w / w;
-            var h = sf * self.h;
+            var sf = self.h/ self.w ;
+            var h = sf * d_w;
             var old = $(self.dom).height();
             $(self.dom).height(h)
             // TODO: IE浏览下需要自己控制窗口比列的高度(done)
-            if (fish.isIE) {
-                var d_w = $(self.dom).width();
-                var sf = d_w / w;
-                var h = sf * self.h;
-                var old = $(self.dom).height();
-                $(self.dom).height(h)
-
-            }
+            // if (fish.isIE) {
+            //     var d_w = $(self.dom).width();
+            //     var sf = d_w / w;
+            //     var h = sf * self.h;
+            //     var old = $(self.dom).height();
+            //     $(self.dom).height(h)
+            //
+            // }
 
         },
         // TODO: 创建网络(done)
