@@ -1,0 +1,55 @@
+<div class="modal-header">
+	<h4 class="modal-title">Kpi Filter</h4>
+</div>
+<div class="modal-body">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<div class="form-group">
+			</div>
+		</div>
+		<div class="ad-tolbad">
+			<!--条件筛选-->
+			<div class="ad-block" id="ad-dimfilter-condi" style="height: 150px;" class="scrollable">
+					<div  class="m-b-sm">Filter Condition</div>
+					<div class="row" style="padding-top: 30px">
+						<form class="form-horizontal clearfix">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="col-md-4 control-label">{{KPI_NAME}}</label>
+									<div class="col-md-3">
+										<select id="ad-indifilter-fmtsel" class="form-control" style="width: 130px">
+											<option value="BT" selected="selected">Between</option>
+											<option value="EQ">Equal to</option>
+											<option value="NEQ">Not equal to</option>
+											<option value="GT">Greater than</option>
+											<option value="LW">Less than</option>
+											<option value="GE">Greater than or equal to</option>
+											<option value="LE">Less than or equal to</option>
+										</select>
+									</div>
+									<div class="col-md-5" id="ad-if-condivalue-container1">
+										<input id="ad-indifilter-condivalue-bt-1" style="width: 70px" type="text" class="form-control col-md-5"/>
+										<div class="col-md-2" style="padding-top: 5px;padding-left: 14px"> ~</div>
+										<input id="ad-indifilter-condivalue-bt-2" style="width: 70px" type="text" class="form-control col-md-5"/>
+									</div>
+									<div class="col-md-3" style="display: none" id="ad-if-condivalue-container2">
+										<input id="ad-indifilter-condivalue" type="text" class="form-control">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="ad-btn-ok" autofocus>
+			{{SLA_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="ad-btn-cancel">
+			{{SLA_CANCEL}}
+		</button>
+	</div>
+</div>

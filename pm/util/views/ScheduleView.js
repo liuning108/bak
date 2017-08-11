@@ -1,11 +1,12 @@
 define([
         "text!oss_core/pm/util/templates/scheduleView.html",
-        "css!oss_core/pm/util/css/scheduleView.css",
+        'oss_core/pm/util/views/Util',
     ],
-    function(viewTpl) {
+    function(viewTpl, pmUtil) {
         return portal.CommonView.extend({
             //加载模板
             template: fish.compile(viewTpl),
+            i18nData: fish.extend({}, pmUtil.i18nCommon, pmUtil.i18nPMCommon),
             initialize: function() {},
             MethodMapping: {
                 '0': 'once',
@@ -27,10 +28,10 @@ define([
                 'INTERVAL_PERIOD': "",
                 'SCHDULE_TYPE': "",
                 'CRON': '',
-                'WM': []
+                'MW': []
             },
             render: function() {
-                this.$el.html(this.template());
+                this.$el.html(this.template(this.i18nData));
                 return this;
             },
 
@@ -38,13 +39,28 @@ define([
                 var self = this;
                 var defult_option = {
                     'datefromt': 'yyyy/mm/dd',
-                    'visible': {'type':'show','tabs':self.tabs}
+                    'visible': {'type':'show','tabs':self.tabs},
+                    'mode':'single',//模式{'single':单选,'multiple':多选}
                 }
 
                 self.setting = fish.extend({}, defult_option, option);
                 
                 var $tabs = $(".tabs-pill-schedule").tabs();
                 $('.toggle-switch-tab').on('change', function() {
+                		
+						if(self.setting.mode == 'single'){ 
+							var operCheckbox = $(this);
+	                		fish.forEach($('.toggle-switch-tab:checked'), function(checkbox) {
+	                			if($(checkbox).attr('data-tab') != $(operCheckbox).attr('data-tab')){
+		                			$(checkbox).attr('checked', false);
+		                			$(checkbox).prop('checked', false);
+									$($(checkbox).data('tab')).hide();
+		                        	$($(checkbox).data('row')).hide();
+		                        	$($(checkbox).data('sub')).hide();
+		                        }
+							}.bind(this));
+                		}
+                        
                         var flag = $(this).is(':checked');
                         var tab = $(this).data('tab');
                         var row = $(this).data('row');
@@ -114,7 +130,7 @@ define([
                 self.$minute.TRIGGER_TIME_S = $('#minute-rigger_time_s');
                 self.$minute.RUNTIME_SETING_VAIL = $(".minute-setting-from").validator({});
                 self.$minute.INTERVAL_PERIOD = $('.minute-select');
-                self.$minute.setWM = function(array) {
+                self.$minute.setMW = function(array) {
                     if (!fish.isArray(array)) return;
                     if (array.length <= 0) return;
                     self.$minute.INTERVAL_PERIOD.empty();
@@ -137,7 +153,7 @@ define([
                 self.$hour.RUNTIME_SETING_VAIL = $(".hour-setting-from").validator({});
                 self.$hour.INTERVAL_PERIOD = $(".hour-select");
 
-                self.$hour.setWM = function(array) {
+                self.$hour.setMW = function(array) {
 
                     if (!fish.isArray(array)) return;
                     if (array.length <= 0) return;
@@ -160,7 +176,7 @@ define([
                 self.$day.TRIGGER_TIME_S = $('#day-rigger_time_s');
                 self.$day.RUNTIME_SETING_VAIL = $(".day-setting-from").validator({});
                 self.$day.INTERVAL_PERIOD = $(".day-select");
-                self.$day.setWM = function(array) {
+                self.$day.setMW = function(array) {
                     if (!fish.isArray(array)) return;
                     if (array.length <= 0) return;
                     self.$day.INTERVAL_PERIOD.empty();
@@ -193,7 +209,7 @@ define([
                     return result;
                 }; //end of week_value;
 
-                self.$week.setWM = function(array) {
+                self.$week.setMW = function(array) {
                     $('.week-checkbox-all').attr('checked', false);
                     $('.week-checkbox-all').prop('checked', false);
                     for (var i = 0; i < array.length; i++) {
@@ -234,7 +250,7 @@ define([
                     return result;
                 }; //end of week_value
 
-                self.$month.setWM = function(array) {
+                self.$month.setMW = function(array) {
                     $('.month-checkbox-all').attr('checked', false);
                     $('.month-checkbox-all').prop('checked', false);
                     for (var i = 0; i < array.length; i++) {
@@ -416,7 +432,7 @@ define([
 
                 model.MW = $obj.week_value();
 
-                model.INTERVAL_PERIOD = ''; //间隔时长
+                model.INTERVAL_PERIOD = $obj.week_value(); //间隔时长
                 model.CRON = ''; //CRON表达式
 
                 return model
@@ -556,7 +572,7 @@ define([
                 $obj.EFF_DATE.datetimepicker('setStartDate', option.EFF_DATE);
                 $obj.EFF_DATE.datetimepicker("value", option.EFF_DATE);
                 $obj.EXP_DATE.datetimepicker("value", option.EXP_DATE);
-                $obj.setWM(option.WM);
+                $obj.setMW(option.MW);
                 $obj.INTERVAL_PERIOD.val(option.INTERVAL_PERIOD);
                 return $obj;
             },
@@ -577,7 +593,7 @@ define([
                 $obj.EFF_DATE.datetimepicker('setStartDate', option.TRIGGER_DATE);
                 $obj.EFF_DATE.datetimepicker("value", option.EFF_DATE);
                 $obj.EXP_DATE.datetimepicker("value", option.EXP_DATE);
-                $obj.setWM(option.WM);
+                $obj.setMW(option.MW);
                 $obj.INTERVAL_PERIOD.val(option.INTERVAL_PERIOD);
                 return $obj;
             },
@@ -598,7 +614,7 @@ define([
                 $obj.EFF_DATE.datetimepicker('setStartDate', option.TRIGGER_DATE);
                 $obj.EFF_DATE.datetimepicker("value", option.EFF_DATE);
                 $obj.EXP_DATE.datetimepicker("value", option.EXP_DATE);
-                $obj.setWM(option.WM);
+                $obj.setMW(option.MW);
                 $obj.INTERVAL_PERIOD.val(option.INTERVAL_PERIOD);
                 return $obj;
             },
@@ -618,7 +634,7 @@ define([
                 $obj.EFF_DATE.datetimepicker('setStartDate', option.TRIGGER_DATE);
                 $obj.EFF_DATE.datetimepicker("value", option.EFF_DATE);
                 $obj.EXP_DATE.datetimepicker("value", option.EXP_DATE);
-                $obj.setWM(option.WM);
+                $obj.setMW(option.MW);
                 return $obj;
 
             },
@@ -639,7 +655,7 @@ define([
                 $obj.EFF_DATE.datetimepicker("value", option.EFF_DATE);
                 $obj.EXP_DATE.datetimepicker("value", option.EXP_DATE);
                 $obj.INTERVAL_PERIOD.val(option.INTERVAL_PERIOD)
-                $obj.setWM(option.WM);
+                $obj.setMW(option.MW);
                 return $obj;
             },
             setCustom: function(option) {

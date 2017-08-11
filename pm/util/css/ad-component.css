@@ -18,10 +18,10 @@
     line-height: 28px;
 }
 
-/*.form-horizontal .form-group {
-    margin-left: -5px;
-    margin-right: -5px;
-}*/
+.form-horizontal .form-group {
+    margin-left: -10px;
+    margin-right: -10px;
+}
 .form-horizontal .control-label {
     color: #777;
     margin-bottom: 4px
@@ -45,7 +45,9 @@
   border-color: #cfdadd;
     height: 28px;
 }
-
+.has-error .form-control {
+    border-color: #e74c3c;
+}
 
 .search-group > .ad-theme-search{
   padding-left: 30px;
@@ -173,6 +175,52 @@
   background-color: #039cfd;
   color: #ffffff;
 }
+.datetimepicker-days table thead {
+    background-color: #039cfd;
+}
+
+
+/*Time Button*/
+
+.timebtn a{
+  background-image: url(img/time-ico.png) !important;
+  background-repeat: no-repeat;
+  height: 28px;
+}
+.timebtn a:hover{
+  background-repeat: no-repeat;
+}
+.timebtn a.a1{
+    background-position: 6px 4px 
+}
+.timebtn a.a2 {
+    background-position: -35px 4px 
+}
+.timebtn a.a3 {
+    background-position: -76px 4px 
+}
+.timebtn a.a4 {
+    background-position: -117px 4px 
+}
+.timebtn a.a5 {
+    background-position: 6px -82px 
+}
+.timebtn a.a1.active {
+    background-position: 6px -39px 
+}
+.timebtn a.a2.active{
+    background-position: -35px -39px 
+}
+.timebtn a.a3.active {
+    background-position: -76px -39px 
+}
+.timebtn a.a4.active {
+    background-position: -117px -39px 
+}
+.timebtn a.a5.active {
+    background-position: -117px -39px 
+}
+
 
 /*Tree Ico Color*/
 .ui-jqgrid-view .ui-jqgrid-bdiv .ui-jqgrid-btable tr.jqgrow td .tree-wrap{
@@ -209,7 +257,9 @@
     background-color: #039cfd;
     border-color: #039cfd;
 }
-.btn.active:hover{
+.btn.active:hover,
+.btn:active:focus, .btn.active:focus
+{
     box-shadow:none;
     color: #fff;
     background-color: #039cfd;
@@ -634,7 +684,7 @@ fieldset[disabled] .btn-primary.active{
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  padding:0px 0px 0px 10px;
+  padding:0px 20px 0px 10px;
   line-height: 26px;
   cursor: pointer;
 }
@@ -670,13 +720,36 @@ li.list-group-item:focus {
     border: 1px solid #ddd;
     left: 10px;
     right:10px;
-    bottom: 0px;
     top: 28px;
     box-shadow: 0px 1px 2px 0 #ccc;
+}
+.ad-list-plus .checkbox-inline{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+}
+.ad-list-plus > .ad-group-hack > .form-group{
+    margin-bottom: 0px
 }
 .group-list.list-group span{
     width: 15px;
     float: left;
+}
+.ad-modal-plus {
+  padding-left: 10px;
+}
+.ad-modal-plus .checkbox-inline{
+    width: 232px;
+    display: inline-block;
+}
+.modal-hack-list.group-list .list-group-item{
+    width: 232px;
+    float: left;
+    margin-right: 10px;
+}
+.ad-group-hack.js-alarm-rule-busy-hour .checkbox-inline{
+  width: 10%;
 }
 
 
@@ -685,7 +758,9 @@ li.list-group-item:focus {
     background: #fff;
     margin-left: -25px;
     overflow: hidden;
-    border-bottom: 1px solid #dee5e7
+    border-bottom: 1px solid #dee5e7;
+    position: relative;
+    
 }
 .ad-collect-block{
     padding: 0 20px;

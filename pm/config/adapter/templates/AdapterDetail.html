@@ -1,0 +1,164 @@
+<div class="modal-header">
+	<h4 class="modal-title js-adapter-detail-title"></h4>
+</div>
+
+<div class="modal-body">
+<div class="ad-modal-box"  style="display: block;">
+	<div class="ad-block tab-wizard" style="width:800px;background:#fff;">
+	    <ul class="nav nav-tabs nav-justified nav-pills">
+	        <li class="active" >
+	            <a href="#" class="js-nav-tabs" tab-content="js-adapter-wizard-tab1" data-toggle="tab" aria-expanded="true">{{INPUT_BASE_INFO}} <span class="badge badge-default pull-right wizard-step">1</span></a>
+	        </li>
+	        <li>
+	            <a href="#" class="js-nav-tabs" tab-content="js-adapter-wizard-tab2" data-toggle="tab">{{INPUT_MAPPING_INFO}} <span class="badge badge-default pull-right wizard-step">2</span></a>
+	        </li>
+	    </ul>
+	    <div class="tab-content panel-body border n-scroll-y n-scroll-x">
+            <!--First tab 1-->
+            <div id="js-adapter-wizard-tab1" class="fadeInUp animated tab-pane active" style="height:320px;">
+                <form class="form-horizontal clearfix js-adapter-detail-form">	
+	               
+	                    <div class="col-md-6">
+	                        <div class="form-group required">
+	                        	<div class="col-md-12">
+	                            	<label class="control-label">{{ADAPTER_NAME}}</label>
+	                            </div>
+	                            <div class="col-md-12">
+	                            	<input name="ADAPTER_NAME" class="form-control col-md-12" data-rule="{{ADAPTER_NAME}}:required;length[1~256, true]">
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <div class="col-md-6" style="height:69px">
+	                        <div class="form-group">
+	                        	<div class="col-md-12">
+	                            	<label class="control-label">{{IS_ENABLED}}</label>
+	                            </div>
+	                            <div class="col-md-12">
+		                            <div class="input-group">
+					                    <input id="IS_STATE" name="IS_STATE" class="toggle-switch" type="checkbox" checked="">
+					                    <label for="IS_STATE"></label>
+					                </div>
+				                </div>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="col-md-6">
+	                        <div class="form-group required">
+	                        	<div class="col-md-12">
+	                            	<label class="control-label">{{PROTOCOL_TYPE}}</label>
+	                            </div>
+	                            <div class="col-md-12">
+	                            	<input name="PROTOCOL_TYPE" class="form-control" data-rule="{{PROTOCOL_TYPE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                    <div class="col-md-6">
+	                        <div class="form-group required">
+	                        	<div class="col-md-12">
+	                            <label class="control-label">{{ADAPTER_SERV}}</label>
+	                            </div>
+	                            <div class="col-md-12">
+	                            <div class="input-group">
+		                            <input name="PLUGIN_CLASSPATH" class="form-control" data-rule="{{ADAPTER_SERV}}:required;length[1~2048, true]" placeholder="{{FOR_EXAMPLE}}:com.ztesoft.zsmart.oss.core.pm.AdapterPlugin">
+		                            <span class="input-group-addon js-adapter-btn"><i class="fa fa-cog"></i></span>
+	                            </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                    
+	                    
+	                    <div class="col-md-12  hide" id="js-adapter-box">
+	                        <div class="wrapper bg-light">
+		                        <div class="m-b-sm overflow-y-h">
+		                            <b>{{ADAPTER_SERV_PARAM_CFG}}</b>
+		                            <a href="#" class="ad-link pull-right js-adapter-param-btn" ><i class="fa fa-plus"></i> {{COMMON_ADD}}</a>
+		                        </div>
+		                        <div class="table-responsive ad-table  m-b-none js-param-grid">
+		                            
+		                        </div>
+	                        </div>
+	                    </div>
+	                
+            	</form>
+            </div>
+            <!--First tab 2-->
+            <div id="js-adapter-wizard-tab2" class="fadeInUp animated tab-pane" style="height:320px;">
+                <div class="m-t-xs">
+                    <div class="col-md-4">
+                        <div class="m-b-sm">
+                        	<b>{{MO_LIST}}</b>
+                        	<a href="#" class="ad-link pull-right js-mo-list-add" style="margin-top:1px">
+                        		<i class="fa fa-plus" ></i> {{COMMON_ADD}}
+                        	</a>
+                        	
+                        	<a href="#" class="ad-link pull-right hide js-mo-list-cancel" style="margin-top:1px">
+                        		<i class="glyphicon glyphicon-remove" ></i> {{COMMON_CANCEL}}
+                        	</a>
+                        	
+                        	<a href="#" class="ad-link pull-right hide js-mo-list-ok" style="margin-top:1px">
+                        		<i class="glyphicon glyphicon-ok" ></i> {{COMMON_OK}}  
+                        	</a>
+                        </div>
+                        <div class="js-mo-list-seled-div" >
+	                        <ul class="list-group group-list m-b-none js-mo-list-ul" >
+	                            
+	                        </ul>
+                        </div>
+                        <div class="ad-list-plus hide js-mo-list-seling-div">
+						    <div class="ad-group-hack">
+						    	<div class="search-group" style="width:100%;">
+			                        <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+			                        <input type="text" class="ad-theme-search form-control js-mo-list-seling-search"  style="width:90%;">
+			                        <input type="checkbox" class="js-mo-list-seling-all" style="position: absolute;top: 2px;right: 0px;z-index:11">
+			                    </div>
+						    	
+						        <div class="form-group js-mo-list-seling-item">
+						            
+						        </div>
+						    </div>
+						</div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group">
+	                        <div class="m-b-sm"><b>{{DETAIL_CFG}}({{PLEASE_SEL_MO}})</b></div>
+	                        <div class="ad-pcent overflow-y-h js-adapter-map-detail">
+		                        <div class="form-group required">
+		                        	<div class="col-md-8 no-padding">
+			                            <label class="control-label">{{MODEL_PHY}}</label>
+			                            <input name="MODEL_CODE" class="form-control" data-rule="{{MODEL_CODE}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+			                        </div>
+			                        <div class="col-md-4 no-padding">
+			                        	<label class="control-label">{{GRANU}}</label>
+			                            <input name="GRANU" class="form-control" data-rule="{{GRANU}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+			                        </div>
+		                        </div>
+		                        <div class="form-group">
+		                        	<label class="control-label">{{DATA_MAP_SQL}}</label>
+			                    	<div class="wizard">
+					                    <div class="tabs-pill ui-tabs js-adapter-map-tab">
+					                        <ul class="ui-tabs-nav js-adapter-map-ul">
+					                            
+					                        </ul>
+					                        <div class="m-t-sm tab-content js-adapter-map-content">
+						                        
+					                        </div>
+					                    </div>
+					                </div>
+		                        </div>		
+	                        </div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</div>
+</div>
+</div>
+
+<div class="modal-footer">
+	<div class="col-md-12">
+    <button class="btn btn-default pull-left js-adapter-previous-btn" data-toggle="tab">{{PREVIOUS}}</button>
+    <button class="btn btn-success js-adapter-next-btn"  data-toggle="tab">{{NEXT}}</button>
+    </div>
+</div>

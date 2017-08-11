@@ -1,0 +1,83 @@
+<form class="form-horizontal clearfix js-model-busi-detail-form">	
+<!-- 1 -->
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_BUSI_NAME}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="MODEL_BUSI_NAME" class="form-control" maxLength="128" data-rule="{{MODEL_BUSI_NAME}}:required;length[1~128, true]">
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label" title="{{CODE_FORMAT}}">{{MODEL_BUSI_CODE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div style="width:15%;float:left;" class="js-code-prefix-div">
+				<input name="CODE_PREFIX" class="form-control" style="text-align:center;border-right:0px;" readonly title="{{CODE_PREFIX}}" >
+			</div>
+			<div  style="width:85%;float:right;" class="js-mo-code-div">
+				<input name="MODEL_BUSI_CODE" maxLength="128" class="form-control js-mo-code" title="{{MODEL_BUSI_CODE}}" data-rule="{{MODEL_BUSI_CODE}}:required;length[1~128, true];^\w+$">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 2 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EFF_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EFF_TIME" data-rule="{{EFF_DATE}}:required;match[lt, EXP_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{EXP_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EXP_TIME" data-rule="{{EXP_DATE}}:match[gt,EFF_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 4 -->		
+<div class="col-md-12">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_PHY}}</label>
+		</div>
+		<div class="col-md-12">
+			<input class="form-control" name="MODEL_PHY_CODE" data-rule="{{MODEL_PHY}}:required" placeholder="{{COMMON_PLS_SEL}}" />
+		</div>
+	</div>
+</div>
+
+
+<!-- 6 -->		
+<div class="col-md-12">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{COMMON_REMARK}}</label>
+		</div>
+		<div class="col-md-12">
+			<textarea name="COMMENTS" class="form-control" data-rule="{{COMMON_REMARK}}:length[1~512, true]"></textarea>
+		</div>
+	</div>
+</div>
+	
+</form>	

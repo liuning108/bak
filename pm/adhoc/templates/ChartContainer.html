@@ -1,0 +1,149 @@
+<!-- -->
+<div id="chart-box" name="{{nodeName}}" style="overflow-y: auto;overflow-x: hidden">
+    <div class="ad-title m-t-sm" id="ad-chart-titlecontainer-{{nodeName}}" style="margin:10px 0 -40px 0">
+        <h4 class="text-center" style="margin-bottom:0px;margin-top:0px;padding-left: 10px;padding-right: 10px" id="ad-chart-title-{{nodeName}}"></h4>
+        <h5 class="text-center text-muted" style="margin-bottom:0px;margin-top:0px;padding-left: 10px;padding-right: 10px" id="ad-chart-subtitle-{{nodeName}}"></h5>
+        <!--对比分析组件-->
+        <div class="pull-right" id="ad-chart-compareanalysis-container"
+             style="margin-bottom:0px;margin-top:0px;padding-left: 10px;padding-right: 0px;width:360px">
+            <div class="row">
+                <div class="col-md-4" style="width: 78px;padding-top:5px">
+                    <label class="checkbox-inline"><input type="checkbox">Contrast</label>
+                </div>
+                <div class="col-md-3" style="padding-left:15px">
+                    <!--对比分析指标选择-->
+                    <select id="ad-compareanalysis-kpisel" style="height:27px;width: 75px">
+
+                    </select>
+                </div>
+                <div class="input-group col-md-5" style="width: 185px">
+                    <input type="text" class="form-control" id="ad-compareanalysis-timesel" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ad-gridcfg-container-{{nodeName}}" class="ad-tab-btn m-t-md" style="display: none;padding-left: 10px;padding-right: 10px">
+        <ul class=" nav nav-tabs ">
+            <li id="ad-datafilter-li-{{nodeName}}" class="active"><a data-toggle="tab" id="ad-datafilter-btn-{{nodeName}}" href="#ad-datafilter-box" aria-expanded="false"><i class="fa fa-filter"></i> Data Filter</a></li>
+            <li id="ad-showdisplayfield-li-{{nodeName}}"><a data-toggle="tab" id="ad-showdisplayfield-btn-{{nodeName}}" href="#ad-displayfield-box" aria-expanded="false"><i class="fa fa-code"></i> Display Field</a></li>
+            <li id="ad-sort-li-{{nodeName}}"><a data-toggle="tab" id="ad-sort-btn-{{nodeName}}" href="#ad-sort-box" aria-expanded="false"><i class="fa fa-sort-amount-desc"></i> Sort</a></li>
+        </ul>
+        <div id="ad-grid-filter-container" class="border wrapper m-t-sm  tab-content">
+            <!-- 数据筛选 -->
+            <div id="ad-datafilter-box-{{nodeName}}" class="tab-pane active in">
+                <div class="row">
+                    <form class="form-horizontal clearfix ad-group-hack">
+                        <div class="col-md-7" id="ad-filter-container">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Filter Type：</label>
+                                <div class="col-md-6 ">
+                                    <label class="checkbox-inline"><input type="checkbox" checked>Condition Filter</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Conditions：</label>
+                                <div class="col-md-8 ">
+                                    <select id="ad-datafilter-filterconditype-{{nodeName}}" class="form-control" style="width: 120px">
+                                        <option value="AND" selected="selected">All</option>
+                                        <option value="OR">Any</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- -->
+                            <div class="form-group">
+                                <div class="col-md-2 col-md-offset-2">
+                                    <select id="ad-dimfilter-fieldsel-{{nodeName}}" class="form-control" style="width: 120px">
+                                    </select>
+                                </div>
+                                <div class="col-md-3" style="padding-left:20px;">
+                                    <select id="ad-dimfilter-fmtsel" class="form-control" style="width:173px">
+                                        <option value="INCLUDE">Include</option>
+                                        <option value="EXCLUDE">Exclude</option>
+                                    </select>
+                                    <select id="ad-kpifilter-fmtsel" class="form-control" style="width:173px;display: none">
+                                        <option value="EQ">Equal to</option>
+                                        <option value="NEQ">Not equal to</option>
+                                        <option value="GT">Greater than</option>
+                                        <option value="LW">Less than</option>
+                                        <option value="GE">Greater than or equal to</option>
+                                        <option value="LE">Less than or equal to</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="col-md-11">
+                                        <input id="ad-dimfilter-condivalue" disabled style="width: 150px" type="text" class="form-control">
+                                        <input id="ad-kpifilter-condivalue" style="display:none;width: 150px" type="text" class="form-control">
+                                    </div>
+                                    <div class="pull-right" style="width: 10px">
+                                        <button type="button" id="ad-dimfilter-condiselect" class="btn btn-ico" title=""><i class="fa fa-pencil"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-md-1" style="padding-left:15px">
+                                    <button type="button" id="ad-dimfilter-plus" class="btn btn-ico" title=""><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="ad-dimfilter-confirm" class="btn btn-default"
+                                            type="button">Ok
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- 显示字段 -->
+            <div id="ad-displayfield-box-{{nodeName}}" class="tab-pane">
+                <div id="ad-displayfield-container-{{nodeName}}">
+
+                </div>
+                <div>
+                    <button id="ad-displayfield-confirm" class="btn btn-default"
+                            type="button">Ok
+                    </button>
+                </div>
+            </div>
+            <!-- 排序 -->
+            <div id="ad-sort-box-{{nodeName}}" class="tab-pane">
+                <div class="row">
+                    <form class="form-horizontal clearfix ad-group-hack">
+                        <div class="col-md-5" id="ad-sort-container">
+                            <!-- -->
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Sort：</label>
+                                <div class="col-md-3">
+                                    <select id="ad-sortbox-fieldselect" class="form-control">
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select id="ad-sortbox-typeselect" class="form-control">
+                                        <option value="">Default</option>
+                                        <option value="ASC">Ascending</option>
+                                        <option value="DESC">Descending</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="button" id="ad-sortbox-plus" class="btn btn-ico" title=""><i class="fa fa-plus"></i></button>
+                                </div>
+                                <div class="col-md-1">
+                                    <button id="ad-sortbox-confirm" class="btn btn-default"
+                                            type="button">Ok
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div id="ad-chart-container-{{nodeName}}" style="height: 250px"/>
+        <div id="ad-grid-drill-{{nodeName}}" style="height: 250px;display: none">
+            <div id="ad-grid-drill-content-{{nodeName}}" style="height: 250px;">
+            </div>
+        </div>
+        <div id="ad-grid-container-{{nodeName}}" style="height: 250px;display: none"/>
+    </div>
+</div>

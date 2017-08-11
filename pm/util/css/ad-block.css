@@ -198,13 +198,21 @@ body {
 .container_right{
   margin-left: -5px !important;
 }
+
+.panel_shadow > .panel-heading{
+  padding: 0px
+}
+
+
 /*-----Ad-Hoc Block-----*/
 .ad-left{
   width: 220px !important;
   background: #f0f3f4;
 
 }
-
+.ad-left-md{
+  width: 250px 
+}
 .tabs__content > div > .vbox,
 .tabs__content .comprivroot > section{
     position: absolute;
@@ -213,6 +221,12 @@ body {
     bottom: 0px;
     z-index: 0
 }
+  /* 引入页面Hack*/
+  
+  .tabs__content .comprivroot ~ .comprivroot .comprivroot .comprivroot > section{
+      top: 380px;
+  }
+
 .hbox .col {
     display: table-cell;
     float: none;
@@ -284,16 +298,19 @@ aside  ~ section >section >header{
   background-color: #f9f9f9;
 }
 
-.ad-left .ad-title{
+.ad-left .ad-title,
+.ad-left-md .ad-title{
   padding: 15px 10px ;
   background: #edf1f2;
 }
-.ad-left .ad-title h3{
+.ad-left .ad-title h3,
+.ad-left-md .ad-title h3{
   font-size: 18px;
   margin: 0px;
   font-weight: 300;
 }
-.ad-left .ad-title .ad-btn{
+.ad-left .ad-title .ad-btn,
+.ad-left-md .ad-title .ad-btn{
   float: left;
   margin-top: -5px;
 }
@@ -301,6 +318,8 @@ aside  ~ section >section >header{
   font-size: 14px;
   font-weight: bold;
   margin: 7px 20px 7px 0 ;
+  display: inline-block;
+  
 }
 .ad-tree-title{
   font-weight: bold;
@@ -317,6 +336,9 @@ aside  ~ section >section >header{
 .ad-tree .ztree li a:hover{
   background: transparent;
   color: #2c81c6
+}
+.ad-title ~ .ad-tree .ui-jqgrid-bdiv{
+  border-top:0px;
 }
 .ad-tree  li .ico_ind{
   width: 20px;
@@ -526,23 +548,19 @@ aside  ~ section >section >header{
   margin-bottom: 10px
 }
 .ad-modal-box .m-block{
-  height: 230px;
+  min-height: 230px;
   overflow: auto;
   box-sizing: border-box;
   padding-bottom: 30px;
 }
 
-.ad-modal-box.right.fade.in{
-display: block;
-}
-.ad-modal.right.fade.in{
-display: block;
-opacity: 0.5
-}
 .modal-body {
     position: relative;
     background-color: #F0F2F3;
     padding: 15px 20px 0px;
+}
+.modal-footer{
+  padding: 8px 10px
 }
 .ad-close{
   position: absolute;
@@ -551,16 +569,13 @@ opacity: 0.5
   cursor: pointer;
   
 }
-.modal-info .modal-body,
-.modal-info .modal-footer{
-  background: #fff
-}
+
 
 
 /*-----Chart To Choose-----*/
 .pd{
     word-wrap: break-word;
-    padding-right: 8px;
+    
     display: inline-block;
     margin-bottom: 10px
 }
@@ -591,43 +606,43 @@ opacity: 0.5
     border: 2px solid #039cfd;
 }
 /*.pd li a.a1{
-  background-position: 0px 0px;
+  background-position: -2px 0px;
 }
 .pd li a.a2{
-  background-position: 0px -60px;
+  background-position: -2px -60px;
 }
 .pd li a.a3{
-  background-position: 0px -120px;
+  background-position: -2px -120px;
 }
 .pd li a.a4{
-  background-position: 0px -180px;
+  background-position: -2px -180px;
 }
 .pd li a.a5{
-  background-position: 0px -240px;
+  background-position: -2px -240px;
 }
 .pd li a.a6{
-  background-position: 0px -300px;
+  background-position: -2px -300px;
 }
 .pd li a.a7{
-  background-position: 0px -360px;
+  background-position: -2px -360px;
 }
 .pd li a.a8{
-  background-position: 0px -420px;
+  background-position: -2px -420px;
 }
 .pd li a.a9{
-  background-position: 0px -480px;
+  background-position: -2px -480px;
 }
 .pd li a.a10{
-  background-position: 0px -540px;
+  background-position: -2px -540px;
 }
 .pd li a.a11{
-  background-position: 0px -600px;
+  background-position: -2px -600px;
 }
 .pd li a.a12{
-  background-position: 0px -660px;
+  background-position: -2px -660px;
 }
 .pd li a.a13{
-  background-position: 0px -720px;
+  background-position: -2px -720px;
 }*/
 
 .pd li a.a1{
@@ -673,6 +688,10 @@ opacity: 0.5
 
 
 /*-----Chart Region-----*/
+.chart-args ~ .row{
+  min-height: 75%
+}
+
 .filter-layer {
     width: 100%;
     padding: 20px 14px 12px;
@@ -754,6 +773,7 @@ opacity: 0.5
     width: 175px;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 80%\9
 }
 .chartBox {
     position: absolute;
@@ -920,7 +940,6 @@ a{
 
 
 /*通用*/
-.panel-body{padding: 10px!important }/* 公用PM特定*/
 .aside-xs{width:48px;}
 .aside{width:180px;}
 .aside-sm{width:150px;}
@@ -1176,6 +1195,14 @@ hr{margin: 5px 0 10px;border-top-color: #dee5e7}
 }
 
 
+.pop-sorthack li span{
+  right: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
 .ad-bar{
   line-height: 32px;
     position: absolute;
@@ -1190,86 +1217,48 @@ hr{margin: 5px 0 10px;border-top-color: #dee5e7}
 }
 
 
-/*-----drill-----*/
-.ad-drill-bg{
-  background: url(img/network-topology.png);
-  height: 100%;
-  width: 100%
+
+
+/*R8 HACK PM */
+
+.panel-body{padding: 10px!important }/* 公用PM特定*/
+.tabs.ui-tabs .ui-tabs-panel .col-md-9, .tabs.ui-tabs .ui-tabs-panel .col-md-3{
+  padding-left: 10px;
 }
-.ad-drill-cog{
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 220px;
-  padding: 10px;
-  background: #fff;
-  box-shadow: 0px 1px 3px 0px #ccc
-}
-.ad-drill-tool{
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  height: 36px;
-  width: 180px;
-  background: #fff;
-  box-shadow: 0px 1px 3px 0px #ccc
-}
-.ad-drill-tool a{
-  height: 36px;
-  width: 36px;
-  display: inline-block;
-  float: left;
-  text-align: center;
-  line-height: 36px;
-  font-size: 14px;
-}
-.ad-drill-tool a:hover{
-  background: #42a5f5;
-  color: #fff
-}
-/*-----Return Top-----*/
-.go-top{
-    position: fixed !important;
-    right: 15px;
-    bottom: 20px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 50%;
-    line-height: 40px;
-    text-align: center;
-    transition: all 0.6s ease 0s;
-    z-index: -1
-}
-.go-top.show {
-    right: 10px;
-    opacity: 1;
-    visibility: visible;
-    z-index: 99;
-    bottom: 20px;
-    
+.tabs.ui-tabs .ui-tabs-panel .col-md-3 {
+    padding-right: 10px;
 }
 
-.go-top i {
-    font-size: 14px;
-    color: #333;
-    padding-bottom: 3px;    
+
+/*POP*/
+.ui-dialog.modal-info .modal-header, 
+.ui-dialog.modal-confirm .modal-header, 
+.ui-dialog.modal-success .modal-header, 
+.ui-dialog.modal-warning .modal-header, 
+.ui-dialog.modal-danger .modal-header,
+.ui-dialog.modal-confirm .modal-body,
+.ui-dialog.modal-confirm .modal-footer{
+  background-color: #F0F2F3;
 }
 
-.go-top:hover,
-.go-phone:hover {
-    background-color: #42a5f5;
-    border-color: #42a5f5
+.ui-dialog.modal-info, 
+.ui-dialog.modal-confirm,
+.ui-dialog.modal-success,
+.ui-dialog.modal-danger {
+    border: 0px;
+    padding: 0px;
 }
-
-.go-top:hover i,
-.go-phone:hover i {
-    color: #fff;
+.ui-dialog.modal-info .modal-title, 
+.ui-dialog.modal-confirm .modal-title{
+ color: #039cfd
 }
-
-.go-phone{
-    bottom: 240px;
-    z-index: 99
+.ui-dialog.modal-info .glyphicon, 
+.ui-dialog.modal-confirm .glyphicon{
+  color: #039cfd;
+}
+.ui-dialog.modal-info .glyphicon, 
+.ui-dialog.modal-confirm .glyphicon,
+.ui-dialog.modal-success .glyphicon,
+.ui-dialog.modal-danger .glyphicon{
+  font-size: 18px
 }

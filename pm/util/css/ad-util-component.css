@@ -11,8 +11,17 @@
 }
 
 
-
-
+.compute-table.table > tbody > tr > td {
+     border-top: 1px solid #ddd;
+}
+.compute-table.table .notnull_checkbox,
+.compute-table.table .output_checkbox{
+    margin: 0px
+}
+.compute-table.table .form-inline{
+    text-align: center;
+    
+}
 .ad-util-tab .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active > a,
 .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active > a:hover,
 .ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active > a:focus {
@@ -21,6 +30,11 @@
     border-style: solid;
     color: #fff;
     background-color: #039cfd;
+    
+}
+
+.ad-util-tab .ui-tabs .ui-tabs-nav li a{
+    padding:5px 8px;
 }
 
 .ad-util-tab .item {
@@ -118,18 +132,22 @@
 
 
 .card{
-box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    background-color: #f3f3f3;
-    cursor: pointer;
 
+    transition: 0.3s;
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 130px;
+    text-align: center;
+    background: #efefef;
+    line-height: 26px
 }
 
 .card_input{
    border: none;
    background-color: #2DC3E8;
    color: #fff;
-   width: 40px !important;
 }
 
 .card_input:hover{
@@ -139,13 +157,12 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 .card_name {
   font-weight: bold;
   position: relative;
-  left: 20%;
+  margin-bottom: 0px
 }
 
 .font_label{
     font-weight: bold;
     text-align: center;
-    margin-left: 45%
 }
 
 .null_flag{

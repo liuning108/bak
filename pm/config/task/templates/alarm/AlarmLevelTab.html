@@ -1,0 +1,40 @@
+<div id="demo-tabs-box-{{alarm-level}}" tabs >
+	<div class="row">
+	<div class="col-md-12">
+        <div class="form-group">
+            <label class="control-label">{{ALARM_RULE_SET}}</label>
+            <input id="ALARM_RULE_SET_{{alarm-level}}" name='ALARM_LEVEL' value='{{alarm-level}}' class="toggle-switch js-alarm-rule-set" type="checkbox">
+            <label for="ALARM_RULE_SET_{{alarm-level}}"></label>
+        </div>
+    </div>
+	<div class="js-alarm-rule-div hide">
+        <div class="col-md-6">
+            <div class="form-group required">
+                <label class="control-label">{{ALARM_CODE}}</label>
+                <input name="ALARM_CODE" class="form-control" data-rule="{{ALARM_CODE}}:required;length[1~256, true]" placeholder="{{FOR_EXAMPLE}}:XXX-XXXX">
+            </div>
+        </div>
+    	<div class="col-md-12 no-padding">
+            <div class="wrapper"><b>{{TASK_DETAIL}}</b></div>
+	    	<div class="" style="padding-left: 20px;">
+	    		<ul class="ad-timeline ">
+	                <li class="tl-header">
+	                    <div class="btn btn-info"><i class="fa fa-arrow-circle-down"></i></div>
+	                </li>
+	                <div class="js-alarm-step-div">
+	                	
+	                </div>               
+	                <li class="tl-item js-alarm-add-li">
+	                    <div class="tl-wrap br-light">
+	                        <div class="btn btn-primary tl-plus js-alarm-add-step" style="border-radius:50%" id="testttt"><i class="fa fa-plus"></i> </div>
+	                        <div class="tl-content">
+	                            <a href="#" class="ad-link js-alarm-add-step">{{TASK_DETAIL_ADD}}</a>
+	                        </div>
+	                    </div>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</div>
+	</div>
+</div>

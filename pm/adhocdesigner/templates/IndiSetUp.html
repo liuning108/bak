@@ -1,0 +1,78 @@
+<div class="modal-header">
+	<h4 class="modal-title">Kpi Field Settings</h4>
+</div>
+<!--设置字段数值显示格式-->
+<div class="modal-body">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<div class="form-group col-md-4">
+				<label class="radio-inline">
+					<input type="radio" id="ad-indisetup-number" name="displaytype" value="0">Display as numeric
+				</label>
+			</div>
+			<div class="form-group col-md-8 pull-left">
+				<label class="radio-inline">
+					<input type="radio" id="ad-indisetup-percent" name="displaytype" value="1">Display as percentage
+				</label>
+			</div>
+			<div class="ad-tolbad">
+				<form class="form-horizontal clearfix">
+					<div class="row">
+						<div class="col-md-4 pull-left">
+							<div class="form-group">
+								<label class="col-md-7 col-sm-7 control-label" style="margin-left:8px">Precision：</label>
+								<div class="col-md-5 col-sm-5" style="margin-left:-10px">
+									<input id="ad-indisetup-number-preci" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-5 pull-left">
+							<div class="form-group">
+								<label id="ad-indisetup-chk" class="checkbox-inline" style="margin-left:13px"><input type="checkbox" id="ad-indisetup-thousands-chk">
+									Use thousands of separators</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<HR>
+			<div class="ad-tolbad">
+				<form class="form-horizontal clearfix">
+					<div class="row">
+						<div class="col-md-5 pull-left">
+							<div class="form-group">
+								<label class="checkbox-inline" style="margin-left:20px"><input type="checkbox" id="ad-indisetup-unit">
+									Display kpi + unit</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<HR>
+			<div class="ad-tolbad">
+				<div class="form-group">
+					<label>Set the current field alias</label>
+					<input type="text" id="ad-indisetup-alias" placeholder="" class="input-sm form-control">
+				</div>
+				<div class="form-group">
+					<label>Calculate format</label>
+					<textarea name="ERROR_DESC" id="ad-indisetup-format" rows="2" style="height:60px;" class="form-control n-valid"></textarea>
+				</div>
+				<div class="form-group">
+					<label>Field describe</label>
+					<textarea name="ERROR_DESC" id="ad-indisetup-desc" rows="2" style="height:60px;" class="form-control n-valid"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="btn-slm-slimgr-ok" autofocus>
+			{{SLA_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="btn-slm-slimgr-cancel">
+			{{SLA_CANCEL}}
+		</button>
+	</div>
+</div>

@@ -1,0 +1,79 @@
+<li class="tl-item js-collect-step-li-item">
+	<form class=" clearfix" step_no='1' step_name='CFG_COLLECT'>	
+		<div class="tl-wrap br-light">
+		    <div class="btn btn-default tl-plus js-collect-step-seq" style="border-radius:50%">1</div>
+		    <div class="tl-content">
+		        <div class="m-b-sm">{{MO_LIST}}<a href="#" class="pull-right" style="margin-top:1px"><i class="fa fa-close js-collect-del-step"></i> </a></div>
+		        <div class="panel-body border">
+		        	<div class="row">
+		        	<div class="col-md-8">
+		                <div class="form-group required">
+		                    <label class="control-label">{{FTP_PATH}}</label>
+		                    <input name="FTP_PATH" class="form-control" data-rule="{{FTP_PATH}}:required;length[1~256, true]" placeholder="/home/">
+		                </div>
+		            </div>
+		            <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label">{{IS_COMPRESS}}</label>
+		                    <div class="input-group">
+			                    <input id="_IS_COMPRESS_{{__seq__}}" name="IS_COMPRESS" class="toggle-switch" type="checkbox" checked="">
+			                    <label for="_IS_COMPRESS_{{__seq__}}"></label>
+			                </div>
+		                </div>
+		            </div>
+		            
+		            <div class="col-md-8">
+		                <div class="form-group required">
+		                    <label class="control-label">{{LOCATION_PATH}}</label>
+		                    <input name="LOCATION_PATH" class="form-control" data-rule="{{LOCATION_PATH}}:required;length[1~256, true]" placeholder="/home/">
+		                </div>
+		            </div>
+		            
+		            <div class="col-md-4">
+		                <div class="form-group">
+		                    <label class="control-label">{{IS_DEL}}</label>
+		                    <div class="input-group">
+			                    <input id="_IS_DEL_{{__seq__}}" name="IS_DEL" class="toggle-switch" type="checkbox" checked="">
+			                    <label for="_IS_DEL_{{__seq__}}"></label>
+			                </div>
+		                </div>
+		            </div>
+		            </div>
+		        </div>
+		        <div class="br-light m-t-sm">
+		            <div class="border wrapper">
+		                	<b>{{MO_LIST}}</b>
+		                	<a href="#" class="ad-link pull-right js-collect-mo-list-add" style="margin-top:1px">
+		                		<i class="fa fa-plus" ></i> {{COMMON_ADD}}
+		                	</a>
+		                	
+		                	<a href="#" class="ad-link pull-right hide js-collect-mo-list-cancel" style="margin-top:1px">
+		                		<i class="glyphicon glyphicon-remove" ></i> {{COMMON_CANCEL}}
+		                	</a>
+		                	
+		                	<a href="#" class="ad-link pull-right hide js-collect-mo-list-ok" style="margin-top:1px">
+		                		<i class="glyphicon glyphicon-ok" ></i> {{COMMON_OK}}  
+		                	</a>
+		                <div class="js-collect-mo-list-seled-div" >
+		                    <ul class="list-group group-list m-b-none js-collect-mo-list-ul" >
+		                        
+		                    </ul>
+		                </div>
+		                <div class="m-t-sm hide js-collect-mo-list-seling-div">
+						    <div class="ad-group-hack">
+						        <div class="search-group" style="width:100%;">
+			                        <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+			                        <input type="text" class="ad-theme-search form-control js-collect-mo-list-seling-search"  style="width:90%;">
+			                        <input type="checkbox" class="js-collect-mo-list-seling-all" style="position: absolute;top: 2px;right: 0px;z-index:11">
+			                    </div>
+						        <div class="form-group js-collect-mo-list-seling-item">
+						            
+						        </div>
+						    </div>
+						</div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</form>
+</li>

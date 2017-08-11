@@ -1,0 +1,95 @@
+	<div class="modal-header">
+		<h4 class="modal-title">组设置</h4>
+	</div>
+	<div class="modal-body">
+		<div class="ad-modal-box">
+		<div class="ad-block">
+
+			<div class="border wrapper m-t-sm  tab-content" style='width:800px'>
+				<div class="row">
+					<div class="col-md-4 b-r">
+						<div class="m-b-sm">
+                        	<b>组</b>
+                        	<a href="#" class="ad-link pull-right js-mo-list-add" style="margin-top:1px">
+                        		<i class="fa fa-plus" ></i> {{COMMON_ADD}}
+                        	</a>
+                        	
+                        	<a href="#" class="ad-link pull-right hide js-mo-list-cancel" style="margin-top:1px">
+                        		<i class="glyphicon glyphicon-remove" ></i> {{COMMON_CANCEL}}
+                        	</a>
+                        	
+                        	<a href="#" class="ad-link pull-right hide js-mo-list-ok" style="margin-top:1px">
+                        		<i class="glyphicon glyphicon-ok" ></i> {{COMMON_OK}}  
+                        	</a>
+                        </div>
+						<div class="clearfix m-t-sm m-block">
+							<ul class="list-group group-list m-b-none js-counter-group-ul">
+								<li class='list-group-item' >DU<div class="listclose"><i class="fa fa-close js-mo-list-close"></i></div></li>
+								<li class='list-group-item' >SU<div class="listclose"><i class="fa fa-close js-mo-list-close"></i></div></li>
+								<li class='list-group-item' >RU<div class="listclose"><i class="fa fa-close js-mo-list-close"></i></div></li>
+							</ul>
+							
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-4 form-group required">
+								<div class="col-md-12">
+									<label class="control-label">Group Name</label>
+								</div>
+								<div class="col-md-12">
+									<input name="EMS_TYPE" class="form-control" data-rule="{{EMS_TYPE}}:required;">
+								</div>
+							</div>
+							<div class="col-md-6 form-group required">
+								<div class="col-md-12">
+									<label class="control-label">Agreement ratio of qualified cells</label>
+								</div>
+								<div class="col-md-12">
+									<input name="EMS_TYPE" class="form-control" data-rule="{{EMS_TYPE}}:required;">
+								</div>
+							</div>
+						</div>
+						<div class="row">
+		                    <div class="col-md-6 b-r">
+		                    	<div class="ad-title">{{SELECT}}</div>
+		                        
+		                        <div class="clearfix m-t-sm m-block">
+		                            <ul id="sortable" class="ui-sortable js-counter-seling-ul" >
+										<!--
+										<li class="ui-sortable-handle">KPI<a href="#" class="js-counter-add" code='' name='KPI'>添加</a></li>
+										-->
+		                            </ul>
+		                            <div class="ad-bar"><a href="#" class="js-counter-add-all">{{ADD_ALL}}</a></div>
+		                        </div>
+		                    </div>
+		                    <div class="col-md-6">
+		                        <div class="ad-title">{{ADDED}}</div>
+		                        
+		                        <div class="clearfix m-t-sm m-block">
+									<ul id="sortable" class="ui-sortable js-counter-seled-ul">
+										<!--
+										<li class="ui-sortable-handle"><span><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span>KPI<a href="#" class="js-counter-del" code='' name='KPI'>删除</a></li>
+										-->
+									</ul>
+									<div class="ad-bar"><a href="#" class="js-counter-del-all">{{COMMON_CLEAR}}</a></div>
+								</div>
+		                    </div>
+		                </div>
+	                </div>
+                </div>
+			</div>
+
+		</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+        <div class="col-md-12 text-right">
+        	<button type="button" class="btn btn_minwidth btn-primary js-ok" autofocus>
+                {{COMMON_OK}}
+            </button>
+            <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+	</div>

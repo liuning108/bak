@@ -1,5 +1,5 @@
 .wizard {
-    padding: 20px;
+    padding: 0px;
 }
 
 .wizard .ui-tabs {
@@ -8,7 +8,11 @@
 }
 
 
-
+.wizard .ui-tabs .ui-tabs-nav{
+    padding: 0px;
+    border-bottom: 0px;
+    background: none
+}
 .wizard .ui-tabs.tabs-pill .ui-tabs-nav li a {
     margin-bottom: 0;
     border: 1px solid #ddd;
@@ -34,6 +38,7 @@
     border-style: solid;
     color: #fff  !important;
     background-color: #039cfd;
+    border: 1px solid #039cfd
 }
 
 .wizard .item {

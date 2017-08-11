@@ -1,0 +1,18 @@
+<div class="btn-group ad-tags" name="{{nodeName}}">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+        <span id="ad-is-as-{{nodeName}}" class="glyphicon glyphicon-sort-by-attributes"></span>
+        <span id="ad-is-des-{{nodeName}}" class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+        &nbsp;<span>{{tagName}}</span>&nbsp;<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left">
+        <li><a href="#" id="ad-indi-setup-btn">Set the field</a></li>
+        <li class="dropdown-submenu" style="display: none">
+            <a>Sorting</a>
+            <ul class="dropdown-menu">
+                <li><a id="ad-is-nosort-{{nodeName}}">Default</a></li>
+                <li><a id="ad-is-ascend-{{nodeName}}">Ascending</a></li>
+                <li><a id="ad-is-descend-{{nodeName}}">Descending</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

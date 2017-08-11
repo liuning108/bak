@@ -2,6 +2,7 @@
  * 指标筛选弹出窗
  */
 define([
+  "oss_core/pm/dashboard/views/DashBoardDetail",
   "oss_core/pm/dashboard/js/html2canvas",
   "oss_core/pm/dashboard/js/Dcharts",
   "oss_core/pm/dashboard/js/echarts-all-3",
@@ -11,14 +12,14 @@ define([
   'css!oss_core/pm/util/css/ad-block.css',
   'css!oss_core/pm/dashboard/assets/bi-common.css',
   'css!oss_core/pm/dashboard/assets/adhoc.css'
-], function(html2canvas, Dcharts, echarts, i18nData, tpl) {
+], function(DetailView, html2canvas, Dcharts, echarts, i18nData, tpl) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     resource: fish.extend({}, i18nData),
     initialize: function(options) {
       this.parentView = options.parentView;
       this.params = options.params;
-      this.currTreeNode=null;
+      this.currTreeNode = null;
     },
     events: {},
 
@@ -492,12 +493,16 @@ define([
           ]
         }
       ];
-      var self =this;
+      var self = this;
       this.treeSetting = {
         "expandAll": true,
         "view": {
-          addHoverDom: function(treenode){ self.addHoverDom(treenode)},
-          removeHoverDom:  function(treenode){self.removeHoverDom(treenode)} ,
+          addHoverDom: function(treenode) {
+            self.addHoverDom(treenode)
+          },
+          removeHoverDom: function(treenode) {
+            self.removeHoverDom(treenode)
+          },
           "selectedMulti": false
         },
         "edit": {
@@ -515,9 +520,15 @@ define([
           }
         },
         "callback": {
-          onClick: function(event, treeNode){self.treeOnClick(event, treeNode)}, //树的点击事件
-          beforeRemove:function(event, treeNode){return self.beforeRemove(event, treeNode)},
-          onRename:function(event, treeNode, isCancel) {return self.onRename(event, treeNode, isCancel)},
+          onClick: function(event, treeNode) {
+            self.treeOnClick(event, treeNode)
+          }, //树的点击事件
+          beforeRemove: function(event, treeNode) {
+            return self.beforeRemove(event, treeNode)
+          },
+          onRename: function(event, treeNode, isCancel) {
+            return self.onRename(event, treeNode, isCancel)
+          }
         },
         "fNodes": datas
       }
@@ -526,113 +537,133 @@ define([
 
     },
 
-    treeOnClick: function (event, treeNode) {
-        this.treeOnClickFunc(treeNode);
-        this.currTreeNode = treeNode;
+    treeOnClick: function(event, treeNode) {
+      this.treeOnClickFunc(treeNode);
+      this.currTreeNode = treeNode;
     },
     //树点击事件
     treeOnClickFunc: function(treeNode) {
-        this.CLASS_TYPE = treeNode.CLASS_TYPE;
-        this.CLASS_NO = treeNode.id;
-        this.nodeType = treeNode.nodeType;
-        // 当选中普通目录时 新建按钮可用
-        if(this.CLASS_TYPE!='00' && this.CLASS_TYPE!='01' && this.nodeType!=-1){
-            this.$('#ad-addtopic-btn').removeAttr("disabled");
-        }else{
-            this.$('#ad-addtopic-btn').attr('disabled', true);
-        }
-        if(this.nodeType == 1){
-            this.previewTopic(treeNode.id, treeNode.name);
-        }else{
-            this.$("#ad-topic-tabs").tabs("remove",this.currPopoverTopicNo);
-            this.$('#ad-topic-btngroup').hide();
-        }
-    },
-    previewTopic:function(id, name) {
-        alert(name)
-    },
-    beforeRemove: function (event, treeNode) {
-        var zTree = this.$el.find("#dashboardTree");
-        zTree.tree("selectNode", treeNode);
-        var catalogId = treeNode.id;
-        // 验证是否包含主题
-        var isExist = treeNode.children.length>0;
-        if(isExist){
-            fish.toast('info', 'There is a topic in this catalog that cannot be deleted');
-        }else {
-             fish.confirm('Are you sure you want to delete the catalog？').result.then(this.wrap(function () {
-                this.deleteCatalogFunc(zTree,treeNode);
-            }));
-        }
-        return false;
-
-    },
-    deleteCatalogFunc:function(zTree,treeNode) {
-         zTree.tree("removeNode", treeNode);
-    },
-    addHoverDom:function(treeNode) {
-
-      if ( this.$("#" + treeNode.tId + "_add").length > 0 || this.$("#" + treeNode.tId + "_cfg").length > 0){
-          return;
+      this.CLASS_TYPE = treeNode.CLASS_TYPE;
+      this.CLASS_NO = treeNode.id;
+      this.nodeType = treeNode.nodeType;
+      // 当选中普通目录时 新建按钮可用
+      if (this.CLASS_TYPE != '00' && this.CLASS_TYPE != '01' && this.nodeType != -1) {
+        this.$('#ad-addtopic-btn').removeAttr("disabled");
+      } else {
+        this.$('#ad-addtopic-btn').attr('disabled', true);
       }
-      if(treeNode.nodeType==-1) {
-            var sObj = this.$el.find("#" + treeNode.tId + "_span");
-          var addStr = "<span class='button add' id='" + treeNode.tId + "_add' title='新建目录' onfocus='this.blur();'></span>";
-          sObj.after(addStr);
-          // 绑定事件message: that.res.SA_NAME_C
-          var btn = this.$el.find("#" + treeNode.tId + "_add");
-          if (btn) {
-              btn.bind("click",function() {
-                var zhTree= $("#dashboardTree");
-                 //var treeInstance = $("#dashboardTree").tree("instance");
+      if (this.nodeType == 1) {
+        this.previewDashBoard(treeNode.id, treeNode.name);
+      } else {
+        this.$("#ad-dashboard-tabs").tabs("remove", this.currPopoverTopicNo);
+        this.$('#').hide();
+      }
+    },
+    previewDashBoard: function(id, name) {
+      this.$("#ad-dashboard-tabs").tabs("remove", 1);
+      this.$("#ad-dashboard-tabs").tabs("add", {
+        id: id,
+        active: true
+      });
+      this.$("[href=#" + id + "]").html("DeashBoard");
+      this.$("#" + id).height(this.leftTreeHeight + 1);
+      if (this.detailView) {
+        this.detailView.remove();
+        $("#" + id).empty();
+      }
+     //加载详情
+      this.detailView = new DetailView({
+        'el': $("#" + id),
+        'parentView': self,
+         model:{
+            'id' : id,
+            'name':name
+         }
+      }).render();
 
-                 var zhNode = zhTree.tree("getNodeByTId", treeNode.tId);
-                 var newNode = {
-                    id: -999,
-                    pId: treeNode.id,
-                    name: "",
-                    CLASS_TYPE: '02',
-                    children:[],
-                 };
-                 zhTree.tree("addNodes", zhNode, newNode);
+    },
+    beforeRemove: function(event, treeNode) {
+      var zTree = this.$el.find("#dashboardTree");
+      zTree.tree("selectNode", treeNode);
+      var catalogId = treeNode.id;
+      // 验证是否包含主题
+      var isExist = treeNode.children.length > 0;
+      if (isExist) {
+        fish.toast('info', 'There is a topic in this catalog that cannot be deleted');
+      } else {
+        fish.confirm('Are you sure you want to delete the catalog？').result.then(this.wrap(function() {
+          this.deleteCatalogFunc(zTree, treeNode);
+        }));
+      }
+      return false;
 
-                 newNode = $("#dashboardTree").tree("getNodeByParam", "id", -999, zhNode);
-                 zhTree.tree("editName", newNode);
-              });
-          }
+    },
+    deleteCatalogFunc: function(zTree, treeNode) {
+      zTree.tree("removeNode", treeNode);
+    },
+    addHoverDom: function(treeNode) {
+
+      if (this.$("#" + treeNode.tId + "_add").length > 0 || this.$("#" + treeNode.tId + "_cfg").length > 0) {
+        return;
+      }
+      if (treeNode.nodeType == -1) {
+        var sObj = this.$el.find("#" + treeNode.tId + "_span");
+        var addStr = "<span class='button add' id='" + treeNode.tId + "_add' title='新建目录' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        // 绑定事件message: that.res.SA_NAME_C
+        var btn = this.$el.find("#" + treeNode.tId + "_add");
+        if (btn) {
+          btn.bind("click", function() {
+            var zhTree = $("#dashboardTree");
+            //var treeInstance = $("#dashboardTree").tree("instance");
+
+            var zhNode = zhTree.tree("getNodeByTId", treeNode.tId);
+            var newNode = {
+              id: -999,
+              pId: treeNode.id,
+              name: "",
+              CLASS_TYPE: '02',
+              children: []
+            };
+            zhTree.tree("addNodes", zhNode, newNode);
+
+            newNode = $("#dashboardTree").tree("getNodeByParam", "id", -999, zhNode);
+            zhTree.tree("editName", newNode);
+          });
+        }
       }
 
     },
-    onRename: function(event, treeNode, isCancel){
-        // 表示新增
-        if (treeNode.id === -999) {
-            // 调用服务新增
-            this.addCatalogFunc(treeNode, true);
-        } else {
-            // 编辑目录名称
-            this.modCatalogFunc(treeNode);
-        }
+    onRename: function(event, treeNode, isCancel) {
+      // 表示新增
+      if (treeNode.id === -999) {
+        // 调用服务新增
+        this.addCatalogFunc(treeNode, true);
+      } else {
+        // 编辑目录名称
+        this.modCatalogFunc(treeNode);
+      }
     },
-    addCatalogFunc:function() {
-              alert("addCatalogFunc")
+    addCatalogFunc: function() {
+      alert("addCatalogFunc")
     },
 
-    modCatalogFunc:function() {
+    modCatalogFunc: function() {
       alert("modCatalogFunc")
     },
-    removeHoverDom:function(treeNode) {
-      this.$el.find("#"+treeNode.tId + "_add").unbind().remove();
-      this.$el.find("#"+treeNode.tId + "_cfg").unbind().remove();
+    removeHoverDom: function(treeNode) {
+      this.$el.find("#" + treeNode.tId + "_add").unbind().remove();
+      this.$el.find("#" + treeNode.tId + "_cfg").unbind().remove();
     },
 
-    showRemoveBtn:function(treeNode){
-      var catalogType=null;
+    showRemoveBtn: function(treeNode) {
+      var catalogType = null;
       if (treeNode.id == -2 || treeNode.id == -3 || treeNode.nodeType == 1 || treeNode.nodeType == -1) {
-          return false;
+        return false;
       }
       return true;
     },
-    showRenameBtn:function(treeNode) {
+    showRenameBtn: function(treeNode) {
       var catalogType = null;
       if (treeNode.CLASS_TYPE == '02') {
         return true;

@@ -1,0 +1,167 @@
+<form class="form-horizontal clearfix js-measure-detail-form">	
+<!-- 1 -->
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MO_NAME}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="MO_NAME" class="form-control" maxLength="128" data-rule="{{MO_NAME}}:required;length[1~128, true]">
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label" title="{{CODE_FORMAT}}">{{MO_CODE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div style="width:15%;float:left;" class="js-code-prefix-div">
+				<input name="CODE_PREFIX" class="form-control" style="text-align:center;border-right:0px;" readonly title="{{CODE_PREFIX}}" >
+			</div>
+			<div  style="width:85%;float:right;" class="js-mo-code-div">
+				<input name="MO_CODE" maxLength="128" class="form-control js-mo-code" title="{{MO_CODE}}" data-rule="{{MO_CODE}}:required;length[1~128, true];^\w+$">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 2 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EFF_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EFF_TIME" data-rule="{{EFF_DATE}}:required;match[lt, EXP_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{EXP_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EXP_TIME" data-rule="{{EXP_DATE}}:match[gt,EFF_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 3 -->		
+<div class="col-md-3">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MO_TYPE}}</label>
+		</div>
+
+		<div class="col-md-12 pm-checkbox js-mo-type-div">
+			
+		</div>
+	</div>
+</div>
+
+<div class="col-md-3">
+	<div class="form-group">
+		<label class="control-label">&nbsp</label>
+		<div class="col-md-12">
+			<label class="control-label checkbox-inline">
+				<input name="IS_COL_HEADER" value="1" class="form-control" type="checkbox" />{{IS_COL_HEADER}}
+			</label>
+			<label class="control-label checkbox-inline">
+				<input name="IS_QUOT" value="1" class="form-control" type="checkbox" />{{IS_QUOT}}
+			</label>
+		</div>
+	</div>
+</div>
+	
+
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{SEPA_STR}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="SEPA_STR" class="form-control" data-rule="{{SEPA_STR}}:length[1~60, true]">
+		</div>
+	</div>
+</div>
+<!-- 4 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{FILENAME_RULE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input name="FILENAME_RULE_CLASSPATH" class="form-control" data-rule="{{FILENAME_RULE}}:required;length[1~2048, true]" placeholder="{{FOR_EXAMPLE}}:com.ztesoft.zsmart.oss.core.pm.FileNamePlugin">
+			    <span class="input-group-addon js-filename-rule-btn"><i class="fa fa-cog"></i></span>
+			</div>
+			<div class="wrapper bg-light hide js-filename-rule-param-box">
+		        <div class="m-b-sm overflow-y-h">
+		            <b>{{PLUGIN_SERV_PARAM_CFG}}</b>
+		            <a href="#" class="ad-link pull-right js-filename-rule-param-btn"  grid='js-filename-rule-param-grid'><i class="fa fa-plus"></i> {{COMMON_ADD}}</a>
+		        </div>
+		        <div class="table-responsive ad-table  m-b-none js-filename-rule-param-grid">
+		            
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{PROC_RULE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input name="PROC_RULE_CLASSPATH" class="form-control" data-rule="{{PROC_RULE}}:length[1~2048, true]" placeholder="{{FOR_EXAMPLE}}:com.ztesoft.zsmart.oss.core.pm.ProcRluePlugin">
+			    <span class="input-group-addon js-proc-rule-btn"><i class="fa fa-cog"></i></span>
+			</div>
+			<div class="wrapper bg-light hide js-proc-rule-param-box">
+		        <div class="m-b-sm overflow-y-h">
+		            <b>{{PLUGIN_SERV_PARAM_CFG}}</b>
+		            <a href="#" class="ad-link pull-right js-proc-rule-param-btn" grid='js-proc-rule-param-grid'><i class="fa fa-plus"></i> {{COMMON_ADD}}</a>
+		        </div>
+		        <div class="table-responsive ad-table  m-b-none js-proc-rule-param-grid">
+		            
+		        </div>
+		    </div>    
+		</div>
+	</div>
+	
+</div>
+
+
+
+<!-- 6 -->		
+<div class="col-md-12">
+	<div class="form-group">
+		<div class="col-md-6 no-padding">
+			<div class="col-md-12">
+				<label class="control-label">{{MO_NAME_DESC}}</label>
+			</div>
+			<div class="col-md-12">
+				<textarea id="remark-text"  name="MO_NAME_DESC" class="form-control" data-rule="{{MO_NAME_DESC}}:length[1~512, true]"></textarea>
+			</div>
+		</div>
+		<div class="col-md-6 no-padding">
+			<div class="col-md-12">
+				<label class="control-label">{{COMMON_REMARK}}</label>
+			</div>
+			<div class="col-md-12">
+				<textarea name="COMMENTS" class="form-control" data-rule="{{COMMON_REMARK}}:length[1~512, true]"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+	
+</form>	

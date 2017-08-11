@@ -1,0 +1,99 @@
+<div class="comprivroot">
+<section class="vbox js-adapter-left-panel">
+    <section>
+        <section class="hbox stretch">
+            <aside class="ad-left-md b-r">
+                <div class="ad-title b-b js-adapter-left-panel-h3">
+                    <h3 class="m-n font-thin"><a href="#">{{EMS_TYPE}}>{{EMS}}>{{EMS_VER}}</a></h3>
+				</div>
+
+                <!--Tree-->
+                <div class="ad-tree">
+                    <div class="grid comprivroot js-catalog-tree"></div>
+                </div>
+                <!--Tree End-->
+            </aside>
+
+            <!--Right-->
+            <section>
+                <section class="vbox ad-chart-bg js-adapter-right-panel">
+                    <header class="wrapper b-b clearfix">
+                        <div class="ad-title pull-left ">
+                            <h4>{{ADAPTER_LIST}}</h4>
+                        </div>
+						
+                        <div class=" pull-right text-right">
+                            <!--
+                            <div class="btn-group">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                    批量 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-left">
+                                    <li><a href="#">全部</a></li>
+                                    <li><a href="#">正常</a></li>
+                                    <li><a href="#">禁用</a></li>
+                                    <li><a href="#">过期</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="btn-group m-l-sm">
+                                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" type="button">
+                                    状态 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-left">
+                                    <li><a href="#">批量</a></li>
+                                    <li><a href="#">删除</a></li>
+                                    <li><a href="#">禁用</a></li>
+                                    <li><a href="#">启用</a></li>
+                                </ul>
+                            </div>
+							-->
+							<button class="btn btn-primary dropdown-toggle js-adapter-add"  type="button" >
+                            	<i class="fa fa-plus js-adapter-add"></i> {{COMMON_NEW}}
+                            </button>
+                            <button class="btn btn-primary dropdown-toggle js-adapter-copy-add"  type="button">
+                            	<i class="fa fa-plus"></i> {{COPY_NEW}}
+                            </button>
+                            
+                            <!--
+                            <div class="m-l-sm dis-in-block">
+                                <a href="#" class="btn-primary ">
+                                    <i class="fa fa-plus js-adapter-add">{{COMMON_NEW}}</i>
+                                </a>
+                            </div>    
+                            <div class="m-l-sm dis-in-block">
+                                <a href="#" class="btn-primary ">
+                                    <i class="fa fa-plus js-adapter-copy-add">{{COPY_NEW}}</i>
+                                </a>
+                            </div>
+                            -->
+                        </div>
+						
+                        <div class="col-md-4 pull-right">
+                            <div class="input-group search-group pull-left" >
+                               <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                                <input type="text" class="ad-theme-search form-control js-adapter-search-input" placeholder="{{ADAPTER_INPUT}}" >
+                                <span class="input-group-btn">
+                                    <a href="#" class="btn js-adapter-search" title="{{SEARCH}}">{{SEARCH}}</a>
+                                </span>
+                                <span class="input-group-btn">
+                                    <a href="#" class="btn js-adapter-reset" title="{{COMMON_RESET}}">{{COMMON_RESET}}</a>
+                                </span>
+                            </div>
+                        </div>
+                    </header>
+                    <section class="wrapper  p-b-none">
+                        <div class="col-md-12">
+	                        <div class="ad-table ">
+	                            <div class="table-responsive ">
+	                                <div class="grid comprivroot js-catalog-grid"></div>
+	                            </div>
+	                        </div>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+</div>

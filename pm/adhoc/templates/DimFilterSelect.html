@@ -1,0 +1,46 @@
+<div class="modal-header">
+	<h4 class="modal-title">Conditional value selection</h4>
+</div>
+<div class="modal-body">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<!--精确筛选-->
+			<div class="ad-block" id="ad-dimfilter-exact">
+				<div class="row">
+					<div class="col-md-6 b-r">
+						<div class="ad-title">Select {{DIM_NAME}}<a class="pull-right"></a></div>
+						<div class="input-group search-group" style="width:100%">
+							<i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+							<input type="text" id="ad-dimfilter-search" class="ad-theme-search form-control">
+						</div>
+						<div class="clearfix m-t-sm m-block" >
+							<ul id="sortable" name="ad-dimfilter-selectable" style="height:210px">
+
+							</ul>
+							<div class="ad-bar"><a id="ad-dimfilter-addall" href="#">Add All</a></div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="ad-title">Selected<a class="pull-right"></a></div>
+						<div class="clearfix m-t-sm m-block">
+							<ul id="sortable" name="ad-dimfilter-selected" style="height:248px;padding-top: 38px">
+							</ul>
+							<div class="ad-bar">  <a id="ad-dimfilter-removeall" href="#">Clear</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--精确筛选结束-->
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="ad-btn-ok" autofocus>
+			{{SLA_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="ad-btn-cancel">
+			{{SLA_CANCEL}}
+		</button>
+	</div>
+</div>

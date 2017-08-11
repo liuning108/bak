@@ -4,9 +4,10 @@ portal.define([
 	'i18n!oss_core/pm/util/i18n/util',
 	"css!oss_core/pm/util/css/ad-block.css",
 	"css!oss_core/pm/util/css/ad-component.css",
-    "css!oss_core/pm/util/css/ad-util-component.css" 
+    "css!oss_core/pm/util/css/ad-util-component.css",
+    "css!oss_core/pm/util/css/scheduleView.css",
 ],function(utilAction, i18nCommon, i18nPMCommon) {
-	this.sysParavalue = null;  
+	this.sysParavalue = null;
 	this.sysParameter = null;
 	this.parakey={
 		id	:"PARA_ID",
@@ -15,7 +16,7 @@ portal.define([
 		fname:"PARA_F_NAME",
 		desc :"PARA_DESC",
 	};
-	
+
 	return {
 		utilAction:utilAction,
 		i18nCommon:i18nCommon,
@@ -25,7 +26,7 @@ portal.define([
 			var that = this;
 			if(!that.sysParavalue){
 				utilAction.qryParavalue(function(data) {
-					if(data && data.paraList){ 
+					if(data && data.paraList){
 						that.sysParavalue = data.paraList;
 					}
 				},true);
@@ -46,7 +47,7 @@ portal.define([
 			var that = this;
 			if(!that.sysParameter){
 				utilAction.qryParameter(function(data) {
-					if(data && data.paraList){ 
+					if(data && data.paraList){
 						that.sysParameter = data.paraList;
 					}
 				},true);
@@ -84,7 +85,7 @@ portal.define([
         	});
         	return {value:ret};
 		},
-		sysdate:function(type,datetime){//type:date;time 
+		sysdate:function(type,datetime){//type:date;time
 			if(!datetime) datetime = new Date();
 			var ret;
 			switch (type) {
@@ -100,41 +101,41 @@ portal.define([
 			}
 			return ret;
 		},
-		loadEMSTree:function($tree,noVer){ 
+		loadEMSTree:function($tree,noVer){
 			if(!$tree) return false;
 			utilAction.qryEMSInfo(function(data) {
 				var treeData = [];
-				if (data){//emsListÖÐ½«ems_type_codeºÍems_code·ÅÔÚÒ»ÐÐÖÐ·µ»Ø
-						
+				if (data){//emsList中将ems_type_code和ems_code放在一行中返回
+
                     fish.forEach(data.emsList, function(ems) {
-                		
+
                 		var verData = [];
-                		if (!noVer){//ÕÒ³öemsµÄver
-					
-							fish.forEach(data.verList, function(ver) { //±éÀúËùÓÐemsµÄ°æ±¾
+                		if (!noVer){//找出ems的ver
+
+							fish.forEach(data.verList, function(ver) { //遍历所有ems的版本
 		                		if(ver.EMS_CODE == ems.EMS_CODE){
 	                    			verData.push({'CAT_NAME':ver.EMS_VER_NAME,'CAT_CODE':ver.EMS_VER_CODE,'REL_ID':ems.EMS_TYPE_REL_ID+"-"+ver.EMS_VER_CODE,'type':'VER'});
 	                    		}
 		                    }.bind(this));
 						}
-                		
-                		var exists = false 
+
+                		var exists = false
                 		fish.forEach(treeData,function(node,index){
-                    		if(ems.EMS_TYPE_CODE == node.CAT_CODE){//Èç¹ûtreeDataÖÐÒÑ¾­ÓÐÁËemsÐÅÏ¢,ÔòÔÚÆäÏÂ×·¼Óº¢×Ó½Úµã
+                    		if(ems.EMS_TYPE_CODE == node.CAT_CODE){//如果treeData中已经有了ems信息,则在其下追加孩子节点
                     			if(!treeData[index].children) treeData[index].children = [];
-                    			
+
                     			var emsObj = {CAT_NAME:ems.EMS_NAME,CAT_CODE:ems.EMS_CODE,'REL_ID':ems.EMS_TYPE_REL_ID,'type':'EMS',expanded: true};
                     			if(verData.length > 0) emsObj["children"] = verData;
-                    			
+
                     			treeData[index].children.push(emsObj);
                     			exists = true;
                     			return true;
                     		}
                     	});
-		                if(!exists){  //Èç¹ûtreeDataÖÐ»¹Î´ÓÐemsÐÅÏ¢,ÔòÉú³Éems½ÚµãºÍÆäº¢×Ó½Úµã      	
+		                if(!exists){  //如果treeData中还未有ems信息,则生成ems节点和其孩子节点 
                         	var emsObj = {CAT_NAME:ems.EMS_NAME,CAT_CODE:ems.EMS_CODE,'REL_ID':ems.EMS_TYPE_REL_ID,'type':'EMS',expanded: true};
                     		if(verData.length > 0) emsObj["children"] = verData;
-                        	
+
                         	treeData.push(
                         		{CAT_NAME:ems.EMS_TYPE,CAT_CODE:ems.EMS_TYPE_CODE,'REL_ID':ems.EMS_TYPE_CODE,'type':'EMS_TYPE',expanded: true,
                         			children:[emsObj]}
@@ -142,7 +143,7 @@ portal.define([
                         }
                     }.bind(this));
 				}
-				
+
 				$tree.jqGrid("reloadData", treeData);
 				$tree.jqGrid("setSelection", (treeData.length>0)?treeData[0]:null);
 			});
@@ -151,20 +152,25 @@ portal.define([
 			var $el=$(el).tabs(option);
 
 			$el.checked=function(index,flag){
-				var li_array=$el.find('ul[class="ui-tabs-nav"] li')
+				
+				var li_array=$el.find('ul[class*="ui-tabs-nav"] li');
+
 				var li=$(li_array[index]);
 				if (flag==true){
-					var oldcss=li.css('borderLeft');
-					li.data('ad-li-oldcss',oldcss);
-					li.css({'borderLeft':'5px solid #2DC3E8'})
+					li.find('.glyphicon-ok').show();
 				}else{
-                	var oldcss=li.data('ad-li-oldcss');
-				    li.css({'borderLeft':oldcss});
+                	 li.find('.glyphicon-ok').hide();
 				}
-				
-				console.log(li_array);
+
 			}
 			return $el;
-		}
+		},
+		extContains: function(){
+			jQuery.expr[':'].contains = function(a, i, m) {  
+	 
+			  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;  
+			 
+			}; 
+		},
 	}
 });

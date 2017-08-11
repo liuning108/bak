@@ -22,5 +22,33 @@ portal.define(function() {
 				portal.callService("MPM_UTIL_PARAMETER",null,success);
 			}
 		},
+		qryDataSource:function(param,success,syn){
+			if(syn){
+				portal.callServiceSyn("MPM_UTIL_DATA_SOURCE",null,success);
+			}else{
+				portal.callService("MPM_UTIL_DATA_SOURCE",null,success);
+			}
+		},
+		qryScriptResult:function(param,success,syn){
+			if(syn){
+				portal.callServiceSyn("MPM_UTIL_SCRIPT_RESULT",param,success);
+			}else{
+				portal.callService("MPM_UTIL_SCRIPT_RESULT",param,success);
+			}
+		},
+		qryPluginParam:function(param,success,syn){
+			if(syn){
+				portal.callServiceSyn("MPM_UTIL_PLUGIN_PARAM",param,success);
+			}else{
+				portal.callService("MPM_UTIL_PLUGIN_PARAM",param,success);
+			}
+		},
+		operPluginParam:function(param,success,syn){
+			if(syn){
+				portal.callServiceSyn("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
+			}else{
+				portal.callService("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
+			}
+		},
 	}
 });

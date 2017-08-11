@@ -1,0 +1,59 @@
+<div class="comprivroot">
+<section class="vbox js-collect-log-panel">
+    <section>
+        <section class="hbox stretch"> 
+            <!--Right-->
+            <section>
+                <section class="vbox ad-chart-bg">
+                    <header class="wrapper b-b clearfix bg-white js-collect-log-condition-panel">
+                        
+						<div class="pull-right text-right">
+                            <button class="btn btn-primary js-collect-log-query"><i class="fa fa-search"></i> {{COMMON_QUERY}}</button>                            
+                        </div>
+                        <div class="pull-left">
+                        	<label class="control-label" style="text-align: left">{{DATE}}</label>
+                        	<div class="btn-group timebtn">
+	                            <a class="btn btn-default tooltip-test a1 js-collect-log-date-btn" b='0' e='1' type="button" title="{{TODAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+	
+	                            <a class="btn btn-default tooltip-test a2 js-collect-log-date-btn" b='-1' e='0' type="button" title="{{YESTERDAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+	
+	                            <a class="btn btn-default tooltip-test a3 js-collect-log-date-btn" b='-6' e='1' type="button" title="{{LAST_7_DAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+	
+	                            <a class="btn btn-default tooltip-test a4 js-collect-log-date-btn" b='-29' e='1' type="button" title="{{LAST_30_DAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+	                        </div>
+	                        <div class="btn-group">
+	                        	<input class="form-control" name="B_TIME" data-rule="{{B_DATE}}:required;match[lt, EXP_DATE, date]">
+	                        </div>
+	                        <div class="btn-group">
+	                        	<input class="form-control" name="E_TIME" data-rule="{{E_DATE}}:match[gt,EFF_DATE, date]">
+	                        </div>
+	                        
+	                        
+	                        <label class="control-label">{{EMS_TYPE}}</label>
+							<div class="btn-group" style='width:220px'>
+								<input name="EMS_TYPE" class="form-control" data-rule="{{EMS_TYPE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+							</div>
+							
+	                        <label class="control-label">{{EMS}}</label>
+							<div class="btn-group" style='width:220px'>
+								<input name="EMS" class="form-control" data-rule="{{EMS}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+							</div>
+	                        
+	                    </div>
+                    </header>
+                    <div class="wrapper scrollable p-b-none overflow-y-h">
+                        <div class="col-md-12 m-t-sm">
+                        	<div class="ui-tabs js-collect-log-qry-tab">
+		                        <ul class="ui-tabs-nav js-collect-log-qry-ul">
+		                            
+		                        </ul>
+		                        
+		                    </div>
+		                </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+</div>

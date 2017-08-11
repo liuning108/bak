@@ -1,0 +1,31 @@
+<div class="form-group" name="{{item_id}}">
+	<div class="col-md-3">
+		<select id="ad-markline-type-{{item_id}}" class="form-control" style="width: 135px">
+			<option value="0" selected="selected">Fixed value</option>
+			<option value="1">Calculated value</option>
+		</select>
+	</div>
+	<!--固定值输入-->
+	<div class="col-md-3" id="ad-markline-sv-container-{{item_id}}">
+		<input type="text" id="ad-markline-staticvalue-{{item_id}}" class="form-control" style="width: 135px">
+	</div>
+	<!--计算值输入-->
+	<div class="col-md-4">
+		<select id="ad-markline-kpisel-{{item_id}}" name="ad-markline-kpicfg-{{item_id}}" class="form-control" style="width: 182px;display:none;">
+		</select>
+	</div>
+	<div class="col-md-3">
+		<select id="ad-markline-kpitype-{{item_id}}" name="ad-markline-kpicfg-{{item_id}}" class="form-control" style="display:none;">
+			<option value="average" selected="selected">Average</option>
+			<option value="min">Minimum</option>
+			<option value="max">Maximum</option>
+		</select>
+	</div>
+	<!-- -->
+	<button type="button" id="ad-markline-minus" style="padding-right: 15px" class="pull-right btn btn-ico" title="Cancel">
+		<i class="fa fa-minus"></i>
+	</button>
+	<button type="button" id="ad-markline-plus" style="padding-right: 15px" class="pull-right btn btn-ico" title="Cancel">
+		<i class="fa fa-plus"></i>
+	</button>
+</div>

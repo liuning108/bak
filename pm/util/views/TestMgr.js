@@ -4,6 +4,7 @@
 define([
       'text!oss_core/pm/util/templates/TestMgr.html',
       'oss_core/pm/util/views/Util',
+      //"oss_core/pm/util/js/raphael-min"
     ],
     function(tpl,util) {
         return portal.BaseView.extend({ 
@@ -25,41 +26,15 @@ define([
             },
             
             afterRender: function(data) {
-           
+
                 return this;
             },
             demo3:function(){
-                require(['oss_core/pm/util/views/TableView'],function(View){
-                     var view = new View();
+                require(['oss_core/pm/counter/views/CounterQry.js'],function(View){
+                     var view = new View({kpiCode:'P______00001'});
                     $('.demo_content3').html(view.render().$el);
                     
-                    view.afterRender();
-                    var a=1;
-                    var data_no=['A','B','C','D','E','F']
-                    $("#demo3_addData").click(function(){
-                        //生成假数据
-                          model={};
-                          model.name="mo"+a;
-                          model.datas=[];
-                          nums=fish.random(1,4);
-                          for(var i=0;i<nums;i++){
-                            var data={};
-                            data.no=data_no[fish.random(0,data_no.length-1)];
-                            data.name=data.no;
-                            data.index=fish.random(1,100);
-                            model.datas.push(data);
-                          }
-                          a++;
-                          //生成假数据
-                          view.put(model);
-
-                    })
-
-                    $("#demo3_getData").click(function(event) {
-                      /* Act on the event */
-                        view.getData();
-                    });
-
+                    view.doComplete();
                 });
             },
             demo2:function(){

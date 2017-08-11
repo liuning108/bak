@@ -1,0 +1,578 @@
+<div class="wizard" >
+	 <div  class="tabs-pill ui-tabs">
+	                    <ul class="ui-tabs-nav">
+	                        <li class="tabs-pill-once-li"><a href="#tabs-pill-once">一次性</a></li>
+	                        <li class="tabs-pill-minute-li"><a href="#tabs-pill-minute">每分钟</a></li>
+	                        <li class="tabs-pill-hour-li"><a href="#tabs-pill-hour">每小时</a></li>
+	                        <li class="tabs-pill-day-li"><a href="#tabs-pill-day">每天</a></li>
+	                        <li class="tabs-pill-week-li"><a href="#tabs-pill-week">每周</a></li>
+	                        <li class="tabs-pill-month-li"><a href="#tabs-pill-month-li">每月</a></li>
+	                        <li class="tabs-pill-custom-li"><a href="#tabs-pill-custom">手工输入</a></li>
+	                    </ul>
+
+
+	                    <!--一次性-->
+	                    <div id="tabs-pill-once">
+	                        <div>
+
+	                          <div class="schedule-panel">
+	                            <form class="once-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="once-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-once-li" data-row=".tabs-pill-once-row-setting">
+                                       <label for="once-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-once-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="once-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="once-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="once-rigger_time_m">:</label>
+											    <input type="email" class="form-control" id="once-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label for="once-endTime">(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="once-startTime">运行日期:</label>
+										           <input type="text" class="form-control once-setting-runtime"  data-rule="开始日期: required; date;" >
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+
+	                           <div class="schedule-panel">
+	                             <form class="once-datetime-from form-inline">
+							                   <div class="m-b-sm"><b>
+							                   生效范围</b>
+			                                  <input id="once-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-once-row">
+			                                   <label for="once-checkbox-row"></label>
+							                   </div>
+							                   <div class="row tabs-pill-once-row" style="display: none">
+				                                <div class="col-md-4">
+				                                    <div class="form-group">
+				                                    <label class="control-label">开始时间</label>
+				                                        <input type="text"  name="beginDate" class="form-control once-datetime-begin " data-rule="开始日期: required; datetime;">
+				                                    </div>
+				                                </div>
+				                                <div class="col-md-4">
+				                                    <div class="form-group">
+				                                    <label class="control-label">结束时间</label>
+				                                        <input type="text" class="form-control once-datetime-end"  data-rule="结束日期: match[gte, beginDate, datetime]" >
+				                                    </div>
+				                                </div>
+				                            </div>
+		                          </form> 
+				              </div>
+                               
+                              
+                             </div>
+
+	                    </div>
+
+	                     <!--每分钟-->
+              
+	                    <div id="tabs-pill-minute">
+
+	                      <div class="schedule-panel">
+	                            <form class="minute-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="minute-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-minute-li" data-row=".tabs-pill-minute-row-setting">
+                                       <label for="minute-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-minute-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="minute-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="minute-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="minute-rigger_time_s">:</label>
+											    <input type="text" class="form-control" id="minute-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label for="once-endTime">(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="minute-interval">间隔时间:</label>
+										           <input type="text"  id="minute-interval" class="form-control"  data-rule="required; integer;" style="width: 40px" >分
+										   </div>
+                                          </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="minute-startTime">运行日期:</label>
+										           <input type="text" class="form-control minute-setting-runtime"  data-rule="开始日期: required; date;" >
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+
+
+
+	                           <div class="schedule-panel">
+	                             <form class="minute-datetime-from">
+				                   <div class="m-b-sm"><b>生效范围
+				                    <input id="minute-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-minute-row">
+                                   <label for="minute-checkbox-row"></label>
+
+				                   </b></div>
+				                   <div class="row tabs-pill-minute-row" style="display: none;">
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">开始时间</label>
+	                                        <input type="text" name="minute-beginDate" class="form-control minute-datetime-begin" data-rule="开始日期: required; datetime;">
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">结束时间</label>
+	                                        <input type="text" class="form-control minute-datetime-end" data-rule="结束日期: match[gte, minute-beginDate, datetime]" >
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            </form>
+				              </div>
+
+
+
+                                
+
+	                    </div>
+
+	                    <!--每小时-->
+
+	                    <div id="tabs-pill-hour">
+	                      
+	                       
+	                        <div class="schedule-panel">
+	                            <form class="hour-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="hour-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-hour-li" data-row=".tabs-pill-hour-row-setting">
+                                       <label for="hour-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-hour-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="hour-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="hour-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="hour-rigger_time_s">:</label>
+											    <input type="text" class="form-control" id="hour-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label for="hour-endTime">(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="hour-interval">间隔时间:</label>
+										           <input type="text"  id="hour-interval" class="form-control"  data-rule="required; integer;" style="width: 40px" >分
+										   </div>
+                                          </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="hour-startTime">运行日期:</label>
+										           <input type="text" class="form-control hour-setting-runtime"  data-rule="开始日期: required; date;" >
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+
+
+	                           <div class="schedule-panel">
+		                           <form class="hour-datetime-from">
+						                   <div class="m-b-sm"><b>生效范围
+
+		                                  <input id="hour-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-hour-row">
+		                                   <label for="hour-checkbox-row"></label>
+
+						                   </b></div>
+						                   <div class="row tabs-pill-hour-row" style="display: none">
+			                                <div class="col-md-4">
+			                                    <div class="form-group">
+			                                    <label class="control-label">开始时间</label>
+			                                        <input type="text"  name="hour-beginDate" class="form-control hour-datetime-begin" data-rule="开始日期: required; datetime;">
+			                                    </div>
+			                                </div>
+			                                <div class="col-md-4">
+			                                    <div class="form-group">
+			                                    <label class="control-label">结束时间</label>
+			                                        <input type="text" class="form-control hour-datetime-end" data-rule="结束日期: match[gte, hour-beginDate, datetime]">
+			                                    </div>
+			                                </div>
+			                            </div>
+		                            </form>
+				              </div>
+                             
+                              
+                            
+
+	                    </div>
+
+	                    <!--每天-->
+	                    
+	                    <div id="tabs-pill-day">
+
+	                       
+                                
+                                <div class="schedule-panel">
+	                            <form class="day-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="day-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-day-li" data-row=".tabs-pill-day-row-setting">
+                                       <label for="day-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-day-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="day-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="day-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="day-rigger_time_s">:</label>
+											    <input type="text" class="form-control" id="day-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label for="hour-endTime">(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="hour-interval">间隔时间:</label>
+										           <input type="text"  id="day-interval" class="form-control"  data-rule="required; integer;" style="width: 40px" >天
+										   </div>
+                                          </div>
+			                            </div>
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label for="day-startTime">运行日期:</label>
+										           <input type="text" class="form-control day-setting-runtime"  data-rule="开始日期: required; date;" >
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+                                
+
+	                           <div class="schedule-panel">
+	                            <form class="day-datetime-from">
+				                   <div class="m-b-sm"><b>生效范围
+
+                                  <input id="day-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-day-row">
+                                   <label for="day-checkbox-row"></label>
+
+				                   </b></div>
+				                   <div class="row tabs-pill-day-row" style="display: none">
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">开始时间</label>
+	                                        <input type="text"  name ="day-beginDate" class="form-control day-datetime-begin" data-rule="开始日期: required; datetime;">
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">结束时间</label>
+	                                        <input type="text" class="form-control day-datetime-end" data-rule="结束日期: match[gte, day-beginDate, datetime]">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            </form>
+				              </div>                                  
+                            
+                      </div>
+
+	                     <!--每周-->
+	                    
+	                    <div id="tabs-pill-week">
+
+	                       
+                                <div class="schedule-panel">
+	                            <form class="week-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="week-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-week-li" data-row=".tabs-pill-week-row-setting">
+                                       <label for="week-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-week-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="week-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="week-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="week-rigger_time_s">:</label>
+											    <input type="text" class="form-control" id="week-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label>(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                           
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label >选择周几:</label>
+										           <label class="checkbox-inline"><input type="checkbox" value="1" class="week-checkbox-input-1  week-checkbox-all" checked="checked">周一</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="2" class="week-checkbox-input-2 week-checkbox-all" checked="checked" >周二</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="3" class="week-checkbox-input-3 week-checkbox-all" checked="checked">周三</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="4" class="week-checkbox-input-4 week-checkbox-all" checked="checked">周四</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="5" class="week-checkbox-input-5 week-checkbox-all" checked="checked">周五</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="6" class="week-checkbox-input-6 week-checkbox-all" checked="checked">周六</label>
+				                                    <label class="checkbox-inline"><input type="checkbox" value="7" class="week-checkbox-input-7 week-checkbox-all" checked="checked">周日</label>
+										           
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+                              
+                               
+
+	                           <div class="schedule-panel">
+	                             <form class="week-datetime-from">
+				                   <div class="m-b-sm"><b>生效范围</b>
+				                    <input id="week-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-week-row">
+                                   <label for="week-checkbox-row"></label>
+
+				                   </div>
+				                   <div class="row tabs-pill-week-row" style="display: none">
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">开始时间</label>
+	                                        <input type="text" name="week-beginDate" class="form-control week-datetime-begin" data-rule="开始日期: required; datetime;"
+>
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">结束时间</label>
+	                                        <input type="text" class="form-control week-datetime-end" data-rule="结束日期: match[gte, week-beginDate, datetime]">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            </form>
+				              </div>
+                                  
+                           
+
+	                    </div>
+
+                        <!--每月-->
+	                    <div id="tabs-pill-month-li">
+
+	                    	 <div class="schedule-panel">
+	                            <form class="month-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="month-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-month-li" data-row=".tabs-pill-month-row-setting">
+                                       <label for="month-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-month-row-setting" style="display: none">
+				                       
+				                       <div class="row"> 
+					                       <div class="col-md-12"> 
+											    <div class="form-group">
+										           <label for="month-rigger_time_m">触发时间:</label>
+										          <input type="text" class="form-control" id="month-rigger_time_m" data-rule="required; integer; range[0~23]" style="width: 40px;">
+										       </div>
+											  <div class="form-group">
+											    <label for="month-rigger_time_s">:</label>
+											    <input type="text" class="form-control" id="month-rigger_time_s" data-rule="required; integer; range[0~59]" style="width: 40px;">
+											   </div>
+											   <div class="form-group">
+											    <label for="week-endTime">(例如：23:59)</label>
+											    
+											   </div>
+									        </div>
+			                            </div>
+
+			                           
+
+			                            <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <div class="form-group">
+										           <label >间隔时间:</label>
+										           <select class="month-select">
+										          
+										           </select>号
+										           
+										   </div>
+                                          </div>
+			                            </div>
+
+			                             <div class="row" style="margin-top: 12px"> 
+                                          <div class="col-md-12"> 
+                                           <label >选择月份:</label>
+                                           <div class="form-group">
+										          
+										           <label class="checkbox-inline"><input type="checkbox" value="1" class="month-checkbox-input-1 month-checkbox-all" checked="checked">1月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="2" class="month-checkbox-input-2 month-checkbox-all " checked="checked">2月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="3" class="month-checkbox-input-3 month-checkbox-all" checked="checked">3月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="4" class="month-checkbox-input-4 month-checkbox-all" checked="checked">4月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="5" class="month-checkbox-input-5 month-checkbox-all" checked="checked">5月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="6" class="month-checkbox-input-6 month-checkbox-all" checked="checked">6月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="7" class="month-checkbox-input-7 month-checkbox-all" checked="checked">7月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="8" class="month-checkbox-input-8 month-checkbox-all" checked="checked">8月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="9" class="month-checkbox-input-9 month-checkbox-all" checked="checked">9月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="10" class="month-checkbox-input-10 month-checkbox-all" checked="checked">10月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="11" class="month-checkbox-input-11 month-checkbox-all" checked="checked">11月</label>
+				                                   <label class="checkbox-inline"><input type="checkbox" value="12" class="month-checkbox-input-12 month-checkbox-all " checked="checked">12月</label>
+										           
+										   </div>
+                                          </div>
+			                            </div>
+
+                                    </div>
+                                </form>      
+				              </div>
+                              	
+
+	                    	<div class="schedule-panel">
+	                             <form class="month-datetime-from">
+				                   <div class="m-b-sm"><b>生效范围</b>
+				                    <input id="month-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-month-row">
+                                   <label for="month-checkbox-row"></label>
+
+				                   </div>
+				                   <div class="row tabs-pill-month-row" style="display: none">
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">开始时间</label>
+	                                        <input type="text" name="month-beginDate" class="form-control month-datetime-begin" data-rule="开始日期: required; datetime;"
+>
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">结束时间</label>
+	                                        <input type="text" class="form-control month-datetime-end" data-rule="结束日期: match[gte, month-beginDate, datetime]">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            </form>
+				              </div>
+                                  
+
+
+	                    </div>
+
+	                      <!--手工输入-->
+	                    
+	                    <div id="tabs-pill-custom">
+                               <div class="schedule-panel">
+	                            <form class="custom-setting-from form-inline">
+				                   <div class="m-b-sm">
+				                      <b>运行设置</b>
+				                      <input id="custom-checkbox" class="toggle-switch toggle-switch-tab"  type="checkbox" data-tab=".tabs-pill-custom-li" data-row=".tabs-pill-custom-row-setting">
+                                       <label for="custom-checkbox"></label>
+         
+				                   </div>
+				                   <div class="tabs-pill-custom-row-setting" style="display: none">
+				                       <div class="row"> 
+					                       <div > 
+											    <div>
+										           <label for="custom-cron">CRON:</label>
+										          <input type="text" class="form-control" id="custom-cron" data-rule="required;" style="min-width: 80%" >
+										       </div>
+											  
+									        </div>
+			                            </div>
+                                    </div>
+                                </form>      
+				              </div>
+                               
+
+	                           <div class="schedule-panel">
+	                           <form class="custom-datetime-from">
+				                   <div class="m-b-sm">
+				                   <b>生效范围2</b>
+                                 <input id="custom-checkbox-row" class="toggle-switch toggle-switch-row"  type="checkbox" data-tab=".tabs-pill-custom-row">
+                                   <label for="custom-checkbox-row"></label>
+				                   </div>
+				                   <div class="row tabs-pill-custom-row" style="display: none">
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">开始时间</label>
+	                                        <input type="text" name="custom-beginDate" class="form-control custom-datetime-begin" data-rule="开始日期: required; datetime;">
+	                                    </div>
+	                                </div>
+	                                <div class="col-md-4">
+	                                    <div class="form-group">
+	                                    <label class="control-label">结束时间</label>
+	                                        <input type="text" class="form-control custom-datetime-end" data-rule="结束日期: match[gte, custom-beginDate, datetime]">
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            </form>
+				              </div>
+                          
+	                    </div>
+
+	</div>
+</div>

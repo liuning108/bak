@@ -1,12 +1,13 @@
 define([
-        "text!oss_core/pm/util/templates/DemoView.html",
+        "text!oss_core/pm/util/templates/TableView.html",
         "text!oss_core/pm/util/templates/CardView.html",
         "text!oss_core/pm/util/templates/NullView.html",
         "text!oss_core/pm/util/templates/checkbox.html",
+        "text!oss_core/pm/util/templates/checkboxOutput.html",
         "css!oss_core/pm/util/css/ad-util-component.css",
         "oss_core/pm/util/js/jquery.widget.swappable"
     ],
-    function(tpl, cardViewTpl, nullView, checkboxView) {
+    function(tpl, cardViewTpl, nullView, checkboxView, checkboxViewOutput) {
         return portal.CommonView.extend({
             //加载模板
             template: fish.compile(tpl),
@@ -22,6 +23,8 @@ define([
                 'td_data': fish.template(cardViewTpl),
                 'td_null': fish.template(nullView),
                 'td_operation': fish.template(checkboxView),
+                'td_operation_output': fish.template(checkboxViewOutput),
+
             },
             afterRender: function(option) {
                 var self = this;
@@ -29,6 +32,10 @@ define([
                 self.tableBody = self.table.find('tbody');
 
             }, //end of afterRender
+            putAll:function(datas){
+               var self =this;
+               fish.each(datas,function(data){self.put(data)});
+            },
 
             put: function(model) {
                 this.addRow(model);
@@ -94,7 +101,11 @@ define([
                 })
 
                 var l_data = fish.map($last.find('td'), function(td) {
-                    return $(td).find(".output_checkbox").is(":checked");
+                    var obj={
+                         'checked':$(td).find(".output_checkbox").is(":checked"),
+                         'text':''+$(td).find(".output_text").val()
+                    }
+                    return obj;
                 });
 
                 datas.push(l_data);
@@ -102,6 +113,7 @@ define([
                 fish.each(datas, function(data) {
                     console.log(data);
                 })
+                return datas;
 
             },
             getColumTds: function(_this) {
@@ -222,12 +234,24 @@ define([
                     'trClassName': 'last',
                     datas: fish.range(td_nums),
                     handel: function(key, value) {
-                        return self.tableTemplate.td_operation({ 'name': '输出', 'flag_class': 'output_checkbox' });
+                        return self.tableTemplate.td_operation_output({ 'name': '输出', 'flag_class': 'output_checkbox', 'flag_output_class': 'output_text' });
                     }
                 });
                 self.tableBody.append(domStr)
+                $('.output_checkbox').on('change', function() {
+                       var falg = $(this).is(':checked');
+                       var input=$(this).parent().find('.output_text')
+                       var $sib_tds = self.getColumTds(this);
+                       var no =$($sib_tds[1]).find('div').data('no')
+                       if(falg){
+                        input.show();
+                        input.val(no);
+                       }else{
+                        input.hide();
+                        input.val('')
+                       }
 
-
+                })
             },
             addFristRow: function(td_nums) {
                 var self = this;
@@ -248,7 +272,7 @@ define([
                         var $null_td = $sib_tds.find(".null_td");
                         if ($null_td.length > 0) {
                             $null_td.addClass("null_flag");
-                             fish.toast('info', '合并列中不能有空数据，请拖动一个数据进来');
+                            fish.toast('info', '合并列中不能有空数据，请拖动一个数据进来');
                         }
 
                     } else {

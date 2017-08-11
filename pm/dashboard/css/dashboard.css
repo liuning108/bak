@@ -1,3 +1,20 @@
+.dashBoardDetailPage {
+  width: 98%;
+}
+
+.dashBoardDetailPage .header {
+  background: #fff;
+  border-bottom: 1px solid #dee5e7;
+  padding: 10px;
+  color: #333;
+  height: 53px;
+}
+
+.dashBoardDetailPage .header h5 {
+  display: inline-block;
+  color: #333;
+}
+
 .mt10 {
   margin-top: 10px;
 }

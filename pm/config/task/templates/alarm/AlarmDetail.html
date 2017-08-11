@@ -1,0 +1,150 @@
+<div class="row">
+    <div class="col-md-12 js-alarm-detail-div">
+        <form class="form-horizontal clearfix js-alarm-detail-form">	
+	        <div class="col-md-12">
+	            <div class="col-md-12 form-group required">
+					<label class="control-label">{{ALARM_O_TYPE}}</label>
+					<input name="ALARMOBJ_TYPE" class="form-control" data-rule="{{ALARM_O_TYPE}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+                </div>
+	        </div>
+	        <div class="col-md-8">
+	            <div class="col-md-12 form-group required">
+					<label class="control-label">{{MODEL_BUSI}}</label>
+					<input name="MODEL_CODE" class="form-control" data-rule="{{MODEL_BUSI}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+                </div>
+	        </div>
+	        <div class="col-md-4">
+	            <div class="col-md-12 form-group required">
+					<label class="control-label">{{GRANU}}</label>
+					<input name="GRANU" class="form-control" data-rule="{{GRANU}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+                </div>
+	        </div>
+	        <div class="col-md-12">
+	        	<div class="form-group" classify type='dim'>
+	            	<div class="col-md-12">
+	            		<div class="m-b-sm">
+		                   	<b>{{ALARM_O}}</b>
+							<a href="#" class="ad-link pull-right js-alarm-o-list-add" style="margin-top:1px">
+								<i class="fa fa-plus" ></i> {{COMMON_ADD}}
+							</a>
+							
+							<a href="#" class="ad-link pull-right hide js-alarm-o-list-cancel" style="margin-top:1px">
+								<i class="glyphicon glyphicon-remove" ></i> {{COMMON_CANCEL}}
+							</a>
+							
+							<a href="#" class="ad-link pull-right hide js-alarm-o-list-ok" style="margin-top:1px">
+								<i class="glyphicon glyphicon-ok" ></i> {{COMMON_OK}}  
+							</a>
+						</div>
+	                    <div class="br-light js-alarm-o-list-seled-div" >
+	                    	<div class="border wrapper">
+			                	<div class="row">
+			                    	<div class="col-md-12">
+				                    	<ul class="modal-hack-list list-group group-list m-b-none js-alarm-o-list-ul" style="margin-right: -10px;margin-bottom:-10px;overflow: hidden;">
+							                            
+							            </ul>  
+							        </div> 
+						        </div>
+					        </div>      
+	                    </div>
+	                    <div class="ad-list-plus hide js-alarm-o-list-seling-div">
+						    <div class="ad-group-hack ad-modal-plus">
+						    	<div class="search-group" style="width:100%;">
+			                        <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+			                        <input type="text" class="ad-theme-search form-control js-alarm-o-list-seling-search"  style="width:95%;">
+			                        <input type="checkbox" class="js-alarm-o-list-seling-all" style="position: absolute;top: 2px;right: 0px;z-index:11">
+			                    </div>
+						        <div class="form-group js-alarm-o-list-seling-item">
+						            
+						        </div>
+						    </div>
+						</div>
+                    </div>
+	            </div>
+	        </div>
+	        <div class="col-md-12">
+	        	<div class="form-group required" classify type='kpi'>
+            		<div class="col-md-12">
+		            	<div class="m-b-sm">
+		                   	<b>{{ALARM_KPI}}</b>
+							<a href="#" class="ad-link pull-right js-alarm-o-list-add" style="margin-top:1px">
+								<i class="fa fa-plus" ></i> {{COMMON_ADD}}
+							</a>
+							
+							<a href="#" class="ad-link pull-right hide js-alarm-o-list-cancel" style="margin-top:1px">
+								<i class="glyphicon glyphicon-remove" ></i> {{COMMON_CANCEL}}
+							</a>
+							
+							<a href="#" class="ad-link pull-right hide js-alarm-o-list-ok" style="margin-top:1px">
+								<i class="glyphicon glyphicon-ok" ></i> {{COMMON_OK}}  
+							</a>
+						</div>
+						<div class="br-light js-alarm-o-list-seled-div" >
+	                    	<div class="border wrapper">
+			                	<div class="row">
+			                		<div class="col-md-12">
+				                    	<ul class="modal-hack-list list-group group-list m-b-none js-alarm-o-list-ul" style="margin-right: -10px;margin-bottom:-10px;overflow: hidden;">
+							                            
+							            </ul>  
+							        </div>
+						        </div>
+					        </div>      
+	                    </div>
+	                    <div class="ad-list-plus hide js-alarm-o-list-seling-div">
+	                    	<div class="search-group" style="width:100%;">
+		                        <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+		                        <input type="text" class="ad-theme-search form-control js-alarm-o-list-seling-search"  style="width:95%;">
+		                        <input type="checkbox" class="js-alarm-o-list-seling-all" style="position: absolute;top: 2px;right: 0px;z-index:11">
+		                    </div>
+						    <div class="ad-group-hack ad-modal-plus">
+						        <div class="form-group js-alarm-o-list-seling-item">
+						            
+						        </div>
+						    </div>
+						</div>
+                	</div>
+            	</div>
+	        </div>
+	        <div class="col-md-12">
+	            
+	            	<div class="m-b-sm">
+	                   <b>{{ALARM_NOTICE}}</b>
+                    </div>
+	            	<div class="form-group">
+                    <div class="col-md-2">
+						<input name="ALARM_DATE" class="form-control" title='{{ALARM_DATE}}' placeholder="{{COMMON_PLS_SEL}}">
+					</div>
+					<div class="pull-left m-l-sm m-t-xs">
+						<label class="control-label">，当告警产生，</label>
+					</div>
+					<div class="col-md-2">
+						<input name="DELAY_TYPE" class="form-control" title='{{DELAY_TYPE}}'  placeholder="{{COMMON_PLS_SEL}}">
+					</div>
+					<div class="col-md-2">
+						<input name="NOTIFY_TYPE" class="form-control" title='{{NOTIFY_TYPE}}'  placeholder="{{COMMON_PLS_SEL}}">
+					</div>
+					<div class="col-md-4">
+						<input name="NOTIFY_OBJ" class="form-control" title='{{NOTIFY_OBJ}}' data-rule="{{NOTIFY_OBJ}}:length[1~1024, true]" placeholder="">
+					</div> 
+                    
+	            </div>
+	        </div>
+  		</form> 
+  		
+    	<div class="col-md-12 required">
+    		<b class="m-b-sm">{{ALARM_LEVEL}}</b>
+        </div>    
+        <div class="col-md-12">
+	  		<div class="wizard">
+	            <div class="tabs-pill ui-tabs js-alarm-level-tab">
+	                <ul class="ui-tabs-nav js-alarm-level-ul">
+	                	
+	                </ul>
+	                <div class=" m-t-sm tab-content js-alarm-level-content">
+	                	
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+</div>
