@@ -32,12 +32,12 @@ define([
                 $('#DashBoardparentView').html("<div id='new_context_dashBoard'></div>")
             }
         },
-        index: function() {
+        index: function(params) {
 
 
             var self = this;
             self.cleaupView(self.view);
-            self.view = new IndexView({'el': $('#new_context_dashBoard'), 'parentView': self}).render();
+            self.view = new IndexView({'el': $('#new_context_dashBoard'), 'parentView': self,'params': params}).render();
             // this.edit({});
         },
 
@@ -48,11 +48,11 @@ define([
 
         },
         afterRender: function(data) {
-            this.index();
+            this.index({});
             return this;
         },
-        showDesigner: function() {
-            this.index();
+        showDesigner: function(param) {
+            this.index(param);
         }
 
     });

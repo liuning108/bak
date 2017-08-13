@@ -2,12 +2,14 @@
  * 指标筛选弹出窗
  */
 define([
+  "oss_core/pm/dashboard/actions/DashBoardAction",
+  "oss_core/pm/dashboard/views/DashBoardConfigConfig",
   "oss_core/pm/dashboard/js/html2canvas",
   "oss_core/pm/dashboard/js/Dcharts",
   "oss_core/pm/dashboard/js/echarts-all-3",
   "i18n!oss_core/pm/dashboard/i18n/SDesinger",
   "text!oss_core/pm/dashboard/templates/DashBoardEdit.html"
-], function(html2canvas,Dcharts, echarts, i18nData, tpl) {
+], function(action,DashBoardConfigConfigView,html2canvas,Dcharts, echarts, i18nData, tpl) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     resource: fish.extend({}, i18nData),
@@ -25,7 +27,11 @@ define([
       'click .BarBase': 'addBarBase'
     },
     showListButton: function() {
-      this.parentView.showDesigner();
+      var json =this.dcharts.getJson();
+      this.parentView.showDesigner({
+          classNo:json.classNo,
+          topicId:json.id
+      });
     },
 
     render: function() {
@@ -35,43 +41,50 @@ define([
 
     resize: function(h) {},
 
+    RenderView: function() {
+        var dashBoardConfigConfigView = new DashBoardConfigConfigView(this.dcharts);
+        dashBoardConfigConfigView.render();
+        $(".dashBoardConfigPanel").html(dashBoardConfigConfigView.$el);
+        dashBoardConfigConfigView.afterRender();
+    },
     afterRender: function() {
-
       var self = this;
       this.RenderHTML();
-      //this.ecartBar()
-
-
-
-
       var dash_w = $("#dashboardCanvasEdit").outerWidth()
-      var radio = (9 / 16);
-      var canvas_json = fish.store.get("canvas_json");
+      var ratio = (9 / 16);
+
+      var canvas_json = this.params
       console.log(canvas_json);
-      if(!canvas_json){
+      if(canvas_json.id==0){
         canvas_json ={
-          radio: radio,
+          ratio: ratio,
+          id :0,
+          classNo:canvas_json.classNo,
           size:{
             w: dash_w,
-            h: dash_w * radio
+            h: dash_w * ratio
           },
+          name:"dashboardName",
           attrs:{nodes:[]}
         }
       }
       var factor=dash_w/canvas_json.size.w;
       this.dcharts = Dcharts.init({
+
         containment: "#dashboardCanvasEdit",
-        ratio: canvas_json.radio,
+        ratio: canvas_json.ratio,
         size: {
           w: dash_w,
           h: canvas_json.size.h*factor
         },
         factor: factor,
-        nodes:canvas_json.attrs.nodes
-
+        nodes:canvas_json.attrs.nodes,
+        classNo: canvas_json.classNo,
+        id : canvas_json.id,
+        name:canvas_json.name
       });
 
-
+      this.RenderView();
 
 
       return this;
@@ -95,7 +108,6 @@ define([
       this.closeMenu();
     },
     RenderHTML: function() {
-      //  var   radio = 9/16;
       var self = this;
 
 
@@ -110,11 +122,6 @@ define([
         'color': '#e3e3e3'
       });
 
-      //
-      //  var wout=$("#dashboardCanvas").outerWidth()
-      // $("#dashboardCanvas").css({
-      //   'height': ww*radio
-      // })
       $('#multipleItems').slick({
         infinite: true,
         speed: 500,
@@ -139,9 +146,18 @@ define([
 
 
     saveButton: function() {
-
+     var self =this;
       var json = this.dcharts.getJson();
+      console.log(json);
       fish.store.set("canvas_json",json)
+
+
+      action.saveUpdateDashBoard(json,function(data){
+         self.dcharts.options.id = data.result.id;
+         fish.success('Save Success');
+         console.log(data);
+      })
+
     //   var hh =$("#dashboardCanvasEdit").outerHeight() *2;
     //   html2canvas(document.getElementById('dashboardCanvasEdit'),{
     //         allowTaint:true,
@@ -152,7 +168,7 @@ define([
     //      },
     //  });
 
-      fish.success('Save Success');
+
     },
     perviewButton: function() {
       var id = "dashboard-perview";
@@ -174,7 +190,7 @@ define([
       $tpl.append("<div id='dashboard-perview-canvas' class='dashboardCanvas' ></div>");
       $("#dashboard-perview-canvas").empty();
 
-      var radio = (9 / 16);
+      var ratio = (9 / 16);
       var dash_w = $("#dashboard-perview-canvas").outerWidth()
       var canvasjson = this.dcharts.getJson();
           var factor=dash_w/canvasjson.size.w;
@@ -182,7 +198,7 @@ define([
 
       Dcharts.init({
         containment: "#dashboard-perview-canvas",
-        ratio: radio,
+        ratio: ratio,
         size: {
           w: dash_w,
           h: canvasjson.size.h*factor

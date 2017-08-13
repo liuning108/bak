@@ -19,7 +19,14 @@ define([
       'click #canvasPage': 'RenderView',
       'click #showListButton': 'showListButton',
       'click #uplodImage': 'upload',
-      'click .BarBase': 'addBarBase'
+      'click .BarBase': 'addBarBase',
+      'click .ad-editdashboard-btn':"editDashBoard"
+    },
+
+    editDashBoard:function() {
+        var self =this;
+        
+        self.options.parentView.parentView.edit(this.dcharts.getJson());
     },
 
     render: function() {
@@ -29,6 +36,26 @@ define([
 
     afterRender: function() {
        this.$el.find(".dashboardName").text(this.model.name);
+       var canvasjson =this.model.json;
+       var len =$("#dashboard-detail-canvas").length
+       var ratio = (9 / 16);
+       var dash_w = this.$el.find("#dashboard-detail-canvas").outerWidth()
+       var factor=dash_w/canvasjson.attrs.size.w;
+       this.dcharts=Dcharts.init({
+         id:canvasjson.id,
+         name:this.model.name,
+         containment: "#dashboard-detail-canvas",
+         ratio: ratio,
+         size: {
+           w: dash_w,
+           h: canvasjson.attrs.size.h*factor
+         },
+         factor: factor,
+         nodes:canvasjson.nodes,
+         classNo:canvasjson.classNo
+       });
+
+
     }
   });
 });

@@ -1,0 +1,97 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-background-setting">{{BACK_GROUND}}</a>
+            </li>
+
+            <!-- <li>
+                <a href="#tabs-other-setting">{{OTHER}}</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{CANVAS_BASIS_SET}}</h4>
+                    <!-- TODO: 仪表盘名称 (done)-->
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <lable for="name " class="bi-lable" style='width:20%'>{{NAME}}:</lable>
+                                        <input type="text" id="dash_canvas_name" style='width:60%' class="form-control bi-input-text" name="name" placeholder="{{PLEASE_INPUT_NAME}}">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- TODO: 仪表盘的风格(done) -->
+                    <!-- <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <lable for="name " class="bi-lable" style='width:20%'>{{STYLE}}:</lable>
+                                        <input type="radio" name="fenge" value="0" />
+                                        <img src="oss_core/pm/screendesigner/images/fenge1.jpg" style="width:52px; height:24px" />
+                                        <input type="radio" name="fenge" value="1" />
+                                        <img src="oss_core/pm/screendesigner/images/fenge2.jpg" style="width:52px;height:24px" />
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div> -->
+
+                </div>
+            
+            </div>
+            <!--
+            <form class="form-inline">
+                <div class="form-group">
+                    <input type="checkbox" class="form-control" id="checkbox_bks">
+                    <label for="checkbox_bks">启动背景图</label>
+                </div>
+            </form> -->
+        </div>
+        <div id="tabs-background-setting" class="ui-tabs-panel">
+          <div class="m_u_box">
+
+              <div class="bi-attr-edit-list-div">
+                  <h4>{{BACKGROUND_IMAGE}}</h4>
+                  <!-- TODO: 仪表盘名称 (done)-->
+                  <!-- <div class="bi-attr-edit-list-div-rengs">
+                      <div class="row">
+                          <div class="col-md-12">
+
+                            <div class="bgItem" id="bgItem1" data-src="oss_core/pm/screendesigner/images/backgrounds/1.png">
+                                 <img src="oss_core/pm/screendesigner/images/backgrounds/1.png" width="64" height="36"></img>
+                                 <span class="glyphicon glyphicon-ok" ></span>
+                            </div>
+
+                          </div>
+                      </div>
+                  </div> -->
+
+
+              </div>
+
+          </div>
+        </div>
+      <!--  <div id="tabs-other-setting" class="ui-tabs-panel">
+             <div class="btn btn_primary btn_minwidth" id="uplodImage849023809489028938409">上传</div> -->
+            <!-- <form id="uploadForm" action="http://127.0.0.1:8080/oss/upload?modelName=shift/&genName=true" method="post" enctype="multipart/form-data" target="postframe">
+                <label for="fileinput" id="link">图片上传</label>
+                <input id="fileinput" name="file" type="file" accept="image/*" />
+            </form>
+            <iframe name='postframe' id='postframe'></iframe>
+
+        </div>-->
+
+    </div>
+</div>

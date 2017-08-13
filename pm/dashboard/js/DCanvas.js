@@ -10,9 +10,11 @@ define([
   var DCanvas = Class.extend({
     init: function(options) {
       this.options = $.extend(true, {}, options, defaultOption);
+
       this.nodes = [];
       this.initCanvas();
       this.initNodes();
+      this.name = this.options.name|| 'DashBoardName';
     },
     initNodes: function() {
       var self = this;
@@ -58,9 +60,20 @@ define([
     getJson: function() {
       var self = this;
       json = {};
+      json.id = this.options.id;
+      json.name=this.name
+      json.classNo = this.options.classNo
+      json.userId = portal.appGlobal.get("userId")
+      json.isShare= 0;
+      json.state=0
+      json.canvasAttrs={};
       json.attrs = {};
       json.size = this.options.size;
-      json.radio=this.options.radio;
+      json.ratio=this.options.ratio;
+
+      json.canvasAttrs.size =this.options.size;
+      json.canvasAttrs.ratio=this.options.ratio;
+
       json.attrs.nodes = [];
       var nodes = [];
       for (var i in self.nodes) {
