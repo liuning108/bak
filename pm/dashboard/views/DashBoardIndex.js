@@ -20,9 +20,6 @@ define([
         initialize: function(options) {
             this.parentView = options.parentView;
             this.params = options.params;
-            console.log("DBIndex");
-            console.log(this.params);
-
             this.currTreeNode = null;
         },
         events: {
@@ -211,12 +208,12 @@ define([
                 this.$('#ad-addDashboard-btn').attr('disabled', true);
             }
             if (this.nodeType == 1) {
-               this.previewDashBoard(treeNode.id, treeNode.name);
+               this.previewDashBoard(treeNode.id, treeNode.name,treeNode);
             } else {
                  this.$("#ad-dashboard-tabs").tabs("remove", 1);
             }
         },
-        previewDashBoard: function(id, name) {
+        previewDashBoard: function(id, name,treeNode) {
             var self  =this;
             action.queryDashBoardById(id,function(data){
                 var topicJson= data.result.topicJson;
@@ -239,6 +236,7 @@ define([
                     model: {
                         'id': id,
                         'name': name,
+                        'treeNode':treeNode,
                         'json':topicJson,
                     }
                 }).render();
@@ -394,8 +392,8 @@ define([
         },
 
         resize: function() {
-            this.uiTabHeight = this.$el.parents(".tabs_nav").outerHeight();
-            this.leftTreeHeight = this.uiTabHeight - 83; //95
+            this.uiTabHeight = this.$el.parents("body").outerHeight();
+            this.leftTreeHeight = this.uiTabHeight - 122; //95
             this.$el.find("#dashboardTree").css({
                 'height': + this.leftTreeHeight + 'px'
             });

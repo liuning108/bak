@@ -24,8 +24,11 @@ define([
       'click #canvasPage': 'RenderView',
       'click #showListButton': 'showListButton',
       'click #uplodImage': 'upload',
-      'click .BarBase': 'addBarBase'
+      'click .addAdHoc': 'addAdHoc',
+      'click .addText': 'addText',
+
     },
+
     showListButton: function() {
       var json =this.dcharts.getJson();
       this.parentView.showDesigner({
@@ -90,6 +93,9 @@ define([
       return this;
     },
 
+
+
+
     // TODO: 单击子节点,关闭子节点页板(done)
     closeMenu: function() {
       var $menu = $('#mega-menu-dash')
@@ -97,13 +103,39 @@ define([
       $menu.removeClass('mega-hover');
       $(subNav).hide();
     },
-    addBarBase: function() {
+
+
+    addAdHoc: function() {
+      var w =360;
+      var h =270
+      var point=this.dcharts.getCenterLocation(w,h)
       this.dcharts.addNode({
-        type: 'bar',
-        w: 400,
-        h: 400,
-        x:1,
-        y:1,
+        type: 'adhoc',
+        w: 360,
+        h: 270,
+        x:point.x,
+        y:point.y,
+      },function(node){
+             node.setSelected()
+             node.bounceIn();
+      })
+      this.closeMenu();
+    },
+
+
+    addText:function() {
+      var w =360;
+      var h =270
+      var point=this.dcharts.getCenterLocation(w,h)
+      this.dcharts.addNode({
+        type: 'text',
+        w: 360,
+        h: 270,
+        x:point.x,
+        y:point.y,
+      },function(node){
+             node.setSelected()
+             node.bounceIn();
       })
       this.closeMenu();
     },
@@ -204,7 +236,8 @@ define([
           h: canvasjson.size.h*factor
         },
         factor: factor,
-        nodes:canvasjson.attrs.nodes
+        nodes:canvasjson.attrs.nodes,
+        perview:true,
       });
     } //end of div
 

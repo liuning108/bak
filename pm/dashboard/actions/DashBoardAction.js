@@ -2,6 +2,13 @@ define(function() {
 	var action={};
 	action.service="MPM_DASHBOARD_TOPIC_SERVICE";
 
+	action.delDashBoardById=function(id,success) {
+		var param={};
+		param.method="delDashBoardById"
+	  param.id=id;
+		portal.callService(this.service,param, success);
+	}
+
 	action.addDashBoardClass=function(name,userId,success) {
 		var param={};
 		param.method="addDashBoardClass"

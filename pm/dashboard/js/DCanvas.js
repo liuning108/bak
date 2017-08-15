@@ -2,14 +2,18 @@ define([
   "oss_core/pm/dashboard/js/class",
 ], function() {
 
-  var defaultOption = {};
+  var defaultOption = {
+    perview:false,
+  };
   var TypeMapping = {
-    'bar': "oss_core/pm/dashboard/js/glibs/GNode",
+    'adhoc': "oss_core/pm/dashboard/js/glibs/AdHocNode",
+    'text': "oss_core/pm/dashboard/js/glibs/TextNode",
+
   }
 
   var DCanvas = Class.extend({
     init: function(options) {
-      this.options = $.extend(true, {}, options, defaultOption);
+      this.options = $.extend(true, {},  defaultOption,options);
 
       this.nodes = [];
       this.initCanvas();
@@ -41,22 +45,34 @@ define([
       });
     },
 
-    addNode: function(node_config) {
+    addNode: function(node_config,done) {
       var self = this;
       var type = TypeMapping[node_config.type];
       require([type], function(Node) {
         var node = new Node({
+          'parent':self,
           'canvas': self.$canvasDom,
           'w': Number(node_config.w) * self.factor,
           'h': Number(node_config.h) * self.factor,
           'type': node_config.type,
            x:node_config.x*self.factor,
-           y:node_config.y*self.factor
+           y:node_config.y*self.factor,
+           perview:self.options.perview
         })
         node.id =fish.getUUID();
         self.nodes[node.id] = node;
+        if(done)done(node);
       });
     },
+    getCenterLocation:function(w,h){
+      var x = (this.options.size.w-w)/2;
+      var y =(this.options.size.h-h)/2;
+      return {
+         'x':x,
+         'y':y
+      }
+    },
+
     getJson: function() {
       var self = this;
       json = {};

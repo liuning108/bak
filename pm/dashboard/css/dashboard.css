@@ -1,3 +1,14 @@
+.textnode {
+  word-wrap: break-word;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+}
+
+.selectedNode {
+  border: 1px solid #2299ff !important;
+}
+
 .dashBoardDetailPage {
   width: 98%;
 }
@@ -80,8 +91,9 @@ ul {
 .editBody .dashboardCanvas .dashNode {
   box-sizing: border-box;
   position: absolute;
-  padding: 5px;
+  padding: 0px;
   cursor: pointer;
+  border: 1px solid rgba(34, 153, 255, 0);
 }
 
 .editBody .dashboardCanvas .dashNode .dashTools {
@@ -104,12 +116,13 @@ ul {
   background-color: #0ca2bf;
 }
 
-.editBody .dashboardCanvas .dashNode:hover {
-  background-color: rgba(34, 153, 255, 0.14);
-  border: 1px solid rgba(34, 153, 255, 0.5);
+.editBody .dashboardCanvas .dashNode:hover.editPattern {
+  background-color: rgba(34, 153, 255, 0.05);
+  border-color: #2299ff;
+  border-style: dashed;
 }
 
-.editBody .dashboardCanvas .dashNode:hover .dashTools {
+.editBody .dashboardCanvas .dashNode:hover.editPattern .dashTools {
   display: block;
 }
 

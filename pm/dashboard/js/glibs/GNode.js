@@ -9,28 +9,14 @@ define([
       this.creaetGCanvas();
       this.createGNode();
     },
+    bounceIn:function() {
+      var self =this;
+      self.gcanvas.addClass("bounceIn animated");
+      setTimeout(function(){
+         self.gcanvas.removeClass("bounceIn animated");
+      },1000);
+    },
     createGNode:function(){
-
-
-      this.myChart = echarts.init( this.gcanvas.find('.dashCanvas')[0]);
-      var option = {
-        tooltip: {},
-        legend: {
-          data: ['销量']
-        },
-        xAxis: {
-          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"]
-        },
-        yAxis: {},
-        series: [{
-          name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }]
-      };
-      this.myChart.setOption(option);
-
-
     },
     resizableStop:function(event, ui) {
       this.options.w=ui.size.width;
@@ -41,6 +27,10 @@ define([
       this.options.x=ui.position.left;
       this.options.y=ui.position.top;
     },
+    removeNode:function() {
+      delete  this.options.parent.nodes[this.id]
+      this.gcanvas.remove();
+    },
     creaetGCanvas: function() {
       var self =this;
       var canvasDom = this.options.canvas
@@ -50,8 +40,28 @@ define([
       this.gcanvas.css({"left":this.options.x+"px"});
       this.gcanvas.css({"top":this.options.y+"px"});
 
+      if(!this.options.perview){
+        this.editPattern();
+      }
 
 
+    }, //end of creaetGCanvas();
+
+    setSelected:function() {
+         $('.selectedNode').removeClass("selectedNode");
+         this.gcanvas.addClass("selectedNode")
+    },
+    editPattern:function() {
+      var self =this;
+      var canvasDom = this.options.canvas
+        this.gcanvas.addClass("editPattern");
+
+      this.gcanvas.off('click').on('click',function() {
+           self.setSelected();
+      });
+      this.gcanvas.find(".removeNode").off("clcik").on("click",function() {
+             self.removeNode();
+      })
       this.gcanvas.draggable({
         containment: canvasDom,
         scroll: false,
@@ -67,14 +77,12 @@ define([
         }
       });
 
-
-    }, //end of creaetGCanvas();
+    },
 
     getJson:function() {
       var json={}
       console.log(this.options);
       json.type= this.options.type;
-
       json.w= this.options.w;
       json.h= this.options.h;
       json.x= this.options.x;
