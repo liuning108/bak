@@ -87,7 +87,7 @@ define({
   ICONBAR:"图标图",
   NUMSBAR:"数字图",
   TABLEBAR:"表格图",
-  CHARACTER:"字符",
+  CHARACTER:"文字",
   DEL:"删除",
   ISDEL:"你是否要删除还组件",
   ISDELOPTION:"你是否要删除该大屏",

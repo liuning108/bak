@@ -30,6 +30,7 @@ define([
         'StripLineBase':'oss_core/pm/screendesigner/js/graphLibs/GStripLineBase',
         'TableBase':'oss_core/pm/screendesigner/js/graphLibs/GTableBase',
         'BarBase':'oss_core/pm/screendesigner/js/graphLibs/GBarBase',
+        'imageNode':"oss_core/pm/screendesigner/js/graphLibs/GImageNode",
     };
     var uuid = function() {
         var s = [];

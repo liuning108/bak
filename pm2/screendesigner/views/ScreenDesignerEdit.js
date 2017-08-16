@@ -48,10 +48,22 @@ define([
             'click .canvaset': 'RenderView',
             'click #canvasPage': 'RenderView',
             'click #showListButton': 'showListButton',
-            'click #uplodImage': 'upload'
+            'click #uplodImage': 'upload',
+            'click .imageNode': 'addImageNode',
         },
         showListButton: function() {
             this.parentView.showDesigner();
+
+        },
+
+        addImageNode: function() {
+            var self = this;
+            this.canvas.addNode({
+                'attrs': {
+                    'type': 'imageNode'
+                }
+            });
+            self.closeMenu();
 
         },
         upload: function() {

@@ -40,11 +40,16 @@ define([
                 this.getData()
             }else{
                 this.addBoxEvent();
+                this.editDone();
             }
+
 
         },
         toGraph:function() {
             console.log('需要重写toGraph');
+        },
+        editDone:function() {
+            console.log('需要重写editDone');
         },
         addBoxEvent: function() {
             var self = this;
@@ -68,26 +73,30 @@ define([
                 })
             })
             this.gbox.click(function(e) {
-                if (self.doms['config']) {
-                    self.doms['config'].trigger('click', e);
-                }
-                if(self.canvas.ft){
-                    self.canvas.ft.setOpts( {draw: [''] });
-                    self.canvas.ft.apply();
-                   if(self.canvas.CompontentRemove){
-                      self.canvas.CompontentRemove.attr({'opacity':0});
-                   }
-                }
-                self.canvas.ft=self.ft;
-                if(self.doms['remove']){
-                self.canvas.CompontentRemove=self.doms['remove'];
-                self.canvas.CompontentRemove.attr({'opacity':1,'cursor':'pointer'});
-                self.canvas.CompontentRemove.toFront();
-                }
-                self.canvas.ft.setOpts( {draw: ['bbox'] });
-                self.canvas.ft.apply();
-                e.stopImmediatePropagation();
+              self.selectEvent(e)
             })
+        },
+        selectEvent:function(e) {
+            var self =this;
+            if (self.doms['config']) {
+                self.doms['config'].trigger('click', e);
+            }
+            if(self.canvas.ft){
+                self.canvas.ft.setOpts( {draw: [''] });
+                self.canvas.ft.apply();
+               if(self.canvas.CompontentRemove){
+                  self.canvas.CompontentRemove.attr({'opacity':0});
+               }
+            }
+            self.canvas.ft=self.ft;
+            if(self.doms['remove']){
+            self.canvas.CompontentRemove=self.doms['remove'];
+            self.canvas.CompontentRemove.attr({'opacity':1,'cursor':'pointer'});
+            self.canvas.CompontentRemove.toFront();
+            }
+            self.canvas.ft.setOpts( {draw: ['bbox'] });
+            self.canvas.ft.apply();
+            e.stopImmediatePropagation();
         },
         getData: function() {
             console.log('GROOT getData ');
@@ -149,6 +158,7 @@ define([
             } else {
                this.initLocation2();
             }
+
 
 
 
