@@ -1,0 +1,739 @@
+.mt10
+  margin-top: 10px
+
+.comprivroot
+  padding: 0px
+  margin: 0px
+
+.editBody
+  font: 12px / 1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed
+  margin: 0px
+  padding: 0px
+  background: #fff
+  animation: pageAnim 500ms ease-in-out forwards
+
+  ol
+    list-style: none
+
+ul
+  list-style: none
+
+.editBody a, a:hover
+  color: #333
+  text-decoration: none
+
+.editBody
+  .bk_gray
+    background: #e3e3e3
+
+  .bk_fff
+    background: #fff
+
+  .mainContent
+    background: #e3e3e3
+    padding-top: 10px
+    padding-bottom: 10px
+
+  #canvasPage
+    position: relative
+    width: 90%
+    margin: 0 auto
+    padding: 0px
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+    background: #ffffff
+
+  .i
+    font-size: 20px
+    color: #444
+    line-height: 26px
+
+  .p
+    margin: 0px
+    padding: 0px
+
+  .toolbar
+    float: left
+    margin-left: 10px
+    height: 60px
+
+  .btn-gray
+    background: #eee
+
+  .btn-blue
+    background: #3FA7DC
+    color: #fff
+
+  .btn-sm
+    font-size: 12px
+    line-height: 1.5
+    padding: 5px 15px
+
+  .dashboard-name-input
+    border: 1px solid #ddd
+    height: 32px
+
+  .m_tb_title
+    float: right
+    padding: 15px 15px 0 0
+
+  .col_title
+    padding-top: 5px
+    height: 60px
+    padding: 0px
+    margin: 0px
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+    background: #fff
+    position: relative
+    z-index: 199
+
+  .title
+    font-size: 14px
+    margin-right: 10px
+    font-weight: bold
+    color: #333
+    text-align: center
+    padding-top: 20px
+
+  .exportMenu
+    line-height: 60px
+
+    li
+      float: left
+      margin-left: 5px
+.sdesigner
+  animation: opactAnim 300ms
+.sdesigner .ui-tabs
+  .ui-tabs-nav
+    padding: 0px 0 0
+    margin-bottom: 0
+    background-color: #dddddd
+    box-shadow: none
+    border: none
+
+    li
+      padding: 0px
+      margin: 0px
+      color: #333
+      font-weight: normal
+
+      a
+        border-bottom: none
+        margin: 0px
+        padding: 15px
+        color: #333
+        font-weight: normal
+
+      &.ui-tabs-active a
+        border-bottom: none
+        background-color: #fff
+        margin: 0px
+        color: #333
+        font-weight: normal
+
+  background-color: #dddddd
+  border: 0
+  padding: 0px
+  margin: 0px
+
+  &.tabs-pill .ui-tabs-nav li.ui-tabs-active > a
+    margin-bottom: 0
+    border-width: 1px
+    border-style: solid
+
+.ui-tabs.tabs-pill .ui-tabs-nav li.ui-tabs-active > a
+  &:hover, &:focus
+    margin-bottom: 0
+    border-width: 1px
+    border-style: solid
+
+.editBody .configPanel
+  background: #fff
+
+
+.m_u_box
+  padding: 0 15px
+
+.bi-attr-edit-list-div
+  padding: 15px 0
+  border-bottom: 1px solid #eee
+  font-size: 12px
+  margin: 0px
+
+  h4
+    line-height: 25px
+    font-weight: bold
+    color: #333
+    font-size: 12px
+
+.bi-attr-edit-list-div-rengs
+  margin-bottom: 10px
+
+  .form-control
+    display: inline-block
+
+.bi-lable
+  margin-right: 10px
+  margin-left: 10px
+  padding: 0, 5px
+
+.bi-input-text
+  font-size: 12px
+  height: 25px
+  padding: 6px 12px
+  line-height: 1
+  color: #555
+  background-color: #fff
+  background-image: none
+  border: 1px solid #ccc
+  border-radius: 2px
+
+.bi-input-number-range-input
+  width: 60%
+  display: inline-block
+  padding: 3px 3px
+  margin-top: 0
+  text-align: center
+  font-size: 12px
+  height: 25px
+  line-height: 2
+  border-radius: 4px
+  border: 1px solid #ccc
+
+.switch
+  cursor: pointer
+  position: relative
+
+  input
+    position: absolute
+    opacity: 0
+    filter: alpha(opacity = 0)
+
+  span
+    position: relative
+    width: 42px
+    height: 20px
+    border-radius: 999em
+    background-color: #fff
+    border: 1px solid #eee
+    border-color: rgba(0, 0, 0, 0.1)
+    display: inline-block
+    -webkit-transition: background-color 0.2s
+    transition: background-color 0.2s
+
+  input:checked + span
+    background: #36b0c8
+
+  span:after
+    content: ""
+    position: absolute
+    background-color: #fff
+    width: 26px
+    top: 0
+    bottom: 0
+    border-radius: 30px
+    -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25)
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25)
+    -webkit-transition: left 0.2s
+    transition: left 0.2s
+
+  input:checked + span:after
+    left: 16px
+
+.editBody .ui-slider
+  border: none
+  height: 2px
+  background-color: #e0e4e8
+
+  .ui-slider-handle
+    width: 10px
+    height: 10px
+    background-color: #36b0c8
+    opacity: 0.8
+    border: 0px solid transparent
+
+    &:hover
+      box-shadow: none
+
+.sliderTooltip
+  background-color: #000
+  padding: 5px 0
+  margin-top: -3px
+  position: absolute
+  display: none
+  color: #fff
+  width: 40px
+  text-align: center
+  opacity: 0.8
+  border-radius: 5px
+
+.bi-radio-list-custom
+  cursor: pointer
+  font-size: 12px
+  color: #333
+  display: inline
+  font-weight: normal
+  margin-bottom: 0
+  min-height: 20px
+  max-width: 100%
+
+.tool_chart
+  padding: 0px
+  margin: 0px !important
+
+  li
+    width: 100% !important
+
+    /*text-align: center;
+     *border: 1px solid #eee;
+     *margin: 2px;
+     *height: 75px;
+     *max-width: 72px;
+     *margin: 2px !important;
+    .tool_chart_box
+      width: 100% !important
+      float: left
+
+    a
+      border: 1px solid red
+      color: #333
+      float: left !important
+      border: 1px solid #eee
+      margin: 2px
+      height: auto
+      padding: 10px 0
+      width: 70px
+
+    i
+      display: inline-block
+      width: 36px
+      height: 36px
+      background-image: url(../images/icon_chart.svg)
+      vertical-align: middle
+
+    a p
+      padding-top: 5px
+
+  h4
+    height: 30px
+    line-height: 30px
+    padding: 0 20px
+    background: #f5f5f5
+    font-size: 12px
+
+i
+  &.icon_chart17
+    background-position: (-832px) -32px
+
+  &.icon_chart18
+    background-position: (-882px) -32px
+
+  &.icon_chart3
+    background-position: (-132px) -32px
+
+  &.icon_chart4
+    background-position: (-182px) -32px
+
+  &.icon_chart24
+    background-position: (-232px) -82px
+
+  &.icon_chart13
+    background-position: (-633px) -32px
+
+  &.icon_chart1
+    background-position: (-32px) -32px
+
+  &.icon_chart23
+    background-position: (-182px) -82px
+
+  &.icon_chart24, &.icon_chart25
+    background-position: (-482px) -83px
+
+  &.icon_chart26
+    background-position: (-582px) -83px
+
+  &.icon_chart27
+    background-position: (-538px) -83px
+
+  &.icon_chart28
+    background-position: (-632px) -83px
+
+  &.icon_chart29
+    background-position: (-682px) -83px
+
+  &.icon_chart30
+    background-position: (-732px) -83px
+
+  &.icon_chart31
+    background-position: (-782px) -83px
+
+  &.icon_chart32
+    background-position: (-830px) -88px
+
+  &.icon_chart19
+    background-position: (-932px) -32px
+
+  &.icon_chart10, &.icon_chart33
+    background-position: (-482px) -32px
+
+  &.icon_chart35
+    background-position: (-832px) -32px
+
+#SDIndex
+  background-color: #fff
+  font: 12px / 1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed
+
+  .padder_lg_sm
+    padding: 20px
+
+  .padder_panel:after
+    display: block
+    clear: both
+    visibility: hidden
+    height: 0
+    overflow: hidden
+    content: "."
+
+  .blank_disc
+    width: 250px
+    border: 1px solid #ddd
+    text-align: center
+    font-size: 14px
+    float: left
+    margin: 15px
+    cursor: pointer
+
+    &:hover
+      border: 1px solid #36b0c8
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2)
+
+    a
+      color: #666
+      display: block
+      padding: 40px 0
+
+  .mode_title
+    font-size: 14px
+    line-height: 30px
+    padding: 0 20px
+    font-weight: bold
+    color: #758697
+
+.inst_item
+  width: 250px
+  background: #fff
+  position: relative
+  margin: 15px 10px
+  float: left
+  border: 1px solid #ddd
+  min-height: 180px
+  margin: 15px
+  cursor: pointer
+
+  .inst_top_pic
+    position: relative
+    width: 100%
+    height: 165px
+    transition: all 300ms
+    transform: scale(0.98)
+    &:hover
+        transform: scale(1)
+        box-shadow:  0 20px 20px rgba(0, 0, 0, 0.3)
+
+
+  .inst_text
+    border-top: 1px solid #ddd
+
+  .inst_rlt
+    width: 100%
+    height: 100%
+
+
+
+  .inst_vo
+    width: 100%
+    height: 100%
+    background: rgba(0, 0, 0, 0.3)
+    position: absolute
+    left: 0
+    top: 0
+    text-align: center
+    line-height: 165px
+    display: none
+
+#SDIndex
+  .btn
+    display: inline-block
+    padding: 5px 25px
+    margin-bottom: 0
+    font-size: 14px
+    font-weight: normal
+    line-height: 1.42857
+    text-align: center
+    white-space: nowrap
+    vertical-align: middle
+    -ms-touch-action: manipulation
+    touch-action: manipulation
+    cursor: pointer
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+    background-image: none
+    border: 1px solid transparent
+    border-radius: 3px
+
+  .btn-green
+    background: #0ca2bf
+    color: #fff
+
+    &:hover
+      background: #36b0c8
+      color: #fff
+
+  .btn-sm
+    font-size: 12px
+    line-height: 1.5
+    padding: 5px 15px
+
+.inst_item
+  .inst_top_pic:hover .inst_vo
+    display: block
+
+  .inst_text p
+    font-size: 14px
+    padding: 0 10px
+    height: 35px
+    line-height: 35px
+    color: #333
+    overflow: hidden
+    word-wrap: normal
+    white-space: nowrap
+    text-overflow: ellipsis
+    font-weight: bold
+    margin: 0px
+
+.inst_opera
+  padding: 0 10px
+  color: #999
+  font-size: 12px
+  height: 30px
+
+.SDdialog
+  min-width: 300px
+  border-radius: 3px
+  background: #fff
+  font: 12px / 1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed
+  color: #758697
+  animation:  SDdialogAnim 300ms
+
+  .sd-modal-header
+    border-radius: 3px 3px 0 0
+    position: relative
+    margin: 0px
+    padding: 0px
+    border-bottom: 1px solid #eaeaea
+
+    h2
+      font-size: 14px
+      color: #555
+      white-space: nowrap
+      text-overflow: ellipsis
+      overflow: hidden
+      padding-right: 12px
+      line-height: 25px
+      height: 30px
+      padding: 0 20px
+
+  .sd-modal-body
+    padding: 0px
+    margin: 0px
+
+  .model_inner
+    width: 160px
+    float: left
+    background: #f2f2f2
+    height: 540px
+
+  .sd-modal-header .title_r
+    position: absolute
+    right: 0
+    line-height: 25px
+    height: 40px
+    color: #666
+    top: 0
+    font-size: 12px
+    padding-right: 20px
+
+    a
+      color: #fff
+      padding: 5px 15px
+      border-radius: 3px
+      margin-left: 10px
+
+  .btn-green
+    background: #0ca2bf
+    color: #fff
+
+    &:hover
+      background: #36b0c8
+      color: #fff
+
+  .btn-orange
+    background: #ff5f5f
+    color: #fff
+
+  .model_inner ul
+    padding-left: 20px
+    padding-top: 20px
+
+    li
+      &.active
+        background: #fff
+
+        a
+          color: #333
+
+      height: 38px
+      line-height: 38px
+      border-radius: 5px 0 0 5px
+
+      a
+        color: #666
+        display: block
+        line-height: 38px
+        padding: 0 20px
+
+  .model_c_main
+    float: left
+    width: 850px
+    padding: 20px
+    overflow-y: auto
+    height: 560px
+
+  .model_c_dbsource
+    float: left
+    width: 1020px
+    overflow-y: auto
+    height: 560px
+    .ui-jqgrid th
+      border: none
+
+    .ui-jqgrid .ui-jqgrid-view .ui-jqgrid-hdiv .ui-jqgrid-htable th.ui-th-column
+      background-color: #f3f3f3
+      color: #222
+      text-align: center
+      font-weight: normal
+      border: none
+      border-right: 1px solid #CCC
+      padding-left: 0px
+
+    .jqgrow:nth-child(2n+1)
+       background-color: #fff
+
+    .ui-jqgrid td
+      border: 1px solid #CCC
+      border-top: none
+      border-right: none
+      color: #758697
+    .ui-jqgrid-btable tr:hover
+      background-color: #f6f6f6
+    .jqgfirstrow
+      td
+        border: none
+
+
+.GICON
+  width: 64px
+  height: 64px
+  float: left
+  cursor: pointer
+  border: 1px solid #e0e4e8
+  margin-left: 6px
+  text-align: center
+  align-content: center
+
+  &:hover
+    background: #ededed
+
+.bgItem
+  width: 74px
+  height: 46px
+  float: left
+  cursor: pointer
+  border: 1px solid #c9dff5
+  margin-left: 6px
+  text-align: center
+  align-content: center
+
+  .glyphicon
+    position: relative
+    display: none
+    color: #0cdbbb
+    top: -10px
+    left: 20px
+    z-index: 5
+
+  img
+    display: inline
+    top: 2.5px
+    left: 0px
+    position: relative
+
+  &:hover
+    background: #ededed
+
+.table-input
+  margin: 0px !important
+  padding: 0px !important
+
+  input[type="text"]
+    margin: 0px
+    padding: 0px
+    padding-left: 5px
+    border: none
+    width: 90% !important
+
+.editBody .json-menu
+  height: 30px
+  background: #f0f0f0
+.mega-menu
+    animation: LeftAnim 1s
+.exportMenu
+    animation: RightAnim 1s
+
+@keyframes  RightAnim
+  0%
+    opacity: 0
+    transform: translateX(500px)
+  100%
+    opacity: 1
+
+@keyframes  LeftAnim
+  0%
+    opacity: 0
+    transform: translateX(-500px)
+  100%
+    opacity: 1
+
+@keyframes  pageAnim
+  0%
+    opacity: 0
+    transform: translateY(-500px)
+  100%
+    opacity: 1
+
+@keyframes  opactAnim
+  0%
+    opacity: 0
+    transform: translateY(-200px)
+  100%
+    opacity: 1
+
+
+@keyframes  SDdialogAnim
+  0%
+
+    transform: translateY(-10px)
+  100%
+
+    transform: translateY(0px)
