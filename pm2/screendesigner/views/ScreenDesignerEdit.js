@@ -2,6 +2,7 @@
  * 指标筛选弹出窗
  */
 define([
+     "oss_core/pm/screendesigner/js/webupload/js/webuploader",
     "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "text!oss_core/pm/screendesigner/templates/ScreenDesignerEdit.html",
     "oss_core/pm/screendesigner/js/Zcharts",
@@ -10,8 +11,10 @@ define([
     "oss_core/pm/screendesigner/js/rgbcolor",
     "oss_core/pm/screendesigner/js/StackBlur",
     "oss_core/pm/screendesigner/js/canvg",
-    "css!oss_core/pm/screendesigner/jsoneditor/jsoneditor.css"
-], function(i18nData,tpl, Zcharts, SDconfigView, BScreenMgrAction) {
+    "css!oss_core/pm/screendesigner/jsoneditor/jsoneditor.css",
+
+    "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
+], function( WebUploader,   i18nData,tpl, Zcharts, SDconfigView, BScreenMgrAction) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
         resource : fish.extend({}, i18nData),
@@ -49,23 +52,17 @@ define([
             'click #canvasPage': 'RenderView',
             'click #showListButton': 'showListButton',
             'click #uplodImage': 'upload',
-            'click .imageNode': 'addImageNode',
+            'click .imageNode':'imageNode',
         },
         showListButton: function() {
             this.parentView.showDesigner();
 
         },
 
-        addImageNode: function() {
-            var self = this;
-            this.canvas.addNode({
-                'attrs': {
-                    'type': 'imageNode'
-                }
-            });
-            self.closeMenu();
-
+        imageNode:function() {
+              //this.$el.find('.webuploader-pick').trigger('click');
         },
+
         upload: function() {
             var svg_canvs = this.canvas;
             var svg = svg_canvs.toSVG();
@@ -138,6 +135,47 @@ define([
 
             // TODO: 初始化图列菜单(done)
             $('#mega-menu-1').dcMegaMenu({rowItems: '3', speed: 0, effect: 'slide', fullWidth: false});
+
+            //添加图添点
+            this.shiftUploader = WebUploader.create({
+              auto : true,
+                swf: portal.appGlobal.get('webroot') + "frm/fish-desktop/third-party/fileupload/Uploader.swf",
+                server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
+                pick: ".imageNode",
+                accept: {
+                        title: 'Image',
+                        extensions: 'jpg,jpeg,bmp,png',
+                        mimeTypes: 'image/*'
+                    },
+              //  fileNumLimit: 1,
+                resize: false
+            });
+            this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
+
+              var config =response.data;
+              // fileName:"170817142623246836.png"
+              // filePath:"shift/import/170817142623246836.png"
+              // fileSize:"837999"
+              // fileSrc:"QQ图片20170714164501.png"
+              var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
+              var myImg = new Image();
+              myImg.src =filePath
+              myImg.onload=function(){
+                self.canvas.addNode({
+                    'attrs': {
+                        'type': 'imageNode',
+                        'src':filePath,
+                        'w':this.width,
+                        'h':this.height
+                    }
+                });
+              }
+              // var width = myImg.width;
+              // var height = myImg.height;
+
+
+            });
+
 
         },
         RenderCanvas: function(fun) {

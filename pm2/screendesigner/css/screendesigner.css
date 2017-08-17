@@ -36,6 +36,11 @@ ul {
   background: #fff;
 }
 
+.editBody .webuploader-pick {
+  background: transparent !important;
+  padding: 0px !important;
+}
+
 .editBody .mainContent {
   background: #e3e3e3;
   padding-top: 10px;

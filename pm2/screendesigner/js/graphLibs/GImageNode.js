@@ -4,7 +4,6 @@ define([
 
     var GImageNode = GRoot.extend({
         initAttrs: function() {
-            this.path="oss_core/pm/screendesigner/js/graphLibs/images/upload/"
 
         },
         initElement: function() {
@@ -13,12 +12,12 @@ define([
             var x=0;
             var y=0;
 
-            var imgURL=this.path+name;
+            var imgURL=this.attrs.src
             // var myImg = new Image();
             // myImg.src = imgURL;
             // var width = myImg.width;
             // var height = myImg.height;
-            this.doms['icon']=this.paper.image(imgURL, x, y, 1256, 1000).toBack();
+            this.doms['icon']=this.paper.image(imgURL, x, y, this.attrs.w, this.attrs.h).toBack();
 
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
             this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
