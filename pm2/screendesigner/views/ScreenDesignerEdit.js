@@ -151,7 +151,7 @@ define([
                 resize: false
             });
             this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
-
+              console.log(response);
               var config =response.data;
               // fileName:"170817142623246836.png"
               // filePath:"shift/import/170817142623246836.png"
