@@ -1,6 +1,7 @@
 define([
-    "oss_core/pm/screendesigner/js/graphLibs/GRoot", "oss_core/pm/screendesigner/js/graphLibs/views/GCharacterView"
-], function(GRoot, View) {
+    "oss_core/pm/screendesigner/actions/BScreenMgrAction",
+        "oss_core/pm/screendesigner/js/graphLibs/GRoot", "oss_core/pm/screendesigner/js/graphLibs/views/GCharacterView"
+], function(action,GRoot, View) {
 
     var GImageNode = GRoot.extend({
         initAttrs: function() {
@@ -21,7 +22,7 @@ define([
 
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
             this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
-
+        
         },
 
         initLocation: function() {
@@ -83,7 +84,9 @@ define([
             // TODO:配置删除(node)
             this.doms['remove'].click(function(e) {
                 fish.confirm(view.resource.ISDEL).result.then(function() {
-                    self.remove();
+                      action.delFile(self.attrs.filename,function(){
+                          self.remove();
+                      })
                 });
                 e.stopImmediatePropagation();
             })

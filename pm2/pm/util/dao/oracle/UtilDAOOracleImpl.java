@@ -85,7 +85,7 @@ public class UtilDAOOracleImpl extends UtilDAO {
     public void getDataSource(DynamicDict dict) throws BaseAppException {
 
         String sql = "";
-        sql = "select id, name, comments    \n" 
+        sql = "select id, name, comments    \n" mo
             + "  from tfm_config    \n" 
             + " where lower(module_name) = 'jdbc'    \n" 
             + "   and parent_id is null    \n"

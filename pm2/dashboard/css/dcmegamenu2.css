@@ -1,0 +1,150 @@
+/* Mega Menu Styles */
+
+.mega-menu ul, .mega-menu ul li {
+    list-style: none;
+}
+
+.mega-menu ul {
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-menu ul li ul {
+    display: none;
+}
+
+.mega-menu .sub {
+    display: none;
+}
+
+.mega-menu .sub ul {
+    display: block;
+}
+
+#mega-menu-dash {
+    list-style: none;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+#mega-menu-dash .sub ul {
+    display: block;
+}
+
+#mega-menu-dash {
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+
+#mega-menu-dash li {
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+#mega-menu-dash li a {
+    float: left;
+    display: block;
+    color: #c0c0c0;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+}
+
+#mega-menu-dash li.mega-hover a, #mega-menu-dash li.mega-hover a:hover {
+    background: #f5f5f5;
+    color: #000;
+}
+
+#mega-menu-dash li a:hover {
+    background: #f5f5f5;
+    color: #000;
+}
+
+#mega-menu-dash li .sub-container {
+    position: absolute;
+    height: 50px;
+}
+
+#mega-menu-dash li .sub {
+    padding: 15px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .15);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+}
+
+#mega-menu-dash li .sub .row {
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+}
+
+#mega-menu-dash li .sub li {
+    list-style: none;
+    float: left;
+    width: 170px;
+    font-weight: normal;
+}
+
+#mega-menu-dash li .sub li.mega-hdr {
+    margin: 0 10px 10px 0;
+    float: left;
+}
+
+#mega-menu-dash li .sub li.mega-hdr.last {
+    margin-right: 0;
+}
+
+#mega-menu-dash li .sub a {
+    background: none;
+    color: #111;
+    padding: 7px 10px;
+    display: block;
+    float: none;
+}
+
+#mega-menu-dash li .sub li.mega-hdr a.mega-hdr-a {
+    padding: 5px 15px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+#mega-menu-dash li .sub li.mega-hdr a.mega-hdr-a:hover {
+    color: #000;
+}
+
+#mega-menu-dash .sub li.mega-hdr li a {
+    padding: 4px 5px;
+    font-weight: normal;
+}
+
+#mega-menu-dash .sub li.mega-hdr li a:hover {
+    color: #a32403;
+    background: #eee;
+}
+
+#mega-menu-dash .sub ul li {
+    padding-right: 0;
+}
+
+#mega-menu-dash li .sub-container.non-mega .sub {
+    padding: 10px;
+}
+
+#mega-menu-dash li .sub-container.non-mega li {
+    padding: 0;
+    width: 190px;
+    margin: 0;
+}
+
+#mega-menu-dash li .sub-container.non-mega li a {}
+
+#mega-menu-dash li .sub-container.non-mega li a:hover {
+    color: #a32403;
+    background: #f9f9f9;
+}

@@ -140,7 +140,7 @@ define([
             this.shiftUploader = WebUploader.create({
               auto : true,
                 swf: portal.appGlobal.get('webroot') + "frm/fish-desktop/third-party/fileupload/Uploader.swf",
-                server: portal.appGlobal.get('webroot') + "/upload?modelName=shift/import/&genName=true",
+                server: portal.appGlobal.get('webroot') + "/upload?modelName=bscreen/import/&genName=true",
                 pick: ".imageNode",
                 accept: {
                         title: 'Image',
@@ -151,7 +151,7 @@ define([
                 resize: false
             });
             this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
-              console.log(response);
+
               var config =response.data;
               // fileName:"170817142623246836.png"
               // filePath:"shift/import/170817142623246836.png"
@@ -166,7 +166,8 @@ define([
                         'type': 'imageNode',
                         'src':filePath,
                         'w':this.width,
-                        'h':this.height
+                        'h':this.height,
+                        'filename':config.filePath
                     }
                 });
               }
@@ -420,7 +421,7 @@ define([
         checkSave: function() {
             var self = this;
             if (self.canvas.name.length <= 0) {
-                fish.toast('info', '请输入仪表盘名称');
+                fish.toast('info', 'Please input the  dashboard name');
                 return false;
             }
             return true;

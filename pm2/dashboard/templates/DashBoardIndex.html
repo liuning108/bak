@@ -1,0 +1,143 @@
+<div id="ad-topic-list-view">
+  <section class="vbox">
+    <section>
+      <section class="hbox stretch">
+        <aside class="ad-left js-ad-left b-r">
+          <div class="ad-title b-b">
+            <h3 class="m-n font-thin"> My DashBoard
+                            <div class="pull-right" style="display: none;">
+                            <button id="ad-addcatalog-btn" type="button" class="btn btn-default ">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                            </div>
+                        </h3>
+          </div>
+          <!--Tree-->
+          <div id="dashboardTree" class="ad-tree scrollable m-l-sm">
+          </div>
+          <!--Tree End-->
+        </aside>
+        <!--Right-->
+        <section>
+          <section class="vbox ad-chart-bg">
+
+            <!--homepage-->
+            <!--主题tab-->
+            <div id="ad-dashboard-tabs" class="ui-tabs" style="border: 0px;margin-top:13px">
+              <ul class="ui-tabs-nav">
+                <li>
+                  <a href="#tabs-a">HomePage</a>
+                </li>
+              </ul>
+              <div id="tabs-a">
+                <section id="ad-homepage" class="wrapper scrollable p-b-none ad-my-section">
+                  <section class="wrapper scrollable p-b-none">
+                    <div class="wrapper-md">
+                      <div class="row">
+                        <div class="col-md-6"><img src="oss_core/pm/dashboard/assets/img/dashboardimg.png"></div>
+                        <div class="col-md-6">
+                          <p style="margin-top: 80px;font-size:14px">
+                            Dashboard integrates multiple views into an interactive Dashboard. Highlight and filter data to show relationships. Connect specific insights into a narrative thread that tells the story behind your data.
+                          </p>
+                          <br>
+                          <header class="wrapper b-b clearfix" style="margin-right:15px;margin-left:-8px;padding-left: 0px;border:0">
+                            <div class="  pull-left m-l-sm">
+                              <button id="ad-addDashboard-btn" type="button" title="After you select the directory, you can create a new topic in the corresponding directory" class="btn btn-primary " disabled>
+                              <i class="ad-btn-plus"></i> Add DashBoard
+                              </button>
+                            </div>
+
+                            <!-- <div class="col-md-5">
+                              <div class="input-group search-group pull-left">
+                                <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11">
+                                                            </i>
+                                <input type="text" class="ad-theme-search form-control" style="width:170px" id="ad-search-input">
+                                <span class="input-group-btn" style="padding-left:8px;display: none">
+                                                                <button type="button" class="btn " id="ad-search-btn">
+                                                                    Search
+                                                                </button>
+                                                            </span>
+                              </div>
+                            </div> -->
+                            <div class="pull-right" style="padding-right: 10px;display: none">
+                              <button id="ad-graph-btn" style="display: none" type="button" class="btn btn-ico" title="Graphic mode">
+                                                            <i class="fa fa-th-large"></i>
+                                                        </button>
+                              <button id="ad-list-btn" type="button" class="btn btn-ico active" title="List mode">
+                                                            <i class="fa fa-th-list"></i>
+                                                        </button>
+                            </div>
+                          </header>
+                          <!--<p>请选择使用模式：</p>
+                                                <a href="#" title="添加文件夹" class="btn btn-default "><i class="fa fa-bar-chart"></i> 浏览</a>
+                                                <a href="#" title="添加文件夹" class="btn btn-default "><i class="fa fa-edit"></i> 设计</a>-->
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </section>
+                <section id="ad-search-container" class="wrapper scrollable p-b-none" style="display: none;">
+                  <div class="m-b-sm overflow-y-h">
+                    <div class="pull-left">Find relevant results&nbsp;<span id="ad-search-result-count"></span>：</div>
+                    <div class="pull-left" style="display: none;">
+                      <a href="#" class="ad-link">按主题名排序</a>
+                      <a href="#" class="ad-link m-l-sm">按维度排序</a>
+                      <a href="#" class="ad-link m-l-sm">按指标排序</a>
+                    </div>
+                    <div class="pull-right m-r-sm">
+                      <a id="ad-exit-search-btn" href="#">Back</a>
+                    </div>
+                  </div>
+                  <hr>
+                  <div id="ad-searchcont-container" class="ad-seacrh-box">
+                    <!--<div>
+                                        <a href="#" class="h4"> 收藏主题一</a>
+                                        <p>维度：
+                                            <span >维度一</span> 维度二 指标：
+                                            <span>指标一</span>指标二</p>
+                                    </div>-->
+                  </div>
+                  <div class="text-center wrapper m-t-sm m-b-sm" style="display: none;">Loading more….</div>
+                </section>
+              </div>
+            </div>
+            <section id="ad-list-container" class="wrapper scrollable p-b-none ad-my-section" style="display: none">
+              <div class="col-md-12">
+                <div class="ad-table ">
+                  <div id="topicListTable" class="ad-grid" />
+                </div>
+              </div>
+            </section>
+            <section id="ad-graph-container" class="wrapper scrollable p-b-none ad-my-section" style="display: none">
+              <div id="ad-graph-div">
+                <div class="col-md-6">
+                  <div id="ad-chart-1" class="ad-chart wrapper">
+                    业务分析主题一
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div id="ad-chart-2" class="ad-chart wrapper">
+                    业务分析主题二
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div id="ad-chart-3" class="ad-chart wrapper">
+                    业务分析主题三
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div id="ad-chart-4" class="ad-chart wrapper">
+                    业务分析主题四
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+          </section>
+        </section>
+      </section>
+    </section>
+  </section>
+
+</div>

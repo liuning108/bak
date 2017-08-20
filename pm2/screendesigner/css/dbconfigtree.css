@@ -1,3 +1,14 @@
+.configDBSourceDialog .ui-tabs .ui-tabs-nav li.ui-state-default a
+{
+    max-width: 100% ;
+    background-color: #fff !important;
+}
+
+.configDBSourceDialog  .ui-tabs .ui-tabs-nav li.ui-tabs-active > a, .ui-tabs .ui-tabs-nav li.ui-tabs-active > a:hover, .ui-tabs .ui-tabs-nav li.ui-tabs-active > a:focus
+{
+    max-width: 100% ;
+    background-color: #fff !important;
+}
 .db_panel_side {
   margin: 0px;
   padding: 0px;
@@ -630,6 +641,8 @@ span.serachStyle1 {
   float: none;
   white-space: normal;
 }
+
+
 
 .configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active ~ li a .wizard-step {
   background-color: rgba(218, 11, 11, 0);

@@ -2,6 +2,13 @@ define(function() {
 	var action={};
 	action.service="MPM_BSCREEN_MANAGE_SERVICE";
 
+	action.delFile=function(filename,success) {
+		var param={};
+		param.method="delFile"
+		param.fileName = filename;
+		portal.callService(this.service,param, success);
+	}
+
 	action.getServerSkeleton=function(no,success) {
 		var param={};
 		param.method="getServerSkeleton"
@@ -47,7 +54,10 @@ define(function() {
 	// TODO: 获得数据源
 	action.getSource=function(success){
 	  var param={};
-      portal.callService("MPM_UTIL_DATA_SOURCE",param, success);
+	  param.method="getSource"
+	  portal.callService(this.service,param, success);
+    //   portal.callService("MPM_UTIL_DATA_SOURCE",param, success);
+
 	}
 	// TODO: 更新大屏仪表盘
 	action.saveOrUpdate=function(json,success){
