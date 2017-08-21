@@ -1,0 +1,89 @@
+.js-radio-inline{
+    height: 20px;
+    margin-top: 10px;
+    min-width: 100px
+}
+.js-ad-left{
+    width: 278px !important;
+    background: #f0f3f4;
+}
+.js-chart-args {
+    position: relative;
+    z-index: 100;
+    padding: 8px 16px 0;
+}
+.draging {
+    background-color: #e7ebf7;
+    opacity:0.7;
+    filter:alpha(opacity=70);
+}
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6
+}
+a.active {
+    color: #039cfd
+}
+#ad-chart-container .ui-jqgrid tr.jqgrow td
+{
+    /* jqGrid cell content wrap  */
+    white-space: normal !important;
+    height :auto;
+}
+
+th.ui-th-column div
+{
+    /* jqGrid columns name wrap  */
+    white-space:normal !important;
+    height:auto !important;
+    padding:0px;
+}
+
+span.selectable
+{
+    padding-left:10px;
+    width: 150px;
+    text-overflow:ellipsis;white-space:nowrap;overflow:hidden;"
+}
+.ad-axiscfg-radio-inline-1
+{
+    left: 170px;
+    padding-top: 6px;
+    position: absolute;
+}
+.ad-axiscfg-radio-inline-2
+{
+    left: 230px;
+    padding-top: 6px;
+    position: absolute;
+}
+.ad-axis-head-label
+{
+    float: left;
+    min-width: 85px;
+    margin-top: 8px;
+    padding: 4px 0px;
+}
+.click-tag
+{
+    cursor: pointer;
+}
+#sortable .active {
+    background-color: rgba(0,0,0,.06);
+}
+.level2 li {
+    overflow: hidden;white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+    width:180px;
+}
+.level1 li {
+    overflow: hidden;white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.level2 a {
+    width:201px;
+    overflow: hidden;white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}

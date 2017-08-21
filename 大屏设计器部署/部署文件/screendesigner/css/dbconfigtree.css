@@ -1,0 +1,914 @@
+.configDBSourceDialog .ui-tabs .ui-tabs-nav li.ui-state-default a
+{
+    max-width: 100% ;
+    background-color: #fff !important;
+}
+
+.configDBSourceDialog  .ui-tabs .ui-tabs-nav li.ui-tabs-active > a, .ui-tabs .ui-tabs-nav li.ui-tabs-active > a:hover, .ui-tabs .ui-tabs-nav li.ui-tabs-active > a:focus
+{
+    max-width: 100% ;
+    background-color: #fff !important;
+}
+.db_panel_side {
+  margin: 0px;
+  padding: 0px;
+}
+
+.db_panel_side .panel_row_r1 {
+  padding: 15px 10px 20px 10px;
+  position: relative;
+}
+
+.db_panel_side .panel_row_r1 h2 {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 26px;
+  margin: 0px;
+}
+
+.db_panel_side .panel_row_r1 .x_table_i {
+  font-size: 12px;
+  padding: 10px 0;
+  color: #36b0c8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  display: block;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane {
+  position: absolute;
+  width: 370px;
+  height: 400px;
+  background: #fff;
+  left: -370px;
+  top: -20px;
+  z-index: 999;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  padding: 0px 0px 0px 0px;
+  animation: spinny 300ms linear;
+  display: none;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .addNewServer {
+  width: 100%;
+  padding: 15px 10px 20px 10px;
+  background-color: #32ddff;
+  color: #fff;
+  float: right;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body {
+  padding: 15px 10px 20px 10px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search i {
+  position: relative;
+  left: 23px;
+  top: 3px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input {
+  padding-left: 30px;
+  width: 150px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:hover {
+  border: 1px solid #666;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:active, .db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search input:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #42a5f5;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search .serachBtn {
+  border: 1px solid #cfdadd;
+  color: #666;
+  line-height: 19px;
+  padding: 6px;
+  padding-top: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .db_search .serachBtn:hover {
+  background-color: #f5f5f5;
+  border-color: #d6d6d6;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist {
+  padding: 15px 10px 20px 10px;
+  min-height: 260px;
+  max-height: 260px;
+  overflow: auto;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li {
+  box-sizing: border-box;
+  height: 40px;
+  border: 1px solid #eee;
+  margin-bottom: 5px;
+  line-height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  color: #666;
+  overflow: hidden;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .modifiedService {
+  margin-right: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icommand {
+  display: inline;
+  float: right;
+  font-size: 12px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icommand i {
+  margin-left: 5px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .chosiceIcon {
+  display: none;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li.actionService {
+  border-color: #02b8ed;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li.actionService .chosiceIcon {
+  display: inline;
+  padding-right: 5px;
+  color: #02b8ed;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li .icomandGly {
+  display: none;
+  line-height: 40px;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover {
+  cursor: pointer;
+  color: #fff !important;
+  background: #02b8ed;
+  box-shadow: 0 0 14px rgba(56, 56, 56, 0.25);
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .serviceBtn {
+  display: inline;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .chosiceIcon {
+  color: #fff !important;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .icomandGly {
+  display: inline;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane .db_edit_body .dbserverlist .dbserverlistUL li:hover .icomandGly:hover {
+  font-size: 20px;
+}
+
+.db_panel_side .panel_row_r1 .db_edit_plane ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.db_panel_side .serverCommand {
+  margin-bottom: 10px;
+}
+
+.db_panel_side .g_tt {
+  position: relative;
+  color: #758697;
+}
+
+.db_panel_side .g_tt h3 {
+  line-height: 30px;
+  height: 30px;
+  background: #f1f1f1;
+  padding: 0 15px;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.db_panel_side .g_tt h4 {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  font-size: 13px;
+  margin: 0px;
+  display: inline-block;
+}
+
+.db_panel_side .dbTipMessage {
+  font-size: 10px;
+  display: none;
+}
+
+.db_panel_side .g_field_context {
+  width: 300px;
+}
+
+.db_panel_side .g_field_context:hover .dbTipMessage {
+  display: inline-block;
+}
+
+.db_panel_side .g_field {
+  border-bottom: 1px solid #eee;
+}
+
+.db_panel_side .g_field ul {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px !important;
+  padding: 0px;
+}
+
+.db_panel_side .g_field ul li {
+  line-height: 28px;
+  padding: 0 25px 0 25px;
+  font-size: 12px;
+  display: block;
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all  500ms ease-out;
+}
+
+.db_panel_side .g_field ul li:hover {
+  background: #f5f5f5;
+}
+
+.db_panel_side .g_field ul li span {
+  color: #666;
+}
+
+.db_panel_side .g_field ul li span .g_ico {
+  color: #53a4f5;
+  margin-right: 5px;
+  font-size: 12px;
+}
+
+.db_panel_side .db_edit ul {
+  padding: 0px;
+}
+
+.db_panel_side .db_edit ul li {
+  margin: 0px;
+  float: left;
+  margin-left: 10px;
+}
+
+.db_panel_side .db_edit ul li a {
+  font-size: 12px;
+  display: block;
+  padding: 4px 8px;
+  background: #666;
+  color: #fff;
+  border-radius: 3px;
+}
+
+.db_panel_side .db_sure, .db_panel_side .db_edit_plane_sure {
+  background: #0baee8 !important;
+}
+
+.db_panel_side .db_cancel, .db_panel_side .db_edit_plane_cancel {
+  background: #999 !important;
+}
+
+.db_panel_side .db_edit_btn {
+  background: #02b8ed !important;
+}
+
+.db_panel_side .none-bottom {
+  border-bottom: none !important;
+}
+
+.db_panel_side .martop5px {
+  margin-top: 10px;
+}
+
+.db_panel_side .dbChoice {
+  border: 1px solid #eee;
+  margin-bottom: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.db_panel_side .dbChoice:before {
+  content: "\e013";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  color: #02b8ed;
+  animation: spinny2 500ms cubic-bezier(0.18, 0.89, 0.42, 1.32);
+  position: relative;
+  left: -15px;
+}
+
+.db_panel_side .dbChoice span {
+  font-weight: bold;
+}
+
+.db_panel_side .xmessage, .db_panel_side .ymessage {
+  text-align: center;
+  display: none;
+  color: red;
+  transition: 0.5s;
+  position: relative;
+  animation: messageAnim 500ms cubic-bezier(0.18, 0.89, 0.42, 1.32);
+}
+
+.serachStyle1 {
+  border: solid 1px #d6d6d6;
+  padding: 5px;
+}
+
+span.serachStyle1 {
+  cursor: pointer;
+}
+
+.dbconfig-button-plus {
+  padding: 5px;
+  background-color: #02b8ed;
+  border-color: #02b8ed;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dbconfig-button-plus:hover {
+  background-color: #027dcb;
+  border-color: #027dcb;
+}
+
+.dbconfig-button-plus:before {
+  content: "\f067";
+  font: normal normal normal 14px/1 FontAwesome;
+  display: inline-block;
+  font-size: 12px;
+  padding-right: 2px;
+}
+
+.closeButton {
+  line-height: 50px;
+  position: relative;
+  color: #c1c1c1 !important;
+  font-size: 20px;
+  font-weight: bold;
+  top: -10px;
+}
+
+.closeButton:hover {
+  color: #e74c3c !important;
+}
+
+.configPanelStyle {
+  padding: 10px;
+}
+
+.configPanelStyle .row {
+  margin-top: 5px;
+}
+
+.configPanelStyle .radio-inline {
+  padding-top: 5px;
+  margin-right: 30px;
+  margin-left: 5px;
+}
+
+.configPanelStyle .form-control {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.configPanelStyle .form-control:focus, .configPanelStyle .form-control:active:focus {
+  outline-color: none !important;
+  box-shadow: none;
+  border: 1px solid #42a5f5;
+}
+
+.dbResultPanel {
+  padding: 10px;
+}
+
+.dbResultPanel .jqgrid-rownum {
+  background-color: #f5f5f5 !important;
+  color: #333 !important;
+}
+
+.configDBSourceFooter {
+  height: 40px;
+  padding: 2px;
+  margin-top: 10px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.configDBSourceFooter .blueBtn {
+  color: #fff;
+  background-color: #039cfd;
+  border-color: #039cfd;
+}
+
+.configDBSourceFooter .blueBtn:hover {
+  color: #fff;
+  background-color: #027dcb;
+  border-color: #027dcb;
+}
+
+.configDBSourceFooter .cancel {
+  color: #717171;
+  background-color: #fff;
+  border: 1px solid #d9dbdc;
+}
+
+.configDBSourceFooter .cancel:hover {
+  border-color: #d9dbdc;
+  background: #f3f4f4;
+  color: #717171;
+}
+
+.configAxis {
+  margin-top: 8px;
+}
+
+.xypanel {
+  border: 1px solid #d9dbdc;
+  height: 240px;
+}
+
+.xypanel ul {
+  padding: 0px;
+}
+
+.xypanel ul li {
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #222;
+}
+
+.xypanel ul li input {
+  margin-right: 5px;
+}
+
+.xyHeadBox {
+  height: 30px;
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  line-height: 30px;
+}
+
+.titleH1 {
+  color: #222 !important;
+}
+
+.xyswitchbtns {
+  position: relative;
+}
+
+.xyswitchbtns .buttons {
+  position: relative;
+  top: 90px;
+  left: 30px;
+}
+
+.xyswitchbtns .buttons button {
+  display: block;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  width: 100px;
+  height: 30px;
+  color: #6a6868;
+  font-weight: bold;
+}
+
+.PrevbuttonClass {
+  position: relative;
+  left: -800px;
+}
+
+.configDBSourceDialog {
+  margin: 0px;
+  padding: 0px;
+}
+
+.configDBSourceDialog .btn {
+  border-radius: 0px;
+  padding: 4px 6px;
+  min-width: 28px;
+  font-size: 13px;
+  min-width: 60px;
+}
+
+.configDBSourceDialog .btn-default {
+  color: #717171;
+  background-color: #fff;
+  border: 1px solid #d9dbdc;
+}
+
+.configDBSourceDialog .btn-default:hover {
+  border-color: #d9dbdc;
+  background: #f3f4f4;
+  color: #717171;
+}
+
+.configDBSourceDialog .modal-header {
+  background: #F0F2F3;
+  color: #333;
+  padding: 15px 10px 5px 20px;
+}
+
+.configDBSourceDialog .modal-header .close {
+  color: #999;
+}
+
+.configDBSourceDialog .modal-body {
+  position: relative;
+  background-color: #F0F2F3;
+  padding: 15px 20px 0px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box {
+  background: #F0F2F3;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block {
+  padding: 10px;
+  box-shadow: 0px 1px 3px 0px #ccc;
+  background: #fff;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane {
+  float: none;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .m-b-sm {
+  color: #758697;
+  background: #ddd;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  border-bottom: 1px solid #eee;
+  font-weight: normal;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .row {
+  margin-bottom: 10px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .row .req:before {
+  content: "*";
+  color: #fb6e52;
+  vertical-align: middle;
+  margin-right: 3px;
+  line-height: 1;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-12 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-12 .form-group .col-md-12 {
+  padding: 0px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .radio-inline {
+  line-height: 2.5 !important;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .form-group .has-error .form-control {
+  border-color: #e74c3c !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .form-group .form-control {
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .form-group .form-control:focus, .configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .form-group .form-control:active {
+  box-shadow: none;
+  border: 1px solid #42a5f5;
+}
+
+.configDBSourceDialog .modal-body .sd-modal-box .sd-block .tab-pane .col-md-6 .form-group .form-control:hover {
+  border: 1px solid #66c6f1;
+}
+
+.configDBSourceDialog .modal-footer {
+  background: #F0F2F3;
+  border-top: 0px;
+}
+
+.configDBSourceDialog .model_c_dbsource {
+  width: 840px !important;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs {
+  padding: 0px;
+  background-color: #FFF;
+  width: 100%;
+  border-bottom: 0;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li {
+  border-right: 1px solid #eaeaea;
+  border-top: 1px solid #f5f5f5;
+  display: table-cell;
+  width: 1%;
+  float: none;
+  white-space: normal;
+}
+
+
+
+.configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active ~ li a .wizard-step {
+  background-color: rgba(218, 11, 11, 0);
+  color: #eaeaea;
+  border-color: #eaeaea;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active ~ li:before {
+  opacity: 0;
+  width: 0;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active a {
+  color: #4a555b;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active a .wizard-step {
+  background-color: transparent;
+  color: #4a555b;
+  border-color: #4a555b;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li.ui-tabs-active:after {
+  opacity: 1;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li:before, .configDBSourceDialog .tab-wizard .nav-tabs li:after {
+  content: "";
+  position: absolute;
+  border: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #798992;
+  left: 0;
+  margin-left: 0;
+  z-index: 99;
+  opacity: 0;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
+  transition: opacity 0.8s;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li:before {
+  background-color: #798992;
+  bottom: -3px;
+  opacity: 1;
+  transition: width 0.8s;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li:after {
+  background-color: #798992;
+  opacity: .1;
+  bottom: -3px;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li a {
+  font-family: "Open Sans","weiruanyahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+  float: none;
+  font-size: 14px;
+  color: #777;
+  font-weight: normal;
+  padding: 10px 15px;
+  text-align: center;
+  border: none;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li a .wizard-step {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 6px;
+  border-radius: 50%;
+  background-color: #4a555b;
+  color: #eaeaea;
+  border: 1px solid #eaeaea;
+  margin-top: -2px;
+  margin-right: -10px;
+  width: 23px;
+  height: 23px;
+  line-height: 14px;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li a.arror:after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #f5f5f5;
+  border-top: 20px solid transparent;
+  top: -1px;
+  right: -20px;
+  z-index: 5;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li a.arror:before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 19px solid transparent;
+  border-left: 19px solid #fff;
+  border-top: 19px solid transparent;
+  top: 0px;
+  right: -18px;
+  z-index: 6;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li a:hover, .configDBSourceDialog .tab-wizard .nav-tabs li a:focus {
+  color: #3596ae;
+  background: #fff;
+}
+
+.configDBSourceDialog .tab-wizard .nav-tabs li:first-child {
+  border-left: 1px solid #f5f5f5;
+}
+
+.fieldsList .list-group {
+  background: #fff;
+  min-height: 28px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.fieldsList .list-group .ui-sortable-helper {
+  background: #00b2db !important;
+  color: #fff !important;
+  border: 0 !important;
+}
+
+.fieldsList .list-group .list-group-item {
+  color: #758697;
+  position: relative;
+  border: 1px solid #f5f5f5;
+  background: #f5f5f5;
+  margin-bottom: 5px !important;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 12px;
+  line-height: 28px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 1px 1px 0.5px 0px #b3b3b3;
+}
+
+.fieldsList .list-group .list-group-item .modifiedDB:hover {
+  color: #646464 !important;
+  font-size: 15px;
+}
+
+.fieldsList .list-group .list-group-item .dor {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  display: none;
+}
+
+.fieldsList .list-group .list-group-item:hover {
+  border: 1px solid #36b0c8;
+}
+
+.fieldsList .list-group .list-group-item:hover .dor {
+  display: inline-block;
+}
+
+.axisInputName {
+  display: inline-block;
+  color: #5c6975;
+  width: 80%;
+}
+
+.dbtypeing {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.dbtypeing .itemSelect {
+  border: none !important;
+}
+
+.dbtypeing .dsitem {
+  position: relative;
+  width: 140px !important;
+  height: 140px !important;
+  display: inline-block;
+  margin: 10px 15px !important;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer;
+  border: 1px solid #D2D2D2;
+}
+
+.dbtypeing .dsitem .dbSelect {
+  width: 140px;
+  height: 140px;
+  position: absolute;
+  border: none;
+  bottom: 0 !important;
+  right: 0 !important;
+  display: none;
+}
+
+.dbtypeing .dsitem:hover {
+  box-shadow: 0 0 8px #999;
+  border-color: #fff;
+}
+
+.sqlImage {
+  background: url("../images/SQL.png") no-repeat;
+  background-size: 72px  72px;
+  background-position: 34px 34px;
+  display: inline;
+  width: 72px;
+  height: 72px;
+  position: relative;
+}
+
+.apiImage {
+  background: url("../images/API.png") no-repeat;
+  background-size: 72px  72px;
+  background-position: 34px 34px;
+  display: inline;
+  width: 72px;
+  height: 72px;
+  position: relative;
+}
+
+.editor-sql-error {
+  border-color: #e74c3c !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.errorMessage {
+  color: #e74c3c;
+  text-align: center;
+  margin-left: 100px;
+}
+
+@keyframes messageAnim {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes spinny2 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+@keyframes spinny {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

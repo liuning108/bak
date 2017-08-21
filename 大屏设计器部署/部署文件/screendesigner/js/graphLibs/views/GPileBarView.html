@@ -1,0 +1,132 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="g_titile" class="bi-lable">{{TITLE}}:</label>
+                                        <input type="text" class="g_titile" name="g_titile">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{TITLE_COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="chart_colorpicker" class="bi-lable">{{TEXT_COLOR}}:</label>
+                                        <input type="text" class="chart_colorpicker" name="chart_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="value_colorpicker" class="bi-lable">{{VALUE_COLOR}}:</label>
+                                        <input type="text" class="value_colorpicker" name="value_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="c1_colorpicker" class="bi-lable">column 1 {{COLOR}}:</label>
+                                        <input type="text" class="c1_colorpicker" name="c1_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="c2_colorpicker" class="bi-lable">column 2 {{COLOR}}:</label>
+                                        <input type="text" class="c2_colorpicker" name="c2_colorpicker">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{WIREFRAME_SETTING}}</h4>
+                <!-- TODO: 显示 / 隐藏(done) -->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <lable class="bi-lable" style="margin-right:0px;margin-left:10px">{{SHOW_HIDE}}:</lable>
+                        </div>
+                        <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                            <label class="switch">
+                                <input type="checkbox" checked="true" class='switchGrid'>
+                                <span style=""></span>
+                             </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="gtext_colorpicker_label" class="bi-lable">{{WIREFRAME_COLOR}}:</label>
+                                    <input type="text" class="gtext_colorpicker_label" name="gtext_colorpicker_label">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO:  宽-->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
+                             {{WIDTH}}
+                            </label>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div id="slider2" style="position:relative; top:12px;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <input id="slider2_input" type="text" class="bi-input-number-range-input" readonly>
+                        </div>
+                    </div>
+                </div>
+                <!-- TODO:  高-->
+                <div class="bi-attr-edit-list-div-rengs">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <label class="bi-lable" style="margin-right:0px;margin-left:10px;padding-top:5px">
+                             {{HEIGHT}}
+                            </label>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <div id="slider3" style="position:relative; top:12px;"></div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <input id="slider3_input" type="text" class="bi-input-number-range-input" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+            <div class="dbCofnfigTree">
+
+            </div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a href="#" class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

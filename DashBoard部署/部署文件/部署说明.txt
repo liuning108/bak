@@ -1,0 +1,20 @@
+部署步骤
+
+    1 执行 脚本.sql  创建所需要的表结构和静态数据
+    
+    2 将 dashboard 页面目录 拷贝到 oss_core/pm 目录下
+     
+    3 将 zsmart-oss-pm-dashboard.jar  拷贝到 相应的 web工程的lib下
+
+    4  配置 zsmart/etc/projectized/system.cfg 文件, 为了上传图片
+         
+    	    uploadFileDirectory = /home/oss_pm/tomcat/webapps/oss/upload
+
+            uploadFileExtension = 
+	   
+            uploadRepository = /home/oss_pm/tomcat/webapps/oss/upload_temp
+
+          注意: /home/oss_pm/tomcat/webapps/oss ： 为相对应的Web工程路径（需要绝对路径) 
+                 uploadFileExtension : 不需要写值 。如果已有项目已有值 ，需要增加图片后缀（jpg,jpeg,bmp,png)
+   
+    5 页面的路径为 ： oss_core/pm/dashboard/views/DashBoard
