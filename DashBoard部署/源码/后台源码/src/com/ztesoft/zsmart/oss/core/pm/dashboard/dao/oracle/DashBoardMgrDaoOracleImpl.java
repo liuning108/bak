@@ -22,7 +22,7 @@ import com.ztesoft.zsmart.oss.core.pm.dashboard.util.DashBoardUtil;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>
@@ -85,7 +85,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return boolean
@@ -134,7 +134,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return String 
@@ -161,7 +161,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      *            <br>
@@ -198,7 +198,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return <br>
@@ -225,7 +225,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return <br>

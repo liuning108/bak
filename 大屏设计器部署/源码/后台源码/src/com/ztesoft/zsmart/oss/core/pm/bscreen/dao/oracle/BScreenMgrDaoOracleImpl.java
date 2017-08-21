@@ -22,7 +22,7 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -62,7 +62,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param base64  
      * @param topicId  
@@ -85,7 +85,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
      * @throws BaseAppException 
@@ -119,7 +119,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
      * @throws BaseAppException 
@@ -156,7 +156,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
      * @throws BaseAppException
@@ -197,7 +197,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param topcNo 
      * @param v_node_no 
@@ -301,7 +301,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param id  
      * @throws BaseAppException <br>
@@ -368,7 +368,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param sourceID  
      * @return map
@@ -413,7 +413,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -427,7 +427,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -459,7 +459,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -477,7 +477,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -504,7 +504,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @return boolean
@@ -522,7 +522,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException

@@ -15,7 +15,7 @@ import com.ztesoft.zsmart.oss.opb.util.JdbcUtil;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>

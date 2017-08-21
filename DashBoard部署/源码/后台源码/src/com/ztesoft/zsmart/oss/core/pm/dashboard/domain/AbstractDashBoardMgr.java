@@ -12,7 +12,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>
@@ -26,7 +26,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -38,7 +38,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -50,7 +50,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -62,7 +62,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -75,7 +75,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -89,7 +89,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object>
@@ -102,7 +102,7 @@ public abstract class AbstractDashBoardMgr {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return Map<String, Object> 

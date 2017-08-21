@@ -22,7 +22,7 @@ import com.ztesoft.zsmart.oss.opb.util.SeqUtil;
  * 
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -36,7 +36,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param text 
      * @param number 
@@ -56,7 +56,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param o 
      * @return result
@@ -72,7 +72,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param paramString 
      * @return result 
@@ -94,7 +94,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param topic 
      * @return <br>
@@ -113,7 +113,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param value 
      * @param value2 
@@ -131,7 +131,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param key 
      * @return <br>
@@ -157,7 +157,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dynamicDict 
      * @return map <br>
@@ -181,7 +181,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param list 
      * @return <br>
@@ -200,7 +200,7 @@ public class DashBoardUtil {
     * 
     * [方法描述] <br> 
     *  
-    * @author [作者名]<br>
+    * @author [刘宁]<br>
     * @taskId <br>
     * @param dirs 
     * @param base64 
@@ -230,7 +230,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dynamicDict 
      * @return <br>
@@ -266,7 +266,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param colModels  
      * @param datas 
@@ -292,7 +292,7 @@ public class DashBoardUtil {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param datas 
      * @param name 

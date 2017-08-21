@@ -12,7 +12,7 @@ import com.ztesoft.zsmart.oss.opb.util.GeneralDAO;
  * 
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -26,7 +26,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @return List<HashMap<String, String>>
      * @throws BaseAppException <br>
@@ -37,7 +37,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return map 
@@ -50,7 +50,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dict 
      * @throws BaseAppException
@@ -62,7 +62,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param topic_no 
      * @return boolean
@@ -75,7 +75,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dict 
      * @throws BaseAppException
@@ -87,7 +87,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param userId 
      * @return list
@@ -100,7 +100,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param id 
      * @return boolean
@@ -113,7 +113,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return map
@@ -126,7 +126,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @return map
@@ -139,7 +139,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return map
@@ -152,7 +152,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br> 
      * @param param 
      * @return map
@@ -165,7 +165,7 @@ public abstract class BScreenMgrDao extends GeneralDAO<Object> {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param param 
      * @return map
