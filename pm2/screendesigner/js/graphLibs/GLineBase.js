@@ -32,16 +32,23 @@ define([
             var names =this.attrs.names|| ['长沙', '株洲', '湘潭', '衡阳', '邵阳', '岳阳', '常德', '益阳', '娄底', '郴州'];
             this.attrs.names=names;
             this.attrs.xAxisDatas =this.attrs.xAxisDatas|| this.createRandom(names,10,90);
-
-
             this.Data2Graph();
             names=this.attrs.names;
             maxWidthName=this.getMaxWidthName(names);
-            var max = Math.floor(1.1*fish.max(this.attrs.xAxisDatas));
+            var max =Math.round(fish.max(this.attrs.xAxisDatas));
+            var smax =""+max
+            if (smax.length>1){
+            var twonums =Number(smax[smax.length-2]+smax[smax.length-1])
+               max =max+(100-twonums);
+            }else{
+              max =10;
+            }
+
             var items = [];
-            for (var i = 0; i < n; i++) {
-                var per = this.attrs.xAxisDatas[i]/ max;
-                var item = this.createItme(i, x, y, w, h, space_h, per, names[i],maxWidthName);
+            for (var i = 0; i < names.length; i++) {
+                var vvalue =this.attrs.xAxisDatas[i];
+                var per = vvalue/ max;
+                var item = this.createItme(i, x, y, w, h, space_h, per, names[i],maxWidthName,vvalue);
                 items.push(item);
                 this.doms['item' + i] = item.set;
             }
@@ -53,17 +60,17 @@ define([
             var x_nums = {};
             x_nums.x = lastItem.x + lastItem.box.width;
             x_nums.y = (lastItem.y + h + space_h) - lastItem.box.height / 2
-            for (var i = 0; i <= step; i++) {
-                var num = step_num * i;
-                var len = step_len * i;
-                x_nums.rect = paper.text(x_nums.x + len, x_nums.y, num).attr({
-                    'fill': this.attrs.titleColor,
-                    'font-size': 12,
-                    'font-family': '微软雅黑',
-                    'font-weight': 'bold'
-                });
-                this.doms['x_nums' + i] = x_nums.rect;
-            }
+            // for (var i = 0; i <= step; i++) {
+            //     var num = step_num * i;
+            //     var len = step_len * i;
+            //     x_nums.rect = paper.text(x_nums.x + len, x_nums.y, num).attr({
+            //         'fill': this.attrs.titleColor,
+            //         'font-size': 12,
+            //         'font-family': '微软雅黑',
+            //         'font-weight': 'bold'
+            //     });
+            //     this.doms['x_nums' + i] = x_nums.rect;
+            // }
             this.doms['config'] = this.paper.text(100, -30, '配置').attr({
                 'fill': 'red',
                 'font-size': 18,
@@ -78,7 +85,26 @@ define([
             });;
 
         },
-        createItme: function(i, x, y, w, h, space_h, per, name,www) {
+
+        getData:function(){
+              var self = this;
+              var run =function(){
+                self.dbHelper.getServiceDataInfo(self).done(
+                     function(data){
+                             self.Data2Graph();
+                             self.initObjetGraph();
+                             setTimeout(function() {
+                                run();
+                             }, 1000*30);
+                     }
+                )
+              }
+            setTimeout(function() {
+               run();
+            }, 1000*30);
+
+        },
+        createItme: function(i, x, y, w, h, space_h, per, name,www,vvalue) {
 
             var paper = this.paper;
             var item = {};
@@ -102,6 +128,13 @@ define([
                 'stroke-width': 0
             });
 
+            item.value = paper.text(item.x+(w * per)+www+20, item.y, vvalue).attr({
+                'fill': this.attrs.titleColor,
+                'font-size': 12,
+                'font-family': '微软雅黑',
+                'font-weight': 'bold'
+            });
+            item.set.push(item.value);
             item.set.push(item.text);
             //item.set.push(item.rect);
             item.set.push(item.process);
@@ -163,6 +196,7 @@ define([
         },
 
         toGraph:function(choiceTreeJson) {
+          try {
             var json={};
             json.xAxis={};
             json.xAxis.data=choiceTreeJson.xAxis[0].data;
@@ -170,6 +204,10 @@ define([
             json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
             this.setXAxisNames(json.xAxis.data)
             this.setXAxisDatas(json.series.data)
+          }catch(e){
+            console.log("GLineBase ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
 

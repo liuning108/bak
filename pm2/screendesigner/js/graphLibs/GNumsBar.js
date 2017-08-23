@@ -99,14 +99,17 @@ define([
             };
         },
         getData:function(){
-
             var self = this;
-            var intervalTime=1000*2 ;
-            this.setValue(this.val);
-            this.val=fish.random(this.val,this.val+3000);
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
+            var intervalTime=1000*30;
+            self.dbHelper.getServiceDataInfo(this).done(
+                 function(data){
+                         self.Data2Graph();
+                         self.setValue(self.attrs.val)
+                         setTimeout(function() {
+                             self.getData();
+                         }, intervalTime);
+                 }
+            )
         },
         setValue:function(val){
            var text=this.prefixInteger(val,this.attrs.digits);
@@ -196,11 +199,15 @@ define([
               return this.attrs.PanelColor;
         },
         toGraph: function(choiceTreeJson) {
-
+          try {
           var json = {}
           json.series = {}
           json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
           this.setVal(json.series.data[0]||0);
+          }catch(e){
+            console.log("GNumsBar ToGraph");
+            console.log(choiceTreeJson);
+          }
         },
         addEvent: function() {
                 var self = this;

@@ -54,11 +54,15 @@ define([
         },
 
         toGraph: function(choiceTreeJson) {
-
+            try {
             var json = {}
             json.series = {}
             json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
             this.setValue(json.series.data[0]);
+          }catch(e){
+            console.log("GText ToGraph");
+            console.log(choiceTreeJson);
+          }
         },
 
         getData: function() {

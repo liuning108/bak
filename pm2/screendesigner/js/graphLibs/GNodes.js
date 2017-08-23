@@ -214,6 +214,7 @@ define([
             this.redraw();
         },
         toGraph: function(choiceTreeJson) {
+           try{
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
@@ -221,6 +222,10 @@ define([
             json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
             this.attrs.names = json.xAxis.data;
             this.setSeriesDatas(json.series.data);
+          }catch(e){
+            console.log("GNodes ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
         addEvent: function() {

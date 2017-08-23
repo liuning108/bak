@@ -149,8 +149,8 @@ define([
         },
 
         toGraph: function(choiceTreeJson) {
-            console.log('toGraph');
-            console.log(choiceTreeJson)
+
+            try {
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
@@ -160,6 +160,10 @@ define([
             this.setXAxisNames(json.xAxis.data);
             this.setXAxisDatas(json.series.data);
             this.setLabels(json.series.labels)
+          }catch(e){
+            console.log("GPileBar ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
 

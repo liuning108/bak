@@ -73,10 +73,15 @@ define([
         },
 
         toGraph: function(choiceTreeJson) {
-          var json = {}
-          json.series = {}
-          json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
-          this.setValue(json.series.data[0]);
+            try{
+            var json = {}
+            json.series = {}
+            json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
+            this.setValue(json.series.data[0]);
+          }catch(e){
+            console.log("GCircleNum ToGraph");
+            console.log(choiceTreeJson);
+          }
         },
 
 

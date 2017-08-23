@@ -155,11 +155,15 @@ define([
         },
 
         toGraph: function(choiceTreeJson) {
-
+            try {
             var json = {}
             json.series = {};
             json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
             this.setRateValue(json.series.data[0]);
+            }catch(e){
+              console.log("GArcProcess ToGraph");
+              console.log(choiceTreeJson);
+            }
         },
 
         addEvent: function() {

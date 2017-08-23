@@ -78,6 +78,14 @@ define([
 
         },
 
+        getData:function() {
+          // var self =this;
+          // setInterval(function(){
+          //   alert(1)
+          //   self.Data2Graph()
+          // },5000);
+        },
+
         setIcon:function(icon){
           this.doms['icon'].attr({
               "src":this.path+icon
@@ -118,10 +126,16 @@ define([
             return this.attrs.titleColor;
         },
         toGraph: function(choiceTreeJson) {
+          try {
           var json = {}
           json.series = {}
           json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
           this.setVal(json.series.data[0]);
+          console.log(choiceTreeJson);
+          }catch(e){
+            console.log("GIconBar ToGraph");
+            console.log(choiceTreeJson);
+          }
         },
         addEvent: function() {
             if(!this.doms['config'])return;
