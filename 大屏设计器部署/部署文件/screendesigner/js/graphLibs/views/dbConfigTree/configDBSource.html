@@ -1,0 +1,172 @@
+  <div class="modal-header ui-draggable-handle">
+
+<button type="button" class="close" data-dismiss="" aria-label="Close"><span aria-hidden="true">×</span></button>
+<h4 class="modal-title js-adapter-detail-title">Config New Server</h4>
+    <!-- <h2>Config New Server</h2>
+    <div class="title_r">
+        <a class="btn btn-sm  closeButton configDBSourceClose">X</a>
+    </div> -->
+</div>
+<div class="modal-body">
+    <div class="sd-modal-box">
+        <div class="sd-block tab-wizard" id="configDBTabs" style="width:800px">
+           <ul  class="nav nav-tabs">
+             <li>
+               <a href="#tabs-z" class="arror">
+                   Select Service Type
+                   <span class="badge badge-default pull-right wizard-step">1</span>
+
+               </a>
+             </li>
+             <li>
+               <a href="#tabs-a" class="arror">
+                   Basic Information
+                   <span class="badge badge-default pull-right wizard-step">2</span>
+
+               </a>
+             </li>
+             <li>
+               <a href="#tabs-b">
+                   Mapping Fields
+                   <span class="badge badge-default pull-right wizard-step">3</span>
+               </a>
+             </li>
+
+           </ul>
+             <div class="tab-content panel-body border n-scroll-y n-scroll-x">
+               <div id="tabs-z" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
+                      <div class="row">
+                         <div class="col-md-12">
+                            <div class="form-group">
+                              <div class="col-md-12">
+                                   <label class="control-label req">Service Type</label>
+                              </div>
+                              <div class="col-md-12">
+                                <div class="dbtypeing">
+                                  <div class="dsitem itemSelect sqlImage"  data-type="1">
+                                     <img src="oss_core/pm/screendesigner/images/dbSelect.png" class="dbSelect">
+                                  </div>
+                                  <div class="dsitem  apiImage" data-type="0">
+                                  <img src="oss_core/pm/screendesigner/images/dbSelect.png" class="dbSelect">
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+
+                         </div>
+                      </div>
+               </div>
+                <div id="tabs-a" class="fadeInUp animated  tab-pane nav-tabs" style="height:320px;">
+                <form id="tabs-aForm" action="#" method="post" autocomplete="off">
+                   <div class="row">
+                       <div class="col-md-6">
+
+                           <div class="form-group">
+
+                               <div class="col-md-12">
+                                    <label class="control-label req">Service Name</label>
+                               </div>
+                               <div class="col-md-12">
+                                <input type="text" class="form-control col-md-12 serviceName" name="name" value="" data-rule="required;">
+                               </div>
+                           </div>
+                       </div>
+                       <div class="col-md-6">
+                           <div class="col-md-12 sqlItem fadeInUp animated">
+                               <div class="form-group">
+                                   <div class="col-md-12">
+                                        <label class="control-label req">SQL Source</label>
+                                   </div>
+                                   <div class="col-md-12">
+                                         <input type="text" name="combobox1" id="sourceCombo" class="form-control" data-rule="required;">
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="row sqlItem">
+                       <div class="col-md-12">
+                           <div class="form-group">
+                               <div class="col-md-12">
+                                    <label class="control-label req">SQL</label>
+                                    <span class="errorMessage"></span>
+                               </div>
+                               <div class="col-md-12">
+                                   <textarea class="sql2"></textarea>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+
+                 </from>
+                </div>
+                <div id="tabs-b"  class="fadeInUp animated  tab-pane" style="height:320px;">
+                     <div id="xyFields">
+                     <div class="col-md-2">
+                        <img src="oss_core/pm/screendesigner/images/task-detail.png" style="width: 80px; margin-top:10px">
+                    </div>
+                  <div class="col-md-5">
+                    <div class="m-b-sm">
+                      <b>All of the fields</b>
+                    </div>
+                    <div class="fieldsList">
+                      <ul class="list-group"  id="sortable4">
+
+
+                      </ul>
+                    </div>
+                  </div>
+
+
+
+                  <div class="col-md-5">
+                    <div class="row col-md-12" style="height:150px">
+                      <div class="m-b-sm">
+                        <b>Dimension (X axis)</b>
+                      </div>
+                      <div class="fieldsList" id="xFields">
+                        <ul class="list-group"  id="sortable5" >
+
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row col-md-12" style="height:150px">
+                      <div class="m-b-sm">
+                          <b>Indicator (Y axis)</b>
+                      </div>
+                      <div class="fieldsList"  >
+                        <ul class="list-group" id="sortable6">
+
+                        </ul>
+                    </div>
+                    </div>
+
+                  </div>
+
+
+
+
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="modal-footer" >
+    <div class="col-md-12">
+        <button type="button" class="btn btn-default pull-left Prevbutton"  style="display:none">Prev</button>
+        <button class="btn btn-success  nextbutton" data-state="0" >Next</button>
+    </div>
+    <!-- <div style="float:right;margin-top:5px">
+      <button class="btn btn_minwidth btn-primary  blueBtn nextbutton">Next</button>
+      <button class="btn btn_minwidth btn-primary  blueBtn Prevbutton" style="display:none">Prev</button>
+      <button class="btn btn_minwidth btn-primary  blueBtn doneButton" style="display:none">Done</button>
+      <button class="btn btn_minwidth btn-primary cancel configDBSourceClose">Cancel</button>
+     </div> -->
+</div>

@@ -1,0 +1,81 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{TITLE}}:</label>
+                                        <input type="text" class="gtext_title" name="gtext_title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{TITLE_COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gprocess_colorpicker" class="bi-lable">{{COLOR}}:</label>
+                                        <input type="text" class="gprocess_colorpicker" name="gprocess_colorpicker">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{UNIT}} {{SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="member_title" class="bi-lable">{{NUMERATOR}}{{UNIT}}:</label>
+                                        <input type="text" class="member_title" name="member_title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="denominator_title" class="bi-lable">{{DENOMINATOR}}{{UNIT}}:</label>
+                                        <input type="text" class="denominator_title" name="denominator_title">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a href="#" class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>
