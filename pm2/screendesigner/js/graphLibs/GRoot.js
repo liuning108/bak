@@ -216,6 +216,9 @@ define([
         Data2Graph:function() {
            this.toGraph(dbHelper.toChoiceDB(this.getDBTreeJson()))
         },
+        Data2Json:function() {
+            return dbHelper.toChoiceDB(this.getDBTreeJson());
+        },
 
         getDBTreeJson:function() {
             return dbHelper.getJson(this);

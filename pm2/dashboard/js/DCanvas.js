@@ -8,6 +8,7 @@ define([
   var TypeMapping = {
     'adhoc': "oss_core/pm/dashboard/js/glibs/AdHocNode",
     'text': "oss_core/pm/dashboard/js/glibs/TextNode",
+    'imageNode':"oss_core/pm/dashboard/js/glibs/GImageNode",
 
   }
 

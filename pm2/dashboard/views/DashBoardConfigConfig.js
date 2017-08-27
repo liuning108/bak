@@ -35,7 +35,6 @@ define([
             var self = this;
             $("#tabs").tabs(); //Tab页
             $('#dash_canvas_name').val(self.canvas.name);
-
             //
             //
             // //TODO: 风格选择样式改变(done);

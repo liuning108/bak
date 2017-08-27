@@ -5,10 +5,17 @@
   left: 0px;
 }
 
-.adhocImage {
+.GImage {
   width: 100%;
   height: 100%;
   background: url(../images/chartBk.svg) center top;
+  background-size: cover;
+}
+
+.adhocImage {
+  width: 100%;
+  height: 100%;
+  background: #fff url(../images/chartBk.svg) center top;
   background-size: cover;
 }
 
@@ -81,6 +88,11 @@ ul {
 .editBody a, a:hover {
   color: #333;
   text-decoration: none;
+}
+
+.editBody .webuploader-pick {
+  background: transparent !important;
+  padding: 0px !important;
 }
 
 .editBody .ui-tabs-panel {
@@ -238,10 +250,6 @@ ul {
 .editBody .exportMenu li {
   float: left;
   margin-left: 5px;
-}
-
-.sdesigner {
-  animation: opactAnim 300ms;
 }
 
 .sdesigner .ui-tabs {
