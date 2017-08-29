@@ -134,6 +134,8 @@ define([
             this.ft.attrs.translate.y = 30;
         },
         toGraph: function(choiceTreeJson) {
+
+          try {
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
@@ -141,7 +143,10 @@ define([
             json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
             this.setXAxisNames(json.xAxis.data)
             this.setSeriesData(json.series.data)
-
+          }catch(e){
+            console.log("GAnnular ToGraph");
+            console.log(choiceTreeJson);
+          }
         },
 
         addEvent: function() {

@@ -101,6 +101,31 @@ define([
                  self.gText.redraw();
             });
 
+            $('.unitInput').val(self.gText.attrs.unit);
+            $('.unitInput').off("change").on("change",function() {
+                    self.gText.attrs.unit=  $('.unitInput').val();
+                    self.gText.redraw();
+            })
+
+
+
+            $('.unitInputx').val(self.gText.attrs.unitx);
+            $('.unitInputx').off("change").on("change",function() {
+                    self.gText.attrs.unitx=  $('.unitInputx').val();
+                    self.gText.redraw();
+            })
+
+
+
+            $parent.find('.labelSelect').off('change')
+                   .val(self.gText.attrs.labelStyle)
+                   .on('change',function() {
+                       var val=$(this).val()
+                       self.gText.attrs.labelStyle=val;
+                       self.gText.redraw()
+                   });  
+
+
 
 
 

@@ -46,6 +46,7 @@ define([
     }
     var ZChartCanvas = Class.extend({
         init: function(option) {
+
             var self = this;
             this.name=option.name;
             this.style=option.attrs.style||0;

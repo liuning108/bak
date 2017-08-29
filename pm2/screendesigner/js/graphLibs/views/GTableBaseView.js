@@ -50,6 +50,47 @@ define([
 
         },
 
+        addCondifmt:function() {
+            var self =this;
+            var json = self.gText.Data2Json();
+            var kpiList =fish.map(json.yAxis,function(yAxis){
+                return {
+                    'KPI_CODE':yAxis.name,
+                    'KPI_INDEX':yAxis.label,
+                    'KPI_NAME':yAxis.label,
+                }
+            })
+            console.log(kpiList);
+            // var kpiList =[
+            //     {KPI_CODE: "PB9ANQAC00018", KPI_NAME: "2G RAN-Call Setup Success rate(%) ", KPI_INDEX: "KPI_3"},
+            //     {KPI_CODE: "PB9ANQAC00026", KPI_NAME: "2G RAN-Speech Drop Rate (%) ", KPI_INDEX: "KPI_4"}
+            // ]
+            portal.require([
+                'oss_core/pm/adhocdesigner/views/CondiFmt'
+            ], this.wrap(function (Dialog) {
+                var sData = {
+                    kpiList: kpiList,
+                    condiFmtItemList: JSON.parse(self.gText.attrs.condiFmtItemList||'[]')
+                };
+                var dialog = new Dialog(sData);
+                var content = dialog.render().$el;
+                var option = {
+                    content: content,
+                    width: 720,
+                    height: 300
+                };
+                this.condiFmtView = fish.popup(option);
+                dialog.contentReady();
+                this.listenTo(dialog, 'okEvent', this.wrap(function (data) {
+                    self.gText.attrs.condiFmtItemList=JSON.stringify(data.condiFmtItemList);
+                    this.condiFmtView.close();
+                }));
+                this.listenTo(dialog, 'cancelEvent', this.wrap(function (data) {
+                    this.condiFmtView.close();
+                }));
+            }));
+        },
+
 
 
         afterRender: function() {
@@ -123,7 +164,13 @@ define([
                        self.gText.setSeqShow(flag?'on':'off');
                    })
 
-            return this;
+
+            $parent.find('#dashboard-condifmt-btn')
+                   .on('click',function(){
+                        self.addCondifmt();
+                   })
+
+                return this;
         }
 
 

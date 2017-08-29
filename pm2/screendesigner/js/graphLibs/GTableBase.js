@@ -197,6 +197,7 @@ define([
         },
 
         toGraph:function(choiceTreeJson) {
+          try {
             var array = choiceTreeJson.xAxis.concat( choiceTreeJson.yAxis)
             var labels =fish.pluck(array,'label')
             var mids =fish.pluck(array,'data');
@@ -208,6 +209,10 @@ define([
             json.series.data=datas;
             this.setTitle(json.xAxis.data);
             this.setDatas(json.series.data);
+          }catch(e){
+            console.log("GTableBase ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
 

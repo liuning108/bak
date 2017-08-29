@@ -48,17 +48,24 @@ define([
 
     }, //end of creaetGCanvas();
 
+    setPageConfig:function() {
+      console.log("rewrite  setPageConfig method");
+    },
+
     setSelected:function() {
          $('.selectedNode').removeClass("selectedNode");
          this.gcanvas.addClass("selectedNode")
+         this.setPageConfig();
     },
     editPattern:function() {
       var self =this;
       var canvasDom = this.options.canvas
         this.gcanvas.addClass("editPattern");
 
-      this.gcanvas.off('click').on('click',function() {
+      this.gcanvas.off('click').on('click',function(e) {
+
            self.setSelected();
+           e.stopPropagation();
       });
       this.gcanvas.find(".removeNode").off("clcik").on("click",function() {
              self.removeNode();

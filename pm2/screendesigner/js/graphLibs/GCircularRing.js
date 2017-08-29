@@ -5,7 +5,7 @@ define([
 
     var GCircularRing = GRoot.extend({
         initAttrs: function() {
-            this.attrs.seriesData=this.attrs.seriesData||this.createRandom(hn_area,200,999);
+            this.attrs.seriesData=this.attrs.seriesData;
             this.attrs.labelStyle=this.attrs.labelStyle||1;
             this.attrs.dbServer = this.attrs.dbServer||{
                                                             'serverName':'NetworkOverviewDemoQryService',
@@ -30,7 +30,7 @@ define([
             this.thickness=thickness;
             var outR=r+thickness;
             var paper=this.paper;
-            var colors=['#1c7099','#1790cf','#1bb2d8','#99d2dd','#88b0bb'];
+            var colors=['#1c7099','#1790cf','#1bb2d8','#1c7099','#1790cf'];
             var hn_area=this.attrs.xAxisData||['长沙', '株洲', '湘潭', '衡阳','邵阳','岳阳','常德','张家界','益阳','娄底','郴州','永州','怀化','湘西'];
             this.attrs.xAxisData=hn_area;
 
@@ -39,7 +39,7 @@ define([
 
             var datas=[];
             var sum =0;
-
+            var nnn =100;
             for (var i=0;i<hn_area.length;i++){
                 var item={};
                 item.name=hn_area[i];
@@ -64,7 +64,15 @@ define([
                  item.data('name',data_item.name);
                  var val="";
                  if(this.attrs.labelStyle==1){
-                  val=Math.floor(per*100)+"%";
+                  //val=Math.round(per*100)+"%";
+                  if (i==datas.length-1){
+                       val=nnn+"%";
+                  }else{
+                         var pper = Math.round(per*100)
+                             nnn =nnn-pper;
+                            val=pper+"%";
+                  }
+
                  }else if (this.attrs.labelStyle==2) {
                    val=data_item.value;
                  }else {
@@ -149,7 +157,7 @@ define([
                     ["z"] //close the path
                 ];
                 var center_endAngle = endAngle - (endAngle - startAngle) / 2;
-                var space_font=20;
+                var space_font=45;
                 var c_outerX1 = centerX + (outerR+space_font) * Math.cos((center_endAngle - 90) * radians);
                 var c_outerY1 = centerY + (outerR+space_font) * Math.sin((center_endAngle - 90) * radians);
 
@@ -158,23 +166,27 @@ define([
 
                 if (!this.label){
 
+
+                  this.label2=paper.text(c_outerX2,c_outerY2,this.data('name')+"\n"+this.data('val')).attr({
+                      'fill': '#fff',
+                      'font-family': '微软雅黑',
+                      'font-size': 18,
+                      'font-weight': 'bold'
+                  }).toFront();
+
                     this.label=paper.text(c_outerX1,c_outerY1,this.data('val')).attr({
                         'fill': this.data('color'),
                         'font-family': '微软雅黑',
                         'font-size': 18,
-                        'font-weight': 'bold'
-                    });
-                    this.label2=paper.text(c_outerX2,c_outerY2,this.data('name')).attr({
-                        'fill': '#fff',
-                        'font-family': '微软雅黑',
-                        'font-size': 18,
-                        'font-weight': 'bold'
-                    });
+                        'font-weight': 'bold',
+                        'opacity':0
+                    }).toFront();
+
                     self.doms['text'+this.data('id')]=this.label;
                     self.doms['text2'+this.data('id')]=this.label2;
                 }else{
-                      this.label.attr({'x':c_outerX1,'y':c_outerY1});
-                     this.label2.attr({'x':c_outerX2,'y':c_outerY2});
+                    this.label.attr({'x':c_outerX1,'y':c_outerY1}).hide();
+                     this.label2.attr({'x':c_outerX2,'y':c_outerY2}).toFront();
 
                 }
                 return {
@@ -209,8 +221,28 @@ define([
             return this.attrs.titleColor;
         },
 
+        getData:function(){
+              var self = this;
+              var run =function(){
+                self.dbHelper.getServiceDataInfo(self).done(
+                     function(data){
+                             self.Data2Graph();
+                             self.initObjetGraph();
+                             setTimeout(function() {
+                                run();
+                             }, 1000*30);
+                     }
+                )
+              }
+            setTimeout(function() {
+               run();
+            }, 1000*30);
+
+        },
+
 
         toGraph:function(choiceTreeJson) {
+          try {
             var json={};
             json.xAxis={};
             json.xAxis.data=choiceTreeJson.xAxis[0].data;
@@ -218,6 +250,10 @@ define([
             json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
             this.setXAxisData(json.xAxis.data);
             this.setSeriesData(json.series.data)
+          }catch(e){
+            console.log("GCircularRing ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
 

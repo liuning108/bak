@@ -30,6 +30,7 @@ define(["text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LookDBS
         var self =this;
         var  mydata =[];
              mydata = this.config.db.datas;
+
         var colModels=this.config.db.colModels;
           var opt = {
            data: mydata,

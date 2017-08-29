@@ -44,6 +44,7 @@ define([
 
        var start=0;
        var end=0;
+       var nnn=100;
       for(var i=0;i<datas.length;i++){
            var data_item=datas[i];
            var per=data_item.value/sum;
@@ -60,13 +61,19 @@ define([
            if(this.attrs.labelStyle==2){
             val=data_item.value;
             }else if (this.attrs.labelStyle==3) {
-                 val=Math.floor(per*100)+"%";
+                   if (i==datas.length-1){
+                        val=nnn+"%";
+                   }else{
+                          var pper = Math.round(per*100)
+                              nnn =nnn-pper;
+                             val=pper+"%";
+                   }
            }else {
                val="";
 
            }
 
-           console.log(this.attrs.labelStyle)
+
 
            item.data('val',val);
            if(this.canvas.perview){
@@ -106,6 +113,26 @@ define([
           'font-family': '微软雅黑',
           'font-weight': 'bold'
       });;
+
+    },
+
+    getData:function(){
+          var self = this;
+          var run =function(){
+            self.dbHelper.getServiceDataInfo(self).done(
+                 function(data){
+                         self.Data2Graph();
+                         self.initObjetGraph();
+                         setTimeout(function() {
+                            run();
+                         }, 1000*30);
+                 }
+            )
+          }
+
+        setTimeout(function() {
+           run();
+        }, 1000*30);
 
     },
     getXAxisData:function(){
@@ -186,13 +213,19 @@ define([
     },
 
     toGraph:function(choiceTreeJson) {
+      try {
         var json={};
         json.xAxis={};
+        console.log(choiceTreeJson);
         json.xAxis.data=choiceTreeJson.xAxis[0].data;
         json.series={};
         json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
         this.setXAxisData(json.xAxis.data);
         this.setSeriesData(json.series.data);
+      }catch(e){
+        console.log("GPieBase ToGraph");
+        console.log(choiceTreeJson);
+      }
 
     },
 

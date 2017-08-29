@@ -132,12 +132,17 @@ define([
             return this.attrs.titleColor;
         },
         toGraph:function(choiceTreeJson) {
+          try {
             var json={};
             // json.xAxis={};
             // json.xAxis.data=choiceTreeJson.xAxis[0].data;
             json.series={};
             json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
             this.setXAxisDatas(json.series.data)
+          }catch(e){
+            console.log("GMoveBar ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
         addEvent: function() {

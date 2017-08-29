@@ -94,6 +94,7 @@ define([
             this.attrs.datas = datas;
         },
         toGraph: function(choiceTreeJson) {
+          try {
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
@@ -101,6 +102,10 @@ define([
             json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
             this.setXAxisName(json.xAxis.data)
             this.setXAxisDatas(json.series.data)
+          }catch(e){
+            console.log("GStripLine ToGraph");
+            console.log(choiceTreeJson);
+          }
 
         },
         initLocation: function() {

@@ -2,14 +2,16 @@
  * 指标筛选弹出窗
  */
 define([
+    "oss_core/pm/dashboard/js/webupload/js/webuploader",
     "oss_core/pm/dashboard/actions/DashBoardAction",
     "oss_core/pm/dashboard/views/DashBoardConfigConfig",
     "oss_core/pm/dashboard/js/html2canvas",
     "oss_core/pm/dashboard/js/Dcharts",
     "oss_core/pm/dashboard/js/echarts-all-3",
     "i18n!oss_core/pm/dashboard/i18n/SDesinger",
-    "text!oss_core/pm/dashboard/templates/DashBoardEdit.html"
-], function(action, DashBoardConfigConfigView, html2canvas, Dcharts, echarts, i18nData, tpl) {
+    "text!oss_core/pm/dashboard/templates/DashBoardEdit.html",
+    "css!oss_core/pm/dashboard/js/webupload/css/webuploader.css"
+], function(WebUploader,action, DashBoardConfigConfigView, html2canvas, Dcharts, echarts, i18nData, tpl) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
         resource: fish.extend({}, i18nData),
@@ -25,7 +27,8 @@ define([
             'click #showListButton': 'showListButton',
             'click #uplodImage': 'upload',
             'click .addAdHoc': 'addAdHoc',
-            'click .addText': 'addText'
+            'click .addText': 'addText',
+            'click #dashboardCanvasEdit':'RenderView',
         },
 
         showListButton: function() {
@@ -153,7 +156,28 @@ define([
             this.closeMenu();
         },
 
+        addImage: function(config) {
+            var w = config.w;
+            var h = config.h
+            var point = this.dcharts.getCenterLocation(w, h)
+            this.dcharts.addNode({
+                type: 'imageNode',
+                w: w,
+                h: h,
+                attrs:{
+                    src:config.src,
+                },
+                x: point.x,
+                y: point.y
+            }, function(node) {
+                node.setSelected()
+                node.bounceIn();
+            })
+            this.closeMenu();
+        },
+
         addText: function() {
+
             var w = 360;
             var h = 270
             var point = this.dcharts.getCenterLocation(w, h)
@@ -181,6 +205,45 @@ define([
 
             // TODO: 初始化图列菜单(done)
             $('#mega-menu-dash').dcMegaMenu({rowItems: '3', speed: 0, effect: 'slide', fullWidth: true});
+
+
+            //添加图添点
+            this.shiftUploader = WebUploader.create({
+               auto : true,
+                swf: portal.appGlobal.get('webroot') + "frm/fish-desktop/third-party/fileupload/Uploader.swf",
+                server: portal.appGlobal.get('webroot') + "/upload?modelName=dashboard/import/&genName=true",
+                pick: ".dashBoardAddImage",
+                accept: {
+                        title: 'Image',
+                        extensions: 'jpg,jpeg,bmp,png',
+                        mimeTypes: 'image/*'
+                    },
+              //  fileNumLimit: 1,
+                resize: false
+            });
+            this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
+
+              var config =response.data;
+              // fileName:"170817142623246836.png"
+              // filePath:"shift/import/170817142623246836.png"
+              // fileSize:"837999"
+              // fileSrc:"QQ图片20170714164501.png"
+              var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
+              var myImg = new Image();
+              myImg.src =filePath
+              myImg.onload=function(){
+                self.addImage({
+                    'src':filePath,
+                    'w':this.width*0.3,
+                    'h':this.height*0.3,
+                    'filename':config.filePath
+                })
+              }
+              // var width = myImg.width;
+              // var height = myImg.height;
+
+
+            });
 
         },
         RenderCanvas: function(fun) {},

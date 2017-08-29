@@ -4,6 +4,7 @@ define([
     var GRoot = Class.extend({
         init: function(option) {
             var self =this;
+            this.dbHelper=dbHelper;
             this.id = option.id;
             this.canvas = option.canvas;
             this.paper = option.paper;
@@ -29,6 +30,7 @@ define([
 
         initAll: function() {
 
+
             this.initElement();
             this.merge();
             this.createFt();
@@ -44,6 +46,21 @@ define([
             }
 
 
+        },
+        initObjetGraph:function() {
+          this.domsSet.remove();
+          this.doms = {};
+          this.domsSet=this.paper.set();
+          this.ft.unplug();
+          this.ft=null;
+
+          this.initElement();
+          this.merge();
+          this.createFt();
+          this.hide();
+          this.addEvent();
+          this.show();
+          this.perview();
         },
         toGraph:function() {
             console.log('需要重写toGraph');
@@ -198,6 +215,9 @@ define([
         },
         Data2Graph:function() {
            this.toGraph(dbHelper.toChoiceDB(this.getDBTreeJson()))
+        },
+        Data2Json:function() {
+            return dbHelper.toChoiceDB(this.getDBTreeJson());
         },
 
         getDBTreeJson:function() {
