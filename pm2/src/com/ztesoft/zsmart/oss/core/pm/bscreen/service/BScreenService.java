@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
+
 import com.ztesoft.zsmart.core.configuation.ConfigurationMgr;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
@@ -20,7 +21,7 @@ import com.ztesoft.zsmart.oss.opb.util.SessionManage;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -32,9 +33,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @return int
      * @throws BaseAppException <br>
      */
@@ -56,9 +57,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getServerSkeleton(DynamicDict dict) throws BaseAppException {
@@ -71,9 +72,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
 
@@ -85,9 +86,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void queryBScreenById(DynamicDict dict) throws BaseAppException {
@@ -98,9 +99,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void queryBScreenListByUserID(DynamicDict dict) throws BaseAppException {
@@ -114,9 +115,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void deleteBScreenById(DynamicDict dict) throws BaseAppException {
@@ -130,9 +131,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @param dict
+     * @author [刘宁]<br>
+     * @taskId <br> 
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void saveOrUpdateSourceService(DynamicDict dict) throws BaseAppException {
@@ -152,9 +153,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getFields(DynamicDict dict) throws BaseAppException {
@@ -169,9 +170,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getSourceServiceList(DynamicDict dict) throws BaseAppException {
@@ -185,9 +186,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getSourceServiceById(DynamicDict dict) throws BaseAppException {
@@ -201,9 +202,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void delSourceServiceById(DynamicDict dict) throws BaseAppException {
@@ -216,9 +217,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void getSource(DynamicDict dict) throws BaseAppException {
@@ -230,9 +231,9 @@ public class BScreenService implements IAction {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param dict
+     * @param dict 
      * @throws BaseAppException <br>
      */
     public void delFile(DynamicDict dict) throws BaseAppException {

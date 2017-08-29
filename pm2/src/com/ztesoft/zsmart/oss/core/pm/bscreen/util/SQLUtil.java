@@ -15,7 +15,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSetMetaData;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -26,7 +26,7 @@ public class SQLUtil {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param info 
      * @return <br>
@@ -43,7 +43,7 @@ public class SQLUtil {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dataSource 
      * @param sql 
@@ -68,7 +68,7 @@ public class SQLUtil {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param dataSource 
      * @param sql 

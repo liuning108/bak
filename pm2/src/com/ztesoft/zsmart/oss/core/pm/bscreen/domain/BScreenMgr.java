@@ -14,7 +14,7 @@ import com.ztesoft.zsmart.oss.opb.util.JdbcUtil;
  * 
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -94,14 +94,7 @@ public class BScreenMgr extends AbstractBScreenMgr {
 
     }
 
-    /**
-     * [方法描述] <br> 
-     *  
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @return
-     * @throws BaseAppException <br>
-     */ 
+ 
     @Override
     public List<HashMap<String, String>> getSource() throws BaseAppException {
         BScreenMgrDao dao = (BScreenMgrDao) GeneralDAOFactory.create(BScreenMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
