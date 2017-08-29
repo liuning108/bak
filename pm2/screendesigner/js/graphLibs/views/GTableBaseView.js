@@ -84,6 +84,7 @@ define([
                 this.listenTo(dialog, 'okEvent', this.wrap(function (data) {
                     self.gText.attrs.condiFmtItemList=JSON.stringify(data.condiFmtItemList);
                     this.condiFmtView.close();
+                    self.gText.redraw();
                 }));
                 this.listenTo(dialog, 'cancelEvent', this.wrap(function (data) {
                     this.condiFmtView.close();
