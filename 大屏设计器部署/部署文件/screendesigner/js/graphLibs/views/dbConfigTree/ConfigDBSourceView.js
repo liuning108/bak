@@ -166,7 +166,7 @@ define([
           editor.refresh();
         }, 1000);
 
-        this.$el.find('#xyFields').slimscroll({height:'320px',width:'200px'});
+        this.$el.find('#xyFields').slimscroll({height:'320px',width:'99%'});
         this.$el.find('.serviceName').val(this.config.name)
         this.state=nextState;
         $(e.target).text("Next");
