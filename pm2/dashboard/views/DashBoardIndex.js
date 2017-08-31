@@ -29,6 +29,52 @@ define([
 
         addDasdhBoard:function() {
           var self =this;
+          var userId = portal.appGlobal.get("userId");
+          action.queryDashBoardClassByUserID(userId, function(data) {
+              var result = data.result;
+
+              var catalogs = fish.map(result.datas, function(catalog) {
+                   var openFlag=false;
+
+                  return {
+                      "id": catalog.classNo,
+                      "name": catalog.className,
+                      "CLASS_TYPE": "02",
+                      "open": openFlag,
+                      "nodeType": 0,
+                      "isParent": true,
+                      "children": []
+                  }
+              });
+
+
+            if(catalogs.length<=0){
+                fish.toast('info', 'Please create a dashboard catalog at first');
+                return ;
+            }
+
+
+              var addWin = new AddDashBoardWin({
+                 'catalogs':catalogs
+              });
+              var content = addWin.render().$el;
+              var option = {
+                  content: content,
+                  width: 350,
+                  height: 490
+              };
+              self.addView = fish.popup(option);
+              addWin.contentReady();
+              self.listenTo(addWin, 'okEvent',function (json) {
+                  self.addView.close();
+                  self.parentView.edit(json);
+
+              });
+              self.listenTo(addWin, 'cancelEvent',function () {
+                  self.addView.close();
+              });
+          });
+
           // var zTree =this.$el.find("#dashboardTree")
        	 //  var selNode = zTree.tree("getSelectedNodes")[0];
           // if(selNode){
@@ -38,26 +84,6 @@ define([
           //  });
           // }
 
-          var addWin = new AddDashBoardWin();
-          var content = addWin.render().$el;
-          var option = {
-              content: content,
-              width: 350,
-              height: 490
-          };
-          self.addView = fish.popup(option);
-          addWin.contentReady();
-
-
-          this.listenTo(addWin, 'okEvent',function (data) {
-            console.log(data);
-              self.addView.close();
-          });
-
-
-          this.listenTo(addWin, 'cancelEvent',function () {
-              self.addView.close();
-          });
 
         },
 

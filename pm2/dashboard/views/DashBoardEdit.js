@@ -87,14 +87,13 @@ define([
                         w: dash_w,
                         h: dash_w * ratio
                     },
-                    name: "dashboardName",
+                    name: canvas_json.name||"dashboardName",
                     attrs: {
                         nodes: []
                     }
                 }
             }
-            console.log("crash");
-            console.log(canvas_json);
+
             if(!canvas_json.canvasAttrs)canvas_json.canvasAttrs={};
             var factor = dash_w / canvas_json.size.w;
             this.dcharts = Dcharts.init({
@@ -119,8 +118,13 @@ define([
 
             this.RenderView();
             this.resizeCanvas(canvas_json.size.h * factor)
+            this.endLoad();
 
             return this;
+        },
+        endLoad:function() {
+            var canvas_json = this.params
+            if(canvas_json.id==0)this.saveButton();
         },
 
         resizeCanvas: function(h) {
@@ -251,13 +255,11 @@ define([
         saveButton: function() {
             var self = this;
             var json = this.dcharts.getJson();
-            console.log(json);
             fish.store.set("canvas_json", json)
-
             action.saveUpdateDashBoard(json, function(data) {
+                 var oldId= self.dcharts.options.id;
                 self.dcharts.options.id = data.result.id;
-                fish.success('Save Success');
-                console.log(data);
+                if(oldId!=0)fish.success('Save Success');
             })
 
             //   var hh =$("#dashboardCanvasEdit").outerHeight() *2;

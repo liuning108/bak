@@ -5,6 +5,11 @@
   left: 0px;
 }
 
+.tipEmpty {
+  color: #ff6363;
+  display: none;
+}
+
 .GImage {
   width: 100%;
   height: 100%;
