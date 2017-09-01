@@ -1,11 +1,8 @@
-/**
- *
- */
 define([
         'text!oss_core/pm/dashboard/templates/AddDashBoardWin.html',
         'text!oss_core/pm/dashboard/templates/CatalogItem.html',
         "oss_core/pm/dashboard/actions/DashBoardAction",
-
+        
     ],
     function(RuleMgrView,CatalogItemTemp,action) {
         return portal.CommonView.extend({
@@ -28,14 +25,25 @@ define([
             },
 
             contentReady: function() {
-                $("#dashboard-catalog-select").html(this.catalogItem(this.config));
+
+              $('.dashboardCatalogs').slimscroll({
+                              height: '290px',
+                              width:'290px'
+                            });
+              this.config.catalogs[0].classStyle="selCatalog"
+              $("#dashboard-catalog-select").html(this.catalogItem(this.config));
+
+               $("#dashboard-catalog-select").find('li').off('click').on('click',function(){
+                   $("#dashboard-catalog-select").find("li").removeClass("selCatalog");
+                   $(this).addClass("selCatalog");
+               })
             },
 
 
 
             fnOK: function() {
                 var dashboardName = $('#dashboard-newname').val();
-                var classNo=  $("#dashboard-catalog-select").val();
+                var classNo= $("#dashboard-catalog-select").find('.selCatalog').data('id');
                 var json = {
                     id:0,
                     classNo:classNo,

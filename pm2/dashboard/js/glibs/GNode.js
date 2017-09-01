@@ -10,6 +10,14 @@ define([
       this.creaetGCanvas();
       this.createGNode();
     },
+    autoSave:function() {
+       try {
+       var self =this;
+       self.options.parent.options.parent.saveButton();
+       }catch(e){
+
+       }
+    },
     bounceIn:function() {
       var self =this;
       self.gcanvas.addClass("bounceIn animated");
@@ -63,13 +71,18 @@ define([
         this.gcanvas.addClass("editPattern");
 
       this.gcanvas.off('click').on('click',function(e) {
-
            self.setSelected();
            e.stopPropagation();
       });
       this.gcanvas.find(".removeNode").off("clcik").on("click",function() {
              self.removeNode();
       })
+
+      this.gcanvas.find(".editNode").off("clcik").on("click",function(e) {
+             self.editNode();
+             e.stopPropagation();
+      })
+
       this.gcanvas.draggable({
         containment: canvasDom,
         scroll: false,
@@ -85,6 +98,9 @@ define([
         }
       });
 
+    },
+    editNode:function() {
+    console.log("editNode");
     },
 
     getJson:function() {
