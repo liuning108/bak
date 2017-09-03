@@ -12,7 +12,6 @@ define([
     "oss_core/pm/screendesigner/js/StackBlur",
     "oss_core/pm/screendesigner/js/canvg",
     "css!oss_core/pm/screendesigner/jsoneditor/jsoneditor.css",
-
     "css!oss_core/pm/screendesigner/js/webupload/css/webuploader.css"
 ], function( WebUploader,   i18nData,tpl, Zcharts, SDconfigView, BScreenMgrAction) {
     return portal.BaseView.extend({

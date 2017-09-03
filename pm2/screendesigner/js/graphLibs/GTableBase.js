@@ -37,6 +37,10 @@ define([
 
             //this.attrs.titles.push('序号');
 
+
+            var condiFmts = JSON.parse(this.attrs.condiFmtItemList||'[]')
+            console.log("condiFmts");
+            console.log(condiFmts);
             var heardes = this.attrs.titles;
             if (this.attrs.seqShow=='on'){
                 if (this.attrs.isSeqPos == 1) {
@@ -85,6 +89,8 @@ define([
             });
             var data_x = x;
             var data_y = y + box.height + box.height;
+              console.log("adhsahkjdhkjdhasjkdasjhj");
+
             for (var i = 0; i < datas.length; i++) {
                 var data;
                 if (this.attrs.seqShow=='on'){
@@ -99,15 +105,19 @@ define([
 
                 var item_x = data_x;
                 var item_y = data_y + (box.height * i);
+
                 for (var j = 0; j < data.length; j++) {
+
                     var j_x = data_x + (j * (space+maxBoxW));
                     var color = this.attrs.valueColor;
                     if (this.attrs.seqShow=='on'){
                         if (j == data.length - 1 && this.attrs.isSeqPos == 2) color = this.attrs.seqColor;
                         if (j == 0 && this.attrs.isSeqPos == 1) color = this.attrs.seqColor;
                     }
+
+                    var color2 =  this.getColorByCondiFmts(heardes[j], data[j],condiFmts)
                     this.doms['data' + i + '_' + j] = paper.text(j_x, item_y, data[j]).attr({
-                        'fill': color,
+                        'fill': color2||color,
                         'font-size': 18,
                         'font-family': '微软雅黑',
                         'font-weight': 'bold'
@@ -129,6 +139,67 @@ define([
                 'font-weight': 'bold'
             });;
 
+        },
+        getColorByCondiFmts:function(name,value,condiFmts) {
+            var codi = fish.find(condiFmts,function(codi) {
+               return codi.KPI_INDEX==name
+            });
+            if(codi){
+
+              if(codi.KPI_FMT=="GT"){
+                 if(value>codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+              if(codi.KPI_FMT=="BT"){
+                 var values= codi.KPI_VALUE.split('~');
+                 if(value>=values[0] && value<=values[1]){
+                     return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+              if(codi.KPI_FMT=="EQ"){
+                 if(value==codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+
+              if(codi.KPI_FMT=="NEQ"){
+                 if(value!=codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+
+
+              if(codi.KPI_FMT=="LW"){
+                 if(value<codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+
+              if(codi.KPI_FMT=="GE"){
+                 if(value>=codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+
+
+              if(codi.KPI_FMT=="LE"){
+                 if(value<=codi.KPI_VALUE){
+                    return codi.KPI_COLOR
+                 }
+                 return null;
+              }
+
+              return null;
+            }else {
+              return null;
+            }
         },
         getDatas:function() {
             return this.attrs.datas;
