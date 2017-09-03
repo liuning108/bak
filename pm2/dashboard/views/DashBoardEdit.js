@@ -10,8 +10,9 @@ define([
     "oss_core/pm/dashboard/js/echarts-all-3",
     "i18n!oss_core/pm/dashboard/i18n/SDesinger",
     "text!oss_core/pm/dashboard/templates/DashBoardEdit.html",
+    "oss_core/pm/adhocdesigner/views/AdhocFactory",
     "css!oss_core/pm/dashboard/js/webupload/css/webuploader.css"
-], function(WebUploader,action, DashBoardConfigConfigView, html2canvas, Dcharts, echarts, i18nData, tpl) {
+], function(WebUploader,action, DashBoardConfigConfigView, html2canvas, Dcharts, echarts, i18nData, tpl, adhocFactory) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
         resource: fish.extend({}, i18nData),
@@ -87,14 +88,13 @@ define([
                         w: dash_w,
                         h: dash_w * ratio
                     },
-                    name: "dashboardName",
+                    name: canvas_json.name||"dashboardName",
                     attrs: {
                         nodes: []
                     }
                 }
             }
-            console.log("crash");
-            console.log(canvas_json);
+
             if(!canvas_json.canvasAttrs)canvas_json.canvasAttrs={};
             var factor = dash_w / canvas_json.size.w;
             this.dcharts = Dcharts.init({
@@ -112,6 +112,7 @@ define([
                 classNo: canvas_json.classNo,
                 id: canvas_json.id,
                 name: canvas_json.name,
+                parent:self,
                 resize: function(h) {
                     self.resizeCanvas(h)
                 }
@@ -119,8 +120,13 @@ define([
 
             this.RenderView();
             this.resizeCanvas(canvas_json.size.h * factor)
+            this.endLoad();
 
             return this;
+        },
+        endLoad:function() {
+            var canvas_json = this.params
+            if(canvas_json.id==0)this.saveButton();
         },
 
         resizeCanvas: function(h) {
@@ -140,7 +146,7 @@ define([
         },
 
         addAdHoc: function() {
-            var w = 360;
+           var w = 360;
             var h = 270
             var point = this.dcharts.getCenterLocation(w, h)
             this.dcharts.addNode({
@@ -154,6 +160,17 @@ define([
                 node.bounceIn();
             })
             this.closeMenu();
+            // var view = adhocFactory.adhocConfigForDashBoard(600);
+            // var content = view.$el;
+            // var option = {
+            //     content: content,
+            //     width: 1300,
+            //     height: 600
+            // };
+            // this.adhocCfgView = fish.popup(option);
+            // this.listenTo(view, 'AdhocCancelEvent', this.wrap(function () {
+            //     this.adhocCfgView.close();
+            // }));
         },
 
         addImage: function(config) {
@@ -251,13 +268,11 @@ define([
         saveButton: function() {
             var self = this;
             var json = this.dcharts.getJson();
-            console.log(json);
             fish.store.set("canvas_json", json)
-
             action.saveUpdateDashBoard(json, function(data) {
+                 var oldId= self.dcharts.options.id;
                 self.dcharts.options.id = data.result.id;
-                fish.success('Save Success');
-                console.log(data);
+                if(oldId!=0)fish.toast('success','Save Success');
             })
 
             //   var hh =$("#dashboardCanvasEdit").outerHeight() *2;
@@ -281,7 +296,6 @@ define([
             });
             $tpl.append("<div id='dashboard-perview-canvas' class='dashboardCanvas' ></div>");
             $("#dashboard-perview-canvas").empty();
-
             var ratio = (9 / 16);
             var dash_w = $("#dashboard-perview-canvas").outerWidth()
             var canvasjson = this.dcharts.getJson();
@@ -298,7 +312,8 @@ define([
                 },
                 factor: factor,
                 nodes: canvasjson.attrs.nodes,
-                perview: true
+                perview: true,
+                parent:self,
             });
         } //end of div
 

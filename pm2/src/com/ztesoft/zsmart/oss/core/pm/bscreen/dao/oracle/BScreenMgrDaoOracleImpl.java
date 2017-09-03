@@ -9,6 +9,7 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
 import com.ztesoft.zsmart.core.configuation.ConfigurationMgr;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.jdbc.ParamArray;
@@ -21,7 +22,7 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
 /**
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
@@ -29,7 +30,7 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.util.SQLUtil;
  * @see com.ztesoft.zsmart.oss.core.pm.bscreen.dao.oracle <br>
  */
 public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
-
+    
     /**
      * logger
      */
@@ -61,22 +62,22 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param base64 
-     * @param topicId 
+     * @param base64  
+     * @param topicId  
      * @return <br>
      */
     private String saveImage(String base64, String topicId) {
         // TODO Auto-generated method stub
         URL path = this.getClass().getResource("/../../"); // 得到当前目录真实目录文件
-        File dirs = new File(path.getPath() + "/upload/bsimage");
+        File dirs = new File(path.getPath() + "/oss_core/pm/screendesigner/upload/bsimage");
         String filename = BScreenUtil.saveImage(dirs, base64, topicId); // 生成topicId.png存放在dirs中。
         if (filename == null) {
             return "";
         }
         else {
-            return "upload/bsimage/" + filename;
+            return "oss_core/pm/screendesigner/upload/bsimage/" + filename;
         }
 
     }
@@ -84,10 +85,10 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
-     * @throws BaseAppException
+     * @throws BaseAppException 
      *             <br>
      */
     private void updateTopic(DynamicDict data) throws BaseAppException {
@@ -118,10 +119,10 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
-     * @throws BaseAppException
+     * @throws BaseAppException 
      *             <br>
      */
     private void saveTopic(DynamicDict data) throws BaseAppException {
@@ -155,7 +156,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param data 
      * @throws BaseAppException
@@ -196,11 +197,11 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param topcNo  
+     * @param topcNo 
      * @param v_node_no 
-     * @param no 
+     * @param no
      * 
      *            <br>
      */
@@ -224,7 +225,6 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
             }
         }
         catch (Exception e) {
-            e.printStackTrace();
             e.getMessage();
         }
     }
@@ -236,7 +236,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         ParamArray pa = new ParamArray();
         pa.set("", topic_no);
         int i = this.queryInt(sql, pa);
-        return this.queryInt(sql, pa) > 0 ? true : false;
+        return this.queryInt(sql, pa) > 0;
     }
 
     @Override
@@ -297,33 +297,39 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         return result;
     }
     
-    
-    
-    private void deleteBScreenByIdFiles(String id) throws BaseAppException{
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param id  
+     * @throws BaseAppException <br>
+     */
+    private void deleteBScreenByIdFiles(String id) throws BaseAppException {
         try {
-        DynamicDict dict = new DynamicDict();
-        dict.set("topId", id);
-        System.out.println(id);
-        queryBScreenById(dict);
-        HashMap<String, Object> json  =(HashMap<String, Object>) dict.get("topicJson");
-        List<JSONObject> nodes =(List<JSONObject>) json.get("nodes");
-        for(JSONObject node : nodes){
-            JSONObject attrs = (JSONObject)node.get("attrs");
-            String type =""+attrs.get("type");
-            if("imageNode".equalsIgnoreCase(type)){
-                System.out.println(attrs);
-                String fileDirectory = ConfigurationMgr.instance().getString("upload.uploadFileDirectory");
-                String fileName = attrs.getString("filename");
-                String filePath = fileDirectory + "/" + fileName;
-                File file = new File(filePath);
-                file.delete();
+            DynamicDict dict = new DynamicDict();
+            dict.set("topId", id);
+            queryBScreenById(dict);
+            HashMap<String, Object> json = (HashMap<String, Object>) dict.get("topicJson");
+            List<JSONObject> nodes = (List<JSONObject>) json.get("nodes");
+            for (JSONObject node : nodes) {
+                JSONObject attrs = (JSONObject) node.get("attrs");
+                String type = "" + attrs.get("type");
+                if ("imageNode".equalsIgnoreCase(type)) {
+                    String fileDirectory = ConfigurationMgr.instance().getString("upload.uploadFileDirectory");
+                    String fileName = attrs.getString("filename");
+                    String filePath = fileDirectory + "/" + fileName;
+                    File file = new File(filePath);
+                    file.delete();
+                }
             }
         }
-        }catch(Exception e){
-            e.printStackTrace();
+        catch (Exception e) {
+            e.getMessage();
         }
     }
-    
+
     @Override
     public boolean deleteBScreenById(String id) throws BaseAppException {
         boolean b = true;
@@ -362,9 +368,9 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param sourceID 
+     * @param sourceID  
      * @return map
      * @throws BaseAppException
      *             <br>
@@ -407,7 +413,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -421,7 +427,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -453,7 +459,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -471,7 +477,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -498,7 +504,7 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @return boolean
@@ -510,13 +516,13 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         String no = map.get("no");
         ParamArray pa = new ParamArray();
         pa.set("", no);
-        return this.queryInt(sql, pa) > 0 ? true : false;
+        return this.queryInt(sql, pa) > 0;
     }
 
     /**
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param map 
      * @throws BaseAppException
@@ -631,23 +637,13 @@ public class BScreenMgrDaoOracleImpl extends BScreenMgrDao {
         return map;
     }
 
-    /**
-     * [方法描述] <br> 
-     *  
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @return
-     * @throws BaseAppException <br>
-     */ 
+  
     @Override
     public List<HashMap<String, String>> getSource() throws BaseAppException {
         // TODO Auto-generated method stub <br>
         String sql = "";
-        sql = "select id, name, comments    \n" 
-            + "  from tfm_config    \n" 
-            + " where lower(module_name) = 'jdbc'    \n" 
-            + "   and parent_id is null    \n"
-            + " order by name    \n";
+        sql = "select id, name, comments    \n" + "  from tfm_config    \n" + " where lower(module_name) = 'jdbc'    \n"
+                + "   and parent_id is null    \n" + " order by name    \n";
         ParamArray params = new ParamArray();
         return queryList(sql, params);
 

@@ -1,9 +1,56 @@
+
+#btn-slm-dashboard-ok
+  background: #1881DC
+  &:hover
+    background: #1a91f2
+
+.dashboardCatalogs
+  width: 100%
+  height: 290px
+  border: 1px solid rgb(207, 218, 221)
+  background-color: #fff
+  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
+  ul
+    list-style: none
+    padding: 0px
+    li
+      cursor: pointer
+      color: #333
+      padding: 5px
+      border-bottom: 1px solid rgb(207, 218, 221)
+      &:hover
+        background-color: rgba(207, 218, 221, 0.32)
+      &:last-child
+        border-bottom: none
+      &.selCatalog
+        background-color:  #1881dc
+        color: #fff
+        i
+          color: #fff
+      i
+        color: #afafaf
+      span
+        margin-left: 7px
+        line-height: 22px
+        overflow: hidden
+        word-wrap: normal
+        white-space: nowrap
+        text-overflow: ellipsis
+        text-align: left
+
+
+
+
+
 #dashBoardGirdCanvas
     position: absolute
     top: 0px
     pointer-events : none
     left: 0px
 
+.tipEmpty
+  color: #ff6363
+  display: none
 
 .GImage
     width: 100%
@@ -11,11 +58,13 @@
     background:  url(../images/chartBk.svg) center top
     background-size: cover
 
+
 .adhocImage
     width: 100%
     height: 100%
     background: #fff url(../images/chartBk.svg) center top
     background-size: cover
+    position: relative !important
 
 .DashBoardPerviewTabs
     padding: 0px !important
@@ -56,6 +105,13 @@
 .comprivroot
   padding: 0px
   margin: 0px
+
+.vbox
+    display: table
+    border-spacing: 0
+    position: relative
+    height: 100%
+    width: 100%
 
 .editBody
   font: 12px / 1.14 "Helvetica Neue", Helvetica, "Lucida Grande", "Luxi Sans", Arial, "Hiragino Sans GB", STHeiti, "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Micro Hei Mono", "WenQuanYi Zen Hei", "WenQuanYi Zen Hei Mono", LiGothicMed

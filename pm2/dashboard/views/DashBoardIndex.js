@@ -2,6 +2,7 @@
  * 指标筛选弹出窗
  */
 define([
+    "oss_core/pm/dashboard/views/AddDashBoardWin",
     "oss_core/pm/dashboard/actions/DashBoardAction",
     "oss_core/pm/dashboard/views/DashBoardDetail",
     "oss_core/pm/dashboard/js/html2canvas",
@@ -13,7 +14,7 @@ define([
     'css!oss_core/pm/util/css/ad-block.css',
     'css!oss_core/pm/dashboard/assets/bi-common.css',
     'css!oss_core/pm/dashboard/assets/adhoc.css'
-], function(action, DetailView, html2canvas, Dcharts, echarts, i18nData, tpl) {
+], function(AddDashBoardWin,action, DetailView, html2canvas, Dcharts, echarts, i18nData, tpl) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
         resource: fish.extend({}, i18nData),
@@ -27,15 +28,63 @@ define([
         },
 
         addDasdhBoard:function() {
-          var zTree =this.$el.find("#dashboardTree")
-       	  var selNode = zTree.tree("getSelectedNodes")[0];
-          if(selNode){
+          var self =this;
+          var userId = portal.appGlobal.get("userId");
+          action.queryDashBoardClassByUserID(userId, function(data) {
+              var result = data.result;
 
-           this.parentView.edit({
-               id:0,
-               classNo:selNode.id
-           });
-          }
+              var catalogs = fish.map(result.datas, function(catalog) {
+                   var openFlag=false;
+
+                  return {
+                      "id": catalog.classNo,
+                      "name": catalog.className,
+                      "CLASS_TYPE": "02",
+                      "open": openFlag,
+                      "nodeType": 0,
+                      "isParent": true,
+                      "children": []
+                  }
+              });
+
+
+            if(catalogs.length<=0){
+                fish.toast('info', 'Please create a dashboard catalog at first');
+                return ;
+            }
+
+
+              var addWin = new AddDashBoardWin({
+                 'catalogs':catalogs
+              });
+              var content = addWin.render().$el;
+              var option = {
+                  content: content,
+                  width: 350,
+                  height: 490
+              };
+              self.addView = fish.popup(option);
+              addWin.contentReady();
+              self.listenTo(addWin, 'okEvent',function (json) {
+                  self.addView.close();
+                  self.parentView.edit(json);
+
+              });
+              self.listenTo(addWin, 'cancelEvent',function () {
+                  self.addView.close();
+              });
+          });
+
+          // var zTree =this.$el.find("#dashboardTree")
+       	 //  var selNode = zTree.tree("getSelectedNodes")[0];
+          // if(selNode){
+          //  this.parentView.edit({
+          //      id:0,
+          //      classNo:selNode.id
+          //  });
+          // }
+
+
         },
 
         render: function() {
@@ -53,6 +102,7 @@ define([
         initTopicTree: function() {
             var self = this;
             var userId = portal.appGlobal.get("userId")
+              this.$('#ad-addDashboard-btn').removeAttr("disabled");
             action.queryDashBoardClassByUserID(userId, function(data) {
                 var result = data.result;
                 var catalogs = fish.map(result.datas, function(catalog) {
@@ -203,9 +253,9 @@ define([
             this.nodeType = treeNode.nodeType;
             // 当选中普通目录时 新建按钮可用
             if (this.CLASS_TYPE != '00' && this.CLASS_TYPE != '01' && this.nodeType != -1) {
-                this.$('#ad-addDashboard-btn').removeAttr("disabled");
+              //  this.$('#ad-addDashboard-btn').removeAttr("disabled");
             } else {
-                this.$('#ad-addDashboard-btn').attr('disabled', true);
+            //    this.$('#ad-addDashboard-btn').attr('disabled', true);
             }
             if (this.nodeType == 1) {
                this.previewDashBoard(treeNode.id, treeNode.name,treeNode);

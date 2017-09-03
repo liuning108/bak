@@ -1,8 +1,72 @@
+#btn-slm-dashboard-ok {
+  background: #1881DC;
+}
+
+#btn-slm-dashboard-ok:hover {
+  background: #1a91f2;
+}
+
+.dashboardCatalogs {
+  width: 100%;
+  height: 290px;
+  border: 1px solid #cfdadd;
+  background-color: #fff;
+  font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.dashboardCatalogs ul {
+  list-style: none;
+  padding: 0px;
+}
+
+.dashboardCatalogs ul li {
+  cursor: pointer;
+  color: #333;
+  padding: 5px;
+  border-bottom: 1px solid #cfdadd;
+}
+
+.dashboardCatalogs ul li:hover {
+  background-color: rgba(207, 218, 221, 0.32);
+}
+
+.dashboardCatalogs ul li:last-child {
+  border-bottom: none;
+}
+
+.dashboardCatalogs ul li.selCatalog {
+  background-color: #1881dc;
+  color: #fff;
+}
+
+.dashboardCatalogs ul li.selCatalog i {
+  color: #fff;
+}
+
+.dashboardCatalogs ul li i {
+  color: #afafaf;
+}
+
+.dashboardCatalogs ul li span {
+  margin-left: 7px;
+  line-height: 22px;
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
 #dashBoardGirdCanvas {
   position: absolute;
   top: 0px;
   pointer-events: none;
   left: 0px;
+}
+
+.tipEmpty {
+  color: #ff6363;
+  display: none;
 }
 
 .GImage {
@@ -17,6 +81,7 @@
   height: 100%;
   background: #fff url(../images/chartBk.svg) center top;
   background-size: cover;
+  position: relative !important;
 }
 
 .DashBoardPerviewTabs {
@@ -67,6 +132,14 @@
 .comprivroot {
   padding: 0px;
   margin: 0px;
+}
+
+.vbox {
+  display: table;
+  border-spacing: 0;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .editBody {
