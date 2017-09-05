@@ -9,13 +9,28 @@ define([
             var self = this;
             var title = this.attrs.title || 'TEXT NAME';
             var titleColor = this.attrs.titleColor || '#ddff00';
-            this.doms['title'] = this.paper.text(0, 0, title).attr({'fill': titleColor, 'font-size': 30, 'font-family': '微软雅黑', 'font-weight': 'bold'});
-
+            this.attrs.direction=this.attrs.direction||1;
             self.setTitle(title);
             self.setTitleColor(titleColor);
+            if(this.attrs.direction==2){
 
-            this.doms['config'] = this.paper.text(100, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
-            this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+              title=this.handelText(title);
+            }
+
+
+            this.doms['title'] = this.paper.text(0, 0, title).attr({'fill': titleColor, 'font-size': 30, 'font-family': '微软雅黑', 'font-weight': 'bold'});
+            var bbox = this.doms['title'].getBBox();
+
+            this.doms['config'] = this.paper.text(bbox.width+10, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+            this.doms['remove'] = this.paper.text(bbox.width+10, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+
+        },
+        handelText:function(title) {
+            var newTitle="";
+            for (var i = 0; i < title.length; i++) {
+               newTitle+=title[i]+"\n";
+            }
+            return newTitle;
 
         },
 
@@ -24,14 +39,14 @@ define([
             this.ft.attrs.translate.y = 30;
         },
         setTitle: function(text) {
-            this.doms['title'].attr({'text': text});
+          //  this.doms['title'].attr({'text':text});
             this.attrs.title = text;
         },
         setTitleColor: function(color) {
-            this.doms['title'].attr({
-                'fill': "" + color
-            });
-            console.log("" + color)
+            // this.doms['title'].attr({
+            //     'fill': "" + color
+            // });
+            // console.log("" + color)
             this.attrs.titleColor = "" + color;
         },
 

@@ -10,10 +10,11 @@ define([
                 'xAxis': ['field_1'],
                 'yAxis': ['field_2'],
                 'xNums': 1,
-                'yNums': 1,
+                'yNums': 99,
                 'xMinNums': 1,
                 'yMinNums': 1
             }
+            this.attrs.dbServer.yNums=99;
         },
         initElement: function() {
             var self = this;
@@ -26,12 +27,12 @@ define([
             this.attrs.unit = this.attrs.unit || '';
             this.attrs.unitx = this.attrs.unitx || '';
             this.attrs.labelStyle=this.attrs.labelStyle||1;
+            this.attrs.labelStyle2=this.attrs.labelStyle2||1;
             var paper = this.paper;
             this.attrs.xAxisNames = this.attrs.xAxisNames || this.createSeqNums(2008, 10);
             this.attrs.xAxisDatas = this.attrs.xAxisDatas || this.createRandom(this.attrs.xAxisNames, 10, 90);
-
-            var max =Math.round(fish.max(this.attrs.xAxisDatas));
-
+            this.Data2Graph();
+            var max =Math.round(fish.max(fish.flatten(this.attrs.xAxisDatas)));
             var smax =""+max
             if (smax.length>1){
             var twonums =Number(smax[smax.length-2]+smax[smax.length-1])
@@ -40,7 +41,6 @@ define([
               max =10;
             }
             var n = this.attrs.xAxisNames.length;
-            var items = [];
             var x = 0;
             var y = 0;
             var w = 15;
@@ -67,12 +67,45 @@ define([
 
             space_w=this.getBox(this.getMaxLength(this.attrs.xAxisNames)).width;
             this.doms['x_axis'] = paper.rect(x, y, (w + space_w) * n, 1).attr({'stroke': this.attrs.axisColor, 'stroke-width': 2});
-            for (var i = 0; i < n; i++) {
-                var vvalue =this.attrs.xAxisDatas[i] ;
+            var colors=["#11bde8",'#1790cf','#12CC94','#9EF4E6','#359768'];
+            var xlen=this.attrs.xAxisDatas.length;
+            for(var i = 0 ;i<xlen;i++){
+                var color=colors[i%colors.length];
+                var label = this.attrs.xAxisLabels[i]
+                this.drawLine(this.attrs.xAxisDatas[i],i,space_w,max,x,y,r,w,h,color,xlen)
+                var label_x=(w + space_w) * n+20
+                var label_y = (y-h)+(i*12)+20;
+                if(this.attrs.labelStyle2==1){
+                    this.doms['x_label'+i] = paper.rect(x+label_x,label_y, 15, 6).attr({'fill': color, 'stroke-width': 0});
+                    var bbox =this.doms['x_label'+i].getBBox();
+                    this.doms['x_label_name'+i] = paper.text(x+label_x+bbox.width+10, label_y+3,label).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑','text-anchor':'start'});
+                }
+            }
+
+            for (var i = 0 ;i<this.attrs.xAxisNames.length;i++){
+                var name =this.attrs.xAxisNames[i];
+                var itemx =x + (i * (w + space_w));
+                var xItemName = paper.text(itemx, y + 15, name).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑'});
+                this.doms['xItemName'+i] = xItemName;
+            }
+
+
+
+            this.doms['config'] = this.paper.text(100, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+            this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
+
+        },
+
+        drawLine:function(data,lineIndex,space_w,max,x,y,r,w,h,color,xlen) {
+
+            var paper = this.paper;
+            var items = [];
+            for (var i = 0; i < data.length; i++) {
+                var vvalue =data[i] ;
                 var per = vvalue / max;
-                var item = this.createPointItem(i, x+r, y, w, h, space_w, r, per, this.attrs.xAxisNames[i],vvalue);
+                var item = this.createPointItem(i, x+r, y, w, h, space_w, r, per, data[i],vvalue,color);
                 items.push(item);
-                this.doms['item' + i] = item.set;
+                this.doms['item' +lineIndex+":"+i] = item.set;
             }
             var firstItem = items[0];
             var lastItem = items[items.length - 1];
@@ -95,14 +128,12 @@ define([
             bg_path.push(y);
             bg_path.push('z');
 
-            var curve = paper.path(curve_path).attr({'stroke': this.attrs.lineColor, 'stroke-width': 1});
-            var bgPath = paper.path(bg_path).attr({'fill': this.attrs.areaColor, 'stroke-width': 0, 'opacity': 0.4});
-            this.doms['curve'] = curve;
-            this.doms['bgPath'] = bgPath;
-
-            this.doms['config'] = this.paper.text(100, -30, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
-            this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
-
+            var curve = paper.path(curve_path).attr({'stroke': color, 'stroke-width': 1});
+            var bgPathOp=0;
+            if (xlen==1)bgPathOp=0.2;
+            var bgPath = paper.path(bg_path).attr({'fill': color, 'stroke-width': 0, 'opacity': bgPathOp});
+            this.doms['curve'+lineIndex] = curve;
+            this.doms['bgPath'+lineIndex] = bgPath;
         },
 
         getMaxLength:function(names) {
@@ -150,6 +181,9 @@ define([
         setXAxisDatas: function(datas) {
             this.attrs.xAxisDatas = datas;
         },
+        setXAxisLabels:function(labels) {
+            this.attrs.xAxisLabels = labels;
+        },
         getBox: function(val) {
 
             var text = this.paper.text(0, 0, val).attr({'fill': '#fff', 'font-size': 12, 'font-family': '微软雅黑'})
@@ -157,21 +191,21 @@ define([
             text.remove();
             return box;
         },
-        createPointItem: function(i, x, y, w, h, space_w, r, per, name,vvalue) {
+        createPointItem: function(i, x, y, w, h, space_w, r, per, name,vvalue,color) {
             var self = this;
             var paper = this.paper;
             var item = {};
             item.set = paper.set();
             item.x = x + (i * (w + space_w));
             item.y = y - (h * per);
-            item.circle = paper.circle(item.x, item.y, r).attr({"stroke-width": 0, 'fill': this.attrs.dotColor});
-            item.name = paper.text(item.x, y + 15, name).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑'});
+             item.circle = paper.circle(item.x, item.y, r).attr({"stroke-width": 0, 'fill': color});
+            // item.name = paper.text(item.x, y + 15, name).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑'});
 
             if(this.attrs.labelStyle==1){
             item.value = paper.text(item.x, item.y - 15, vvalue+self.attrs.unitx).attr({'fill': this.attrs.titleColor, 'font-size': 10, 'font-family': '微软雅黑'});
             item.set.push(item.value);
             }
-            item.set.push(item.name);
+            //item.set.push(item.name);
             item.set.push(item.circle);
 
             return item;
@@ -201,13 +235,19 @@ define([
 
         toGraph: function(choiceTreeJson) {
           try {
+            console.log("fjkdjhfkjdshkds");
+            console.log(choiceTreeJson);
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
+            console.log(json.xAxis.data);
             json.series = {};
-            json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data')[0];
+            json.series.data = fish.pluck(choiceTreeJson.yAxis, 'data');
+            json.series.labels =fish.pluck(choiceTreeJson.yAxis, 'label');
             this.setXAxisNames(json.xAxis.data)
             this.setXAxisDatas(json.series.data)
+            this.setXAxisLabels(json.series.labels)
+
           }catch(e){
             console.log("GStripLineBase ToGraph");
             console.log(choiceTreeJson);

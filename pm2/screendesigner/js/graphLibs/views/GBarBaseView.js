@@ -87,7 +87,7 @@ define([
                     self.gText.attrs.unitx=  $('.unitInputx').val();
                     self.gText.redraw();
             })
-            
+
             $parent.find('.labelSelect').off('change')
                    .val(self.gText.attrs.labelStyle)
                    .on('change',function() {
@@ -95,6 +95,14 @@ define([
                        self.gText.attrs.labelStyle=val;
                        self.gText.redraw()
                    });
+
+                   $parent.find('.label2Select').off('change')
+                                 .val(self.gText.attrs.labelStyle2)
+                                 .on('change',function() {
+                                     var val=$(this).val()
+                                     self.gText.attrs.labelStyle2=val;
+                                     self.gText.redraw()
+                                 });
 
 
 

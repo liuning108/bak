@@ -49,6 +49,7 @@ define([
                      }
                    });
 
+
         },
 
 
@@ -60,13 +61,22 @@ define([
           //  self.jsonEditor($parent);
             $parent.find('.gtext_title').on('change',function(){
                    self.gtext_title($(this));
+                   self.gText.redraw();
             })
             $parent.find('.gtext_title').val(this.gText.getTitle());
             var title_colorpicker = $parent.find(".gtext_colorpicker").colorpicker();
             title_colorpicker.colorpicker("set", this.gText.getTitleColor());
             title_colorpicker.on("move.colorpicker", function(e, color) {
                 self.gText.setTitleColor(color)
+                self.gText.redraw();
             })
+            $parent.find('#gtext_direction').val(self.gText.attrs.direction)
+                   .off('change')
+                   .on('change',function() {
+                       var val=   $(this).val();
+                       self.gText.attrs.direction=val;
+                       self.gText.redraw();
+                   })
 
             return this;
         }

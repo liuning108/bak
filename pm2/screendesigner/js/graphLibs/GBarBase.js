@@ -20,6 +20,7 @@ define([
                                                             'xMinNums':1,
                                                             'yMinNums':1
                                                         }
+             this.attrs.dbServer.yNums=99;
         },
         initElement: function() {
             var self = this;
@@ -28,8 +29,9 @@ define([
             this.attrs.unit =this.attrs.unit || "";
             this.attrs.unitx=  this.attrs.unitx||"";
             this.attrs.labelStyle=this.attrs.labelStyle||1;
+            this.attrs.labelStyle2=this.attrs.labelStyle2||1;
             this.Data2Graph();
-            var max=fish.max(this.attrs.datas);
+            var max=fish.max(fish.flatten(this.attrs.datas));
             var smax =""+max
             if (smax.length>1){
             var twonums =Number(smax[smax.length-2]+smax[smax.length-1])
@@ -66,15 +68,48 @@ define([
                this.doms['y_axis_num'+i].attr({'x':x-box_w-w});
             }
             space_w=this.getBox(this.getMaxLength(this.attrs.names)).width;
-            this.doms['x_axis']=paper.rect(x-w,y,(w+space_w)*n,1).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
+            var space_item_w=this.attrs.datas.length*w;
+            if(space_w>space_item_w){
+              space_item_w=space_w
+            }
+            this.doms['x_axis']=paper.rect(x-w,y,(w+space_item_w)*n,1).attr({'stroke':this.attrs.axisColor,'stroke-width':2});
+            var colors=["#11bde8",'#1790cf','#12CC94','#9EF4E6','#359768'];
+            if(this.attrs.labelStyle2==1){
+              var xAxisW=this.doms['x_axis'].getBBox().width;
+              for(var i =0;i<this.attrs.xAxisLabels.length;i++){
+                  var color=colors[i%colors.length];
+                 var label = this.attrs.xAxisLabels[i];
+                 var label_x=x+xAxisW+5
+                 var label_y = (y-h)+(i*12)+20;
+                 this.doms['x_label'+i] = paper.rect(x+label_x,label_y, 15, 6).attr({'fill': color, 'stroke-width': 0});
+                 var bbox =this.doms['x_label'+i].getBBox();
+                 this.doms['x_label_name'+i] = paper.text(x+label_x+bbox.width+10, label_y+3,label).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑','text-anchor':'start'});
+              }
+            }
 
-            var year=1;
+
+
             for(var i=0;i<n;i++){
-              var vvalue =this.attrs.datas[i];
+              var bboxSet =paper.set();
+              var name =this.attrs.names[i];
+             for (var j = 0 ;j<this.attrs.datas.length;j++){
+              var color=colors[j%colors.length];
+              var vvalue =this.attrs.datas[j][i];
               var per=vvalue/max;
-              var item  = this.createPointItem(i,x,y,w,h,space_w,r,per,this.attrs.names[i],vvalue);
+              var item_x=x+(j*(w+0.5))
+              var item  = this.createPointItem(i,item_x,y,w,h,space_item_w,r,per,this.attrs.names[i],vvalue,color);
               items.push(item);
-              this.doms['item'+i]=item.set;
+              bboxSet.push(item.set);
+              this.doms['item'+j+"_"+i]=item.set;
+             }
+             var bbox=bboxSet.getBBox();
+             console.log(bbox);
+             var Itemname =paper.text(bbox.x+bbox.width/2,bbox.y+bbox.height+15,name).attr({
+                 'fill':this.attrs.titleColor ,
+                 'font-size': 12,
+                 'font-family': '微软雅黑',
+             });
+             this.doms['itemName_'+i]=Itemname
             }
 
 
@@ -146,21 +181,21 @@ define([
             }, 1000*30);
 
         },
-        createPointItem:function(i,x,y,w,h,space_w,r,per,name,vvalue){
+        createPointItem:function(i,x,y,w,h,space_w,r,per,name,vvalue,color){
           var self=this;
           var paper=this.paper;
           var item={};
           item.set=paper.set();
 
-          item.x=x+(i*(w+space_w));
+            item.x=x+(i*(w+space_w));
           item.y=y;
-          item.circle= paper.rect(item.x,item.y,w,h*per).rotate(180,item.x,item.y).attr({"stroke-width":0,'fill':this.attrs.barColor});
+          item.circle= paper.rect(item.x,item.y,w,h*per).rotate(180,item.x,item.y).attr({"stroke-width":0,'fill':color});
           var bbox =item.circle.getBBox();
-          item.name=paper.text(item.x-w/2,y+15,name).attr({
-              'fill':this.attrs.titleColor ,
-              'font-size': 12,
-              'font-family': '微软雅黑',
-          });
+          // item.name=paper.text(item.x-w/2,y+15,name).attr({
+          //     'fill':this.attrs.titleColor ,
+          //     'font-size': 12,
+          //     'font-family': '微软雅黑',
+          // });
           if(  this.attrs.labelStyle==1){
             item.value=paper.text(item.x-w/2,item.y-bbox.height-15,vvalue+self.attrs.unitx).attr({
                 'fill':this.attrs.titleColor ,
@@ -169,24 +204,31 @@ define([
             });
             item.set.push(item.value);
           }
-          item.set.push(item.name);
+          //item.set.push(item.name);
           item.set.push(item.circle);
           return item;
         },
         toGraph:function(choiceTreeJson) {
           try {
+            console.log("GBarBase");
+            console.log(choiceTreeJson);
             var json={};
             json.xAxis={};
             json.xAxis.data=choiceTreeJson.xAxis[0].data;
             json.series={};
-            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data')[0];
+            json.series.data=fish.pluck(choiceTreeJson.yAxis,'data');
+            json.series.labels =fish.pluck(choiceTreeJson.yAxis, 'label');
             this.setXAxisNames(json.xAxis.data)
             this.setXAxisDatas(json.series.data)
+            this.setXAxisLabels(json.series.labels)
           }catch(e){
             console.log("GBarBase ToGraph");
             console.log(choiceTreeJson);
           }
 
+        },
+        setXAxisLabels:function(labels) {
+            this.attrs.xAxisLabels = labels;
         },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;

@@ -46,7 +46,7 @@ define([
     dbHelper.getLocalJson = function(server) {
         var serverSkeleton= fish.store.get(server.serverName);
 
-        console.log(serverSkeleton);
+
         if(!serverSkeleton) return null;
 
         dbHelper.choiceY(serverSkeleton.xAxis, server.xAxis, 'x');
@@ -86,8 +86,6 @@ define([
         fish.each(serverSkeleton.yAxis, function(yItem) {
             var nums = [];
             for(var i =0;i<data_len;i++){
-              console.log(yItem.data);
-              console.log(yItem.data[i]);
               var numValue =fish.isNumber(yItem.data[i])?Number(yItem.data[i]):yItem.data[i];
               nums.push(numValue)
             }
