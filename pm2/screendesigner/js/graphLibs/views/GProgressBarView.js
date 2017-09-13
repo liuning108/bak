@@ -1,11 +1,12 @@
 define([
+  "oss_core/pm/screendesigner/views/ServerTimeView",
   "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
    "text!oss_core/pm/screendesigner/js/graphLibs/views/GProgressBarConfig.html",
     "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
     "oss_core/pm/screendesigner/js/colorpicker/fish.colorpicker"
 
-], function(i18nData,DBConfigTreeView,tpl,JSONEditor) {
+], function(STView,i18nData,DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -86,6 +87,8 @@ define([
            $parent.find('.denominator_title').on('change',function(){
                   self.gText.setDenominatorTitle($(this).val());
            });
+           var stView=new STView({"el":$("#bg_stView"),'g':this.gText,'isNeedSwitch':true}).render();
+
             return this;
         }
 

@@ -126,9 +126,7 @@ define([
             this.doms['remove'] = this.paper.text(30, 60, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
 
         },
-        getData: function() {
-            this.loadNumber.animate(this.sum3gkpi, this.sum4gkpi);
-        },
+        
         getXAxisNames: function() {
             return this.attrs.xAxisNames;
         },

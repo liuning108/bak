@@ -52,23 +52,7 @@ define([
 
             this.initDatas();
         },
-        getData: function() {
 
-            var self = this;
-            var initDatas = [];
-            var intervalTime = 1000 * 60 * 5;
-            fish.each(this.names, function(name) {
-                initDatas.push({
-                    'name': name,
-                    'value': fish.random(99, 999)
-                })
-            })
-            this.linebar.inputData(initDatas, '');
-
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
-        },
         initDatas: function() {
             var self = this;
             var initDatas = [];

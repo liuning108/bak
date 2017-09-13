@@ -12,6 +12,14 @@ define([
             this.domsSet = this.paper.set();
             this.doms = {};
             this.ft = null;
+            this.attrs.timeOff= this.attrs.timeOff||1;
+            if (this.attrs.timeOff==1){
+                this.attrs.timeType=this.canvas.attrs.timeType;
+                this.attrs.timeVal=this.canvas.attrs.timeVal;
+            }else{
+               this.attrs.timeType=this.attrs.timeType||this.canvas.attrs.timeType;
+               this.attrs.timeVal=this.attrs.timeVal||this.canvas.attrs.timeVal;
+            }
             this.dbHelper=dbHelper;
             this.initAttrs();
             dbHelper.getServiceDataInfo(this).done(
@@ -116,7 +124,38 @@ define([
             e.stopImmediatePropagation();
         },
         getData: function() {
-            console.log('GROOT getData ');
+          console.log("root data--> "+ this.getTimeVal());
+              var self = this;
+              var run =function(){
+                self.dbHelper.getServiceDataInfo(self).done(
+                     function(data){
+                             self.Data2Graph();
+                             self.uploadGraph();
+                             setTimeout(function() {
+                                run();
+                             }, self.getTimeVal());
+                     }
+                )
+              }
+            setTimeout(function() {
+               run();
+            }, self.getTimeVal());
+        },
+        uploadGraph:function() {
+           this.initObjetGraph();
+        },
+        getTimeVal:function() {
+          var type = this.attrs.timeType
+          var time = this.attrs.timeVal
+          var val =time*1000;
+          var min =30*1000;
+          if(type==1){
+              val =time*1000*59
+          }
+          if(val<min){
+            val =min;
+          }
+         return val;
         },
         perview: function() {
             if (this.canvas.perview) {

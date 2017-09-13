@@ -65,15 +65,6 @@ define([
           }
         },
 
-        getData: function() {
-
-            var self = this;
-            var intervalTime = 1000 * 60 * 5;
-            self.doms['nums'].setValue(fish.random(99, 999));
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
-        },
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;

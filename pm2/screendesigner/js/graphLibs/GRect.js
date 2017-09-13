@@ -27,6 +27,9 @@ define([
              this.ft.attrs.translate.x=20;
              this.ft.attrs.translate.y=30;
         },
+				getData:function() {
+
+				},
         addEvent: function() {
             this.doms['config'].click(function(e) {
                 var options = {

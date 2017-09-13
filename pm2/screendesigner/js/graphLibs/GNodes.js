@@ -119,17 +119,6 @@ define([
         setSeriesDatas: function(datas) {
             this.attrs.datas = datas;
         },
-        getData: function() {
-            var self = this;
-            var datas = [];
-            var sum = 0;
-            for (var i = 0; i < this.attrs.names.length; i++) {
-                var val = fish.random(10, 100);
-                datas.push({name: this.attrs.names[i], value: val})
-                sum += val;
-            }
-            this.nodes.inputData(datas);
-        },
         initData: function() {
             var self = this;
             var datas = [];

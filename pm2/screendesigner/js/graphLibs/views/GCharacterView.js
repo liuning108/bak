@@ -78,6 +78,7 @@ define([
                        self.gText.redraw();
                    })
 
+
             return this;
         }
 

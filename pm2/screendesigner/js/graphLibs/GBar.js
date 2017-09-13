@@ -118,22 +118,7 @@ define([
             this.ft.attrs.translate.y = 30;
         },
 
-        getData: function() {
-            var self = this;
-            var datas = [];
-            for (var i = 0; i < this.xAxisNames.length; i++) {
-
-                datas.push({
-                    name: this.xAxisNames[i],
-                    value: fish.random(10, 100)
-                })
-            }
-            var intervalTime = 1000 * 60 * 5;
-            this.top.inputData(datas)
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
-        },
+      
 
         getXAxisDatas: function() {
             return this.attrs.datas;

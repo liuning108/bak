@@ -98,19 +98,11 @@ define([
                 y:unit_y
             };
         },
-        getData:function(){
-            var self = this;
-            var intervalTime=1000*30;
-            self.dbHelper.getServiceDataInfo(this).done(
-                 function(data){
-                         self.Data2Graph();
-                         self.setValue(self.attrs.val)
-                         setTimeout(function() {
-                             self.getData();
-                         }, intervalTime);
-                 }
-            )
+      
+        uploadGraph:function() {
+          this.setValue(this.attrs.val)
         },
+
         setValue:function(val){
            var text=this.prefixInteger(val,this.attrs.digits);
            for(var i=0;i<text.length;i++){

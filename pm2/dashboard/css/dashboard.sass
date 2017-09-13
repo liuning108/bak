@@ -1,3 +1,26 @@
+.editPattern
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)
+
+.fontsytle
+  display: inline-block
+  padding-left: 5px
+  padding-right: 5px
+  border: 1px solid #ccc
+  width: 100px
+  height: 28px
+  background-color: #fff
+  font-size: 12px
+  span
+    color: rgb(40, 40, 40)
+    line-height: 28px
+    margin-right: 5px
+  .func
+    cursor: pointer
+    display: inline-block
+    padding: 0px 6px
+    &.fontstyleSel
+      color: #1881dc
+
 
 #btn-slm-dashboard-ok
   background: #1881DC
@@ -41,7 +64,8 @@
 
 
 
-
+#dashboard-detail-canvas
+  width:  95%
 #dashBoardGirdCanvas
     position: absolute
     top: 0px
@@ -90,7 +114,7 @@
   word-wrap: break-word
   width:  100%
   height: 100%
-  font-weight:  bold
+  letter-spacing: 2px
 
 .selectedNode
   border: 1px solid rgba(34, 153, 255, 1) !important
@@ -157,6 +181,9 @@ ul
          background:  #c3c3c3
          cursor: ns-resize
 
+  #dashboard-perview-canvas
+    width: 100% !important
+
   .dashboardCanvas
     position: relative
     width: 80%
@@ -173,12 +200,24 @@ ul
      cursor: pointer
      z-index: 1
      border: 1px solid rgba(34, 153, 255, 0.0)
+     .dashNodeTip
+       position: absolute
+       padding: 5px
+       top: calc(100%  + 5px)
+       left: 0px
+       color: #fff
+       background: #000
+       opacity: 0.5
+       width: 55px
+       display: none
+
      .dashTools
         position: absolute
-        left: 92%
+        left: calc(100%  + 5px)
         top : 0px
         display:  none
         ul
+            padding:  0px
             li
                 margin-bottom: 2px
                 div
@@ -190,9 +229,13 @@ ul
                     background-color: rgb(12, 162, 191)
 
      &:hover.editPattern
+
+         .dashNodeTip
+             display: block
          .dashTools
              display:  block
-         background-color: rgba(34, 153, 255, 0.05)
+         background-color: #fff
+         box-shadow: 0px 5px 5px rgba(0,0,0,0.4)
          border-color: rgba(34, 153, 255, 1)
          border-style: dashed
      .dashCanvas

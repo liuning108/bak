@@ -45,6 +45,7 @@ define([
         resize: function(h) {},
 
         RenderView: function() {
+             $('.selectedNode').removeClass("selectedNode");
             var dashBoardConfigConfigView = new DashBoardConfigConfigView(this.dcharts);
             dashBoardConfigConfigView.render();
             $(".dashBoardConfigPanel").html(dashBoardConfigConfigView.$el);

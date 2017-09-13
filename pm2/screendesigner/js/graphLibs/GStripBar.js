@@ -92,9 +92,7 @@ define([
         setXAxisDatas: function(datas) {
             this.attrs.xAxisDatas = datas;
         },
-        getData: function() {
-            this.regainNumsKPI.animate();
-        },
+        
         initLocation: function() {
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;

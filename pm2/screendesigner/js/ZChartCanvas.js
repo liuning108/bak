@@ -57,7 +57,10 @@ define([
             self.paper = Raphael(self.dom);
             self.bgitem=option.attrs.bgitem||0;
             self.setViewBox(self.w, self.h)
-
+            self.attrs=option.attrs.config||{};
+            self.attrs.timeVal=self.attrs.timeVal||1;
+            self.attrs.timeType=self.attrs.timeType||1;
+    
             if (option.attrs.bk_attrs) {
                 self.setBK(option.attrs.bk_attrs);
             }
@@ -241,6 +244,7 @@ define([
             json.attrs.h = self.h;
             json.attrs.style=this.style;
             json.attrs.bk_attrs = self.bk_attrs;
+            json.attrs.config=self.attrs;
             json.nodes = [];
             fish.each(self.nodes, function(node) {
                 json.nodes.push(node.json());

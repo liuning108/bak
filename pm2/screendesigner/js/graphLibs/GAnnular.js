@@ -95,23 +95,7 @@ define([
         getSeriesData: function() {
             return this.attrs.seriesData;
         },
-        getData: function() {
-            var self = this;
-            var datas = [];
-            var sum = 0;
-            for (var i = 0; i < this.names.length; i++) {
-                var val = fish.random(10, 100);
-                datas.push({name: this.names[i], value: val})
-                sum += val;
-            }
-            this.pie.inputData(datas);
-            //alert(sum);
-            var intervalTime = 1000 * 60 * 5;
-            setTimeout(function() {
-                self.getData();
-            }, intervalTime);
-
-        },
+      
         initData: function() {
             var self = this;
             var datas = [];

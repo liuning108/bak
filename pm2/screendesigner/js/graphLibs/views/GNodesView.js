@@ -1,9 +1,10 @@
 define([
+  "oss_core/pm/screendesigner/views/ServerTimeView",
   "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
   "oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/DBConfigTreeView",
     "text!oss_core/pm/screendesigner/js/graphLibs/views/GNodesView.html",
      "oss_core/pm/screendesigner/jsoneditor/jsoneditor.min",
-], function(i18nData,DBConfigTreeView,tpl,JSONEditor) {
+], function(STView,i18nData,DBConfigTreeView,tpl,JSONEditor) {
 
     return portal.CommonView.extend({
         className: "ui-dialog dialog",
@@ -167,6 +168,9 @@ define([
             title_colorpicker3.on("move.colorpicker", function(e, color) {
                   self.g.setColors(2,color);
             });
+
+            var stView=new STView({"el":$("#bg_stView"),'g':this.g,'isNeedSwitch':true}).render();
+
 
         },
         levelConfig:function($parent,flag){

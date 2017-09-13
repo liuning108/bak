@@ -48,6 +48,8 @@ define([
       this.gcanvas.height(this.options.h);
       this.gcanvas.css({"left":this.options.x+"px"});
       this.gcanvas.css({"top":this.options.y+"px"});
+      var text =parseInt(this.options.w)+"x"+parseInt(this.options.h)
+      this.gcanvas.find('.dashNodeTip').text(text);
 
       if(!this.options.perview){
         this.editPattern();
@@ -65,6 +67,7 @@ define([
          this.gcanvas.addClass("selectedNode")
          this.setPageConfig();
     },
+
     editPattern:function() {
       var self =this;
       var canvasDom = this.options.canvas
@@ -95,9 +98,18 @@ define([
         containment: canvasDom,
         stop: function(event, ui) {
           self.resizableStop(event, ui);
-        }
+        },
+        resize:function(event, ui) {
+          self.resizableResize(event, ui);
+        },
       });
 
+    },
+    resizableResize:function(event, ui) {
+      var w=ui.size.width;
+      var h=ui.size.height;
+      var text =w+"x"+h
+      this.gcanvas.find('.dashNodeTip').text(text);
     },
     editNode:function() {
     console.log("editNode");

@@ -99,21 +99,7 @@ define([
             this.ft.attrs.translate.x = 20;
             this.ft.attrs.translate.y = 30;
         },
-        getData: function() {
-            var self = this;
-            var datas = [];
-            var sum = 0;
-            for (var i = 0; i < this.names.length; i++) {
-                var val = fish.random(10, 100);
-                datas.push({name: this.names[i], value: val})
-                sum += val;
-            }
-            this.pie.inputData(datas, function() {
-                self.doms['nums'].setValue(sum);
-            });
-            //alert(sum);
-
-        },
+        
         toGraph: function(choiceTreeJson) {
           try{
             var json = {};

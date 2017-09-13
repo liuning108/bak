@@ -2,9 +2,10 @@
  * 指标筛选弹出窗
  */
 define([
+    "oss_core/pm/screendesigner/views/ServerTimeView",
     "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
     "text!oss_core/pm/screendesigner/templates/ScreenDesignerConfig.html", "oss_core/pm/screendesigner/js/icheck/fish.icheck", "css!oss_core/pm/screendesigner/js/icheck/icheck.css"
-], function(i18nData,tpl) {
+], function(STView,i18nData,tpl) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
         resource : fish.extend({}, i18nData),
@@ -118,6 +119,11 @@ define([
                     $(this).data('select', 1);
                 }
             })
+
+          var stView=new STView({"el":$("#bg_stView"),'g':this.canvas,'isNeedSwitch':false}).render();
+
+
+
 
         }, //end of RenderHTML
         //TODO: 风格选择(done);

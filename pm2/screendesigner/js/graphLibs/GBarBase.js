@@ -163,24 +163,7 @@ define([
           text.remove();
           return box;
         },
-        getData:function(){
-              var self = this;
-              var run =function(){
-                self.dbHelper.getServiceDataInfo(self).done(
-                     function(data){
-                             self.Data2Graph();
-                             self.initObjetGraph();
-                             setTimeout(function() {
-                                run();
-                             }, 1000*30);
-                     }
-                )
-              }
-            setTimeout(function() {
-               run();
-            }, 1000*30);
 
-        },
         createPointItem:function(i,x,y,w,h,space_w,r,per,name,vvalue,color){
           var self=this;
           var paper=this.paper;

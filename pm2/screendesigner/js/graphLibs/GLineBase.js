@@ -86,24 +86,6 @@ define([
 
         },
 
-        getData:function(){
-              var self = this;
-              var run =function(){
-                self.dbHelper.getServiceDataInfo(self).done(
-                     function(data){
-                             self.Data2Graph();
-                             self.initObjetGraph();
-                             setTimeout(function() {
-                                run();
-                             }, 1000*30);
-                     }
-                )
-              }
-            setTimeout(function() {
-               run();
-            }, 1000*30);
-
-        },
         createItme: function(i, x, y, w, h, space_h, per, name,www,vvalue) {
 
             var paper = this.paper;

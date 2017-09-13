@@ -221,24 +221,7 @@ define([
             return this.attrs.titleColor;
         },
 
-        getData:function(){
-              var self = this;
-              var run =function(){
-                self.dbHelper.getServiceDataInfo(self).done(
-                     function(data){
-                             self.Data2Graph();
-                             self.initObjetGraph();
-                             setTimeout(function() {
-                                run();
-                             }, 1000*30);
-                     }
-                )
-              }
-            setTimeout(function() {
-               run();
-            }, 1000*30);
-
-        },
+      
 
 
         toGraph:function(choiceTreeJson) {

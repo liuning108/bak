@@ -85,16 +85,7 @@ define([
         },
 
 
-        getData: function() {
 
-
-            // var self = this;
-            // var intervalTime=1000*60*5;
-            // self.doms['nums'].setValue(fish.random(99, 666));
-            // setTimeout(function() {
-            //     self.getData();
-            // }, intervalTime);
-        },
         setUnit:function(unit){
             this.doms['nums'].setUnit(unit);
             this.attrs.unit=unit;

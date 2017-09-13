@@ -56,7 +56,8 @@ define([
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
-
+        getData:function() {
+        },
         addEvent: function() {
             var self = this;
             // TODO:配置属性(node)

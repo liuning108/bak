@@ -78,13 +78,7 @@ define([
 
         },
 
-        getData:function() {
-          // var self =this;
-          // setInterval(function(){
-          //   alert(1)
-          //   self.Data2Graph()
-          // },5000);
-        },
+        
 
         setIcon:function(icon){
           this.doms['icon'].attr({
