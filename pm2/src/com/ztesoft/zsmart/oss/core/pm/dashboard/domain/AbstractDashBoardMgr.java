@@ -129,6 +129,16 @@ public abstract class AbstractDashBoardMgr {
      * @return <br>
      */ 
     public abstract Map<String,Object> querySysClassTopList(Map<String, String> param)throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract Map<String,Object>  isExistSysClass(Map<String, String> param) throws BaseAppException;
     
 
 }

@@ -105,4 +105,20 @@ public class DashBoardMgr extends AbstractDashBoardMgr {
         return dao.querySysClassTopList(param);
     }
 
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, Object> isExistSysClass(Map<String, String> param) throws BaseAppException {
+        DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        return dao.isExistSysClass(param);
+    }
+
 }

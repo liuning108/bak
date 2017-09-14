@@ -390,19 +390,52 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
     public Map<String, Object> querySysClassTopList(Map<String, String> param) throws BaseAppException {
        
         Map<String, Object> result = new HashMap<String, Object>();
-
+        ParamArray pa = new ParamArray();
         String sql =
                 "select * from ( " +
                         "select s.*,rownum rn from ( " + 
                         "select s.* from  pm_dashboard_sysclass s where s.oper_user = ? and s.class_type= ? and s.seq=0 order by s.oper_date desc " + 
                         ") s " + 
                         ") s where s.rn<=?";
-        ParamArray pa = new ParamArray();
-        pa.set("", param.get("userId"));
-        pa.set("", param.get("classType"));
-        pa.set("", param.get("num"));
+        
+        int num  =Integer.parseInt(""+param.get("num"));
+        if (num<0){
+            sql ="select s.* from  pm_dashboard_sysclass s where s.oper_user = ? and s.class_type= ? and s.seq=0 order by s.oper_date desc ";
+            pa.set("", param.get("userId"));
+            pa.set("", param.get("classType"));
+        }else{
+            pa.set("", param.get("userId"));
+            pa.set("", param.get("classType"));
+            pa.set("", num);
+        }
         result.put("list", queryList(sql, pa));
         return result;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, Object> isExistSysClass(Map<String, String> param) throws BaseAppException {
+        // TODO Auto-generated method stub <br>
+        Map<String, Object> result = new HashMap<String, Object>();
+        String sql =
+                       "select count(*) from pm_dashboard_sysclass t"
+                    + " where t.topic_no= ? and t.oper_user = ? and t.seq=0 and t.class_type=?";
+
+        ParamArray pa  = new ParamArray();
+        pa.set("", param.get("topicId"));
+        pa.set("", param.get("userId"));
+        pa.set("", param.get("classType"));
+        int count =queryInt(sql, pa);
+        result.put("isExist", count>0);
+        return result ;
     }
 
 }

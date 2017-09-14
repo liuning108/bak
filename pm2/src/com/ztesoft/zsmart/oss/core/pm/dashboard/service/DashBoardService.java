@@ -192,6 +192,20 @@ public class DashBoardService implements IAction {
     }
     
     
+    public void isExistSysClass(DynamicDict dict) throws BaseAppException{
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("topicId", dict.getString("topicId"));
+        param.put("classType", dict.getString("classType"));
+        param.put("userId", dict.getString("userId"));
+        dict.add("result", bsm.isExistSysClass(param));
+    }
+    
+    
+    
+    
+    
+    
    
 
 }
