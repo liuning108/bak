@@ -9,10 +9,10 @@ import java.util.Map;
 
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 
-/** 
- * [描述] <br> 
- *  
- * @author [作者名]<br>
+/**
+ * [描述] <br>
+ * 
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>
@@ -20,68 +20,115 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @see com.ztesoft.zsmart.oss.core.pm.dashboard.domain <br>
  */
 
-public  abstract class AbstractDashBoardMgr {
+public abstract class AbstractDashBoardMgr {
 
     /**
+     * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public abstract Map<String,Object> addDashBoardClass(Map<String, String> param) throws BaseAppException;
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException  <br>
+     */
+    public abstract Map<String, Object> addDashBoardClass(Map<String, String> param) throws BaseAppException;
     
-    public abstract Map<String,Object> saveUpdateDashBoard(Map<String, Object> param) throws BaseAppException;
-
     /**
+     * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public  abstract Map<String,Object>  queryDashBoardClassByUserID(Map<String, String> param) throws BaseAppException;
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> saveUpdateDashBoard(Map<String, Object> param) throws BaseAppException;
 
     /**
+     * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public abstract Map<String,Object>  delDashBoardClassByID(Map<String, String> param) throws BaseAppException;
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> queryDashBoardClassByUserID(Map<String, String> param) throws BaseAppException;
 
     /**
+     * 
      * [方法描述] <br> 
      *  
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public abstract Map<String,Object> changeDashBoardClassNameByID(Map<String, String> param) throws BaseAppException;
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> delDashBoardClassByID(Map<String, String> param) throws BaseAppException;
 
-    /**
-     * [方法描述] <br> 
-     *  
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public abstract Map<String,Object> queryDashBoarListByClassId(Map<String, String> param) throws BaseAppException;
-
-    /**
-     * [方法描述] <br> 
-     *  
-     * @author [作者名]<br>
-     * @taskId <br>
-     * @param param
-     * @return <br>
-     */ 
-    public abstract Map<String,Object> queryDashBoardById(Map<String, String> param) throws BaseAppException;
     
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br> 
+     */
+    public abstract Map<String, Object> changeDashBoardClassNameByID(Map<String, String> param) throws BaseAppException;
+
+     
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> queryDashBoarListByClassId(Map<String, String> param) throws BaseAppException;
+
+     
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object> 
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> queryDashBoardById(Map<String, String> param) throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public  abstract Map<String,Object> addSysClass(Map<String, String> param) throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract Map<String,Object> querySysClassTopList(Map<String, String> param)throws BaseAppException;
+    
+
 }

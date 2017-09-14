@@ -85,7 +85,7 @@ public class MachineMgrDaoOracleImpl extends MachineMgrDao {
      * 
      * [方法描述] <br>
      * 
-     * @author [作者名]<br>
+     * @author [刘宁]<br>
      * @taskId <br>
      * @param collectMechineDic 
      * @param task_nos 

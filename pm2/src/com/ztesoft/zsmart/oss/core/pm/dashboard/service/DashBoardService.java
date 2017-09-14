@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
+
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.service.IAction;
@@ -19,10 +20,10 @@ import com.ztesoft.zsmart.oss.core.pm.dashboard.util.DashBoardUtil;
 import com.ztesoft.zsmart.oss.opb.util.GeneralDMOFactory;
 import com.ztesoft.zsmart.oss.opb.util.SessionManage;
 
-/** 
- * [描述] <br> 
- *  
- * @author [作者名]<br>
+/**
+ * [描述] <br>
+ * 
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>
@@ -32,9 +33,8 @@ import com.ztesoft.zsmart.oss.opb.util.SessionManage;
 
 public class DashBoardService implements IAction {
 
-   
     @Override
-    public int perform(DynamicDict  dict) throws BaseAppException {
+    public int perform(DynamicDict dict) throws BaseAppException {
         SessionManage.putSession(dict);
 
         String methodName = dict.getString("method");
@@ -44,48 +44,87 @@ public class DashBoardService implements IAction {
         }
         catch (Exception e) {
             new BaseAppException(e.getMessage());
-            e.printStackTrace();
         }
         return 0;
     }
-    
-    
+     
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
     public void addDashBoardClass(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
         param.put("name", dict.getString("name"));
         param.put("userId", dict.getString("userId"));
-        
+
         dict.add("result", bsm.addDashBoardClass(param));
     }
-    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
     public void queryDashBoardClassByUserID(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
-        param.put("userId", dict.getString("userId"));        
+        param.put("userId", dict.getString("userId"));
         dict.add("result", bsm.queryDashBoardClassByUserID(param));
     }
-    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
     public void delDashBoardClassByID(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
-        param.put("classId", dict.getString("classId"));        
+        param.put("classId", dict.getString("classId"));
         dict.add("result", bsm.delDashBoardClassByID(param));
     }
     
-    public void changeDashBoardClassNameByID(DynamicDict dict) throws BaseAppException{
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
+    public void changeDashBoardClassNameByID(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
-        param.put("classId", dict.getString("classId"));      
-        param.put("name", dict.getString("name"));        
+        param.put("classId", dict.getString("classId"));
+        param.put("name", dict.getString("name"));
         dict.add("result", bsm.changeDashBoardClassNameByID(param));
     }
-    
-    
-    public void saveUpdateDashBoard(DynamicDict dict) throws BaseAppException{
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
+    public void saveUpdateDashBoard(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, Object> param = new HashMap<String, Object>();
-        DynamicDict  dashboardDict = dict.getBO("json");
+        DynamicDict dashboardDict = dict.getBO("json");
         param.put("id", dashboardDict.getString("id"));
         param.put("name", dashboardDict.getString("name"));
         param.put("classNo", dashboardDict.getString("classNo"));
@@ -93,30 +132,66 @@ public class DashBoardService implements IAction {
         param.put("state", dashboardDict.getString("state"));
         param.put("userId", dashboardDict.getString("userId"));
         String canvasAttrs = JSON.toJSONString(DashBoardUtil.dic2Map2((DynamicDict) dashboardDict.get("canvasAttrs")));
-        param.put("canvasAttrs",canvasAttrs);
-        Map nodesAttrs = DashBoardUtil.dic2Map2((DynamicDict) dashboardDict.get("attrs")); 
-        List<Map<String,Object>>nodes =(List<Map<String,Object>>)nodesAttrs.get("nodes");
-        param.put("nodesAttrs",nodes);
+        param.put("canvasAttrs", canvasAttrs);
+        Map nodesAttrs = DashBoardUtil.dic2Map2((DynamicDict) dashboardDict.get("attrs"));
+        List<Map<String, Object>> nodes = (List<Map<String, Object>>) nodesAttrs.get("nodes");
+        param.put("nodesAttrs", nodes);
         dict.add("result_input", param);
         dict.add("result", bsm.saveUpdateDashBoard(param));
     }
-    
-    public void queryDashBoarListByClassId(DynamicDict dict) throws BaseAppException{
+     /**
+      * 
+      * [方法描述] <br> 
+      *  
+      * @author [刘宁]<br>
+      * @taskId <br>
+      * @param dict 
+      * @throws BaseAppException <br>
+      */
+    public void queryDashBoarListByClassId(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
-        param.put("classId", dict.getString("classId"));      
-        param.put("userId", dict.getString("userId"));        
+        param.put("classId", dict.getString("classId"));
+        param.put("userId", dict.getString("userId"));
         dict.add("result", bsm.queryDashBoarListByClassId(param));
     }
-    
-    public void queryDashBoardById(DynamicDict dict) throws BaseAppException{
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param dict 
+     * @throws BaseAppException <br>
+     */
+    public void queryDashBoardById(DynamicDict dict) throws BaseAppException {
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         Map<String, String> param = new HashMap<String, String>();
-        param.put("id", dict.getString("id"));      
+        param.put("id", dict.getString("id"));
         dict.add("result", bsm.queryDashBoardById(param));
     }
+    
+    public void addSysClass(DynamicDict dict) throws BaseAppException{
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("topicId", dict.getString("topicId"));
+        param.put("classType", dict.getString("classType"));
+        param.put("userId", dict.getString("userId"));
+        dict.add("result", bsm.addSysClass(param));
+    }
+    
+    
+    
+    public void querySysClassTopList(DynamicDict dict) throws BaseAppException{
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        Map<String, String> param = new HashMap<String, String>();
+        param.put("num", dict.getString("num"));
+        param.put("classType", dict.getString("classType"));
+        param.put("userId", dict.getString("userId"));
+        dict.add("result", bsm.querySysClassTopList(param));
+    }
+    
+    
    
-    
-    
 
 }

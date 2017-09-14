@@ -11,10 +11,10 @@ import java.util.Map;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.opb.util.GeneralDAO;
 
-/** 
- * [描述] <br> 
- *  
- * @author [作者名]<br>
+/**
+ * [描述] <br>
+ * 
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年8月12日 <br>
@@ -22,20 +22,102 @@ import com.ztesoft.zsmart.oss.opb.util.GeneralDAO;
  * @see com.ztesoft.zsmart.oss.core.pm.dashboard.dao <br>
  */
 
-public abstract class DashBoardMgrDao  extends GeneralDAO<Object> {
-   
+public abstract class DashBoardMgrDao extends GeneralDAO<Object> {
+
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return  Map<String, Object>
+     * @throws BaseAppException <br>
+     */
     public abstract Map<String, Object> queryDashBoardById(Map<String, String> param) throws BaseAppException;
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
     public abstract Map<String, Object> queryDashBoarListByClassId(Map<String, String> param) throws BaseAppException;
-
+    
+     /**
+      * 
+      * [方法描述] <br> 
+      *  
+      * @author [刘宁]<br>
+      * @taskId <br>
+      * @param param 
+      * @return Map<String, Object>
+      * @throws BaseAppException <br>
+      */
     public abstract Map<String, Object> addDashBoardClass(Map<String, String> param) throws BaseAppException;
-
-    public abstract Map<String, Object> queryDashBoardClassByUserID(Map<String, String> param)  throws BaseAppException;
-      
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException <br>
+     */
+    public abstract Map<String, Object> queryDashBoardClassByUserID(Map<String, String> param) throws BaseAppException;
+    
+     /**
+      * 
+      * [方法描述] <br> 
+      *  
+      * @author [刘宁]<br>
+      * @taskId <br>
+      * @param param 
+      * @return Map<String, Object> 
+      * @throws BaseAppException  <br>
+      */
     public abstract Map<String, Object> delDashBoardClassByID(Map<String, String> param) throws BaseAppException;
-
+    
+    /**
+     * 
+     * [方法描述] <br> 
+     *  
+     * @author [刘宁]<br>
+     * @taskId <br>
+     * @param param 
+     * @return Map<String, Object>
+     * @throws BaseAppException  <br>
+     */
     public abstract Map<String, Object> changeDashBoardClassNameByID(Map<String, String> param) throws BaseAppException;
     
-    public  abstract Map<String, Object> saveUpdateDashBoard(Map<String, Object> param)  throws BaseAppException;
+    
+    
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract Map<String, Object> addSysClass(Map<String, String> param)  throws BaseAppException;
+   /**
+    *  
+    * [方法描述] <br> 
+    *  
+    * @author [刘宁]<br>
+    * @taskId <br>
+    * @param param 
+    * @return Map<String, Object> 
+    * @throws BaseAppException <br>
+    */
+    public abstract Map<String, Object> saveUpdateDashBoard(Map<String, Object> param) throws BaseAppException;
 
     @Override
     public int delete(Object arg0) throws BaseAppException {
@@ -66,9 +148,16 @@ public abstract class DashBoardMgrDao  extends GeneralDAO<Object> {
         return 0;
     }
 
-
-
-
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract Map<String, Object> querySysClassTopList(Map<String, String> param) throws BaseAppException;
+  
    
 
 }

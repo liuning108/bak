@@ -13,7 +13,7 @@ import com.ztesoft.zsmart.oss.opb.util.SessionManage;
  * 
  * [描述] <br>
  * 
- * @author [作者名]<br>
+ * @author [刘宁]<br>
  * @version 1.0<br>
  * @taskId <br>
  * @CreateDate 2017年7月25日 <br>
