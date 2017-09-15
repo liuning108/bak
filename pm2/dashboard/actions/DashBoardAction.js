@@ -9,6 +9,18 @@ define(function() {
 		portal.callService(this.service,param, success);
 	}
 
+
+
+		action.updateSysClass=function(topicId,classType,userId,isDel,success) {
+			var param={};
+			param.method="updateSysClass"
+		  param.topicId=topicId;
+			param.classType=classType;
+			param.userId=userId;
+			param.isDel=isDel?'1':'0';
+			portal.callService(this.service,param, success);
+		}
+
 	action.addDashBoardClass=function(name,userId,success) {
 		var param={};
 		param.method="addDashBoardClass"

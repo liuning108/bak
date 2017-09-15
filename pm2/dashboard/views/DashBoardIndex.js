@@ -198,18 +198,90 @@ define([
                 if(self.params.classNo){
 
                     var treeInstance = self.$el.find("#dashboardTree").tree("instance");
+
                     var node = treeInstance.getNodesByFilter(function(node) {
                         return node.level == 1 && node.id==self.params.classNo
                     }, true);
                     // console.log(nodes);
                     // treeInstance.selectNode(nodes[2]);
                     treeInstance.expandNode(node, true, false, false,true);
+                }else{
+                    var treeInstance = self.$el.find("#dashboardTree").tree("instance");
+                    var node = treeInstance.getNodesByFilter(function(node) {
+                        return  node.id==-2
+                    }, true);
+                    // console.log(nodes);
+                    // treeInstance.selectNode(nodes[2]);
+                    treeInstance.expandNode(node, true, false, false,true);
                 }
             })},
+        favoriteNods:function() {
+             var self =this;
+             var treeInstance = self.$el.find("#dashboardTree").tree("instance");
+             var treeNode = treeInstance.getNodesByFilter(function(node) {
+                 return node.id=='-2'
+             }, true);
+              var userId = portal.appGlobal.get("userId");
+              treeInstance.removeChildNodes(treeNode);
 
+             action.queryDashBoarListByClassId(userId,"-2",function(data){
+               var datas  = data.result.datas;
+               var topics=fish.map(datas,function(data) {
+                   return {
+                        "id": data.topicNo,
+                        "name":data.topicName,
+                        "classNo":data.classNo,
+                        "CLASS_TYPE": "00",
+                        "nodeType": 1,
+                        "iconSkin": "ico_ind"
+                   }
+               })
+              //  alert(5)
+               self.$el.find("#dashboardTree").tree("addNodes", treeNode, topics, false);
+
+             })
+
+
+        },
+
+        recNodes:function() {
+             var self =this;
+             var treeInstance = self.$el.find("#dashboardTree").tree("instance");
+             var treeNode = treeInstance.getNodesByFilter(function(node) {
+                 return node.id=='-3'
+             }, true);
+              var userId = portal.appGlobal.get("userId");
+              treeInstance.removeChildNodes(treeNode);
+
+             action.queryDashBoarListByClassId(userId,"-3",function(data){
+               var datas  = data.result.datas;
+               var topics=fish.map(datas,function(data) {
+                   return {
+                        "id": data.topicNo,
+                        "name":data.topicName,
+                        "classNo":data.classNo,
+                        "CLASS_TYPE": "00",
+                        "nodeType": 1,
+                        "iconSkin": "ico_ind"
+                   }
+               })
+              //  alert(5)
+               self.$el.find("#dashboardTree").tree("addNodes", treeNode, topics, false);
+
+             })
+
+
+        },
         showNodes : function(treeNode) {
             var self =this;
-          if (treeNode.id=="-2" ||  treeNode.id=="-3") return
+          if(treeNode.id=="-2"){
+            self.favoriteNods();
+            return;
+          }
+          if(treeNode.id=="-2"){
+            self.recNodes();
+            return;
+          }
           if(!treeNode.children || treeNode.children.length == 0 ){
 
               var userId = portal.appGlobal.get("userId");
@@ -267,7 +339,7 @@ define([
             var self  =this;
             action.queryDashBoardById(id,function(data){
                 var topicJson= data.result.topicJson;
-                console.log(topicJson);
+                var fav = data.result.fav.isExist||false;
                 self.$("#ad-dashboard-tabs").tabs("remove", 1);
                 self.$("#ad-dashboard-tabs").tabs("add", {
                     id: id,
@@ -280,6 +352,7 @@ define([
                     self.detailView.remove();
                     $("#" + id).empty();
                 }
+
                 //加载详情
                 self.detailView = new DetailView({
                     'el': $("#" + id),
@@ -290,6 +363,7 @@ define([
                         'treeNode':treeNode,
                         'json':topicJson,
                         'h':self.leftTreeHeight,
+                        'fav':fav
                     }
                 }).render();
             })

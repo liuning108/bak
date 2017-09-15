@@ -1,5 +1,5 @@
 .editPattern {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border: 1px dashed #2299ff !important;
 }
 
 .fontsytle {
@@ -293,7 +293,7 @@ ul {
   background-color: #fff;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.4);
   border-color: #2299ff;
-  border-style: dashed;
+  border-style: solid;
 }
 
 .editBody .dashboardCanvas .dashNode:hover.editPattern .dashNodeTip {

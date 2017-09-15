@@ -24,6 +24,26 @@ define([
       'click .ad-editdashboard-btn':"editDashBoard",
       'click .ad-deldashboard-btn':"delDashBoard",
       'click .ad-refreshdashboard-btn':"refresh",
+      'click .dashboard-favdashboard-btn': 'favdash'
+    },
+    favdash:function(e) {
+      this.model.fav=!this.model.fav;
+      var topicId =this.model.id;
+      var userId = portal.appGlobal.get("userId")
+      var classType ="00"
+      var isDel = this.model.fav?false:true;
+      var sysClassStyle = this.model.fav?'fa-star-o':'fa-star';
+      var self =this;
+      action.updateSysClass(topicId,classType,userId,isDel,function(){
+        $(e.currentTarget).find('.fa')
+                          .removeClass('fa-star')
+                          .removeClass('fa-star-o')
+                          .addClass(sysClassStyle)
+          self.options.parentView.favoriteNods();
+          fish.toast('success', 'success')
+      })
+
+
     },
     refresh:function() {
         var self =this;
@@ -60,6 +80,8 @@ define([
     afterRender: function() {
         var self =this;
        this.$el.find(".dashboardName").text(this.model.name);
+       var sysClassStyle = this.model.fav?'fa-star-o':'fa-star';
+       $('.dashboard-favdashboard-btn').find('.fa').addClass(sysClassStyle)
        var canvasjson =this.model.json;
        var len =$("#dashboard-detail-canvas").length
        var ratio = (9 / 16);
