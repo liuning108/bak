@@ -84,9 +84,9 @@ public class DashBoardMgr extends AbstractDashBoardMgr {
      * @throws BaseAppException <br>
      */ 
     @Override
-    public Map<String, Object> addSysClass(Map<String, String> param) throws BaseAppException {
+    public Map<String, Object> updateSysClass(Map<String, String> param) throws BaseAppException {
         DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
-        return dao.addSysClass(param);
+        return dao.updateSysClass(param);
     }
 
 

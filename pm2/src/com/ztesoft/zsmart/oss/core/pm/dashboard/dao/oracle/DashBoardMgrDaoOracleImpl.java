@@ -127,6 +127,16 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         param.put("id", id);
         saveNodes(param);
         result.put("id", id);
+        try {
+        Map<String, String> sysClassParam = new HashMap<String, String>();
+        sysClassParam.put("topicId", id);
+        sysClassParam.put("classType", "01");
+        sysClassParam.put("userId", ""+param.get("userId"));
+        sysClassParam.put("isDel", "0");
+        this.updateSysClass(sysClassParam);
+        }catch(Exception e ){
+            e.printStackTrace();
+        }
         return result;
     }
 
@@ -242,10 +252,50 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
     @Override
     public Map<String, Object> queryDashBoarListByClassId(Map<String, String> param) throws BaseAppException {
         Map<String, Object> result = new HashMap<String, Object>();
+        if("-2".equalsIgnoreCase(param.get("classId"))){
+            return this.queryDashBoarListFavByClassId(param);
+        }
+        if("-3".equalsIgnoreCase(param.get("classId"))){
+            return this.queryDashBoarListRecByClassId(param);
+        }
         String sql = "select topic_no,topic_name,class_no from PM_DASHBOARD_TOPIC_LIST where oper_user= ? and class_no= ? ";
         ParamArray pa = new ParamArray();
         pa.set("", "" + param.get("userId"));
         pa.set("", "" + param.get("classId"));
+        result.put("datas", DashBoardUtil.toConvert(this.queryList(sql, pa)));
+        return result;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param <br>
+     */ 
+    private Map<String, Object> queryDashBoarListFavByClassId(Map<String, String> param)  throws BaseAppException {
+        // TODO Auto-generated method stub <br>
+        Map<String, Object> result = new HashMap<String, Object>();
+        String sql ="select t.topic_no, t.topic_name, t.class_no "
+                    + " from PM_DASHBOARD_TOPIC_LIST t , pm_dashboard_sysclass s"
+                    + " where t.oper_user= ?" +
+                    "and t.topic_no=s.topic_no and s.seq=0 and s.class_type='00'";
+
+        ParamArray pa = new ParamArray();
+        pa.set("", "" + param.get("userId"));
+        result.put("datas", DashBoardUtil.toConvert(this.queryList(sql, pa)));
+        return result;
+    }
+    
+    private Map<String, Object> queryDashBoarListRecByClassId(Map<String, String> param)  throws BaseAppException {
+        // TODO Auto-generated method stub <br>
+        Map<String, Object> result = new HashMap<String, Object>();
+        String sql =   "select t.topic_no, t.topic_name, t.class_no from ( " +
+                        "select t.*,rownum rn from ( " + 
+                        "select t.topic_no, t.topic_name, t.class_no,s.oper_date from PM_DASHBOARD_TOPIC_LIST t , pm_dashboard_sysclass s where t.oper_user= ? " + 
+                        "and t.topic_no=s.topic_no and s.seq=0 and s.class_type='01' order by s.oper_date desc) t ) t where t.rn<=10";
+        ParamArray pa = new ParamArray();
+        pa.set("", "" + param.get("userId"));
         result.put("datas", DashBoardUtil.toConvert(this.queryList(sql, pa)));
         return result;
     }
@@ -291,6 +341,10 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         }
         json.put("nodes", nodes);
         result.put("topicJson", json);
+        Map<String,String> sysClassParam = new HashMap<String, String>();
+        sysClassParam.put("topicId", topID);
+        sysClassParam.put("classType", "00");
+        result.put("fav", isExistSysClass(sysClassParam));
         return result;
 
     }
@@ -305,9 +359,12 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
      * @throws BaseAppException <br>
      */ 
     @Override
-    public Map<String, Object> addSysClass(Map<String, String> param) throws BaseAppException {
-        updateSysClassSeq(param);
+    public Map<String, Object> updateSysClass(Map<String, String> param) throws BaseAppException {
         Map<String, Object> result = new HashMap<String, Object>();
+        result.put("message", "ok");
+        updateSysClassSeq(param);
+        String isDel = param.get("isDel");
+        if("1".equalsIgnoreCase(isDel))return result ;
         String sql =
         "insert into pm_dashboard_sysclass\n" +
         "  (class_type, topic_no, seq, oper_user, oper_date)\n" + 
@@ -326,7 +383,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
             e.printStackTrace();
         }
         System.err.println(pa);
-        result.put("message", "ok");
+       
         return result;
     }
 
@@ -427,15 +484,16 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         Map<String, Object> result = new HashMap<String, Object>();
         String sql =
                        "select count(*) from pm_dashboard_sysclass t"
-                    + " where t.topic_no= ? and t.oper_user = ? and t.seq=0 and t.class_type=?";
+                    + " where t.topic_no= ? and t.seq=0 and t.class_type=?";
 
         ParamArray pa  = new ParamArray();
         pa.set("", param.get("topicId"));
-        pa.set("", param.get("userId"));
         pa.set("", param.get("classType"));
         int count =queryInt(sql, pa);
         result.put("isExist", count>0);
         return result ;
     }
+    
+    
 
 }

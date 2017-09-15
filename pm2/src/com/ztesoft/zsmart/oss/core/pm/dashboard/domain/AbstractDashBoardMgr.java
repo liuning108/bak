@@ -118,7 +118,7 @@ public abstract class AbstractDashBoardMgr {
      * @param param
      * @return <br>
      */ 
-    public  abstract Map<String,Object> addSysClass(Map<String, String> param) throws BaseAppException;
+    public  abstract Map<String,Object> updateSysClass(Map<String, String> param) throws BaseAppException;
 
     /**
      * [方法描述] <br> 
