@@ -32,9 +32,13 @@ define([
                 $('#DashBoardparentView').html("<div id='new_context_dashBoard'></div>")
             }
         },
+
+        fullScreen:function(params) {
+          var self = this;
+          self.cleaupView(self.view);
+          self.EditView = new EditView({'el': $('#new_context_dashBoard'), 'parentView': self, 'params': params,'fullScreen':true}).render();
+        },
         index: function(params) {
-
-
             var self = this;
             self.cleaupView(self.view);
             self.view = new IndexView({'el': $('#new_context_dashBoard'), 'parentView': self,'params': params}).render();

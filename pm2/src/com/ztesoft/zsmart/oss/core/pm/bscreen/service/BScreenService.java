@@ -1,11 +1,14 @@
 package com.ztesoft.zsmart.oss.core.pm.bscreen.service;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
-
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.commons.io.FileUtils;
 
 import com.alibaba.fastjson.JSON;
 
@@ -17,6 +20,8 @@ import com.ztesoft.zsmart.oss.core.pm.bscreen.domain.AbstractBScreenMgr;
 import com.ztesoft.zsmart.oss.core.pm.bscreen.util.BScreenUtil;
 import com.ztesoft.zsmart.oss.opb.util.GeneralDMOFactory;
 import com.ztesoft.zsmart.oss.opb.util.SessionManage;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 /**
  * [描述] <br>
@@ -244,6 +249,28 @@ public class BScreenService implements IAction {
         file.delete();
     }
     
+    public void moveFile(DynamicDict dict) throws Exception{ 
+        String path = this.getClass().getClassLoader().getResource("").getPath();
+        String webPath = URLDecoder.decode(path, "UTF-8");
+        String pathArr[] = webPath.split("/WEB-INF/classes/");
+        webPath = pathArr[0]+"/"+dict.getString("targetDirs");
+        File webPathDir = new File(webPath);
+        webPathDir.mkdirs();
+        String fileDirectory = ConfigurationMgr.instance().getString("upload.uploadFileDirectory");
+        String fileName = dict.getString("sourceFile");
+        String filePath = fileDirectory + "/"+fileName ;  
+        File file = new File(filePath);
+        FileUtils.copyFileToDirectory(file, webPathDir);
+     
+    }
+     
+    public static void main(String[] args) throws Exception {
+        BScreenService bs = new BScreenService();
+        DynamicDict dict = new DynamicDict();
+        dict.set("targetDirs", "upload/bscreen/import/");
+        dict.set("sourceFile", "bscreen/import/170821090815511769.png");
+        bs.moveFile(dict);
+    }
 
    
 

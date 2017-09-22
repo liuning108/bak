@@ -258,7 +258,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         if("-3".equalsIgnoreCase(param.get("classId"))){
             return this.queryDashBoarListRecByClassId(param);
         }
-        String sql = "select topic_no,topic_name,class_no from PM_DASHBOARD_TOPIC_LIST where oper_user= ? and class_no= ? ";
+        String sql = "select topic_no,topic_name,class_no from PM_DASHBOARD_TOPIC_LIST where oper_user= ? and class_no= ?  order by topic_name asc ";
         ParamArray pa = new ParamArray();
         pa.set("", "" + param.get("userId"));
         pa.set("", "" + param.get("classId"));
@@ -279,7 +279,7 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         String sql ="select t.topic_no, t.topic_name, t.class_no "
                     + " from PM_DASHBOARD_TOPIC_LIST t , pm_dashboard_sysclass s"
                     + " where t.oper_user= ?" +
-                    "and t.topic_no=s.topic_no and s.seq=0 and s.class_type='00'";
+                    "and t.topic_no=s.topic_no and s.seq=0 and s.class_type='00' order by topic_name asc ";
 
         ParamArray pa = new ParamArray();
         pa.set("", "" + param.get("userId"));

@@ -1,4 +1,4 @@
-/**
+  /**
  * 指标筛选弹出窗
  */
 define([
@@ -19,6 +19,7 @@ define([
         initialize: function(options) {
             this.parentView = options.parentView;
             this.params = options.params;
+            this.fullScreen=options.fullScreen||false;
         },
         events: {
             'click #saveButton': 'saveButton',
@@ -30,6 +31,18 @@ define([
             'click .addAdHoc': 'addAdHoc',
             'click .addText': 'addText',
             'click #dashboardCanvasEdit':'RenderView',
+            'click .fullScreen':'fullScreen',
+            'click .normalScreen':'normalScreen'
+
+        },
+        normalScreen:function() {
+          var canvasjson = this.dcharts.getJson();
+          this.parentView.edit(canvasjson);
+        },
+
+        fullScreen:function() {
+            var canvasjson = this.dcharts.getJson();
+            this.parentView.fullScreen(canvasjson);
         },
 
         showListButton: function() {
@@ -38,6 +51,7 @@ define([
         },
 
         render: function() {
+            this.resource.isFullScreen= this.fullScreen
             this.$el.html(this.template(this.resource));
             return this;
         },
@@ -122,6 +136,7 @@ define([
             this.RenderView();
             this.resizeCanvas(canvas_json.size.h * factor)
             this.endLoad();
+            $('.fullPanel').draggable({containment: "parent"});
 
             return this;
         },
