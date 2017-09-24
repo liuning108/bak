@@ -53,7 +53,9 @@
   </div>
   <div class="row	bContext">
   {{#if isFullScreen}}
-      <button type="button" name="button" class="normalScreen editModel"> 退出全屏</button>
+      <div  class="normalScreen editModel"><i class="glyphicon glyphicon-resize-small"></i></div>
+      <div  class="DashboardAttrsPanle"><i class="glyphicon glyphicon-th-large"></i></div>
+
       <div class="col-md-9 col-lg-12" style="padding: 0px; ">
         <div class="mainContent2">
 
@@ -66,13 +68,14 @@
       </div>
       <div class="fullPanel">
           <div class="dashBoardConfigPanel "></div>
+          <div class="hiddenButton">X</div>
       </div>
 
       <!-- <div class="col-md-3 col-lg-2 " style="padding: 0px;margin:0px">
         <div class="dashBoardConfigPanel"></div>
       </div> -->
   {{else}}
-      <button type="button" name="button" class="fullScreen editModel"> 全屏</button>
+      <button type="button" name="button" class="fullScreen editModel"><i class="glyphicon glyphicon-resize-full"></i></button>
       <div class="col-md-9 col-lg-10" style="padding: 0px; ">
         <div class="mainContent2">
 

@@ -87,6 +87,16 @@ define(function() {
 	 param.topicId=id;
 	 portal.callService(this.service,param, success);
 	}
+	// TODO: move File 
+	action.moveFile=function(targetDirs,sourceFile,success){
+	 this.service="MPM_BSCREEN_MANAGE_SERVICE";
+	 var param={};
+	 param.method="moveFile"
+	 param.targetDirs=targetDirs;
+	 param.sourceFile=sourceFile;
+	 portal.callService(this.service,param, success);
+	}
+
 
 
 

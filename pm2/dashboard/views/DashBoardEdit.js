@@ -32,8 +32,16 @@ define([
             'click .addText': 'addText',
             'click #dashboardCanvasEdit':'RenderView',
             'click .fullScreen':'fullScreen',
-            'click .normalScreen':'normalScreen'
+            'click .normalScreen':'normalScreen',
+            'click .hiddenButton':'hiddenButton',
+            'click .DashboardAttrsPanle':'DashboardAttrsPanle'
 
+        },
+        DashboardAttrsPanle:function() {
+             $('.fullPanel').show();
+        },
+        hiddenButton:function() {
+              $('.fullPanel').hide();
         },
         normalScreen:function() {
           var canvasjson = this.dcharts.getJson();
@@ -257,21 +265,26 @@ define([
             this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
 
               var config =response.data;
-              // fileName:"170817142623246836.png"
-              // filePath:"shift/import/170817142623246836.png"
-              // fileSize:"837999"
-              // fileSrc:"QQ图片20170714164501.png"
-              var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
-              var myImg = new Image();
-              myImg.src =filePath
-              myImg.onload=function(){
-                self.addImage({
-                    'src':filePath,
-                    'w':this.width*0.3,
-                    'h':this.height*0.3,
-                    'filename':config.filePath
-                })
-              }
+              action.moveFile("upload/bscreen/import/",config.filePath,function() {
+                  // fileName:"170817142623246836.png"
+                  // filePath:"shift/import/170817142623246836.png"
+                  // fileSize:"837999"
+                  // fileSrc:"QQ图片20170714164501.png"
+                  var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
+                  var myImg = new Image();
+                  myImg.src =filePath
+                  myImg.onload=function(){
+                    self.addImage({
+                        'src':filePath,
+                        'w':this.width*0.3,
+                        'h':this.height*0.3,
+                        'filename':config.filePath
+                    })
+                  }
+
+
+              })
+
               // var width = myImg.width;
               // var height = myImg.height;
 
