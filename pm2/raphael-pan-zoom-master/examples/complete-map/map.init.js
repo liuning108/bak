@@ -57,13 +57,13 @@ jQuery(function ($) {
             y3 = [0, 0, 0, 0, y1 + dy, y1 - dy, y4, y4][res[1]].toFixed(3);
         var path = ["M", x1.toFixed(3), y1.toFixed(3), "C", x2, y2, x3, y3, x4.toFixed(3), y4.toFixed(3)].join(",");
         if (line && line.line) {
-            line.bg && line.bg.attr({path: path});
+            line.bg && line.bg.attr({path: path}).toBack();
             line.line.attr({path: path}).toBack();
         } else {
             var color = typeof line == "string" ? line : "#000";
             return {
-                bg: bg && bg.split && this.path(path).attr({stroke: bg.split("|")[0], fill: "none", "stroke-width": bg.split("|")[1] || 3}),
-                line: this.path(path).attr({stroke: color, fill: "none"}),
+                bg: bg && bg.split && this.path(path).attr({stroke: bg.split("|")[0], fill: "none", "stroke-width": bg.split("|")[1] || 3}).toBack(),
+                line: this.path(path).attr({stroke: color, fill: "none"}).toBack(),
                 from: obj1,
                 to: obj2
             };
@@ -261,15 +261,16 @@ jQuery(function ($) {
         }
         var cbbox=ccnods.getBBox();
         node.attr({cy:cbbox.y+cbbox.height/2})
-        var text =paper.text(treeJson.x , cbbox.y+cbbox.height/2,treeJson.name)
-        var bbox=text.getBBox();
-        text.attr({"x":treeJson.x+bbox.width/2+r+2}).toFront()
 
         for(var i  =0;i<ccnods.length;i++){
             var cNode =ccnods[i];
              var line = paper.connection(node,cNode, "#ccc")
               connections.push(line);
         }
+        var text =paper.text(treeJson.x , cbbox.y+cbbox.height/2,treeJson.name)
+        var bbox=text.getBBox();
+        text.attr({"x":treeJson.x-bbox.width/2-r-2}).toFront()
+
 
     }else{
         var text =paper.text(treeJson.x , treeJson.y,treeJson.name)
