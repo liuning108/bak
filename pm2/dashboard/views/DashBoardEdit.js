@@ -265,26 +265,21 @@ define([
             this.shiftUploader.on( 'uploadSuccess', function( file, response ) {
 
               var config =response.data;
-              action.moveFile("upload/bscreen/import/",config.filePath,function() {
-                  // fileName:"170817142623246836.png"
-                  // filePath:"shift/import/170817142623246836.png"
-                  // fileSize:"837999"
-                  // fileSrc:"QQ图片20170714164501.png"
-                  var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
-                  var myImg = new Image();
-                  myImg.src =filePath
-                  myImg.onload=function(){
-                    self.addImage({
-                        'src':filePath,
-                        'w':this.width*0.3,
-                        'h':this.height*0.3,
-                        'filename':config.filePath
-                    })
-                  }
-
-
-              })
-
+              // fileName:"170817142623246836.png"
+              // filePath:"shift/import/170817142623246836.png"
+              // fileSize:"837999"
+              // fileSrc:"QQ图片20170714164501.png"
+              var filePath= portal.appGlobal.get('webroot')+"/upload/"+config.filePath;
+              var myImg = new Image();
+              myImg.src =filePath
+              myImg.onload=function(){
+                self.addImage({
+                    'src':filePath,
+                    'w':this.width*0.3,
+                    'h':this.height*0.3,
+                    'filename':config.filePath
+                })
+              }
               // var width = myImg.width;
               // var height = myImg.height;
 

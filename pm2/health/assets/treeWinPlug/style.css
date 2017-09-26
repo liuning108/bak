@@ -1,0 +1,13 @@
+
+#treeContext {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 10px
+}
+
+#treeCanvas{
+  border: 1px solid #ccc;
+  width: 100%;
+  height: 100%
+}

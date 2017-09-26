@@ -42,6 +42,7 @@ define([
       var adhocNo=self.attrs.adhocNo;
       var view=adhocFactory.adhocConfigForDashBoard(600,adhocNo);
       var content = view.$el;
+      
       var option = {
           content: content,
           width: 1300,
