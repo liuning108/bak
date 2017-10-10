@@ -311,18 +311,20 @@ define([
 
         },
         perviewButton: function() {
+            var canvasjson = this.dcharts.getJson();
+            console.log(canvasjson);
             var id = "dashboard-perview";
             var $tpl = $("<div class='container-fluid editBody' style='margin:10px'>").data({menuId: false, menuUrl: '', privCode: '', menuName: '', menuType: ''}).attr({menuId: false, menuUrl: null});
             $("#divContent").tabs("option", "panelTemplate", $tpl).tabs("add", {
                 active: true,
                 id: id,
-                label: 'perview'
+                label: canvasjson.name||"perview"
             });
             $tpl.append("<div id='dashboard-perview-canvas' class='dashboardCanvas' ></div>");
             $("#dashboard-perview-canvas").empty();
             var ratio = (9 / 16);
             var dash_w = $("#dashboard-perview-canvas").outerWidth()
-            var canvasjson = this.dcharts.getJson();
+
             var factor = dash_w / canvasjson.size.w;
             if(!canvasjson.canvasAttrs)canvasjson.canvasAttrs={};
             Dcharts.init({

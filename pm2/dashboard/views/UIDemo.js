@@ -24,8 +24,8 @@ define([
       $('.TreeWIN').on('click',function() {
            portal.require(["oss_core/pm/report/health/assets/treeWinPlug/TreePlug"],function(treePlug){
              treePlug.popup({
-                'width':800,
-                'height':500
+                'width':900,
+                'height':600
              })
            })
       })
