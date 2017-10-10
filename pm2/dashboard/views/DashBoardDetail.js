@@ -98,7 +98,7 @@ define([
        this.dcharts=Dcharts.init({
          id:canvasjson.id,
          name:this.model.name,
-         containment: "#dashboard-detail-canvas",
+         containment: this.$el.find("#dashboard-detail-canvas"),
          ratio: ratio,
          bgitem:canvasjson.attrs.bgitem||0,
          bk:canvasjson.attrs.bk||{"background":"#fff"},

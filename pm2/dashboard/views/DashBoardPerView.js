@@ -27,7 +27,7 @@ define([
     afterRender: function() {
         var self =this;
        var canvasjson =this.model.json;
-       var len =$("#dashboard-detail-canvas").length
+       var len =this.$el.find("#dashboard-detail-canvas").length
        var ratio = (9 / 16);
        var dash_w = this.$el.find("#dashboard-detail-canvas").outerWidth()
       this.$el.find(".dashBoardDetailPerviewContext").slimscroll({
@@ -42,7 +42,7 @@ define([
        this.dcharts=Dcharts.init({
          id:canvasjson.id,
          name:this.model.name,
-         containment: "#dashboard-detail-canvas",
+         containment: this.$el.find("#dashboard-detail-canvas"),
          ratio: ratio,
          bgitem:canvasjson.attrs.bgitem||0,
          bk:canvasjson.attrs.bk||{"background":"#fff"},

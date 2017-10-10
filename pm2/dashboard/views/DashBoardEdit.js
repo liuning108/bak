@@ -97,7 +97,7 @@ define([
         afterRender: function() {
             var self = this;
             this.RenderHTML();
-            var dash_w = $("#dashboardCanvasEdit").outerWidth()
+            var dash_w =this.$el.find("#dashboardCanvasEdit").outerWidth()
             var ratio = (9 / 16);
 
             var canvas_json = this.params

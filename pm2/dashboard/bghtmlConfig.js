@@ -20,5 +20,5 @@ require.config({
         'oss/oss_bp': 'oss_bp',
         'oss/slm/core': 'oss_core/slm'
     },
-    deps: ['css!styles/cs-portal-ex', 'css!styles/oss', 'css!styles/animate.min.css', 'oss_core/pm/screendesigner/bghtmlMain']
+      deps: ['css!styles/cs-portal-ex', 'css!styles/oss', 'css!styles/animate.min.css', 'oss_core/pm/dashboard/bghtmlMain']
 });
