@@ -5,20 +5,28 @@
  ****************************************************************************************/
 package com.ztesoft.zsmart.oss.core.pm.dashboard.service;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
-
+import com.ztesoft.zsmart.core.configuation.ConfigurationMgr;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.service.IAction;
 import com.ztesoft.zsmart.oss.core.pm.dashboard.domain.AbstractDashBoardMgr;
 import com.ztesoft.zsmart.oss.core.pm.dashboard.util.DashBoardUtil;
+import com.ztesoft.zsmart.oss.core.pm.dashboard.util.SendMailUtil;
 import com.ztesoft.zsmart.oss.opb.util.GeneralDMOFactory;
 import com.ztesoft.zsmart.oss.opb.util.SessionManage;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 /**
  * [描述] <br>
@@ -192,6 +200,39 @@ public class DashBoardService implements IAction {
         dict.add("result", bsm.querySysClassTopList(param));
     }
     
+    
+    public void sendTopicPic(DynamicDict dict) throws BaseAppException{
+        String urlRoot = dict.getString("urlRoot");
+        String urlPage = dict.getString("urlPage");        
+        String fileName=dict.getString("fileName");
+        String emails = dict.getString("emails") ;
+        String url = urlRoot + urlPage;
+        Map<String,String> param = new HashMap<String, String>();
+        param.put("url", url);
+        param.put("fileName", fileName);
+        param.put("topicName",dict.getString("topicName") );
+        param.put("emails", emails);
+        SendMailUtil.sendPicMail(param);
+
+    }
+    
+    
+    
+    public static void main(String[] args) throws BaseAppException {
+         DashBoardService s = new DashBoardService();
+         DynamicDict dict = new DynamicDict();
+         String id ="PMS_20170912084936_10000345";
+         dict.set("urlRoot", "http://127.0.0.1:8080/oss");
+         dict.set("urlPage","/oss_core/pm/dashboard/bghtml.html?id="+id);
+         dict.set("fileName", id+".png");
+         dict.set("topicName", "Demo流量测试");
+         dict.set("emails", "122273014@qq.com;2437018365@qq.com");
+         
+         s.sendTopicPic(dict);
+       
+       
+         
+    }
     
     
     

@@ -9,7 +9,16 @@ define(function() {
 		portal.callService(this.service,param, success);
 	}
 
-
+	action.sendTopicPic=function(config,success) {
+		var param={};
+		param.method="sendTopicPic"
+		param.urlRoot=config.urlRoot;
+		param.urlPage=config.urlPage;
+		param.fileName=config.fileName;
+		param.topicName=config.topicName;
+		param.emails=config.emails;
+		portal.callService(this.service,param, success);
+	}
 
 		action.updateSysClass=function(topicId,classType,userId,isDel,success) {
 			var param={};

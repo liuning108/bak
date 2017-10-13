@@ -24,7 +24,30 @@ define([
       'click .ad-editdashboard-btn':"editDashBoard",
       'click .ad-deldashboard-btn':"delDashBoard",
       'click .ad-refreshdashboard-btn':"refresh",
-      'click .dashboard-favdashboard-btn': 'favdash'
+      'click .dashboard-favdashboard-btn': 'favdash',
+      'click .dashboard-mail-btn':'sendmail'
+    },
+    sendmail:function() {
+      var id =this.model.id;
+      var re = new RegExp(/^.*\//);
+      var url =re.exec(window.location.href);
+      var self =this;
+      fish.prompt('emails', '122273014@qq.com').result.then(function(edata) {
+            if(!edata)return;
+            if(edata.length>1){
+              action.sendTopicPic({
+                'urlRoot':url,
+                'urlPage':'/oss_core/pm/dashboard/bghtml.html?id='+self.model.id,
+                "fileName":self.model.id+".png",
+                'topicName':self.model.name,
+                'emails':edata
+              },function(data){
+                fish.toast('success', 'send success')
+              })
+            }
+
+        });
+
     },
     favdash:function(e) {
       this.model.fav=!this.model.fav;

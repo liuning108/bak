@@ -28,6 +28,7 @@ define([
 
         resize: function(h) {},
         cleaupView: function(view) {
+            var self = this;
             if (view) {
                 view.remove();
                 self.$el.find('#DashBoardparentView').find("#new_context_dashBoard").remove();
