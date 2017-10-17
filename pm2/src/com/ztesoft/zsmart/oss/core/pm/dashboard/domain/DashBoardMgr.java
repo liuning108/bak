@@ -121,4 +121,38 @@ public class DashBoardMgr extends AbstractDashBoardMgr {
         return dao.isExistSysClass(param);
     }
 
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, String> saveOrUpdateSendTopic(Map<String, String> param) throws BaseAppException {
+        DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        return dao.saveOrUpdateSendTopic(param);
+    }
+
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, String> querySendTopicByNo(Map<String, String> param) throws BaseAppException {
+        DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        return dao.querySendTopicByNo(param);
+    }
+
+
+
 }

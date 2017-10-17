@@ -8,6 +8,7 @@ package com.ztesoft.zsmart.oss.core.pm.dashboard.domain;
 import java.util.Map;
 
 import com.ztesoft.zsmart.core.exception.BaseAppException;
+import com.ztesoft.zsmart.core.service.DynamicDict;
 
 /**
  * [描述] <br>
@@ -139,6 +140,24 @@ public abstract class AbstractDashBoardMgr {
      * @return <br>
      */ 
     public abstract Map<String,Object>  isExistSysClass(Map<String, String> param) throws BaseAppException;
-    
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param <br>
+     */ 
+    public abstract Map<String,String> saveOrUpdateSendTopic(Map<String, String> param)  throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract Map<String,String> querySendTopicByNo(Map<String, String> param) throws BaseAppException;
 
 }

@@ -6,7 +6,10 @@
 package com.ztesoft.zsmart.oss.core.pm.dashboard.dao.oracle;
 
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -492,6 +495,134 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         int count =queryInt(sql, pa);
         result.put("isExist", count>0);
         return result ;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, String> saveOrUpdateSendTopic(Map<String, String> param) throws BaseAppException {
+        // TODO Auto-generated method stub <br>
+        Map<String, String> result = new HashMap<String, String>();
+        if(isSendTopicExist(param)){
+            updateSendTopic(param);
+            
+        }else{
+             saveSendTopic(param);
+      
+        }
+        try {
+            this.getConnection().commit();
+        }
+        catch (SQLException e) {
+            // TODO Auto-generated catch block <br>
+            e.printStackTrace();
+        }
+        return result;
+        
+        
+    }
+    
+    public void delSendTopic(Map<String, String> param) throws BaseAppException{
+        String sql ="delete from PM_TOPIC_SEND t where t.topic_type=? and t.topic_no=? and t.oper_user=?";
+        ParamArray pa  = new ParamArray();
+        pa.set("", param.get("topicType"));
+        pa.set("", param.get("topicNo"));
+        pa.set("", param.get("userId"));
+        this.executeUpdate(sql, pa);
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param <br>
+     */ 
+    private void updateSendTopic(Map<String, String> param) throws BaseAppException  {
+        delSendTopic(param);
+        saveSendTopic(param);
+ 
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param <br>
+     * @throws BaseAppException 
+     * @throws ParseException 
+     */ 
+    @SuppressWarnings("deprecation")
+    private void saveSendTopic(Map<String, String> param) throws BaseAppException {
+        // TODO Auto-generated method stub <br>
+        System.out.println("save saveSendTopic");
+        
+        String sql =
+                "insert into pm_topic_send\n" +
+                        "  (topic_type, topic_no, subject_name, recipient, report_type, eff_date, exp_date, oper_date, oper_user)\n" + 
+                        "values\n" + 
+                        "  (?, ?, ?, ?, ?, ?, ?, sysdate, ?)";
+       
+        ParamArray pa  = new ParamArray();
+        pa.set("", param.get("topicType"));
+        pa.set("", param.get("topicNo"));
+        pa.set("", param.get("SubjectName"));
+        pa.set("", param.get("Recipent"));
+        pa.set("", param.get("ReportType"));
+        pa.set("", DashBoardUtil.parse(param.get("EffDate")));
+        pa.set("", DashBoardUtil.parse(param.get("ExpDate")));
+        pa.set("", param.get("userId"));
+        
+        this.executeUpdate(sql,  pa);
+        
+        
+        
+        
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     * @throws BaseAppException 
+     */ 
+    private boolean isSendTopicExist(Map<String, String> param) throws BaseAppException {
+        String sql ="select count(*) from PM_TOPIC_SEND t where t.topic_type=? and t.topic_no=? and t.oper_user=?";
+        ParamArray pa  = new ParamArray();
+        pa.set("", param.get("topicType"));
+        pa.set("", param.get("topicNo"));
+        pa.set("", param.get("userId"));
+        return this.queryInt(sql,pa)>0;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public Map<String, String> querySendTopicByNo(Map<String, String> param) throws BaseAppException {
+        String sql ="select t.topic_type,t.topic_no,t.subject_name,t.recipient,t.report_type,t.eff_date,t.exp_date from PM_TOPIC_SEND t where t.topic_type=? and t.topic_no=? and t.oper_user=?";
+        ParamArray pa  = new ParamArray();
+        pa.set("", param.get("topicType"));
+        pa.set("", param.get("topicNo"));
+        pa.set("", param.get("userId"));
+        return DashBoardUtil.toConvertQuery(this.query(sql, pa));
     }
     
     

@@ -28,6 +28,13 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 import com.ztesoft.zsmart.core.configuation.ConfigurationMgr;
+import com.ztesoft.zsmart.oss.opb.message.domain.AbstractEmailMessage;
+import com.ztesoft.zsmart.oss.opb.message.domain.AbstractMessage;
+import com.ztesoft.zsmart.oss.opb.message.domain.EmailSender;
+import com.ztesoft.zsmart.oss.opb.message.domain.MessageGlobalData;
+import com.ztesoft.zsmart.oss.opb.util.GeneralDMOFactory;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 
 /** 
  * [描述] <br> 
@@ -89,29 +96,45 @@ public class SendMailUtil {
         
         String pngFile = param.get("pngFile");
         String name = param.get("Name");
+        AbstractEmailMessage message = (AbstractEmailMessage) GeneralDMOFactory.create(AbstractMessage.class, MessageGlobalData.MESSAGE_TYPE_EMAIL);
+       
+        EmailSender sender = message.getDefaultEmailSender();
+        
+        System.err.println(sender.getHostauth());
+        
+        
+        
         Properties props = new Properties();  
+        
         // 开启debug调试  
-        props.setProperty("mail.debug", "true");  
+        props.setProperty("mail.debug", ""+sender.isDebugMode());  
         // 发送服务器需要身份验证  
-        props.setProperty("mail.smtp.auth", "true");  
+        if("1".equalsIgnoreCase(sender.getHostauth())){
+            props.setProperty("mail.smtp.auth",  "true");  
+        }else{
+            props.setProperty("mail.smtp.auth",  "false");  
+        }
         // 设置邮件服务器主机名  
-        props.setProperty("mail.host", "smtp.qq.com");  
+        props.setProperty("mail.host", sender.getHostsmtp());  
         // 发送邮件协议名称  
         props.setProperty("mail.transport.protocol", "smtp");  
         
-        props.setProperty("mail.smtp.port","465");  
-        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); 
-        props.setProperty("mail.smtp.socketFactory.port", "465"); 
+        props.setProperty("mail.smtp.port",sender.getHostport());  
+//        props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory"); 
+//        props.setProperty("mail.smtp.socketFactory.port", sender.getHostport()); 
 
         
         Session session = Session.getInstance(props);  
         Message msg = new MimeMessage(session);  
         msg.setSubject(name);  
-        msg.setFrom(new InternetAddress("122273014@qq.com"));  
+        msg.setFrom(new InternetAddress(sender.getHostfrom()));  
         MimeBodyPart text = new MimeBodyPart();  
         // setContent(“邮件的正文内容”,”设置邮件内容的编码方式”)  
         text.setContent("Hello, the topic of your subscription: "+name+" to send to your mailbox, please check!\n<img src='cid:a'>",  
                 "text/html;charset=utf-8");    
+        
+        
+     
         // 创建图片  
         MimeBodyPart img = new MimeBodyPart();  
         DataHandler dh = new DataHandler(new FileDataSource(pngFile));//图片路径  
@@ -122,7 +145,7 @@ public class SendMailUtil {
         
         MimeMultipart mm = new MimeMultipart();  
         mm.addBodyPart(text);  
-        mm.addBodyPart(img);  
+       mm.addBodyPart(img);  
         mm.setSubType("related");// 设置正文与图片之间的关系  
         
          
@@ -133,7 +156,7 @@ public class SendMailUtil {
         
         Transport transport = session.getTransport();  
         // 连接邮件服务器  
-        transport.connect("122273014@qq.com", "vkjrqinmtqywbigf");  
+        transport.connect(sender.getHostacct(), sender.getHostpasswd());  
         // 发送邮件  
         String emails = param.get("emails");
         List<Address> emailsAddress = new ArrayList<Address>();
@@ -148,5 +171,7 @@ public class SendMailUtil {
         
     }
     
+    
+   
     
 }

@@ -28,25 +28,31 @@ define([
       'click .dashboard-mail-btn':'sendmail'
     },
     sendmail:function() {
-      var id =this.model.id;
-      var re = new RegExp(/^.*\//);
-      var url =re.exec(window.location.href);
-      var self =this;
-      fish.prompt('emails', '122273014@qq.com').result.then(function(edata) {
-            if(!edata)return;
-            if(edata.length>1){
-              action.sendTopicPic({
-                'urlRoot':url,
-                'urlPage':'/oss_core/pm/dashboard/bghtml.html?id='+self.model.id,
-                "fileName":self.model.id+".png",
-                'topicName':self.model.name,
-                'emails':edata
-              },function(data){
-                fish.toast('success', 'send success')
-              })
-            }
 
-        });
+      portal.require(["oss_core/pm/dashboard/js/emailPlug/emailPlug"],function(emailPlug){
+        emailPlug.emailConfig({
+        
+        })
+      })
+      // var id =this.model.id;
+      // var re = new RegExp(/^.*\//);
+      // var url =re.exec(window.location.href);
+      // var self =this;
+      // fish.prompt('emails', '122273014@qq.com').result.then(function(edata) {
+      //       if(!edata)return;
+      //       if(edata.length>1){
+      //         action.sendTopicPic({
+      //           'urlRoot':url,
+      //           'urlPage':'/oss_core/pm/dashboard/bghtml.html?id='+self.model.id,
+      //           "fileName":self.model.id+".png",
+      //           'topicName':self.model.name,
+      //           'emails':edata
+      //         },function(data){
+      //           fish.toast('success', 'send success')
+      //         })
+      //       }
+      //
+      //   });
 
     },
     favdash:function(e) {

@@ -1,0 +1,36 @@
+.selCardUL {
+  padding: 0px;
+  margin: 0px;
+  color: #5c5c5c;
+  margin-left: 20px;
+}
+
+.selCardUL li {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  background: #fff;
+  margin-left: 5px;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  width: 70px;
+}
+
+.selCardUL li .kk {
+  margin-left: 2px;
+  display: none;
+}
+
+.selCardUL li.selLi {
+  background: #029cfd;
+  color: #fff;
+}
+
+.selCardUL li.selLi .kk {
+  display: inline-block;
+}
+
+.selCardUL li:hover {
+  background: #029cfd;
+  color: #fff;
+}

@@ -5,18 +5,13 @@
  ****************************************************************************************/
 package com.ztesoft.zsmart.oss.core.pm.dashboard.service;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
-import com.ztesoft.zsmart.core.configuation.ConfigurationMgr;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.service.DynamicDict;
 import com.ztesoft.zsmart.core.service.IAction;
@@ -43,8 +38,18 @@ public class DashBoardService implements IAction {
 
     @Override
     public int perform(DynamicDict dict) throws BaseAppException {
-        SessionManage.putSession(dict);
-
+            SessionManage.putSession(dict);
+         String   userId=SessionManage.getSession().getStaffId();
+         if("-1".equalsIgnoreCase(userId)){
+             userId=dict.getString("userId"); 
+             if(userId==null){
+                 userId="-1";
+             }
+         }
+          
+       
+        
+        dict.set("USERID", userId);
         String methodName = dict.getString("method");
         try {
             Method method = this.getClass().getMethod(methodName, DynamicDict.class);
@@ -217,20 +222,53 @@ public class DashBoardService implements IAction {
     }
     
     
+   
+    public void saveOrUpdateSendTopic(DynamicDict dict) throws BaseAppException{
+        Map<String,String> param = DashBoardUtil.getHashMap(dict,DashBoardUtil.TOPIC_SEND_MODEL);
+        param.put("userId",dict.getString("USERID"));
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        bsm.saveOrUpdateSendTopic(param);
+        dict.add("result","succeed");
+    }
     
+    public void querySendTopicByNo(DynamicDict dict )throws BaseAppException{
+        Map<String,String> param = DashBoardUtil.getHashMap(dict,DashBoardUtil.querySendTopicByTopicNo_MODEL);
+        param.put("userId",dict.getString("USERID"));
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        dict.add("result", bsm.querySendTopicByNo(param)); 
+      
+    }
+  
+    
+    
+    
+    
+   
+    
+    
+    
+   
+
     public static void main(String[] args) throws BaseAppException {
          DashBoardService s = new DashBoardService();
          DynamicDict dict = new DynamicDict();
-         String id ="PMS_20170912084936_10000345";
-         dict.set("urlRoot", "http://127.0.0.1:8080/oss");
-         dict.set("urlPage","/oss_core/pm/dashboard/bghtml.html?id="+id);
-         dict.set("fileName", id+".png");
-         dict.set("topicName", "Demo流量测试");
-         dict.set("emails", "122273014@qq.com;2437018365@qq.com");
+//         dict.set("method", "saveOrUpdateSendTopic");
+//         dict.set("userId", "1");
+//        dict.set("topicType", DashBoardUtil.ADHOC_TYPE);
+//         dict.set("topicNo", "PMS-20170920-TP10351276");
+//         dict.set("SubjectName","Adhoc Test Report");
+//         dict.set("Recipent","122273014@qq.com,2437018365@qq.com");
+//         dict.set("ReportType",DashBoardUtil.REPORT_DAY+","+DashBoardUtil.REPORT_MONTH);
+//         dict.set("EffDate","2017-10-17 09:54:00");
+//        dict.set("ExpDate","2017-10-30 09:54:00");
          
-         s.sendTopicPic(dict);
-       
-       
+         dict.set("userId", "1");
+         dict.set("method", "querySendTopicByNo");
+         dict.set("topicType", DashBoardUtil.ADHOC_TYPE);
+         dict.set("topicNo", "PMS-20170920-TP10351276");
+         
+         s.perform(dict);
+         System.out.println(dict.get("result"));
          
     }
     

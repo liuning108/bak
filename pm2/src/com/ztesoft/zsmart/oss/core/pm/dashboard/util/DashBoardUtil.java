@@ -3,6 +3,8 @@ package com.ztesoft.zsmart.oss.core.pm.dashboard.util;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -31,7 +33,14 @@ import com.ztesoft.zsmart.oss.opb.util.SeqUtil;
  */
 public class DashBoardUtil {
     
-    
+    public static String [] TOPIC_SEND_MODEL=new String[]{"topicType","topicNo","SubjectName","Recipent","ReportType","EffDate","ExpDate"};
+    public static String [] querySendTopicByTopicNo_MODEL=new String[]{"topicType","topicNo"};
+
+    public static String ADHOC_TYPE="00";
+    public static String DASHBOARD_TYPE="01";
+    public static String REPORT_DAY="_D";
+    public static String REPORT_WEEK="_W";
+    public static String REPORT_MONTH="_M";
     /**
      * 
      * [方法描述] <br>
@@ -101,6 +110,17 @@ public class DashBoardUtil {
      */
     public static HashMap<String, Object> toConvert(HashMap<String, String> topic) {
         HashMap<String, Object> map = new HashMap<String, Object>();
+        for (String key : topic.keySet()) {
+            String hump = toHump(key);
+            String value = toNULL(topic.get(key), "");
+            map.put(hump, value);
+        }
+        return map;
+    }
+    
+    
+    public static HashMap<String, String> toConvertQuery(HashMap<String, String> topic) {
+        HashMap<String, String> map = new HashMap<String, String>();
         for (String key : topic.keySet()) {
             String hump = toHump(key);
             String value = toNULL(topic.get(key), "");
@@ -306,6 +326,49 @@ public class DashBoardUtil {
             result.add(value);
         }
         return result;
+    }
+    
+    
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param dict
+     * @param Model
+     * @return <br>
+     * @throws BaseAppException 
+     */ 
+    public static Map<String, String> getHashMap(DynamicDict dict, String[] models) throws BaseAppException {
+        Map<String,String> param  = new HashMap<String, String>();
+        for(String model:models){
+            String value =""+dict.getString(model);
+            
+            param.put(model, value);
+        }
+        return param;
+    }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param string
+     * @return <br>
+     * @throws BaseAppException 
+     */ 
+    public static Date parse(String dateStr) throws BaseAppException {
+        SimpleDateFormat bartDateFormat =  
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+        Date date= null;
+        try {
+             date=bartDateFormat.parse(dateStr);
+        }
+        catch (ParseException e) {
+          throw new BaseAppException(e.getMessage());
+        }
+        return date;
     }
 
 }
