@@ -358,9 +358,10 @@ public class DashBoardUtil {
      * @return <br>
      * @throws BaseAppException 
      */ 
-    public static Date parse(String dateStr) throws BaseAppException {
+    public static Date parse(String format,String dateStr) throws BaseAppException {
+        
         SimpleDateFormat bartDateFormat =  
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+                new SimpleDateFormat(format);  
         Date date= null;
         try {
              date=bartDateFormat.parse(dateStr);

@@ -114,6 +114,8 @@ public class SendMailUtil {
         }else{
             props.setProperty("mail.smtp.auth",  "false");  
         }
+        
+      
         // 设置邮件服务器主机名  
         props.setProperty("mail.host", sender.getHostsmtp());  
         // 发送邮件协议名称  

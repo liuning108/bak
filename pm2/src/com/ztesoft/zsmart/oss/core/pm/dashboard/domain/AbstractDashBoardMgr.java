@@ -160,4 +160,22 @@ public abstract class AbstractDashBoardMgr {
      */ 
     public abstract Map<String,String> querySendTopicByNo(Map<String, String> param) throws BaseAppException;
 
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @return <br>
+     */ 
+    public abstract boolean isEmailSendOn() throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return <br>
+     */ 
+    public abstract boolean delSendTopic(Map<String, String> param) throws BaseAppException;
 }

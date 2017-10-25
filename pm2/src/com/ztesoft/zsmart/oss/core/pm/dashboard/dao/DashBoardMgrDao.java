@@ -187,6 +187,24 @@ public abstract class DashBoardMgrDao extends GeneralDAO<Object> {
      * @return <br>
      */ 
     public abstract Map<String, String> querySendTopicByNo(Map<String, String> param) throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @return <br>
+     */ 
+    public abstract boolean isEmailSendOn() throws BaseAppException;
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param <br>
+     */ 
+    public abstract void delSendTopic(Map<String, String> param)  throws BaseAppException;
   
    
 

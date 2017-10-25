@@ -577,8 +577,8 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         pa.set("", param.get("SubjectName"));
         pa.set("", param.get("Recipent"));
         pa.set("", param.get("ReportType"));
-        pa.set("", DashBoardUtil.parse(param.get("EffDate")));
-        pa.set("", DashBoardUtil.parse(param.get("ExpDate")));
+        pa.set("", DashBoardUtil.parse("yyyy-MM-dd",param.get("EffDate")));
+        pa.set("", DashBoardUtil.parse("yyyy-MM-dd",param.get("ExpDate")));
         pa.set("", param.get("userId"));
         
         this.executeUpdate(sql,  pa);
@@ -624,6 +624,21 @@ public class DashBoardMgrDaoOracleImpl extends DashBoardMgrDao {
         pa.set("", param.get("userId"));
         return DashBoardUtil.toConvertQuery(this.query(sql, pa));
     }
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public boolean isEmailSendOn() throws BaseAppException {
+       String sql ="select count(*) from pm_parameter t  where t.para_id='emailOnOff' and t.para_value='1'";
+       return this.queryInt(sql)>0;
+    }
+
     
     
 

@@ -154,5 +154,37 @@ public class DashBoardMgr extends AbstractDashBoardMgr {
     }
 
 
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public  boolean isEmailSendOn() throws BaseAppException {
+        DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        return dao.isEmailSendOn();
+    }
+
+
+    /**
+     * [方法描述] <br> 
+     *  
+     * @author [作者名]<br>
+     * @taskId <br>
+     * @param param
+     * @return
+     * @throws BaseAppException <br>
+     */ 
+    @Override
+    public boolean delSendTopic(Map<String, String> param) throws BaseAppException {
+        DashBoardMgrDao dao = (DashBoardMgrDao) GeneralDAOFactory.create(DashBoardMgrDao.class, JdbcUtil.getDbIdentifier(JdbcUtil.OSS_PM));
+        dao.delSendTopic(param);
+        return true;
+    }
+
+
 
 }

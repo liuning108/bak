@@ -231,12 +231,28 @@ public class DashBoardService implements IAction {
         dict.add("result","succeed");
     }
     
+    
+    
+    public void delSendTopic(DynamicDict dict )throws BaseAppException{
+        Map<String,String> param = DashBoardUtil.getHashMap(dict,DashBoardUtil.querySendTopicByTopicNo_MODEL);
+        param.put("userId",dict.getString("USERID"));
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        dict.add("result", bsm.delSendTopic(param)); 
+      
+    }
+    
+    
     public void querySendTopicByNo(DynamicDict dict )throws BaseAppException{
         Map<String,String> param = DashBoardUtil.getHashMap(dict,DashBoardUtil.querySendTopicByTopicNo_MODEL);
         param.put("userId",dict.getString("USERID"));
         AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
         dict.add("result", bsm.querySendTopicByNo(param)); 
       
+    }
+    
+    public void isEmailSendOn(DynamicDict dict) throws BaseAppException{
+        AbstractDashBoardMgr bsm = (AbstractDashBoardMgr) GeneralDMOFactory.create(AbstractDashBoardMgr.class);
+        dict.add("result", bsm.isEmailSendOn()); 
     }
   
     
@@ -262,11 +278,11 @@ public class DashBoardService implements IAction {
 //         dict.set("EffDate","2017-10-17 09:54:00");
 //        dict.set("ExpDate","2017-10-30 09:54:00");
          
-         dict.set("userId", "1");
-         dict.set("method", "querySendTopicByNo");
-         dict.set("topicType", DashBoardUtil.ADHOC_TYPE);
-         dict.set("topicNo", "PMS-20170920-TP10351276");
-         
+//         dict.set("userId", "1");
+//         dict.set("method", "querySendTopicByNo");
+//         dict.set("topicType", DashBoardUtil.ADHOC_TYPE);
+//         dict.set("topicNo", "PMS-20170920-TP10351276");
+         dict.set("method", "isEmailSendOn");
          s.perform(dict);
          System.out.println(dict.get("result"));
          
