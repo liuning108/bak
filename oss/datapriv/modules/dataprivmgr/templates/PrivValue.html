@@ -1,0 +1,38 @@
+<form class="form-horizontal js-priv-value">
+	<div class="js-hideable display-none">
+		<div class="form-group">
+			<label class="col-md-4 col-sm-4 control-label">{{PRIV_VALUE}}</label>
+			<div class="col-md-8 col-sm-8">
+				<div class="grid grid-dialog-height-sm js-value-list"></div>
+			</div>
+		</div>
+		<div class="form-group required">
+        	<label class="col-md-4 col-sm-4 control-label">{{DATAPRIVMGR_OWNED_TYPE}}</label>
+        	<div class="col-md-8 col-sm-8">
+        		<select name="ownedType" class="form-control js-owned-type" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{DATAPRIVMGR_OWNED_TYPE}}:required">
+        			<option value="I">{{COMMON_INCLUDE}}</option>
+        			<option value="N">{{COMMON_EXCLUDE}}</option>
+        		</select>
+        	</div>
+        </div>
+		<div class="form-group required">
+			<label class="col-md-4 col-sm-4 control-label">{{PRIV_VALUE}}</label>
+			<div class="col-md-8 col-sm-8">
+				<input name="privValue" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+				<button type="button" class="btn btn-primary btn-min-width js-edit" autofocus>{{COMMON_EDIT}}</button>
+			</div>
+			<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 display-none">
+				<button type="button" class="btn btn-primary btn-min-width js-ok">
+					{{COMMON_OK}}
+				</button>
+				<button type="button" class="btn btn-default btn-min-width js-cancel">
+					{{COMMON_CANCEL}}
+				</button>
+			</div>
+		</div>
+	</div>
+</form>

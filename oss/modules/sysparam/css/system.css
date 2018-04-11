@@ -1,0 +1,22 @@
+/*-----------------system parameter----------------------*/
+.sys-security {
+  height: 57px;
+  padding: 0 20px;
+  line-height: 56px;
+  border-bottom: 1px solid #e3e3e3;
+  background-color: #fafafa;
+}
+.sys-security span {
+  font-weight: bold;
+}
+.sys-security .iconfont {
+  margin-right: 5px;
+  color: #61b9cf;
+  font-weight: normal;
+}
+.sys-security .btn {
+  margin-right: 5px;
+}
+.sys-dialog-form {
+  padding: 10px;
+}

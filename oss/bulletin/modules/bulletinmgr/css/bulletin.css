@@ -1,0 +1,26 @@
+.bulletin-head
+{
+    background-color: #fafafa;
+    height: 72px;
+    border: 1px solid #e3e3e3;
+    margin: -8px -8px 8px -8px;
+}
+.bulletin-detail
+{
+    padding-top: 11px;
+    text-align: center;
+}
+.bulletin-detail > span{
+    padding-left: 20px;
+}
+.bulletin-title
+{
+    padding: 11px;
+    text-align: center;
+    font-size: 16px;
+}
+.content
+{
+    overflow-y: overlay;
+    height: 300px;
+}

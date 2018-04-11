@@ -1,0 +1,25 @@
+<div class="myfav">
+	<ul class="list-group">
+		{{#each favMenuList}}
+		<li class="list-group-item clearfix">
+			<i class="list-group-item-icon icon {{#if iconUrl}}{{iconUrl}}{{else}}{{#ifCond type '===' '1'}}iconfont icon-asterisk{{else}}iconfont icon-list{{/ifCond}}{{/if}}">
+				<b class="left-bg-color"></b>
+			</i>
+			<span class="list-group-item-arrow iconfont icon-angle-right" aria-hidden="true"></span>
+			<div class="list-group-item-con" title="{{menuName}}">{{menuName}}</div>
+		</li>
+		{{/each}}
+	</ul>
+	<div class="row grid-group">
+	    {{#each favMenuList}}
+	    <div class="col-sm-3">
+	        <div class="thumbnail">
+	            <a class="{{iconUrl}}"></a>
+	            <div class="caption">
+	                <h5>{{menuName}}</h5>
+	            </div>
+	        </div>
+	    </div>
+	    {{/each}}
+	</div>
+<div>

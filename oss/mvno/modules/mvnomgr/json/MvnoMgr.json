@@ -1,0 +1,22 @@
+[{
+	"mvnoSPID":1,
+	"mvnoName":"MVNO自身",
+	"mvnoCode":"MVNO self",
+	"mvnoContacts":"MVNO1",
+	"mvnoContactInformation":"13912012121",
+	"mvnoState":"正常",
+	"expanded" : true,
+	"operate":"",
+	"children":[
+		{"mvnoSPID":2,"expanded" : true,"mvnoName":"MVNO-SUB","mvnoCode":"MVNO-sub","mvnoContacts":"MVNO-sub","mvnoContactInformation":"13912012121","mvnoState":"正常","operate":"",
+			"children":[
+				{"mvnoSPID":3,"mvnoName":"MVNO-SUB-SUB","mvnoCode":"MVNO-sub-sub","mvnoContacts":"MVNO-sub-sub","mvnoContactInformation":"13912012121","mvnoState":"正常","operate":"",
+				"children":[]}
+			]},
+			{"mvnoSPID":4,"expanded" : true,"mvnoName":"MVNO-SUB2","mvnoCode":"MVNO-sub2","mvnoContacts":"MVNO-sub2","mvnoContactInformation":"13912012121","mvnoState":"锁定","operate":"",
+				"children":[
+					{"mvnoSPID":5,"mvnoName":"MVNO-SUB2-SUB","mvnoCode":"MVNO-sub2-sub","mvnoContacts":"MVNO-subs2-sub","mvnoContactInformation":"13912012121","mvnoState":"正常","operate":"",
+					"children":[]}
+				]}
+			]
+}]

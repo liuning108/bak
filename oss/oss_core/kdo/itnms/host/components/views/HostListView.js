@@ -1,0 +1,243 @@
+define([
+  "oss_core/kdo/itnms/host/components/views/FilterViewDialog.js",
+  "oss_core/kdo/itnms/host/actions/HostAction",
+  "text!oss_core/kdo/itnms/host/components/views/hostLisView.html",
+  "text!oss_core/kdo/itnms/host/components/views/filterHostView.html",
+  "oss_core/kdo/itnms/host/components/views/CreateHostView.js",
+  "text!oss_core/kdo/itnms/host/components/views/hostOp.html"
+], function(FilterViewDialog, action, tpl, filterTpl, CreateHostView, hostOp) {
+  var HostListView = function(option) {
+      this.option = option;
+      if (this.option.groups.length > 1) {
+        this.option.groups.splice(0, 0, {
+          name: 'ALL',
+          groupid: "myALL"
+        });
+      }
+      this.option._groudids = [];
+      this.option._filterParam = {
+        name: '',
+        ip: '',
+        dns: '',
+        port: ''
+      };
+      this.tpl = fish.compile(tpl);
+      this.filterTpl = fish.compile(filterTpl);
+      this.hostOp = fish.compile(hostOp);
+
+    }
+    HostListView.prototype.render = function() {
+      this.remove();
+      var $el = $(this.option.el);
+      $el.html(this.tpl());
+
+      this.afterRender()
+    }
+    HostListView.prototype.remove = function() {
+      if (this.$gird){
+        this.$gird.remove();
+      }
+      $(this.option.el).html("");
+    }
+    HostListView.prototype.afterRender = function() {
+      var self = this;
+      var $el = $(this.option.el);
+      self.createHostEvent();
+      self.createListTable();
+      self.createFilterEvent();
+
+    }
+    HostListView.prototype.createFilterEvent = function() {
+      var $el = $(this.option.el);
+      var self = this;
+      $el.find('.filterHostList').off('click').on('click', function() {
+        var options = {
+          height: $el.height(),
+          width: 350,
+          modal: true,
+          draggable: false,
+          autoResizable: false,
+          position: {
+            'of': $el,
+            'my': "top",
+            'at': "right" + " " + "top",
+            collision: "fit"
+          }
+        };
+
+        var filterViewDialog = new FilterViewDialog();
+        filterViewDialog.popup(options, self.option._filterParam, function(param) {
+          self.option._filterParam = param;
+          self.loadData();
+
+        });
+
+      });
+    },
+    HostListView.prototype.createHostEvent = function() {
+      var self = this;
+      var $el = $(this.option.el);
+      $el.find('.createHost').off('click').on('click', function() {
+          self.remove();
+        var createHostView = new CreateHostView({el: $el})
+        createHostView.render();
+      })
+
+    }
+    HostListView.prototype.createListTable = function() {
+      var self = this;
+      var $el = $(this.option.el);
+      var tableH = this.option.tableH;
+      var $area=$el.find('.filterArea');
+      var $comboboxGrupids = $el.find('.comboboxGrupids').combobox({editable: false, dataTextField: 'name', dataValueField: 'groupid', dataSource: self.option.groups});
+      var groupid = "gid_none";
+      $area.hide();
+      if (self.option.groups.length > 0) {
+        groupid = self.option.groups[0].groupid;
+        $area.show();
+      }
+
+      $comboboxGrupids.combobox('value', groupid);
+      $comboboxGrupids.on('combobox:change', function() {
+
+        console.log("Ddd");
+        var d = $comboboxGrupids.combobox('getSelectedItem')
+        console.log(d);
+        self.loadTableData(d.groupid);
+      });
+
+      var mydata = [];
+      var opt = {
+        data: mydata,
+        height: tableH,
+        gridComplete: function() {
+
+          $el.find('.hostListGrid').find('.hostOp').parent().css('overflow', "visible");
+          if($el.find('.hostListGrid').find('.hostOp').find(".dropdown").length<=0) return;
+           $(".dropdown").on("dropdown:open",function () {
+              var $ul = $(this).children(".dropdown-menu");
+              var $button = $(this).children(".dropdown-toggle");
+              var ulOffset = $ul.offset();
+              var spaceUp = (ulOffset.top - $button.height() - $ul.height()) - $(window).scrollTop();
+              var spaceDown = $(window).scrollTop() + $(window).height() - (ulOffset.top + $ul.height());
+              if (spaceDown <50 && (spaceUp >= 0 || spaceUp > spaceDown))
+                $(this).addClass("dropup");
+          })
+          $(".dropdown").on("dropdown:close", function() {
+              $(this).removeClass("dropup");
+          });
+        },
+        colModel: [
+          {
+            name: 'name',
+            label: '名称',
+            align: 'center'
+          }, {
+            name: 'interfaces',
+            label: '接口',
+            align: 'center'
+          }, {
+            name: 'state',
+            label: '状态',
+            align: 'center',
+            formatter: function(cellval, opts, rwdat, _act) {
+              if (cellval === 0) {
+                return "<div class='kdo-on-off-icon'><img width='16' height='16' src='static/oss_core/kdo/itnms/host/images/right.png'></img><span>启用</span></div>"
+              } else {
+                return "<div class='kdo-on-off-icon'><img width='16' height='16' src='static/oss_core/kdo/itnms/host/images/error.png'></img><span>禁用</span></div>"
+              }
+            }
+          }, {
+            name: 'available',
+            label: '可用性',
+            align: 'center',
+            formatter: function(cellval, opts, rwdat, _act) {
+              var starts = fish.map(cellval, function(d) {
+                if (d.value === 1) {
+                  return "<img width='16' height='16' src='static/oss_core/kdo/itnms/host/images/start2.png' title='" + d.message + "' style='cursor : pointer'></img>"
+                } else {
+                  return "<img width='16' height='16' src='static/oss_core/kdo/itnms/host/images/start1.png' title='" + d.message + "' style='cursor : pointer'></img>"
+                }
+              }) //end of map
+              return starts.join('');
+            }
+          }, {
+            name: 'des',
+            label: '描述'
+          }, {
+            name: 'id',
+            label: '',
+            align: "center",
+            'title': false,
+            formatter: function(cellval, opts, rwdat, _act) {
+              return self.hostOp(cellval);
+            }
+          }
+
+        ]
+      };
+
+      this.$gird = $el.find('.hostListGrid').grid(opt);
+      self.loadTableData(groupid);
+
+    }
+
+    HostListView.prototype.loadTableData = function(groupid) {
+      if (groupid == 'gis_none')
+        return;
+      var self = this;
+      var groudids = [];
+      if (groupid == 'myALL') {
+        var fiters = fish.filter(this.option.groups, function(d) {
+          if (d.groupid != 'myALL') {
+            return true;
+          }
+        });
+        groudids = fish.map(fiters, function(d) {
+          return d.groupid
+        });
+
+      } else {
+        groudids.push(groupid);
+      }
+      this.option._groudids = groudids;
+      self.loadData();
+    }
+
+    HostListView.prototype.loadData = function() {
+      var self =this;
+      action.getAllHostsByGroupids({'ids': this.option._groudids, "search": self.option._filterParam}).then(function(data) {
+        console.log("getAllHostsByGroupids");
+        console.log(data.result);
+        var result = fish.map(data.result, function(d) {
+          var interfaceObj = fish.first(d.interfaces);
+          return {
+            name: d.name,
+            state: Number(d.status),
+            interfaces: interfaceObj.ip + ':' + interfaceObj.port,
+            id: d.hostid,
+            available: [
+              {
+                value: Number(d.available),
+                message: 'ZBX :' + d.error
+              }, {
+                value: Number(d.ipmi_available),
+                message: 'IPMI :' + d.ipmi_error
+              }, {
+                value: Number(d.jmx_available),
+                message: 'JMX :' + d.jmx_error
+              }, {
+                value: Number(d.snmp_available),
+                message: 'SNMP :' + d.snmp_error
+              }
+            ],
+            des: d.description
+          }
+        })
+        self.$gird.grid("reloadData", result);
+      })
+
+    }
+    return HostListView;
+
+  })

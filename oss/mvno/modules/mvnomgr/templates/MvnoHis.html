@@ -1,0 +1,38 @@
+<div class="ui-dialog dialog-xl">
+	<div class="modal-header">
+	    <h4 class="modal-title">{{MVNOMGR_MVNO_HIS}}</h4>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal js-qry-cond">
+			<div class="row">
+				<div class="col-md-4 col-sm-4">
+					<div class="form-group">
+						<label class="col-md-5 col-sm-5 control-label">{{MVNOMGR_OPER_DATE_FROM}}</label>
+						<div class="col-md-7 col-sm-7">
+							<div class="input-group">
+								<input name="startDate" class="form-control" data-rule="{{MVNOMGR_OPER_DATE_START}}:match[lt, endDate date];">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<div class="form-group">
+						<label class="col-md-5 col-sm-5 control-label">{{MVNOMGR_OPER_DATE_TO}}</label>
+						<div class="col-md-7 col-sm-7">
+							<div class="input-group">
+								<input name="endDate" class="form-control" data-rule="{{MVNOMGR_OPER_DATE_END}}:match[gt, startDate date];">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-4">
+					<div class="pull-right">
+						<button type="button" class="btn btn-primary btn-min-width js-query" autofocus="autofocus">{{COMMON_QUERY}}</button>
+						<button type="reset" class="btn btn-default btn-min-width">{{COMMON_RESET}}</button>
+					</div>
+				</div>
+			</div>
+		</form>
+		<div class="grid js-mvno-his gridpage-height-md"></div>
+	</div>
+</div>

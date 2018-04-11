@@ -1,0 +1,17 @@
+<div class="list-group">
+	{{#each bulletinList}}
+	<a class="list-group-item clearfix">
+		<div class="list-group-item-icon">
+			<i class="iconfont {{#ifCond hasRead '===' 'N'}}icon-no-read{{else}}icon-read{{/ifCond}}"></i>
+		</div>
+
+		<div class="list-group-item-con">
+			{{title}}
+			<div class="pull-right">
+				{{stateDate}}
+			</div>
+		</div>
+		
+	</a>
+	{{/each}}
+</div>

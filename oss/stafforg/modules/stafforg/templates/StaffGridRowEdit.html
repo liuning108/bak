@@ -1,0 +1,11 @@
+<div class="icon-group-embed">
+    {{#ifCond STATE '==' 'A'}}
+        <span class="iconfont icon-ban" title="{{COMMON_DISABLE}}" action="disable"></span>
+    {{/ifCond}}
+    {{#ifCond STATE '==' 'X'}}
+        <span class="iconfont icon-circle-o" title="{{COMMON_ENABLE}}" action="enable"></span>
+    {{/ifCond}}
+    <span class="iconfont icon-time-circle" title="{{STAFFORG_STAFF_HIS}}" action="staffHis"></span>
+	<span class="iconfont icon-minus-circle" title="{{STAFFORG_QUIT_FORM_ORG}}" action="quitFormOrg"></span>
+    <span class="iconfont icon-plus-circle" title="{{STAFFORG_ADD_TO_ORG}}" action="addToOrg"></span>
+</div>

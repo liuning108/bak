@@ -1,0 +1,141 @@
+<div class="feature-tab-content">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-default">
+                <div class="grid js-attr-grid grid-height-xs"></div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="js-attr-detail">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h4 class="panel-title">{{COMMON_DETAIL}}</h4></div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_DISPLAY_NAME}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="displayName" class="form-control" data-rule="{{FEATURE_DISPLAY_NAME}}:required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_CODE}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="extCode" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_COLUMN_TYPE}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="columnType" class="form-control" placeholder={{COMMON_PLS_SEL}} data-rule="{{FEATURE_COLUMN_TYPE}}:required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_CAN_NULL}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="nullAble" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{FEATURE_CAN_NULL}}:required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group required">
+                                        <label class="col-md-2 col-sm-2 control-label">{{FEATURE_INPUT_TYPE}}</label>
+                                        <div class="col-md-10 col-sm-10">
+                                            <label class="radio-inline">
+                                                <input name="inputType" type="radio" value="1" class="form-control" data-rule="{{FEATURE_INPUT_TYPE}}:checked"/> {{FEATURE_SINGLE_CHOICE}}
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input name="inputType" type="radio" value="2" class="form-control"/> {{FEATURE_MULTI_CHOICE}}
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input name="inputType" type="radio" value="3" class="form-control"/> {{FEATURE_DATE_SELECTOR}}
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input name="inputType" type="radio" value="4" class="form-control"/> {{FEATURE_TEXT}}
+                                            </label>
+                                            <label class="radio-inline">
+                                                <input name="inputType" type="radio" value="5" class="form-control"/> {{FEATURE_MEMO}}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_REFERENCE_OTHERS}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="depOnOthers" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{FEATURE_REFERENCE_OTHERS}}:required">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group required">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_DEPEND_FEATURE}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <input name="depFuture" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_MIN_LENGTH}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="input-group">
+                                                <input name="minLength" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="col-md-4 col-sm-4 control-label">{{FEATURE_MAX_LENGTH}}</label>
+                                        <div class="col-md-8 col-sm-8">
+                                            <div class="input-group">
+                                                <input name="maxLength" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-2 control-label">{{FEATURE_VALUE_LIST}}</label>
+                                        <div class="col-md-10 col-sm-12">
+                                            <div name="valueGrid" class="grid"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-sm-12">
+                                    <div class="form-group">
+                                        <label class="col-md-2 col-sm-2 control-label">{{COMMON_REMARKS}}</label>
+                                        <div class="col-md-10 col-sm-10">
+                                            <textarea name="comments" class="form-control" data-rule="length[~4000]"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <div class="col-md-4 col-sm-4"></div>
+                                        <div class="col-md-8 col-sm-8">
+                                            <button type="button" class="btn btn-primary btn-min-width js-new">{{COMMON_NEW}}</button>
+                                            <button type="button" class="btn btn-primary btn-min-width js-edit">{{COMMON_EDIT}}</button>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 display-none">
+                                            <button type="button" class="btn btn-primary btn-min-width js-ok">{{COMMON_OK}}</button>
+                                            <button type="button" class="btn btn-default btn-min-width js-cancel">{{COMMON_CANCEL}}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

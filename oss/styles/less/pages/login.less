@@ -1,0 +1,200 @@
+/*------------------------login-------------------------------*/
+@import "../classic/var.less";
+html,
+body {
+	height: 100%;
+}
+.container-main {
+	height: 100%;
+}
+.login {
+	margin-left: -4px;
+	margin-right: -4px;
+	height: 100%;
+	background-color: @bg-primary-color;
+	color: @text-default-color;
+	position: relative;
+	.login__logo {
+		position: absolute;
+		left: 0;
+		top: 20px;
+		z-index: 1;
+	}
+	.login__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -240.5px 0 0 -368.5px;
+		width: 737px;
+	}
+	.login__footer {
+		position: absolute;
+		bottom: 0;
+		height: 160px;
+		line-height: 160px;
+		width: 100%;
+		font-size: 12px;
+		text-align: center;
+		background-color: #fff;
+		z-index: 3;
+	}
+}
+.login-box {
+	width: 327px;
+	margin: 50px 0 0 15px;
+	padding: 20px;
+	background-color: #fff;
+	border-radius: 3px;
+	float: left;
+	.login-box__title {
+		position: relative;
+		font-size: 26px;
+		margin-bottom: 12px;
+		cursor: pointer;
+	}
+	.login-language {
+		font-size: 13px;
+		margin-left: 15px;
+		vertical-align: middle;
+		display: inline-block;
+		line-height: 25px;
+		> .caret {
+			margin: -2px 0 0 5px;
+		}
+	}
+	> .dropdown-menu {
+		left: 75px;
+		padding: 0;
+		min-width: 70px;
+		margin-top: -2px;
+		> a {
+			padding: 5px 10px;
+			overflow: hidden;
+			text-overflow:ellipsis;
+			&:hover{
+				background-color: @bg-primary-color;
+				color: #fff;
+			}
+		}
+	}
+	.form-error {
+		font-size: 12px;
+		color: @bg-error-color;
+	}
+	form {
+		padding: 0;
+		border: 0;
+		.form-control-prompt,
+		.form-control-feedback {
+			top: 3px;
+			font-size: 15px;
+			color: #c9c9c9;
+			line-height: 26px;
+		}
+		.btn {
+			padding: 10px 0;
+			font-size: 15px;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+		input[type="checkbox"] {
+			margin:-5px 5px 0 0;
+			vertical-align: middle;
+		}
+	}
+	.form-control {
+		border: 1px solid @border-default-color;
+		padding: 7px 35px;
+		height: 32px;
+		font-size: 15px;
+		border-radius: 0 0 3px 3px ;
+		box-shadow: none;
+		&:focus {
+			outline: 0;
+			box-shadow: none;
+		}
+	}
+	.form-group {
+		position: relative;
+		margin: 0;
+		&:first-child {
+			.form-control {
+				border-radius: 3px 3px 0 0;
+				border-bottom-color: transparent;
+			}
+		}
+		&:nth-child(3) {
+			margin-top: 10px;
+			.form-control {
+				border-radius: 3px;
+			}
+			> .col-md-8 {
+				padding: 0;
+			}
+			> .col-md-4 {
+				padding-right: 0;
+			}
+		}
+		&.focus .form-control {
+			border-color: @bg-primary-color;
+		}
+		.form-control-prompt {
+			left: 5px;
+			font-size: 20px;
+		}
+		.form-control-feedback {
+			right: 5px;
+			pointer-events: auto;
+			cursor: pointer;
+		}
+	}
+	.img-verify-code {
+		padding: 2px 12px 4px;
+		border: 1px solid @border-default-color !important;
+	}
+}
+.pwd-security{
+	height: 60px;
+	border-bottom: 1px solid @border-default-color;
+	padding: 10px 0 0 44px;
+	background-color: @bg-disabled-color;
+}
+.pwd-security-error{
+	color: @error-color;
+}
+.pwd-security-warning{
+	color: @warning-color;
+}
+.pwd-security-suc{
+	color: @suc-color;
+}
+.pwd-security-higher{
+	color: #16A085;
+}
+.pwd-progressbar{
+	height: 9px;
+	width: 90%;
+	border-radius: 9px;
+	background-color: #dcdcdc;
+	border: 0;
+	&.error{
+		.ui-progressbar-value{
+			background-color: @error-color;
+		}
+	}
+	&.warning{
+		.ui-progressbar-value{
+			background-color: @warning-color;
+		}
+	}
+	&.success{
+		.ui-progressbar-value{
+			background-color: @suc-color;
+		}
+	}
+	&.higher{
+		.ui-progressbar-value{
+			background-color: #1abc9c;
+		}
+	}
+}

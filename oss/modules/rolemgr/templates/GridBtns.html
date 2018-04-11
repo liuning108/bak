@@ -1,0 +1,18 @@
+<ul class="grid-bar" role="group">
+	{{#ifCond inEdit '==' false}}
+		{{#ifCond btn '==' 'role'}}
+			<li class="js-grant-data-priv">{{ROLEMGR_GRANT_DATA_PRIV}}</button>
+        {{/ifCond}}
+        {{#ifCond btn '==' 'user'}}
+			<li class="js-bind-user">{{ROLEMGR_BIND_USER}}</button>
+        {{/ifCond}}
+        {{#ifCond btn '==' 'portal'}}
+			<li class="js-bind-portal">{{COMMON_EDIT}}</button>
+        {{/ifCond}}
+		</div>
+	{{#else}}
+			<li class="js-ok">{{COMMON_OK}}</button>
+			<li class="js-cancel">{{COMMON_CANCEL}}</button>
+	{{/else}}
+    {{/ifCond}}
+</ul>

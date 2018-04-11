@@ -1,0 +1,95 @@
+<div class="{{#if header}}ui-dialog dialog-lg{{/if}}">
+{{#if header}}
+<div class="modal-header">
+	<h4 class="modal-title">{{GRANT_HEADER_TITLE}}</h4>
+</div>
+<div class="modal-body">
+{{/if}}
+	<div class="role-manage-page">
+		{{#ifCond PRIV_TYPE '==' 'M'}}
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<div class="js-tab-area">
+	                {{#isArray tabItemInfo}}
+					<ul>
+						{{#each tabItemInfo}}
+						<li><a href="#tabs-{{name}}" class="padding">{{label}}</a></li>
+						{{/each}}
+					</ul>
+	                {{/isArray}}
+					{{#each tabItemInfo}}
+					<div id="tabs-{{name}}" {{#ifCond @index '!=' 0}}class="display-none"{{/ifCond}}>
+						<div class="grid js-tab-grid grid-height-sm"></div>
+					</div>
+					{{/each}}
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="role-subgrid">
+					<div class="grid js-listing-grid grid-height-sm"></div>
+				</div>
+			</div>
+		</div>
+	    {{/ifCond}}
+	    {{#ifCond PRIV_TYPE '==' 'C'}}
+		<div class="row">
+			<div class="col-md-5 col-sm-5">
+				<div class="grid js-tab-area grid-height-sm"></div>
+			</div>
+			<div class="col-md-7 col-sm-7">
+				<div class="role-component-grid">
+					<div class="grid js-listing-grid grid-height-sm"></div>
+				</div>
+			</div>
+		</div>
+	    {{/ifCond}}
+	    {{#ifCond PRIV_TYPE '==' 'S'}}
+		<div class="row">
+			<div class="col-md-5 col-sm-5">
+				<div class="grid js-tab-area grid-height-sm"></div>
+			</div>
+			<div class="col-md-7 col-sm-7">
+				<div class="role-component-grid">
+					<div class="grid js-listing-grid grid-height-sm"></div>
+				</div>
+			</div>
+		</div>
+	    {{/ifCond}}
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div class="js-transfer btn-separate-group">
+					<button type="button" class="btn" disabled="disabled">
+						<span class="iconfont icon-double-angle-down"></span>
+					</button>
+					<button type="button" class="btn" disabled="disabled" >
+						<span class="iconfont icon-angle-down"></span>
+					</button>
+					<button type="button" class="btn" disabled="disabled">
+						<span class="iconfont icon-angle-up"></span>
+					</button>
+					<button type="button" class="btn" disabled="disabled">
+						<span class="iconfont icon-double-angle-up"></span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div class="grid js-summary-grid grid-height-sm"></div>
+			</div>
+		</div>
+	</div>
+{{#if header}}
+</div>
+{{/if}}
+{{#if footer}}
+<div class="modal-footer">
+	<button type="button" class="btn btn-primary btn-min-width js-confirm">
+    	{{COMMON_OK}}
+	</button>
+	<button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+    	{{COMMON_CANCEL}}
+	</button>
+</div>
+{{/if}}
+</div>

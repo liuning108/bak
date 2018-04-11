@@ -1,0 +1,28 @@
+/*-----------------personal---------------------*/
+.personal-avatar {
+  float: left;
+  padding: 10px 12px 0 22px;
+}
+.personal-avatar > img {
+  width: 100px;
+  height: 100px;
+}
+.personal-avatar a {
+  margin-top: 8px;
+  display: block;
+  text-align: center;
+}
+.personal-profile {
+  float: right;
+  width: 68%;
+}
+.personal-profile form.form-horizontal {
+  border: 0;
+}
+#tabs-log .ui-jqgrid-hdiv {
+  border-top: 0;
+}
+#tabs-log .grid {
+  width: 99.99%;
+}
+

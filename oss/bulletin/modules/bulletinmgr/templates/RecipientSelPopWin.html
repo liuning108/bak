@@ -1,0 +1,36 @@
+<div class="ui-dialog dialog-lg">
+	<div class="modal-header">
+        <h4 class="modal-title">{{BULLETIN_RECIPIENT_LIST}}</h4>
+    </div>
+    <div class="modal-body">
+    	<div class="row">
+	        <div class='col-md-6 col-sm-6'>
+					<div class="tabs-border js-stafforg">
+						<ul>
+							<li><a href="#tabs-org">{{STAFFORG_ORG}}</a></li>
+							<li><a href="#tabs-staff">{{STAFFORG_STAFF}}</a></li>
+						</ul>
+						<div id="tabs-org">
+							
+						</div>
+						<div id="tabs-staff">
+							
+						</div>								
+					</div>
+			</div>
+			<div class='col-md-6 col-sm-6'>
+				<div class='js-layout-right'>
+					<div class="grid grid-height-md js-recipient-grid"></div>
+				</div>
+			</div>
+		</div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-min-width btn-primary js-ok" autofocus>
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-min-width btn-default js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>

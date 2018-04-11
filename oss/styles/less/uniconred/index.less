@@ -1,0 +1,108 @@
+@import "../classic/var.less";
+@import "var.less";
+@import "../classic/public.less";
+/*common*/
+.ui-inline span,
+.icon-group-embed > span {
+  line-height: 1;
+}
+/*portalview*/
+.portal__nav > .open,
+.portal__nav > .open:hover {
+  box-shadow: 0 -3px 2px 2px #db3334;
+}
+.portal__nav > li:hover,
+.portal__nav > li:focus,
+.portal__nav > li.mouseenter {
+  background-color: #d20001;
+  box-shadow: 0 -3px 2px 2px #db3334;
+}
+.portal__nav > .portal-menu-searchbar:hover {
+  box-shadow: none;
+}
+.portal-menu-searchbar .btn-default,
+.portal-menu-searchbar .form-control,
+.portal-menu-searchbar .btn-default:focus,
+.portal-menu-searchbar .form-control:focus {
+  box-shadow: none;
+}
+.portal-menu-searchbar .form-clear-input {
+  margin-top: -1px;
+}
+.portal-menu > .portal-menu__item > a:hover,
+.portal-menu > .portal-menu__item > a:focus {
+  background-color: #f8f8f8;
+  color: #646464;
+}
+.portal-menu__item a {
+  padding: 10px 20px;
+  color: #646464;
+}
+.portal-menu__item.active > a {
+  color: #646464;
+  background-color: #f8f8f8;
+}
+.portal-menu_main > .portal-menu__item > a {
+  border-left: 3px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.portal-menu_main > .portal-menu__item > a:hover,
+.portal-menu_main > .portal-menu__item > a.ui-state-focus,
+.portal-menu_main > .portal-menu__item > a.ui-state-active {
+  background-color: #f8f8f8;
+  border-left: 3px solid #d20001;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #646464;
+}
+.portal-menu_submenu {
+  border: 1px solid #c6c6c6;
+  border-left: 0;
+  font-size: 13px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.175);
+}
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a:hover,
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a.ui-state-active,
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a.ui-state-focus {
+  background-color: #f6cccc;
+  color: #646464;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.portal-menu_submenu .portal-menu__item > a {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+/*工作台*/
+.grid-stack-item-content .workspace-list .col-md-3:hover,
+.grid-stack-item-content .workspace-list .col-md-2:hover,
+.grid-stack-item-content .workspace-list .col-md-1:hover {
+  background-color: #d20001;
+}
+.grid-stack-item .grid-stack-item-content .thumbnail:hover {
+  background-color: #d20001;
+}
+.grid-stack-item-content .thumbnail a {
+  color: #d20001;
+}
+.grid-stack-item .grid-stack-item-content .text-info {
+  color: #d20001;
+}
+.grid-stack-item .grid-stack-item-content .list-group-item:hover {
+  color: #d20001;
+}
+/*layout*/
+.ui-jqgrid + .panel,
+.ui-jqgrid + .ui-jqgrid,
+.ui-jqgrid + .ui-tabs,
+.panel + .panel,
+.pnael + .ui-tabs,
+.ui-tabs + .panel,
+.ui-tabs + .ui-tabs,
+.ui-tabs + .ui-jqgrid {
+  margin-top: 8px;
+}
+.display-none {
+  display: none;
+}

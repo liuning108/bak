@@ -1,0 +1,103 @@
+<div id="app" class="container-fluid container-main wrap-page">
+    <!--Portal的html片段-->
+    <div class="navbar navbar-default navbar-fixed-top portal-navbar">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav portal__nav">
+                <li class="js-top-menu portal__nav_toggle">
+                    <span class="iconfont icon-menu-list portal__nav_icon js-menu" data-toggle="dropdown">
+                    </span>
+                </li>
+                <li class="portal-logo"><img id="mvnolog" src="static/modules/images/logo.png"></li>           
+            </ul>
+            <ul class="nav navbar-nav portal__nav navbar-right portal-navbar_right">
+                <li class="portal-menu-searchbar">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default">
+                                <span class="iconfont icon-search"></span>
+                            </button>
+                        </span>
+                        <input type="text" class="form-control" placeholder="search">
+                    </div>
+                </li>
+                <li id="btnRefreshMenu"><span class="iconfont icon-refresh portal__nav_icon"></span></li>
+                <li id="getProfile" class="dropdown">
+            		<span class="iconfont icon-user portal__nav_icon" data-toggle="dropdown">
+                        <!-- <span class="userName dropdown-text">admin</span> -->
+                        <span class="caret"></span>
+                    </span>
+                    <ul class="dropdown-menu portal-menu" role="menu">
+                        <li class="portal-menu__item">
+                            <a href="javascript:void(0)" id="btnProfile">
+                                <i class="iconfont icon-user"></i>
+                            	<span>{{PROFILE}}</span>
+                            </a>
+                        </li>
+                        <li class="portal-menu__item" id="btnDesigner" style="display:none">
+                        	<a href="javascript:void(0)">
+                                <i class="iconfont icon-platform"></i>
+                        		<span>{{DESIGNER}}</span>
+                        	</a>
+                        </li>
+                       <li class="portal-menu__item" id="btnSkin" style="display:none">
+                            <a href="javascript:void(0)">
+                                <span class="portal-skin" data-css="index" data-themes="portal"><i class="iconfont icon-skin icon-skin-solid"></i><span class="portal-skin__txt">{{PORTAL_SKIN_GRAY}}</span></span>
+                                <span class="portal-skin" data-css="index.blankblue" data-themes="blank-blue"><i class="iconfont icon-skin"></i><span class="portal-skin__txt">{{PORTAL_SKIN_BB}}</span></span>
+                                <span class="portal-skin" data-css="index.uniconred" data-themes="unicon-red"><i class="iconfont icon-skin"></i><span class="portal-skin__txt">{{PORTAL_SKIN_RED}}</span></span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="portal-menu__item" id="btnMyFavorite">
+                            <a href="javascript:void(0)">
+                                <i class="iconfont icon-star"></i>
+                                <span>{{PORTAL_FAVORITES}}</span>
+                            </a>
+                        </li>
+                        <li class="portal-menu__item" id="btnClickHelp">
+                            <a href="javascript:void(0)">
+                                <i class="iconfont icon-help" id="btnHelp" target="_blank"></i>
+                                <span>{{PORTAL_HELP}}</span>
+                            </a>
+                        </li>
+                        <li class="portal-menu__item" id="btnClickAbout">
+                            <a href="javascript:void(0)">
+                                <i class="iconfont icon-file"></i>
+                                <span>{{PORTAL_INTRODUCTION}}</span>
+                            </a>
+                        </li>
+                        <hr>
+                        <li class="portal-menu__item" id="btnLogOut">
+                            <a href="javascript:void(0)">
+                                <i class="iconfont icon-logout"></i>
+                                <span>{{PORTAL_LOGOUT}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li id="portalDropdown" style="display:none">
+                    <span class="iconfont icon-type portal__nav_icon" data-toggle="dropdown">
+                        <!-- <span class="userName dropdown-text">{{PORTAL_PORTAL_SELECT}}</span> -->
+                        <span class="caret"></span>
+                    </span>
+                    <ul class="dropdown-menu portal-menu portalMenu portal-menu-scrollbar" role="menu"></ul>
+                </li>
+            </ul>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <div class="page-content-wrap portal-page-wrap" id="divPortalContent">
+    	<div class="js-left-menu display-none"></div>
+        <div class="page-content portal-page-content">
+            <div id="divContent">
+                <ul class="portal-tabs-nav">
+                    <li>
+                        <a href="#tabs-WorkSpace"><i class="iconfont icon-home"></i></a>
+                    </li>
+                </ul>
+                <div id="tabs-WorkSpace">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div>
+    <div class="grid-stack-item-content">
+        <div class="panel panel-default">
+            {{#ifCond showHeader '===' 'Y'}}
+            <div class="panel-heading clearfix">
+                <h4 class="panel-title">
+                    <i class="{{icon}}"></i>&nbsp;
+                    <span class="panel-title-text">{{defaultTitle}}</span>
+                </h4>
+                <div class="panel-heading-button pull-right">
+                    {{#ifCond maxable '===' 'Y'}}
+                    <i class="iconfont icon-maximize js-maximize" title="{{PORTLET_MAX}}"></i>
+                    <i class="iconfont icon-restore js-restore" title="{{PORTLET_RESTORE}}" style="display:none;"></i>
+                    {{/ifCond}}           
+                    {{#ifCond collapsable '===' 'Y'}}
+                    <i class="iconfont icon-angle-down js-down" title="{{PORTLET_EXPAND}}" style="display:none;"></i>
+                    <i class="iconfont icon-angle-up js-up" title="{{PORTLET_COLLAPSE}}"></i>
+                    {{/ifCond}}       
+                    {{#ifCond settable '===' 'Y'}}
+                    <i class="iconfont icon-setting js-setting" {{#unless cover}} style="display:none;" {{/unless}} title="{{PORTLET_SET}}"></i>
+                    {{/ifCond}}                     
+                    {{#ifCond refreshable '===' 'Y'}}
+                    <i class="iconfont icon-refresh js-refresh" title="{{PORTLET_REFRESH}}"></i>
+                    {{/ifCond}}   
+                    {{#ifCond closable '===' 'Y'}}
+                    <i class="iconfont icon-delete js-delete" title="{{PORTLET_DELETE}}"></i>
+                    {{/ifCond}}           
+                </div>
+            </div>
+            {{/ifCond}}                
+            <div class="panel-body" id="{{domId}}" portletId="{{portletId}}">
+                {{#if cover}}
+                <div class="widget-cover"></div>
+                {{/if}}
+                <div class="portlet-view"></div>
+            </div>
+        </div>
+    </div>
+    <div class="ui-resizable-handle iconfont icon-trash js-trash"></div>
+</div>

@@ -1,0 +1,71 @@
+define({
+	ROLEMGR_ROLE_NAME: "Role Name",
+	ROLEMGR_ROLE_CODE: "Role Code",
+	ROLEMGR_ROLE_USER: "Role User",
+	ROLEMGR_ROLE_PORTAL: "Role Portal",
+	ROLEMGR_ROLE_MENU: "Role Menu",
+	ROLEMGR_ROLE_COMPONENT: "Role Component",
+	ROLEMGR_ROLE_PORTLET: "Role Portlet",
+	ROLEMGR_ROLE_SERVICE: "Role Service",
+
+	ROLEMGR_ADD_ROLE_SUCCESS: "Succeed in adding role.",
+	ROLEMGR_MOD_ROLE_SUCCESS: "Succeed in modifying role.",
+	ROLEMGR_DEL_ROLE_CONFIRM: "Are you sure to delete the role.",
+	ROLEMGR_DEL_ROLE_SUCCESS: "Succeed in deleting role.",
+
+	ROLEMGR_GRANT_DATA_PRIV: "Grant Data Privilege",
+
+	ROLEMGR_USER_OF_ROLE: "Users of the role {{roleName}}",
+	ROLEMGR_USER: "All Users",
+	ROLEMGR_GRANT_USER_CONFIRM: "Are you sure to grant role to user(s)?",
+	ROLEMGR_GRANT_USER_SUCCESS: "Succeed in granting role to user(s).",
+	ROLEMGR_DEGRANT_USER_CONFIRM: "Are you sure to remove role from user(s)?",
+	ROLEMGR_DEGRANT_USER_SUCCESS: "Succeed in removing role from user(s).",
+
+	ROLEMGR_PORTAL_OF_ROLE: "Portals of the role {{roleName}}",
+	ROLEMGR_PORTAL: "All Portals",
+	ROLEMGR_GRANT_PORTAL_CONFIRM: "Are you sure to grant portal(s) to role?",
+	ROLEMGR_GRANT_PORTAL_SUCCESS: "Succeed in granting portal(s) to role.",
+	ROLEMGR_DEGRANT_PORTAL_CONFIRM: "Are you sure to remove portal privilege(s) from role?",
+	ROLEMGR_DEGRANT_PORTAL_SUCCESS: "Succeed in removing portal privilege(s) form role.",
+
+	ROLEMGR_BY_PORTAL: "Grant by Portal",
+	ROLEMGR_BY_DIR: "Grant by Directory",
+	ROLEMGR_PORTAL_DIR_NAME: "Portal/Directory Name",
+
+	ROLEMGR_ADD_MENU_PRIV_SUCCESS: "Succeed in adding menu privilege(s) to role.",
+	ROLEMGR_RM_MENU_PRIV_CONFIRM: "Are you sure to remove menu privilege(s) from role?",
+	ROLEMGR_RM_MENU_PRIV_SUCCESS: "Succeed in removing menu Privilege(s) to role.",
+	ROLEMGR_EDIT_PRIV_LEVEL_SUCCESS: "Succeed in modifying the privilege level of user privilege",
+
+	ROLEMGR_PORTAL_DIR_MENU_NAME: "Portal/Directory/Menu Name",
+	ROLEMGR_ADD_COMP_PRIV_SUCCESS: "Succeed in adding component privilege(s) to role.",
+	ROLEMGR_RM_COMP_PRIV_CONFIRM: "Are you sure to remove component privilege(s) from role?",
+	ROLEMGR_RM_COMP_PRIV_SUCCESS: "Succeed in removing component privilege(s) from role.",
+
+	ROLEMGR_DATA_MGR: "Grant Data Privilege To Role",
+	ROLEMGR_OWNED_DATA_PRIV: "Owned Data Privilege",
+	ROLEMGR_UNOWNED_DATA_PRIV: "Not Owned Data Privilege",
+	ROLEMGR_GRANT_DATA_SUCCESS: "Succeed in adding data privilege(s) to role.",
+	ROLEMGR_RM_DATA_PRIV_CONFIRM: "Are you sure to remove data privilege(s) from role?",
+	ROLEMGR_RM_DATA_PRIV_SUCCESS: "Succeed in removing data privilege(s) from role.",
+
+	ROLEMGR_BY_TYPE: "Grant By Type",
+	ROLEMGR_TYPE_NAME: "Type Name",
+	ROLEMGR_PORTLET_NAME: "Portlet Name",
+	ROLEMGR_CLASS_NAME: "Class Name",
+	ROLEMGR_ADD_PORTLET_PRIV_SUCCESS: "Succeed in adding portlet privilege(s) to role.",
+	ROLEMGR_RM_PORTLET_PRIV_CONFIRM: "Are you sure to remove portlet privilege(s) from role?",
+	ROLEMGR_RM_PORTLET_PRIV_SUCCESS: "Succeed in removing portlet privilege(s) from role.",
+	ROLEMGR_HOLD: "Default Hold",
+	ROLEMGR_URL: "URL",
+	ROLEMGR_PRIV_LEVEL: "Privilege Level",
+		
+	ROLEMGR_PRIV_POINT: "Privilege Point",
+	ROLEMGR_PRIV_PATTERN: "Privilege URL(Ant Pattern)",
+	ROLEMGR_PRIV_ADD: "ADD Privilege",
+	ROLEMGR_PRIV_REFRESH: "Refresh Cache",
+	ROLEMGR_PRIV_DEL_CONFIRM: "Are you sure to delete the Privilege ?",
+	ROLEMGR_PRIV_REFRESH_SUCCESS: "Succeed in deleting the Privilege.",
+	ROLEMGR_PRIV_NAME_NON_EMPTY: "Privilege Name is empty, please input again!"
+});

@@ -1,0 +1,20 @@
+define({	
+	PERSON_STAFF_NAME: "员工姓名",
+	PERSON_DEFAULT_PORTAL: "默认门户",
+	PERSON_PHONE: "手机",
+	PERSON_EMAIL: "电子邮箱",
+	PERSON_ADDRESS: "地址",
+	PERSON_PASSWORD: "修改密码",
+	PERSON_CONTACTINFO: "联系方式",
+	PERSON_USER_LOGS: "日志",
+	PERSON_USER_DELEGATE: "代理人",
+	PERSON_USER_MOD_SUCCESS: "修改成功",
+	PERSON_USER_DEL_SELECT: "请先选中要删除的数据",
+	PERSON_USER_DEL_CONFIRM: "确定删除该条数据吗？",
+	PERSON_USER_DEL_SUCCESS: "成功删除该条数据",
+	PERSON_USER_ADD_VAILDATE: "已经达到最大代理人数，无法再新增代理人",
+	PERSON_USER_ADD_HAS: "该代理人已经存在",
+	PERSON_USER_ADD_EMPTY: "请选择一条代理人数据",
+	LOG_SRC_IP: "源IP",
+	LOG_LOG_DATE: "日志时间"
+});

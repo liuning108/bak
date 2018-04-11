@@ -1,0 +1,21 @@
+<div class="icon-group-embed">
+    <span class="iconfont icon-key" title="{{USERMGR_RESET_PASSWD}}" data-action="passwd"></span>
+    {{#ifCond isLocked '==' 'N'}}
+        <span class="iconfont icon-lock" title="{{COMMON_LOCK}}" data-action="lock"></span>
+        <span class="iconfont icon-unlock" style="display:none" title="{{COMMON_UNLOCK}}" data-action="unlock"></span>
+    {{/ifCond}}
+    {{#ifCond isLocked '==' 'Y'}}
+            <span class="iconfont icon-lock" style="display:none" title="{{COMMON_LOCK}}" data-action="lock"></span>
+            <span class="iconfont icon-unlock" title="{{COMMON_UNLOCK}}" data-action="unlock"></span>
+    {{/ifCond}}
+          	<span class="iconfont icon-lock" style="display:none" title="unlock" data-action="unlock"></span>
+    {{#ifCond state '==' 'A'}}
+                    <span class="iconfont icon-ban" title="{{COMMON_DISABLE}}" data-action="disable"></span>
+                    <span class="iconfont icon-circle-o" style="display:none" title="{{COMMON_ENABLE}}" data-action="enable"></span>
+    {{/ifCond}}
+    {{#ifCond state '==' 'X'}}
+                        <span class="iconfont icon-ban" style="display:none" title="{{COMMON_DISABLE}}" data-action="disable"></span>
+                        <span class="iconfont icon-circle-o" title="{{COMMON_ENABLE}}" data-action="enable"></span>
+    {{/ifCond}}
+
+</div>

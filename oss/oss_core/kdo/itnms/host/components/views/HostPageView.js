@@ -1,0 +1,129 @@
+define([
+  "oss_core/kdo/itnms/host/actions/HostAction",
+  "text!oss_core/kdo/itnms/host/components/views/HostPage.html",
+  "oss_core/kdo/itnms/host/components/kdoDSelect/KdoDSelect.js",
+  "oss_core/kdo/itnms/host/components/views/InterfaceView.js",
+], function(action,tpl,KdoDSelect,InterfaceView) {
+  var HostPageView = function(options) {
+    this.options = options;
+    this.tpl = fish.compile(tpl);
+    this.$el = $(this.options.el);
+    this.state={
+      data:['.Step1',".Step2"],
+      curIndex:0
+    }
+
+  }
+  HostPageView.prototype.render = function() {
+    this.remove();
+    this.$el.html(this.tpl());
+    this.afterRender();
+  }
+  HostPageView.prototype.remove = function() {
+    this.$el.html("");
+  }
+  HostPageView.prototype.afterRender=function(){
+    var self =this;
+    this.$el.find('.stepNext').off('click').on('click',function(){
+      self.stepNext($(this))
+    })
+    this.$el.find('.stepUp').off('click').on('click',function(){
+      self.stepUp($(this))
+    })
+    this.renderHostBaseInfo();
+    this.renderGroup()
+    this.renderInderface();
+  }
+  HostPageView.prototype.renderHostBaseInfo=function(){
+    this.$el.find('.hostHost').val(this.options.hostObj.host);
+    this.$el.find('.hostName').val(this.options.hostObj.name);
+    var value= this.options.hostObj.status;
+    this.$el.find("input[name='offon'][value='"+value+"']").attr("checked",true);
+    this.$el.find('.HostDesc').val(this.options.hostObj.description);
+    this.hostProxy = this.$el.find('.hostProxy').combobox({
+        placeholder: 'none proxy',
+        dataTextField: 'host',
+        dataValueField: 'proxyid',
+        dataSource: this.options.pageHostData.proxyData.result
+    });
+    var proxyId =this.options.hostObj.proxy_hostid;
+    this.hostProxy.combobox('value', proxyId);
+  }
+  HostPageView.prototype.renderInderface=function() {
+
+    this.interfaceView=new InterfaceView({
+      'el':this.$el.find('.Step2Page'),
+    })
+    this.interfaceView.render()
+
+  }
+  HostPageView.prototype.mapGroup=function(d) {
+    return {
+      name:d.name,
+      value:d.groupid
+    }
+  }
+  HostPageView.prototype.renderGroup=function() {
+    var GR = fish.map(this.options.pageHostData.allGroup.result,this.mapGroup);
+    var LR = fish.map(this.options.hostObj.groups,this.mapGroup);
+    this.group =new KdoDSelect({
+       el: this.$el.find('.Step1Page'),
+       L:LR,
+       R:GR
+     })
+     this.group.render();
+
+  }
+  HostPageView.prototype.stepNext=function(_this){
+    var $ws =this.$el.find('.kdoWizardSteps')
+   //把当前的状态设置为complete,当前显示的页面为hide
+   var curState =this.state.data[this.state.curIndex];
+   $ws.find(curState).removeClass('active').addClass('complete');
+   var curView =$ws.find(curState).data('view');
+   if(this.state.curIndex<this.state.data.length-1){
+     this.$el.find(curView).hide();
+   }
+   //把下个状态设置为active
+   this.state.curIndex=this.state.curIndex+1;
+   if(this.state.curIndex>0){
+      this.$el.find('.stepUp').removeClass('hide')
+                              .addClass('show');
+   }
+   if( this.state.curIndex>=this.state.data.length-1){
+       _this.html('完成');
+   }
+   var nextState= this.state.data[this.state.curIndex]
+   $ws.find(nextState).addClass('active')
+  var curView =$ws.find(nextState).data('view');
+  this.$el.find(curView).show();
+   if(!nextState){
+     alert('done');
+     this.state.curIndex=this.state.curIndex-1;
+   }
+
+  }
+
+  HostPageView.prototype.stepUp=function(_this){
+    var $ws =this.$el.find('.kdoWizardSteps')
+   //把当前的状态设置为active,complete,当前显示的页面为hide
+   var curState =this.state.data[this.state.curIndex];
+   $ws.find(curState).removeClass('complete')
+                     .removeClass('active')
+   var curView =$ws.find(curState).data('view');
+   this.$el.find(curView).hide();
+   //把下个状态设置为active
+   this.state.curIndex=this.state.curIndex-1;
+   if(this.state.curIndex<=0){
+      this.$el.find('.stepUp').removeClass('show')
+                              .addClass('hide');
+   }
+   if( this.state.curIndex<this.state.data.length-1){
+       this.$el.find('.stepNext').html('下一步')
+   }
+   var upState= this.state.data[this.state.curIndex]
+   $ws.find(upState).addClass('active')
+   var upStatePage =$ws.find(upState).data('view');
+    this.$el.find(upStatePage).show();
+  }
+  return HostPageView;
+});

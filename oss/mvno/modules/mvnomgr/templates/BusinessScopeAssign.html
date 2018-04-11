@@ -1,0 +1,53 @@
+<div class="mvno-config-module-group">
+	<!-- <div class="col-md-2">
+		<div class="mvno-config-module js-business-assign has-success">
+			<div class="mvno-config-icon iconfont icon-shouquan"></div>
+			<div class="mvno-config-title">CMS</div>
+			<div class="badge">
+				<span class="badge-circle iconfont icon-circle"></span>
+				<span class="badge-success iconfont icon-duihao"></span>
+				<span class="badge-warning iconfont icon-icondancengchahao"></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="mvno-config-module js-business-assign has-warning">
+			<div class="mvno-config-icon iconfont icon-shouquan"></div>
+			<div class="mvno-config-title">CMS</div>
+			<div class="badge">
+				<span class="badge-circle iconfont icon-circle"></span>
+				<span class="badge-success iconfont icon-duihao"></span>
+				<span class="badge-warning iconfont icon-icondancengchahao"></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+		<div class="mvno-config-module js-business-assign">
+			<div class="mvno-config-icon iconfont icon-shouquan"></div>
+			<div class="mvno-config-title">CMS</div>
+			<div class="badge">
+				<span class="badge-circle iconfont icon-circle"></span>
+				<span class="badge-success iconfont icon-duihao"></span>
+				<span class="badge-warning iconfont icon-icondancengchahao"></span>
+			</div>
+		</div>
+	</div> -->
+	{{#each list}}
+	{{#ifCond enable '==' true }}
+	<div class="col-md-2">
+		<div {{#ifCond done '==' true }} class="mvno-config-module js-business-assign has-success" {{else}} class="mvno-config-module js-business-assign has-warning" {{/ifCond}} data-url={{url}}>
+			<div class="mvno-config-icon iconfont icon-authorize"></div>
+			<div class="mvno-config-title">{{appCode}}</div>
+			<div class="badge">
+				<span class="badge-circle iconfont icon-circle"></span>
+				<span class="badge-success iconfont icon-good"></span>
+				<span class="badge-warning iconfont icon-delete"></span>
+			</div>
+		</div>
+	</div>
+	{{/ifCond}}
+	{{/each}}
+</div>
+<!-- <div class="mvno-config-page-button">
+	<button type="button" class="btn btn-primary btn-min-width">{{COMMON_NEXT_STEP}}</button>
+</div> -->

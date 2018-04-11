@@ -1,0 +1,71 @@
+define({
+	ROLEMGR_ROLE_NAME: "角色名称",
+	ROLEMGR_ROLE_CODE: "角色编码",
+	ROLEMGR_ROLE_USER: "角色用户",
+	ROLEMGR_ROLE_PORTAL: "角色门户",
+	ROLEMGR_ROLE_MENU: "角色菜单",
+	ROLEMGR_ROLE_COMPONENT: "角色组件",
+	ROLEMGR_ROLE_PORTLET: "角色Portlet",
+	ROLEMGR_ROLE_SERVICE: "角色服务",
+
+	ROLEMGR_ADD_ROLE_SUCCESS: "新增角色成功。",
+	ROLEMGR_MOD_ROLE_SUCCESS: "修改角色成功。",
+	ROLEMGR_DEL_ROLE_CONFIRM: "你确定要删除该角色吗？",
+	ROLEMGR_DEL_ROLE_SUCCESS: "删除角色成功。",
+
+	ROLEMGR_GRANT_DATA_PRIV: "授权数据权限",
+
+	ROLEMGR_USER_OF_ROLE: "角色{{roleName}}的用户",
+	ROLEMGR_USER: "所有用户",
+	ROLEMGR_GRANT_USER_CONFIRM: "你确定要绑定用户到该角色吗?",
+	ROLEMGR_GRANT_USER_SUCCESS: "成功绑定用户到角色。",
+	ROLEMGR_DEGRANT_USER_CONFIRM: "你确定要从角色中删除这些用户吗？",
+	ROLEMGR_DEGRANT_USER_SUCCESS: "从角色中删除这些用户成功。",
+
+	ROLEMGR_PORTAL_OF_ROLE: "角色{{roleName}}的门户",
+	ROLEMGR_PORTAL: "所有门户",
+	ROLEMGR_GRANT_PORTAL_CONFIRM: "你确定要绑定门户到角色吗？",
+	ROLEMGR_GRANT_PORTAL_SUCCESS: "绑定门户到角色成功。",
+	ROLEMGR_DEGRANT_PORTAL_CONFIRM: "你确定要从角色中删除这些门户吗？",
+	ROLEMGR_DEGRANT_PORTAL_SUCCESS: "从角色中删除这些门户成功。",
+
+	ROLEMGR_BY_PORTAL: "根据门户授权",
+	ROLEMGR_BY_DIR: "根据目录授权",
+	ROLEMGR_PORTAL_DIR_NAME: "门户目录名",
+
+	ROLEMGR_ADD_MENU_PRIV_SUCCESS: "成功添加角色菜单权限。",
+	ROLEMGR_RM_MENU_PRIV_CONFIRM: "你确定要从角色中删除这些菜单权限吗？",
+	ROLEMGR_RM_MENU_PRIV_SUCCESS: "从角色中删除这些菜单权限成功。",
+	ROLEMGR_EDIT_PRIV_LEVEL_SUCCESS: "成功修改角色的菜单权限等级",
+
+	ROLEMGR_PORTAL_DIR_MENU_NAME: "门户目录菜单名",
+	ROLEMGR_ADD_COMP_PRIV_SUCCESS: "成功给角色增加组件权限。",
+	ROLEMGR_RM_COMP_PRIV_CONFIRM: "你确定要把此页面组件权限从该角色中删除吗？",
+	ROLEMGR_RM_COMP_PRIV_SUCCESS: "成功从角色中删除此页面组件权限。",
+
+	ROLEMGR_DATA_MGR: "新增数据权限到角色",
+	ROLEMGR_OWNED_DATA_PRIV: "拥有的数据权限",
+	ROLEMGR_UNOWNED_DATA_PRIV: "没有拥有的数据权限",
+	ROLEMGR_GRANT_DATA_SUCCESS: "给角色增加数据权限成功。",
+	ROLEMGR_RM_DATA_PRIV_CONFIRM: "你确定从当前角色中删除此用户权限吗？",
+	ROLEMGR_RM_DATA_PRIV_SUCCESS: "成功删除角色的数据权限。",
+
+	ROLEMGR_BY_TYPE: "根据类型授权",
+	ROLEMGR_TYPE_NAME: "类型名称",
+	ROLEMGR_PORTLET_NAME: "Portlet名称",
+	ROLEMGR_CLASS_NAME: "Class名称",
+	ROLEMGR_ADD_PORTLET_PRIV_SUCCESS: "成功给用户增加Portlet权限.",
+	ROLEMGR_RM_PORTLET_PRIV_CONFIRM: "确定要从该用户中删除Portlet权限吗？",
+	ROLEMGR_RM_PORTLET_PRIV_SUCCESS: "成功从该用户中删除Portlet权限。",
+	ROLEMGR_HOLD: "默认拥有",
+	ROLEMGR_URL: "URL",
+	ROLEMGR_PRIV_LEVEL: "权限级别",
+	
+	ROLEMGR_PRIV_POINT: "权限点",
+	ROLEMGR_PRIV_PATTERN: "url(ant匹配模式)",
+	ROLEMGR_PRIV_ADD: "新增服务权限",
+	ROLEMGR_PRIV_REFRESH: "刷新缓存",
+	ROLEMGR_PRIV_DEL_CONFIRM: "确认删除此服务权限?",
+	ROLEMGR_PRIV_REFRESH_SUCCESS: "刷新服务权限缓存成功",
+	ROLEMGR_PRIV_NAME_NON_EMPTY: "权限点名称不能为空，请重新输入!"
+});

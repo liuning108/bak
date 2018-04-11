@@ -1,0 +1,6 @@
+[{
+	"areamgr": "stafforg/modules/areamgr/i18n/areamgr",
+	"featuremgr": "stafforg/modules/featuremgr/i18n/featuremgr",
+	"jobmgr": "stafforg/modules/jobmgr/i18n/jobmgr",
+	"stafforg": "stafforg/modules/stafforg/i18n/stafforg"
+}]

@@ -1,0 +1,170 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal js-user-query">
+			<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_NAME}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="userName" class="form-control">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_CODE}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="userCode" class="form-control">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_DEFAULT_PORTAL}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="portalId" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{COMMON_STATE}}</label>
+					<div class="col-md-8 col-sm-8">
+						<select name="state" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="A" selected="selected">{{COMMON_ACTIVE}}</option>
+							<option value="X">{{COMMON_INACTIVE}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{COMMON_LOCKED}}</label>
+					<div class="col-md-8 col-sm-8">
+						<select name="isLocked" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="Y">{{COMMON_YES}}</option>
+							<option value="N">{{COMMON_NO}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+						<button type="button" class="btn btn-primary btn-min-width js-query" role-priv="GET-/users">{{COMMON_QUERY}}</button>
+						<button type="reset" class="btn btn-default btn-min-width">{{COMMON_RESET}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
+<div class="grid js-user-grid grid-height-sm"></div>
+<div class="panel panel-default">
+	<div class="panel-heading"><h4 class="panel-title">{{COMMON_DETAIL}}</h4></div>
+	<div class="panel-body">
+		<form class="form-horizontal js-user-detail">
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group required">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_NAME}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="userName" class="form-control" data-rule="{{USERMGR_USER_NAME}}:required;length[1~60, true]">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group required">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_CODE}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="userCode" class="form-control" data-rule="{{USERMGR_USER_CODE}}:required;length[1~60, true]">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group required">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_EFF_DATE}}</label>
+						<div class="col-md-8 col-sm-8">
+							<div class="input-group">
+								<input class="form-control" name="userEffDate" data-rule="{{USERMGR_EFF_DATE}}:required;match[lt, userExpDate, date]">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="no-padding js-eff-check" style="display:none;">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="userEffNow">{{USERMGR_EFF_NOW}}
+									</label>
+							     </div>
+							 </div>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_EXP_DATE}}</label>
+						<div class="col-md-8 col-sm-8">
+							<div class="input-group">
+								<input class="form-control" name="userExpDate" data-rule="{{USERMGR_EXP_DATE}}:match[gt,userEffDate, date]">
+							</div>
+						</div>
+					</div>
+				</div>	
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label" title="{{USERMGR_CONTACT_INFO}}">{{USERMGR_CONTACT_INFO}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="address" class="form-control" data-rule="length[1~255, true]">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_PHONE}}</label>
+						<div class="col-md-8 col-sm-8">
+								<input class="form-control" name="phone">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group hasEmail">
+						<label class="col-md-4 col-sm-4 control-label">{{USERMGR_EMAIL}}</label>
+						<div class="col-md-8 col-sm-8">
+								<input class="form-control" name="email">
+						</div>
+					</div>
+				</div>			
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="control-label col-md-4 col-sm-4">{{COMMON_REMARKS}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="memo" class="form-control" data-rule="length[1~255, true]">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6 col-md-offset-8 col-sm-offset-8">
+					<div class="form-group">
+						<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+							<button type="button" class="btn btn-primary btn-min-width js-user-new">{{COMMON_NEW}}</button>
+							<button type="button" class="btn btn-primary btn-min-width js-user-edit">{{COMMON_EDIT}}</button>
+						</div>
+						<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 display-none">
+							<button type="button" class="btn btn-primary btn-min-width js-user-ok">
+								{{COMMON_OK}}
+							</button>
+							<button type="button" class="btn btn-default btn-min-width js-user-cancel">
+								{{COMMON_CANCEL}}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

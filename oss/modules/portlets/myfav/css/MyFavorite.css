@@ -1,0 +1,12 @@
+.myfav .list-group {
+	display: none;
+}
+.myfav .grid-group {
+	display: block;
+}
+.myfav.myfavList .list-group {
+	display: block;
+}
+.myfav.myfavList .grid-group {
+	display: none;
+}

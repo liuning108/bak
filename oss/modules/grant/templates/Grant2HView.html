@@ -1,0 +1,44 @@
+<div class="ui-dialog dialog-lg">
+	<div class="modal-header">
+		<h4 class="modal-title">{{GRANT_HEADER_TITLE}}</h4>
+	</div>
+	<div class="modal-body">
+		<div class="modal-info-bar js-top">
+		</div>
+		<div class="clearfix">
+			<div class="role-priv-container">
+				<div class="grid grant-grid-l grid-height-md"></div>
+			</div>
+			<div class="role-priv-btn-container">
+				<div class="btn-separate-group-vertical js-transfer">
+					{{#if multisel}}
+					<button type="button" class="btn js-rd" disabled="disabled">
+						<span class="iconfont icon-double-angle-right"></span>
+					</button>
+					{{/if}}
+					<button type="button" class="btn js-rs" disabled="disabled">
+						<span class="iconfont icon-angle-right"></span>
+					</button>
+					<button type="button" class="btn js-ls" disabled="disabled">
+						<span class="iconfont icon-angle-left"></span>
+					</button>
+	                {{#if multisel}}
+					<button type="button" class="btn js-ld" disabled="disabled">
+						<span class="iconfont icon-double-angle-left"></span>
+					</button>
+					{{/if}}
+				</div>
+			</div>
+			<div class="role-priv-container">
+				<div class="grid grant-grid-r grid-height-md"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer display-none">
+		<div class="col-md-8 col-sm-6"></div>
+		<div class="col-md-4 col-sm-6">
+			<button type="button" class="btn btn-primary btn-min-width js-dialog-ok" autofocus>{{COMMON_OK}}</button>
+			<button type="button" class="btn btn-default btn-min-width js-dialog-cancel" data-dismiss>{{COMMON_CANCEL}}</button>
+		</div>
+	</div>
+</div>

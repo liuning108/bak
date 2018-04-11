@@ -1,0 +1,51 @@
+<div class="grid js-tmpl-grid grid-height-sm"></div>
+<div class="panel panel-default">
+	<div class="panel-heading"><h4 class="panel-title">{{COMMON_DETAIL}}</h4></div>
+	<div class="panel-body">
+		<form class="form-horizontal js-tmpl-detail">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-6 col-sm-6 control-label">{{BULLETIN_CONFIG_TMPL_NAME}}</label>
+						<div class="col-md-6 col-sm-6">
+							<input name="templateName" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-6 col-sm-6 control-label">{{BULLETIN_CONFIG_TMPL_DESC}}</label>
+						<div class="col-md-6 col-sm-6">
+							<input name="comments" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-sm-12">
+					<div class="form-group">
+						<label class="col-md-3 col-sm-3 control-label">{{BULLETIN_CONFIG_TMPL_CONTENT}}</label>
+						<div class="col-md-9 col-sm-9">
+							<textarea name="content" class="form-control"/>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-12 col-sm-12">
+					<div class="form-group">
+						<div class="col-md-9 col-md-offset-3 col-sm-9 col-sm-offset-3">
+							<button type="button" class="btn btn-primary btn-min-width js-tmpl-new">{{COMMON_NEW}}</button>
+							<button type="button" class="btn btn-primary btn-min-width js-tmpl-edit">{{COMMON_EDIT}}</button>
+						</div>
+						<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4 display-none">
+							<button type="button" class="btn btn-primary btn-min-width js-tmpl-ok">
+								{{COMMON_OK}}
+							</button>
+							<button type="button" class="btn btn-default btn-min-width js-tmpl-cancel">
+								{{COMMON_CANCEL}}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

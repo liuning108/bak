@@ -1,0 +1,11 @@
+{{#each list}}
+<li>
+    <a class='panel' title="{{defaultTitle}}" id="{{portletId}}">
+        <span class='h1 panel-icon'>
+            <i class='{{#if icon}}{{icon}}{{else}}iconfont icon-page{{/if}}'></i>
+        </span>
+        <span class='text-ellipsis'>{{portletName}}</span>
+    </a>
+</li>
+{{/each}}
+

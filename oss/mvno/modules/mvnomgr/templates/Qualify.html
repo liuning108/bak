@@ -1,0 +1,314 @@
+<form class="form-horizontal js-mvno-detail">
+	<div class="row">
+		<!-- <div class="col-md-4 col-sm-6" style="display: none;">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_SPID}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="spId" class="form-control">
+				</div>
+			</div>
+		</div> -->
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_MVNO_NAME}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="spName" class="form-control" data-rule="required;length[1~60, true]">
+				</div>
+			</div>
+		</div>		
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_MVNO_CODE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="stdCode" class="form-control" data-rule="required;length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_MVNO_CONTACTS}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="contactName" class="form-control" data-rule="length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_MVNO_CONTACT_INFORMATION}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="contactInfo" class="form-control" data-rule="length[1~255, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNO_USER_NAME}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="userName" class="form-control userName" data-rule="{{USERMGR_USER_NAME}}:required;length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNO_USER_CODE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="userCode" class="form-control userCode" data-rule="{{USERMGR_USER_CODE}}:required;length[1~60, true]">
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_REVIEW}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select class="form-control" name="mvnoReview" placeholder="{{COMMON_PLS_SEL}}">
+						<option value="Y">{{COMMON_YES}}</option>
+						<option value="N">{{COMMON_NO}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_EXCHANGE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select class="form-control" name="mvnoExchange" placeholder="{{COMMON_PLS_SEL}}">
+						<option value="Y">{{COMMON_YES}}</option>
+						<option value="N">{{COMMON_NO}}</option>
+					</select>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_LEGAL_REPRESENTATIVE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoLegalRepresentative" class="form-control" data-rule="length[1~60, true]">
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_REGISTRATION_NUM}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoRegistrationNum" class="form-control" data-rule="length[1~255, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_REGISTRATION_ADDR}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoRegistrationAddr" class="form-control" data-rule="length[1~255, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_ENTERPRISE_SCALE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoEnterpriseScale" class="form-control" data-rule="length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_SECTOR}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoSector" class="form-control" data-rule="length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_MAIN_BUSINESS}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoMainBusiness" class="form-control" data-rule="length[1~255, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_FIXED_ASSETS}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="mvnoFixedAssets" class="form-control" data-rule="length[1~60, true]">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_LANGUAGE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select name="mvnoLanguage" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+						<option value="en">英语</option>
+						<option value="zh">汉语</option>
+						<option value="ru">俄语</option>
+						<option value="fr">法语</option>
+						<option value="de">德语</option>
+						<option value="el">希腊语</option>
+						<option value="hi">印度语</option>
+						<option value="ja">日语</option>
+						<option value="ko">韩语</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_TIME_ZONE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select name="mvnoTimeZone" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+						<option value="0">0时区</option>
+						<option value="1">东1区</option>
+						<option value="2">东2区</option>
+						<option value="3">东3区</option>
+						<option value="4">东4区</option>
+						<option value="5">东5区</option>
+						<option value="6">东6区</option>
+						<option value="7">东7区</option>
+						<option value="8">东8区</option>
+						<option value="9">东9区</option>
+						<option value="10">东10区</option>
+						<option value="11">东11区</option>
+						<option value="12">东12区</option>
+						<option value="13">西1区</option>
+						<option value="14">西2区</option>
+						<option value="15">西3区</option>
+						<option value="16">西4区</option>
+						<option value="17">西5区</option>
+						<option value="18">西6区</option>
+						<option value="19">西7区</option>
+						<option value="20">西8区</option>
+						<option value="21">西9区</option>
+						<option value="22">西10区</option>
+						<option value="23">西11区</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_CURRENCY}}</label>
+				<div class="col-md-8 col-sm-8">
+					<select name="mvnoCurrency" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="0">人民币</option>
+							<option value="1">美元</option>
+						</select>
+				</div>
+			</div>
+		</div>-->
+
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_REMARKS}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="comments" class="form-control" data-rule="length[1~255, true]">
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_LOGO_UPLOAD}}</label>
+				<div class="col-md-8 col-sm-8">
+					<div class="input-group">
+                        <input name="logo" class="form-control" readonly="readonly">
+                        <span class="input-group-addon fileinput-container fileinput-button">
+	                        <div class="fileinput-pick">
+	                            <i class="iconfont icon-file-import"></i>
+	                        </div>
+	                        <input type="file" name="file">
+	                    </span>
+                    </div>
+				</div>
+				<!-- <div class="col-md-6 col-sm-6">		
+					<input class="form-control" readonly="readonly" name="logo">
+				</div>
+				<span class="fileinput-button input-group-addon">
+                  附件
+                  <input id="js-input-file" class="js-fileupload" type="file" name="file">
+                </span> -->
+
+			</div>
+		</div>
+
+		<!--
+		<div class="col-md-12 col-sm-12">
+			<div class="row">
+				<div class="col-md-8 col-sm-6">
+					<div class="row">
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group">
+								<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_ADDRESS}}</label>
+								<div class="col-md-8 col-sm-8">
+									<select name="mvnoAddress" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+										<option value="0">中文格式（正序）</option>
+										<option value="1">英文格式（反序）</option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-12">
+							<div class="form-group">
+								<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_SET_RULES}}</label>
+								<div class="col-md-8 col-sm-8">
+									<input name="mvnoSetRules" class="form-control" data-rule="length[1~255, true]">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 col-sm-12">
+							<div class="form-group">
+								<label class="col-md-2 col-sm-2 control-label">{{MVNOMGR_QUALIFY_REMARKS}}</label>
+								<div class="col-md-10 col-sm-10">
+									<textarea name="comments" class="form-control" data-rule="length[1~255, true]"></textarea>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6" style="display:inline-block;">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label">{{MVNOMGR_QUALIFY_LOGO_UPLOAD}}</label>
+						<div class="col-md-6 col-sm-6">		
+							<input class="form-control" readonly="readonly" name="logo">
+						</div>
+						<span class="fileinput-button input-group-addon">
+                          附件
+                          <input id="js-input-file" class="js-fileupload" type="file" name="file">
+                        </span>
+
+						<div class="col-md-2 col-sm-2">
+							<span class="btn btn-primary fileinput-button btn-min-width pull-right">
+                                <span>{{MVNOMGR_UPLOAD}}</span>
+                            	<input name="file" class="fileinput-button" type="file">
+                            </span>
+                            <button class="fileinput-button" id="up_btn">Upload</button>
+						</div> 
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		-->
+		<div class="col-md-4 col-md-offset-8 col-sm-6 col-sm-offset-6">
+			<div class="form-group">
+				<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+					<button type="button" class="btn btn-primary btn-min-width js-mvno-new">{{COMMON_NEW}}</button>
+					<button type="button" class="btn btn-primary btn-min-width js-mvno-edit">{{COMMON_EDIT}}</button>
+				</div>
+				<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4" style="display:none">
+					<button type="button" class="btn btn-primary btn-min-width js-mvno-ok">
+						{{COMMON_OK}}
+					</button>
+					<button type="button" class="btn btn-default btn-min-width js-mvno-cancel">
+						{{COMMON_CANCEL}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

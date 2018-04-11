@@ -1,0 +1,23 @@
+<div class="ui-sidebar-wrapper">
+<div class="ui-sidebar">
+<ul class="ui-sidebar-menu">
+<li class="ui-sidebar-toggler-wrapper clearfix"><span class="iconfont icon-list ui-sidebar-toggler"></span></li>
+{{#recursive data}}
+<li>
+<a type={{type}} url='{{url}}' menuId={{partyId}} privCode='{{privCode}}'  menuType={{menuType}}>
+<i class="icon {{#if iconUrl}}{{iconUrl}}{{else}}{{#ifCond type '===' '1'}}iconfont icon-asterisk{{else}}iconfont icon-list{{/ifCond}}{{/if}}"><b class="left-bg-color"></b></i>
+{{#if children}}
+<span class="arrow pull-right js-menu-right glyphicon glyphicon-menu-right"><!-- <i class="iconfont icon-angle-down text"></i> --></span>
+{{/if}}
+<span class="title" title="{{partyName}}">{{partyName}}</span><span class="selected"></span>
+</a>
+{{#if children}}
+	<ul class="sub-menu">
+	{{{recursive children}}}
+	</ul>
+{{/if}}
+</li>
+{{/recursive}}
+</ul>
+</div>
+</div>

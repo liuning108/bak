@@ -1,0 +1,55 @@
+<div class="js-layout-left">
+    <div class="grid" id="portalList"></div>
+    <div class="panel panel-default js-panel">
+        <div class="panel-heading">
+            <h4 class="panel-title">{{COMMON_DETAIL}}</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" id="portalDetaiForm">
+                <div class="form-group required">
+                    <label for="inputPortalName" class="col-md-4 col-sm-4 control-label">
+                        {{PORTAL_NAME}}
+                    </label>
+                    <div class="col-md-8 col-sm-8">
+                        <input data-rule="{{PORTAL_NAME}}:required;length[1~255]" class="form-control" name="portalName" id="inputPortalName" placeholder="{{PORTAL_NAME}}">
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <label for="inputPortalUrl" class="col-md-4 col-sm-4 control-label">
+                        {{PORTAL_URL}}
+                    </label>
+                    <div class="col-md-8 col-sm-8">
+                            <input data-rule="{{PORTAL_URL}}:required;length[1~255]" class="form-control" name="url" id="inputPortalUrl" placeholder="{{PORTAL_URL}}">
+                        <!-- <input type="text" data-rule="{{PORTAL_URL}}:required" name="indexId" id="selPortalIndex" class="form-control" placeholder="{{COMMON_PLS_SEL}}" /> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputExtraUrl" class="col-md-4 col-sm-4 control-label">
+                        {{PORTAL_EXTRA_URL}}
+                    </label>
+                    <div class="col-md-8 col-sm-8">
+                        <input type="text" name="extraUrl" id="inputExtraUrl" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="selChannel" class="col-md-4 col-sm-4 control-label">
+                    </label>
+                    <div class="col-md-8 col-sm-8">
+                        <button type="button" class="btn btn-primary btn-min-width js-new">
+                            {{COMMON_NEW}}
+                        </button>
+                        <button type="button" class="btn btn-primary btn-min-width js-edit">
+                            {{COMMON_EDIT}}
+                        </button>
+                        <button type="button" class="btn btn-primary btn-min-width js-ok" title="{{COMMON_OK}}">
+                            {{COMMON_OK}}
+                        </button>
+                        <button type="button" class="btn btn-default btn-min-width js-cancel" title="{{COMMON_CANCEL}}">
+                            {{COMMON_CANCEL}}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

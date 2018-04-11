@@ -1,0 +1,70 @@
+<form class="form-horizontal js-form">
+    <div class="row">
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 control-label">
+                {{LOG_LOGIN_USER}}
+            </label>
+            <div class="col-md-8 col-sm-8">
+                <div class="input-group">
+                    <input name="partyCode" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 control-label">
+                {{LOG_EVENT_CODE}}
+            </label>
+            <div class="col-md-8 col-sm-8">
+                <input type="text" NAME="eventCode" class="form-control js-event-codes" placeholder="{{COMMON_PLS_SEL}}"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 control-label">
+                {{LOG_SRC_IP}}
+            </label>
+            <div class="col-md-8 col-sm-8">
+                <input type="text" NAME="srcIp" class="form-control">
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 control-label">
+                {{LOG_START_TIME}}
+            </label>
+            <div class="col-md-8 col-sm-8">
+                <div class="input-group">
+                    <input name="beginDate" class="form-control js-begin-login-date" type="text" data-rule="{{LOG_START_TIME}}:match[lt, endDate, date];">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <label class="col-md-4 col-sm-4 control-label">
+                {{LOG_END_TIME}}
+            </label>
+            <div class="col-md-8 col-sm-8">
+                <div class="input-group">
+                    <input name="endDate" class="form-control js-end-login-date" type="text" data-rule="{{LOG_END_TIME}}:match[gt, beginDate, date];">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-4">
+        <div class="form-group">
+            <div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4" style="float:right">
+                <button type="button" class="btn btn-primary btn-min-width js-query">{{COMMON_QUERY}}</button>
+                <button type="reset" class="btn
+                 btn-default btn-min-width">{{COMMON_RESET}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+<div class="grid js-login-log-grid"></div>

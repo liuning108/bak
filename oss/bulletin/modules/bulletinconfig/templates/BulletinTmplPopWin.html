@@ -1,0 +1,43 @@
+<div class="ui-dialog dialog-md">
+    <div class="modal-header">
+        <h4 class="modal-title">{{BULLETIN_CONFIG_TMPL_DEFINE}}</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal js-config-define">
+			<div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group required" >
+                        <label class="col-md-3 col-sm-3 control-label">{{BULLETIN_CONFIG_TMPL_NAME}}</label>
+                        <div class="col-md-9 col-sm-9">
+                            <input name="templateName" class="form-control" data-rule="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-3 control-label">{{BULLETIN_CONFIG_TMPL_DESC}}</label>
+                        <div class="col-md-9 col-sm-9">
+                            <textarea name="comments" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="col-md-3 col-sm-3 control-label">{{BULLETIN_CONFIG_TMPL_CONTENT}}</label>
+                        <div class="col-md-9 col-sm-9" id="content">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-min-width js-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>

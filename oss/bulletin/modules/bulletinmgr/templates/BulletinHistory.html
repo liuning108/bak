@@ -1,0 +1,171 @@
+<div class="panel panel-default">
+	<div class="panel-body">
+		<form class="form-horizontal js-bulletin-query">
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_TITLE}}</label>
+						<div class="col-md-8 col-sm-6">
+							<input name="title" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_LEVEL_NAME}}</label>
+						<div class="col-md-8 col-sm-6">
+							<input name="levelId" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_TYPE_NAME}}</label>
+						<div class="col-md-8 col-sm-6">
+							<input name="typeId" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_STATE}}</label>
+						<div class="col-md-8 col-sm-6">
+							<select name="state" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+								<option value="A">{{BULLETIN_STATE_PUBLISH}}</option>
+								<option value="C">{{BULLETIN_STATE_AUDIT}}</option>
+								<option value="S">{{BULLETIN_STATE_DRAFT}}</option>
+								<option value="N">{{BULLETIN_STATE_DISAPPROVE}}</option>
+								<option value="X">{{BULLETIN_STATE_DELETE}}</option>
+								<option value="R">{{BULLETIN_STATE_RETRIEVED}}</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_CREATE_DATE_FROM}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="startDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_CREATE_DATE_TO}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="endDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_EFF_DATE_FROM}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="effStartDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_EFF_DATE_TO}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="effEndDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_EXP_DATE_FROM}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="expStartDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_EXP_DATE_TO}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="expEndDate" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>		
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_CREATE_STAFF}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="staffId" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-6 control-label">{{BULLETIN_AUDIT_STAFF}}</label>
+						<div class="col-md-8 col-sm-6">
+							<div class="input-group">
+								<input name="auditStaffId" class="form-control">
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- col-md-4 end -->
+				<div class="col-md-4 col-sm-6">
+					<div class="form-group">
+						<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+							<button type="button" class="btn btn-primary btn-min-width js-query">{{COMMON_QUERY}}</button>
+							<button type="reset" class="btn btn-default btn-min-width">{{COMMON_RESET}}</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	
+</div>
+<div class="grid js-history-grid grid-height-sm"></div>	
+<div class="panel panel-default">		
+	<div class="panel-heading"><h4 class="panel-title">{{COMMON_DETAIL}}</h4></div>
+	<div class="panel-body">
+		<form class="form-horizontal js-bulletin-detail">
+			<div class="row">
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label">{{BULLETIN_TITLE}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="title" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="form-group">
+						<label class="col-md-4 col-sm-4 control-label">{{BULLETIN_CREATE_DATE}}</label>
+						<div class="col-md-8 col-sm-8">
+							<input name="createdDate" class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-sm-12">
+					<div class="form-group">
+						<label class="col-md-2 col-sm-2 control-label">{{BULLETIN_CONTENT}}</label>
+						<div class="col-md-10 col-sm-10">
+							<textarea name="contentText" class="form-control"/>
+						</div>
+					</div>
+				</div>			
+			</div>
+		</form>
+	</div>
+</div>

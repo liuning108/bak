@@ -1,0 +1,20 @@
+define({
+	PERSON_STAFF_NAME: "Staff Name",
+	PERSON_DEFAULT_PORTAL: "Default Portal",
+	PERSON_PHONE: "Phone",
+	PERSON_EMAIL: "Email",
+	PERSON_ADDRESS: "Address",
+	PERSON_PASSWORD: "Modify Password",
+	PERSON_CONTACTINFO: "Contact",
+	PERSON_USER_LOGS: "Logs",
+	PERSON_USER_DELEGATE: "Delegate",
+	PERSON_USER_MOD_SUCCESS: "Successfully modified",
+	PERSON_USER_DEL_SELECT: "Please select the data to be deleted",
+	PERSON_USER_DEL_CONFIRM: "OK to delete the data it？",
+	PERSON_USER_DEL_SUCCESS: "Delete Successfully",
+	PERSON_USER_ADD_VAILDATE: "Has reached the maximum number of delegates, can not add a delegate",
+	PERSON_USER_ADD_HAS: "The selected staff is already a delegate of you, please select again.",
+	PERSON_USER_ADD_EMPTY: "Please select at least one staff.",
+	LOG_SRC_IP: "Source IP",
+	LOG_LOG_DATE: "Log Date"
+});

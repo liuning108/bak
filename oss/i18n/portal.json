@@ -1,0 +1,21 @@
+[{
+	"common": "i18n/common",	
+	"componentmgr": "modules/componentmgr/i18n/componentmgr",
+	"designer": "modules/designer/i18n/designer",
+	"dirmenumgr": "modules/dirmenumgr/i18n/dirmenumgr",
+	"dynamicmenu": "modules/dynamicmenu/i18n/dynamic",
+	"index": "modules/index/i18n/index",
+	"login": "modules/login/i18n/login",
+	"logmgr": "modules/logmgr/i18n/logmgr",
+	"myfavmgr": "modules/myfavmgr/i18n/myfavmgr",
+	"personal": "modules/personal/i18n/person",
+	"portalindex": "modules/portal/i18n/portal",
+	"portalmgr": "modules/portalmgr/i18n/portalmgr",
+	"portletmgr": "modules/portletmgr/i18n/portletmgr",
+	"pwdmgr": "modules/pwdmgr/i18n/pwd",
+	"rolemgr": "modules/rolemgr/i18n/rolemgr",
+	"systemparametersmgr": "modules/sysparam/i18n/systemparametersmgr",
+	"seuritymgr": "modules/sysparam/i18n/securitymgr",
+	"uscerhis": "modules/userhis/i18n/userhis",
+	"usermgr": "modules/usermgr/i18n/usermgr"
+}]

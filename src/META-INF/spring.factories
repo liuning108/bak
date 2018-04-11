@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.ztesoft.zsmart.oss.opb.common.config.CommonConfiguration

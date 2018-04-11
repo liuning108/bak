@@ -1,0 +1,139 @@
+<div class="ui-dialog dialog-lg">
+<div class="modal-header">
+	<h4 class="modal-title">{{ROLE_DATA_PRIV_MGR}}</h4>
+</div>
+<div class="modal-body">
+	<form class="form-horizontal js-qry-cond">
+		<div class="row">
+			<div class="col-md-4 col-sm-12">
+				<div class="form-group">
+					<label class="col-md-5 col-sm-5 control-label">{{ROLEMGR_ROLE_NAME}}</label>
+					<div class="col-md-7 col-sm-7">
+						<input name="roleName" class="form-control">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12">
+				<div class="form-group">
+					<label class="col-md-5 col-sm-5 control-label">{{ROLEMGR_ROLE_CODE}}</label>
+					<div class="col-md-7 col-sm-7">
+						<input name="roleCode" class="form-control">
+					</div>
+				</div>
+			</div>
+	        <div class="col-md-4 col-sm-12">
+	        	<div class="form-group">
+					<label class="col-md-5 col-sm-5 control-label">{{DATAPRIVMGR_OWNED_PRIV}}</label>
+	        		<div class="col-md-7 col-sm-7">
+	        			<select name="ownedDataPriv" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="Y">{{COMMON_YES}}</option>
+							<option value="N">{{COMMON_NO}}</option>
+						</select>
+	        		</div>
+				</div>
+			</div>
+	        <div class="col-md-4 col-sm-12">
+	        	<div class="form-group">
+	        		<label class="col-md-5 col-sm-5 control-label">{{DATAPRIVMGR_OWNED_TYPE}}</label>
+	        		<div class="col-md-7 col-sm-7">
+	        			<select name="ownedType" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+	        				<option value="I">{{COMMON_INCLUDE}}</option>
+	        				<option value="N">{{COMMON_EXCLUDE}}</option>
+	        			</select>
+	        		</div>
+	        	</div>
+	        </div>
+			<div class="col-md-4 col-sm-12">
+				<div class="form-group">
+					<div class="col-md-7 col-md-offset-5 col-sm-5 col-sm-offset-5">
+						<button type="button" class="btn btn-primary btn-min-width js-query">{{COMMON_QUERY}}</button>
+						<button type="reset" class="btn btn-default btn-min-width js-btn-reset">{{COMMON_RESET}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+    </form>
+    <div class="grid gridpage-height-sm"></div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">{{COMMON_DETAIL}}</h4>
+		</div>
+		<div class="panel-body">
+		<form class="form-horizontal js-detail">
+			<div class="row">
+			<div class="col-md-6 col-sm-12">
+				<div class="form-group required">
+					<label class="col-md-5 col-sm-5 control-label">{{ROLEMGR_ROLE_NAME}}</label>
+					<div class="col-md-7 col-sm-7">
+						<input name="roleName" class="form-control" data-rule="{{ROLEMGR_ROLE_NAME}}:required;length[1~10]">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div class="form-group required">
+					<label class="col-md-5 col-sm-5 control-label" for="DT_USER_CODE">{{ROLEMGR_ROLE_CODE}}</label>
+					<div class="col-md-7 col-sm-7">
+						<input name="roleCode" id="DT_USER_CODE" class="form-control" data-rule="{{ROLEMGR_ROLE_CODE}}:required;length[1~10]">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<div class="form-group">
+					<label class="col-md-5 col-sm-5 control-label">{{DATA_PRIV_VALUE}}</label>
+					<div class="col-md-7 col-sm-7">
+						<input name="privValue" class="form-control">
+					</div>
+				</div>
+			</div>
+			<!-- <div class="col-md-6 col-sm-12">
+				<div class="form-group">
+        			<label class="col-md-5 col-sm-5 control-label">{{DATAPRIVMGR_OWNED_TYPE}}</label>
+        			<div class="col-md-7 col-sm-7">
+        				<select name="ownedType" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+        					<option value="I">{{COMMON_INCLUDE}}</option>
+        					<option value="N">{{COMMON_EXCLUDE}}</option>
+        				</select>
+        			</div>
+        		</div>
+        	</div> -->
+        	<div class="col-md-6 col-sm-12">
+        		<div class="form-group">
+        			<label class="col-md-5 col-sm-5 control-label">{{DATA_PRIV_NAME}}</label>
+        			<div class="col-md-7 col-sm-7">
+	        			<input name="dataPrivName" class="form-control">
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-6 col-sm-12">
+        		<div class="form-group">
+        			<label class="col-md-5 col-sm-5 control-label">{{DATA_TYPE}}</label>
+        			<div class="col-md-7 col-sm-7">
+        				<select name="dataType" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="L">{{DATAPRIVMGR_LIST}}</option>
+        					<option value="T">{{DATAPRIVMGR_TEXT}}</option>
+        				</select>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 col-sm-12">
+        		<div class="form-group">
+        			<label class="col-md-12 col-sm-12 control-label" style="width:20.83333%">{{DATA_SRC}}</label>
+        			<div class="col-md-12 col-sm-12" style="width:79.16666%">
+	        			<input name="dataSrc" class="form-control">
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-12 col-sm-12">
+        		<div class="form-group">
+        			<label class="col-md-12 col-sm-12 control-label" style="width:20.83333%">{{COMMON_REMARKS}}</label>
+        			<div class="col-md-12 col-sm-12" style="width:79.16666%">
+	        			<input name="comments" class="form-control">
+        			</div>
+        		</div>
+        	</div>
+        </div>
+		</form>
+	</div>
+	</div>
+</div>
+</div>

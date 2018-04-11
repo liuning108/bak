@@ -1,0 +1,189 @@
+/*------------------------login-------------------------------*/
+html,
+body {
+  height: 100%;
+}
+.container-main {
+  height: 100%;
+}
+.login {
+  margin-left: -4px;
+  margin-right: -4px;
+  height: 100%;
+  background-color: #2dc3e8;
+  color: #646464;
+  position: relative;
+}
+.login .login__logo {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  z-index: 1;
+}
+.login .login__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -240.5px 0 0 -368.5px;
+  width: 737px;
+}
+.login .login__footer {
+  position: absolute;
+  bottom: 0;
+  height: 160px;
+  line-height: 160px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  background-color: #fff;
+  z-index: 3;
+}
+.login-box {
+  width: 327px;
+  margin: 50px 0 0 15px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  float: left;
+}
+.login-box .login-box__title {
+  position: relative;
+  font-size: 26px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.login-box .login-language {
+  font-size: 13px;
+  margin-left: 15px;
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 25px;
+}
+.login-box .login-language > .caret {
+  margin: -2px 0 0 5px;
+}
+.login-box > .dropdown-menu {
+  left: 75px;
+  padding: 0;
+  min-width: 70px;
+  margin-top: -2px;
+}
+.login-box > .dropdown-menu > a {
+  padding: 5px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.login-box > .dropdown-menu > a:hover {
+  background-color: #2dc3e8;
+  color: #fff;
+}
+.login-box .form-error {
+  font-size: 12px;
+  color: #fb6e52;
+}
+.login-box form {
+  padding: 0;
+  border: 0;
+}
+.login-box form .form-control-prompt,
+.login-box form .form-control-feedback {
+  top: 3px;
+  font-size: 15px;
+  color: #c9c9c9;
+  line-height: 26px;
+}
+.login-box form .btn {
+  padding: 10px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.login-box form input[type="checkbox"] {
+  margin: -5px 5px 0 0;
+  vertical-align: middle;
+}
+.login-box .form-control {
+  border: 1px solid #e3e3e3;
+  padding: 7px 35px;
+  height: 32px;
+  font-size: 15px;
+  border-radius: 0 0 3px 3px ;
+  box-shadow: none;
+}
+.login-box .form-control:focus {
+  outline: 0;
+  box-shadow: none;
+}
+.login-box .form-group {
+  position: relative;
+  margin: 0;
+}
+.login-box .form-group:first-child .form-control {
+  border-radius: 3px 3px 0 0;
+  border-bottom-color: transparent;
+}
+.login-box .form-group:nth-child(3) {
+  margin-top: 10px;
+}
+.login-box .form-group:nth-child(3) .form-control {
+  border-radius: 3px;
+}
+.login-box .form-group:nth-child(3) > .col-md-8 {
+  padding: 0;
+}
+.login-box .form-group:nth-child(3) > .col-md-4 {
+  padding-right: 0;
+}
+.login-box .form-group.focus .form-control {
+  border-color: #2dc3e8;
+}
+.login-box .form-group .form-control-prompt {
+  left: 5px;
+  font-size: 20px;
+}
+.login-box .form-group .form-control-feedback {
+  right: 5px;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.login-box .img-verify-code {
+  padding: 2px 12px 4px;
+  border: 1px solid #e3e3e3 !important;
+}
+.pwd-security {
+  height: 60px;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 10px 0 0 44px;
+  background-color: #fafafa;
+}
+.pwd-security-error {
+  color: #e64737;
+}
+.pwd-security-warning {
+  color: #f39c12;
+}
+.pwd-security-suc {
+  color: #27ae60;
+}
+.pwd-security-higher {
+  color: #16A085;
+}
+.pwd-progressbar {
+  height: 9px;
+  width: 90%;
+  border-radius: 9px;
+  background-color: #dcdcdc;
+  border: 0;
+}
+.pwd-progressbar.error .ui-progressbar-value {
+  background-color: #e64737;
+}
+.pwd-progressbar.warning .ui-progressbar-value {
+  background-color: #f39c12;
+}
+.pwd-progressbar.success .ui-progressbar-value {
+  background-color: #27ae60;
+}
+.pwd-progressbar.higher .ui-progressbar-value {
+  background-color: #1abc9c;
+}

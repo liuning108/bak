@@ -1,0 +1,20 @@
+.config-nav-status-variant(@status-color) {
+  color: @status-color;
+  .mvno-config-nav-icon,
+  .badge-circle {
+    color: @status-color;
+  }
+  .step-progress {
+    background-color: @status-color;
+  }
+}
+.module-status-variant(@status-color) {
+  color: @status-color;
+  border: 1px solid @status-color;
+  .badge {
+    display: block;
+  }
+  .badge-circle {
+    color: @status-color;
+  }
+}

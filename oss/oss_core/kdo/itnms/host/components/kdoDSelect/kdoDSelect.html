@@ -1,0 +1,47 @@
+<div class="kdoDSelect">
+  <div class="row">
+    <div class="col-md-5">
+      <div class="row">
+        <div class="form-group">
+          <input type="text" class="filterName filterInput LF" name="FilterName" placeholder="搜索L" >
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-5">
+      <div class="row">
+        <div class="form-group">
+          <input type="text" class="filterName filterInput RF" name="FilterName" placeholder="搜索R">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row " style="height:100px">
+      <div class="col-md-5" style="padding:0px">
+        <select  class="lSelect" autocomplete="off" multiple="multiple" size="5" style="width:100%">
+          {{#each L}}
+          <option value="{{value}}" data-name="{{name}}">
+             {{name}}
+          </option>
+          {{/each}}
+
+        </select>
+      </div>
+      <div class="col-md-2" style="padding:0px;">
+         <div class="kk">
+           <div class="btn k ROp"><i class="glyphicon glyphicon-triangle-right "></i></div>
+           <div class="btn k LOp"><i class="glyphicon glyphicon-triangle-left  "></i></div>
+          </div>
+      </div>
+      <div class="col-md-5" style="padding:0px">
+      <select class="rSelect" autocomplete="off" multiple="multiple" size="5" style="width:100%">
+        {{#each R}}
+        <option value="{{value}}" data-name="{{name}}">
+           {{name}}
+        </option>
+        {{/each}}
+      </select>
+      </div>
+  </div>
+</div>

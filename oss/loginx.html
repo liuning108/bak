@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Portal</title>
+    <link rel="stylesheet" href="styles/fonts/iconfont/css/iconfont.css?v=9.1.0">
+    <link id="themesCss" rel="stylesheet" href="frm/fish-desktop/css/fish-desktop-portal.min.css?v=9.1.0">
+    <link id="loginCss" rel="stylesheet" href="styles/login-x.css?v=9.1.0">
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <script type="text/javascript" src="frm/fish-desktop/js/fish-desktop-all.js?v=9.1.0"></script>
+    <script type="text/javascript" src="frm/fish-desktop/locale/fish-desktop-locale.zh.min.js?v=9.1.0" charset="UTF-8"></script>
+    <script type="text/javascript" src="frm/portal/fish-desktop-require.js?v=9.1.0" data-main="loginx.js?v=9.1.0"></script>
+    <!--[if IE 8]>
+    <script type="text/javascript" src="frm/fish-desktop/libs/bootstrap/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="login">
+<div class="login__logo">
+    <img src="modules/images/portal-x/logo.png">
+</div>
+<div class="login__content">
+    <!-- <img src="modules/images/login.png" class="pull-left"> -->
+    <div class="login-text">
+        <ul>
+            <li>
+                <div class="login-text__icon texticon-design"></div>
+                <div class="login-text__con">
+                    <div class="login-text__con-head">Secure platform</div>
+                    <div class="login-text__con-body">Spacial is the perfect solution for web developers and designers.</div>
+                </div>
+            </li>
+            <li>
+                <div class="login-text__icon texticon-doing"></div>
+                <div class="login-text__con">
+                    <div class="login-text__con-head">Looks great anywhere</div>
+                    <div class="login-text__con-body">Pick the pages that describe your business the best and improve your users experience. </div>
+                </div>
+            </li>
+            <li>
+                <div class="login-text__icon texticon-monitor"></div>
+                <div class="login-text__con">
+                    <div class="login-text__con-head">Great design great outcome</div>
+                    <div class="login-text__con-body">Spacial is designed to make showing off your best projects extremely fast and simple.</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="login-box">
+        <div class="login-box__title js-can-choose">
+            <span class="login-language js-login-language pull-right" data-toggle="dropdown"></span>
+            <ul class="dropdown-menu js-login-ul pull-right" role="menu">
+            </ul>
+        </div>
+        <p class="form-error" id="errorMessageSpan"></p>
+        <form class="form-horizontal" id="loginForm" autocomplete="off" action="login" method="post">
+            <div class="form-group js-input-focus">
+                <span class="iconfont icon-user form-prompt"></span>
+                <input class="form-control js-toggle-focus" id="inputUserName" name="inputUserName" placeholder="{{LOGIN_USERNAME}}" autocomplete="off">
+                <!-- <span class="glyphicon glyphicon-remove-sign form-control-feedback js-del-user-name"></span> -->
+            </div>
+            <div class="form-group js-input-focus">
+                <span class="iconfont icon-lock form-prompt"></span>
+                <input type="password" class="form-control js-toggle-focus" id="inputPassword" name="inputPassword" placeholder="{{LOGIN_PASSWORD}}" autocomplete="off">
+                <!-- <span class="glyphicon glyphicon-remove-sign form-control-feedback js-del-pwd"></span> -->
+            </div>
+            <div class="form-group js-verify-code js-input-focus">
+                <div class="col-md-8">
+                    <input id="verificationCode" class="form-control js-toggle-focus" placeholder="{{LOGIN_VERIFY_CODE}}" />
+                </div>
+                <div class="col-md-4">
+                    <img id="imgVerifyCode" class="form-control img-verify-code"/>
+                </div>
+            </div>
+            <button id="btnLogin" type="submit" class="btn btn-block">
+                {{LOGIN_LOGIN}}
+            </button>
+        </form>
+    </div>
+</div>
+<div class="login__footer">
+    {{LOGIN_FOOTER}}
+</div>
+</div>
+</body>
+</html>

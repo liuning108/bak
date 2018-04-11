@@ -1,0 +1,15 @@
+<div class="kdoTabs">
+   <div class="kdo-header">
+     {{#each data}}
+     <div class="kdo-tab" data-index="{{@index}}">{{name}}</div>
+    {{/each}}
+     {{#if isMore}}
+     <div class="kdo-more" data-index="{{@index}}">
+       {{more.name}}
+     </div>
+     {{/if}}
+   </div>
+   <div class="kdo-tabl-context">
+
+   </div>
+</div>
