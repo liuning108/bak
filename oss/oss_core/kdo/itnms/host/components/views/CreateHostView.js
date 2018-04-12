@@ -59,13 +59,38 @@ define([
      })
   }
   CreateHostView.prototype.renderHostPage=function(pageHostData,$el){
+    var self = this;
     console.log(pageHostData);
     this.hostPageView =new HostPageView({
        el: $el,
       'hostObj':this.option.hostObj,
-      'pageHostData':pageHostData
+      'pageHostData':pageHostData,
+      'parent':self
     })
     this.hostPageView.render();
+  }
+
+  CreateHostView.prototype.done=function(){
+    var self =this;
+    var baseInfo = this.hostPageView.getInfo();
+    alert('baseInfo')
+    console.log(baseInfo);
+    action.saveOrUpHost(baseInfo).then(function(data){
+      if(data.error){
+        fish.toast('error', data.error.message+"/n"+data.error.data);
+      }else{
+         fish.toast('info', 'succeed');
+         console.log("dfdsfdsfsd");
+         console.log(self.option.parent);
+
+         self.option.parent.render();
+      }
+    })
+  }
+
+  CreateHostView.prototype.cancel=function(){
+    var self =this;
+    self.option.parent.render();
   }
   CreateHostView.prototype.getEmptyHostObject=function(){
     return {
@@ -102,6 +127,17 @@ define([
           "main": "1",
           "interfaceid": "24",
           "type": "1",
+          "bulk": "1"
+        },
+        {
+          "port": "10050",
+          "ip": "127.0.0.1",
+          "useip": "1",
+          "dns": "www.sina.com",
+          "hostid": "10275",
+          "main": "1",
+          "interfaceid": "24",
+          "type": "2",
           "bulk": "1"
         }
       ],

@@ -92,6 +92,7 @@ public class DefaultZabbixApi implements ZabbixApi  {
 			byte[] data = EntityUtils.toByteArray(entity);
 			return (JSONObject) JSON.parse(data);
 		} catch (IOException e) {
+			e.printStackTrace(); 
 			throw new RuntimeException("DefaultZabbixApi call exception!", e);
 		}
 	}

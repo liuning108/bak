@@ -63,6 +63,25 @@ public class HostController {
 		return  hostApiService.getAllProxy();
 	}
 	
+	@RequestMapping(value = "saveOrUpHost", method = RequestMethod.POST)
+	@PublicServ
+   public JSONObject  saveOrUpHost(@RequestBody Map<String,Object> param)  throws BaseAppException {
+	return hostApiService.saveOrUpHost(param);	
+	}
+	@RequestMapping(value = "deleteHost", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject deleteHost(@RequestBody Map<String,Object> param) throws BaseAppException {
+		return hostApiService.deleteHost(param);
+  
+	}
+	
+	@RequestMapping(value = "getHostByid", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject getHostByid(@RequestBody Map<String,Object> param) throws BaseAppException {
+		String id = (String)param.get("id");
+		return hostApiService.getHostByid(id);
+  	}
+	
 	
 	
 	

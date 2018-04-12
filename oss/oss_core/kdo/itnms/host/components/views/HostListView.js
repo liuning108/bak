@@ -40,6 +40,7 @@ define([
       $(this.option.el).html("");
     }
     HostListView.prototype.afterRender = function() {
+
       var self = this;
       var $el = $(this.option.el);
       self.createHostEvent();
@@ -78,11 +79,26 @@ define([
       var self = this;
       var $el = $(this.option.el);
       $el.find('.createHost').off('click').on('click', function() {
-          self.remove();
-        var createHostView = new CreateHostView({el: $el})
-        createHostView.render();
+        self.remove();
+        self.option._filterParam = {
+          name: '',
+          ip: '',
+          dns: '',
+          port: ''
+        };
+        self.createHostViewRender();
       })
 
+    }
+    HostListView.prototype.createHostViewRender=function(d) {
+      var self =this;
+      var $el = $(this.option.el);
+      var createHostView = new CreateHostView({
+          el: $el,
+         "parent":self,
+         "hostObj":d
+       })
+      createHostView.render();
     }
     HostListView.prototype.createListTable = function() {
       var self = this;
@@ -114,6 +130,13 @@ define([
 
           $el.find('.hostListGrid').find('.hostOp').parent().css('overflow', "visible");
           if($el.find('.hostListGrid').find('.hostOp').find(".dropdown").length<=0) return;
+          $el.find('.hostListGrid').find('.hostOp').find('.hostRemove').off('click').on('click',function(){
+            self.removeHost($(this).data('id'));
+          })
+          $el.find('.hostListGrid').find('.hostOp').find('.hostUpdate').off('click').on('click',function(){
+            self.hostUpdate($(this).data('id'));
+          })
+
            $(".dropdown").on("dropdown:open",function () {
               var $ul = $(this).children(".dropdown-menu");
               var $button = $(this).children(".dropdown-toggle");
@@ -170,7 +193,7 @@ define([
             align: "center",
             'title': false,
             formatter: function(cellval, opts, rwdat, _act) {
-              return self.hostOp(cellval);
+              return self.hostOp({'id':cellval});
             }
           }
 
@@ -238,6 +261,30 @@ define([
       })
 
     }
+
+    HostListView.prototype.removeHost=function(id) {
+      var self=this;
+      var sid=""+id
+      fish.confirm('Delete selected hosts?').result.then(function() {
+           action.deleteHost({'ids':[sid]}).then(function(){
+             fish.toast('success','Host deleted');
+             self.loadData();
+           })
+       });
+
+    }
+
+    HostListView.prototype.hostUpdate=function(id) {
+        var sid=""+id
+       action.getHostByid(sid).then(function(data) {
+         alert('getHostByid')
+         console.log("getHostByid");
+         console.log(data);
+       })
+
+    }
+
+
     return HostListView;
 
   })

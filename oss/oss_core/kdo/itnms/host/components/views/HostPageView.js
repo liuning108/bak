@@ -30,6 +30,9 @@ define([
     this.$el.find('.stepUp').off('click').on('click',function(){
       self.stepUp($(this))
     })
+    this.$el.find('.hostPageCancel').off('click').on('click',function(){
+      self.options.parent.cancel();
+    })
     this.renderHostBaseInfo();
     this.renderGroup()
     this.renderInderface();
@@ -50,9 +53,9 @@ define([
     this.hostProxy.combobox('value', proxyId);
   }
   HostPageView.prototype.renderInderface=function() {
-
     this.interfaceView=new InterfaceView({
       'el':this.$el.find('.Step2Page'),
+      'data':this.options.hostObj.interfaces
     })
     this.interfaceView.render()
 
@@ -75,6 +78,7 @@ define([
 
   }
   HostPageView.prototype.stepNext=function(_this){
+    var self =this;
     var $ws =this.$el.find('.kdoWizardSteps')
    //把当前的状态设置为complete,当前显示的页面为hide
    var curState =this.state.data[this.state.curIndex];
@@ -97,10 +101,28 @@ define([
   var curView =$ws.find(nextState).data('view');
   this.$el.find(curView).show();
    if(!nextState){
-     alert('done');
+      self.done();
      this.state.curIndex=this.state.curIndex-1;
    }
 
+  }
+
+  HostPageView.prototype.done=function(){
+       this.options.parent.done();
+  },
+
+  HostPageView.prototype.getInfo =function(){
+    var info = {};
+    info.host=this.$el.find('.hostHost').val();
+    info.name=this.$el.find('.hostName').val();
+    info.proxy_hostid=this.hostProxy.combobox('value');
+    info.status=this.$el.find("input[name='offon']:checked").val();
+    info.description=this.$el.find('.HostDesc').val();
+    info.groups=fish.map(this.group.val(),function(d){
+        return {'groupid':d.value}
+    });
+    info.interfaces=this.interfaceView.getInfo();
+    return info;
   }
 
   HostPageView.prototype.stepUp=function(_this){
