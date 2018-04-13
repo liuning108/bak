@@ -84,8 +84,8 @@ define([
     KdoDSelect.prototype.val=function(){
         return fish.map(this.$el.find('.lSelect').find('option'),function(dom){
               return {
-                 name: $(dom).data('name'),
-                 value: $(dom).val()
+                 name: $(dom).data('name')+"",
+                 value: $(dom).val()+""
               }
         });
     }
@@ -93,8 +93,8 @@ define([
     KdoDSelect.prototype.valR=function(){
         return fish.map(this.$el.find('.rSelect').find('option'),function(dom){
               return {
-                 name: $(dom).data('name'),
-                 value: $(dom).val()
+                 name: $(dom).data('name')+"",
+                 value: $(dom).val()+""
               }
         });
     }

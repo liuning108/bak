@@ -108,18 +108,28 @@ public class HostApiServiceImpl implements HostApiService{
 	@Override
 	public JSONObject saveOrUpHost(Map<String, Object> param) {
    System.out.println(param);
+   
+     String hostid =(String)param.get("hostid");
      String host =(String)param.get("host");
      String name =(String)param.get("name");
      String proxy_hostid =(String)param.get("proxy_hostid");
+     if(proxy_hostid==null)proxy_hostid="0";
      String status=(String)param.get("status");
      String description= (String)param.get("description");
+    String method="host.update";
+    
+     if("none".equalsIgnoreCase(hostid)) {
+    	  method = "host.create";
+    	  hostid=null;
+     }
      List<String> groups =(List<String>)param.get("groups");
      List<Map<String,String>>  interfaces =(List<Map<String,String>>)param.get("interfaces");
      ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 	  zabbixApi.init();
 	  zabbixApi.login("Admin", "zabbix");
 			  Request getRequest = RequestBuilder.newBuilder()
-				.method("host.create")
+				.method(method)
+				                                 .paramEntry("hostid", hostid)
 				                                 .paramEntry("host", host)
 				                                 .paramEntry("name", name)
 				                                 .paramEntry("proxy_hostid", proxy_hostid)
@@ -148,6 +158,23 @@ public class HostApiServiceImpl implements HostApiService{
         com.alibaba.fastjson.JSONObject getResponse = zabbixApi.call(getRequest);
         zabbixApi.destroy();
 
+		  return getResponse;
+	}
+
+	@Override
+	public JSONObject changeHostStatus(Map<String, Object> param) {
+	    List<Map<String,String>>  hosts =(List<Map<String,String>>)param.get("hosts");
+		String status = (String)param.get("status");
+		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		  zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
+				  Request getRequest = RequestBuilder.newBuilder()
+					.method("host.massupdate")
+					                                 .paramEntry("hosts", hosts)
+					                                 .paramEntry("status", status)
+					.build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		  zabbixApi.destroy();
 		  return getResponse;
 	}
 	

@@ -23,6 +23,11 @@ define([],function() {
      },
      getHostByid:function(id){
       return fish.post("host/getHostByid",{"id":id});
+    },
+     changeHostStatus:function(hosts){
+      return fish.post("host/changeHostStatus",hosts);
      }
+
+
   }
 })

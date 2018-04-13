@@ -110,6 +110,11 @@ define([
     });
     var $item=$(this.itemTpl())
     el.append($item);
+    if(el.find('.kdoHostItemTr').length==1){
+      d.main=1;
+    }else{
+      d.main=0;
+    }
     this.initItemData($item,d)
     this.addItemEvent($item);
 

@@ -73,11 +73,9 @@ define([
   CreateHostView.prototype.done=function(){
     var self =this;
     var baseInfo = this.hostPageView.getInfo();
-    alert('baseInfo')
-    console.log(baseInfo);
     action.saveOrUpHost(baseInfo).then(function(data){
       if(data.error){
-        fish.toast('error', data.error.message+"/n"+data.error.data);
+        fish.toast('error', data.error.message+" : "+data.error.data);
       }else{
          fish.toast('info', 'succeed');
          console.log("dfdsfdsfsd");
@@ -97,15 +95,15 @@ define([
       "ipmi_privilege": "2",
       "maintenance_status": "0",
       "jmx_available": "0",
-      "errors_from": "1523354159",
+      "errors_from": "",
       "tls_psk_identity": "",
       "available": "2",
       "snmp_errors_from": "0",
       "flags": "0",
-      "hostid": "10275",
-      "description": "description",
+      "hostid": "none",
+      "description": "",
       "tls_issuer": "",
-      "error": "Get value from agent failed: cannot connect to [[127.0.0.1]:10050]: [111] Connection refused",
+      "error": "",
       "jmx_errors_from": "0",
       "proxy_hostid": "0",
       "maintenanceid": "0",
@@ -113,7 +111,7 @@ define([
       "ipmi_authtype": "-1",
       "ipmi_username": "",
       "snmp_disable_until": "0",
-      "host": "12",
+      "host": "",
       "tls_psk": "",
       "jmx_error": "",
       "jmx_disable_until": "0",
@@ -122,23 +120,9 @@ define([
           "port": "10050",
           "ip": "127.0.0.1",
           "useip": "1",
-          "dns": "www.sina.com",
-          "hostid": "10275",
+          "dns": "",
           "main": "1",
-          "interfaceid": "24",
           "type": "1",
-          "bulk": "1"
-        },
-        {
-          "port": "10050",
-          "ip": "127.0.0.1",
-          "useip": "1",
-          "dns": "www.sina.com",
-          "hostid": "10275",
-          "main": "1",
-          "interfaceid": "24",
-          "type": "2",
-          "bulk": "1"
         }
       ],
       "disable_until": "1523431345",
@@ -146,22 +130,15 @@ define([
       "snmp_error": "",
       "maintenance_type": "0",
       "tls_accept": "1",
-      "groups": [
-        {
-          "internal": "0",
-          "groupid": "16",
-          "name": "demo group",
-          "flags": "0"
-        }
-      ],
+      "groups": [],
       "snmp_available": "0",
       "templateid": "0",
       "ipmi_available": "0",
       "lastaccess": "0",
       "ipmi_password": "",
       "ipmi_error": "",
-      "name": "12",
-      "tls_connect": "1",
+      "name": "",
+      "tls_connect": "",
       "ipmi_disable_until": "0",
       "tls_subject": "",
       "status": "0"

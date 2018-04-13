@@ -113,6 +113,7 @@ define([
 
   HostPageView.prototype.getInfo =function(){
     var info = {};
+    info.hostid=this.options.hostObj.hostid;
     info.host=this.$el.find('.hostHost').val();
     info.name=this.$el.find('.hostName').val();
     info.proxy_hostid=this.hostProxy.combobox('value');

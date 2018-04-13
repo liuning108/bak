@@ -156,6 +156,11 @@
   border-bottom: 3px solid #43be7f;
 }
 
+.kdoGrid .ui-jqgrid-pager {
+  border: none;
+  border-top: 1px solid #e3e3e3;
+}
+
 .kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow td {
   height: 35px;
 }
@@ -357,4 +362,10 @@
 
 .kdoBtn i {
   margin-right: 5px;
+}
+
+.kdoPageBtn:hover, .kdoPageBtn:active, .kdoPageBtn:focus {
+  border-color: #d9dbdc;
+  background: #f3f4f4;
+  color: #717171;
 }

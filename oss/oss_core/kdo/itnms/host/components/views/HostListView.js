@@ -88,7 +88,55 @@ define([
         };
         self.createHostViewRender();
       })
+      $el.find('.kdoPageBtn').off('click').on('click',function() {
+        	var selrow =$el.find(".hostListGrid").grid("getCheckRows");
+          var evt =   $(this).data('bis')
+          var ids =fish.map(selrow,function(d){return {"hostid":d.id} })
+          if(ids.length>0){
+            self[evt](ids,selrow)
+          }
+      })
 
+    }
+
+    HostListView.prototype.changestatus=function(hosts,selrow,status,message){
+      var self =this;
+      action.changeHostStatus({
+        'hosts':hosts,
+        'status':status+""
+      }).then(function(){
+        var newSelrow=fish.each(selrow,function(d){
+              d.state=status;
+              self.$gird.grid("setRowData",d);
+         });
+         self.$gird.grid("setAllCheckRows",false);
+         fish.toast('success',message);
+
+      })
+    }
+    HostListView.prototype.enableHosts=function(hosts,selrow){
+      var self =this;
+      fish.confirm('Enable selected hosts?').result.then(function(){
+        self.changestatus(hosts,selrow,0,'Hosts enabled');
+      })
+    }
+
+    HostListView.prototype.disHosts=function(hosts,selrow){
+        var self =this;
+      fish.confirm('Disable selected hosts?').result.then(function() {
+        self.changestatus(hosts,selrow,1,'Hosts disabled');
+      })
+    }
+
+    HostListView.prototype.delHosts=function(hosts,selrow){
+      var self=this;
+      var ids = fish.map(hosts,function(d){return ""+d.id});
+      fish.confirm('Delete selected hosts?').result.then(function() {
+           action.deleteHost({'ids':ids}).then(function(){
+             fish.toast('success','Hosts deleted');
+             self.loadData();
+           })
+       });
     }
     HostListView.prototype.createHostViewRender=function(d) {
       var self =this;
@@ -126,6 +174,8 @@ define([
       var opt = {
         data: mydata,
         height: tableH,
+        pager: true,
+				multiselect:true,
         gridComplete: function() {
 
           $el.find('.hostListGrid').find('.hostOp').parent().css('overflow', "visible");
@@ -149,6 +199,15 @@ define([
           $(".dropdown").on("dropdown:close", function() {
               $(this).removeClass("dropup");
           });
+
+          $el.find(".hostListGrid").find('[type="checkbox"]').bind("change", function(e){
+							var selrow =$el.find(".hostListGrid").grid("getCheckRows");
+              if(selrow.length>0){
+                $el.find('.hostListBtn').show();
+              }else{
+                $el.find('.hostListBtn').hide();
+              }
+					});
         },
         colModel: [
           {
@@ -275,11 +334,13 @@ define([
     }
 
     HostListView.prototype.hostUpdate=function(id) {
+        var self =this;
         var sid=""+id
        action.getHostByid(sid).then(function(data) {
-         alert('getHostByid')
-         console.log("getHostByid");
-         console.log(data);
+         if(data.result.length>0){
+           var hostObj = data.result[0];
+           self.createHostViewRender(hostObj)
+         }
        })
 
     }

@@ -82,6 +82,13 @@ public class HostController {
 		return hostApiService.getHostByid(id);
   	}
 	
+	@RequestMapping(value = "changeHostStatus", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject changeHostStatus(@RequestBody Map<String,Object> param) throws BaseAppException {
+		return hostApiService.changeHostStatus(param);
+  	}
+	
+	
 	
 	
 	
