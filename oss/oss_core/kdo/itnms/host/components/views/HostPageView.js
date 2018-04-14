@@ -35,6 +35,7 @@ define([
     })
     this.renderHostBaseInfo();
     this.renderGroup()
+
     this.renderInderface();
   }
   HostPageView.prototype.renderHostBaseInfo=function(){
@@ -70,11 +71,34 @@ define([
     var GR = fish.map(this.options.pageHostData.allGroup.result,this.mapGroup);
     var LR = fish.map(this.options.hostObj.groups,this.mapGroup);
     this.group =new KdoDSelect({
-       el: this.$el.find('.Step1Page'),
+       el: this.$el.find('.Step1PageGroup'),
        L:LR,
        R:GR
      })
      this.group.render();
+    var treeData = fish.map(this.options.pageHostData.treeData,function(d){
+      var isParent = (d.pid==='R')?true:false;
+          return {
+            'id':d.id,
+            'pId':d.pid,
+            'name':d.name,
+            'open':true,
+            'disabled':isParent
+          }
+      })
+     var options = {
+        placeholder: "please select category",
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        fNodes :treeData
+    };
+    console.log("treeData heh");
+    console.log(treeData);
+
+     this.$el.find('.catalogtree').combotree(options);
 
   }
   HostPageView.prototype.stepNext=function(_this){

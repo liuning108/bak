@@ -11,4 +11,8 @@ public interface HostService {
 
 	public List<Map<String,Object>> getGroupidsBySubNo(String id)  throws BaseAppException;
 
+	public void bindCatalogAndGroup(String sId, String new_gid) throws BaseAppException;
+
+	public void unBindCatalogAndGroup(String sId, String new_gid) throws BaseAppException;
+
 }

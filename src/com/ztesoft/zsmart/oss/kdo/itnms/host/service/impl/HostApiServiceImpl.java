@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.flume.source.SyslogSourceConfigurationConstants;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.kdo.itnms.host.service.HostApiService;
+import com.ztesoft.zsmart.oss.kdo.itnms.host.service.HostService;
 import com.ztesoft.zsmart.oss.kdo.itnms.host.util.zabbixapi.Request;
 import com.ztesoft.zsmart.oss.kdo.itnms.host.util.zabbixapi.RequestBuilder;
 import com.ztesoft.zsmart.oss.kdo.itnms.host.util.zabbixapi.RequestBuilderWithArrayParams;
@@ -75,17 +78,20 @@ public class HostApiServiceImpl implements HostApiService{
 		  return getResponse;
 	}
 	
-	public static void main(String[] args) {
-		HostApiServiceImpl imp = new HostApiServiceImpl();
-//		System.out.println(imp.deleteHost(ids));
-		  List<String>ids= new ArrayList<String>();
-		  ids.add("1");
-		  String[] idsArray=new String[] {"1"};//ids.toArray(new String[ids.size()]);
-		  for(String a: idsArray) {
-			  System.out.println(a);
-		  }
-		  System.out.println(idsArray.toString());
+	public static void main(String[] args) throws BaseAppException {
+		HostApiService  imp = new HostApiServiceImpl();
+		HostService dao = new HostServiceImpl();
+//		JSONObject result = imp.addHostGroup("liuning_test_group_3");
+//		boolean isError = imp.isError(result);
+//		System.out.println(isError);
+//		String new_gid=(String)result.get("newGid");
+		String sId="A02";;
+		dao.bindCatalogAndGroup(sId,"11");
+		
+       
 	}
+
+	
 
 	@Override
 	public JSONObject getHostByid(String id) {
@@ -176,6 +182,32 @@ public class HostApiServiceImpl implements HostApiService{
 		 JSONObject getResponse = zabbixApi.call(getRequest);
 		  zabbixApi.destroy();
 		  return getResponse;
+	}
+
+	@Override
+	public JSONObject addHostGroup(String name) {
+		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		  zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
+				  Request getRequest = RequestBuilder.newBuilder()
+					.method("hostgroup.create")
+					                                 .paramEntry("name", name)
+					.build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		  zabbixApi.destroy();
+		  if(isError(getResponse))return getResponse;
+		
+		  Map<String,Object> result =(Map<String,Object>)getResponse.get("result");
+		  List<String> groupids  =( List<String>) result.get("groupids");
+		  getResponse.put("newGid", groupids.get(0));
+		  return getResponse;
+	}
+
+	@Override
+	public boolean isError(JSONObject result) {
+		// TODO Auto-generated method stub
+	    Object  o = result.get("error");
+		return (o==null)?false:true;
 	}
 	
 

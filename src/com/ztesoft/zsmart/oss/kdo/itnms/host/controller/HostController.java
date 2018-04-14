@@ -65,9 +65,29 @@ public class HostController {
 	
 	@RequestMapping(value = "saveOrUpHost", method = RequestMethod.POST)
 	@PublicServ
-   public JSONObject  saveOrUpHost(@RequestBody Map<String,Object> param)  throws BaseAppException {
-	return hostApiService.saveOrUpHost(param);	
+   public JSONObject  saveOrUpHost(@RequestBody Map<String,Object> param)  throws BaseAppException  {
+		String catalogId=(String)param.get("sId");
+		String group_name=(String)param.get("newg_name");
+		boolean isNewGroup = ("none".equalsIgnoreCase(catalogId))?false:true;
+	    String new_gid=null;
+		  if(isNewGroup) {
+			 JSONObject  new_group=hostApiService.addHostGroup(group_name);
+			  new_gid = new_group.getString("newGid");
+			    if(hostApiService.isError(new_group)) {
+			    	 return new_group;
+			    }
+			    hostService.bindCatalogAndGroup(catalogId, new_gid);
+		  }
+	    	JSONObject host=hostApiService.saveOrUpHost(param);	
+	    	if( hostApiService.isError(host) ) {
+			    if(isNewGroup) {
+			    	  //rollback
+			    	hostService.unBindCatalogAndGroup(catalogId, new_gid);
+			    }
+	    }
+	   return  host;
 	}
+
 	@RequestMapping(value = "deleteHost", method = RequestMethod.POST)
 	@PublicServ
 	public JSONObject deleteHost(@RequestBody Map<String,Object> param) throws BaseAppException {
@@ -85,8 +105,24 @@ public class HostController {
 	@RequestMapping(value = "changeHostStatus", method = RequestMethod.POST)
 	@PublicServ
 	public JSONObject changeHostStatus(@RequestBody Map<String,Object> param) throws BaseAppException {
+		
+		
 		return hostApiService.changeHostStatus(param);
   	}
+	
+	
+	@RequestMapping(value = "test", method = RequestMethod.GET)
+	@PublicServ
+	public void test() throws BaseAppException {
+		
+	
+		hostService.unBindCatalogAndGroup("A02_01", "11");
+	
+  	}
+	
+	
+	
+	
 	
 	
 	

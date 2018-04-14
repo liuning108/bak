@@ -13,4 +13,7 @@ public interface HostApiService {
   public JSONObject saveOrUpHost(Map<String, Object> param);
  public JSONObject deleteHost(Map<String, Object> param);
  public JSONObject changeHostStatus(Map<String, Object> param);
+ public JSONObject addHostGroup(String name);
+public boolean isError(JSONObject result);
+ 
 }

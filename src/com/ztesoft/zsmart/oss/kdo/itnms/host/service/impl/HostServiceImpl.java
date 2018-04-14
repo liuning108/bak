@@ -23,4 +23,18 @@ public class HostServiceImpl implements HostService {
         return dao.getGroupidsBySubNo(id);
 	}
 
+	@Override
+	public void bindCatalogAndGroup(String sId, String new_gid) throws BaseAppException {
+		// TODO Auto-generated method stub
+		HostDao dao = (HostDao) GeneralDAOFactory.create(HostDao.class, JdbcUtil.OSS_KDO);
+		 dao.bindCatalogAndGroup(sId,new_gid);
+	}
+
+	@Override
+	public void unBindCatalogAndGroup(String sId, String new_gid) throws BaseAppException {
+		// TODO Auto-generated method stub
+		HostDao dao = (HostDao) GeneralDAOFactory.create(HostDao.class, JdbcUtil.OSS_KDO);
+		 dao.unBindCatalogAndGroup(sId,new_gid);
+	}
+
 }

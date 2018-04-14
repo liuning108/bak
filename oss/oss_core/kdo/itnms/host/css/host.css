@@ -338,3 +338,13 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   margin-top: 10px;
   display: none;
 }
+
+.newHostGroupDiv {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.newHostGroupDiv .catlotree {
+  display: inline-block;
+  width: 300px;
+}

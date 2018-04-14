@@ -26,5 +26,33 @@ public class HostDaoMysqlImpl extends HostDao {
 				+ "where subTypes_No = ? ";
 		return this.queryForList(sql, id);
 	}
+
+	@Override
+	public void bindCatalogAndGroup(String sId, String new_gid) {
+		// TODO Auto-generated method stub
+		String id = this.geCatalogId(sId);
+		String sql ="insert into KDO_GROUPS_RELA (CATEGORY_NO,SUBTYPES_NO,GROUPID) values (?,?,?)";
+		int count =this.update(sql, new Object[] {id,sId,new_gid});
+		System.out.println(count);
+	
+	}
+	@Override
+	public String geCatalogId(String sId) {
+			String sql = "select  CATEGORY_NO id from KDO_SUBTYPES    where SUBTYPES_NO = ? ";
+			List<Map<String,Object>> list =this.queryForList(sql,sId);
+			if(list.size()>0) {
+				return (String)list.get(0).get("id");
+			}
+		return null;
+	}
+
+	@Override
+	public void unBindCatalogAndGroup(String sId, String new_gid) {
+		// TODO Auto-generated method stub
+		String sql ="delete  FROM  KDO_GROUPS_RELA  where SUBTYPES_NO= ?  and GROUPID= ? ";
+		int count =this.delete(sql,new Object[] {sId,new_gid});
+	}
+		
+	
     
 }

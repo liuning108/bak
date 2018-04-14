@@ -9,4 +9,9 @@ public abstract class HostDao extends GeneralDAO<Map<String, String>> {
 	public abstract List<Map<String, Object>> getCategoryTree();
 
 	public abstract  List<Map<String,Object>> getGroupidsBySubNo(String id);
+
+	public abstract  void  bindCatalogAndGroup(String cId, String new_gid);
+	public abstract String geCatalogId(String sId);
+
+	public abstract void unBindCatalogAndGroup(String sId, String new_gid) ;
 }
