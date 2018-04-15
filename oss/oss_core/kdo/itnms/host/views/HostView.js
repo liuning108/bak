@@ -70,19 +70,24 @@ define([
     loadHostByCateoryId: function(id) {
       var self = this;
       var docH = $(document).height();
-      var tableH=(docH-48-35-30-40-40)*0.92;
+      var tableH=(docH-48-35-30-40-40-40)*0.92;
       action.getGroupidsBySubNo(id).then(function(datas){
-         var groups =fish.map(datas,function(d){
+        console.log("getGroupidsBySubNo");
+          console.log(datas);
+         var groups =fish.map(datas.result,function(d){
            return {
               'groupid': d.groupid,
               'name':d.name
            }
           })//end of maps
+          console.log("groupsgroupsgroups");
+          console.log(groups);
           if(self.hostListView){self.hostListView.remove();}
           self.hostListView = new HostListView({
                el: self.$el.find('.kdo_cotent'),
               'tableH':tableH,
-              'groups':groups
+              'groups':groups,
+              'bisId':id,
             })
          self.hostListView.render();
       })

@@ -1,6 +1,7 @@
 package com.ztesoft.zsmart.oss.kdo.itnms.host.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,7 @@ import com.ztesoft.zsmart.oss.kdo.itnms.host.util.zabbixapi.impl.DefaultZabbixAp
 @Service("HostApiServiceImpl")
 public class HostApiServiceImpl implements HostApiService{
 	@Override
-	  public JSONObject getAllHostsByGroupids(String [] ids,String name,String ip ,String dns ,String port) {
+	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) {
 		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
@@ -47,7 +48,7 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 	
 	@Override
-	public JSONObject getAllGroup() {
+	public JSONObject getAllGroup(List<String >ids ) {
 		// TODO Auto-generated method stub
 		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		
@@ -56,6 +57,7 @@ public class HostApiServiceImpl implements HostApiService{
 				  Request getRequest = RequestBuilder.newBuilder()
 					.method("hostgroup.get")
 					                                 .paramEntry("output", new String[] { "groupid", "name"})
+					                                 .paramEntry("groupids", ids)
 					                                 .paramEntry("sortfield", "groupid")
 					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);
@@ -85,9 +87,7 @@ public class HostApiServiceImpl implements HostApiService{
 //		boolean isError = imp.isError(result);
 //		System.out.println(isError);
 //		String new_gid=(String)result.get("newGid");
-		String sId="A02";;
-		dao.bindCatalogAndGroup(sId,"11");
-		
+
        
 	}
 
@@ -112,7 +112,7 @@ public class HostApiServiceImpl implements HostApiService{
 
 
 	@Override
-	public JSONObject saveOrUpHost(Map<String, Object> param) {
+	public JSONObject saveOrUpHost(Map<String, Object> param,String new_gid) {
    System.out.println(param);
    
      String hostid =(String)param.get("hostid");
@@ -128,7 +128,12 @@ public class HostApiServiceImpl implements HostApiService{
     	  method = "host.create";
     	  hostid=null;
      }
-     List<String> groups =(List<String>)param.get("groups");
+     List<Map<String,String>> groups =(List<Map<String,String>> )param.get("groups");
+     if(new_gid!=null) {
+    	    Map<String,String> map = new HashMap<String,String>();
+    	    map.put("groupid", new_gid);
+    	    groups.add(map);
+     }
      List<Map<String,String>>  interfaces =(List<Map<String,String>>)param.get("interfaces");
      ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 	  zabbixApi.init();
@@ -208,6 +213,19 @@ public class HostApiServiceImpl implements HostApiService{
 		// TODO Auto-generated method stub
 	    Object  o = result.get("error");
 		return (o==null)?false:true;
+	}
+
+	@Override
+	public JSONObject removeHostGroup(String new_gid) {
+		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		  zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
+		  RequestWithArrayParams getRequest = RequestBuilderWithArrayParams.newBuilder()
+                  .method("hostgroup.delete")
+                  .params(new String[] {new_gid})
+                  .build();
+         JSONObject getResponse = zabbixApi.call(getRequest);
+		  return getResponse;
 	}
 	
 

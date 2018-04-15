@@ -68,6 +68,7 @@ define([
     }
   }
   HostPageView.prototype.renderGroup=function() {
+    var self =this;
     var GR = fish.map(this.options.pageHostData.allGroup.result,this.mapGroup);
     var LR = fish.map(this.options.hostObj.groups,this.mapGroup);
     this.group =new KdoDSelect({
@@ -87,6 +88,7 @@ define([
           }
       })
      var options = {
+        dataValueField:"id",
         placeholder: "please select category",
         data: {
             simpleData: {
@@ -95,10 +97,17 @@ define([
         },
         fNodes :treeData
     };
-    console.log("treeData heh");
-    console.log(treeData);
+    this.catalogtree=this.$el.find('.catalogtree').combotree(options);
+    this.catalogtree.combotree('value',self.options.parent.option.bisId)
 
-     this.$el.find('.catalogtree').combotree(options);
+    this.$el.find('.newHostGroupDiv').hide();
+    this.$el.find('.isNewGroupChk').off('click').on('click',function() {
+           if(  $(this).is(':checked') ){
+             self.$el.find('.newHostGroupDiv').show();
+           }else{
+             self.$el.find('.newHostGroupDiv').hide();
+           }
+    })
 
   }
   HostPageView.prototype.stepNext=function(_this){
@@ -135,8 +144,33 @@ define([
        this.options.parent.done();
   },
 
+
+    HostPageView.prototype.verify=function(){
+         var isGroup=this.$el.find('.isNewGroupChk').is(':checked')
+         if(isGroup){
+           var catalog=this.catalogtree.combotree('value');
+           if(catalog==null){
+             fish.toast('warn', "please a catalog for new group");
+           }else {
+             return true;
+           }
+         }else{
+           return true;
+         }
+
+    }
+
   HostPageView.prototype.getInfo =function(){
     var info = {};
+    var catalog=this.catalogtree.combotree('value');
+    if(catalog==null){
+      info.sId='none';
+      info.cId='none';
+    }else{
+      info.sId= catalog.id;
+      info.cId= catalog.pId;
+    }
+    info.newg_name=this.$el.find('.newg_name').val();
     info.hostid=this.options.hostObj.hostid;
     info.host=this.$el.find('.hostHost').val();
     info.name=this.$el.find('.hostName').val();

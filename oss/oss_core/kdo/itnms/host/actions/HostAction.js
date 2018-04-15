@@ -10,7 +10,7 @@ define([],function() {
       return fish.post("host/getAllHostsByGroupids", ids);
      },
      getGroupidsBySubNo:function(id){
-      return fish.get("host/getGroupidsBySubNo",id);
+      return fish.post("host/getGroupidsBySubNo",{"id":id});
      },
      getAllProxy:function(){
        return fish.get("host/getAllProxy", {});

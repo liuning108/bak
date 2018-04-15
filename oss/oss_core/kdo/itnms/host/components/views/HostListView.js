@@ -8,12 +8,6 @@ define([
 ], function(FilterViewDialog, action, tpl, filterTpl, CreateHostView, hostOp) {
   var HostListView = function(option) {
       this.option = option;
-      if (this.option.groups.length > 1) {
-        this.option.groups.splice(0, 0, {
-          name: 'ALL',
-          groupid: "myALL"
-        });
-      }
       this.option._groudids = [];
       this.option._filterParam = {
         name: '',
@@ -28,6 +22,12 @@ define([
     }
     HostListView.prototype.render = function() {
       this.remove();
+      if (this.option.groups.length > 1) {
+        this.option.groups.splice(0, 0, {
+          name: 'ALL',
+          groupid: "myALL"
+        });
+      }
       var $el = $(this.option.el);
       $el.html(this.tpl());
 
@@ -54,7 +54,7 @@ define([
       $el.find('.filterHostList').off('click').on('click', function() {
         var options = {
           height: $el.height(),
-          width: 350,
+          width: ($el.width()/2.5),
           modal: true,
           draggable: false,
           autoResizable: false,
@@ -130,7 +130,7 @@ define([
 
     HostListView.prototype.delHosts=function(hosts,selrow){
       var self=this;
-      var ids = fish.map(hosts,function(d){return ""+d.id});
+      var ids = fish.map(hosts,function(d){return ""+d.hostid});
       fish.confirm('Delete selected hosts?').result.then(function() {
            action.deleteHost({'ids':ids}).then(function(){
              fish.toast('success','Hosts deleted');
@@ -144,7 +144,8 @@ define([
       var createHostView = new CreateHostView({
           el: $el,
          "parent":self,
-         "hostObj":d
+         "hostObj":d,
+         'bisId':self.option.bisId
        })
       createHostView.render();
     }
@@ -265,6 +266,7 @@ define([
     }
 
     HostListView.prototype.loadTableData = function(groupid) {
+
       if (groupid == 'gis_none')
         return;
       var self = this;
@@ -282,9 +284,13 @@ define([
       } else {
         groudids.push(groupid);
       }
+      console.log("=====groudids=====");
+      console.log(groudids);
       this.option._groudids = groudids;
       self.loadData();
     }
+
+
 
     HostListView.prototype.loadData = function() {
       var self =this;
@@ -345,6 +351,23 @@ define([
 
     }
 
+
+    HostListView.prototype.newRender=function() {
+      var self =this;
+      var id = self.option.bisId
+      action.getGroupidsBySubNo(id).then(function(datas){
+        console.log("getGroupidsBySubNofdsfdsf,msdbfbsdbfmds");
+          console.log(datas);
+         var groups =fish.map(datas.result,function(d){
+           return {
+              'groupid': d.groupid,
+              'name':d.name
+           }
+          })//end of maps
+          self.option.groups=groups;
+          self.render();
+        });
+    }
 
     return HostListView;
 

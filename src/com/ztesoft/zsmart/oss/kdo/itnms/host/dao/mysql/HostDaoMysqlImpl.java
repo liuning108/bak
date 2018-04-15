@@ -1,6 +1,7 @@
 package com.ztesoft.zsmart.oss.kdo.itnms.host.dao.mysql;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,18 +22,16 @@ public class HostDaoMysqlImpl extends HostDao {
 	@Override
 	public List<Map<String,Object>> getGroupidsBySubNo(String id) {
 		// TODO Auto-generated method stub
-		String sql = ""
-				+ "select  groupid  from KDO_GROUPS_RELA "
-				+ "where subTypes_No = ? ";
-		return this.queryForList(sql, id);
+		String sql ="select GROUPID from KDO_GROUPS_RELA where SUBTYPES_NO= ? ";
+		return this.queryForList(sql,new Object[] {id});
+
 	}
 
 	@Override
-	public void bindCatalogAndGroup(String sId, String new_gid) {
+	public void bindCatalogAndGroup(String cId, String sId, String new_gid) {
 		// TODO Auto-generated method stub
-		String id = this.geCatalogId(sId);
 		String sql ="insert into KDO_GROUPS_RELA (CATEGORY_NO,SUBTYPES_NO,GROUPID) values (?,?,?)";
-		int count =this.update(sql, new Object[] {id,sId,new_gid});
+		int count =this.update(sql, new Object[] {cId,sId,new_gid});
 		System.out.println(count);
 	
 	}
@@ -47,10 +46,10 @@ public class HostDaoMysqlImpl extends HostDao {
 	}
 
 	@Override
-	public void unBindCatalogAndGroup(String sId, String new_gid) {
+	public void unBindCatalogAndGroup(String cId,String sId, String new_gid) {
 		// TODO Auto-generated method stub
-		String sql ="delete  FROM  KDO_GROUPS_RELA  where SUBTYPES_NO= ?  and GROUPID= ? ";
-		int count =this.delete(sql,new Object[] {sId,new_gid});
+		String sql ="delete  FROM  KDO_GROUPS_RELA  where  CATEGORY_NO = ? and SUBTYPES_NO= ?  and GROUPID= ? ";
+		int count =this.delete(sql,new Object[] {cId,sId,new_gid});
 	}
 		
 	

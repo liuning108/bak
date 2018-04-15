@@ -1,4 +1,6 @@
 $fontColor: #000000
+$btnColor: #2ec4e8
+$grey : #bdbdbd
 .kdo_container
   width: 100%
   height: 100%
@@ -84,7 +86,7 @@ $fontColor: #000000
   overflow: hidden
   .kdo-tabs-active
     background: #f2f2f2
-    border-bottom:  3px solid #43be7f
+    border-bottom:  3px solid $btnColor
   .kdo-header
     background: #fafafa
     height: 50px
@@ -110,7 +112,7 @@ $fontColor: #000000
      cursor: pointer
      &:hover
       background: #f2f2f2
-      border-bottom:  3px solid #43be7f
+      border-bottom:  3px solid $btnColor
 .kdoGrid
   .ui-jqgrid-pager
     border: none
@@ -186,7 +188,7 @@ $fontColor: #000000
       position: absolute
       bottom: 0
       left: -50%
-      background-color : #45bd7f
+      background-color : $btnColor
       left: 0
     &.complete:after
       content: ''
@@ -195,7 +197,7 @@ $fontColor: #000000
       position: absolute
       bottom: 0
       left: -50%
-      background-color : #45bd7f
+      background-color : $btnColor
       left: 0
 
 
@@ -208,7 +210,7 @@ $fontColor: #000000
     &.complete span:before
         width: 20px
         height: 20px
-        border: 2px solid #45bd7f
+        border: 2px solid $btnColor
         bottom: -10px
     &.active span:before
         width: 20px
@@ -216,9 +218,9 @@ $fontColor: #000000
         border-width: 2px
         bottom: -10px
     &.complete span:after
-          border-color: #42be7f
+          border-color: $btnColor
     &.active span:after
-          background: #45bd7f
+          background: $btnColor
           width: 12px
           height: 12px
           border-radius: 50%
@@ -256,7 +258,27 @@ $fontColor: #000000
         z-index: 1
 //btns
 
-$btnColor: #2ec4e8
+
+
+.KdoBtn2
+    background: $grey
+    min-width: 74px
+    width: auto
+    height: auto
+    font: 12px LatoRegular
+    color: #fff
+    text-align: center
+    margin: 3px
+    border: 0
+    display: inline-block
+    cursor: pointer
+    &:hover
+      color: #fff
+.Kdo_mainColor
+  background: $btnColor
+  color: #fff
+
+
 .kdoBtn
   background: $btnColor
   min-width: 120px
@@ -277,3 +299,22 @@ $btnColor: #2ec4e8
     border-color: #d9dbdc
     background: #f3f4f4
     color: #717171
+//KD
+
+.kdoDSelect
+  .kk
+    position: relative
+    left: 30%
+    top: 50%
+  .k
+    color: #1f2c33 !important
+    background-color: #fff !important
+    border-color: #acbbc2 !important
+    vertical-align: top !important
+    border: 1px solid #c5c5c5 !important
+    min-width: 24px !important
+    min-height: 24px !important
+    max-width: 40%
+    max-height: 24px
+    display: block !important
+    margin-bottom: 10px !important

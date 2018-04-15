@@ -72,16 +72,14 @@ define([
 
   CreateHostView.prototype.done=function(){
     var self =this;
+    if(!this.hostPageView.verify())return;
     var baseInfo = this.hostPageView.getInfo();
     action.saveOrUpHost(baseInfo).then(function(data){
       if(data.error){
-        fish.toast('error', data.error.message+" : "+data.error.data);
+        fish.toast('warn', data.error.message+" : "+data.error.data);
       }else{
          fish.toast('info', 'succeed');
-         console.log("dfdsfdsfsd");
-         console.log(self.option.parent);
-
-         self.option.parent.render();
+         self.option.parent.newRender();
       }
     })
   }

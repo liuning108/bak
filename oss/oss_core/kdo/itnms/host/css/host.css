@@ -76,20 +76,6 @@
   background: #5cb85c !important;
 }
 
-.RightDiv .btn {
-  background: #bdbdbd;
-  min-width: 74px;
-  width: auto;
-  height: auto;
-  font: 12px LatoRegular;
-  color: #fff;
-  text-align: center;
-  margin: 3px;
-  border: 0;
-  display: inline-block;
-  cursor: pointer;
-}
-
 .mt15px {
   margin-top: 15px;
 }
@@ -99,42 +85,8 @@
   padding-top: 15px;
 }
 
-.hostPageContext .kk {
-  position: relative;
-  left: 30%;
-  top: 50%;
-}
-
-.hostPageContext .k {
-  color: #1f2c33 !important;
-  background-color: #fff !important;
-  border-color: #acbbc2 !important;
-  vertical-align: top !important;
-  border: 1px solid #c5c5c5 !important;
-  min-width: 24px !important;
-  min-height: 24px !important;
-  max-width: 40%;
-  max-height: 24px;
-  display: block !important;
-  margin-bottom: 10px !important;
-}
-
 .hostPageContext .green {
   background: #5cb85c !important;
-}
-
-.hostPageContext .btn {
-  background: #bdbdbd;
-  min-width: 74px;
-  width: auto;
-  height: auto;
-  font: 12px LatoRegular;
-  color: #fff;
-  text-align: center;
-  margin: 3px;
-  border: 0;
-  display: inline-block;
-  cursor: pointer;
 }
 
 .hostPageContext .hide {

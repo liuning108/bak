@@ -24,17 +24,17 @@ public class HostServiceImpl implements HostService {
 	}
 
 	@Override
-	public void bindCatalogAndGroup(String sId, String new_gid) throws BaseAppException {
+	public void bindCatalogAndGroup(String cId,String sId, String new_gid) throws BaseAppException {
 		// TODO Auto-generated method stub
 		HostDao dao = (HostDao) GeneralDAOFactory.create(HostDao.class, JdbcUtil.OSS_KDO);
-		 dao.bindCatalogAndGroup(sId,new_gid);
+		 dao.bindCatalogAndGroup(cId,sId,new_gid);
 	}
 
 	@Override
-	public void unBindCatalogAndGroup(String sId, String new_gid) throws BaseAppException {
+	public void unBindCatalogAndGroup(String cId,String sId, String new_gid) throws BaseAppException {
 		// TODO Auto-generated method stub
 		HostDao dao = (HostDao) GeneralDAOFactory.create(HostDao.class, JdbcUtil.OSS_KDO);
-		 dao.unBindCatalogAndGroup(sId,new_gid);
+		 dao.unBindCatalogAndGroup(cId,sId,new_gid);
 	}
 
 }

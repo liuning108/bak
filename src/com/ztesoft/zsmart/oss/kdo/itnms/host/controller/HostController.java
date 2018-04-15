@@ -2,6 +2,7 @@ package com.ztesoft.zsmart.oss.kdo.itnms.host.controller;
 
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -40,21 +41,27 @@ public class HostController {
 		String dns=(String)search.get("dns");
 		String port=(String)search.get("port");
 		
-		return hostApiService.getAllHostsByGroupids(ids.toArray(new String[ids.size()]),name,ip,dns,port);
+		return hostApiService.getAllHostsByGroupids(ids,name,ip,dns,port);
 	}
 	
 	
 	@RequestMapping(value = "getAllGroup", method = RequestMethod.GET)
 	@PublicServ
 	public JSONObject getAllGroup() throws BaseAppException {
-		return hostApiService.getAllGroup();
+		return hostApiService.getAllGroup(null);
 	}
 	
 	
-	@RequestMapping(value = "getGroupidsBySubNo", method = RequestMethod.GET)
+	@RequestMapping(value = "getGroupidsBySubNo", method = RequestMethod.POST)
 	@PublicServ
-	public List<Map<String,Object>> getGroupidsBySubNo(String id) throws BaseAppException {
-		return  hostService.getGroupidsBySubNo(id);
+	public JSONObject getGroupidsBySubNo(@RequestBody Map<String,Object> param) throws BaseAppException {
+	    String id = (String)param.get("id");
+	    if(id==null) return getAllGroup();
+	    	List<Map<String,Object>> result = hostService.getGroupidsBySubNo(id);
+		List<String>ids =  result.stream().map(d->""+d.get("GROUPID")).collect(Collectors.toList());
+		JSONObject jsonResult =hostApiService.getAllGroup(ids);
+		return jsonResult;
+	   
 	}
 	
 	@RequestMapping(value = "getAllProxy", method = RequestMethod.GET)
@@ -66,9 +73,10 @@ public class HostController {
 	@RequestMapping(value = "saveOrUpHost", method = RequestMethod.POST)
 	@PublicServ
    public JSONObject  saveOrUpHost(@RequestBody Map<String,Object> param)  throws BaseAppException  {
-		String catalogId=(String)param.get("sId");
+		String cId=(String)param.get("cId");
+		String sId=(String)param.get("sId");		
 		String group_name=(String)param.get("newg_name");
-		boolean isNewGroup = ("none".equalsIgnoreCase(catalogId))?false:true;
+		boolean isNewGroup = ("none".equalsIgnoreCase(sId))?false:true;
 	    String new_gid=null;
 		  if(isNewGroup) {
 			 JSONObject  new_group=hostApiService.addHostGroup(group_name);
@@ -76,13 +84,14 @@ public class HostController {
 			    if(hostApiService.isError(new_group)) {
 			    	 return new_group;
 			    }
-			    hostService.bindCatalogAndGroup(catalogId, new_gid);
+			    hostService.bindCatalogAndGroup(cId,sId, new_gid);
 		  }
-	    	JSONObject host=hostApiService.saveOrUpHost(param);	
+	    	JSONObject host=hostApiService.saveOrUpHost(param,new_gid);	
 	    	if( hostApiService.isError(host) ) {
 			    if(isNewGroup) {
 			    	  //rollback
-			    	hostService.unBindCatalogAndGroup(catalogId, new_gid);
+			    	hostApiService.removeHostGroup(new_gid);
+			    	hostService.unBindCatalogAndGroup(cId,sId, new_gid);
 			    }
 	    }
 	   return  host;
@@ -115,9 +124,7 @@ public class HostController {
 	@PublicServ
 	public void test() throws BaseAppException {
 		
-	
-		hostService.unBindCatalogAndGroup("A02_01", "11");
-	
+
   	}
 	
 	
