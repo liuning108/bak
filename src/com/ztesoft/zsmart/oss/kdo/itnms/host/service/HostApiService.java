@@ -17,5 +17,9 @@ public interface HostApiService {
  public JSONObject addHostGroup(String name);
 public boolean isError(JSONObject result);
 public JSONObject removeHostGroup(String new_gid);
+public JSONObject getTemplateByGroupId(String id);
+
+
+
  
 }

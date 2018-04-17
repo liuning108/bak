@@ -80,6 +80,23 @@
   margin-top: 15px;
 }
 
+.HostTemplateContext, .HostMarcoContext {
+  padding: 25px;
+  padding-top: 15px;
+}
+
+.HostTemplateContext .hostTempBtns, .HostMarcoContext .hostTempBtns {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.HostTemplateContext .hostTempBtns .kdoBtn, .HostMarcoContext .hostTempBtns .kdoBtn {
+  display: block;
+  width: 120px;
+  float: right;
+}
+
 .hostPageContext {
   padding: 25px;
   padding-top: 15px;
@@ -299,4 +316,42 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 .newHostGroupDiv .catlotree {
   display: inline-block;
   width: 300px;
+}
+
+.editTitle {
+  font: 20px !important;
+  padding: 0 0 3px !important;
+}
+
+.host-from-group {
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.host-from-group input {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.host-from-group input:hover {
+  border: 1px solid #666;
+}
+
+.host-from-group input:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.testDiv {
+  width: 100px;
+  height: 100px;
+  background: #bdbdbd;
 }

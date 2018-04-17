@@ -26,6 +26,9 @@ define([],function() {
     },
      changeHostStatus:function(hosts){
       return fish.post("host/changeHostStatus",hosts);
+    },
+     getTemplateByGroupId:function(id){
+      return fish.post("host/getTemplateByGroupId",{'groupId':id});
      }
 
 

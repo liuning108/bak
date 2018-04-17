@@ -119,6 +119,14 @@ public class HostController {
 		return hostApiService.changeHostStatus(param);
   	}
 	
+	@RequestMapping(value = "getTemplateByGroupId", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject getTemplateByGroupId(@RequestBody Map<String,Object> param) throws BaseAppException {
+		String groupId=(String)param.get("groupId");
+		return hostApiService.getTemplateByGroupId(groupId);
+  	}
+	
+	
 	
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	@PublicServ

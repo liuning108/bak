@@ -3,14 +3,16 @@ define([
   "oss_core/kdo/itnms/host/components/views/HostPageView.js",
   "text!oss_core/kdo/itnms/host/components/views/createHostView.html",
   "oss_core/kdo/itnms/host/components/kdoTabs/KdoTabs.js",
-],function(action,HostPageView,tpl,KdoTabs){
+  "oss_core/kdo/itnms/host/components/views/TemplatePageView.js",
+  "oss_core/kdo/itnms/host/components/views/MacroPageView.js",
+],function(action,HostPageView,tpl,KdoTabs,TemplatePageView,MacroPageView){
 
    var CreateHostView = function(option){
       this.option = option;
       if(!this.option.hostObj){
         this.option.hostObj = this.getEmptyHostObject()
       }
-
+      this.$el = $(this.option.el);
       this.tpl = fish.compile(tpl);
    }
    CreateHostView.prototype.render=function(){
@@ -29,22 +31,35 @@ define([
         {
           "el":$el.find('.kdo-right-page-cotent'),
           "data":[
-            {name:'监控点',view:function($el){self.HostPage($el)}},
-            {name:'模板',view:function($el){}},
-            {name:'宏',view:function($el){}},
-            {name:'资产信息',view:function($el){}},
-            {name:'IPMI',view:function($el){}},
+            {name:'监控点','id':'hostPage' ,view:function($el){self.HostPage($el)}},
+            {name:'模板','id':'templPage',view:function($el){self.TemplatePage($el)}},
+            {name:'宏','id':'macroPage',view:function($el){self.MacroPage($el)}},
+            {name:'资产信息','id':'propertyPage',view:function($el){}},
           ],
-          "isMore":false,
-          more:{
-             name : '更多...'
-          }
+          startPage:'hostPage',
+          // isMore:true,
+          // moreTitle:'..更多',
+          // moreData:[
+          //   {name:'应用1','id':'app1' ,view:function($el){}},
+          //   {name:'应用2','id':'app2',view:function($el){}},
+          // ]
         }
       );
       kdoTabs.render();
    }
 
+   CreateHostView.prototype.MacroPage=function($el) {
+     if(this.macroPageView)return;
+     var self =this;
+     this.macroPageView = new MacroPageView({
+        el:$el,
+     })
+     this.macroPageView.render();
+
+   },
+
   CreateHostView.prototype.HostPage =function($el){
+      if(this.hostPageView) return ;
       var self =this;
       var pageHostData={}
      action.getCategoryTree().then(function(treeData){
@@ -58,6 +73,16 @@ define([
        self.renderHostPage(pageHostData,$el)
      })
   }
+  CreateHostView.prototype.TemplatePage =function($el){
+      if(this.templatePageView)return;
+      var self =this;
+      this.TemplatePage = new TemplatePageView({
+         el:$el,
+         positionEL:self.$el
+      })
+      this.TemplatePage.render();
+  }
+
   CreateHostView.prototype.renderHostPage=function(pageHostData,$el){
     var self = this;
     console.log(pageHostData);

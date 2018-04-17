@@ -83,11 +83,7 @@ public class HostApiServiceImpl implements HostApiService{
 	public static void main(String[] args) throws BaseAppException {
 		HostApiService  imp = new HostApiServiceImpl();
 		HostService dao = new HostServiceImpl();
-//		JSONObject result = imp.addHostGroup("liuning_test_group_3");
-//		boolean isError = imp.isError(result);
-//		System.out.println(isError);
-//		String new_gid=(String)result.get("newGid");
-
+      System.out.println(imp.getTemplateByGroupId("16"));
        
 	}
 
@@ -225,6 +221,22 @@ public class HostApiServiceImpl implements HostApiService{
                   .params(new String[] {new_gid})
                   .build();
          JSONObject getResponse = zabbixApi.call(getRequest);
+		  return getResponse;
+	}
+
+	@Override
+	public JSONObject getTemplateByGroupId(String id) {
+		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		  zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
+		  Request getRequest = RequestBuilder.newBuilder()
+					.method("template.get")
+					                                 .paramEntry("output", new String[] {"templateid","name"})
+					                                 .paramEntry("groupids", new String [] {id})
+					                                 .paramEntry("sortfield", "name")
+					.build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		  zabbixApi.destroy();
 		  return getResponse;
 	}
 	

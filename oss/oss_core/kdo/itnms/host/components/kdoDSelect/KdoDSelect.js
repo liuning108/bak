@@ -12,10 +12,10 @@ define([
     }
     KdoDSelect.prototype.doProcess=function() {
        var self = this;
-       var R = fish.filter(self.options.R,function(d){
-          return !fish.findWhere(self.options.L,d);
+       var L = fish.filter(self.options.L,function(d){
+          return !fish.findWhere(self.options.R,d);
        })
-       this.options.R=R;
+       this.options.L=L;
 
     },
 
@@ -82,7 +82,7 @@ define([
 
     }
     KdoDSelect.prototype.val=function(){
-        return fish.map(this.$el.find('.lSelect').find('option'),function(dom){
+        return fish.map(this.$el.find('.rSelect').find('option'),function(dom){
               return {
                  name: $(dom).data('name')+"",
                  value: $(dom).val()+""
@@ -90,8 +90,8 @@ define([
         });
     }
 
-    KdoDSelect.prototype.valR=function(){
-        return fish.map(this.$el.find('.rSelect').find('option'),function(dom){
+    KdoDSelect.prototype.valL=function(){
+        return fish.map(this.$el.find('.lSelect').find('option'),function(dom){
               return {
                  name: $(dom).data('name')+"",
                  value: $(dom).val()+""

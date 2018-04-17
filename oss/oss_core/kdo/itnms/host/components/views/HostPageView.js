@@ -69,12 +69,12 @@ define([
   }
   HostPageView.prototype.renderGroup=function() {
     var self =this;
-    var GR = fish.map(this.options.pageHostData.allGroup.result,this.mapGroup);
-    var LR = fish.map(this.options.hostObj.groups,this.mapGroup);
+    var LR = fish.map(this.options.pageHostData.allGroup.result,this.mapGroup);
+    var GR = fish.map(this.options.hostObj.groups,this.mapGroup);
     this.group =new KdoDSelect({
        el: this.$el.find('.Step1PageGroup'),
-       L:LR,
-       R:GR
+       L :LR,
+       R: GR
      })
      this.group.render();
     var treeData = fish.map(this.options.pageHostData.treeData,function(d){
