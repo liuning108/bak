@@ -78,7 +78,14 @@ define([
       var self =this;
       this.TemplatePage = new TemplatePageView({
          el:$el,
-         positionEL:self.$el
+         positionEL:self.$el,
+         'templates':this.option.hostObj.parentTemplates,
+         'cancel':function(){
+           self.cancel();
+         },
+         'ok':function() {
+           self.done();
+         }
       })
       this.TemplatePage.render();
   }
@@ -99,14 +106,17 @@ define([
     var self =this;
     if(!this.hostPageView.verify())return;
     var baseInfo = this.hostPageView.getInfo();
-    action.saveOrUpHost(baseInfo).then(function(data){
-      if(data.error){
-        fish.toast('warn', data.error.message+" : "+data.error.data);
-      }else{
-         fish.toast('info', 'succeed');
-         self.option.parent.newRender();
-      }
-    })
+    var templatesInfo =this.TemplatePage.getInfo();
+    console.log(templatesInfo);
+
+    // action.saveOrUpHost(baseInfo).then(function(data){
+    //   if(data.error){
+    //     fish.toast('warn', data.error.message+" : "+data.error.data);
+    //   }else{
+    //      fish.toast('info', 'succeed');
+    //      self.option.parent.newRender();
+    //   }
+    // })
   }
 
   CreateHostView.prototype.cancel=function(){
@@ -148,6 +158,7 @@ define([
           "type": "1",
         }
       ],
+      "parentTemplates":[],
       "disable_until": "1523431345",
       "ipmi_errors_from": "0",
       "snmp_error": "",

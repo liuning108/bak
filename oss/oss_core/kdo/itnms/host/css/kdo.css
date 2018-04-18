@@ -353,6 +353,7 @@
 }
 
 .KdoBtn2 {
+  transition: background 0.5s;
   background: #bdbdbd;
   min-width: 74px;
   width: auto;
@@ -370,12 +371,17 @@
   color: #fff;
 }
 
+.KdoBtn2:hover {
+  background: #17a9cc;
+}
+
 .Kdo_mainColor {
   background: #2ec4e8;
   color: #fff;
 }
 
 .kdoBtn {
+  transition: background 0.5s;
   background: #2ec4e8;
   min-width: 120px;
   width: auto;
@@ -392,6 +398,10 @@
 
 .kdoBtn i {
   margin-right: 5px;
+}
+
+.kdoBtn:hover {
+  background: #17a9cc;
 }
 
 .kdoPageBtn:hover, .kdoPageBtn:active, .kdoPageBtn:focus {

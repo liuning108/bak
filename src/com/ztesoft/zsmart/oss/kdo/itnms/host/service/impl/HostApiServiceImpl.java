@@ -1,11 +1,9 @@
 package com.ztesoft.zsmart.oss.kdo.itnms.host.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.flume.source.SyslogSourceConfigurationConstants;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -100,6 +98,9 @@ public class HostApiServiceImpl implements HostApiService{
 					                                 .paramEntry("output","extend")
 					                                 .paramEntry("selectGroups", "extend")
 					                                 .paramEntry("selectInterfaces", "extend")
+					                                .paramEntry("selectParentTemplates", new String[] {"host","name","templateid"})
+					                                .paramEntry("selectMacros","extend")
+					                                .paramEntry("selectInventory", "extend")
 					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);
 		  zabbixApi.destroy();

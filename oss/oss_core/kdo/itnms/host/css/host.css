@@ -355,3 +355,22 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   height: 100px;
   background: #bdbdbd;
 }
+
+.tmplateBtns i {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.HostMarcoContext .form-group {
+  padding: 20px;
+}
+
+.HostMarcoContext .form-group input {
+  height: 30px;
+}
+
+.macorHostAdd {
+  padding: 4px;
+  position: relative;
+  bottom: -35px;
+}

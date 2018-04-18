@@ -89,10 +89,13 @@ define(["oss_core/kdo/itnms/host/actions/HostAction",
                              'value':d.templateid
                           }
                        })
+                       var newLData = fish.filter(LData ,function(d){
+                          return !fish.findWhere(self.props.filterData,d);
+                       })
                        var RData =self.templDSelect.val();
                        self.templDSelect =new KdoDSelect({
                           el: self.$el.find('.TemplatesDSelect'),
-                          L :LData,
+                          L :newLData,
                           R: RData
                         })
                        self.templDSelect.render();
@@ -117,22 +120,12 @@ define(["oss_core/kdo/itnms/host/actions/HostAction",
     this.renderCatalogTree();
      this.$el.find('.reset').off('click').on('click',function(){
         self.$el.find('.filterInput').val('');
-        self.callback({
-           "ip":'',
-           "dns":'',
-           "name":'',
-           'port':''
-        })
+        self.callback([])
         self.$popup.hide();
      });
 
      this.$el.find('.OK').off('click').on('click',function(){
-        self.callback({
-           "ip":self.$el.find('.filterIP').val(),
-           "dns":self.$el.find('.filterDNS').val(),
-           "name":self.$el.find('.filterName').val(),
-           'port':self.$el.find('.filterPort').val()
-        })
+        self.callback(self.templDSelect.val())
         self.$popup.hide();
      });
 

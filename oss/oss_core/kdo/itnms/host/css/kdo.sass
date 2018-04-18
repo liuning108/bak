@@ -264,6 +264,7 @@ $grey : #bdbdbd
 
 
 .KdoBtn2
+    transition: background 0.5s
     background: $grey
     min-width: 74px
     width: auto
@@ -277,12 +278,16 @@ $grey : #bdbdbd
     cursor: pointer
     &:hover
       color: #fff
+    &:hover
+      background: darken($btnColor,10%)
+
 .Kdo_mainColor
   background: $btnColor
   color: #fff
 
 
 .kdoBtn
+  transition: background 0.5s
   background: $btnColor
   min-width: 120px
   width: auto
@@ -297,6 +302,9 @@ $grey : #bdbdbd
   cursor: pointer
   i
     margin-right: 5px
+  &:hover
+    background: darken($btnColor,10%)
+
 .kdoPageBtn
   &:hover,&:active,&:focus
     border-color: #d9dbdc

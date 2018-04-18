@@ -1,12 +1,7 @@
 package com.ztesoft.zsmart.oss.kdo.itnms.host.dao.mysql;
-
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import com.ztesoft.zsmart.oss.kdo.itnms.host.dao.HostDao;
-
 public class HostDaoMysqlImpl extends HostDao {
 
 	@Override
