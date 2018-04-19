@@ -5,7 +5,8 @@ define([
   "oss_core/kdo/itnms/host/components/kdoTabs/KdoTabs.js",
   "oss_core/kdo/itnms/host/components/views/TemplatePageView.js",
   "oss_core/kdo/itnms/host/components/views/MacroPageView.js",
-],function(action,HostPageView,tpl,KdoTabs,TemplatePageView,MacroPageView){
+  "oss_core/kdo/itnms/host/components/views/InventoryPageView.js",
+],function(action,HostPageView,tpl,KdoTabs,TemplatePageView,MacroPageView,InventoryPageView){
 
    var CreateHostView = function(option){
       this.option = option;
@@ -34,7 +35,7 @@ define([
             {name:'监控点','id':'hostPage' ,view:function($el){self.HostPage($el)}},
             {name:'模板','id':'templPage',view:function($el){self.TemplatePage($el)}},
             {name:'宏','id':'macroPage',view:function($el){self.MacroPage($el)}},
-            {name:'资产信息','id':'propertyPage',view:function($el){}},
+            {name:'资产信息','id':'propertyPage',view:function($el){self.InventoryPage($el)}},
           ],
           startPage:'hostPage',
           // isMore:true,
@@ -50,7 +51,6 @@ define([
 
    CreateHostView.prototype.MacroPage=function($el) {
      if(this.macroPageView)return;
-     console.log("MacroPage");
      var self =this;
      this.macroPageView = new MacroPageView({
         el:$el,
@@ -65,6 +65,16 @@ define([
      this.macroPageView.render();
 
    },
+  CreateHostView.prototype.InventoryPage=function($el) {
+    if(this.inventoryPageView)return;
+    var self =this;
+    this.inventoryPageView = new InventoryPageView({
+      el:$el,
+    });
+
+    this.inventoryPageView.render();
+
+  }
 
   CreateHostView.prototype.HostPage =function($el){
       if(this.hostPageView) return ;

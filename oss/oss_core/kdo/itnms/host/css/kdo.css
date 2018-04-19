@@ -429,3 +429,30 @@
   display: block !important;
   margin-bottom: 10px !important;
 }
+
+.host-from-group, .kdo-from-group {
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.host-from-group input, .kdo-from-group input {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.host-from-group input:hover, .kdo-from-group input:hover {
+  border: 1px solid #666;
+}
+
+.host-from-group input:focus, .kdo-from-group input:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
