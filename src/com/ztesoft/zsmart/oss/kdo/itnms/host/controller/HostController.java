@@ -44,13 +44,11 @@ public class HostController {
 		return hostApiService.getAllHostsByGroupids(ids,name,ip,dns,port);
 	}
 	
-	
 	@RequestMapping(value = "getAllGroup", method = RequestMethod.GET)
 	@PublicServ
 	public JSONObject getAllGroup() throws BaseAppException {
 		return hostApiService.getAllGroup(null);
 	}
-	
 	
 	@RequestMapping(value = "getGroupidsBySubNo", method = RequestMethod.POST)
 	@PublicServ
@@ -67,7 +65,7 @@ public class HostController {
 	@RequestMapping(value = "getAllProxy", method = RequestMethod.GET)
 	@PublicServ
 	public JSONObject getAllProxy() throws BaseAppException {
-		return  hostApiService.getAllProxy();
+		return  hostApiService.getAllProxy();	
 	}
 	
 	@RequestMapping(value = "saveOrUpHost", method = RequestMethod.POST)
@@ -114,8 +112,6 @@ public class HostController {
 	@RequestMapping(value = "changeHostStatus", method = RequestMethod.POST)
 	@PublicServ
 	public JSONObject changeHostStatus(@RequestBody Map<String,Object> param) throws BaseAppException {
-		
-		
 		return hostApiService.changeHostStatus(param);
   	}
 	
@@ -131,8 +127,6 @@ public class HostController {
 	@RequestMapping(value = "test", method = RequestMethod.GET)
 	@PublicServ
 	public void test() throws BaseAppException {
-		
-
   	}
 	
 	

@@ -50,9 +50,17 @@ define([
 
    CreateHostView.prototype.MacroPage=function($el) {
      if(this.macroPageView)return;
+     console.log("MacroPage");
      var self =this;
      this.macroPageView = new MacroPageView({
         el:$el,
+        'macros':this.option.hostObj.macros,
+        'cancel':function(){
+          self.cancel();
+        },
+        'ok':function() {
+          self.done();
+        }
      })
      this.macroPageView.render();
 
@@ -76,7 +84,7 @@ define([
   CreateHostView.prototype.TemplatePage =function($el){
       if(this.templatePageView)return;
       var self =this;
-      this.TemplatePage = new TemplatePageView({
+      this.templatePageView = new TemplatePageView({
          el:$el,
          positionEL:self.$el,
          'templates':this.option.hostObj.parentTemplates,
@@ -87,7 +95,7 @@ define([
            self.done();
          }
       })
-      this.TemplatePage.render();
+      this.templatePageView.render();
   }
 
   CreateHostView.prototype.renderHostPage=function(pageHostData,$el){
@@ -106,17 +114,25 @@ define([
     var self =this;
     if(!this.hostPageView.verify())return;
     var baseInfo = this.hostPageView.getInfo();
-    var templatesInfo =this.TemplatePage.getInfo();
-    console.log(templatesInfo);
-
-    // action.saveOrUpHost(baseInfo).then(function(data){
-    //   if(data.error){
-    //     fish.toast('warn', data.error.message+" : "+data.error.data);
-    //   }else{
-    //      fish.toast('info', 'succeed');
-    //      self.option.parent.newRender();
-    //   }
-    // })
+    if(this.templatePageView){
+      var templatesInfo =this.templatePageView.getInfo();
+      baseInfo.templates=templatesInfo.templates;
+      baseInfo.templates_clear=templatesInfo.templates_clear;
+    }else{
+        baseInfo.templates =null;
+        baseInfo.templates_clear=null;
+    }
+    if(this.macroPageView){
+      baseInfo.macros=this.macroPageView.getInfo();
+    }
+   action.saveOrUpHost(baseInfo).then(function(data){
+      if(data.error){
+        fish.toast('warn', data.error.message+" : "+data.error.data);
+      }else{
+         fish.toast('info', 'succeed');
+         self.option.parent.newRender();
+      }
+    })
   }
 
   CreateHostView.prototype.cancel=function(){
@@ -148,6 +164,7 @@ define([
       "tls_psk": "",
       "jmx_error": "",
       "jmx_disable_until": "0",
+      "macros":[],
       "interfaces": [
         {
           "port": "10050",

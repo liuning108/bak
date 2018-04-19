@@ -15,36 +15,57 @@ define(["oss_core/kdo/itnms/host/actions/HostAction",
 
   }
   MacroPageView.prototype.afterRender=function() {
+     var self =this;
      this.renderGird();
+
+     this.$el.find('.macorHostAdd').off('click').on('click',function(){
+       self.addItem();
+     })
   }
   MacroPageView.prototype.remove=function() {
     this.$el.html("");
   }
 
-  MacroPageView.prototype.renderGird = function() {
-    var mydata = [
-      {
-        name: 'Macro A',
-        value: "12321",
-        edit:true,
-        id: '1'
-      }, {
-        name: 'Macro B',
-        value:"fjdkfj",
+  MacroPageView.prototype.addItem=function() {
+     var item={
+       'macro': this.$el.find('.newMacro').val(),
+       'value': this.$el.find('.newMValue').val(),
+       'hostmacroid':'none'
+     }
+     this.$grid.grid("addRowData",item)
+     this.$el.find('.newMacro').val("")
+     this.$el.find('.newMValue').val("")
 
-        id: '1'
-      }
-    ];
+  }
+
+  MacroPageView.prototype.getInfo=function(){
+      var self =this;
+      var data = self.$grid.grid("getDataIDs");//获取所有的rowid记录
+      return fish.map(data,function(rowid){
+         var selrowDom = $(self.$grid.grid("getGridRowById", rowid));
+         var id =selrowDom.find('.removeMacro').data('id');
+         var hostmacroid=(id=='none')?null:id
+         return {
+           'macro':selrowDom.find('.macro').val(),
+           'value':selrowDom.find('.macro_value').val(),
+           'hostmacroid':hostmacroid,
+         }
+
+      })
+  }
+
+  MacroPageView.prototype.renderGird = function() {
+    var self =this;
     var opt = {
-      data: mydata,
-      height: 300,
+      data: this.option.macros,
+      height: 350,
       colModel: [
         {
-          name: 'name',
+          name: 'macro',
           label: 'Macro',
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
-            return "<input  class='mmm' value="+cellval+"/>"
+            return "<input  class='macro' value='"+cellval+"' placeholder='{$Macro}'></input>"
           }
         },
         {
@@ -52,34 +73,34 @@ define(["oss_core/kdo/itnms/host/actions/HostAction",
           label: 'Value',
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
-              return "<input value="+cellval+"/>"
+              return "<input class='macro_value' value='"+cellval+"'  placeholder='Value'></input>"
           }
         }, {
-          name: 'id',
+          name: 'hostmacroid',
           label: '',
           width: 50,
           'title': false,
           formatter: function(cellval, opts, rwdat, _act) {
-            return cellval
+            return '<i data-id="'+cellval+'"class="glyphicon glyphicon-trash removeMacro" title="remove"></i>'
           }
         }
       ]
     };
 
-    $grid = this.$el.find('.HostMarcoGrid').grid(opt);
+    self.$grid = this.$el.find('.HostMarcoGrid').grid(opt);
     this.$el.find('.HostMarcoOK').off('click').on('click',function(){
-      var data = $grid.grid("getDataIDs");//获取所有的rowid记录
-      var newData=fish.map(data,function(rowid){
-        var selrowDom = $grid.grid("getGridRowById", rowid); //获取行的dom对象
-        console.log(selrowDom);
-        return $(selrowDom).find('.mmm').val();
-      })
-      console.log(newData);
-
-
-      console.log("getRowData")
-      console.log(data);
+       self.option.ok();
     })
+
+    this.$el.find('.HostMarcoCancel').off('click').on('click',function(){
+       self.option.cancel();
+    })
+
+
+     self.$grid.on('click', '.removeMacro', function() {
+        var selrow = self.$grid.grid("getSelection");
+        self.$grid.grid("delRowData", selrow);//删除记录
+     })
 
   }
   return MacroPageView

@@ -374,3 +374,7 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   position: relative;
   bottom: -35px;
 }
+
+.removeMacro {
+  cursor: pointer;
+}

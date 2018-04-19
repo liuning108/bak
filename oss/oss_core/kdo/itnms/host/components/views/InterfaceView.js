@@ -19,7 +19,7 @@ define([
        bulk:'1',
        dns:'',
        hostid:'',
-       interfaceid:'',
+       interfaceid:'none',
        ip:'',
        main:'0',
        port:'10050',
@@ -127,6 +127,7 @@ define([
        var main=$d.find('.hostDefault').hasClass('active')?'1':'0'
        var useIp=$d.find('.ipOrDnsIP').hasClass('active')?'1':'0'
        var bulk =$d.find('.snmpCheckbox.cbox').is(':checked')?"1":"0"
+       var intefaceId=($d.data('id')=='none')?null:$d.data('id')
        var obj ={
          'type': $d.find('.inputTypeHide').val(),
          'main': main,
@@ -134,7 +135,7 @@ define([
          "ip": $d.find('.interfaceIP').val(),
          "dns": $d.find('.interfaceDNS').val(),
          "port": $d.find('.interfacePort').val(),
-
+         "interfaceid":intefaceId
        }
        if(obj.type=='2'){
            obj.bulk=bulk
@@ -147,6 +148,7 @@ define([
   InterfaceView.prototype.initItemData=function($item,d) {
     var self =this;
       $item.find('.snmpCheckbox').hide();
+      $item.data('id',d.interfaceid);
       $item.find('.interfaceIP').val(d.ip)
       $item.find('.interfaceDNS').val(d.dns)
       $item.find('.interfacePort').val(d.port)

@@ -37,17 +37,17 @@ define([
       var result = {}
       result.templates=fish.map(self.getGridRows(),function(d){
          return {
-           'name':d.name,
            'templateid':d.value
          }
       });
-
-      result.clearTemplates=fish.map(this.templatesClear,function(d){
+      result.templates_clear=fish.map(this.templatesClear,function(d){
          return {
-           'name':d.name,
-           'id':d.id
+           'templateid':d.id
          }
       })
+      if(result.templates_clear.length<=0){
+        result.templates_clear=null;
+      }
       return result;
   }
   TemplatePageView.prototype.renderGird = function() {

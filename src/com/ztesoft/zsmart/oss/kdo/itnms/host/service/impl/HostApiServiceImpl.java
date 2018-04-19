@@ -132,6 +132,11 @@ public class HostApiServiceImpl implements HostApiService{
     	    groups.add(map);
      }
      List<Map<String,String>>  interfaces =(List<Map<String,String>>)param.get("interfaces");
+     List<Map<String,String>>  templates =(List<Map<String,String>>)param.get("templates");
+     List<Map<String,String>>  templates_clear =(List<Map<String,String>>)param.get("templates_clear");
+     List<Map<String,String>>  macros =(List<Map<String,String>>)param.get("macros");
+     
+     
      ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 	  zabbixApi.init();
 	  zabbixApi.login("Admin", "zabbix");
@@ -145,6 +150,9 @@ public class HostApiServiceImpl implements HostApiService{
 				                                 .paramEntry("description", description)
 				                                 .paramEntry("groups", groups)
 				                                 .paramEntry("interfaces", interfaces)
+				                                 .paramEntry("templates", templates)
+				                                 .paramEntry("templates_clear", templates_clear)
+				                                 .paramEntry("macros", macros)
 				.build();
 	 JSONObject getResponse = zabbixApi.call(getRequest);
 	  zabbixApi.destroy();

@@ -299,6 +299,7 @@ define([
         console.log(data.result);
         var result = fish.map(data.result, function(d) {
           var interfaceObj = fish.first(d.interfaces);
+          if(!interfaceObj)interfaceObj={"ip":"",port:""}
           return {
             name: d.name,
             state: Number(d.status),
