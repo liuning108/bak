@@ -1,0 +1,606 @@
+<div class="InventoryPageContext container-fluid">
+ <div class="row">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="form-group kdo-from-group">
+              <label for="filterIP"></label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="inventory_mode" value="-1" >禁用
+                 </label>
+                <label>
+                 <input type="radio" name="inventory_mode" value="0">手动
+                 </label>
+                 <label>
+                  <input type="radio" name="inventory_mode" value="1">自动
+                  </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+       </div>
+ <div class="InventoryBody">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Type</label>
+            <input type="text" data-name='type' class="filterInput InventoryObj " name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Type(Full details)</label>
+            <input type="text" data-name="type_full"  class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-6">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Name</label>
+             <input type="text"  data-name="name" class="filterInput  InventoryObj" name="Macro"></input>
+           </div>
+         </div>
+       </div>
+         <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="MValue">Alias</label>
+             <input type="text" data-name="alias" class="filterInput InventoryObj" name="MValue"></input>
+           </div>
+         </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">OS</label>
+            <input type="text" data-name="os" class="filterInput InventoryObj" name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">OS (Full details)</label>
+            <input type="text" data-name="os_full"  class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-6">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">OS (Short)</label>
+             <input type="text" data-name="os_short" class="filterInput InventoryObj" name="Macro"></input>
+           </div>
+         </div>
+       </div>
+         <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="MValue">Serial number A</label>
+             <input type="text"   data-name="serialno_a" class="filterInput InventoryObj" name="MValue"></input>
+           </div>
+         </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Serial number B</label>
+            <input type="text" data-name="serialno_b" class="filterInput InventoryObj " name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Tag</label>
+            <input type="text" data-name="tag" class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">MAC address A</label>
+            <input type="text" data-name='macaddress_a' class="filterInput InventoryObj " name="Macro"></input>
+          </div>
+        </div>
+      </div>
+          <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="MValue">MAC address B</label>
+             <input type="text" data-name="macaddress_b" class="filterInput InventoryObj" name="MValue"></input>
+           </div>
+         </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group kdo-from-group">
+          <label for="MValue">Software</label>
+          <input type="text" data-name="software" class="filterInput InventoryObj" name="MValue"></input>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Hardware</label>
+            <input type="text" data-name="hardware" class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-12">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Hardware (Full details)</label>
+             <!-- <input type="text" data-name="hardware_full" class="filterInput InventoryObj " name="Macro"></input> -->
+             <textarea name="name" rows="3" style="width:100%" data-name="hardware_full" class="InventoryObj"></textarea>
+
+           </div>
+         </div>
+       </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Software (Full details)</label>
+            <!-- <input type="text" data-name="software_full" class="filterInput InventoryObj" name="MValue"></input> -->
+            <textarea name="name" rows="3" style="width:100%" data-name="software_full" class="InventoryObj"></textarea>
+
+          </div>
+        </div>
+     </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Asset tag</label>
+            <input type="text" data-name="asset_tag" class="filterInput InventoryObj" name="Macro"></input>
+          </div>
+        </div>
+      </div>
+         <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="MValue">Software application A</label>
+             <input type="text" data-name="software_app_a" class="filterInput InventoryObj" name="MValue"></input>
+           </div>
+         </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Software application B</label>
+            <input type="text" data-name="software_app_b" class="filterInput InventoryObj " name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Software application C</label>
+            <input type="text"  data-name="software_app_c" class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-6">
+         <div class="form-group kdo-from-group">
+           <label for="MValue">Software application D</label>
+           <input type="text" data-name="software_app_d" class="filterInput InventoryObj" name="MValue"></input>
+         </div>
+       </div>
+         <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Software application E</label>
+             <input type="text" data-name="software_app_e" class="filterInput InventoryObj" name="Macro"></input>
+           </div>
+         </div>
+    </div>
+    <div class="row">
+
+        <div class="col-md-12">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Contact</label>
+             <textarea name="name" rows="3" style="width:100%" data-name="contact" class="InventoryObj"></textarea>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-12">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Location</label>
+             <!-- <input type="text" data-name="location" class="filterInput InventoryObj " name="Macro"></input> -->
+             <textarea name="name" rows="3" style="width:100%" data-name="location" class="InventoryObj"></textarea>
+
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Location latitude</label>
+            <input type="text" data-name="location_lat" class="filterInput  InventoryObj" name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Location longitude</label>
+            <input type="text" data-name="location_lon" class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-12">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Notes</label>
+             <!-- <input type="text" data-name="notes" class="filterInput  InventoryObj" name="Macro"></input> -->
+             <textarea name="name" rows="3" style="width:100%" data-name="notes" class="InventoryObj"></textarea>
+
+           </div>
+         </div>
+       </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="form-group kdo-from-group">
+            <label for="Macro">Chassis</label>
+            <input type="text" data-name="chassis" class="filterInput  InventoryObj" name="Macro"></input>
+          </div>
+        </div>
+      </div>
+        <div class="col-md-6">
+          <div class="form-group kdo-from-group">
+            <label for="MValue">Model</label>
+            <input type="text" data-name="model" class="filterInput InventoryObj" name="MValue"></input>
+          </div>
+        </div>
+     </div>
+    <div class="row">
+       <div class="col-md-6">
+         <div class="row">
+           <div class="form-group kdo-from-group">
+             <label for="Macro">Vendor</label>
+             <input type="text" data-name="vendor" class="filterInput  InventoryObj" name="Macro"></input>
+           </div>
+         </div>
+       </div>
+         <div class="col-md-6">
+           <div class="form-group kdo-from-group">
+             <label for="MValue">Contract number</label>
+             <input type="text" data-name="contract_number" class="filterInput InventoryObj" name="MValue"></input>
+           </div>
+         </div>
+      </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Installer name</label>
+               <input type="text" data-name="installer_name" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Deployment status</label>
+               <input type="text" data-name="deployment_status" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">URL A</label>
+               <input type="text" data-name="url_a" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">URL B
+
+
+               </label>
+               <input type="text" data-name="url_b" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">URL C</label>
+               <input type="text" data-name="url_c" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Host networks</label>
+               <input type="text" data-name="host_networks" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Host subnet mask</label>
+               <input type="text" data-name="host_netmask" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Host router</label>
+               <input type="text" data-name="host_router" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">OOB IP address</label>
+               <input type="text" data-name="oob_ip" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">OOB subnet mask</label>
+               <input type="text" data-name="oob_netmask" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">OOB router</label>
+               <input type="text" data-name="oob_router" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Date HW purchased</label>
+               <input type="text" data-name="date_hw_purchase" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Date HW installed</label>
+               <input type="text" data-name="date_hw_install" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Date HW maintenance expires</label>
+               <input type="text" data-name="date_hw_expiry" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Date HW decommissioned</label>
+               <input type="text" data-name="date_hw_decomm" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Site address A</label>
+               <input type="text" data-name="site_address_a" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Site address B</label>
+               <input type="text" data-name="site_address_b" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Site address C</label>
+               <input type="text" data-name="site_address_c" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Site city</label>
+               <input type="text" data-name="site_city" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Site state / province</label>
+               <input type="text" data-name="site_state" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Site country</label>
+               <input type="text" data-name="site_country" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Site ZIP / postal</label>
+               <input type="text" data-name="site_zip" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Site rack location</label>
+               <input type="text" data-name="site_rack" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Site notes</label>
+               <input type="text" data-name="site_notes" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Primary POC name</label>
+               <input type="text" data-name="poc_1_name" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Primary POC email</label>
+               <input type="text" data-name="poc_1_email" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Primary POC phone A</label>
+               <input type="text" data-name="poc_2_phone_a" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Primary POC phone B</label>
+               <input type="text" data-name="poc_2_phone_b" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Primary POC cell</label>
+               <input type="text" data-name="poc_1_cell" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Primary POC screen name</label>
+               <input type="text" data-name="poc_1_screen" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-12">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Primary POC notes</label>
+               <!-- <input type="text" data-name="poc_1_notes" class="filterInput  InventoryObj" name="Macro"></input> -->
+               <textarea name="name" rows="3" style="width:100%" data-name="poc_1_notes" class="InventoryObj"></textarea>
+
+             </div>
+           </div>
+         </div>
+
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Secondary POC name</label>
+               <input type="text" data-name="poc_2_name" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Secondary POC email</label>
+               <input type="text" data-name="poc_2_email" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Secondary POC phone A</label>
+               <input type="text" data-name="poc_2_phone_a" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Secondary POC phone B</label>
+               <input type="text" data-name="poc_2_phone_b" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-6">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Secondary POC cell</label>
+               <input type="text" data-name="poc_2_cell" class="filterInput  InventoryObj" name="Macro"></input>
+             </div>
+           </div>
+         </div>
+           <div class="col-md-6">
+             <div class="form-group kdo-from-group">
+               <label for="MValue">Secondary POC screen name</label>
+               <input type="text" data-name="poc_2_screen" class="filterInput InventoryObj" name="MValue"></input>
+             </div>
+           </div>
+    </div>
+    <div class="row">
+         <div class="col-md-12">
+           <div class="row">
+             <div class="form-group kdo-from-group">
+               <label for="Macro">Secondary POC notes</label>
+               <!-- <input type="text" data-name="poc_2_notes" class="filterInput  InventoryObj" name="Macro"></input> -->
+               <textarea name="name" rows="3" style="width:100%" data-name="poc_2_notes" class="InventoryObj"></textarea>
+
+             </div>
+           </div>
+         </div>
+
+    </div>
+  </div>
+  <div class="RightDiv" style="margin-top:20px">
+    <div class="btn KdoBtn2  HostMarcoCancel">取消</div>
+    <div class="btn KdoBtn2 Kdo_mainColor HostMarcoOK ">保存</div>
+  </div>
+<div>

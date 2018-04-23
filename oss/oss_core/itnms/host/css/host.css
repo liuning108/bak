@@ -1,0 +1,401 @@
+.tree-content {
+  padding: 10px;
+  padding-left: 16px;
+}
+
+.filterArea {
+  min-height: 40px;
+  position: relative;
+}
+
+.filterArea .filterComands {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+  font-size: 16px;
+  color: gray;
+}
+
+.filterArea .filterComands i {
+  cursor: pointer;
+}
+
+.kdoGrupids {
+  width: 200px;
+  position: absolute;
+  top: 7px;
+}
+
+.hostOp i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.hostOp .dropdown {
+  display: inline-block;
+}
+
+.hostOp .dropdown .host-moreIcons {
+  border: none;
+  background: transparent;
+  margin: 0px;
+  padding: 0px;
+}
+
+.hostOp .dropdown-menu {
+  position: absolute;
+  left: -120px;
+}
+
+.hostOp a {
+  color: black;
+}
+
+.allHostShow {
+  cursor: pointer;
+}
+
+.filterInput {
+  width: 100%;
+}
+
+.ml15 {
+  margin-left: 15px;
+}
+
+.filterHostBody label {
+  font-weight: 500;
+  color: #3e3e3e;
+}
+
+.RightDiv {
+  float: right;
+}
+
+.RightDiv .green {
+  background: #5cb85c !important;
+}
+
+.mt15px {
+  margin-top: 15px;
+}
+
+.HostTemplateContext, .HostMarcoContext {
+  padding: 25px;
+  padding-top: 15px;
+}
+
+.HostTemplateContext .hostTempBtns, .HostMarcoContext .hostTempBtns {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.HostTemplateContext .hostTempBtns .kdoBtn, .HostMarcoContext .hostTempBtns .kdoBtn {
+  display: block;
+  width: 120px;
+  float: right;
+}
+
+.InventoryPageContext .radio label {
+  margin-left: 20px;
+  line-height: 35px;
+}
+
+.hostPageContext {
+  padding: 25px;
+  padding-top: 10px;
+}
+
+.hostPageContext label {
+  margin-bottom: 0px;
+}
+
+.hostPageContext .green {
+  background: #5cb85c !important;
+}
+
+.hostPageContext .hide {
+  display: none;
+}
+
+.hostPageContext .show {
+  display: inline-block !important;
+}
+
+.hostPageContext textarea {
+  border: 1px solid #d0d0d0;
+}
+
+.hostPageContext .hostRow {
+  margin-bottom: 0px;
+}
+
+.hostPageContext .hostRow .host_red {
+  margin-left: 5px;
+}
+
+.hostPageContext .hostGroup {
+  width: 70%;
+}
+
+.hostPageContext .filterInput {
+  height: 28px;
+}
+
+.hostPageContext .radio label {
+  margin-left: 20px;
+}
+
+.host_red {
+  color: red;
+}
+
+.hostIntefce {
+  padding: 10px;
+}
+
+.hostIntefce ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.hostIntefce ul li {
+  height: 40px;
+  width: 90%;
+  background: group;
+  text-align: center;
+  font-size: 14px;
+  color: black;
+  border: 1px solid #ececec;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.hostIntefce ul li:hover {
+  background: #f2f2f2;
+}
+
+.hostIntefce ul li.active {
+  background: #f2f2f2;
+}
+
+.menuPage {
+  padding: 10px;
+}
+
+.menuPage .hostPageContext {
+  min-height: 15px;
+  max-height: 140px;
+  padding: 0px;
+  margin: 0px;
+}
+
+.hostBtn {
+  margin-left: 5px;
+  color: #0275b8;
+  padding-bottom: 2px;
+  border-bottom: 1px dotted #0275b8;
+  cursor: pointer;
+}
+
+.interfacesTable {
+  width: 95%;
+  border-spacing: 5px 10px;
+}
+
+.interfacesTable .pt8 {
+  position: relative;
+  top: 8px;
+}
+
+.interfacesTable td {
+  padding: 4px;
+  vertical-align: baseline;
+}
+
+.interfacesTable th {
+  padding: 0px;
+  color: #768d99;
+  padding: 0 5px 0 0;
+  text-align: left;
+}
+
+.interfacesTable th:last-child {
+  padding: 0;
+}
+
+.interfacesTable .interfaceItemInput {
+  width: 98%;
+}
+
+.interfacesTable .hostDefault {
+  height: 24px;
+  width: 100%;
+  color: black;
+  border: 1px solid #acbbc2;
+  background-color: #fff;
+  text-align: center;
+  line-height: 24px;
+  float: left;
+  cursor: pointer;
+}
+
+.interfacesTable .hostDefault span {
+  display: none;
+}
+
+.interfacesTable .hostDefault:hover {
+  background: #e8f5ff;
+}
+
+.interfacesTable .hostDefault.active {
+  color: #fff;
+  border-color: #23b197;
+  background-color: #23b197;
+  position: relative;
+  z-index: 1;
+}
+
+.interfacesTable .hostDefault.active span {
+  display: inline-block;
+}
+
+.interfacesTable .ipOrDns {
+  display: inline-block;
+  width: 50%;
+  height: 24px;
+  color: black;
+  border: 1px solid #acbbc2;
+  background-color: #fff;
+  text-align: center;
+  line-height: 24px;
+  float: left;
+  cursor: pointer;
+}
+
+.interfacesTable .ipOrDns:hover {
+  background: #e8f5ff;
+}
+
+.interfacesTable .ipOrDns.active {
+  color: #fff;
+  border-color: #768d99;
+  background-color: #768d99;
+  position: relative;
+  z-index: 1;
+}
+
+.kdo-drag-icon {
+  width: 24px;
+  margin-left: -9px;
+  height: 24px;
+  background: url(icon-sprite.svg) no-repeat -6px -762px;
+}
+
+ul.iterfaceUL li {
+  width: 100% !important;
+  border: none;
+  background: transparent;
+}
+
+ul.iterfaceUL .interfaceItem .item {
+  float: left;
+  display: block;
+}
+
+ul.iterfaceUL .interfaceItem .item .inputTxt {
+  height: 25px;
+  width: 100px;
+}
+
+.hostListBtn {
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-top: 10px;
+  display: none;
+}
+
+.newHostGroupDiv {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.newHostGroupDiv .catlotree {
+  display: inline-block;
+  width: 300px;
+}
+
+.editTitle {
+  font: 20px !important;
+  padding: 0 0 3px !important;
+}
+
+.testDiv {
+  width: 100px;
+  height: 100px;
+  background: #bdbdbd;
+}
+
+.tmplateBtns i {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.HostMarcoContext .form-group {
+  padding: 20px;
+}
+
+.HostMarcoContext .form-group input {
+  height: 30px;
+}
+
+.macorHostAdd {
+  padding: 4px;
+  position: relative;
+  bottom: -35px;
+}
+
+.removeMacro {
+  cursor: pointer;
+}
+
+.main-EXPIRED {
+  color: #ff3f3f;
+}
+
+.main-APPROACH {
+  color: #36d15d;
+}
+
+.main-ACTIVE {
+  color: #1ca5fb;
+}
+
+.mainSearch:hover {
+  color: #2ec4e8;
+}
+
+.maintenanceDropDown {
+  display: inline-block;
+}
+
+.maintenanceDropDown .btn:hover {
+  color: #2ec4e8;
+}
+
+.main-filterCommands {
+  right: 120px !important;
+}
+
+.mainStateLi i {
+  margin-right: 8px;
+}
+
+.mainListBtn {
+  margin-left: 0px;
+  padding-left: 0px;
+  margin-top: 10px;
+  display: none;
+}
