@@ -47,7 +47,7 @@ define([
       self.showAddMainDialog();
     });
   },
-  MainListView.prototype.showAddMainDialog=function() {
+  MainListView.prototype.showAddMainDialog=function(mainObj) {
     var $el =this.$el;
     var options = {
       height: $el.height(),
@@ -63,7 +63,9 @@ define([
       }
     };
     var addMainDialog = new AddMainDialog();
-    var props={};
+    var props={
+      'mainObj':mainObj
+    };
     addMainDialog.popup(options,props, function(param) {
 
     });
@@ -195,6 +197,13 @@ define([
       });
     })
 
+    this.$gird.on('click','.updateMain',function(){
+        var selrow = self.$gird.grid("getSelection");
+        var id = selrow.maintenanceid;
+        action.getMaintenanceById(id).then(function(data){
+          self.showAddMainDialog(data.result[0])
+        })
+    })
     this.$gird.on('change', '[type="checkbox"]', function() {
       var selrow = self.$gird.grid("getCheckRows");
       if (selrow.length > 0) {

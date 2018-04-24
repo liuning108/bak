@@ -1,1 +1,52 @@
-<input type="text" name="" class="testInfo">
+<div class="AddMainDialogContext container-fluid">
+   <div class="row">
+     <div class="col-md-6">
+       <div class="form-group kdo-from-group">
+           <label for="mainName">Name<span class="host_red">*</span></label>
+           <input type="text" name="mainName" class="form-control mainNameText">
+        </div>
+     </div>
+     <div class="col-md-6">
+       <div class="form-group kdo-from-group">
+           <label for="mainType">类型</label>
+           <div class="radio mainRadio">
+             <label>
+               <input type="radio" name="mainType" value="0" checked=checked>
+               <span>数据收集</span>
+              </label>
+             <label>
+              <input type="radio" name="mainType" value="1">
+              <span>无数据收集</span>
+              </label>
+           </div>
+        </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-6">
+       <div class="form-group kdo-from-group">
+           <label for="startTime">启动时间<span class="host_red">*</span></label>
+             <div class="input-group" style="margin-top:15px">
+              <input type="text" name="startTime" class="form-control startTime" data-rule="开始日期: required; date;">
+            </div>
+        </div>
+     </div>
+     <div class="col-md-6">
+       <div class="form-group kdo-from-group">
+           <label for="endTime">结束时间<span class="host_red">*</span></label>
+           <div class="input-group" style="margin-top:15px">
+            <input type="text" name="endTime"  data-rule="结束日期: match[gte, startTime, date]"  class="form-control endTime">
+          </div>
+        </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-12">
+       <div class="form-group kdo-from-group">
+           <label for="mainDesc">描述</label>
+          <textarea name="mainDesc" rows="4"  style="width:100%"></textarea>
+        </div>
+     </div>
+
+   </div>
+</div>

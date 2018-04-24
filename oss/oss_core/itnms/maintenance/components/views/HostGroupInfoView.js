@@ -1,11 +1,10 @@
 define([
-  "text!oss_core/itnms/maintenance/components/views/BaseInfoView.html",
+  "text!oss_core/itnms/maintenance/components/views/HostGroupInfoView.html",
 ],function(tpl){
    var HostGroupInfoView  = function(option){
      this.option=option;
      this.$el =$(this.option.el);
      this.tpl=fish.compile(tpl);
-
    }
    HostGroupInfoView.prototype.render=function(){
      this.remove();

@@ -18,6 +18,9 @@ define([], function() {
     deleteByIds:function(param) {
       return fish.post("maintenance/deleteByIds", param);
     },
+    getMaintenanceById:function(id) {
+     return fish.post("maintenance/getMaintenanceById", {'id':id+""});
+    },
 
 
   }

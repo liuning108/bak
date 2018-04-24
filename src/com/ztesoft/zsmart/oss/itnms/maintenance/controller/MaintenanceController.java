@@ -33,4 +33,12 @@ public class MaintenanceController {
 		return apiService.deleteByIds(param);
 	}
 	
+	
+	@RequestMapping(value = "getMaintenanceById", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject getMaintenanceById(@RequestBody Map<String,Object> param) throws BaseAppException {
+		return apiService.getMaintenanceById(param);
+	}
+	
+	
 }

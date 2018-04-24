@@ -16,7 +16,12 @@ define([
     this.$el.html("");
    }
    BaseInfoView.prototype.afterRender=function(){
+     this.initTime();
 
+   }
+   BaseInfoView.prototype.initTime=function(){
+     this.$el.find('.startTime').datetimepicker();
+     this.$el.find('.endTime').datetimepicker();
    }
    BaseInfoView.prototype.getInfo=function(){
      return this.$el.find('.testInfo').val();

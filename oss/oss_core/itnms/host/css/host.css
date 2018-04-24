@@ -404,3 +404,26 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   max-width: 74px;
   float: left;
 }
+
+.AddMainDialogContext {
+  padding: 10px;
+  padding-top: 30px;
+}
+
+.mainRadio {
+  height: 50px;
+}
+
+.mainRadio label {
+  float: left;
+  width: 50%;
+}
+
+.mainRadio span {
+  position: relative;
+  top: 9px;
+}
+
+.mainNameText {
+  margin-top: 20px;
+}

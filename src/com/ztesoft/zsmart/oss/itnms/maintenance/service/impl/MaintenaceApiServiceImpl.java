@@ -64,17 +64,29 @@ public class MaintenaceApiServiceImpl implements MaintenaceApiService {
 		 
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated constructor stub
-				MaintenaceApiServiceImpl s = new MaintenaceApiServiceImpl();
-				Map<String, Object> param  = new HashMap<String,Object>();
-				List<String> ids = new ArrayList<String>();
-				ids.add("3");
-				param.put("ids", ids);
-				JSONObject json =s.deleteByIds(param);
-				System.out.println(json);
-				
-		
+
+
+	@Override
+	public JSONObject getMaintenanceById(Map<String, Object> param) {
+		  String id =(String)param.get("id");
+		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		  zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
+		  
+		  JSONObject search = new JSONObject();
+		  search.put("name", (String)param.get("sName"));
+		  
+		  Request getRequest = RequestBuilder.newBuilder()
+					.method("maintenance.get")
+					                                 .paramEntry("output", "extend")
+					                                 .paramEntry("maintenanceids", id)
+					                                 .paramEntry("selectGroups", "extend")
+					                                 .paramEntry("selectHosts", "extend")
+					                                 .paramEntry("selectTimeperiods", "extend")
+					         .build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		  zabbixApi.destroy();
+		  return getResponse;
 	}
 
 

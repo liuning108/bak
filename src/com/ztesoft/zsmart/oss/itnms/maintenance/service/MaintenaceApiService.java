@@ -6,5 +6,7 @@ public interface MaintenaceApiService {
 
 public JSONObject getAllMainByGroupids(Map<String,Object> param);
 public JSONObject deleteByIds(Map<String,Object> param);
+public JSONObject getMaintenanceById(Map<String,Object> param);
+
 
 }

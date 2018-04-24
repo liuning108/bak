@@ -19,6 +19,7 @@ define([
   }
   AddMainDialog.prototype.popup = function(options, props, callback) {
     options.content = this.content(),
+    this.popOption=options;
     this.$popup = fish.popup(options);
     this.props = props;
     this.callback = callback;
@@ -37,14 +38,16 @@ define([
     })
     this.loadAllPage();
   }
-
   AddMainDialog.prototype.loadAllPage=function(){
     this.baseInfoView=new BaseInfoView({
       el: this.$el.find('.Step1Page')
     });
     this.baseInfoView.render();
     this.periodsInfoView=new PeriodsInfoView({
-      el: this.$el.find('.Step2Page')
+      el: this.$el.find('.Step2Page'),
+      'tableW':this.popOption.width,
+      'H':this.popOption.height,
+      'positionEL':this.$el
     })
     this.periodsInfoView.render();
     this.hostGroupInfoView= new HostGroupInfoView({
@@ -54,7 +57,6 @@ define([
 
 
   }
-
   AddMainDialog.prototype.stepUp = function(_this) {
     var $ws = this.$el.find('.kdoWizardSteps')
     //把当前的状态设置为active,complete,当前显示的页面为hide
