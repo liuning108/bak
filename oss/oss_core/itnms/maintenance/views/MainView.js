@@ -24,7 +24,11 @@ define([
       action.getCategoryTree().then(function(data) {
         self.LeftTree(data)
       })
+
       this.initView();
+      self.$el.find('.allMainShow').off('click').on('click',function(){
+         self.initView();
+      })
 
     },
     initView: function() {
@@ -63,7 +67,21 @@ define([
       kTree.render();
     },
     loadMainByCateoryId: function(id) {
-      alert(id);
+      var self = this;
+      var docH = $(document).height();
+      var tableH = (docH - 48 - 35 - 30 - 40 - 40) * 0.92;
+      action.getGroupidsBySubNo(id).then(function(datas) {
+
+        var groups = fish.map(datas.result, function(d) {
+          return {'groupid': d.groupid, 'name': d.name}
+        }) //end of maps
+        if (self.mainListView) {
+          self.mainListView.remove();
+        }
+        self.mainListView = new MainListView({el: self.$el.find('.kdo_cotent'), 'tableH': tableH, 'groups': groups, 'bisId': id})
+        self.mainListView.render();
+      })
+
     },
     resize: function() {}
   }); //end of BaseView

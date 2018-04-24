@@ -399,3 +399,8 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   margin-top: 10px;
   display: none;
 }
+
+.maintenanceStep {
+  max-width: 74px;
+  float: left;
+}

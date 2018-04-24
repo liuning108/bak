@@ -7,7 +7,6 @@ define(["text!oss_core/itnms/host/components/views/filterHostView.html"],
     this.$el=$(this.tpl())
     return this.$el;
   }
-
   FilterViewDialog.prototype.popup=function(options,props,callback){
     options.content=this.content(),
     this.$popup=fish.popup(options);

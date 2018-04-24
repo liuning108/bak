@@ -1,6 +1,7 @@
 define([
-  "oss_core/itnms/maintenance/actions/MainAction", "text!oss_core/itnms/maintenance/components/views/mainLisView.html", "text!oss_core/itnms/maintenance/components/views/mainOp.html"
-], function(action, tpl, hostOp) {
+  "oss_core/itnms/maintenance/actions/MainAction", "text!oss_core/itnms/maintenance/components/views/mainLisView.html", "text!oss_core/itnms/maintenance/components/views/mainOp.html",
+  "oss_core/itnms/maintenance/components/views/AddMainDialog",
+], function(action, tpl, hostOp,AddMainDialog) {
   var MainListView = function(option) {
     this.option = option;
     this.$el = $(this.option.el);
@@ -38,7 +39,36 @@ define([
     self.mainStateLiAction(this.option._filterParam.state);
     self.createListTable();
     self.createFilterEvent();
+    self.addMaintencae();
   }
+  MainListView.prototype.addMaintencae=function() {
+    var self = this;
+    this.$el.find('.addMainPerio').off('click').on('click',function() {
+      self.showAddMainDialog();
+    });
+  },
+  MainListView.prototype.showAddMainDialog=function() {
+    var $el =this.$el;
+    var options = {
+      height: $el.height(),
+      width: ($el.width()/2),
+      modal: true,
+      draggable: false,
+      autoResizable: false,
+      position: {
+        'of': $el,
+        'my': "top",
+        'at': "right" + " " + "top",
+        collision: "fit"
+      }
+    };
+    var addMainDialog = new AddMainDialog();
+    var props={};
+    addMainDialog.popup(options,props, function(param) {
+
+    });
+
+  },
   MainListView.prototype.createFilterEvent = function() {
     var self = this;
     this.$el.find('.mainSearch').off('click').on('click', function() {
@@ -197,7 +227,6 @@ define([
     })
     self.loadTableData(groupid);
   }
-
   MainListView.prototype.loadTableData = function(groupid) {
     if (groupid == 'gis_none')
       return;
@@ -205,13 +234,22 @@ define([
     var groudids = [];
     if (groupid == 'myALL') {
       groudids = null
+      if(this.option.bisId){
+        var fiters = fish.filter(this.option.groups, function(d) {
+          if (d.groupid != 'myALL') {
+            return true;
+          }
+        });
+        groudids = fish.map(fiters, function(d) {
+          return d.groupid
+        });
+     }
     } else {
       groudids.push(groupid);
     }
     this.option._groudids = groudids;
     self.loadData();
   }
-
   MainListView.prototype.loadData = function() {
     var self = this;
     var opt = {};
@@ -222,14 +260,12 @@ define([
       self.reloadData(data);
     })
   }
-
   MainListView.prototype.reloadData = function(data) {
     var self = this;
     if (data.error)
       data.result = [];
     self.$gird.grid("reloadData", data.result);
   }
-
   MainListView.prototype.timetrans = function(tt) {
     var date = new Date(tt * 1000); //php time为10位需要乘1000
     var Y = date.getFullYear() + '-';
@@ -257,7 +293,6 @@ define([
       : date.getSeconds());
     return Y + M + D + h + m + s;
   }
-
   return MainListView;
 
 })
