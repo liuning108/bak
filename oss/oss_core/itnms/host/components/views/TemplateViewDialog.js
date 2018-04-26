@@ -60,7 +60,6 @@ define(["oss_core/itnms/host/actions/HostAction",
         self.renderGroup(data);
     })
   }
-
   TemplateViewDialog.prototype.renderGroup=function(data){
       this.filterGroup.combobox({
         dataSource:data.result
@@ -70,7 +69,6 @@ define(["oss_core/itnms/host/actions/HostAction",
       }
 
   }
-
   TemplateViewDialog.prototype.init=function() {
     var self =this;
 
@@ -116,7 +114,6 @@ define(["oss_core/itnms/host/actions/HostAction",
        })
       self.templDSelect.render();
   }
-
   TemplateViewDialog.prototype.afterPopup=function(){
     var self =this;
     this.init();

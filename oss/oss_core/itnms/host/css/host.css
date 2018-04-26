@@ -411,19 +411,26 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 }
 
 .mainRadio {
-  height: 50px;
-}
-
-.mainRadio label {
-  float: left;
-  width: 50%;
-}
-
-.mainRadio span {
-  position: relative;
-  top: 9px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .mainNameText {
   margin-top: 20px;
+}
+
+.btn-default:active.monthly-dayType-active, .btn-default:hover.monthly-dayType-active {
+  border-color: #2dc3e8;
+  background-color: #fff;
+  color: #2dc3e8;
+}
+
+.btn-default:active:focus.monthly-dayType-active, .btn-default:focus.monthly-dayType-active {
+  background: #2ec4e8;
+  color: #fff;
+}
+
+.monthly-dayType-active {
+  background: #2ec4e8;
+  color: #fff;
 }

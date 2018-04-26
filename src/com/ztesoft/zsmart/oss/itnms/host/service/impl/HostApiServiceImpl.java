@@ -16,22 +16,23 @@ import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.RequestBuilderWithArrayP
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.RequestWithArrayParams;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.ZabbixApi;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.impl.DefaultZabbixApi;
+import com.ztesoft.zsmart.oss.itnms.util.ZabbixApiUtil;
 
 @Service("HostApiServiceImpl")
 public class HostApiServiceImpl implements HostApiService{
 	@Override
-	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) {
-		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) throws BaseAppException {
+		  
+		  Map<String, String> result= ZabbixApiUtil.getZabbixApiInfo();
+		  ZabbixApi  zabbixApi = new DefaultZabbixApi(result.get("url"));
 		  zabbixApi.init();
-		  zabbixApi.login("Admin", "zabbix");
+		  zabbixApi.setAuth(result.get("auth"));
 		  
 		  JSONObject search = new JSONObject();
 		  search.put("name", name);
 		  search.put("ip", ip);
 		  search.put("dns", dns);
 		  search.put("port", port);
-		  System.out.println(search);
-		
 		  Request getRequest = RequestBuilder.newBuilder()
 					.method("host.get")
 					                                 .paramEntry("output", new String[] { "name","status","description","available","ipmi_available","jmx_available","snmp_available","error","ipmi_error","jmx_error","snmp_error"})
@@ -46,7 +47,7 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 	
 	@Override
-	public JSONObject getAllGroup(List<String >ids ) {
+	public JSONObject getAllGroup(List<String >ids ) throws BaseAppException {
 		// TODO Auto-generated method stub
 		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		
@@ -88,7 +89,7 @@ public class HostApiServiceImpl implements HostApiService{
 	
 
 	@Override
-	public JSONObject getHostByid(String id) {
+	public JSONObject getHostByid(String id) throws BaseAppException {
 		ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
@@ -109,7 +110,7 @@ public class HostApiServiceImpl implements HostApiService{
 
 
 	@Override
-	public JSONObject saveOrUpHost(Map<String, Object> param,String new_gid) {
+	public JSONObject saveOrUpHost(Map<String, Object> param,String new_gid)  throws BaseAppException {
    System.out.println(param);
    
      String hostid =(String)param.get("hostid");
@@ -165,7 +166,7 @@ public class HostApiServiceImpl implements HostApiService{
     	}
 
 	@Override
-	public JSONObject deleteHost(Map<String, Object> param) {
+	public JSONObject deleteHost(Map<String, Object> param) throws BaseAppException {
 		  List<String>ids= (List<String>)param.get("ids");
 		  String[] idsArray=ids.toArray(new String[ids.size()]);
 	      ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
@@ -182,7 +183,7 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 
 	@Override
-	public JSONObject changeHostStatus(Map<String, Object> param) {
+	public JSONObject changeHostStatus(Map<String, Object> param) throws BaseAppException {
 	    List<Map<String,String>>  hosts =(List<Map<String,String>>)param.get("hosts");
 		String status = (String)param.get("status");
 		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
@@ -199,7 +200,7 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 
 	@Override
-	public JSONObject addHostGroup(String name) {
+	public JSONObject addHostGroup(String name) throws BaseAppException{
 		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
@@ -218,14 +219,14 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 
 	@Override
-	public boolean isError(JSONObject result) {
+	public boolean isError(JSONObject result) throws BaseAppException {
 		// TODO Auto-generated method stub
 	    Object  o = result.get("error");
 		return (o==null)?false:true;
 	}
 
 	@Override
-	public JSONObject removeHostGroup(String new_gid) {
+	public JSONObject removeHostGroup(String new_gid)  throws BaseAppException {
 		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
@@ -238,7 +239,7 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 
 	@Override
-	public JSONObject getTemplateByGroupId(String id) {
+	public JSONObject getTemplateByGroupId(String id) throws BaseAppException {
 		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");

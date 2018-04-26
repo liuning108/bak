@@ -45,6 +45,55 @@ define([
                          self.showTypePage(value);
                       });
     this.showTypePage("0");
+    var dataH =fish.map(fish.range(24),function(d){
+        return {
+          'name':d,
+          'value':d,
+        }
+    });
+    var dataM =fish.map(fish.range(60),function(d){
+        return {
+          'name':d,
+          'value':d,
+        }
+    });
+    this.mplH = this.$el.find('.mpl_Hours').combobox({
+        dataTextField: 'name',
+        dataValueField: 'value',
+        editable: false,
+        dataSource: dataH
+    });
+    this.mplH.combobox("value","1");
+
+    this.mplM = this.$el.find('.mpl_Minutes').combobox({
+        dataTextField: 'name',
+        dataValueField: 'value',
+        editable: false,
+        dataSource:dataM
+    });
+    this.mplM.combobox("value","0");
+    self.oneTimeOnly();
+    self.monthly();
+  }
+  NewTaskDialog.prototype.oneTimeOnly=function(){
+    this.$el.find('.onetimeonlyDate').datetimepicker();
+  }
+  NewTaskDialog.prototype.monthly=function(){
+    var self =this;
+    this.$el.find('.monthly_dayType').off('click').on('click',function() {
+       var value = $(this).data('value');
+       self.monthlyDayTypeAction(value);
+    })
+    self.monthlyDayTypeAction("0");
+  }
+  NewTaskDialog.prototype.monthlyDayTypeAction=function(value){
+    var self =this;
+    self.$el.find('.monthly-dayType-active')
+            .removeClass("monthly-dayType-active");
+    self.$el.find('.monthly_dayType'+value)
+            .addClass("monthly-dayType-active");
+   self.$el.find('.MonthlyDateType').hide();
+   self.$el.find('.MonthlyDateType'+value).show();
   }
   NewTaskDialog.prototype.showTypePage=function(value){
     var self =this;

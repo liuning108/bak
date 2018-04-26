@@ -6,23 +6,321 @@
     <div class="row">
       <div class="col-md-1-12">
         <div class="form-group kdo-from-group">
-            <label for="periodsType">周期类型<span class="host_red">*</span></label>
-            <input type="text" name="mainName" class="form-control periodsType">
-         </div>
+          <label for="periodsType">周期类型<span class="host_red">*</span></label>
+          <input type="text" name="mainName" class="form-control periodsType">
+        </div>
       </div>
     </div>
     <div class="row ">
       <div class="col-md-1-12 type0 mainTypPage" style="display:none">
-        One time only
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Date</label>
+          <div class="input-group">
+            <input type="text" name="onetimeonlyDate" class="form-control onetimeonlyDate">
+          </div>
+        </div>
       </div>
       <div class="col-md-1-12 type2 mainTypPage" style="display:none">
-        Daily
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Every day(s)</label>
+          <input type="text" name="onetimeonlyDate" class="form-control">
+        </div>
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control">
+            </div>
+            <span>:</span>
+            <div class="form-group">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md-1-12 type3 mainTypPage" style="display:none">
-        Weekly
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Every week(s)</label>
+          <input type="text" name="onetimeonlyDate" class="form-control">
+        </div>
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Day of week</label>
+          <!--星期-->
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Monday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Tuesday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Wednesday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Thursday
+                   </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Friday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Saturday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> Sunday
+                   </label>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control">
+            </div>
+            <span>:</span>
+            <div class="form-group">
+              <input type="text" class="form-control">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="col-md-1-12 type4 mainTypPage" style="display:none">
-        Monthly
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Month</label>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> January
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> February
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> March
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> April
+                   </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> May
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> June
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> July
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> August
+                   </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> September
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> October
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> November
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox"> December
+                   </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group kdo-from-group">
+          <label for="onetimeonlyDate">Date</label>
+          <div class="btn-group" role="group" style="margin-left:20px">
+            <button type="button" class="btn btn-default monthly_dayType monthly_dayType0" data-value="0">Day</button>
+            <button type="button" class="btn btn-default monthly_dayType
+            monthly_dayType1" data-value="1">Day of week</button>
+          </div>
+        </div>
+        <div class="row MonthlyDateType MonthlyDateType0">
+          <div class="col-md-12">
+            <div class="form-group kdo-from-group">
+              <label for="onetimeonlyDate">Day of month</label>
+              <div class="input-group">
+                <input type="text" name="onetimeonlyDate" class="form-control">
+              </div>
+            </div>
+            <div class="form-group kdo-from-group">
+              <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+              <div class="form-inline">
+                <div class="form-group">
+                  <input type="text" class="form-control">
+                </div>
+                <span>:</span>
+                <div class="form-group">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row MonthlyDateType MonthlyDateType1">
+          <div class="col-md-12">
+            <div class="form-group kdo-from-group">
+              <label for="onetimeonlyDate">Day of week</label>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Monday
+                       </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Tuesday
+                       </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Wednesday
+                       </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Thursday
+                       </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Friday
+                       </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Saturday
+                       </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-3">
+                  <div class="checkbox">
+                    <label>
+                         <input type="checkbox"> Sunday
+                       </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1-12">
+        <div class="form-group kdo-from-group">
+          <label for="periodsType">Maintenance period length<span class="host_red">*</span></label>
+          <div class="form-inline">
+            <div class="form-group">
+              <input type="text" class="form-control">
+            </div>
+            <span>Days</span>
+            <div class="form-group">
+              <input type="text" class="form-control mpl_Hours">
+            </div>
+            <span>Hours</span>
+            <div class="form-group">
+              <input type="text" class="form-control mpl_Minutes">
+            </div>
+            <span>Minutes</span>
+
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -31,6 +329,4 @@
         <div class="btn stepNext KdoBtn2 Kdo_mainColor ">确定</div>
       </div>
     </div>
-
-
   </div>

@@ -1,7 +1,6 @@
 package com.ztesoft.zsmart.oss.itnms.maintenance.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +14,6 @@ import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.RequestWithArrayParams;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.ZabbixApi;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.impl.DefaultZabbixApi;
 import com.ztesoft.zsmart.oss.itnms.maintenance.service.MaintenaceApiService;
-import com.ztesoft.zsmart.oss.itnms.maintenance.util.MaintenaceUtil;
 
 
 @Service("MaintenaceApiServiceImpl")
@@ -23,7 +21,6 @@ public class MaintenaceApiServiceImpl implements MaintenaceApiService {
 
 	@Override
 	public JSONObject getAllMainByGroupids(Map<String, Object> param) {
-		
 		  List<String> ids =(List<String>)param.get("ids");
 		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
@@ -65,17 +62,14 @@ public class MaintenaceApiServiceImpl implements MaintenaceApiService {
 	}
 	
 
-
 	@Override
 	public JSONObject getMaintenanceById(Map<String, Object> param) {
 		  String id =(String)param.get("id");
 		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
-		  
 		  JSONObject search = new JSONObject();
 		  search.put("name", (String)param.get("sName"));
-		  
 		  Request getRequest = RequestBuilder.newBuilder()
 					.method("maintenance.get")
 					                                 .paramEntry("output", "extend")

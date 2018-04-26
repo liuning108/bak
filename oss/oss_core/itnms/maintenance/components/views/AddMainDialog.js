@@ -51,7 +51,8 @@ define([
     })
     this.periodsInfoView.render();
     this.hostGroupInfoView= new HostGroupInfoView({
-      el: this.$el.find('.Step3Page')
+      el: this.$el.find('.Step3Page'),
+     "catatlog":this.props.catatlog,
     });
     this.hostGroupInfoView.render();
 

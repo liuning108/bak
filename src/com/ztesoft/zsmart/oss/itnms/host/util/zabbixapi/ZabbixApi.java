@@ -14,4 +14,5 @@ public interface ZabbixApi {
 	JSONObject call(RequestWithArrayParams request);
 
 	String login(String user, String password);
+	String setAuth(String auth);
 }

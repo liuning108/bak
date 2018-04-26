@@ -1,7 +1,7 @@
 <div class="kdoDSelect">
-  <div class="row">
+  <div>
     <div class="col-md-5">
-      <div class="row">
+      <div>
         <div class="form-group">
           <input type="text" class="filterName filterInput LF" name="FilterName" placeholder="搜索" >
         </div>
@@ -10,16 +10,17 @@
     <div class="col-md-2">
     </div>
     <div class="col-md-5">
-      <div class="row">
+      <div>
         <div class="form-group ">
           <input type="text" class="filterName filterInput RF" name="FilterName" placeholder="搜索">
         </div>
       </div>
     </div>
   </div>
-  <div class="row " style="height:100px">
+  <div>
       <div class="col-md-5" style="padding:0px">
-        <select  class="lSelect" autocomplete="off" multiple="multiple" size="5" style="width:100%">
+        <div class="form-group">
+        <select  class=" form-control  lSelect" autocomplete="off" multiple="multiple" size="5">
           {{#each L}}
           <option value="{{value}}" data-name="{{name}}">
              {{name}}
@@ -27,6 +28,7 @@
           {{/each}}
 
         </select>
+        </div>
       </div>
       <div class="col-md-2" style="padding:0px;">
          <div class="kk">
@@ -35,13 +37,15 @@
           </div>
       </div>
       <div class="col-md-5" style="padding:0px">
-      <select class="rSelect" autocomplete="off" multiple="multiple" size="5" style="width:100%">
-        {{#each R}}
-        <option value="{{value}}" data-name="{{name}}">
-           {{name}}
-        </option>
-        {{/each}}
-      </select>
+            <div class="form-group">
+        <select class=" form-control rSelect" autocomplete="off" multiple="multiple" size="5">
+          {{#each R}}
+          <option value="{{value}}" data-name="{{name}}">
+             {{name}}
+          </option>
+          {{/each}}
+        </select>
+        </div>
       </div>
   </div>
 </div>

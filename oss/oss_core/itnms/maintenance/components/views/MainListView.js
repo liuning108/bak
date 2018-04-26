@@ -49,28 +49,38 @@ define([
   },
   MainListView.prototype.showAddMainDialog=function(mainObj) {
     var $el =this.$el;
-    var options = {
-      height: $el.height(),
-      width: ($el.width()/2),
-      modal: true,
-      draggable: false,
-      autoResizable: false,
-      position: {
-        'of': $el,
-        'my': "top",
-        'at': "right" + " " + "top",
-        collision: "fit"
-      }
-    };
-    var addMainDialog = new AddMainDialog();
-    var props={
-      'mainObj':mainObj
-    };
-    addMainDialog.popup(options,props, function(param) {
+      action.getCategoryTree().then(function(data) {
+        data.splice(0, 0, {
+          name: 'ALL',
+          id: "R",
+        });
+        var options = {
+          height: $el.height(),
+          width: ($el.width()/2),
+          modal: true,
+          draggable: false,
+          autoResizable: false,
+          position: {
+            'of': $el,
+            'my': "top",
+            'at': "right" + " " + "top",
+            collision: "fit"
+          }
+        };
+        var addMainDialog = new AddMainDialog();
+        var props={
+          'mainObj':mainObj,
+          "catatlog":data,
+        };
+        addMainDialog.popup(options,props, function(param) {
 
-    });
+        });
+
+      });
+
 
   },
+
   MainListView.prototype.createFilterEvent = function() {
     var self = this;
     this.$el.find('.mainSearch').off('click').on('click', function() {

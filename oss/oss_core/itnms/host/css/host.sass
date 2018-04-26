@@ -292,13 +292,23 @@ ul.iterfaceUL
   padding-top: 30px
 
 .mainRadio
-   height: 50px
-   label
-     float: left
-     width: 50%
-   span
-     position: relative
-     top: 9px
-     
+  margin-top: 0px
+  margin-bottom: 0px
+
 .mainNameText
   margin-top: 20px
+
+
+.btn-default:active,  .btn-default:hover
+  &.monthly-dayType-active
+    border-color: #2dc3e8;
+    background-color: #fff;
+    color: #2dc3e8;
+.btn-default:active:focus, .btn-default:focus,
+  &.monthly-dayType-active
+      background: $mainColor
+      color: #fff
+
+.monthly-dayType-active
+  background: $mainColor
+  color: #fff

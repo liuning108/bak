@@ -21,6 +21,12 @@ define([], function() {
     getMaintenanceById:function(id) {
      return fish.post("maintenance/getMaintenanceById", {'id':id+""});
     },
+    getTemplateByGroupId: function(id) {
+      return fish.post("host/getTemplateByGroupId", {'groupId': id});
+    },
+    getAllHostsByGroupids: function(ids) {
+      return fish.post("host/getAllHostsByGroupids", ids);
+    },
 
 
   }
