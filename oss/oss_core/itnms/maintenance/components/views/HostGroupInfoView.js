@@ -70,7 +70,6 @@ define([
    }
    HostGroupInfoView.prototype.init=function() {
      var self =this;
-
      this.filterGroup = this.$el.find('.filterGroup').combobox({
            placeholder: 'Select a State',
            editable: false,
@@ -104,10 +103,15 @@ define([
 
        })
 
+       // hostGroupData.groups=mainObj.groups;
+       // hostGroupData.hosts=mainObj.hosts;
+
+       console.log("hostGGGGGG");
+       console.log(this.option.data.groups);
        self.templDSelect =new KdoDSelect({
           el: self.$el.find('.TemplatesDSelect'),
           L :[],
-          R: []
+          R: this.option.data.groups
         })
        self.templDSelect.render();
 
@@ -122,7 +126,7 @@ define([
            self.allGroupDSelect = new KdoDSelect({
              el: self.$el.find('.AllGroupDSelect'),
              L :allGroupsData,
-             R: []
+             R: self.option.data.hosts
            })
            self.allGroupDSelect.render();
        })
@@ -134,7 +138,15 @@ define([
      this.renderCatalogTree();
    }
    HostGroupInfoView.prototype.getInfo=function(){
-     return this.$el.find('.testInfo').val();
+     var  self =this;
+     var info ={};
+     info.g = fish.map(self.templDSelect.val(),function(d){
+          return d.value
+     });
+     info.h = fish.map(self.allGroupDSelect.val(),function(d){
+          return d.value
+     });
+     return info;
    }
    return HostGroupInfoView;
 });

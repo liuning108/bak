@@ -1,12 +1,14 @@
 package com.ztesoft.zsmart.oss.itnms.maintenance.service.impl;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.Request;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.RequestBuilder;
 import com.ztesoft.zsmart.oss.itnms.host.util.zabbixapi.RequestBuilderWithArrayParams;
@@ -78,6 +80,44 @@ public class MaintenaceApiServiceImpl implements MaintenaceApiService {
 					                                 .paramEntry("selectHosts", "extend")
 					                                 .paramEntry("selectTimeperiods", "extend")
 					         .build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		  zabbixApi.destroy();
+		  return getResponse;
+	}
+
+
+
+	@Override
+	public JSONObject saveOrUpdate(Map<String, Object> param) throws BaseAppException {
+		 String maintenanceid =(String)param.get("maintenanceid");
+	     String active_since =param.get("active_since")+"";
+	     String active_till =param.get("active_till")+"";
+	     String maintenance_type =(String)param.get("maintenance_type");
+	     String name=(String)param.get("name");
+	     String description= (String)param.get("description");
+	     String method="maintenance.update";
+	     if("none".equalsIgnoreCase(maintenanceid)) {
+	    	  method = "maintenance.create";
+	    	  maintenanceid=null;
+	     }
+	     List<String> groupids= (List<String>)param.get("groupids");
+	     List<String> hostids= (List<String>)param.get("hostids");
+	     List<Map<String,String>> timeperiods=(List<Map<String,String>>)param.get("timeperiods");
+	     ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+		 zabbixApi.init();
+		 zabbixApi.login("Admin", "zabbix");
+		Request getRequest = RequestBuilder.newBuilder()
+					.method(method)
+					.paramEntry("maintenanceid", maintenanceid)
+					.paramEntry("active_since", active_since)
+					.paramEntry("active_till", active_till)
+					.paramEntry("maintenance_type", maintenance_type)
+					.paramEntry("name",name)
+					.paramEntry("description", description)
+					.paramEntry("timeperiods", timeperiods)
+					.paramEntry("groupids", groupids)
+					.paramEntry("hostids", hostids)
+					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);
 		  zabbixApi.destroy();
 		  return getResponse;

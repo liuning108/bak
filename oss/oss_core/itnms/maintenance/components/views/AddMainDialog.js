@@ -1,9 +1,10 @@
 define([
+  "oss_core/itnms/maintenance/actions/MainAction",
   "text!oss_core/itnms/maintenance/components/views/AddMainDialog.html",
   "oss_core/itnms/maintenance/components/views/BaseInfoView",
   "oss_core/itnms/maintenance/components/views/PeriodsInfoView",
   "oss_core/itnms/maintenance/components/views/HostGroupInfoView",
-], function(tpl,BaseInfoView,PeriodsInfoView,HostGroupInfoView) {
+], function(action,tpl,BaseInfoView,PeriodsInfoView,HostGroupInfoView) {
   var AddMainDialog = function() {
     this.tpl = fish.compile(tpl);
     this.state = {
@@ -39,20 +40,38 @@ define([
     this.loadAllPage();
   }
   AddMainDialog.prototype.loadAllPage=function(){
+    console.log("AddMainDialogAddMainDialogAddMainDialog");
+    console.log(this.props.mainObj);
+    var mainObj =this.props.mainObj;
+    var baseInfoData = {
+      "name": mainObj.name,
+      "active_since":mainObj.active_since,
+      "active_till":mainObj.active_till,
+      "maintenance_type":mainObj.maintenance_type,
+      "description":mainObj.description
+    }
     this.baseInfoView=new BaseInfoView({
-      el: this.$el.find('.Step1Page')
+      el: this.$el.find('.Step1Page'),
+      data:baseInfoData,
     });
     this.baseInfoView.render();
+
     this.periodsInfoView=new PeriodsInfoView({
       el: this.$el.find('.Step2Page'),
       'tableW':this.popOption.width,
       'H':this.popOption.height,
-      'positionEL':this.$el
+      'positionEL':this.$el,
+      'timeperiods':this.props.mainObj.timeperiods
     })
     this.periodsInfoView.render();
+
+    var hostGroupData = {};
+    hostGroupData.groups=mainObj.groups;
+    hostGroupData.hosts=mainObj.hosts;
     this.hostGroupInfoView= new HostGroupInfoView({
       el: this.$el.find('.Step3Page'),
      "catatlog":this.props.catatlog,
+     'data':hostGroupData
     });
     this.hostGroupInfoView.render();
 
@@ -107,9 +126,22 @@ define([
 
   }
   AddMainDialog.prototype.done = function() {
-    alert(this.baseInfoView.getInfo());
-    alert(this.periodsInfoView.getInfo());
-    alert(this.hostGroupInfoView.getInfo());
+    var baseInfo =this.baseInfoView.getInfo();
+    var timeperiods=this.periodsInfoView.getInfo();
+     console.log("periodsInfoViewperiodsInfoViewperiodsInfoView");
+     console.log(timeperiods);
+      baseInfo.timeperiods=timeperiods
+     var groupHostInfo=this.hostGroupInfoView.getInfo()
+     baseInfo.groupids=groupHostInfo.g;
+     baseInfo.hostids=groupHostInfo.h
+     baseInfo.maintenanceid=this.props.mainObj.maintenanceid;
+     console.log(baseInfo);
+     action.saveOrUpdate(baseInfo).then(function(data){
+       console.log("saveOrUpdatesaveOrUpdatesaveOrUpdatesaveOrUpdate");
+       console.log(data);
+     })
+    //alert(this.periodsInfoView.getInfo());
+    //alert();
   }
   return AddMainDialog;
 })

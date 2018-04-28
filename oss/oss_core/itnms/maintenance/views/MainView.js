@@ -1,3 +1,4 @@
+
 define([
   "oss_core/itnms/maintenance/actions/MainAction", "text!oss_core/itnms/maintenance/templates/MainView.html", "oss_core/itnms/host/components/kdoTree/kdoTree",
   "oss_core/itnms/maintenance/components/views/MainListView",
@@ -71,7 +72,6 @@ define([
       var docH = $(document).height();
       var tableH = (docH - 48 - 35 - 30 - 40 - 40) * 0.92;
       action.getGroupidsBySubNo(id).then(function(datas) {
-
         var groups = fish.map(datas.result, function(d) {
           return {'groupid': d.groupid, 'name': d.name}
         }) //end of maps
@@ -81,7 +81,6 @@ define([
         self.mainListView = new MainListView({el: self.$el.find('.kdo_cotent'), 'tableH': tableH, 'groups': groups, 'bisId': id})
         self.mainListView.render();
       })
-
     },
     resize: function() {}
   }); //end of BaseView

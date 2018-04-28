@@ -56,7 +56,7 @@ define([
         });
         var options = {
           height: $el.height(),
-          width: ($el.width()/2),
+          width: ($el.width()/1.8),
           modal: true,
           draggable: false,
           autoResizable: false,
@@ -68,6 +68,18 @@ define([
           }
         };
         var addMainDialog = new AddMainDialog();
+        mainObj.groups= fish.map(mainObj.groups,function(d) {
+          return {
+               'value':d.groupid,
+               'name':d.name
+          }
+        });
+        mainObj.hosts = fish.map(mainObj.hosts,function(d){
+           return {
+             'value': d.hostid,
+             'name':d.name
+           }
+        });
         var props={
           'mainObj':mainObj,
           "catatlog":data,
@@ -80,7 +92,6 @@ define([
 
 
   },
-
   MainListView.prototype.createFilterEvent = function() {
     var self = this;
     this.$el.find('.mainSearch').off('click').on('click', function() {

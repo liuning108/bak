@@ -27,7 +27,9 @@ define([], function() {
     getAllHostsByGroupids: function(ids) {
       return fish.post("host/getAllHostsByGroupids", ids);
     },
-
+    saveOrUpdate:function(param){
+      return fish.post("maintenance/saveOrUpdate", param);
+    }
 
   }
 })

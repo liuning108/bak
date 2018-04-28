@@ -41,4 +41,10 @@ public class MaintenanceController {
 	}
 	
 	
+	@RequestMapping(value = "saveOrUpdate", method = RequestMethod.POST)
+	@PublicServ
+	public JSONObject saveOrUpdate(@RequestBody Map<String,Object> param) throws BaseAppException {
+		return apiService.saveOrUpdate(param);
+	}
+	
 }
