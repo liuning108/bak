@@ -29,6 +29,9 @@ define([], function() {
     },
     saveOrUpdate:function(param){
       return fish.post("maintenance/saveOrUpdate", param);
+    },
+    getParamValue:function(id){
+      return fish.get("itnms/paravalue/"+id);
     }
 
   }

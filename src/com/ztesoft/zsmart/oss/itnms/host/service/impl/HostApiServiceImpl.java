@@ -23,10 +23,14 @@ public class HostApiServiceImpl implements HostApiService{
 	@Override
 	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) throws BaseAppException {
 		  
-		  Map<String, String> result= ZabbixApiUtil.getZabbixApiInfo();
-		  ZabbixApi  zabbixApi = new DefaultZabbixApi(result.get("url"));
-		  zabbixApi.init();
-		  zabbixApi.setAuth(result.get("auth"));
+//		  Map<String, String> result= ZabbixApiUtil.getZabbixApiInfo();
+//		  ZabbixApi  zabbixApi = new DefaultZabbixApi(result.get("url"));
+//		  zabbixApi.init();
+//		  zabbixApi.setAuth(result.get("auth"));
+		 ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
+			
+		 zabbixApi.init();
+		  zabbixApi.login("Admin", "zabbix");
 		  
 		  JSONObject search = new JSONObject();
 		  search.put("name", name);

@@ -75,7 +75,17 @@ define([
         if (self.hostListView) {
           self.hostListView.remove();
         }
-        self.hostListView = new HostListView({el: self.$el.find('.kdo_cotent'), 'tableH': tableH, 'groups': groups, 'bisId': id})
+        self.hostListView = new HostListView(
+           {
+            el: self.$el.find('.kdo_cotent'),
+           'tableH': tableH,
+           'groups': groups,
+           'bisId': id,
+           // 'callback':function(){
+           //  alert('hello world');
+           //     }
+        }
+        )
         self.hostListView.render();
       })
     },

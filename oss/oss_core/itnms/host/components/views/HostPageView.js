@@ -184,7 +184,11 @@ define([
     info.newg_name=this.$el.find('.newg_name').val();
     info.hostid=this.options.hostObj.hostid;
     info.host=this.$el.find('.hostHost').val();
-    info.name=this.$el.find('.hostName').val();
+    var name= this.$el.find('.hostName').val();
+    if(name.length<=0){
+      name =info.host;
+    }
+    info.name=name;
     info.proxy_hostid=this.hostProxy.combobox('value');
     info.status=this.$el.find("input[name='offon']:checked").val();
     info.description=this.$el.find('.HostDesc').val();

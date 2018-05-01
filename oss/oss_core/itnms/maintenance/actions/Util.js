@@ -77,17 +77,105 @@ define([], function() {
         return [0, 0, 0];
       }
     },
-    process: function(timeperiods) {
+    process: function(timeperiods,sp) {
       return fish.map(timeperiods, function(d) {
-        return util.schedule(d)
+        return util.schedule(d,sp)
       });
     },
-    schedule: function(d) {
+    schedule: function(d,sp) {
       d.schedule = "";
+      var ssp =sp|| {};
+
+
       if (d.timeperiod_type == "0") {
         d.schedule = util.timetrans(d.start_date);
       }
+      if(d.timeperiod_type=='2'){
+        console.log("schedulescheduleschedu2222le");
+        console.log(ssp);
+         var  p=ssp.daily||{};
+        //daily
+        var pattern=p.paraValue||"At {start_time} on every {every} days"
+        //"在每隔 {every} 天的 {start_time} "
+        pattern=pattern.replace(/{every}/g,d.every)
+        var timeArray =util.secToTimeDay(d.start_time);
+        var time =util.replenishZero(timeArray[1]+"",2)
+             +":"+util.replenishZero(timeArray[2]+"",2);
+      	pattern=pattern.replace(/{start_time}/g,time);
+        d.schedule=pattern;
+      }
+      if(d.timeperiod_type=='3'){
+        //weekly
+          var  p=ssp.weekly||{};
+          var pattern=p.paraValue||"At {start_time} on every {dayofweek} of every {every}    weeks"
+          //"每隔 {every} 周的 {dayofweek} {start_time}"
+             pattern=pattern.replace(/{every}/g,d.every)
+             var timeArray =util.secToTimeDay(d.start_time);
+             var time =util.replenishZero(timeArray[1]+"",2)
+                  +":"+util.replenishZero(timeArray[2]+"",2);
+              pattern=pattern.replace(/{start_time}/g,time)
+              var binarry=util.replenish(d.dayofweek,7);
+              pattern=pattern.replace(/{dayofweek}/g,util.binToWeek(binarry));
+                d.schedule=pattern;
+      }
+      if(d.timeperiod_type=='4'){
+        if(d.day!='0'){
+          //monthly_day
+           var  p=ssp.monthly_day||{};
+          var pattern=p.paraValue||"At {start_time} on day {day} of every {month}";
+             pattern=pattern.replace(/{day}/g,d.day)
+           var timeArray =util.secToTimeDay(d.start_time);
+           var time =util.replenishZero(timeArray[1]+"",2)
+                +":"+util.replenishZero(timeArray[2]+"",2);
+            pattern=pattern.replace(/{start_time}/g,time)
+            var binarry=util.replenish(d.month,12);
+            pattern=pattern.replace(/{month}/g,util.binToMonth(binarry));
+          d.schedule=pattern;
+        }else{
+           var  p=ssp.monthly_week||{};
+          var pattern=p.paraValue||"At {start_time} on {every} {dayofweek} of every {month}	";
+          var timeArray =util.secToTimeDay(d.start_time);
+          var time =util.replenishZero(timeArray[1]+"",2)
+               +":"+util.replenishZero(timeArray[2]+"",2);
+           pattern=pattern.replace(/{start_time}/g,time)
+           var binarry=util.replenish(d.month,12);
+           pattern=pattern.replace(/{month}/g,util.binToMonth(binarry));
+           var binarry=util.replenish(d.dayofweek,7);
+           pattern=pattern.replace(/{dayofweek}/g,util.binToWeek(binarry));
+           pattern=pattern.replace(/{every}/g,util.everyToOrder(d.every));
+           d.schedule=pattern
+        }
+      }
       return d
+    },
+    everyToOrder:function(every){
+      var data=["","First","Second","Third","Fourth","Last"];
+      return data[every];
+    },
+    binToMonth:function(binarry){
+      var month =[
+       "January", "February", "March", "April","May", "June", "July", "August", "September", "October", "November", "December"];
+       var data =[];
+       binarry =binarry.split("").reverse().join("")
+       for (var i=0;i<binarry.length;i++){
+         var v = binarry[i];
+         if(v=='1'){
+            data.push(month[i]);
+         }
+       }
+       return data.join(',');
+    },
+    binToWeek:function(binarry){
+      var week=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      var data =[];
+      binarry =binarry.split("").reverse().join("")
+      for (var i=0;i<binarry.length;i++){
+        var v = binarry[i];
+        if(v=='1'){
+           data.push(week[i]);
+        }
+      }
+      return data.join(',');
     },
     timetrans: function(tt) {
       var date = new Date(tt * 1000); //php time为10位需要乘1000
@@ -139,9 +227,23 @@ define([], function() {
       return Number(d) * 86400 + Number(h) * 3600 + Number(m) * 60;
     },
     replenish: function(target, len) {
+      target=Number(target).toString(2);
       var tlen = target.length;
       var data = "";
       console.log(tlen < len)
+      if (tlen < len) {
+        for (var i = 0; i < len - tlen; i++) {
+          data = "0" + data;
+        }
+        data += target
+      } else {
+        data = target;
+      }
+      return data;
+    },
+    replenishZero: function(target, len) {
+      var tlen = target.length;
+      var data = "";
       if (tlen < len) {
         for (var i = 0; i < len - tlen; i++) {
           data = "0" + data;

@@ -61,7 +61,8 @@ define([
       'tableW':this.popOption.width,
       'H':this.popOption.height,
       'positionEL':this.$el,
-      'timeperiods':this.props.mainObj.timeperiods
+      'timeperiods':this.props.mainObj.timeperiods,
+      'sp':this.props.sp
     })
     this.periodsInfoView.render();
 
@@ -126,6 +127,7 @@ define([
 
   }
   AddMainDialog.prototype.done = function() {
+    var self =this;
     var baseInfo =this.baseInfoView.getInfo();
     var timeperiods=this.periodsInfoView.getInfo();
      console.log("periodsInfoViewperiodsInfoViewperiodsInfoView");
@@ -137,8 +139,13 @@ define([
      baseInfo.maintenanceid=this.props.mainObj.maintenanceid;
      console.log(baseInfo);
      action.saveOrUpdate(baseInfo).then(function(data){
-       console.log("saveOrUpdatesaveOrUpdatesaveOrUpdatesaveOrUpdate");
-       console.log(data);
+       if (data.error) {
+         fish.toast('warn', data.error.message + " : " + data.error.data);
+       } else {
+         fish.toast('info', 'succeed');
+         self.$popup.hide();
+         self.callback("succeed");
+       }
      })
     //alert(this.periodsInfoView.getInfo());
     //alert();

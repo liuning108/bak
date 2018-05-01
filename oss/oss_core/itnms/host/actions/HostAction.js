@@ -4,6 +4,7 @@ define([], function() {
       return fish.get("host/getCategoryTree", {});
     },
     getAllGroup: function() {
+
       return fish.get("host/getAllGroup", {});
     },
     getAllHostsByGroupids: function(ids) {

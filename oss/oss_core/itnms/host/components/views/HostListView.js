@@ -46,6 +46,13 @@ define([
       self.createHostEvent();
       self.createListTable();
       self.createFilterEvent();
+      if(self.option.callback){
+        $el.find('.hostcallback').off('click').on('click',function() {
+          self.option.callback();
+        })
+      }else{
+       $el.find('.hostcallback').hide();
+      }
 
     }
     HostListView.prototype.createFilterEvent = function() {
@@ -181,6 +188,9 @@ define([
 
           $el.find('.hostListGrid').find('.hostOp').parent().css('overflow', "visible");
           if($el.find('.hostListGrid').find('.hostOp').find(".dropdown").length<=0) return;
+          $el.find('[data-toggle="error-tooltip"]').tooltip({
+            template:'<div class="tooltip error-tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
+          })
           $el.find('.hostListGrid').find('.hostOp').find('.hostRemove').off('click').on('click',function(){
             self.removeHost($(this).data('id'));
           })
@@ -238,8 +248,10 @@ define([
               var starts = fish.map(cellval, function(d) {
                 if (d.value === 1) {
                   return "<img width='16' height='16' src='static/oss_core/itnms/host/images/start2.png' title='" + d.message + "' style='cursor : pointer'></img>"
-                } else {
+                }else if (d.value===0) {
                   return "<img width='16' height='16' src='static/oss_core/itnms/host/images/start1.png' title='" + d.message + "' style='cursor : pointer'></img>"
+                }else if (d.value===2){
+                  return "<img width='16' height='16' src='static/oss_core/itnms/host/images/start3.png' data-toggle='error-tooltip' data-placement='bottom'  title='" + d.message + "' style='cursor : pointer'></img>"
                 }
               }) //end of map
               return starts.join('');

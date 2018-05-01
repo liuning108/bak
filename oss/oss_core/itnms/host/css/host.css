@@ -103,7 +103,7 @@
 }
 
 .hostPageContext {
-  padding: 25px;
+  padding: 0px;
   padding-top: 10px;
 }
 
@@ -201,7 +201,7 @@
 }
 
 .interfacesTable {
-  width: 95%;
+  width: 99%;
   border-spacing: 5px 10px;
 }
 
@@ -433,4 +433,36 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 .monthly-dayType-active {
   background: #2ec4e8;
   color: #fff;
+}
+
+.snmpCheckbox {
+  white-space: nowrap;
+  overflow: visible;
+  font-size: 10px;
+  display: inline-block;
+}
+
+.HostMarcoGrid .ui-jqgrid-view .ui-jqgrid-hdiv .ui-jqgrid-htable th.ui-th-column {
+  background: #fff;
+  color: #4e4e4e;
+  height: 37px;
+  text-align: left !important;
+  font-size: 14px;
+  border-right: none;
+}
+
+.error-tooltip .tooltip-inner {
+  color: #FFF !important;
+  background: red !important;
+}
+
+.error-tooltip .tooltip-arrow {
+  border-bottom-color: red !important;
+}
+
+.hostcallback {
+  position: relative;
+  left: -10px;
+  top: 3px;
+  cursor: pointer;
 }

@@ -111,7 +111,7 @@ define([
        self.templDSelect =new KdoDSelect({
           el: self.$el.find('.TemplatesDSelect'),
           L :[],
-          R: this.option.data.groups
+          R: this.option.data.hosts
         })
        self.templDSelect.render();
 
@@ -126,7 +126,7 @@ define([
            self.allGroupDSelect = new KdoDSelect({
              el: self.$el.find('.AllGroupDSelect'),
              L :allGroupsData,
-             R: self.option.data.hosts
+             R: self.option.data.groups
            })
            self.allGroupDSelect.render();
        })
@@ -140,10 +140,10 @@ define([
    HostGroupInfoView.prototype.getInfo=function(){
      var  self =this;
      var info ={};
-     info.g = fish.map(self.templDSelect.val(),function(d){
+     info.g = fish.map(self.allGroupDSelect.val(),function(d){
           return d.value
      });
-     info.h = fish.map(self.allGroupDSelect.val(),function(d){
+     info.h = fish.map(self.templDSelect.val(),function(d){
           return d.value
      });
      return info;

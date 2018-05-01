@@ -40,8 +40,8 @@
       </div>
       <div class="col-md-1-12 type3 mainTypPage" style="display:none">
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">Every week(s)</label>
-          <input type="text" name="onetimeonlyDate" class="form-control">
+          <label for="weeklyEvery">Every week(s)</label>
+          <input type="text" name="weeklyEvery" class="form-control weeklyEvery" value="1">
         </div>
         <div class="form-group kdo-from-group">
           <label for="onetimeonlyDate">Day of week</label>
@@ -50,28 +50,28 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Monday
+                     <input type="checkbox" class="week1"> Monday
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Tuesday
+                     <input type="checkbox" class="week2"> Tuesday
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3" >
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox" class="week3"> Wednesday
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Wednesday
-                   </label>
-              </div>
-            </div>
-            <div class="form-group col-md-3">
-              <div class="checkbox">
-                <label>
-                     <input type="checkbox"> Thursday
+                     <input type="checkbox" class="week4"> Thursday
                    </label>
               </div>
             </div>
@@ -80,21 +80,21 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Friday
+                     <input type="checkbox" class="week5"> Friday
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Saturday
+                     <input type="checkbox" class="week6"> Saturday
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> Sunday
+                     <input type="checkbox" class="week7"> Sunday
                    </label>
               </div>
             </div>
@@ -103,14 +103,14 @@
 
         </div>
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+          <label for="onetimeonlyDate">At (hour:minute)</label>
           <div class="form-inline">
             <div class="form-group">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control weeklyH">
             </div>
             <span>:</span>
             <div class="form-group">
-              <input type="text" class="form-control">
+              <input type="text" class="form-control weeklyM">
             </div>
           </div>
         </div>
@@ -122,58 +122,28 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> January
+                     <input type="checkbox" class="month1"> January
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> February
+                     <input type="checkbox" class="month2"> February
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> March
+                     <input type="checkbox" class="month3"> March
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> April
-                   </label>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-3">
-              <div class="checkbox">
-                <label>
-                     <input type="checkbox"> May
-                   </label>
-              </div>
-            </div>
-            <div class="form-group col-md-3">
-              <div class="checkbox">
-                <label>
-                     <input type="checkbox"> June
-                   </label>
-              </div>
-            </div>
-            <div class="form-group col-md-3">
-              <div class="checkbox">
-                <label>
-                     <input type="checkbox"> July
-                   </label>
-              </div>
-            </div>
-            <div class="form-group col-md-3">
-              <div class="checkbox">
-                <label>
-                     <input type="checkbox"> August
+                     <input type="checkbox" class="month4"> April
                    </label>
               </div>
             </div>
@@ -182,28 +152,58 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> September
+                     <input type="checkbox" class="month5"> May
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> October
+                     <input type="checkbox" class="month6"> June
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> November
+                     <input type="checkbox" class="month7"> July
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox"> December
+                     <input type="checkbox" class="month8"> August
+                   </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox" class="month9"> September
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox" class="month10"> October
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox" class="month11"> November
+                   </label>
+              </div>
+            </div>
+            <div class="form-group col-md-3">
+              <div class="checkbox">
+                <label>
+                     <input type="checkbox" class="month12"> December
                    </label>
               </div>
             </div>
@@ -220,20 +220,21 @@
         <div class="row MonthlyDateType MonthlyDateType0">
           <div class="col-md-12">
             <div class="form-group kdo-from-group">
-              <label for="onetimeonlyDate">Day of month</label>
+              <label for="monthly-day-month">Day of month</label>
               <div class="input-group">
-                <input type="text" name="onetimeonlyDate" class="form-control">
+                <input type="text" name="monthly-day-month"
+                      class="form-control monthly-day-month">
               </div>
             </div>
             <div class="form-group kdo-from-group">
-              <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+              <label for="onetimeonlyDate">At (hour:minute)</label>
               <div class="form-inline">
                 <div class="form-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control monthlyH">
                 </div>
                 <span>:</span>
                 <div class="form-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control monthlyM">
                 </div>
               </div>
             </div>
@@ -242,33 +243,39 @@
         <div class="row MonthlyDateType MonthlyDateType1">
           <div class="col-md-12">
             <div class="form-group kdo-from-group">
-              <label for="onetimeonlyDate">Day of week</label>
+
+              <div class="form-inline">
+                <div class="form-group">
+                   <label for="onetimeonlyDate">Day of week</label>
+                   <input type="text" class="form-control dayofweekEvery" name="dayofweekEvery" style="margin-left:5px" >
+                </div>
+              </div>
               <div class="row">
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Monday
+                         <input type="checkbox" class="mweek1"> Monday
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Tuesday
+                         <input type="checkbox" class="mweek2"> Tuesday
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Wednesday
+                         <input type="checkbox" class="mweek3"> Wednesday
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Thursday
+                         <input type="checkbox" class="mweek4"> Thursday
                        </label>
                   </div>
                 </div>
@@ -277,21 +284,21 @@
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Friday
+                         <input type="checkbox" class="mweek5"> Friday
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Saturday
+                         <input type="checkbox" class="mweek6"> Saturday
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox"> Sunday
+                         <input type="checkbox" class="mweek7"> Sunday
                        </label>
                   </div>
                 </div>

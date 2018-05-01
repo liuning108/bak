@@ -57,7 +57,9 @@ define([
        }
      };
      var newTaskDialog = new NewTaskDialog();
-     var props={};
+     var props={
+       sp:this.option.sp
+     };
      props.periodObj=periodObj;
      newTaskDialog.popup(options,props, function(param) {
        if(callback){
@@ -69,7 +71,7 @@ define([
    PeriodsInfoView.prototype.initListGrid =function() {
      var self =this;
      console.log("222222321312312312");
-     var mydata = Util.process(this.option.timeperiods);
+     var mydata = Util.process(this.option.timeperiods,this.option.sp);
      console.log(mydata);
      var opt = {
        data: mydata,

@@ -248,7 +248,7 @@ define([
                     host_router:"",
                     hw_arch:"",
                     installer_name:"",
-                    inventory_mode:"0",
+                    inventory_mode:"-1",
                     location:"",
                     location_lat:"",
                     location_lon:"",

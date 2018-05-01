@@ -63,7 +63,7 @@ define(["oss_core/itnms/host/actions/HostAction",
         {
           name: 'macro',
           label: 'Macro',
-          align: 'center',
+          align: 'left',
           formatter: function(cellval, opts, rwdat, _act) {
             return "<input  class='macro' value='"+cellval+"' placeholder='{$Macro}'></input>"
           }
@@ -71,7 +71,7 @@ define(["oss_core/itnms/host/actions/HostAction",
         {
           name: 'value',
           label: 'Value',
-          align: 'center',
+          align: 'left',
           formatter: function(cellval, opts, rwdat, _act) {
               return "<input class='macro_value' value='"+cellval+"'  placeholder='Value'></input>"
           }

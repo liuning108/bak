@@ -44,49 +44,71 @@ define([
   MainListView.prototype.addMaintencae=function() {
     var self = this;
     this.$el.find('.addMainPerio').off('click').on('click',function() {
-      self.showAddMainDialog();
+      var tom = new Date();
+      tom.setTime(tom.getTime()+24*60*60*1000);
+      self.showAddMainDialog({
+        description:'',
+        maintenance_type:"0",
+        groups:[],
+        hosts:[],
+        active_since:(new Date().getTime()/1000),
+        active_till:(tom.getTime()/1000),
+        name:"",
+        timeperiods:[],
+        maintenanceid:'none',
+      });
     });
   },
   MainListView.prototype.showAddMainDialog=function(mainObj) {
+    var self =this;
     var $el =this.$el;
       action.getCategoryTree().then(function(data) {
         data.splice(0, 0, {
           name: 'ALL',
           id: "R",
         });
-        var options = {
-          height: $el.height(),
-          width: ($el.width()/1.8),
-          modal: true,
-          draggable: false,
-          autoResizable: false,
-          position: {
-            'of': $el,
-            'my': "top",
-            'at': "right" + " " + "top",
-            collision: "fit"
-          }
-        };
-        var addMainDialog = new AddMainDialog();
-        mainObj.groups= fish.map(mainObj.groups,function(d) {
-          return {
-               'value':d.groupid,
-               'name':d.name
-          }
-        });
-        mainObj.hosts = fish.map(mainObj.hosts,function(d){
-           return {
-             'value': d.hostid,
-             'name':d.name
-           }
-        });
-        var props={
-          'mainObj':mainObj,
-          "catatlog":data,
-        };
-        addMainDialog.popup(options,props, function(param) {
+        action.getParamValue('SCHEDULT_PATTEN').then(function(scheduleP){
+           var options = {
+             height: $el.height(),
+             width: ($el.width()/1.8),
+             modal: true,
+             draggable: false,
+             autoResizable: false,
+             position: {
+               'of': $el,
+               'my': "top",
+               'at': "right" + " " + "top",
+               collision: "fit"
+             }
+           };
+           var addMainDialog = new AddMainDialog();
+           mainObj.groups= fish.map(mainObj.groups,function(d) {
+             return {
+                  'value':d.groupid,
+                  'name':d.name
+             }
+           });
+           mainObj.hosts = fish.map(mainObj.hosts,function(d){
+              return {
+                'value': d.hostid,
+                'name':d.name
+              }
+           });
+           var props={
+             'mainObj':mainObj,
+             "catatlog":data,
+             'sp':fish.indexBy(scheduleP['SCHEDULT_PATTEN'],"paraName")
+           };
+           addMainDialog.popup(options,props, function(param) {
+             self.option._filterParam = {
+               name: '',
+               state: 'Any'
+             };
+             self.render();
+           });
 
-        });
+        })
+
 
       });
 
