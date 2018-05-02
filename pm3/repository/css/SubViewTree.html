@@ -1,0 +1,40 @@
+<div class="RepositorySubViewTree">
+  <div class="title">显示搜索结果：</div>
+  <ul class="treeNavMenu">
+      <li class="parentName" data-id="{{parent.id}}" data-pid="{{parent.pid}}" data-bno="{{parent.bNo}}" data-sno="{{parent.sNo}}"><i class="glyphicon glyphicon-chevron-left backArrow"></i><span>{{parent.name}}<span></li>
+      <li class="selfName">{{name}}</li>
+      <ul>
+        {{#each subs }}
+        <li class="subItemLi" data-id="{{id}}" data-pid={{pid}}  data-bno="{{bNo}}" data-sno="{{sNo}}"  >{{name}}</li>
+        {{/each}}
+      </ul>
+  </ul>
+
+  <div class="filterAreas">
+    <div class="title">筛选：</div>
+    {{#each filterData  }}
+     <div class="filterAreaItem" id="filterItem_{{id}}">
+          <h2>{{name}}</h2>
+          <ul>
+            {{#if typeA}}
+            {{#each values}}
+               <li><input type="checkbox"  value="{{value}}" data-name="{{name}}" data-value="{{value}}"><span class="filterSpanName">{{name}}</span></li>
+            {{/each}}
+            {{/if}}
+
+            {{#if typeB}}
+            {{#each values}}
+               <li class="typeBLi"   data-value="{{value}}">{{name}}</li>
+            {{/each}}
+            {{/if}}
+
+            {{#if typeC}}
+               <li class="typeCLi"><input type="text" value="" style="width:100px" class="typeCInput"><img class="imgTypeCBtn" src="oss_core/pm/repository/images/go.png"  height="21" width="21"></li>
+            {{/if}}
+
+          </ul>
+     </div>
+    {{/each}}
+
+  </div>
+</div>

@@ -1,0 +1,1220 @@
+$yellowColor: #e47911
+.RepositoryContext
+  width: 100%
+  height: 100%
+  overflow: hidden
+  background: #fff
+  .searchBar
+    height: 50px
+    background-color: #fff
+    border-bottom: 1px solid #e5e8ea
+    .addNew
+      margin-left: 5px
+      border-left: 1px solid #e4e8eb
+      text-align: center
+      width: 50px
+      height: 100%
+      color: #000
+      &:hover
+        background-color: #f5f5f5
+        cursor: pointer
+        .newPlus
+          kit-text-stroke: 2px #f5f5f5
+      .newPlus
+        padding: 17px
+        font-size: 14px
+        color: #444
+        font-weight: normal
+        -webkit-text-stroke: 2px white
+  .navBar
+    height: 35px
+    border-bottom: 1px solid #e5e8ea
+    display: none
+    box-shadow: 0 0 10px #ddd
+    .navTool
+      display: inline-block
+      min-width: 200px
+      height: 100%
+      padding-top: 7px
+      padding-left: 24px
+      .navCategory
+        display: inline-block
+        color: $yellowColor
+        font-weight: 700
+        span
+          cursor: pointer
+        &.navBlue
+          color: #01a3fe
+    .navOrder
+      padding-top: 7px
+      display: inline-block
+      min-width: 200px
+      height: 100%
+      float: right
+    .navSearch
+      display: inline-block
+      .form-control
+        height: 25px
+        line-height: 1
+        margin-bottom: -8.5px
+
+
+  .queryContext
+    box-sizing: border-box
+    height: 100%
+    background-color: #fff
+    position: relative
+    .filterArea
+      position: absolute
+      top: 0px
+      left: 0px
+      height: 100%
+      width: 250px
+      float: left
+      background-color: #fff
+      border-right: 1px solid #e5e8ea
+    .browserKnowlege
+      padding-left: 250px
+      height: 100%
+      width: 100%
+      background: #fff
+      display: none
+      clear: both
+    .listArea
+      padding-left: 250px
+      height: 100%
+      width: 100%
+      clear: both
+      .EmptyTip
+        text-align: center
+        padding-top: 140px
+        font-family: 'ProximaNovaLight',Arial,Helvetica,sans-serif
+        .emptyBtns
+          margin: 40px 0 10px 0 !important
+          width: 100%
+          text-align: center
+          .btn
+            border-radius: 3px
+            padding: 7px 10px
+            margin: 10px 0
+            font-size: 12px
+            text-align: center
+            cursor: pointer
+          .blueBtn
+            background-color: #00a3fe
+            border: 1px solid #00a3fe
+            color: #fff
+            font-weight: bold
+          .whiteBtn
+            border: 1px solid #aab2bd
+            color: #656d78
+            margin-left: 10px
+
+
+        .emptySmallTxt
+          font-size: 14px
+          color: #999 !important
+          margin-top: 15px
+          font-weight: 450
+          line-height: 18px
+        .emptyTitle
+          font-size: 22px
+          margin-top: 20px
+          color: #000 !important
+          font-weight: 430
+          line-height: 18px
+        .empty-art-dashicon
+          display: inline-block
+          vertical-align: middle
+          background-image: url(../images/Large-icon.png)
+          background-repeat: no-repeat
+          background-size: 100%
+          background-position: 0 0
+          height: 0
+          width: 16%
+          padding-bottom: 5.5%
+          cursor: default !important
+
+
+
+.RepositoryTreeView
+  box-sizing: border-box
+  padding: 24px
+  .broadHeading
+    position: relative
+    height: 40px
+    padding-bottom: 0px
+    padding-right: 16px
+    padding-top: 0px
+    .headingArrow
+      position: absolute
+      right: 10px
+      top: 5px
+      font-size: 10px
+    .headingIcon
+     min-width: 14px
+     font-size: 14px
+     margin-right: 10px
+    & > span
+       font-size:  14px
+    &:hover
+       color: #1890ff
+  ul
+     list-style:  none
+     box-sizing: border-box
+     margin: 0px
+     padding: 0px
+     li
+       cursor: pointer
+       list-style: none
+     .subTree
+       display: none
+
+
+
+.RepositorySubViewTree
+  padding: 5px
+  padding-left: 12px
+  color: #333
+  ul
+    list-style: none
+    padding: 0px
+    padding-left: 5px
+  .title
+    color: #999
+    font-size: 17px
+    padding-bottom: 10px
+    padding-top: 6px
+  h2
+    color: #000
+    font-size: 12px
+    font-weight: 700
+    padding-bottom: 6px
+    margin: 0px
+  .filterSpanName
+    margin-left: 5px
+  .selfName
+    color: #949494
+    font-size: 12px
+    font-weight: 700
+  .treeNavMenu
+     position: relative
+     .parentName
+       position: relative
+       left: -11px
+     .backArrow
+       color: #999
+       font-size: 10px
+       -webkit-text-stroke: 1px #fff
+
+     li:not(.selfName)
+       &:hover
+         color:#e47911
+         cursor: pointer
+.areaItemChoice
+  font-weight: 700
+
+.typeBLi
+   cursor: pointer
+   &:hover
+     color: $yellowColor
+
+.imgTypeCBtn
+  margin-left: 5px
+  cursor: pointer
+  // &:hover
+  //   border: 2px solid #00a3fe
+  //   border-radius: 50%
+
+
+
+.docListContext
+  .docListHeader
+    margin-top: 10px
+    height: 38px
+    box-sizing: border-box
+    padding-left: 30px
+    .header
+      padding: 6px 10px 12px
+      cursor: pointer
+      float: left
+      height: 100%
+      margin: 0 10px 0 0
+      position: relative
+      font-size: 15px
+      width: 100px
+      text-align: center
+      &.active
+        border-bottom: 2px solid #00a3fe
+        color: #222
+      &:hover
+        color: #00a3fe
+    .clboth
+      clear: both
+  .doctListUL
+    list-style: none
+    padding: 5px
+    margin: 0px
+    padding-left: 30px
+    padding-top: 10px
+    li
+      cursor: pointer
+      list-style: none
+      padding: 13px 0 16px
+      height: 70px
+      border-bottom:  1px dotted #eee
+      .docIcons
+        float: right
+        margin-top: 10px
+        .iconDiv
+          background: #eee
+          display: inline-block
+          width: 60px
+          text-align: center
+          padding: 5px
+          &:hover
+            color: #333
+      .docBts
+        display: none
+        margin-left: 150px
+        position: relative
+        top: -15px
+        i
+          margin-left: 10px
+          &:hover
+            color: #00a3fe
+
+      .docBody
+        display: inline-block
+        .docTile
+          color: #333
+          font-size: 15px
+          margin-bottom: 10px
+          width: 500px
+          text-overflow: ellipsis
+          overflow: hidden
+          white-space: nowrap
+        .docUser
+          color: #0d83dd
+        .docTime
+          font-size: 12px
+          color: #777
+      .circleDoc
+        width: 40px
+        height: 40px
+        border: 1px solid #aaa
+        border-radius: 50%
+        display: inline-block
+        position: relative
+        text-align: center
+        align-items: center
+        margin-left: 10px
+        margin-right: 15px
+        position: relative
+        top: -15px
+        i
+          margin-top: 12px
+          font-size: 14px
+          color: #999
+      &:hover
+        background: #fcfcfc
+        .circleDoc
+          i
+            color: #333
+        .docBts
+          display: inline-block
+.srcSprite
+  background-image: url(../images/searchSprite.png)
+  background-repeat: no-repeat
+.bcGoButton
+  display: inline-block
+  cursor: pointer
+  background-position: -50px -60px
+  vertical-align: top
+  width: 21px
+  height: 21px
+.smallCancel
+  font-size: 12px
+  color: #0066c0
+  line-height: 1.5
+  cursor: pointer
+  &:hover
+    color: $yellowColor
+
+
+.RepositoryNewView
+  .RepositoryNewBody
+    height: 54px
+    padding: 30px 15px 25px 25px
+    .RespositoryNewTitle
+        input
+            width: 100%
+            color: #222
+            padding: 15px 50px 15px 20px
+            outline: 0
+            font-size: 16px
+            border-radius: 2px
+            box-sizing: border-box
+            border: 1px solid #e5e8ea
+            &:focus
+              border-color: #00a3fe !important
+
+    .NewRepsitoryConfigHeading
+      font-size: 0px
+      padding: 11px 0
+      position: relative
+      margin: 0 10px 0 20px
+      border-bottom: 1px solid #dcdee0
+      .SolutionForm_Slidebar
+        height: 2px
+        background: #00a3fe
+        position: absolute
+        width: 33%
+        bottom: -1px
+        left:  0
+        &::before
+          content: ""
+          position: absolute
+          left: 43%
+          top: -5px
+          height: 10px
+          width: 10px
+          border-top: 2px solid #00a3fe
+          border-right: 2px solid #00a3fe
+          transform: rotate(135deg)
+          background-color: #f4f6f7
+      & > div
+        width: 33%
+        color: gray
+        font-size: 15px
+        padding: 8px 0
+        text-align: center
+        display: inline-block
+        border-right: 1px solid #e5e8ea
+        cursor: pointer
+
+
+
+
+  .RepositoryHead
+    height: 54px
+    box-sizing: border-box
+    border-bottom: 1px solid #e5e8ea
+    background-color: #fff
+    font-size: 16px
+    min-width: 650px
+    line-height: 28px
+    padding: 12px 20px
+    .comebackStyle
+      cursor: pointer
+      -webkit-text-stroke: 2px #f5f5f5
+    .editarticle
+      color: #333
+    .fright
+      float: right
+    .clboth
+      clear: both
+    .blue-btn
+      background: #00a3fe
+      border: 1px solid #00a3fe
+      color: #FFF
+      font: 13px 'ProximaNovaRegular',Arial,Helvetica,sans-serif
+      cursor: pointer
+      outline: 0
+      letter-spacing: .04em
+      min-width: 90px
+      border-radius: 2px
+      box-shadow: 0 2px 3px 0 rgba(0,163,254,0.2)
+      padding: 6px
+      padding-left: 16px
+      padding-right: 16px
+      text-align: center
+      &:hover
+        box-shadow: 0 3px 3px 0 rgba(0,163,254,0.4)
+    .btn
+      background: #fff
+      border: 1px solid #ddd
+      color: #888
+      padding: 6px 16px !important
+      cursor: pointer
+      letter-spacing: .02em
+      min-width: 90px
+      outline: 0
+      transition: all .2s ease 0s
+      border-radius: 2px
+      box-shadow: 0 2px 6px 0 rgba(209,209,209,0.18)
+      font: 13px 'ProximaNovaRegular',Arial,Helvetica,sans-serif
+      &:hover
+        box-shadow: 0 3px 3px 1px rgba(209,209,209,0.3)
+        color: #333
+    .ml7
+      margin-left: 7px
+.RepositoryNewView
+  .RepositoryNewBody
+    .TabsNewHeadingSubs
+      margin-top: 10px
+      .commondiv
+        border: 0
+        padding: 5px
+        background: transparent
+        .InputLabel
+          margin-bottom: 10px
+          margin-left: 20px
+          label
+            margin-bottom: 2px
+            display: block
+            font-weight: 700
+          .new-input-div
+            height: 20px
+            margin-top: 5px
+            border-radius: 2px
+            width: 100% !important
+            background-color: #fff
+            border: 1px solid #dcdee0
+            input
+              border: 0 !important
+              width: 100%
+              outline: 0
+              font-size: 15px
+              height: 20px
+              padding: 0 10px
+              border-radius: 2px
+              box-sizing: border-box
+              background-color: #fefefe
+              outline: none !important
+        .commondItem
+          margin-bottom: 20px
+          position: relative
+          .Editor_Permission
+            font-size: 0
+            width: 100%
+            display: flex
+            border: 1px solid #e0e1e2
+            border-radius: 5px
+            overflow: hidden
+            background-color: #fff
+            & > span
+              width: inherit
+              font-size: 13px
+              padding: 10px 0
+              color: gray
+              text-align: center
+              display: inline-block
+              border-right: 1px solid #e5e8ea
+              &.Click
+                background-color: #00a3fe
+                color: #fff
+                cursor: pointer
+              &:hover
+                background-color: #00a3fe
+                color: #fff
+                cursor: pointer
+          .mandatorycolor
+            margin-bottom: 15px
+            display:  block
+            font: 15px 'ProximaNovaRegular',Arial,Helvetica,sans-serif !important
+            font-weight: 400
+            color: rgba(255,0,0,0.8) !important
+          .labelColor
+            margin-bottom: 15px
+            display:  block
+            font: 15px 'ProximaNovaRegular',Arial,Helvetica,sans-serif !important
+            font-weight: 400
+            color: #8a8a8a !important
+
+        &:hover
+          background-color: rgba(255,255,255,0.75)
+          border-radius: 2px
+#RespositoryNewEditor
+  margin-top: 10px
+  width: 100%
+.uploadAttachment
+  width: 100%
+  border: 1px solid #d4d4d4
+  border-top: 0.1px solid #d4d4d4
+  background: #fff
+  .AttachmentBtns
+    padding: 14px
+    color: #8ca4af
+    margin: 8px
+    position: relative
+    text-align: center
+    border-radius: 3px
+    border: 1px dashed #b2e3ff
+    background-color: #e7f5fd
+    font: 12px 'ProximaNovaLight',Arial,Helvetica,sans-serif
+    span
+      cursor: pointer
+      &:hover
+        color: #00a3fe !important
+.ItemInput
+  width: 100%
+  height: 25px
+  padding-left: 10px
+.commondItemTips
+  padding-left: 20px
+  font: 11px 'ProximaNovaLight',Arial,Helvetica,sans-serif
+.commondItemSpan
+  width: 50px
+  display: inline-block
+
+.ui-multiselect-container#multiselect_commondItemTags_multi
+  position: relative
+  .ui-multiselect-choices li.search-choice .close
+    position: absolute
+    right: 2px
+    top: -2px
+  .select-tag-drop-mask
+    bottom: auto
+    position: absolute
+    width: 100%
+    background: #fff
+    z-index: 9998
+    display: none
+
+    ul
+      list-style: none
+      position: relative
+      border: 1px solid #00a3fe
+      margin: 0px
+      padding: 0 0 0 0px
+      padding-top: 0px
+      max-height: 100px
+      overflow-x: hidden
+      overflow-y: auto
+      background: #fff
+      li
+        background: #fff
+        color: black
+        font-size: 13px
+        padding-left: 10px
+        cursor: text
+        &:hover
+          background: #49b9ff
+          color: #fff
+        li.select2-no-results
+            background: #f4f4f4
+            cursor: normal
+.action
+  background: #00a3fe !important
+  color: #fff !important
+.moreSpan
+  cursor:  pointer
+  &:hover
+    color: $yellowColor
+.knowledgeInfo
+  background: #fff
+  padding: 0 55px
+  .knowledgeInfoComments
+    margin: 35px 0 20px
+    .commentPanel
+      margin-left:  0px
+      width: 100%
+      margin-top: 10px
+      .cmt-container
+        clear: both
+        min-height: 200px
+        .cmtItem
+          padding: 30px
+          &:hover
+            background: #fafafa
+            .mentions-u
+              .fright
+                display: block
+          .mentions-u
+            .fright
+              display: none
+              float: right
+              i
+                cursor: pointer
+                &:hover
+                  color: #00a3fe
+            span
+              margin-right: 10px
+            .txt
+              margin-top: 20px
+              color: #333 !important
+              font-size: 14px
+              p
+                word-wrap: break-word
+          .tl
+            float: left
+            width: 50px
+            color: #333
+            .userName
+              display: inline-block
+              vertical-align: middle
+              width: 40px
+              height: 40px
+              border-radius: 100px
+              border: 1px solid #aaa
+              div
+                color: #666;
+                font: 15px/40px "",Arial,Helvetica,sans-serif;
+                text-shadow: 1px 1px 0 #fff;
+                text-transform: uppercase
+                text-align: center
+      .inputArea
+        margin-bottom: 20px
+        border: 1px solid #eceef3
+        padding: 0px
+        .isPublicDIV
+          margin-top: 15px
+          margin-left: 20px
+          float: left
+        .fright
+          float: right
+          margin-top: 10px
+        .blue-btn
+          background: #00a3fe
+          border: 1px solid #00a3fe
+          color: #FFF
+          cursor: pointer
+          outline: 0
+          letter-spacing: .04em
+          min-width: 90px
+          border-radius: 2px
+          box-shadow: 0 2px 3px 0 rgba(0,163,254,0.2)
+          padding: 6px
+          padding-left: 16px
+          padding-right: 16px
+          text-align: center
+          margin-right: 10px
+          &:hover
+            box-shadow: 0 3px 3px 0 rgba(0,163,254,0.4)
+        .btn
+          background: #fff
+          border: 1px solid #ddd
+          color: #888
+          padding: 6px 16px !important
+          cursor: pointer
+          letter-spacing: .04em
+          min-width: 90px
+          outline: 0
+          transition: all .2s ease 0s
+          border-radius: 2px
+          box-shadow: 0 2px 6px 0 rgba(209,209,209,0.18)
+          padding: 6px
+          padding-left: 16px
+          padding-right: 16px
+          margin-right: 10px
+          &:hover
+            box-shadow: 0 3px 3px 1px rgba(209,209,209,0.3)
+            color: #333
+        .txt-sec
+          height: 165px
+          padding: 20px 50px 10px 25px
+          .mentions-input-box
+            textarea
+              border: none
+              height: 115px
+              resize: none
+              width: 100%
+              padding: 0 !important
+              color: #333 !important
+              font-size: 14px
+          .tl
+            float: left
+            width: 50px
+            color: #333
+            .userName
+              display: inline-block
+              vertical-align: middle
+              width: 40px
+              height: 40px
+              border-radius: 100px
+              border: 1px solid #aaa
+              div
+                color: #666;
+                font: 15px/40px "",Arial,Helvetica,sans-serif;
+                text-shadow: 1px 1px 0 #fff;
+                text-transform: uppercase
+                text-align: center
+
+
+        .cmtBtm
+          background: #fafafa none repeat scroll 0 0
+          border-top: 1px solid #eceef3
+          height: 50px
+          width: 100%
+
+    .comentsHeader
+      font-size: 17px
+      .glyphicon-comment
+        font-size: 18px
+      .CNT
+        color: #999
+        opacity: 1 !important
+        padding-right: 0 !important
+        position: relative
+        top: 0 !important
+        font-size: 15px !important
+  .body
+    margin: 10px 0 0 0
+    padding-bottom: 20px
+    word-wrap: break-word
+    table-layout: fixed
+    color: #333
+    line-height: 180%
+    border-bottom: 1px dashed #e5e5e5
+  .solsharediv
+    margin-top: 3px
+    padding: 7px 0 3px
+    border-bottom: 1px dashed #e5e5e5
+    margin-right: -3px
+    height: 36px
+    .iconBtn
+      margin-left: 20px
+      cursor: pointer
+      font-size: 14px
+      &:hover
+        color: #333
+  .header
+    color: #333
+    padding: 15px 0 5px
+    width: 100% !important
+    table-layout: fixed
+    word-break: break-word
+    line-height: 130%
+    .attachIcon
+      border: 1px solid black
+      display: inline-block
+      margin-right: 10px
+      padding-top: 2px
+      text-align: center
+      width: 20px
+      height: 20px
+      border-radius: 100%
+      font-size: 10px
+      font-weight: 400
+      float: right
+      color: #1b1b1b
+      cursor: pointer
+      &:hover
+        background: #42a5f5
+        color: #fff
+        border-color: transparent
+    .comebackList
+      border: 1px solid black
+      display: inline-block
+      padding: 0px
+      text-align: center
+      width: 20px
+      height: 20px
+      border-radius: 100%
+      font-size: 15px
+      font-weight: 400
+      float: right
+      color: #1b1b1b
+      cursor: pointer
+      &:hover
+        background: #de2323
+        color: #fff
+        border-color: transparent
+    .title
+      margin: 3px 15px 0 0
+      text-shadow: none
+      font: 25px/170% proximanovaregular !important
+    .state
+        border-radius: 3px
+        font-size: 13px
+        line-height: 160%
+        padding: 1px 7px
+        position: relative
+        top: -4px
+        display: inline-block
+        &.S02
+          background-color: #43b985
+          color: #fff
+        &.S00
+          background-color: #f79393
+          color: #fff
+        &.Sperview
+          background-color: #2dc3e8
+          color: #fff
+.moreOptionsWin
+  .modal-header
+    background: #fff
+    .close
+      position: relative
+      top: -5px
+      float: right
+      font-size: 25px
+      font-weight: bold
+      line-height: 1
+      color: #000
+      text-shadow: 0 1px 0 #fff
+      opacity: 0.2
+      filter: alpha(opacity=20)
+
+  .modal-body
+    background: #fff
+    padding: 0px
+    .listItems
+        box-sizing: border-box
+        padding: 10px
+        text-align: center
+        span
+          display: block
+          float: left
+          text-align: center
+          width: 160px
+          height: 37px
+          color: #0066c0
+          padding: 5px
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+          cursor: pointer
+          &:hover
+            color: $yellowColor
+            text-decoration: underline
+        .clboth
+          clear:both
+    .indexBarHeader
+      background: #edf7ff none repeat scroll 0 0
+      border-bottom: 1px solid #d0eaf8
+      border-top: 1px solid #d0eaf8
+      width: 100%
+      .pagn
+        height: auto!important
+        min-height: 13px
+        margin-bottom: 0!important
+        padding: 8px 0
+        text-align: center
+        box-sizing: border-box
+        span
+          border: 1px solid #edf7ff
+          padding: 3px
+        .pagnLead
+          color: #333
+        .pagnCur
+          color: #333
+          font-weight: bold
+        .pagnLink
+
+          cursor: pointer
+          &:hover
+            border: 1px solid black
+            background: #fff
+            color: $yellowColor
+
+  .modal-footer
+    background: #fff
+
+
+
+.f12
+  font-size: 12px
+.ptb5
+  padding: 5px 0
+.pl60
+  padding-left: 60px
+.mb20
+  margin-bottom: 20px
+#pagination-docList,#pagination-solrList
+  text-align: center
+  .pagination > .active > a,
+  .pagination > .active > span,
+  .pagination > .active > a:hover,
+  .pagination > .active > span:hover,
+  .pagination > .active > a:focus,
+  .pagination > .active > span:focus
+    z-index: 3
+    color: #fff
+    background-color: #7d7878
+    border-color: #7d7878
+    cursor: default
+
+
+.uploadAttachmentFiles
+  margin-top: 5px
+  min-height: 50px
+  background: #FFF
+  border: 1px solid #e5e8ea
+  padding: 20px
+  .fileAttr
+    position: relative
+    width: 130px
+    height: 60px
+    padding: 5px
+    border: 1px solid #e5e8ea
+    padding: 20px
+    cursor: pointer
+    background: #FBFBFB
+    display: inline-block
+    margin-left: 5px
+    margin-top: 5px
+    &:hover
+       box-shadow: 0 0 10px #ddd
+    .glyphicon-paperclip
+      top: -1px
+    .fileTrach
+      font-size: 8px !important
+      position: relative
+      left: 90px
+      &:hover
+        color: #e45c64
+    .fileName
+      width: 67px
+      margin-left: 5px
+      color: #444
+      display: inline-block
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
+      &:hover
+        color: #00a3fe
+        text-decoration: none
+.searchSolr
+  font-size: 14px
+  padding: 5px
+  padding-left: 7px
+  cursor: pointer
+  &:hover
+    color: #0d83dd
+
+.searchSolrList
+  display: none;
+.searchBox
+  .searchBoxHeader
+    position: relative
+    .comeback
+      position: absolute
+      -webkit-text-stroke: 2px white
+      font-size: 17px
+      font-weight: 400
+      cursor: pointer
+      left: 30px
+      top: 24px
+      &:hover
+        color: #333
+    .HeaderInfo
+      display: inline-block
+      padding: 21px 0 20px
+      padding-bottom: 30px
+      height: 18px
+      margin: 0 60px 0 60px
+      border-bottom: 1px solid #f5f5f5 !important
+      width: 90%
+      span
+        font: 16px "ProximaNovaRegular",sans-serif
+        color: #78818a
+        &.fontBlack
+          color: #333
+          margin-left: 5px
+          margin-right: 5px
+
+.searchSolrList
+  .solrItemlist
+    margin: 0 60px 0 60px
+    margin-top: 10px
+    list-style: none
+    padding: 0px
+    width: 90%
+    .solrDocItem
+      cursor: pointer
+      list-style: none
+      padding: 13px 0 16px
+      padding-left: 30px
+      padding-top: 13px
+      padding-bottom: 6px
+      border-bottom:  1px dotted #eee
+      .docBody
+        display: inline-block
+        width: 90%
+        .docTile2
+          color: rgb(0, 0, 204)
+          font-size: 15px
+          margin-bottom: 10px
+          text-overflow: ellipsis
+          overflow: hidden
+          white-space: nowrap
+          text-decoration: underline
+        .docfoot
+          color: #333
+          text-overflow: -o-ellipsis-lastline
+          overflow: hidden
+          text-overflow: ellipsis
+          display: -webkit-box
+          -webkit-line-clamp: 2
+          -webkit-box-orient: vertical
+
+      .circleDoc
+        width: 40px
+        height: 40px
+        border: 1px solid #aaa
+        border-radius: 50%
+        display: inline-block
+        position: relative
+        text-align: center
+        align-items: center
+        margin-left: 10px
+        margin-right: 15px
+        position: relative
+        top: -20px
+        i
+          margin-top: 12px
+          font-size: 14px
+          color: #999
+      &:hover
+        background: #fcfcfc
+        .circleDoc
+          i
+            color: #333
+      em
+        color: red
+.searchBarTool
+  float: left
+  width: 440px
+  margin-left: 10px
+  margin-top: 10px
+  .comb
+    width: 120px
+    float: left
+    input
+      width: 400px
+  .searchSolrKey
+    float: left
+    height: 28px
+    width: 290px
+    border: 1px solid #cfdadd
+    padding-left: 5px
+    color: #333
+    font: 14px 'ProximaNovaRegular',Arial,Helvetica,sans-serif
+    padding: 5px 5px 5px 12px
+
+.attachToolStyle
+  .modal-header
+    padding: 4px
+    text-align: center
+    background: #f7f7f7
+    .close
+      &:hover
+        color: #f93131
+  .modal-body
+    background: #fff
+    padding: 0px
+    .attachlist
+      list-style: none
+      padding: 0px
+      margin: 0px
+      li
+        height: 70px
+        border-bottom: 1px dashed #e5e8ea
+        width: 100%
+        cursor: pointer
+        padding: 15px
+
+        .zipIcon
+          background: url('../images/zip.png')  no-repeat
+          background-size: 42px
+          width: 42px
+          height: 42px
+          float: left
+        .title
+          width: 75%
+          float: left
+          height: 42px
+          text-align: left
+          line-height: 42px
+          margin-left: 15px
+          font-size: 14px
+          font-weight: 590
+          color: #333
+        .download
+          float: right
+          font-size: 14px
+          height: 42px
+          line-height: 42px
+          &:hover
+            color: #42a5f5
+        &:hover
+          background: #fcfcfc
+.clearAll
+  cursor: pointer
+
+.pl250
+  padding-left: 250px
+
+
+.headerIcon
+  margin-left: 10px
+  margin-right: 20px
+  margin-top: 8px
+  float: right
+  i
+    cursor: pointer
+    margin-right: 5px
+    margin-left: 5px
+    font-size: 16px
+    color: #b7b7b7
+    &:hover
+      color: #333
+
+.headerPopver
+  .popover-content
+    padding: 0px
+
+.orderByMethod
+  list-style: none
+  padding: 0px
+  margin: 0px
+  li
+    padding: 5px 20px
+    cursor: pointer
+    font: 14px 'ProximaNovaRegular',Arial,Helvetica,sans-serif
+    color: #333
+    letter-spacing: 1.4px
+    &.active
+      background: #fafafa
+      font-weight: 450
+    &:hover
+      background: #fafafa
+      font-weight: 450
+
+.filterValueMethod
+   padding: 10px 25px 25px 25px
+   margin-top: 15px
+   .btn
+     margin-top: 18px
+     margin-bottom: 0px
+     background: #00a3fe
+     border: 1px solid #00a3fe
+     color: #FFF
+     font: 13px 'ProximaNovaRegular',Arial,Helvetica,sans-serif
+     cursor: pointer
+     outline: 0
+     letter-spacing: .04em
+     min-width: 90px
+     border-radius: 2px
+     box-shadow: 0 2px 3px 0 rgba(0,163,254,0.2)
+     padding: 6px
+     padding-left: 16px
+     padding-right: 16px
+     text-align: center
+     &:hover
+       box-shadow: 0 3px 3px 0 rgba(0,163,254,0.4)
+   .item
+     margin-bottom: 15px
+   .title
+    color: #666 !important
+    font: 13px ProximaNovaLight,Arial,Helvetica,sans-serif !important
+   .comMethod
+     width: 200px
+     .comValueInput
+       width: 100%
+       border: none
+       border-bottom: 1px solid #e3e6eb
+       &:hover
+         border: none
+         border-bottom: 1px solid #00a3fe
+
+     .combobox-readonly
+       border: none
+       border-bottom: 1px solid #e3e6eb
+       &:hover
+         border: none
+         border-bottom: 1px solid #00a3fe
+.hideStyle
+  display: none !important
