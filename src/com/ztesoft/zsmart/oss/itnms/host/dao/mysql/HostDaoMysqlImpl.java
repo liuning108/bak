@@ -19,7 +19,7 @@ public class HostDaoMysqlImpl extends HostDao {
 	public List<Map<String,Object>> getGroupidsBySubNo(String id) {
 		// TODO Auto-generated method stub
 		String sql ="select GROUPID from KDO_GROUPS_RELA where SUBTYPES_NO= ? ";
-		return this.queryForList(sql,new Object[] {id});
+		return this.queryForMapList(sql,new Object[] {id});
 
 	}
 
@@ -34,7 +34,7 @@ public class HostDaoMysqlImpl extends HostDao {
 	@Override
 	public String geCatalogId(String sId) {
 			String sql = "select  CATEGORY_NO id from KDO_SUBTYPES    where SUBTYPES_NO = ? ";
-			List<Map<String,Object>> list =this.queryForList(sql,sId);
+			List<Map<String,Object>> list =this.queryForMapList(sql,sId);
 			if(list.size()>0) {
 				return (String)list.get(0).get("id");
 			}

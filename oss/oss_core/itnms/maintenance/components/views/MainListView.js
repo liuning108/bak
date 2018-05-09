@@ -1,7 +1,8 @@
 define([
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "oss_core/itnms/maintenance/actions/MainAction", "text!oss_core/itnms/maintenance/components/views/mainLisView.html", "text!oss_core/itnms/maintenance/components/views/mainOp.html",
   "oss_core/itnms/maintenance/components/views/AddMainDialog",
-], function(action, tpl, hostOp,AddMainDialog) {
+], function(i18nData,action, tpl, hostOp,AddMainDialog) {
   var MainListView = function(option) {
     this.option = option;
     this.$el = $(this.option.el);
@@ -18,13 +19,12 @@ define([
     this.remove();
     if (this.option.groups.length > 1) {
       this.option.groups.splice(0, 0, {
-        name: 'ALL',
+        name: i18nData.ALL,
         groupid: "myALL"
       });
     }
     var $el = $(this.option.el);
-    $el.html(this.tpl());
-
+    $el.html(this.tpl(i18nData));
     this.afterRender()
   }
   MainListView.prototype.remove = function() {
@@ -161,30 +161,30 @@ define([
       colModel: [
         {
           name: 'name',
-          label: '名称',
+          label: i18nData.NAME,
           align: 'center'
         }, {
           name: 'maintenance_type',
-          label: '类型',
+          label: i18nData.TYPE,
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
             var value = cellval + "";
             if (value == "0") {
-              return "with data collection"
+              return i18nData.WITH_DATA_COLLECTION
             } else {
-              return "without data collection"
+              return i18nData.WITHOUT_DATA_COLLECTION
             }
           }
         }, {
           name: 'active_since',
-          label: '启动时间',
+          label: i18nData.ACTIVE_SINCE,
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
             return self.timetrans(Number(cellval));
           }
         }, {
           name: 'active_till',
-          label: '结束时间',
+          label: i18nData.ACTIVE_TILL,
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
             return self.timetrans(Number(cellval));
@@ -192,25 +192,25 @@ define([
         }, {
           name: 'state',
           align: "center",
-          label: '状态',
+          label: i18nData.STATE,
           formatter: function(cellval, opts, rwdat, _act) {
             var name = "";
             var className = "";
             if (cellval == "EXPIRED") {
-              name = "Expired";
+              name =i18nData.EXPIRED
               className = "EXPIRED"
             } else if (cellval == "APPROACH") {
-              name = "Approaching";
+              name =i18nData.APPROACHING
               className = "APPROACH"
             } else {
-              name = "Active";
+              name =i18nData.ACTIVE
               className = "ACTIVE"
             }
             return "<span class='main-" + className + "'>" + name + "</span>";
           }
         }, {
           name: 'description',
-          label: '描述'
+          label: i18nData.DESCRIPTION,
         }, {
           name: 'maintenanceid',
           label: '',
@@ -228,8 +228,10 @@ define([
     this.$gird.on('click', '.deleteMain', function() {
       var selrow = self.$gird.grid("getSelection");
       var id = selrow.maintenanceid;
-      fish.confirm('Delete selected maintenance periods?').result.then(function() {
-        action.deleteByIds({ids: [id]}).then(function(data) {
+
+      fish.confirm(i18nData.DELETE_SELECTED_MAINTENANCE_PERIODS)
+          .result.then(function() {
+          action.deleteByIds({ids: [id]}).then(function(data) {
           if (data.error) {
             fish.toast('warn', 'delete error');
           } else {
@@ -256,7 +258,7 @@ define([
       }
     })
     this.$el.find('.delMain').off('click').on('click', function() {
-      fish.confirm('Delete selected maintenance periods?')
+      fish.confirm(i18nData.DELETE_SELECTED_MAINTENANCE_PERIODS)
           .result
           .then(function() {
             var selrow = self.$gird.grid("getCheckRows");

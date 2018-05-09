@@ -1,12 +1,14 @@
-define(["oss_core/itnms/host/actions/HostAction",
+define([
+  'i18n!oss_core/itnms/host/i18n/host',
+     "oss_core/itnms/host/actions/HostAction",
         "oss_core/itnms/host/components/kdoDSelect/KdoDSelect.js",
       "text!oss_core/itnms/host/components/views/TemplateViewDialog.html"],
-   function(action,KdoDSelect,tpl){
+   function(i18nData,action,KdoDSelect,tpl){
   var TemplateViewDialog = function() {
     this.tpl = fish.compile(tpl);
   };
   TemplateViewDialog.prototype.content=function(){
-    this.$el=$(this.tpl())
+    this.$el=$(this.tpl(i18nData))
     return this.$el;
   }
 

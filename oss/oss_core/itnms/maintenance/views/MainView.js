@@ -1,14 +1,16 @@
 
 define([
+  "oss_core/itnms/maintenance/actions/myd3",
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "oss_core/itnms/maintenance/actions/MainAction", "text!oss_core/itnms/maintenance/templates/MainView.html", "oss_core/itnms/host/components/kdoTree/kdoTree",
   "oss_core/itnms/maintenance/components/views/MainListView",
   "css!oss_core/itnms/host/css/kdo.css",
   "css!oss_core/itnms/host/css/host.css"
-], function(action, tpl, kdoTree,MainListView) {
+], function(myd3,i18nData, action, tpl, kdoTree,MainListView) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     render: function() {
-      this.$el.html(this.template());
+      this.$el.html(this.template(i18nData));
     },
     initialize: function(options) {},
     initCss: function() {
@@ -18,7 +20,7 @@ define([
       var self = this;
       this.initCss();
       this.loadData();
-
+      
     },
     loadData: function() {
       var self = this;

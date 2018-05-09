@@ -1,8 +1,9 @@
 define([
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "oss_core/itnms/maintenance/actions/MainAction",
   "text!oss_core/itnms/maintenance/components/views/HostGroupInfoView.html",
   "oss_core/itnms/host/components/kdoDSelect/KdoDSelect.js",
-],function(action,tpl,KdoDSelect){
+],function(i18nData,action,tpl,KdoDSelect){
    var HostGroupInfoView  = function(option){
      this.option=option;
      this.$el =$(this.option.el);
@@ -10,7 +11,7 @@ define([
    }
    HostGroupInfoView.prototype.render=function(){
      this.remove();
-     this.$el.html(this.tpl())
+     this.$el.html(this.tpl(i18nData))
      this.afterRender();
    }
    HostGroupInfoView.prototype.remove=function(){

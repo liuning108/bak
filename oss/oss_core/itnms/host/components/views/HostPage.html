@@ -5,13 +5,13 @@
     <div class="col-md-6">
       <div class="row hostRow">
         <div class="form-group hostGroup host-from-group">
-          <label for="hostHost">Name<span class="host_red">*</span></label>
+          <label for="hostHost">{{NAME}}<span class="host_red">*</span></label>
           <input type="text" class="hostHost filterInput" name="FilterName">
         </div>
       </div>
       <div class="row hostRow">
         <div class="form-group hostGroup host-from-group">
-          <label for="hostProxy">代理</label>
+          <label for="hostProxy">{{PROXY}}</label>
           <input type="text" class="hostProxy filterInput " name="filterIP">
         </div>
       </div>
@@ -21,19 +21,19 @@
     <div class="col-md-6">
       <div class="row hostRow">
         <div class="form-group hostGroup host-from-group">
-          <label for="hostName">显示名称</label>
+          <label for="hostName">{{VISIBLE_NAME}}</label>
           <input type="text" class="hostName filterInput" name="FilterName">
         </div>
       </div>
       <div class="row hostRow">
         <div class="form-group hostGroup host-from-group ">
-          <label for="filterIP">是否启用</label>
+          <label for="filterIP">{{OFF_ON}}</label>
           <div class="radio">
             <label>
-              <input type="radio" name="offon" value="0" checked>启用
+              <input type="radio" name="offon" value="0" checked>{{ON}}
              </label>
             <label>
-             <input type="radio" name="offon" value="1">停用
+             <input type="radio" name="offon" value="1">{{OFF}}
              </label>
 
           </div>
@@ -44,7 +44,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group  host-from-group" style="width:85%">
-            <label for="HostDesc">描述</label>
+            <label for="HostDesc">{{DESCRIPTION}}</label>
             <textarea class="HostDesc" name="HostDesc" rows="1" style="width:100%"></textarea>
           </div>
         </div>
@@ -55,8 +55,8 @@
   <div class="row">
     <div class="col-md-12" style="width:85%">
       <div class="kdoWizardSteps">
-        <div style="width:50%" class="active Step1" data-view='.Step1Page'><span>群组</span><span class="host_red">*</span></div>
-        <div style="width:50%" class=" Step2" data-view='.Step2Page'><span>接口</span><span class="host_red">*</span></div>
+        <div style="width:50%" class="active Step1" data-view='.Step1Page'><span>{{GROUP}}</span><span class="host_red">*</span></div>
+        <div style="width:50%" class=" Step2" data-view='.Step2Page'><span>{{INTERFACE}}</span><span class="host_red">*</span></div>
       </div>
       <div class="StepBody">
         <div class="Step1Page " style="padding:20px;padding-bottom:0px">
@@ -64,7 +64,7 @@
           </div>
           <div class="Step1PageNewGroup">
              <input type="checkbox" class="isNewGroupChk" name="" value="">
-             <span>创建新组</span>
+             <span>{{CREATE_GROUP}}</span>
              <div class="newHostGroupDiv">
               <div class="form-inline">
               <div class="form-group">
@@ -85,10 +85,10 @@
         </div>
       </div>
       <div class="StepBtns">
-        <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+        <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">{{LASTSTEP}}</div>
         <div class="RightDiv">
-          <div class="btn KdoBtn2 hostPageCancel">取消</div>
-          <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+          <div class="btn KdoBtn2 hostPageCancel">{{CANCEL}}</div>
+          <div class="btn stepNext KdoBtn2 Kdo_mainColor ">{{NEXTSTEP}}</div>
         </div>
       </div>
 

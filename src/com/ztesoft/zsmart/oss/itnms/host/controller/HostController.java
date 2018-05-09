@@ -1,5 +1,6 @@
 package com.ztesoft.zsmart.oss.itnms.host.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -35,12 +36,14 @@ public class HostController {
 	public JSONObject getAllHostsByGroupids(@RequestBody Map<String,Object> param) throws BaseAppException {
 		List<String> ids =(List<String>)param.get("ids");
 		Map<String,Object> search=(Map<String,Object>)param.get("search");
+		Map<String,Object> extendParam = (Map<String,Object>)param.get("extendParam");
+		if(extendParam==null)extendParam=new HashMap<String,Object>();
 		String name=(String)search.get("name");
 		String ip=(String)search.get("ip");
 		String dns=(String)search.get("dns");
 		String port=(String)search.get("port");
 		
-		return hostApiService.getAllHostsByGroupids(ids,name,ip,dns,port);
+		return hostApiService.getAllHostsByGroupids(ids,name,ip,dns,port,extendParam);
 	}
 	
 	@RequestMapping(value = "getAllGroup", method = RequestMethod.GET)

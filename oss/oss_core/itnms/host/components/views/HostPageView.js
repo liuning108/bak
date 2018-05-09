@@ -1,9 +1,10 @@
 define([
+  'i18n!oss_core/itnms/host/i18n/host',
   "oss_core/itnms/host/actions/HostAction",
   "text!oss_core/itnms/host/components/views/HostPage.html",
   "oss_core/itnms/host/components/kdoDSelect/KdoDSelect.js",
   "oss_core/itnms/host/components/views/InterfaceView.js",
-], function(action,tpl,KdoDSelect,InterfaceView) {
+], function(i18nData,action,tpl,KdoDSelect,InterfaceView) {
   var HostPageView = function(options) {
     this.options = options;
     this.tpl = fish.compile(tpl);
@@ -16,7 +17,7 @@ define([
   }
   HostPageView.prototype.render = function() {
     this.remove();
-    this.$el.html(this.tpl());
+    this.$el.html(this.tpl(i18nData));
     this.afterRender();
   }
   HostPageView.prototype.remove = function() {
@@ -138,7 +139,7 @@ define([
                               .addClass('show');
    }
    if( this.state.curIndex>=this.state.data.length-1){
-       _this.html('完成');
+       _this.html(i18nData.OK);
    }
    var nextState= this.state.data[this.state.curIndex]
    $ws.find(nextState).addClass('active')
@@ -214,7 +215,7 @@ define([
                               .addClass('hide');
    }
    if( this.state.curIndex<this.state.data.length-1){
-       this.$el.find('.stepNext').html('下一步')
+       this.$el.find('.stepNext').html(i18nData.NEXTSTEP)
    }
    var upState= this.state.data[this.state.curIndex]
    $ws.find(upState).addClass('active')

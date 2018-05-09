@@ -1,9 +1,9 @@
 <div class="kdo-right-page">
   <div class="kdo-right-page-header">
-    <div class="title">维护周期</div>
+    <div class="title">{{MAINTENANCE_PERIODS}}</div>
     <div class="kdoTopBtn">
        <div class="kdoBtn addMainPerio">
-         <i class="glyphicon glyphicon-plus "></i>创建维护周期
+         <i class="glyphicon glyphicon-plus "></i>{{CREATE_MAINTENANCE_PERIOD}}
        </div>
     </div>
   </div>
@@ -19,7 +19,7 @@
           <div class="form-inline">
              <div class="form-group">
                <div class="input-group">
-                    <input type="text" class="form-control mainSearchText" placeholder="Search">
+                    <input type="text" class="form-control mainSearchText" placeholder="{{SEARCH}}">
                     <div class="input-group-addon mainSearch">
                       <i class="glyphicon glyphicon-search"></i>
                     </div>
@@ -32,16 +32,16 @@
                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                  <li data-state="Any" class="mainStateLi">
 
-                   <a href="#"><i class="glyphicon glyphicon-ok"></i>Any</a>
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{ANY}}</a>
                  </li>
                  <li data-state="ACTIVE" class="mainStateLi">
-                   <a href="#"><i class="glyphicon glyphicon-ok"></i>Active</a>
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{ACTIVE}}</a>
                  </li>
                  <li data-state="APPROACH" class="mainStateLi">
-                   <a href="#"><i class="glyphicon glyphicon-ok"></i>Approaching</a>
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{APPROACHING}}</a>
                  </li>
                  <li data-state="EXPIRED" class="mainStateLi">
-                   <a href="#"><i class="glyphicon glyphicon-ok"></i>Expired</a>
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{EXPIRED}}</a>
                  </li>
                </ul>
              </div>
@@ -53,7 +53,7 @@
       <div class="mainListGrid kdoGrid">
       </div>
       <div  class="mainListBtn col-md-12">
-         <button type="button"   class="btn btn-default kdoPageBtn delMain" data-bis="delMain">Delete</button>
+         <button type="button"   class="btn btn-default kdoPageBtn delMain" data-bis="delMain">{{DELETE}}</button>
       </div>
   </div>
 

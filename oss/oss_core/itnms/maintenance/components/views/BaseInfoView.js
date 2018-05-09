@@ -1,6 +1,7 @@
 define([
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "text!oss_core/itnms/maintenance/components/views/BaseInfoView.html",
-],function(tpl){
+],function(i18nData,tpl){
    var BaseInfoView  = function(option){
      this.option=option;
      this.$el =$(this.option.el);
@@ -8,7 +9,7 @@ define([
    }
    BaseInfoView.prototype.render=function(){
      this.remove();
-     this.$el.html(this.tpl())
+     this.$el.html(this.tpl(i18nData))
      this.afterRender();
    }
    BaseInfoView.prototype.remove=function(){

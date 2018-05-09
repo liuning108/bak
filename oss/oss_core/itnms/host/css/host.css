@@ -99,7 +99,6 @@
 
 .InventoryPageContext .radio label {
   margin-left: 20px;
-  line-height: 35px;
 }
 
 .hostPageContext {
@@ -438,7 +437,7 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 .snmpCheckbox {
   white-space: nowrap;
   overflow: visible;
-  font-size: 10px;
+  font-size: 14px;
   display: inline-block;
 }
 

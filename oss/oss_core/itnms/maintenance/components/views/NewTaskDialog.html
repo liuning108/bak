@@ -1,12 +1,12 @@
 <div class="kdo-dialog ui-dialog dialog-md">
   <div class="modal-header">
-    <h4 class="modal-title">创建周期</h4>
+    <h4 class="modal-title">{{CREATE_PERIOD}}</h4>
   </div>
   <div class="modal-body filterHostBody">
     <div class="row">
       <div class="col-md-1-12">
         <div class="form-group kdo-from-group">
-          <label for="periodsType">周期类型<span class="host_red">*</span></label>
+          <label for="periodsType">{{PERIOD_TYPE}}<span class="host_red">*</span></label>
           <input type="text" name="mainName" class="form-control periodsType">
         </div>
       </div>
@@ -14,7 +14,7 @@
     <div class="row ">
       <div class="col-md-1-12 type0 mainTypPage" style="display:none">
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">Date</label>
+          <label for="onetimeonlyDate">{{DATE}}</label>
           <div class="input-group">
             <input type="text" name="onetimeonlyDate" class="form-control onetimeonlyDate">
           </div>
@@ -22,11 +22,11 @@
       </div>
       <div class="col-md-1-12 type2 mainTypPage" style="display:none">
         <div class="form-group kdo-from-group">
-          <label for="DaliyEvery">Every day(s)</label>
+          <label for="DaliyEvery">{{EVERY_DAY}}</label>
           <input type="text" name="DaliyEvery" class="form-control daliyEvery" value="1">
         </div>
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">At (hour:minute)<span class="host_red">*</span></label>
+          <label for="onetimeonlyDate">{{AT_HOUR_MINUTE}}</label>
           <div class="form-inline">
             <div class="form-group">
               <input type="text" class="form-control DailyH">
@@ -40,38 +40,38 @@
       </div>
       <div class="col-md-1-12 type3 mainTypPage" style="display:none">
         <div class="form-group kdo-from-group">
-          <label for="weeklyEvery">Every week(s)</label>
+          <label for="weeklyEvery">{{EVERY_WEEK}}</label>
           <input type="text" name="weeklyEvery" class="form-control weeklyEvery" value="1">
         </div>
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">Day of week</label>
+          <label for="onetimeonlyDate">{{DAY_OF_WEEK}}</label>
           <!--星期-->
           <div class="row">
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week1"> Monday
+                     <input type="checkbox" class="week1"> {{MONDAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week2"> Tuesday
+                     <input type="checkbox" class="week2"> {{TUESDAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3" >
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week3"> Wednesday
+                     <input type="checkbox" class="week3"> {{WEDNESDAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week4"> Thursday
+                     <input type="checkbox" class="week4"> {{THURSDAY}}
                    </label>
               </div>
             </div>
@@ -80,21 +80,21 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week5"> Friday
+                     <input type="checkbox" class="week5"> {{FRIDAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week6"> Saturday
+                     <input type="checkbox" class="week6"> {{SATURDAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="week7"> Sunday
+                     <input type="checkbox" class="week7"> {{SUNDAY}}
                    </label>
               </div>
             </div>
@@ -103,7 +103,7 @@
 
         </div>
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">At (hour:minute)</label>
+          <label for="onetimeonlyDate">{{AT_HOUR_MINUTE}}</label>
           <div class="form-inline">
             <div class="form-group">
               <input type="text" class="form-control weeklyH">
@@ -117,33 +117,33 @@
       </div>
       <div class="col-md-1-12 type4 mainTypPage" style="display:none">
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">Month</label>
+          <label for="onetimeonlyDate">{{MONTH}}</label>
           <div class="row">
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month1"> January
+                     <input type="checkbox" class="month1"> {{JANUARY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month2"> February
+                     <input type="checkbox" class="month2">{{FEBRUARY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month3"> March
+                     <input type="checkbox" class="month3"> {{MARCH}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month4"> April
+                     <input type="checkbox" class="month4"> {{APRIL}}
                    </label>
               </div>
             </div>
@@ -152,28 +152,28 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month5"> May
+                     <input type="checkbox" class="month5">{{MAY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month6"> June
+                     <input type="checkbox" class="month6">{{JUNE}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month7"> July
+                     <input type="checkbox" class="month7">{{JULY}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month8"> August
+                     <input type="checkbox" class="month8"> {{AUGUST}}
                    </label>
               </div>
             </div>
@@ -182,52 +182,52 @@
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month9"> September
+                     <input type="checkbox" class="month9"> {{SEPTEMBER}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month10"> October
+                     <input type="checkbox" class="month10"> {{OCTOBER}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month11"> November
+                     <input type="checkbox" class="month11">{{NOVEMBER}}
                    </label>
               </div>
             </div>
             <div class="form-group col-md-3">
               <div class="checkbox">
                 <label>
-                     <input type="checkbox" class="month12"> December
+                     <input type="checkbox" class="month12">{{DECEMBER}}
                    </label>
               </div>
             </div>
           </div>
         </div>
         <div class="form-group kdo-from-group">
-          <label for="onetimeonlyDate">Date</label>
+          <label for="onetimeonlyDate">{{DATE}}</label>
           <div class="btn-group" role="group" style="margin-left:20px">
-            <button type="button" class="btn btn-default monthly_dayType monthly_dayType0" data-value="0">Day</button>
+            <button type="button" class="btn btn-default monthly_dayType monthly_dayType0" data-value="0">{{DAY}}</button>
             <button type="button" class="btn btn-default monthly_dayType
-            monthly_dayType1" data-value="1">Day of week</button>
+            monthly_dayType1" data-value="1">{{DAY_OF_WEEK}}</button>
           </div>
         </div>
         <div class="row MonthlyDateType MonthlyDateType0">
           <div class="col-md-12">
             <div class="form-group kdo-from-group">
-              <label for="monthly-day-month">Day of month</label>
+              <label for="monthly-day-month">{{DAY_OF_MONTH}}</label>
               <div class="input-group">
                 <input type="text" name="monthly-day-month"
                       class="form-control monthly-day-month">
               </div>
             </div>
             <div class="form-group kdo-from-group">
-              <label for="onetimeonlyDate">At (hour:minute)</label>
+              <label for="onetimeonlyDate">{{AT_HOUR_MINUTE}}</label>
               <div class="form-inline">
                 <div class="form-group">
                   <input type="text" class="form-control monthlyH">
@@ -246,7 +246,7 @@
 
               <div class="form-inline">
                 <div class="form-group">
-                   <label for="onetimeonlyDate">Day of week</label>
+                   <label for="onetimeonlyDate">{{DAY_OF_WEEK}}</label>
                    <input type="text" class="form-control dayofweekEvery" name="dayofweekEvery" style="margin-left:5px" >
                 </div>
               </div>
@@ -254,28 +254,28 @@
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek1"> Monday
+                         <input type="checkbox" class="mweek1"> {{MONDAY}}
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek2"> Tuesday
+                         <input type="checkbox" class="mweek2"> {{TUESDAY}}
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek3"> Wednesday
+                         <input type="checkbox" class="mweek3"> {{WEDNESDAY}}
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek4"> Thursday
+                         <input type="checkbox" class="mweek4"> {{THURSDAY}}
                        </label>
                   </div>
                 </div>
@@ -284,21 +284,21 @@
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek5"> Friday
+                         <input type="checkbox" class="mweek5">{{FRIDAY}}
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek6"> Saturday
+                         <input type="checkbox" class="mweek6"> {{SATURDAY}}
                        </label>
                   </div>
                 </div>
                 <div class="form-group col-md-3">
                   <div class="checkbox">
                     <label>
-                         <input type="checkbox" class="mweek7"> Sunday
+                         <input type="checkbox" class="mweek7"> {{SUNDAY}}
                        </label>
                   </div>
                 </div>
@@ -311,20 +311,20 @@
     <div class="row">
       <div class="col-md-1-12">
         <div class="form-group kdo-from-group">
-          <label for="periodsType">Maintenance period length<span class="host_red">*</span></label>
+          <label for="periodsType">{{MAINTENANCE_PERIOD_LENGTH}}<span class="host_red">*</span></label>
           <div class="form-inline">
             <div class="form-group">
               <input type="text" class="form-control periodDay" maxlength="3" value="0">
             </div>
-            <span>Days</span>
+            <span>{{DAYS}}</span>
             <div class="form-group">
               <input type="text" class="form-control mpl_Hours">
             </div>
-            <span>Hours</span>
+            <span>{{HOURS}}</span>
             <div class="form-group">
               <input type="text" class="form-control mpl_Minutes">
             </div>
-            <span>Minutes</span>
+            <span>{{MINUTES}}</span>
 
           </div>
         </div>
@@ -332,8 +332,8 @@
     </div>
     <div class="row">
       <div class="RightDiv">
-        <div class="btn KdoBtn2 mainPageCancel">取消</div>
-        <div class="btn stepNext KdoBtn2 Kdo_mainColor mainPageOk ">确定</div>
+        <div class="btn KdoBtn2 mainPageCancel">{{CANCEL}}</div>
+        <div class="btn stepNext KdoBtn2 Kdo_mainColor mainPageOk ">{{OK}}</div>
       </div>
     </div>
   </div>

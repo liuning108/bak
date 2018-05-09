@@ -1,4 +1,6 @@
-define([], function() {
+define(['i18n!oss_core/itnms/maintenance/i18n/maintenance'], function(
+  i18nData,
+) {
   var util = {
     secToTime: function(InSecond) {
       var years = 0;
@@ -154,7 +156,18 @@ define([], function() {
     },
     binToMonth:function(binarry){
       var month =[
-       "January", "February", "March", "April","May", "June", "July", "August", "September", "October", "November", "December"];
+       i18nData.JANUARY,
+       i18nData.FEBRUARY,
+       i18nData.MARCH,
+       i18nData.APRIL,
+       i18nData.MAY,
+       i18nData.JUNE,
+       i18nData.JULY,
+       i18nData.AUGUST,
+       i18nData.SEPTEMBER,
+       i18nData.OCTOBER,
+       i18nData.NOVEMBER,
+       i18nData.DECEMBER];
        var data =[];
        binarry =binarry.split("").reverse().join("")
        for (var i=0;i<binarry.length;i++){
@@ -166,7 +179,15 @@ define([], function() {
        return data.join(',');
     },
     binToWeek:function(binarry){
-      var week=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      var week=[
+         i18nData.MONDAY,
+         i18nData.TUESDAY,
+         i18nData.WEDNESDAY,
+         i18nData.THURSDAY,
+         i18nData.FRIDAY,
+         i18nData.SATURDAY,
+         i18nData.SUNDAY
+       ];
       var data =[];
       binarry =binarry.split("").reverse().join("")
       for (var i=0;i<binarry.length;i++){

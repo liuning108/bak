@@ -2,21 +2,21 @@
    <div class="row">
      <div class="col-md-6">
        <div class="form-group kdo2-from-group">
-           <label for="mainName">Name<span class="host_red">*</span></label>
+           <label for="mainName">{{NAME}}<span class="host_red">*</span></label>
            <input type="text" name="mainName" class="form-control mainName">
         </div>
      </div>
      <div class="col-md-6">
        <div class="form-group kdo2-from-group">
-           <label for="mainType">类型</label>
+           <label for="mainType">{{TYPE}}</label>
            <div class="radio mainRadio">
              <label>
                <input type="radio" name="mainType" value="0">
-               <span>数据收集</span>
+               <span>{{WITH_DATA_COLLECTION}}</span>
               </label>
              <label>
               <input type="radio" name="mainType" value="1">
-              <span>无数据收集</span>
+              <span>{{WITHOUT_DATA_COLLECTION}}</span>
               </label>
            </div>
         </div>
@@ -25,7 +25,7 @@
    <div class="row">
      <div class="col-md-6">
        <div class="form-group kdo2-from-group">
-           <label for="startTime">启动时间<span class="host_red">*</span></label>
+           <label for="startTime">{{ACTIVE_SINCE}}</label>
              <div class="input-group" >
               <input type="text" name="startTime" class="form-control startTime" data-rule="开始日期: required; date;">
             </div>
@@ -33,7 +33,7 @@
      </div>
      <div class="col-md-6">
        <div class="form-group kdo2-from-group">
-           <label for="endTime">结束时间<span class="host_red">*</span></label>
+           <label for="endTime">{{ACTIVE_TILL}}</label>
            <div class="input-group">
             <input type="text" name="endTime"  data-rule="结束日期: match[gte, startTime, date]"  class="form-control endTime">
           </div>
@@ -43,7 +43,7 @@
    <div class="row">
      <div class="col-md-12">
        <div class="form-group kdo2-from-group">
-           <label for="mainDesc">描述</label>
+           <label for="mainDesc">{{DESCRIPTION}}</label>
           <textarea  class="mainDesc" name="mainDesc" rows="4"  style="width:100%"></textarea>
         </div>
      </div>

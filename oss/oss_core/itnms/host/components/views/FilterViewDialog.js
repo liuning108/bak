@@ -1,10 +1,13 @@
-define(["text!oss_core/itnms/host/components/views/filterHostView.html"],
-   function(tpl){
+define([
+    'i18n!oss_core/itnms/host/i18n/host',
+  "text!oss_core/itnms/host/components/views/filterHostView.html"
+],
+   function(i18nData,tpl){
   var FilterViewDialog = function() {
     this.tpl = fish.compile(tpl);
   };
   FilterViewDialog.prototype.content=function(){
-    this.$el=$(this.tpl())
+    this.$el=$(this.tpl(i18nData))
     return this.$el;
   }
   FilterViewDialog.prototype.popup=function(options,props,callback){

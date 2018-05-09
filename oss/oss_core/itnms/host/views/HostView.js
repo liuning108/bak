@@ -1,15 +1,16 @@
 define([
+  'i18n!oss_core/itnms/host/i18n/host',
   "oss_core/itnms/host/actions/HostAction",
   "text!oss_core/itnms/host/templates/HostView.html",
   "oss_core/itnms/host/components/kdoTree/kdoTree",
   "oss_core/itnms/host/components/views/HostListView.js",
   "css!oss_core/itnms/host/css/kdo.css",
   "css!oss_core/itnms/host/css/host.css"
-], function(action, tpl, kdoTree, HostListView) {
+], function(i18nData,action, tpl, kdoTree, HostListView) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     render: function() {
-      this.$el.html(this.template());
+      this.$el.html(this.template(i18nData));
     },
     initialize: function(options) {},
     initCss: function() {
@@ -81,6 +82,7 @@ define([
            'tableH': tableH,
            'groups': groups,
            'bisId': id,
+           // 'templateids':["10001"]
            // 'callback':function(){
            //  alert('hello world');
            //     }

@@ -1,6 +1,7 @@
 define([
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "text!oss_core/itnms/maintenance/components/views/NewTaskDialog.html", "oss_core/itnms/maintenance/actions/Util.js"
-], function(tpl, Util) {
+], function(i18nData,tpl, Util) {
   var NewTaskDialog = function() {
     this.tpl = fish.compile(tpl);
     this.state = {
@@ -11,7 +12,7 @@ define([
     }
   };
   NewTaskDialog.prototype.content = function() {
-    this.$el = $(this.tpl())
+    this.$el = $(this.tpl(i18nData))
     return this.$el;
   }
   NewTaskDialog.prototype.popup = function(options, props, callback) {

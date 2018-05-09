@@ -21,7 +21,7 @@ import com.ztesoft.zsmart.oss.itnms.util.ZabbixApiUtil;
 @Service("HostApiServiceImpl")
 public class HostApiServiceImpl implements HostApiService{
 	@Override
-	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) throws BaseAppException {
+	  public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port,Map<String,Object> extendParam) throws BaseAppException {
 		  
 //		  Map<String, String> result= ZabbixApiUtil.getZabbixApiInfo();
 //		  ZabbixApi  zabbixApi = new DefaultZabbixApi(result.get("url"));
@@ -31,6 +31,8 @@ public class HostApiServiceImpl implements HostApiService{
 			
 		 zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
+		  
+		  List<String> templateids = (List<String>)extendParam.get("templateids");
 		  
 		  JSONObject search = new JSONObject();
 		  search.put("name", name);
@@ -43,6 +45,7 @@ public class HostApiServiceImpl implements HostApiService{
 					                                 .paramEntry("groupids", ids)
 					                                 .paramEntry("selectInterfaces", new String[] {"type","ip","dns","port"})
 					                                 .paramEntry("search",search)
+					                                 .paramEntry("templateids", templateids)
 					                                 .paramEntry("sortfield", "hostid")
 					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);
@@ -84,9 +87,8 @@ public class HostApiServiceImpl implements HostApiService{
 	}
 	
 	public static void main(String[] args) throws BaseAppException {
-		HostApiService  imp = new HostApiServiceImpl();
-		HostService dao = new HostServiceImpl();
-      System.out.println(imp.getTemplateByGroupId("16"));
+	
+		 
        
 	}
 

@@ -1,9 +1,10 @@
 define([
+  'i18n!oss_core/itnms/host/i18n/host',
   "oss_core/itnms/host/actions/HostAction",
   "text!oss_core/itnms/host/components/views/TemplatePageView.html",
   "text!oss_core/itnms/host/components/views/TemplateBtns.html",
   "oss_core/itnms/host/components/views/TemplateViewDialog.js"
-], function(action, tpl,tplbtns, Dialog) {
+], function(i18nData,action, tpl,tplbtns, Dialog) {
   var TemplatePageView = function(option) {
     this.option = option;
     this.$el = $(this.option.el);
@@ -13,7 +14,7 @@ define([
   };
   TemplatePageView.prototype.render = function() {
     this.remove();
-    this.$el.html(this.tpl());
+    this.$el.html(this.tpl(i18nData));
     this.afterRender();
 
   };

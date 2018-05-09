@@ -1,10 +1,11 @@
 define([
+ 'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "oss_core/itnms/maintenance/actions/MainAction",
   "text!oss_core/itnms/maintenance/components/views/AddMainDialog.html",
   "oss_core/itnms/maintenance/components/views/BaseInfoView",
   "oss_core/itnms/maintenance/components/views/PeriodsInfoView",
   "oss_core/itnms/maintenance/components/views/HostGroupInfoView",
-], function(action,tpl,BaseInfoView,PeriodsInfoView,HostGroupInfoView) {
+], function(i18nData,action,tpl,BaseInfoView,PeriodsInfoView,HostGroupInfoView) {
   var AddMainDialog = function() {
     this.tpl = fish.compile(tpl);
     this.state = {
@@ -15,7 +16,7 @@ define([
     }
   };
   AddMainDialog.prototype.content = function() {
-    this.$el = $(this.tpl())
+    this.$el = $(this.tpl(i18nData))
     return this.$el;
   }
   AddMainDialog.prototype.popup = function(options, props, callback) {
@@ -91,7 +92,7 @@ define([
       this.$el.find('.stepUp').removeClass('show').addClass('hide');
     }
     if (this.state.curIndex < this.state.data.length - 1) {
-      this.$el.find('.stepNext').html('下一步')
+      this.$el.find('.stepNext').html(i18nData.NEXT_STEP)
     }
     var upState = this.state.data[this.state.curIndex]
     $ws.find(upState).addClass('active')
@@ -114,7 +115,7 @@ define([
       this.$el.find('.stepUp').removeClass('hide').addClass('show');
     }
     if (this.state.curIndex >= this.state.data.length - 1) {
-      _this.html('完成');
+      _this.html(i18nData.OK);
     }
     var nextState = this.state.data[this.state.curIndex]
     $ws.find(nextState).addClass('active')

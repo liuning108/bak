@@ -1,4 +1,5 @@
 define([
+  'i18n!oss_core/itnms/host/i18n/host',
   "oss_core/itnms/host/actions/HostAction",
   "oss_core/itnms/host/components/views/HostPageView.js",
   "text!oss_core/itnms/host/components/views/createHostView.html",
@@ -6,7 +7,7 @@ define([
   "oss_core/itnms/host/components/views/TemplatePageView.js",
   "oss_core/itnms/host/components/views/MacroPageView.js",
   "oss_core/itnms/host/components/views/InventoryPageView.js"
-], function(action, HostPageView, tpl, KdoTabs, TemplatePageView, MacroPageView, InventoryPageView) {
+], function(in18nData,action, HostPageView, tpl, KdoTabs, TemplatePageView, MacroPageView, InventoryPageView) {
 
   var CreateHostView = function(option) {
       this.option = option;
@@ -19,7 +20,7 @@ define([
     CreateHostView.prototype.render = function() {
       this.remove();
       var $el = $(this.option.el);
-      $el.html(this.tpl())
+      $el.html(this.tpl(in18nData))
       this.afterRender()
     }
     CreateHostView.prototype.remove = function() {
@@ -28,29 +29,31 @@ define([
     CreateHostView.prototype.afterRender = function() {
       var self = this;
       var $el = $(this.option.el);
+
+      INVENTORY:"Inventory"
       var kdoTabs = new KdoTabs({
         "el": $el.find('.kdo-right-page-cotent'),
         "data": [
           {
-            name: '监控点',
+            name: in18nData.HOST,
             'id': 'hostPage',
             view: function($el) {
               self.HostPage($el)
             }
           }, {
-            name: '模板',
+            name: in18nData.TEMPLATES,
             'id': 'templPage',
             view: function($el) {
               self.TemplatePage($el)
             }
           }, {
-            name: '宏',
+            name: in18nData.MACROS,
             'id': 'macroPage',
             view: function($el) {
               self.MacroPage($el)
             }
           }, {
-            name: '资产信息',
+            name: in18nData.INVENTORY,
             'id': 'propertyPage',
             view: function($el) {
               self.InventoryPage($el)

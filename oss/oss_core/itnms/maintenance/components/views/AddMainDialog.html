@@ -1,30 +1,30 @@
 <div class="kdo-dialog ui-dialog dialog-md">
   <div class="modal-header">
-    <h4 class="modal-title">编辑维护周期</h4>
+    <h4 class="modal-title">{{EDIT_MAINTENANCE_PERIOD}}</h4>
   </div>
   <div class="modal-body filterHostBody">
 
     <div class="kdoWizardSteps">
       <div style="width:33.3%" class="active Step1" data-view='.Step1Page'>
-        <span>基本信息</span><span class="host_red">*</span>
+        <span>{{BASE_INFO}}</span><span class="host_red">*</span>
       </div>
       <div style="width:33.3%" class=" Step2" data-view='.Step2Page'>
-        <span>维护周期</span><span class="host_red">*</span>
+        <span>{{PERIOD}}</span><span class="host_red">*</span>
       </div>
       <div style="width:33.3%" class=" Step3" data-view='.Step3Page'>
-        <span>监控组/监控点</span><span class="host_red">*</span>
+        <span>{{HOSTS_GROUPS}}</span><span class="host_red">*</span>
       </div>
     </div>
     <div class="StepBody">
-       <div class="Step1Page">Step1Page</div>
-       <div class="Step2Page" style="display:none">Step2Page</div>
-       <div class="Step3Page" style="display:none">Step3Page</div>
+       <div class="Step1Page"></div>
+       <div class="Step2Page" style="display:none"></div>
+       <div class="Step3Page" style="display:none"></div>
     </div>
     <div class="StepBtns">
-      <div class="btn maintenanceStep stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+      <div class="btn maintenanceStep stepUp KdoBtn2 Kdo_mainColor hide">{{LAST_STEP}}</div>
       <div class="RightDiv">
-        <div class="btn KdoBtn2 mainPageCancel">取消</div>
-        <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+        <div class="btn KdoBtn2 mainPageCancel">{{CANCEL}}</div>
+        <div class="btn stepNext KdoBtn2 Kdo_mainColor ">{{NEXT_STEP}}</div>
       </div>
     </div>
 

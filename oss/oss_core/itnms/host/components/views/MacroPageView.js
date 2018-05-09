@@ -1,6 +1,8 @@
-define(["oss_core/itnms/host/actions/HostAction",
+define([
+      'i18n!oss_core/itnms/host/i18n/host',
+      "oss_core/itnms/host/actions/HostAction",
       "text!oss_core/itnms/host/components/views/MacroPageView.html"],function(
-        action,tpl
+        i18nData,action,tpl
       ) {
   var MacroPageView = function(option){
     this.option=option;
@@ -10,7 +12,7 @@ define(["oss_core/itnms/host/actions/HostAction",
   }
   MacroPageView.prototype.render=function() {
     this.remove();
-    this.$el.html(this.tpl());
+    this.$el.html(this.tpl(i18nData));
     this.afterRender();
 
   }

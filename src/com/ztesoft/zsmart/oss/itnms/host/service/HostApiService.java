@@ -9,7 +9,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
 public interface HostApiService {
 	
    public JSONObject getHostByid(String id) throws BaseAppException;
-   public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port) throws BaseAppException;
+   public JSONObject getAllHostsByGroupids(List<String> ids,String name,String ip ,String dns ,String port,Map<String,Object> extendParam) throws BaseAppException;
    public JSONObject getAllGroup(List<String>  ids) throws BaseAppException;
    public JSONObject getAllProxy() throws BaseAppException;
   public JSONObject saveOrUpHost(Map<String, Object> param,String new_gid) throws BaseAppException;

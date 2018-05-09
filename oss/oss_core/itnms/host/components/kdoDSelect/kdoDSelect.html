@@ -1,51 +1,52 @@
 <div class="kdoDSelect">
   <div>
-    <div class="col-md-5">
+    <div class="col-md-6" style="padding:0px">
       <div>
         <div class="form-group">
-          <input type="text" class="filterName filterInput LF" name="FilterName" placeholder="搜索" >
+          <i class="fa fa-search kdoDSelectSearch"></i>
+          <input type="text" class="filterName filterInput LF kdoDSelectSearchInput" name="FilterName" placeholder="Search">
         </div>
       </div>
     </div>
-    <div class="col-md-2">
-    </div>
-    <div class="col-md-5">
+    <div class="col-md-6" style="padding:0px">
       <div>
         <div class="form-group ">
-          <input type="text" class="filterName filterInput RF" name="FilterName" placeholder="搜索">
+          <i class="fa fa-search kdoDSelectSearch"></i>
+          <input type="text" class="filterName filterInput RF kdoDSelectSearchInput" name="FilterName" placeholder="Search">
         </div>
       </div>
     </div>
   </div>
   <div>
-      <div class="col-md-5" style="padding:0px">
-        <div class="form-group">
-        <select  class=" form-control  lSelect" autocomplete="off" multiple="multiple" size="5">
+    <div class="col-md-12 multiSelBoxHolder" style="padding:0px">
+      <div class="multiSelBoxLeft">
+        <select class="lSelect" autocomplete="off" multiple="multiple">
           {{#each L}}
           <option value="{{value}}" data-name="{{name}}">
              {{name}}
           </option>
           {{/each}}
+        </select>
+      </div>
+      <div class="multiSelBoxBtn">
+        <div class="k ROp">
+          <i class="glyphicon glyphicon-triangle-right "></i>
+        </div>
+        <div class="k LOp">
+          <i class="glyphicon glyphicon-triangle-left  "></i>
+        </div>
+      </div>
+      <div class="multiSelBoxRight">
+        <select class="rSelect" autocomplete="off" multiple="multiple">
+           {{#each R}}
+           <option value="{{value}}" data-name="{{name}}">
+              {{name}}
+           </option>
+           {{/each}}
+       </select>
+      </div>
+    </div>
 
-        </select>
-        </div>
-      </div>
-      <div class="col-md-2" style="padding:0px;">
-         <div class="kk">
-           <div class="btn k ROp"><i class="glyphicon glyphicon-triangle-right "></i></div>
-           <div class="btn k LOp"><i class="glyphicon glyphicon-triangle-left  "></i></div>
-          </div>
-      </div>
-      <div class="col-md-5" style="padding:0px">
-            <div class="form-group">
-        <select class=" form-control rSelect" autocomplete="off" multiple="multiple" size="5">
-          {{#each R}}
-          <option value="{{value}}" data-name="{{name}}">
-             {{name}}
-          </option>
-          {{/each}}
-        </select>
-        </div>
-      </div>
+
   </div>
 </div>

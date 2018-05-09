@@ -1,9 +1,10 @@
 define([
+  'i18n!oss_core/itnms/maintenance/i18n/maintenance',
   "text!oss_core/itnms/maintenance/components/views/PeriodsView.html",
   "text!oss_core/itnms/maintenance/components/views/periodsOp.html",
   "oss_core/itnms/maintenance/components/views/NewTaskDialog",
   "oss_core/itnms/maintenance/actions/Util.js"
-],function(tpl,periodsOpTpl,NewTaskDialog,Util){
+],function(i18nData,tpl,periodsOpTpl,NewTaskDialog,Util){
    var PeriodsInfoView  = function(option){
      this.option=option;
      this.$el =$(this.option.el);
@@ -12,7 +13,7 @@ define([
    }
    PeriodsInfoView.prototype.render=function(){
      this.remove();
-     this.$el.html(this.tpl())
+     this.$el.html(this.tpl(i18nData))
      this.afterRender();
    }
    PeriodsInfoView.prototype.remove=function(){
@@ -70,7 +71,6 @@ define([
    }
    PeriodsInfoView.prototype.initListGrid =function() {
      var self =this;
-     console.log("222222321312312312");
      var mydata = Util.process(this.option.timeperiods,this.option.sp);
      console.log(mydata);
      var opt = {
@@ -80,21 +80,21 @@ define([
        colModel: [
          {
            name: 'timeperiod_type',
-           label: '周期类型',
+           label: i18nData.PERIOD_TYPE,
            align: 'center',
            formatter:function(cellval, opts, rwdat, _act){
              return Util.timeperiodTypeName(cellval);
            },
          }, {
            name: 'schedule',
-           label: '计划',
+           label: i18nData.SCHEDULE,
            align: 'center',
            formatter: function(cellval, opts, rwdat, _act) {
             return cellval
            }
          }, {
            name: 'period',
-           label: '周期',
+           label: i18nData.PERIOD,
            align: 'center',
            formatter: function(cellval, opts, rwdat, _act) {
              return Util.secToTime(cellval);
