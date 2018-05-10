@@ -16,7 +16,22 @@ define([
       this.$el.html(this.tpl());
     },
     afterRender: function() {
+      this.initPage();
 
+    },
+    initPage:function(){
+      this.titlePosition = this.$el.find('.titlePosition').combobox({
+         editable: false,
+         dataTextField: 'name',
+         dataValueField: 'value',
+         dataSource: [
+              {name: 'Center', value: '1'},
+              {name: 'Left', value: '2'},
+              {name: 'Right', value: '3'},
+         ],
+      });
+      this.titlePosition.combobox('value',"1");
+      util.kdoinputStyle(this.$el.find('.kdo-input-style'));
     },
     cancel: function() {
       util.doNotNull(this.option.cancel);

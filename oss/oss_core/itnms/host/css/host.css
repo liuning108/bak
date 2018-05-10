@@ -309,7 +309,7 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   width: 100px;
 }
 
-.hostListBtn {
+.hostListBtn, .graphsListBtn {
   margin-left: 0px;
   padding-left: 0px;
   margin-top: 10px;
@@ -464,4 +464,13 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   left: -10px;
   top: 3px;
   cursor: pointer;
+}
+
+.graphs-edit-body {
+  padding: 20px;
+  padding-top: 30px;
+}
+
+.graphs-edit-body .graphs-edit-row {
+  margin-bottom: 30px;
 }

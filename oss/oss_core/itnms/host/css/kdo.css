@@ -503,7 +503,7 @@
 }
 
 .host-from-group input[type='text']:hover, .kdo-from-group input[type='text']:hover {
-  border: 1px solid #666;
+  border: 1px solid #2ec4e8;
 }
 
 .host-from-group input[type='text']:focus, .kdo-from-group input[type='text']:focus {
@@ -527,7 +527,7 @@
 }
 
 .host-from-group textarea:hover, .kdo-from-group textarea:hover {
-  border: 1px solid #666;
+  border: 1px solid #2ec4e8;
 }
 
 .host-from-group textarea:focus, .kdo-from-group textarea:focus {
@@ -558,7 +558,7 @@
 }
 
 .kdo2-from-group input[type='text']:hover {
-  border: 1px solid #666;
+  border: 1px solid #2ec4e8;
 }
 
 .kdo2-from-group input[type='text']:focus {
@@ -582,7 +582,7 @@
 }
 
 .kdo2-from-group textarea:hover {
-  border: 1px solid #666;
+  border: 1px solid #2ec4e8;
 }
 
 .kdo2-from-group textarea:focus {
@@ -630,4 +630,57 @@
   float: left;
   margin-top: 5px;
   margin-left: 5px;
+}
+
+.kdoBtnIco:hover {
+  color: #2ec4e8 !important;
+}
+
+.kdo-input-style {
+  padding: 0px;
+  margin: 0px;
+  border-bottom: 1px solid #cfdadd;
+  width: 90%;
+}
+
+.kdo-input-style:hover {
+  border-bottom: 1px solid #2ec4e8;
+}
+
+.kdo-input-style:focus {
+  outline: none !important;
+  box-shadow: none;
+  border-bottom: 1px solid #2ec4e8;
+}
+
+.kdo-input-style.disabled {
+  background: #eee;
+}
+
+.kdo-input-style .kdo-combobox-style {
+  display: inline-block;
+  position: relative;
+  top: 9px;
+  left: 10px;
+  width: 150px;
+}
+
+.kdo-input-style .kdo-combobox-style .combobox-readonly {
+  border: none;
+  box-shadow: none;
+}
+
+.kdo-input-style .tag {
+  display: inline-block;
+  padding: 2px;
+  padding-bottom: 4px;
+  border-bottom: 2px #f27b77 solid;
+}
+
+.kdo-input-style input {
+  border: none;
+  padding-left: 20px;
+  width: 70%;
+  height: 28px;
+  padding-bottom: 4px;
 }

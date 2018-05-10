@@ -241,7 +241,6 @@ define([
         })
       });
     })
-
     this.$gird.on('click','.updateMain',function(){
         var selrow = self.$gird.grid("getSelection");
         var id = selrow.maintenanceid;
