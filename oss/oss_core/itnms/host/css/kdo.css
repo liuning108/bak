@@ -684,3 +684,125 @@
   height: 28px;
   padding-bottom: 4px;
 }
+
+.kdo-Tm20 {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.kdo-header-title {
+  font-size: 16px;
+  display: inline-block;
+  color: #333 !important;
+}
+
+.kdo-dash-container {
+  margin-right: 20px;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.kdo-dash-container .kdo-dashChartTitle {
+  width: 100px;
+  max-width: 100px;
+  margin-top: 5px !important;
+  color: #555;
+  font-size: .857rem;
+}
+
+.kdo-dash-container .kdo-dashboardicon {
+  border: 1px solid #efefef;
+  background-color: #f7f7f7;
+  width: 70px;
+  height: 65px;
+  padding: 16px 18px;
+  border-radius: 2px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+.kdo-dash-container.kdo-chart-sel .kdo-dashboardicon {
+  border: 1px solid #2ec4e8 !important;
+  background-color: #fff;
+}
+
+.kdo-dash-container:hover .kdo-dashboardicon {
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.kdo-chart {
+  width: 32px;
+  height: 31px;
+  margin: auto;
+  background: url(../images/dashboardicon.svg) no-repeat;
+}
+
+.kdo-line {
+  background-position: -144px -73px;
+}
+
+.kdo-chart-sel .kdo-line {
+  background-position: -144px -108px;
+}
+
+.kdo-donut {
+  background-position: 1px 1px;
+}
+
+.kdo-chart-sel .kdo-donut {
+  background-position: 1px -36px;
+}
+
+.kdo-pie {
+  background-position: -33px 1px;
+}
+
+.kdo-chart-sel .kdo-pie {
+  background-position: -33px -35px;
+}
+
+.kdo-area {
+  background-position: -106px -73px;
+}
+
+.kdo-chart-sel .kdo-area {
+  background-position: -106px -108px;
+}
+
+.kdo-horizontal {
+  background-position: -70px 1px;
+}
+
+.kdo-chart-sel .kdo-horizontal {
+  background-position: -70px -36px;
+}
+
+.kdo-vertical {
+  background-position: -179px 1px;
+}
+
+.kdo-chart-sel .kdo-vertical {
+  background-position: -179px -35px;
+}
+
+.kdo-funnel {
+  background-position: -68px -76px;
+}
+
+.kdo-chart-sel .kdo-funnel {
+  background-position: -68px -111px;
+}
+
+.kdo-table {
+  background-position: -144px -143px;
+}
+
+.kdo-chart-sel .kdo-table {
+  background-position: -144px -177px;
+}

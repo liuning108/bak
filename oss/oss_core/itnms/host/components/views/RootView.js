@@ -2,6 +2,7 @@ define(["oss_core/itnms/host/utils/stools.js"], function(stools) {
     var Class =stools.getClass();
     var RootView = Class.extend({
       init:function(option){
+         this.lo=stools.getLo();
          this.option=option;
          this.$el=$(option.el);
          this.evetMap=[];
@@ -19,7 +20,7 @@ define(["oss_core/itnms/host/utils/stools.js"], function(stools) {
         fish.each(this.evetMap,function(d) {
           self.$el.find(d.el).off(d.type)
              .on(d.type,function(evt){
-               self[d.handel](evt)
+               self[d.handel]($(this),evt);
              })
       })},
       afterRender:function(){
