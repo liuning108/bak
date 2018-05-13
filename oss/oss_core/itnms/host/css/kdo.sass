@@ -483,7 +483,6 @@ $mainColor: $btnColor
   color: #333!important;
 
 .kdo-dash-container
-    margin-right: 20px
     float: left
     text-align: center
     cursor: pointer
@@ -552,3 +551,53 @@ $mainColor: $btnColor
   background-position: -144px -143px
 .kdo-chart-sel .kdo-table
   background-position: -144px -177px
+
+.kdo-switch
+  cursor: pointer;
+  position: relative;
+
+
+.kdo-switch input
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+
+
+.kdo-switch span
+  position: relative;
+  width: 42px;
+  height: 20px;
+  border-radius: 999em;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+
+
+.kdo-switch input:checked + span
+  background: #36b0c8;
+
+
+.kdo-switch span:after
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 26px;
+  top: 0;
+  bottom: 0;
+  border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+
+
+.kdo-switch input:checked + span:after
+  left: 16px;
+
+
+
+.kdo-color-gray
+  border-bottom: 1px solid #cfdadd !important

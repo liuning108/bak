@@ -6,7 +6,7 @@ define([
   "oss_core/itnms/host/components/views/HostListView.js",
   "css!oss_core/itnms/host/css/kdo.css",
   "css!oss_core/itnms/host/css/host.css"
-], function(i18nData,action, tpl, kdoTree, HostListView) {
+], function(i18nData,action, tpl, kdoTree,HostListView) {
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     render: function() {
