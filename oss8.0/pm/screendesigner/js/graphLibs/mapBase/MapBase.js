@@ -131,6 +131,7 @@ define([
       this.MapResult=result;
 
       self.areaEffect(mapBox, result)
+
       this.doms['config'] = this.paper.text(100, -20, '配置').attr({'fill': 'red', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
       this.doms['remove'] = this.paper.text(100, 10, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
     },
@@ -144,11 +145,13 @@ define([
       var all_str=""
       for (var i = 0; i < result.length; i++) {
         var data = result[i];
-
+        try{
         self.doms["map_" + data.id] = this.paper.path(data.d).attr({'fill': fcolor, 'stroke': lineColor, 'stroke-width': 0.5, "fill-opacity": 1})
         self.doms["map_" + data.id].title = data.title;
-
         MapSet.push(self.doms["map_" + data.id]);
+        }catch(e){
+
+        }
 
       }
 

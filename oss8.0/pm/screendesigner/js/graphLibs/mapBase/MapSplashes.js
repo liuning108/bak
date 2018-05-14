@@ -4,7 +4,6 @@ define([
    "oss_core/pm/screendesigner/actions/BScreenMgrAction"
 ], function(MapBase, View, action) {
    var MapSplashes  = MapBase.extend({
-
      initAttrs: function() {
        var self = this;
        this.attrs.mapId = this.attrs.mapId || 'NONE';
@@ -54,9 +53,11 @@ define([
        var max =fish.max(self.attrs.mapDatas,function(data){
          return data[1]
        })[1];
+
        var showTitle = this.attrs.showTitle;
        var showValue = this.attrs.showValue;
        for (var i = 0; i < self.attrs.mapDatas.length; i++){
+         try {
          var data = {
            'id': self.attrs.mapDatas[i][0],
            'value':self.attrs.mapDatas[i][1]
@@ -87,15 +88,21 @@ define([
              self.doms["map_" + data.id + "_value"] = this.paper.text(x, y, data.value).attr({'fill': '#fff', 'font-size': 18, 'font-family': '微软雅黑', 'font-weight': 'bold'}).toFront()
            }
          }
+         }catch(e){
+          alert('error');
+         }
 
        } //end of for
+
      },
-      createlightRing :function(data,sclr,fclr,max,r,i){
+     createlightRing :function(data,sclr,fclr,max,r,i){
+       r=r||20;
        var self =this;
        var bbox = self.doms["map_" + data.id].getBBox();
        var x = bbox.x + bbox.width / 2;
        var y = bbox.y + bbox.height / 2;
        var title = self.doms["map_" + data.id].title || data.id;
+       data.value= data.value||0;
        var per = data.value/max;
        var dyR= r * per;
        var color = self.pickHex(sclr, fclr, per)
@@ -116,7 +123,7 @@ define([
         //self.doms['map_circle_glow'+data.id].animate(aniam2)
      },
      createPoint:function(data,sclr,fclr,max,r){
-
+       r=r||20;
        var self =this;
        var bbox = self.doms["map_" + data.id].getBBox();
        var x = bbox.x + bbox.width / 2;

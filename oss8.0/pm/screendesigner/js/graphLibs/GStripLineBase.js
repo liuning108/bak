@@ -140,7 +140,7 @@ define([
                }
 
             for(var i = 0 ;i<xlen;i++){
-
+                var color=colors[i%colors.length];
                 var label_y = (y-h)+(i*12)+20;
                 var label = this.attrs.xAxisLabels[i]
                 this.doms['x_label'+i] = paper.rect(x+label_x,label_y, 15, 6).attr({'fill': color, 'stroke-width': 0});
@@ -157,7 +157,6 @@ define([
             this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
 
         },
-
         drawLine:function(data,lineIndex,space_w,max,x,y,r,w,h,color,xlen,xAxisMax,xAxisMin) {
               x=x+10;
             var paper = this.paper;
@@ -198,7 +197,6 @@ define([
             this.doms['bgPath'+lineIndex] = bgPath;
             return items;
         },
-
         getMaxLength:function(names) {
               var   len = 0;
               var  result = "";
@@ -211,8 +209,6 @@ define([
              }
              return result;
         },
-
-
         getXAxisNames: function() {
             return this.attrs.xAxisNames;
         },
@@ -310,18 +306,14 @@ define([
             console.log("" + color)
             this.attrs.titleColor = "" + color;
         },
-
         getTitle: function() {
             return this.attrs.title;
         },
         getTitleColor: function() {
             return this.attrs.titleColor;
         },
-
         toGraph: function(choiceTreeJson) {
           try {
-            console.log("fjkdjhfkjdshkds");
-            console.log(choiceTreeJson);
             var json = {};
             json.xAxis = {};
             json.xAxis.data = choiceTreeJson.xAxis[0].data;
@@ -332,7 +324,6 @@ define([
             this.setXAxisNames(json.xAxis.data)
             this.setXAxisDatas(json.series.data)
             this.setXAxisLabels(json.series.labels)
-
           }catch(e){
             console.log("GStripLineBase ToGraph");
             console.log(choiceTreeJson);

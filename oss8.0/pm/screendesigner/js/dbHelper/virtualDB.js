@@ -7,6 +7,24 @@ define([], function() {
         serverLabel: 'NetworkOverviewDemoQryService',
         xAxis: [
             {
+                id: 'field_Mongolia_1',
+                name: 'Mongolia City',
+                data: [
+                    '阿拉善盟',
+                    '巴彦淖尔',
+                    '乌海市',
+                    '鄂尔多斯',
+                    '包头市',
+                    '呼和浩特',
+                    '乌兰察布',
+                    '锡林郭勒盟',
+                    '赤峰市',
+                    '通辽市',
+                    '兴安盟',
+                    '呼伦贝尔市',
+                ]
+            },
+            {
                 id: 'field_1',
                 name: 'City',
                 data: [
@@ -19,7 +37,9 @@ define([], function() {
                     'CHA',
                     'Zhang',
                     'Yiya',
-                    'Loudi'
+                    'Loudi',
+                    'ZHK',
+                    'Shuo'
                 ]
             }, {
                 id: 'field_11',
@@ -34,7 +54,10 @@ define([], function() {
                     '14h',
                     '15h',
                     '16h',
-                    '17h'
+                    '17h',
+                    '16h',
+                    '17h',
+
                 ]
             },
             {
@@ -68,6 +91,22 @@ define([], function() {
                 "CN-32",
                 "CN-41"
               ]
+            },
+            {
+              id:'filed_Mongolia_map',
+              'name':'Mongolia Map',
+              data:[
+                "Hulunbuir",
+                "Hinggan",
+                "Tongliao",
+                "Chifeng",
+                "XilinGol",
+                "Ulanqab",
+                "Honhot",
+                "Baotou",
+                "Ordos",
+                "Alxa",
+              ]
             }
         ],
         yAxis: [
@@ -85,11 +124,15 @@ define([], function() {
                     25,
                     95,
                     95,
+                    fish.random(20,85),
+                    fish.random(20,85),
                 ]
             }, {
                 id: 'field_3',
                 name: '3G Data traffic',
                 data: [
+                    fish.random(20,300),
+                    fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
@@ -115,11 +158,15 @@ define([], function() {
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
+                    fish.random(20,300),
+                    fish.random(20,300),
                 ]
             }, {
                 id: 'field_5',
                 name: 'Base station number',
                 data: [
+                    fish.random(20,300),
+                    fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
@@ -145,11 +192,15 @@ define([], function() {
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
+                    fish.random(20,300),
+                    fish.random(20,300),
                 ]
             }, {
                 id: 'field_7',
                 name: '4G Base station number',
                 data: [
+                    fish.random(20,300),
+                    fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
@@ -175,11 +226,15 @@ define([], function() {
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
+                    fish.random(20,300),
+                    fish.random(20,300),
                 ]
             }, {
                 id: 'field_9',
                 name: '2G Voice traffic',
                 data: [
+                    fish.random(20,300),
+                    fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
@@ -206,6 +261,8 @@ define([], function() {
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
+                    fish.random(20,300),
+                    fish.random(20,300),
                 ]
             }, {
                 id: 'field_12',
@@ -220,7 +277,9 @@ define([], function() {
                     34572,
                     34572,
                     34572,
-                    34572
+                    34572,
+                    34572,
+                    34572,
                 ]
             }
         ]
