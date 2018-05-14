@@ -1,0 +1,49 @@
+
+   {{#if emptyTure}}
+   <div class="EmptyTip">
+      <i class="empty-art-dashicon"></i>
+      <div class="emptyTitle">您没有任何的文章</div>
+      <div class="emptySmallTxt">开始为您的客户添加可以在自助服务门户或只有您的代理浏览的文章.</div>
+      <div class="emptyBtns">
+        <a class="blueBtn btn">添加一个新的 文章</a>
+      </div>
+   </div>
+   {{else}}
+   <ul class="doctListUL">
+     {{#each doctList}}
+     <li class="DocListLi" >
+        <div>
+          <div class="circleDoc"><i class="glyphicon glyphicon-book"></i></div>
+          <div class="docBody">
+            <div class="docTile" data-id={{DOC_ID}}>{{TITLE}}</div>
+            <div class="docfoot">
+              <span class="docUser">{{USER_NAME}}</span>
+              <spa  class="docTime">{{CREATE_DATE}}</spa>
+            </div>
+          </div>
+          {{#if hasPower}}
+          <div class="docBts">
+            <i class="glyphicon glyphicon-pencil edit"   data-id={{DOC_ID}}></i>
+            <i class="glyphicon glyphicon-trash  remove"  data-id={{DOC_ID}}></i>
+          </div>
+          {{/if}}
+          <div class="docIcons">
+              <div class="iconDiv">
+                <i class="glyphicon glyphicon-thumbs-up"></i>
+                <span>{{VOTE_HELP_COUNT}}</span>
+              </div>
+              <div class="iconDiv">
+                <i class="glyphicon glyphicon-thumbs-down"></i>
+                <span>{{VOTE_NOHELP_COUNT}}</span>
+              </div>
+              <div class="iconDiv">
+                <i class="glyphicon glyphicon-comment"></i>
+                <span>{{REPLY_COUNT}}</span>
+              </div>
+          </div>
+        </div>
+     </li>
+     {{/each}}
+   </ul>
+   <div id="pagination-docList"></div>
+{{/if}}

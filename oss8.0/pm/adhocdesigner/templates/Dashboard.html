@@ -1,0 +1,219 @@
+<div id="ad-topic-list-preview" style="display: none">
+
+</div>
+<div id="ad-topic-list-view">
+    <section class="vbox">
+        <section>
+            <section class="hbox stretch">
+                <aside class="ad-left js-ad-left b-r">
+                    <div class="ad-title b-b" style="padding: 10px 10px">
+                        <h3 class="m-n font-thin"> {{MY_TOPIC}}
+                            <div class="pull-right" style="display: none;">
+                                <button id="ad-addcatalog-btn" type="button" class="btn btn-default ">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                            <a id="ad-topic-showsharetopic-btn" type="button" title="{{SHARE_TOPIC}}" class="btn btn-link ad-btn pull-right">
+                                <i class="fa fa-share-alt"></i>
+                            </a>
+                            <a id="ad-downloadlist-btn" type="button" title="{{DOWNLOAD_LIST}}" class="btn btn-link ad-btn pull-right">
+                                <i class="fa fa-list"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <!--Tree-->
+                    <div id="topicTree" class="ad-tree scrollable m-l-sm">
+                    </div>
+                    <!--Tree End-->
+                </aside>
+            <!--Right-->
+            <section>
+                <section class="vbox ad-chart-bg">
+
+                    <!--homepage-->
+                    <!--主题tab-->
+                    <div id="ad-topic-tabs" class="ui-tabs" style="border: 0px;margin-top:0px">
+                        <ul class="ui-tabs-nav" style="padding-top: 14px">
+                            <li>
+                                <a href="#tabs-a">{{HOMEPAGE}}</a>
+                            </li>
+                        </ul>
+                        <div id="tabs-a">
+                            <section id="ad-homepage" class="wrapper scrollable p-b-none ad-my-section">
+                                <section class="wrapper scrollable p-b-none">
+                                    <div class="wrapper-md">
+                                        <div class="row">
+                                            <div class="col-md-6"><img src="oss_core/pm/adhocdesigner/assets/img/homepage.png"></div>
+                                            <div class="col-md-6">
+                                                <p style="margin-top: 80px;font-size:14px">{{ADHOC_DESC}}</p>
+                                                <br>
+                                                <header class="wrapper b-b clearfix" style="margin-right:15px;margin-left:-8px;padding-left: 0px;border:0">
+                                                    <div class="  pull-left m-l-sm">
+                                                        <button id="ad-addtopic-btn" type="button"
+                                                                class="btn btn-primary ">
+                                                            <i class="ad-btn-plus"></i> {{ADD_TOPIC}}
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="col-md-5">
+                                                        <div class="input-group search-group pull-left">
+                                                            <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11">
+                                                            </i>
+                                                            <input type="text" class="ad-theme-search form-control" style="width:170px" id="ad-search-input">
+                                                            <span class="input-group-btn" style="padding-left:8px;display: none">
+                                                                <button type="button" class="btn " id="ad-search-btn">
+                                                                    {{SEARCH}}
+                                                                </button>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="pull-right" style="padding-right: 10px;display: none">
+                                                        <button id="ad-graph-btn" style="display: none" type="button" class="btn btn-ico" title="Graphic mode">
+                                                            <i class="fa fa-th-large"></i>
+                                                        </button>
+                                                        <button id="ad-list-btn" type="button" class="btn btn-ico active" title="List mode">
+                                                            <i class="fa fa-th-list"></i>
+                                                        </button>
+                                                    </div>
+                                                </header>
+                                                <!--<p>请选择使用模式：</p>
+                                                <a href="#" title="添加文件夹" class="btn btn-default "><i class="fa fa-bar-chart"></i> 浏览</a>
+                                                <a href="#" title="添加文件夹" class="btn btn-default "><i class="fa fa-edit"></i> 设计</a>-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </section>
+                            <section id="ad-search-container" class="wrapper scrollable p-b-none" style="display: none;">
+                                <div class="m-b-sm overflow-y-h">
+                                    <div class="pull-left">{{FIND_RELEVANT_RESULTS}}&nbsp;<span id="ad-search-result-count"></span>：</div>
+                                    <!--<div class="pull-left" style="display: none;">
+                                        <a href="#" class="ad-link">按主题名排序</a>
+                                        <a href="#" class="ad-link m-l-sm">按维度排序</a>
+                                        <a href="#" class="ad-link m-l-sm">按指标排序</a>
+                                    </div>-->
+                                    <div class="pull-right m-r-sm">
+                                        <a id="ad-exit-search-btn" href="#">{{BACK}}</a>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div id="ad-searchcont-container" class="ad-seacrh-box">
+                                    <!--<div>
+                                        <a href="#" class="h4"> 收藏主题一</a>
+                                        <p>维度：
+                                            <span >维度一</span> 维度二 指标：
+                                            <span>指标一</span>指标二</p>
+                                    </div>-->
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <section id="ad-list-container" class="wrapper scrollable p-b-none ad-my-section" style="display: none">
+                        <div class="col-md-12">
+                        <div class="ad-table ">
+                        <div id="topicListTable" class="ad-grid"/>
+                        </div>
+                        </div>
+                    </section>
+                    <section id="ad-graph-container" class="wrapper scrollable p-b-none ad-my-section" style="display: none">
+                        <div id="ad-graph-div">
+                            <div class="col-md-6">
+                                <div id="ad-chart-1" class="ad-chart wrapper">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="ad-chart-2" class="ad-chart wrapper">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="ad-chart-3" class="ad-chart wrapper">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="ad-chart-4" class="ad-chart wrapper">
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--绝对定位的按钮组-->
+                    <div id="ad-topic-btngroup" class="pull-right" style="display:none;position: absolute;top: 52px;right: 13px">
+                        <div class="btn-group" id="ad-sendmail-btngroup">
+                            <a id="ad-sendmail-dropdown" href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                <span class="btn btn-link fa fa-envelope"></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="ad-sendmail-dropdown">
+                                <li role="presentation"><a id="ad-sendmailnow-btn" role="menuitem" tabindex="-1" href="#">{{IMMEDIATELY_EMAIL}}</a></li>
+                                <li role="presentation"><a id="ad-sendmail-btn" role="menuitem" tabindex="-1" href="#">{{SCHEDULE_EMAIL}}</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" title="{{MAXIMUM_DISPLAY}}" class="btn btn-link ad-topic-btngroup ad-maxium-btn">
+                            <i class="fa fa-expand"></i>
+                        </button>
+                        <button style="display: none" type="button" title="{{RESTORE}}" class="btn btn-link ad-topic-btngroup ad-maxium-restore-btn">
+                            <i class="fa fa-compress"></i>
+                        </button>
+                        <button type="button" title="{{KPI_COMMENTS}}" class="btn btn-link ad-topic-btngroup ad-kpicomments-btn">
+                            <i class="fa fa-question-circle"></i>
+                        </button>
+                        <button type="button" title="{{REFRESH}}" class="btn btn-link ad-topic-btngroup ad-refreshtopic-btn">
+                            <i class="fa fa-refresh"></i>
+                        </button>
+                        <button type="button" title="{{EDIT}}" class="btn btn-link ad-topic-btngroup ad-edittopic-btn">
+                            <i class="fa fa-cog topic-edit"></i>
+                        </button>
+                        <div class="btn-group pull-right">
+                            <button data-toggle="dropdown" style="border: 0px" class="btn btn-default dropdown-toggle" type="button" id="ad-morebtn-dropdown">
+                                ┆
+                            </button>
+                            <ul class="dropdown-menu pull-right" style="padding-left:10px;min-width: 50px" role="menu" aria-labelledby="ad-morebtn-dropdown">
+                                <li role="presentation">
+                                    <button type="button" style="margin-left: 6px;margin-top:7px;height: 22px" title="{{MOVE}}" class="btn btn-link ad-topic-btngroup ad-movetopic-btn movebtn">
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <button type="button" title="{{SHARE_TOPIC}}" class="btn btn-link ad-topic-btngroup ad-sharetopic-btn">
+                                        <i class="fa fa-user-plus"></i>
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <button type="button" title="{{ADD_TO_FAVORITE}}" class="btn btn-link ad-topic-btngroup ad-favtopic-btn" style="display: none;">
+                                        <i class="fa fa-star"></i>
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <button type="button" title="{{REMOVE_FROM_FAVORITE}}" class="btn btn-link ad-topic-btngroup ad-nofavtopic-btn" style="">
+                                        <i class="fa fa-star-o"></i>
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <button type="button" title="{{DOWNLOAD}}" class="btn btn-link ad-topic-btngroup ad-download-btn" style="">
+                                        <i class="fa fa-download"></i>
+                                    </button>
+                                </li>
+                                <li role="presentation">
+                                    <button type="button" title="{{DELETE}}" class="btn btn-link ad-topic-btngroup ad-deltopic-btn">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- -->
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+<!--
+<a class="go-top show" href="#top">
+    <i class="fa fa-angle-up"></i>
+</a>
+-->
+</div>
+<div id="ad-topic-edit-view">
+</div>

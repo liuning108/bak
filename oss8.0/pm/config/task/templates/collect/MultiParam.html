@@ -1,0 +1,139 @@
+<div class="modal-header">
+	<h4 class="modal-title js-task-detail-title">{{MULTI_CONNECTION_SET}}</h4>
+</div>
+
+<div class="modal-body">
+	<div class="ad-modal-box"  style="display: block;">
+		<div class="ad-block">
+		    <div class="panel-body border" style="width:800px;background:#fff;">
+		    	<form class="form-horizontal clearfix js-ftp-cfg-form">	
+					<div class="row">
+						<div class='col-md-12 js-ftp-param'>
+							<div class="col-md-6">
+							    <div class="form-group required">
+							        <div class="col-md-12">
+							        <label class="control-label">{{FTP_IP_PORT}}</label>
+							        </div>
+							        <div class="col-md-12">
+							            <div style="width:60%;float:left;" class="js-code-prefix-div">
+											<input name="FTP_IP" class="form-control" data-rule="{{FTP_IP}}:required;length[1~64, true];ip;"  placeholder="127.0.0.1">
+										</div>
+										<div  style="width:40%;float:right;" class="js-kpi-code-div">
+											<input name="FTP_PORT" class="form-control" data-rule="{{FTP_PORT}}:required;length[1~8, true];integer[+];" style="border-left:0px;" placeholder="22">
+										</div>
+									</div>
+							    </div>
+							</div>
+							<div class="col-md-6">
+							    <div class="form-group required">
+							        <div class="col-md-12">
+							        <label class="control-label">{{FTP_USER_PWD}}</label>
+							        </div>
+							        <div class="col-md-12">
+							            <div style="width:60%;float:left;" class="js-code-prefix-div">
+											<input name="FTP_USER" class="form-control" data-rule="{{FTP_USER}}:required;length[1~64, true]" placeholder="Admin">
+										</div>
+										<div  style="width:40%;float:right;" class="js-kpi-code-div">
+											<input name="FTP_PWD" type="password" class="form-control" data-rule="{{FTP_PWD}}:required;length[1~64, true]" style="border-left:0px;" placeholder="Password">
+										</div>
+									</div>
+							    </div>
+							</div>
+							<div class="col-md-8">
+						        <div class="form-group required">
+						            <label class="control-label">{{FTP_PATH}}</label>
+						            <input name="FTP_PATH" class="form-control" data-rule="{{FTP_PATH}}:required;length[1~256, true]" placeholder="/home/">
+						        </div>
+						    </div>
+						    <div class="col-md-4">
+						        <div class="form-group required">
+						            <label class="control-label">{{IS_COMPRESS}}</label>
+						            <div class="input-group">
+						                <input name="IS_COMPRESS" class="form-control" data-rule="{{IS_COMPRESS}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+						                
+						            </div>
+						        </div>
+						    </div>				    
+						    <div class="col-md-8">
+						        <div class="form-group required">
+						            <label class="control-label">{{LOCATION_PATH}}</label>
+						            <input name="LOCATION_PATH" class="form-control" data-rule="{{LOCATION_PATH}}:required;length[1~256, true]" placeholder="/home/">
+						        </div>
+						    </div>
+						    
+						    <div class="col-md-4">
+						        <div class="form-group">
+						            <label class="control-label">{{IS_DEL}}</label>
+						            <div class="input-group">
+						                <input id="IS_DEL" name="IS_DEL" class="toggle-switch" type="checkbox" checked="">
+						                <label for="IS_DEL"></label>
+						            </div>
+						        </div>
+						    </div>
+					    </div>
+					    <div class='col-md-12 js-jdbc-param'>
+					   		<div class="col-md-6">
+							    <div class="form-group required">
+							        <div class="col-md-12">
+							            <label class="control-label">{{SOURCE_DB_NAME}}</label>
+							        </div>
+							        <div class="col-md-12">
+							            <input name="SOURCE_DB_NAME" class="form-control" data-rule="{{SOURCE_DB_NAME}}:required;length[1~256, true]">
+							        </div>
+							    </div>
+							</div>
+							<div class="col-md-6">
+							    <div class="form-group required">
+							        <div class="col-md-12">
+							        <label class="control-label">{{SOURCE_DB_DIALECT}}</label>
+							        </div>
+							        <div class="col-md-12">
+							        <input name="SOURCE_DB_DIALECT" class="form-control" data-rule="{{SOURCE_DB_DIALECT}}:required;length[1~256, true]">
+							        </div>
+							    </div>
+							</div>
+							<div class="col-md-12">
+							    <div class="form-group required">
+							        <div class="col-md-12">
+							            <label class="control-label">{{LOCATION_PATH}}</label>
+							        </div>
+							        <div class="col-md-12">
+							            <input name="LOCATION_PATH" class="form-control" data-rule="{{LOCATION_PATH}}:required;length[1~256, true]" placeholder="/home/">
+							        </div>
+							    </div>
+							</div>
+					    </div>
+					    <div class="col-md-12">
+	                        <div class="wrapper bg-light">
+		                        <div class="m-b-sm overflow-y-h">
+		                            <b>{{COLLECT_EVN_PARAM}}</b>
+		                            <a href="#" class="ad-link pull-right js-adapter-param-btn" ><i class="fa fa-plus"></i> {{COMMON_ADD}}</a>
+		                        </div>
+		                        <div class="table-responsive ad-table  m-b-none js-param-grid">
+		                            
+		                        </div>
+	                        </div>
+	                    </div>
+					    
+				    </div>
+				</form>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="modal-footer">
+    <div class="col-md-12 text-right">
+    	<button type="button" class="btn btn_minwidth btn-primary js-ok" autofocus>
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>
+
+
+
+

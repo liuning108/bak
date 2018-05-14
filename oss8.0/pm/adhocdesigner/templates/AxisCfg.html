@@ -1,0 +1,108 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{AXIS_SETTINGS}}</h4>
+</div>
+<div class="modal-body" style="overflow: hidden">
+	<div class="ad-modal-box" style="height: 150px">
+		<div class="ad-tolbad">
+			<div class="ad-block">
+				<!-- -->
+				<div id="ad-axiscfg-dim-container" class="form-group col-md-12" style="display: none">
+					<label id="ad-axiscfg-dim" class="control-label pull-left">{{DIMENSION}}：</label>
+					<div class="col-md-5" style="padding-left: 20px">
+						<select id="ad-axiscfg-dim-select" class="form-control col-md-12" style="width: 231px"
+								data-placeholder="Please Select">
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-md-12" style="border-bottom: 1px solid rgba(0,0,0,.1)">
+					<label id="ad-axiscfg-xy-x" class="control-label pull-left">{{X_AXIS}}：</label>
+					<label id="ad-axiscfg-xy-y" class="control-label pull-left">{{Y_AXIS}}：</label>
+					<div class="col-md-4" style="padding-left: 20px">
+						<select id="ad-axiscfg-xaxis-select" class="form-control col-md-12" style="margin-bottom:5px;width: 220px"
+								data-placeholder="Please Select">
+						</select>
+					</div>
+					<div id="ad-axiscfg-interval-rotate" class="col-md-7" style="padding-left: 30px">
+						<div class="col-md-3">
+							<label class="checkbox-inline"><input type="checkbox" id="ad-axiscfg-xinterval" checked="checked">{{INTERVAL}}：</label>
+						</div>
+						<div class="col-md-1" style="padding-left:5px"><input id="ad-axiscfg-xinterval-input" class="form-control" style="width: 40px"></div>
+						<div class="col-md-3" style="padding-left:25px">
+							<label class="checkbox-inline"><input type="checkbox" id="ad-axiscfg-xrotate" checked="checked">{{ROTATE}}：</label>
+						</div>
+						<div class="col-md-1" style="padding-left:10px"><input id="ad-axiscfg-xrotate-input" class="form-control" style="width: 40px"></div>
+						<div class="col-md-2" style="padding-left:25px">
+							<label class="checkbox-inline"><input type="checkbox" id="ad-axiscfg-xheight">{{HEIGHT}}：</label>
+						</div>
+						<div class="col-md-2" style="padding-left:40px"><input id="ad-axiscfg-xheight-input" class="form-control" style="width: 45px"></div>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group col-md-12">
+					<label id="ad-axiscfg-yx-y" class="control-label pull-left">{{Y_AXIS}}：</label>
+					<label id="ad-axiscfg-yx-x" class="control-label pull-left">{{X_AXIS}}：</label>
+					<div id="ad-axiscfg-multiyaxis-sel" class="col-md-11" style="padding-left: 5px">
+						<div class="row">
+							<div class="col-md-5 b-r">
+								<div class="clearfix m-t-sm m-block" >
+									<ul id="sortable" name="ad-axiscfg-yaxis-selectable">
+
+									</ul>
+									<div class="ad-bar"><a id="ad-axiscfg-yaxis-addall" href="#">{{ADD_ALL}}</a></div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="clearfix m-t-sm m-block">
+									<ul id="sortable" name="ad-axiscfg-yaxis-selected">
+									</ul>
+									<div class="ad-bar">  <a id="ad-axiscfg-yaxis-removeall" href="#">{{CLEAR}}</a></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-10" style="padding-left: 20px">
+						<select id="ad-axiscfg-oneyaxis-sel" class="form-control col-md-12" style="width: 231px;display: none"
+								data-placeholder="Please Select">
+						</select>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group">
+					<div class="row">
+						<div class="col-md-1" style="padding-top:5px"><label class="checkbox-inline"><input id="ad-axiscfg-top-btn" type="checkbox" disabled>{{TOP}}：</label></div>
+						<div class="col-md-2" style="padding-left:18px"><input id="ad-axiscfg-top-input" class="form-control" style="width: 110px"></div>
+						<div class="col-md-1 col-md-offset-2" style="padding-top:5px;padding-left: 25px"><label>{{SORT}}：</label></div>
+						<div class="col-md-2" style="padding-left: 0px">
+							<select id="ad-axiscfg-topsort-select" class="form-control col-md-12" style="width: 130px">
+							</select>
+						</div>
+						<div class="col-md-3" style="padding-left: 20px;padding-top:7px">
+							<span id="ad-ds-asc" class="glyphicon glyphicon-sort-by-attributes click-tag" title="Ascending"></span>
+							<span id="ad-ds-desc" class="glyphicon glyphicon-sort-by-attributes-alt click-tag" title="Descending" style="display: none"></span>
+						</div>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group" id="ad-axiscfg-series-container">
+					<div class="row">
+						<div class="col-md-1" style="padding-top:5px;width:79px"><label class="checkbox-inline"><input id="ad-axiscfg-series-btn" type="checkbox" disabled>{{SERIES}}：</label></div>
+						<div class="col-md-10" style="padding-left: 0px">
+							<select id="ad-axiscfg-series-select" class="form-control col-md-12" style="width: 223px">
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="btn-slm-slimgr-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="btn-slm-slimgr-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

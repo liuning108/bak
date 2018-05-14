@@ -1,0 +1,27 @@
+{{#each data}}
+<div class="cmtItem">
+  <div class="tl">
+    <div class="userName">
+      <div>{{shortName}}</div>
+    </div>
+  </div>
+
+  <div class="pl60">
+    <div class="mentions-u">
+     <h5>{{USER_NAME}}</h5>
+     <div>
+        <span>{{pname}}</span>
+        <span>{{OPER_DATE}}</span>
+        <!-- <div class="fright">
+          <i class="glyphicon glyphicon-trash removeMessage" data-id={{ID}} data-docid={{DOC_ID}}></i>
+        </div> -->
+     </div>
+     <div class="txt">
+       <p>
+         {{DOC_COMMENT}}
+       </p>
+     </div>
+    </div>
+  </div>
+</div>
+{{/each}}

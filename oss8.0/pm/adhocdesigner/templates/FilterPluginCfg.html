@@ -1,0 +1,42 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{FILTER_PLUGIN}}</h4>
+</div>
+<div class="modal-body" style="overflow: hidden">
+	<div class="ad-modal-box" style="height: 150px">
+		<div class="ad-tolbad">
+			<div class="ad-block" style="height: 490px">
+				<form class="form-horizontal clearfix ad-group-hack js-adhoc-filterplugin-form">
+					<!-- -->
+					<div id="ad-axiscfg-dim-container" class="form-group col-md-12">
+						<label id="ad-axiscfg-dim" class="control-label pull-left">{{FILTER_NAME}}：</label>
+						<div class="col-md-12">
+							<input id="ad-fp-name-input" class="form-control" name="FILTER_NAME" data-rule="{{FILTER_NAME}}:required;length[1~80]">
+						</div>
+					</div>
+					<!-- -->
+					<div class="form-group col-md-12">
+						<label class="control-label pull-left">{{FILTER_PLUGIN}}：</label>
+						<div class="col-md-12">
+							<select id="ad-fp-select" class="form-control" name="FILTER_PLUGIN" data-rule="{{FILTER_PLUGIN}}:required;">
+							</select>
+						</div>
+					</div>
+					<!-- -->
+					<div id="ad-fp-container" class="scrollable form-group col-md-12" style="padding-left:14px;height:350px">
+
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="ad-fp-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="ad-fp-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

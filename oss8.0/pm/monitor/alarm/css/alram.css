@@ -1,0 +1,211 @@
+.alramMontior {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.alramMontior .PageSideBar {
+  width: 298px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.alramMontior .PageSideBar .AlarmCharts {
+  min-height: 500px;
+  padding: 5px 5px;
+  position: relative;
+}
+
+.alramMontior .PageSideBar .AlarmCharts .BigCircle {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+.alramMontior .PageSideBar .AlarmCharts .fourCircle {
+  position: relative;
+  margin-top: 10px;
+  height: 300px;
+  width: 280px;
+}
+
+.alramMontior .PageSideBar .AlarmCharts .fourCircle .circle {
+  float: left;
+  background: #fff;
+  width: 50%;
+  height: 152px;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.alramMontior .PageContent {
+  padding-left: 298px !important;
+  width: 100%;
+}
+
+.alramMontior .PageContent .AlrmGrid {
+  min-height: 636px;
+  width: 100%;
+  height: 100%;
+}
+
+.alramMontior .PageContent .AlrmHeader .AlrmInfo_title {
+  font-size: 14px;
+  font-weight: bold;
+  color: black;
+}
+
+.alramMontior .PageContent .AlrmHeader .AlrmInfo_time {
+  font-size: 12px;
+  color: #707070;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow:hover {
+  background: #f7f8f9;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-bdiv .ui-jqgrid-btable tr.jqgrow.ui-state-highlight {
+  background: #f7f8f9;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-btable tr.ui-state-highlight:hover {
+  background: #f7f8f9 !important;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow td {
+  height: 45px;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-btable {
+  background: none;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid .ui-jqgrid-view .ui-jqgrid-hdiv .ui-jqgrid-htable th.ui-th-column {
+  background: #eee;
+  height: 37px;
+  text-align: center;
+  font-size: 14px;
+  border-right: none;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-view .ui-jqgrid-bdiv {
+  background: rgba(251, 251, 251, 0.87);
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-pager {
+  background: #f5f5f5 !important;
+}
+
+.alramMontior .PageContent .alrmCusGrid .ui-jqgrid-pager .ui-pg-control .pagination > li > span, .alramMontior .PageContent .alrmCusGrid .ui-jqgrid-pager .ui-pg-control .pagination > li > a {
+  background: #f5f5f5;
+}
+
+.AlrmHeader {
+  background: rgba(251, 251, 251, 0.87);
+  height: 40px;
+  font: 14px/150% LatoBold;
+  padding: 10px 15px;
+  border: 1px solid rgba(232, 232, 232, 0.8);
+  border-top: 0;
+  border-right: 0;
+  overflow: visible;
+  position: relative;
+}
+
+.alermSortByTime .popover-content {
+  padding: 0px;
+}
+
+.alermSortByTime .popover-content .alermPopoverHeader {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  min-height: 50px;
+  background: #f5f5f5;
+  width: 290px;
+  font-size: 15px;
+  padding: 10px 30px 10px 17px;
+  font-weight: 400;
+  color: black;
+}
+
+.alermSortByTime .popover-content .alermPopoverHeader i {
+  font-size: 12px;
+  color: #a0a0a0;
+  top: 11px;
+  right: 10px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.alermSortByTime .popover-content ul {
+  background: #fbfbfb;
+  text-align: center;
+  padding: 0 0 10px;
+  list-style: none;
+  width: 290px;
+}
+
+.alermSortByTime .popover-content ul li {
+  display: inline-flex;
+  justify-content: center;
+  min-height: 50px;
+  vertical-align: top;
+  background: #eaeaea;
+  width: 83px;
+  font-size: 12px;
+  padding: 10px 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom {
+  display: none;
+  width: 290px;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom .TimeCustomBody {
+  padding: 10px 2px;
+  padding-top: 15px;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom .TimeCustomBtns {
+  float: right;
+  padding-right: 8px;
+  padding-bottom: 5px;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom .TimeCustomBtns .OkBtn {
+  background: #0baee8 !important;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom .TimeCustomBtns .CancelBtn {
+  background: #999 !important;
+}
+
+.alermSortByTime .popover-content .setAlramTimeCustom .TimeCustomBtns .btn {
+  padding: 4px 8px;
+  width: 60px;
+  color: #fff;
+}
+
+.alramActive {
+  background: #40bc7d !important;
+  color: #fff;
+  cursor: default;
+}
+
+.alramNameCircle {
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+  margin-right: 5px;
+  border-radius: 100%;
+  background: red;
+}

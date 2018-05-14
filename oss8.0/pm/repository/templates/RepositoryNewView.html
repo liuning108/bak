@@ -1,0 +1,153 @@
+<div class="container-fluid RepositoryNewView">
+  <div class="row">
+    <div class="col-md-12 RepositoryHead">
+      <i class="glyphicon glyphicon-chevron-left comebackStyle comeback"></i>
+      <span class="editarticle">添加文章</span>
+      <div class="fright">
+        <button class="blue-btn saveKnowledge" data-state="02">发布</button>
+        <button class="blue-btn ml7 saveKnowledge save00" data-state="00">保存为草稿</button>
+        <button class="btn perviewKnowledge">Preview</button>
+        <button class="comeback btn">Cancel</button>
+      </div>
+      <div class="clboth"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 RepositoryNewBody">
+      <div class="row">
+        <div class="col-md-9">
+          <div class="RespositoryNewTitle">
+            <input type="text" id="RespositoryNewTitleInput" placeholder="Add title here" maxlength="300" value="{{title}}"></input>
+          </div>
+          <textarea id="RespositoryNewEditor"></textarea>
+
+          <div class="uploadAttachment">
+            <div class="AttachmentBtns">
+              <i class="glyphicon glyphicon-paperclip" style="margin-right: 5px;"></i>
+              <span class="uploadBrowse_Knowlege">Browse</span>
+            </div>
+          </div>
+
+          <div class="uploadAttachmentFiles">
+          </div>
+
+
+
+
+        </div>
+
+
+        <div class="col-md-3">
+          <div class="NewRepsitoryConfigHeading">
+            <span class="SolutionForm_Slidebar"></span>
+            <div class="TabsNewHeading" data-sub="#knowledgeSub_NewRepsitory">知识</div>
+            <div class="TabsNewHeading" data-sub="#classifySub_NewRepsitory">分类属性</div>
+            <div class="TabsNewHeading" data-sub="#permissionSub_NewRepsitory">权限</div>
+
+          </div>
+          <div class="TabsNewHeadingSubs" id="knowledgeSub_NewRepsitory">
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="mandatorycolor">类别</label>
+                <input type="text" class="form-control" id="NewRepsitoryConfig_CategorySel">
+              </div>
+            </div>
+
+
+
+
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="labelColor"><span class="commondItemSpan">关建字</span><span class="commondItemTips">tips: 以逗号来分隔关建字</span></label>
+                <input type="text" class="ItemInput" name="" value="{{keys}}" id="knowledgeKeysInput">
+              </div>
+            </div>
+
+
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="labelColor"><span class="commondItemSpan">标签</span><span class="commondItemTips">tips: 最多只能创建10个标签</span></label>
+
+                <div class="ui-multiselect-container" title="" id="multiselect_commondItemTags_multi">
+                  <ul class="ui-multiselect-choices">
+
+
+                    <li class="search-field">
+                      <input type="text" class="search-field-input" autocomplete="off" style="width: 25px;">
+                    </li>
+                  </ul>
+                  <div class="select-tag-drop-mask">
+                    <ul>
+                       <li class="select2-no-results">Please enter 1 or more characters</li>
+                    </ul>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+          </div>
+
+
+
+          <div class="TabsNewHeadingSubs" id="classifySub_NewRepsitory">
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="labelColor">属性</label>
+              </div>
+              <div class="attrsHtml">
+
+              </div>
+
+
+
+
+
+            </div>
+          </div>
+
+
+
+          <div class="TabsNewHeadingSubs" id="permissionSub_NewRepsitory">
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="mandatorycolor">显示权限</label>
+                <div class="Editor_Permission R_Permission ">
+                  <span data-value="1">本人</span>
+                  <span data-value="0">所有用户</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="commondiv">
+              <div class="commondItem">
+                <label class="mandatorycolor">修改权限</label>
+                <div class="Editor_Permission W_Permission">
+                  <span data-value="1">本人</span>
+                  <span data-value="0">所有用户</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid RepositoryNewViewPerview" style="display:none">
+</div>

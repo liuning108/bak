@@ -1,0 +1,48 @@
+<div class="ui-dialog dialog-md moreOptionsWin">
+                    <div class="modal-header">
+                        <h4 class="modal-title">CT专业</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="indexBarHeader">
+                        <div class="pagn">
+                          <span class="pagnLead">查看：</span>
+                          <span class="pagnCur  pagnSpan" data-value="ALL">ALL</span>
+                          <span class="pagnLink pagnSpan" data-value="A">A</span>
+                          <span class="pagnLink pagnSpan" data-value="B">B</span>
+                          <span class="pagnLink pagnSpan" data-value="C">C</span>
+                          <span class="pagnLink pagnSpan" data-value="D">D</span>
+                          <span class="pagnLink pagnSpan" data-value="E">E</span>
+                          <span class="pagnLink pagnSpan" data-value="F">F</span>
+                          <span class="pagnLink pagnSpan" data-value="G">G</span>
+                          <span class="pagnLink pagnSpan" data-value="H">H</span>
+                          <span class="pagnLink pagnSpan" data-value="I">I</span>
+                          <span class="pagnLink pagnSpan" data-value="J">J</span>
+                          <span class="pagnLink pagnSpan" data-value="K">K</span>
+                          <span class="pagnLink pagnSpan" data-value="L">L</span>
+                          <span class="pagnLink pagnSpan" data-value="M">M</span>
+                          <span class="pagnLink pagnSpan" data-value="O">O</span>
+                          <span class="pagnLink pagnSpan" data-value="P">P</span>
+                          <span class="pagnLink pagnSpan" data-value="Q">Q</span>
+                          <span class="pagnLink pagnSpan" data-value="R">R</span>
+                          <span class="pagnLink pagnSpan" data-value="S">S</span>
+                          <span class="pagnLink pagnSpan" data-value="T">T</span>
+                          <span class="pagnLink pagnSpan" data-value="U">U</span>
+                          <span class="pagnLink pagnSpan" data-value="V">V</span>
+                          <span class="pagnLink pagnSpan" data-value="W">W</span>
+                          <span class="pagnLink pagnSpan" data-value="X">X</span>
+                          <span class="pagnLink pagnSpan" data-value="Y">Y</span>
+                          <span class="pagnLink pagnSpan" data-value="Z">Z</span>
+                        </div>
+                      </div>
+                      <div class="listItems">
+                        {{#each items}}
+                         {{#if MORE_FLAG}}
+                           <span data-value="{{VALUE}}" data-svalue="{{svalue}}">{{VALUE}} ({{CNT}})</span>
+                         {{else}}
+                           <span data-value="{{VALUE}}" data-svalue="{{svalue}}">{{VALUE}}</span>
+                         {{/if}}
+                        {{/each}}
+                        <div class="clboth"></div>
+                      </div>
+                    </div>
+</div>
