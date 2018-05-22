@@ -21,6 +21,7 @@ define([
         'ArcProcess':"oss_core/pm/screendesigner/js/graphLibs/GArcProcess",
         'LabelBar':"oss_core/pm/screendesigner/js/graphLibs/GLabelBar",
         'ProgressBar':"oss_core/pm/screendesigner/js/graphLibs/GProgressBar",
+        'ProgressBar2':"oss_core/pm/screendesigner/js/graphLibs/GProgressBar2",
         'IconBar':"oss_core/pm/screendesigner/js/graphLibs/GIconBar",
         'MoveBar':"oss_core/pm/screendesigner/js/graphLibs/GMoveBar",
         'NumsBar':"oss_core/pm/screendesigner/js/graphLibs/GNumsBar",

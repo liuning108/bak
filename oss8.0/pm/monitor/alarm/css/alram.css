@@ -2,20 +2,18 @@
   width: 100%;
   height: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 .alramMontior .PageSideBar {
   width: 298px;
-  height: 100%;
+  height: 500px;
   position: absolute;
-  top: 0;
+  top: -150;
   left: 0;
   z-index: 1;
 }
 
 .alramMontior .PageSideBar .AlarmCharts {
-  min-height: 500px;
   padding: 5px 5px;
   position: relative;
 }
@@ -23,13 +21,13 @@
 .alramMontior .PageSideBar .AlarmCharts .BigCircle {
   position: relative;
   width: 280px;
-  height: 280px;
+  height: 200px;
 }
 
 .alramMontior .PageSideBar .AlarmCharts .fourCircle {
   position: relative;
-  margin-top: 10px;
-  height: 300px;
+  margin-top: 5px;
+  height: 100%;
   width: 280px;
 }
 
@@ -50,7 +48,6 @@
 }
 
 .alramMontior .PageContent .AlrmGrid {
-  min-height: 636px;
   width: 100%;
   height: 100%;
 }

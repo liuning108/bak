@@ -36,6 +36,7 @@ define([
             'click .arcProcess': 'addArcProcess',
             'click .labelBar': 'addLabelBar',
             'click .progressBar': 'addProgressBar',
+            'click .progressBar2':'addProgressBar2',
             'click .IconBar': 'addIconBar',
             'click .MoveBar': 'addMoveBar',
             'click .numsBar': 'addNumsBar',
@@ -356,6 +357,15 @@ define([
             });
             self.closeMenu();
 
+        },
+        addProgressBar2:function(){
+            var self = this;
+            this.canvas.addNode({
+                'attrs': {
+                    'type': 'ProgressBar2'
+                }
+            });
+            self.closeMenu();
         },
         addIconBar: function() {
             var self = this;

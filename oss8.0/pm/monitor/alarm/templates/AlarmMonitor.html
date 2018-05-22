@@ -19,57 +19,57 @@
         <div class="AlrmGrid">
             <div class="AlrmHeader">
                 <div class="AlrmInfo">
-                    <span class="AlrmInfo_title"> Alarms (<span id="alramQueryCount">5</span>) </span><span class="AlrmInfo_time">- <span id="alramQueryTime">Last 1 Hour</span></span>
+                    <span class="AlrmInfo_title"> {{Alarms}} (<span id="alramQueryCount">5</span>) </span><span class="AlrmInfo_time">- <span id="alramQueryTime"></span></span>
                 </div>
             </div>
             <div class="alrmCusGrid">
-                <div class="girdData" id="grid01"></div>
+                <div class="girdData" id="grid01_alram"></div>
                 <div id="AlrmPager" ></div>
             </div>
         </div>
     </div>
     <div id="alermSortByTime" class='alermSortByTime' style="display: none">
         <div class="alermPopoverHeader">
-            Sort By Time
+            {{SortByTime}}
             <i class="glyphicon glyphicon-remove alramRemove"></i>
         </div>
         <ul>
-            <li data-value="1">Last 1 Hour</li>
-            <li data-value="2">Last 2 Hour</li>
-            <li data-value="4">Last 4 Hour</li>
-            <li data-value="6">Last 6 Hour</li>
-            <li data-value="8">Last 8 Hour</li>
-            <li data-value="12">Last 12 Hour</li>
-            <li data-value="24">Last 24 Hour</li>
-            <li data-value="today">Today</li>
-            <li data-value="yday">Yesterday</li>
-            <li data-value="7d">7 Days</li>
-            <li data-value="30d">30 Days</li>
-            <li data-value="90d">90 Days</li>
-            <li data-value="week">Week</li>
-            <li data-value="month">Month</li>
-            <li data-value="custom">Custom</li>
+            <li data-value="1">{{Last1Hour}}</li>
+            <li data-value="2">{{Last2Hour}}</li>
+            <li data-value="4">{{Last4Hour}}</li>
+            <li data-value="6">{{Last6Hour}}</li>
+            <li data-value="8">{{Last8Hour}}</li>
+            <li data-value="12">{{Last12Hour}}</li>
+            <li data-value="24">{{Last24Hour}}</li>
+            <li data-value="today">{{TODAY}}</li>
+            <li data-value="yday">{{Yesterday}}</li>
+            <li data-value="7d">{{V7Days}}</li>
+            <li data-value="30d">{{V30Days}}</li>
+            <li data-value="90d">{{V90Days}}</li>
+            <li data-value="week">{{Week}}</li>
+            <li data-value="month">{{Month}}</li>
+            <li data-value="custom">{{Custom}}</li>
         </ul>
         <div class="setAlramTimeCustom">
           <form action="#" method="post" autocomplete="off">
             <div class="TimeCustomBody">
             <span class="TimeCustomBodyMessage" style="color:red"></span>
             <div class="form-group">
-                    <label for="datetimepicker" class="col-md-4 control-label">Start Time</label>
+                    <label for="datetimepicker" class="col-md-4 control-label">{{ST}}</label>
                     <div class="input-group col-md-8">
                         <input type="text" class="form-control"  data-rule="required" name="alram_start_datetimepicker" id="alram_start_datetimepicker">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="datetimepicker" class="col-md-4 control-label">End Time</label>
+                    <label for="datetimepicker" class="col-md-4 control-label">{{ET}}</label>
                     <div class="input-group col-md-8">
                         <input type="text" class="form-control"  data-rule="required"  name="alram_end_datetimepicker" id="alram_end_datetimepicker">
                     </div>
                 </div>
             </div>
             <div class="TimeCustomBtns">
-                <a href="#"  class="OkBtn btn" >OK</a>
-                <a href="#"  class="CancelBtn btn">Cancel</a>
+                <a href="#"  class="OkBtn btn" >{{OK}}</a>
+                <a href="#"  class="CancelBtn btn">{{Cancel}}</a>
             </div>
         </form>
         </div>

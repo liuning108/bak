@@ -18,6 +18,7 @@ define([
             this.attrs.dbServer.yNums=99;
         },
         initElement: function() {
+
             var self = this;
             var title = this.attrs.title || '文字名称';
             this.attrs.titleColor = this.attrs.titleColor || '#f9ffd0';
@@ -42,6 +43,12 @@ define([
             var max =Math.round(fish.max(fish.flatten(this.attrs.xAxisDatas)));
             var xAxisMin =Math.round(fish.min(fish.flatten(this.attrs.xAxisDatas)));
             var xAxisMax=max;
+             var xAxisMax2=fish.max(fish.flatten(this.attrs.xAxisDatas));
+              var xAxisMin2=fish.min(fish.flatten(this.attrs.xAxisDatas));
+
+
+
+
             this.isxAxisMax=false;
             this.isxAxisMin=false
             var smax =""+max
@@ -90,7 +97,7 @@ define([
             for(var i = 0 ;i<xlen;i++){
                 var color=colors[i%colors.length];
                 var label = this.attrs.xAxisLabels[i]
-                var items=this.drawLine(this.attrs.xAxisDatas[i],i,space_w,max,x,y,r,w,h,color,xlen,xAxisMax,xAxisMin)
+                var items=this.drawLine(this.attrs.xAxisDatas[i],i,space_w,max,x,y,r,w,h,color,xlen,xAxisMax,xAxisMin,xAxisMax2,xAxisMin2)
                 var label_x=(w + space_w) * n+20
                 var label_y = (y-h)+(i*12)+20;
                 fontItems.push(items);
@@ -157,14 +164,14 @@ define([
             this.doms['remove'] = this.paper.text(160, -30, 'X').attr({'fill': 'red', 'font-size': 20, 'font-family': '微软雅黑', 'font-weight': 'bold'});;
 
         },
-        drawLine:function(data,lineIndex,space_w,max,x,y,r,w,h,color,xlen,xAxisMax,xAxisMin) {
+        drawLine:function(data,lineIndex,space_w,max,x,y,r,w,h,color,xlen,xAxisMax,xAxisMin,xAxisMax2,xAxisMin2) {
               x=x+10;
             var paper = this.paper;
             var items = [];
             for (var i = 0; i < data.length; i++) {
                 var vvalue =data[i] ;
                 var per = vvalue / max;
-                var item = this.createPointItem(i, x+r, y, w, h, space_w, r, per, data[i],vvalue,color,xAxisMax,xAxisMin);
+                var item = this.createPointItem(i, x+r, y, w, h, space_w, r, per, data[i],vvalue,color,xAxisMax,xAxisMin,xAxisMax2,xAxisMin2);
                 items.push(item);
                 this.doms['item' +lineIndex+":"+i] = item.set;
             }
@@ -232,7 +239,7 @@ define([
             text.remove();
             return box;
         },
-        createPointItem: function(i, x, y, w, h, space_w, r, per, name,vvalue,color,xAxisMax,xAxisMin) {
+        createPointItem: function(i, x, y, w, h, space_w, r, per, name,vvalue,color,xAxisMax,xAxisMin,xAxisMax2,xAxisMin2) {
             var self = this;
             var paper = this.paper;
             var item = {};
@@ -244,30 +251,15 @@ define([
 
             if(this.attrs.labelStyle==1){
 
-             if(vvalue!=xAxisMax && vvalue!= xAxisMin){
+             if(vvalue!=xAxisMax2 && vvalue!= xAxisMin2){
                item.value = paper.text(item.x, item.y - 15, vvalue+self.attrs.unitx).attr({'fill': this.attrs.titleColor, 'font-size': 10, 'font-family': '微软雅黑'});
                item.set.push(item.value);
              }
 
             }
-           //  if(!this.isxAxisMax){
-           //  if(vvalue==xAxisMax){
-           //    item.path=this.paper.path('M46.1,40.7L32,58.6L17.9,40.7c-2.5-2.6-4.2-5.7-5.2-9.3c-0.9-3.5-0.9-7.1,0-10.6s2.6-6.6,5.2-9.3s5.5-4.4,8.9-5.4s6.8-0.9,10.3,0s6.4,2.7,8.9,5.4s4.3,5.7,5.2,9.3s0.9,7.1,0,10.6C50.4,35,48.6,38,46.1,40.7z')
-           //    item.path.attr({
-           //      'fill':'red',
-           //      'stroke-width':0,
-           //    })
-           //    item.path=item.path.scale(0.5,0.5,0,0);
-           //    var bbox =item.path.getBBox(true);
-           //    item.path.translate((item.x-bbox.width/2.7)/0.5,(item.y-13-bbox.height/2)/0.5)
-           //    item.value = paper.text(item.x, (item.y-bbox.height/2), vvalue+self.attrs.unitx).attr({'fill': this.attrs.titleColor, 'font-size': 12, 'font-family': '微软雅黑'});
-           //    item.set.push(item.value);
-           //    item.set.push(item.path);
-           //    this.isxAxisMax=true;
-           //  }
-           // }
-           this.createMaxMinPoint(vvalue,item,xAxisMax,'#d30e4e','isxAxisMax')
-           this.createMaxMinPoint(vvalue,item,xAxisMin,'#1db88f','isxAxisMin')
+
+           this.createMaxMinPoint(vvalue,item,xAxisMax2,'#d30e4e','isxAxisMax')
+           this.createMaxMinPoint(vvalue,item,xAxisMin2,'#1db88f','isxAxisMin')
             item.set.push(item.circle);
             return item;
         },

@@ -33,8 +33,6 @@ define([
             this.attrs.seqShow =this.attrs.seqShow || 'on'
 
           this.Data2Graph();
-
-
             //this.attrs.titles.push('序号');
 
 
@@ -64,7 +62,8 @@ define([
                 ['衡阳', fish.random(80, 90), fish.random(80, 90)],
             ]
             this.attrs.datas =datas;
-
+            console.log("log data  data");
+            console.log(datas);
             var set = paper.set();
             var maxBoxW=this.getHearderMaxBox(heardes);
             var item_box;
@@ -89,7 +88,7 @@ define([
             });
             var data_x = x;
             var data_y = y + box.height + box.height;
-              console.log("adhsahkjdhkjdhasjkdasjhj");
+
 
             for (var i = 0; i < datas.length; i++) {
                 var data;
@@ -277,7 +276,11 @@ define([
             json.xAxis={};
             json.series={};
             json.xAxis.data=labels;
-            json.series.data=datas;
+            json.series.data=fish.filter(datas,function(d){
+                  var arr=fish.reject(d,function(e){ return fish.isUndefined(e)});
+                  return arr.length>0;
+            });
+
             this.setTitle(json.xAxis.data);
             this.setDatas(json.series.data);
           }catch(e){

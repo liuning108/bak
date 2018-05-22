@@ -1,11 +1,16 @@
 portal.define([
-    'text!oss_core/pm/monitor/alarm/templates/AlarmMonitor.html', "oss_core/pm/monitor/alarm/actions/AlarmMgrAction.js", "oss_core/pm/monitor/alarm/js/AlertCharts.js", "css!oss_core/pm/monitor/alarm/css/alram.css", "oss_core/pm/screendesigner/js/raphael-min"
-], function(tpl, action, alertCharts) {
+    'text!oss_core/pm/monitor/alarm/templates/AlarmMonitor.html',
+    "i18n!oss_core/pm/monitor/alarm/i18n/Alarm",
+    "oss_core/pm/monitor/alarm/actions/AlarmMgrAction.js",
+    "oss_core/pm/monitor/alarm/js/AlertCharts.js",
+     "css!oss_core/pm/monitor/alarm/css/alram.css",
+     "oss_core/pm/screendesigner/js/raphael-min"
+], function(tpl,i18nData,action, alertCharts) {
     return portal.BaseView.extend({
         template: fish.compile(tpl),
 
         render: function() {
-            this.$el.html(this.template());
+            this.$el.html(this.template(i18nData));
             return this;
         },
         loadData: function(data) {
@@ -21,9 +26,11 @@ portal.define([
                     'level': data.ALARM_LEVEL
                 }
             })
-            alertCharts.bigCircleChart({dom: this.$el.find('#alram_bigCircle'), title: "Alarms", datas: chartsData})
 
+            var sum = fish.reduce(chartsData, function(memo, num){ return memo + num.value; }, 0);
+            alertCharts.bigCircleChart({dom: this.$el.find('#alram_bigCircle'), title: "Alarms", datas: chartsData})
             var level1 = chartsData[0];
+            level1.per=level1.value/sum;
             console.log("kdsfkhdskjhdkja");
             console.log(level1);
             level1.dom = this.$el.find('#alram_critical');
@@ -36,6 +43,7 @@ portal.define([
             })
 
             var level2 = chartsData[1];
+            level2.per=level2.value/sum;
             level2.dom = this.$el.find('#alram_Trouble');
             level2.json = self.json;
             var TroubleObj = alertCharts.circleChart(level2);
@@ -46,6 +54,7 @@ portal.define([
             })
 
             var level3 = chartsData[2];
+            level3.per=level3.value/sum;
             level3.dom = this.$el.find('#alram_Attention');
             level3.json = self.json;
             var AttentionObj = alertCharts.circleChart(level3);
@@ -56,6 +65,7 @@ portal.define([
             })
 
             var level4 = chartsData[3];
+            level4.per=level4.value/sum;
             level4.dom = this.$el.find('#alram_ServiceDown');
             level4.json = self.json;
             var ServiceDownObj = alertCharts.circleChart(level4)
@@ -73,27 +83,33 @@ portal.define([
                 self.initData([
                     {
                         name: 'WARN_DESC',
-                        label: "Warn Message",
+                        label: i18nData.WarnMessage,
+                        sortable:false,
                         width: 200
                     }, {
                         name: 'WARN_CODE',
-                        label: "Warn Code",
-                        width: 50
+                        label: i18nData.WarnCode,
+                        sortable:false,
+                        width: 100
                     }, {
                         name: 'ALARMOBJ_TYPE_NAME',
-                        label: 'Warn Object',
+                        label: i18nData.WarnObject,
+                        sortable:false,
                         width: 100
                     }, {
                         name: 'ALARMOBJ_INST_NAME',
-                        label: 'Warn Object Name',
+                        label: i18nData.WarnObjectName,
+                        sortable:false,
                         width: 80
                     }, {
                         name: 'WARN_KPIVALUE',
-                        label: 'KPI info',
-                        width: 80
+                        label: i18nData.KPIinfo,
+                        sortable:false,
+                        width: 290
                     }, {
                         name: 'ALARM_NAME',
-                        label: "Warn Level",
+                        label: i18nData.WarnLevel,
+                        sortable:false,
                         width: 80,
                         formatter: function(cellval, opts, rwdat, _act) {
                             console.log("ALARM_NAME FORMAtter");
@@ -103,12 +119,12 @@ portal.define([
                         }
                     }, {
                         name: 'WARN_TIME',
-                        label: 'Time',
+                        sortable:false,
+                        label: i18nData.Time,
                         width: 100
                     }
-                ], data.result.alramList);
-                self.$el.find('#alramQueryCount').text(data.result.alramList.length)
-                self.$el.find('#alramQueryTime').text(self.tt);
+                ], []);
+
             })
         },
         afterRender: function() {
@@ -116,11 +132,12 @@ portal.define([
             self.alramClicked = false;
             self.json = {
                 time: 24,
-                level: ""
+                level: "",
+                page: 1,
+                rowNums:20
             }
             console.log("json:" + self.json);
             self.tt = "Last 24 Hour";
-            this.$el.find('.AlarmCharts').slimscroll({height: '630px', width: '298px', axis: 'y'});
 
             self.queryData(self.json);
             this.initSortTime();
@@ -221,12 +238,13 @@ portal.define([
 
         },
         initData: function(model, data) {
+            var self =this;
             //模拟服务器端数据
             var mydataServer = data;
 
             var getPerData = function(page, rowNum, sortname, sortorder) { //请求服务器获取数据的方法
 
-                rowNum = rowNum || $("#grid01").grid("getGridParam", "rowNum");
+                rowNum = rowNum || $("#grid01_alram").grid("getGridParam", "rowNum");
                 //首先根据sortname,sortorder对整个数据就行排序,正常情况下把查询条件带入到服务器查询就行
                 var sortdata = [];
                 if (sortname) {
@@ -262,28 +280,54 @@ portal.define([
             };
 
             var getPerData2 = function(page, rowNum, sortname, sortorder) {
-                _.delay(function() {
-                    var result = getPerData(page, rowNum, sortname, sortorder);
-                    $("#grid01").grid("reloadData", result);
-                }, 100);
+                    self.json.rowNums = rowNum;
+                    self.json.page = page;
+
+                        action.queryAlramList(self.json,function(data){
+                            var result =data.result;
+                            var pageResult = {
+                                "rows": result.alramListPerData, "page": page,
+                                "userdata": {
+                                    "extra": "这个extra数据"
+                                },
+                                "records": result.alramListCount,
+                                "id": "id"
+                            }
+                             $("#grid01_alram").grid("reloadData", pageResult);
+                             self.$el.find('#alramQueryCount').text(result.alramListCount)
+                             self.$el.find('#alramQueryTime').text(self.tt);
+                        })
+
+                // _.delay(function() {
+                //     var result = getPerData(page, rowNum, sortname, sortorder);
+                //         $("#grid01_alram").grid("reloadData", result);
+                // }, 100);
                 return false;
             };
 
             //普通表格
-            $("#grid01").grid({
+            $("#grid01_alram").grid({
                 datatype: "json",
                 height: 220,
                 colModel: model,
-                rowNum: 20,
+                rowNum: self.json.rowNums,
                 rowList: [
-                    20, 50, 100, 500
+                    self.json.rowNums, 50, 100, 500
                 ],
                 pager: true,
-                pageData: getPerData2 //同步场景直接用getPerData,返回json格式数据;异步场景用getPerData2,先返回false中断内部逻辑,再通过 jQuery("#grid01").grid("reloadData",getPerData(1))来加载数据;
+                pageData: getPerData2 //同步场景直接用getPerData,返回json格式数据;异步场景用getPerData2,先返回false中断内部逻辑,再通过 jQuery("#grid01_alram").grid("reloadData",getPerData(1))来加载数据;
             });
-            $("#grid01").grid("setGridHeight", 600); //设置高度
+          //  $("#grid01_alram").grid("setGridHeight", 600); //设置高度
+              $("#grid01_alram").jqGrid("setGridHeight", self.uiContainerHeight-100);
+            getPerData2(self.json.page,self.json.rowNums); //默认加载第一页数据
 
-            getPerData2(1); //默认加载第一页数据
+        },
+        resize: function () {
+            this.uiContainerHeight = this.$el.parents(".tabs_nav").outerHeight();
+            var height = this.uiContainerHeight - 100;
+            $("#grid01_alram").jqGrid("setGridHeight", height);
+          //  this.$el.find('.AlarmCharts').slimscroll({height: height+'px', width: '298px', axis: 'y'});
+
 
         }
     })

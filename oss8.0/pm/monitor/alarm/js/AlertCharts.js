@@ -1,6 +1,9 @@
 define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
     return {
 
+        kFormatter:function(num) {
+            return num > 999 ? (num/1000).toFixed(1) + 'k' : num
+        },
         bigCircleChart: function(opt) {
 
             var labelFontStyle = {
@@ -18,6 +21,8 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
             }
             opt.dom.html("");
             var paper = Raphael(opt.dom[0]);
+            paper.setViewBox(0, -40, 280, 280, true);
+            paper.setSize('100%', '100%');
             paper.customAttributes.alertCircle = function(centerX, centerY, startAngle, endAngle, innerR, outerR) {
                 var radians = Math.PI / 180,
                     largeArc = + (endAngle - startAngle > 180);
@@ -62,9 +67,10 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
                 ];
                 return {path: path};
             };
-            var r = 130;
+
             var center_x = opt.dom.width() / 2;
             var center_y = opt.dom.height() / 2;
+            var r = 130;
             var circle = paper.circle(center_x, center_y, r-41);
             circle.attr({fill: '#fff', stroke: '#fff', 'stroke-width': 5});
 
@@ -83,10 +89,10 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
             }
             var ccy=center_y+10;
             var title = paper.text(center_x, ccy+20,opt.title).attr(labelFontStyle);
-            var gvalue= paper.text(center_x, ccy-10,sum).attr(valueFontStyle);
+            var gvalue= paper.text(center_x, ccy-10,this.kFormatter(sum)).attr(valueFontStyle);
             var img = paper.image('oss_core/pm/monitor/alarm/css/img/alarms-2.png', center_x-(56*0.8)/2, ccy-70, 56*0.8, 47*0.8);
 
-
+            var self =this;
             var start_a = 0;
             var end_a = 0;
             var sset=paper.set();
@@ -108,12 +114,14 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
                 alertC1.data=num;
                 sset.push(alertC1);
 
+
+
                 alertC1.mouseover(function(){
                     title.attr({
                         'text': this.data.name
                     })
                     gvalue.attr({
-                        'text': this.data.value
+                        'text': self.kFormatter(this.data.value)
                     })
                     circle.attr({
                         'stroke':this.data.color
@@ -126,7 +134,7 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
                         'text': opt.title
                     })
                     gvalue.attr({
-                        'text': sum
+                        'text': self.kFormatter(sum)
                     })
                     circle.attr({
                         'stroke':"#fff"
@@ -211,7 +219,7 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
             var center_y = opt.dom.height() / 2;
             center_y = center_y - 10;
 
-            var value = paper.text(center_x, center_y, opt.value).attr(labelFontStyle);
+            var value = paper.text(center_x, center_y, this.kFormatter(opt.value)).attr(labelFontStyle);
 
             var name = paper.text(center_x, center_y + 54 + 15, opt.name).attr(nameFontStyle);
               var bbox =name.getBBox(true);
@@ -242,7 +250,7 @@ define(["oss_core/pm/screendesigner/js/raphael-min"], function() {
                 ]
             });
 
-            var per = (opt.value / 100) * 359.9;
+            var per = opt.per * 359.9;
 
             var alertC2 = paper.path().attr({
                 "stroke-width": 0,

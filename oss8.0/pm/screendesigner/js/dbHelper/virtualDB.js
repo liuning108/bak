@@ -1,11 +1,57 @@
 define([], function() {
-
     var dbs = [];
-
     dbs.push({
         serverName: 'NetworkOverviewDemoQryService',
         serverLabel: 'NetworkOverviewDemoQryService',
         xAxis: [
+                {
+                    id: 'field_hotWeb_1',
+                    name: '热门网站',
+                    data: [
+                      "淘宝",
+                      "百度",
+                      "新浪",
+                      "腾讯",
+                      "优酷",
+                      "哔哩哔哩",
+                      "京东",
+                      "搜狗",
+                      "豆瓣",
+                      "土豆"
+                    ]
+                },
+              {
+                  id: 'field_TopVideo_1',
+                  name: '视频网',
+                  data: [
+                    "优酷",
+                    "土豆",
+                    "搜狐视频",
+                    "爱奇艺",
+                    "酷6网",
+                    "央视网",
+                    "哔哩哔哩",
+                    "56网",
+                    "豆瓣电影",
+                    "腾讯视频"
+                  ]
+              },
+              {
+                  id: 'field_TopGame_1',
+                  name: '游戏',
+                  data: [
+                    "王者荣耀",
+                    "地下城与勇士",
+                    "英雄联盟",
+                    "剑网3",
+                    "魔兽世界",
+                    "梦幻西游",
+                    "新天龙八部",
+                    "炉石传说",
+                    "剑灵",
+                    "魔域"
+                  ]
+              },
             {
                 id: 'field_Mongolia_1',
                 name: 'Mongolia City',
@@ -110,11 +156,139 @@ define([], function() {
             }
         ],
         yAxis: [
+          {
+              id: 'field_hotweb_timelong',
+              name: '首屏时延',
+              data: [
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460)
+              ]
+          },
+          {
+              id: 'field_hotweb_timelong2',
+              name: '首屏时延达标率',
+              data: [
+                  fish.random(90,100),
+                  fish.random(90,100),
+                    fish.random(90,100),
+                      fish.random(90,100),
+                    fish.random(90,100),
+                  fish.random(90,100),
+                    fish.random(90,100),
+                    fish.random(90,100),
+                    fish.random(90,100),
+                      fish.random(90,100),
+              ]
+          },
+          {
+              id: 'field_hotweb_timelong3',
+              name: '网页打开成功率',
+              data: [
+                  fish.random(90,100),
+                  fish.random(90,100),
+                    fish.random(90,100),
+                      fish.random(90,100),
+                    fish.random(90,100),
+                  fish.random(90,100),
+                    fish.random(90,100),
+                    fish.random(90,100),
+                    fish.random(90,100),
+                      fish.random(90,100),
+              ]
+          },
+          {
+              id: 'field_video_timelong',
+              name: '缓冲时长占比',
+              data: [
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460),
+                  fish.random(20,460)
+              ]
+          },
+          {
+              id: 'field_video_stopconter',
+              name: '平均播放卡顿次数',
+              data: [
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+              ]
+          },
+          {
+              id: 'field_video_firststopconter',
+              name: '首帧显示时长',
+              data: [
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+                  fish.random(10,20),
+              ]
+          },
+              {
+                  id: 'field_game_ping',
+                  name: '游戏Ping平均时延',
+                  data: [
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460),
+                      fish.random(20,460)
+                  ]
+              },
+              {
+                  id: 'field_game_lose',
+                  name: '游戏丢包率(%)',
+                  data: [
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80),
+                      fish.random(20,80)
+                  ]
+              },
             {
                 id: 'field_2',
                 name: 'Data traffic',
                 data: [
-                    80,
+                    80.23,
                     50,
                     40,
                     30,
@@ -233,7 +407,7 @@ define([], function() {
                 id: 'field_9',
                 name: '2G Voice traffic',
                 data: [
-                    fish.random(20,300),
+                    fish.random(20,90),
                     fish.random(20,300),
                     fish.random(20,300),
                     fish.random(20,300),
@@ -284,10 +458,5 @@ define([], function() {
             }
         ]
     })
-
-
-
-
     return fish.indexBy(dbs, 'serverName')
-
 });
