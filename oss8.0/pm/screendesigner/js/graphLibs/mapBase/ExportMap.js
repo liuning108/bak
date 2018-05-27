@@ -1,14 +1,15 @@
 define([
+  "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
   "text!oss_core/pm/screendesigner/js/graphLibs/mapBase/ExportMapHtml.html",
   "text!oss_core/pm/screendesigner/js/graphLibs/mapBase/MapLi.html",
   "oss_core/pm/screendesigner/actions/BScreenMgrAction", "oss_core/pm/screendesigner/js/webupload/js/webuploader"
-], function(tpl,MapliTxt,action, WebUploader) {
+], function(i18nData,tpl,MapliTxt,action, WebUploader) {
   return {
     htmlTpl: fish.compile(tpl),
     MapLiTpl:fish.compile(MapliTxt),
     render: function(datas) {
       var self = this;
-      $popup = $(self.htmlTpl())
+      $popup = $(self.htmlTpl(i18nData))
       var options = {
         height: 500,
         width: 350,
