@@ -43,16 +43,20 @@
 
                                      -->
                                      <div class="form-group">
-                                         <label for="unitInput" class="bi-lable"> Y Axis Unit:</label>
+                                         <label for="unitInput" class="bi-lable">
+                                           {{Y_AXIS_UNIT}}:
+                                         </label>
                                          <input type="text" class="unitInput" name="unitInput" style="width:100px">
                                      </div>
                                     <div class="form-group">
-                                        <label for="unitInput" class="bi-lable"> X Axis Unit:</label>
+                                        <label for="unitInput" class="bi-lable">
+                                          {{X_AXIS_UNIT}}:
+                                        </label>
                                         <input type="text" class="unitInputx" name="unitInputx" style="width:100px">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="roateInput" class="bi-lable">Rotate:</label>
+                                        <label for="roateInput" class="bi-lable">{{ROTATE}}:</label>
                                         <input type="text" class="roateInput" name="roateInput" style="width:100px">
                                     </div>
 
@@ -60,20 +64,22 @@
                                         <label for="g_titile" class="bi-lable">{{DISPLAY}}:</label>
                                         <select class="labelSelect">
                                             <option value="1">{{VALUE}}</option>
-                                            <option value="2">NONE</option>
+                                            <option value="2">{{NONE}}</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="label2_colorpicker" class="bi-lable">Display labels:</label>
+                                        <label for="label2_colorpicker" class="bi-lable">
+                                          {{DISPLAY_LABELS}}:
+                                        </label>
                                         <select class="label2Select">
-                                            <option value="1">Label</option>
-                                            <option value="2">NONE</option>
+                                            <option value="1">{{LABLE}}</option>
+                                            <option value="2">{{NONE}}</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="gStripColorsInput" class="bi-lable">colors:</label>
+                                        <label for="gStripColorsInput" class="bi-lable">{{COLOR}}:</label>
                                         <input type="text" class="gStripColorsInput" name="gStripColorsInput" style="width:100px">
                                     </div>
 
@@ -85,11 +91,12 @@
                 </div>
 
                 <div class="bi-attr-edit-list-div">
-                    <h4>Setting Auxiliary Line</h4>
+                    <h4>{{SETTING_AUXILIARY_LINE}}</h4>
                     <div class="bi-attr-edit-list-div-rengs">
                       <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">off/on:</lable>
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">
+                                  {{ONOFF}}:</lable>
                             </div>
                             <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
                                 <label class="switch">
@@ -103,7 +110,8 @@
                     <div class="bi-attr-edit-list-div-rengs AuxiliaryOffonPlane">
                       <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">Value :</lable>
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">
+                                  {{VALUE}} :</lable>
                             </div>
                             <div class="col-md-4 col-sm-4">
                              <input type="text" class="AuxiliaryValue" value="0" style="width:100px">
@@ -114,7 +122,7 @@
                       <div class="row">
                             <div class="col-md-12 col-sm-12">
                               <div class="form-group">
-                                  <label for="AuxiliaryColor" class="bi-lable">Line Color:</label>
+                                  <label for="AuxiliaryColor" class="bi-lable">{{COLOR}}:</label>
                                   <input type="text" class="AuxiliaryColor" name="AuxiliaryColor">
                               </div>
                             </div>

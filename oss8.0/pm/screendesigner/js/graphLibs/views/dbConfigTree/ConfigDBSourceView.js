@@ -1,4 +1,5 @@
 define([
+    "i18n!oss_core/pm/screendesigner/i18n/SDesinger",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/LiItem.html",
   "oss_core/pm/screendesigner/actions/BScreenMgrAction",
   "text!oss_core/pm/screendesigner/js/graphLibs/views/dbConfigTree/indiLi.html",
@@ -7,13 +8,14 @@ define([
   "oss_core/pm/screendesigner/js/codemirror/codemirror",
   "oss_core/pm/screendesigner/js/codemirror/sql",
   "css!oss_core/pm/screendesigner/js/codemirror/codemirror.css"
-], function(LiItemTpl,action,indiLiTpl, dimeLiTpl, tpl, CodeMirror) {
+], function(i18nData,LiItemTpl,action,indiLiTpl, dimeLiTpl, tpl, CodeMirror) {
   return portal.BaseView.extend({
     className: "ui-dialog dialog configDBSourceDialog",
     template: fish.compile(tpl),
     indiTpl: fish.compile(indiLiTpl),
     dimeTpl: fish.compile(dimeLiTpl),
     liItemTplFun:fish.compile(LiItemTpl),
+    resource: fish.extend({}, i18nData),
     initialize: function(config,parent) {
       this.config = config
       this.iniConfig =$.extend(true,{},config);
@@ -124,7 +126,7 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template());
+      this.$el.html(this.template(this.resource));
       return this;
     },
     radioSQL: function() {
@@ -144,11 +146,11 @@ define([
 
     },
     sqlSource:function(data,e) {
-        this.$el.find('.sourceTypeNameClass').text("SQL Source")
+        this.$el.find('.sourceTypeNameClass').text(i18nData.SQL_SOURCE)
         var nextState=1;
         console.log(data);
         var $combobox1 = this.$el.find('#sourceCombo').combobox({
-          placeholder: 'Select a DB Source',
+          placeholder: '',
           dataTextField: 'NAME',
           dataValueField: 'ID',
           dataSource: data.sourceList,
@@ -179,7 +181,7 @@ define([
         this.$el.find('#xyFields').slimscroll({height:'320px',width:'99%'});
         this.$el.find('.serviceName').val(this.config.name)
         this.state=nextState;
-        $(e.target).text("Next");
+        $(e.target).text(i18nData.NEXTSTEP);
         this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
 
     },
@@ -191,7 +193,7 @@ define([
         var nextState=1;
         console.log(data);
         var $combobox1 = this.$el.find('#sourceCombo').combobox({
-          placeholder: 'Select a DB Source',
+          placeholder: '',
           dataTextField: 'NAME',
           dataValueField: 'ID',
           dataSource: data.sourceList,
@@ -218,7 +220,7 @@ define([
         this.$el.find('#xyFields').slimscroll({height:'320px',width:'99%'});
         this.$el.find('.serviceName').val(this.config.name)
         this.state=nextState;
-        $(e.target).text("Next");
+        $(e.target).text(i18nData.NEXTSTEP);
         this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
     },
     initBasicInfoSate:function(e) {
@@ -263,7 +265,7 @@ define([
       }
       this.state=nextState;
       this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
-      this.$el.find('.nextbutton').text("Next");
+      this.$el.find('.nextbutton').text(i18nData.NEXTSTEP);
 
     },
 
@@ -311,7 +313,7 @@ define([
             if(len<=1){
                 flag=false;
                 this.$el.find('.CodeMirror').addClass("editor-sql-error")
-                this.$el.find('.errorMessage').text('Please enter the SQL statement');
+                // this.$el.find('.errorMessage').text('Please enter the SQL statement');
             }else {
                 this.$el.find('.CodeMirror').removeClass("editor-sql-error")
                 this.$el.find('.errorMessage').text('');
@@ -355,7 +357,7 @@ define([
             $ul4.append(self.liItemTplFun(filed));
         })
         this.sortableMappingFields()
-        $(e.target).text("Next");
+        $(e.target).text(i18nData.NEXTSTEP);
         var nextState=2;
         this.state=nextState;
         this.$el.find("#configDBTabs").tabs("showTab", nextState, true);
@@ -366,7 +368,7 @@ define([
          var self =this;
          this.$el.find('.CodeMirror').removeClass("editor-sql-error")
          this.$el.find('.errorMessage').text('');
-         
+
         if(this.chekcColModelsInfo()){
             this.config.name=this.$el.find('.serviceName').val();
             this.config.source=this.sourceCombobox.combobox('value');
