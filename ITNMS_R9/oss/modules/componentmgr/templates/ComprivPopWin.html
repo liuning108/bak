@@ -1,0 +1,49 @@
+<div class="ui-dialog dialog-xs">
+	<div class="modal-header">
+		<h4 class="modal-title">{{COMPONENT_ADD_PRIV}}</h4>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal">
+			<div class="row">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{COMPONENT_PRIV_NAME}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="privName" class="form-control" data-rule="required;">
+				</div>
+	        </div>
+	        <div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{COMPONENT_OBJ_ID}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="objId" class="form-control">
+				</div>
+	        </div>
+	        <div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{COMPONENT_PRIV_EL}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="privEl" class="form-control">
+				</div>
+	        </div>
+	        <div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{COMPONENT_MENU_URL}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="menuUrl" class="form-control">
+				</div>
+	        </div>	 
+	        <div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{COMMON_REMARKS}}</label>
+				<div class="col-md-8 col-sm-8">
+					<textarea name="comments" class="form-control"></textarea>
+				</div>
+	        </div>
+	    </div>
+	    </form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-primary btn-min-width js-ok" autofocus>
+			{{COMMON_OK}}
+		</button>
+		<button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+			{{COMMON_CANCEL}}
+		</button>
+	</div>
+</div>

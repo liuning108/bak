@@ -1,0 +1,45 @@
+<div id="app" class="container-fluid container-main wrap-page">
+    <div class="login">
+        <div class="login__logo">
+            <img src="modules/images/LoginLogo.png">
+        </div>
+        <div class="login__content">
+            <img src="modules/images/login.png" class="pull-left">
+            <div class="login-box">
+                <div class="login-box__title js-can-choose">
+                     {{LOGIN_LOGIN}}
+                    <span class="login-language js-login-language" data-toggle="dropdown"></span>
+                    <ul class="dropdown-menu js-login-ul" role="menu">
+                    </ul>
+                </div>
+                <p class="form-error" id="errorMessageSpan"></p>
+                <form class="form-horizontal" id="loginForm" autocomplete="off">
+                    <div class="form-group js-input-focus">
+                        <span class="iconfont icon-user form-control-prompt"></span>
+                        <input class="form-control js-toggle-focus" id="inputUserName" name="inputUserName" placeholder="{{LOGIN_USERNAME}}" autocomplete="off">
+                        <span class="iconfont icon-delete form-control-feedback js-del-user-name"></span>
+                    </div>
+                    <div class="form-group js-input-focus">
+                        <span class="iconfont icon-lock form-control-prompt"></span>
+                        <input type="password" class="form-control js-toggle-focus" id="inputPassword" name="inputPassword" placeholder="{{LOGIN_PASSWORD}}" autocomplete="off">
+                        <span class="iconfont icon-delete form-control-feedback js-del-pwd"></span>
+                    </div>
+                    <div class="form-group js-verify-code js-input-focus">
+                        <div class="col-md-8">
+                            <input id="verificationCode" class="form-control js-toggle-focus" placeholder="{{LOGIN_VERIFY_CODE}}" />
+                        </div>
+                        <div class="col-md-4">
+                            <img id="imgVerifyCode" class="form-control img-verify-code"/>
+                        </div>
+                    </div>
+                    <button id="btnLogin" type="sumbit" class="btn btn-block btn-primary">
+                        {{LOGIN_LOGIN}}
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="login__footer">
+            {{LOGIN_FOOTER}}
+        </div>
+    </div>
+</div>

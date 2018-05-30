@@ -1,0 +1,39 @@
+<div class="ui-dialog dialog-sm">
+    <div class="modal-header">
+        <h4 class="modal-title">{{BULLETIN_APPROVAL_REASON_TITLE}}</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal js-approve-form">
+			<div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group" >
+                        <label class="col-md-3 col-sm-3 control-label">{{BULLETIN_APPROVAL_RESULT}}</label>
+                        <div class="col-md-9 col-sm-9">
+                            <label class="radio-inline">
+                                <input name="state" id="inlineRadio1" value="A" data-rule="checked" checked="true" type="radio">{{BULLETIN_APPROVAL_RESULT_AGREE}}</label>
+                            <label class="radio-inline">
+                                <input name="state" id="inlineRadio2" value="N" type="radio">{{BULLETIN_APPROVAL_RESULT_REFUSE}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-3 col-sm-3 control-label">{{BULLETIN_APPROVAL_REASON}}</label>
+                        <div class="col-md-9 col-sm-9">
+                            <textarea name="auditReason" class="form-control" data-rule="required;length[1~120, true]"/>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </form>        
+    </div>  
+    <div class="modal-footer">           
+        <button type="button" class="btn btn-primary btn-min-width js-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>  
+</div>

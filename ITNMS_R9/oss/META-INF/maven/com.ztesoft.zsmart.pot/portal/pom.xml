@@ -1,0 +1,110 @@
+﻿<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ztesoft.zsmart.pot</groupId>
+		<artifactId>portal-parent</artifactId>
+		<relativePath>../../pom.xml</relativePath>
+		<version>9.1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>portal</artifactId>
+	<packaging>war</packaging>
+	<name>portal Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<!--pot -->
+		<dependency>
+			<groupId>com.ztesoft.zsmart.pot</groupId>
+			<artifactId>portal-web</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		<!--spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- alliyun redis dependency -->
+		<dependency>
+			<groupId>com.ztesoft.zsmart.core</groupId>
+			<artifactId>core-boot-starter-redis</artifactId>
+			<version>${core.version}</version>
+		</dependency>
+		
+		<!-- zcache dependency -->
+		<!-- 
+		<dependency>
+			<groupId>com.ztesoft.zsmart.core</groupId>
+			<artifactId>core-boot-starter-cache</artifactId>
+			<version>${core.version}</version>
+		</dependency> 
+		-->
+		
+		
+	</dependencies>
+	<build>
+		<finalName>portal</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>portal-server</id>
+			<properties>
+				<env>portal-server</env>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<property>
+					<name>portal-server</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>com.ztesoft.zsmart.pot</groupId>
+					<artifactId>portal-service-impl</artifactId>
+					<version>${project.parent.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
+		<profile>
+			<id>portal-monitor</id>
+			<properties>
+				<env>portal-monitor</env>
+			</properties>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+				<property>
+					<name>portal-monitor</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>com.ztesoft.zsmart.pot</groupId>
+					<artifactId>portal-monitor</artifactId>
+					<version>${project.parent.version}</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+</project>

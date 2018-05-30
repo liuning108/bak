@@ -1,0 +1,97 @@
+<div>    
+    <div class="grid js-org-grid"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">{{COMMON_DETAIL}}</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal js-org-detail-form">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-4 col-sm-4 control-label" title="{{STAFFORG_ORG_NAME}}">
+                            {{STAFFORG_ORG_NAME}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                            <input name="orgName" class="form-control" data-rule="{{STAFFORG_ORG_NAME}}:required;length[1~60]">
+                        </div>
+                    </div>
+               	</div>
+               	<div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-4 col-sm-4 control-label">
+                            {{STAFFORG_ORG_CODE}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                            <input name="orgCode" class="form-control" data-rule="{{STAFFORG_ORG_CODE}}:required;length[1~60]" />
+                        </div>
+                    </div>
+               	</div>
+               	<div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-4 col-sm-4 control-label">
+                            {{STAFFORG_ORG_TYPE}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                       		<input name="orgType" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{STAFFORG_ORG_TYPE}}:required">
+                        </div>
+                    </div>
+               	</div>
+               	<div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <label class="col-md-4 col-sm-4 control-label">
+                            {{STAFFORG_ORG_LEADER}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="input-group">
+                                <input name="leader" class="form-control js-leader-popwin" />
+                            </div>
+                        </div>
+                    </div>
+               	</div>
+               	<div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-4 col-sm-4 control-label">
+                            {{STAFFORG_ORG_AREA}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="input-group">
+                                <input name="area" class="form-control js-area-popwin" data-rule="{{STAFFORG_ORG_AREA}}:required" />
+                            </div>
+                        </div>
+                    </div>
+               	</div>
+               	<div class="col-md-12 col-sm-12">
+                    <div class="form-group required">
+                        <label class="col-md-4 col-sm-4 control-label">
+                            {{STAFFORG_ORG_JOB}}
+                        </label>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="input-group">
+                                <input name="job" class="form-control js-job-popwin" data-rule="{{STAFFORG_ORG_JOB}}:required" />
+                            </div>
+                        </div>
+                    </div>
+               	</div>
+                <div class="org-attr-list"></div>
+            </form>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4">
+                        <button type="button" class="btn btn-primary btn-min-width js-new">
+                            {{COMMON_NEW}}
+                        </button>
+                        <button type="button" class="btn btn-primary btn-min-width js-edit">
+                            {{COMMON_EDIT}}
+                        </button>
+                        <button type="button" class="btn btn-primary btn-min-width js-ok">
+                            {{COMMON_OK}}
+                        </button>
+                        <button type="button" class="btn btn-default btn-min-width js-cancel">
+                            {{COMMON_CANCEL}}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

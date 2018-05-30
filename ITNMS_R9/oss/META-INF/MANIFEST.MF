@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: portal-i18n-web
+Implementation-Version: 9.1.0-SNAPSHOT
+Archiver-Version: Plexus Archiver
+Built-By: portalx
+Implementation-Vendor-Id: com.ztesoft.zsmart.pot
+Created-By: Apache Maven 3.2.1
+Build-Jdk: 1.8.0_151
+Implementation-URL: http://maven.apache.org
+Implementation-Vendor: Pivotal Software, Inc.
+

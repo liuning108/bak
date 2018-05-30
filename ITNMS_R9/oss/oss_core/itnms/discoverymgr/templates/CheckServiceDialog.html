@@ -1,0 +1,65 @@
+<div class="kdo-dialog ui-dialog dialog-md" style="padding: 15px 15px 15px 15px">
+  <div class="modal-header">
+    <h4 class="modal-title">{{CHECK_SERVICE}}</h4>
+  </div>
+  <div class="modal-body filterHostBody">
+    <div class="row">
+      <div class="col-md-12 form-group required">
+        <label>
+          {{CHECK_TYPE}}
+        </label>
+        <input id="dr-checktype-sel" class="form-control"/>
+      </div>
+      <div class="attrComponentContainer">
+
+      </div>
+      <!-- -->
+      <div class="securityLevelContainer" style="display: none">
+        <div class="col-md-12 form-group">
+          <label id="dr-ports-label"></label>
+          <input id="dr-ports-13" value="161" class="form-control">
+        </div>
+        <div class="col-md-12 form-group">
+          <label id="dr-key_-label"></label>
+          <input id="dr-key_-13" value="" class="form-control">
+        </div>
+        <div class="col-md-12 form-group">
+          <label id="dr-snmpv3_contextname-label"></label>
+          <input id="dr-snmpv3_contextname-13" value="" class="form-control">
+        </div>
+        <div class="col-md-12 form-group">
+          <label id="dr-snmpv3_securityname-label"></label>
+          <input id="dr-snmpv3_securityname-13" value="" class="form-control">
+        </div>
+        <div class="col-md-12 form-group">
+          <label id="dr-snmpv3_securitylevel-label"></label>
+          <input id="dr-snmpv3_securitylevel-13" class="form-control">
+        </div>
+        <!--附属条件-->
+        <div class="col-md-12 form-group securityLevel_1 securityLevel_2" style="display:none;">
+          <label id="dr-snmpv3_authprotocol-label"></label>
+          <input id="dr-snmpv3_authprotocol-13" class="form-control">
+        </div>
+        <div class="col-md-12 form-group securityLevel_1 securityLevel_2" style="display:none;">
+          <label id="dr-snmpv3_authpassphrase-label"></label>
+          <input id="dr-snmpv3_authpassphrase-13" class="form-control">
+        </div>
+        <div class="col-md-12 form-group securityLevel_2" style="display:none;">
+          <label id="dr-snmpv3_privprotocol-label"></label>
+          <input id="dr-snmpv3_privprotocol-13" class="form-control">
+        </div>
+        <div class="col-md-12 form-group securityLevel_2" style="display:none;">
+          <label id="dr-snmpv3_privpassphrase-label"></label>
+          <input id="dr-snmpv3_privpassphrase-13" class="form-control">
+        </div>
+      </div>
+    </div>
+    <!-- -->
+    <div class="row mt15px">
+      <div class="RightDiv ">
+        <div class="KdoBtn2 btn OK Kdo_mainColor">{{CONFIRM}}</div>
+        <div class="KdoBtn2 btn reset" id="dr-checkservice-cancel">{{CANCEL}}</div>
+      </div>
+    </div>
+  </div>
+</div>

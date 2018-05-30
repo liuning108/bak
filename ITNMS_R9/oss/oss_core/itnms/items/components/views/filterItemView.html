@@ -1,0 +1,107 @@
+<div class="kdo-dialog ui-dialog dialog-md">
+    <div class="modal-header">
+        <h4 class="modal-title">filter</h4>
+    </div>
+    <div class="modal-body filterItemBody">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group itemFrom">
+                    <label for="filterName">Name</label>
+                    <input type="text" class="filterName filterInput tranItem" name="FilterName">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group itemFrom">
+                    <label for="filterkey">key</label>
+                    <input type="text" class="filterkey filterInput tranItem" name="filterkey">
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group itemFrom">
+                    <label for="filterInterval">Update interval</label>
+                    <input type="text" class="filterInterval filterInput tranItem" name="filterInterval">
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group itemFrom">
+                    <label for="filterHistory">History</label>
+                    <input type="text" class="filterHistory filterInput tranItem" name="filterHistory">
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group itemFrom">
+                    <label for="filterTrends">Trends</label>
+                    <input type="text" class="filterTrends filterInput tranItem" name="filterTrends">
+                </div>
+            </div>
+            <div class="col-xs-4" style="height: 66px;">
+                <div class="form-group itemFrom">
+                    <label for="filterType">Type</label>
+                    {{#if ITEM_TYPE}}
+                    <select class="form-control filterOption filterType">
+                        <option value="-1">all</option>
+                        {{#each ITEM_TYPE}}
+                        <option value="{{this.paraValue}}" >{{this.paraName}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group itemFrom">
+                    <label for="filterState">State</label>
+                    {{#if ITEM_STATE}}
+                    <select class="form-control filterOption filterState">
+                        {{#each ITEM_STATE}}
+                        <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group itemFrom">
+                    <label for="filterStatus">Status</label>
+                    {{#if ITEM_STATUS}}
+                    <select class="form-control filterOption filterStatus">
+                        <option value="-1">all</option>
+                        {{#each ITEM_STATUS}}
+                        <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group itemFrom">
+                    <label for="filterTriggers">Triggers</label>
+                    {{#if ITEM_TRIGGER}}
+                    <select class="form-control filterOption filterTriggers">
+                        {{#each ITEM_TRIGGER}}
+                        <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="form-group itemFrom">
+                    <label for="filterTemplate">Template</label>
+                    {{#if ITEM_TRIGGER}}
+                    <select class="form-control filterOption filterTemplate">
+                        {{#each ITEM_TEMPLATED}}
+                        <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                        {{/each}}
+                    </select>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="row mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn reset">reset</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor">apply</div>
+            </div>
+        </div>
+    </div>
+</div>

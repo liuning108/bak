@@ -1,0 +1,145 @@
+<div class="container-fluid itemPageContext filterItemBody">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="kdoWizardSteps">
+                <div style="width:25%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:25%" class="Step2" data-view='.Step2Page'><span>采集设置</span></div>
+                <div style="width:25%" class="Step3" data-view='.Step3Page'><span>存储设置</span></div>
+                <div style="width:25%" class="Step4" data-view='.Step4Page'><span>预处理设置</span></div>
+            </div>
+            <div class="StepBody clearfix StepBodyOver">
+                <div class="Step1Page">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterName">Name</label>
+                                <input type="text" class="filterName filterInput tranItem" name="FilterName">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="filterStatus">是否启用</label><br />
+                                <input type="checkbox" class="switch-btn filterStatus" data-on-color="success" data-off-color="danger" checked="" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="filterType">Type</label>
+                                {{#if ITEM_TYPE}}
+                                <select class="form-control filterOption filterType">
+                                    {{#each ITEM_TYPE}}
+                                    <option value="{{this.paraValue}}" >{{this.paraName}}</option>
+                                    {{/each}}
+                                </select>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterkey">key</label>
+                                <div class="filterkey" data-itemid="">
+                                    <input type="text" class="tranItem" name="filterkey" style="width: 80%">
+                                    <button class="key_span">选择</button>
+                                </div>
+                                <!-- <input type="text" class="filterkey filterInput tranItem" name="filterkey"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="valuemapid">值显示映射</label>
+                                {{#if ITEM_VALUE_MAP}}
+                                <select class="form-control filterOption valuemapid">
+                                    {{#each ITEM_VALUE_MAP}}
+                                    <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                                    {{/each}}
+                                </select>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="value_type">值类型</label>
+                                {{#if ITEM_VALUE_TYPE}}
+                                <select class="form-control filterOption value_type">
+                                    {{#each ITEM_VALUE_TYPE}}
+                                    <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                                    {{/each}}
+                                </select>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="unit">单位</label>
+                                <input type="text" class="unit filterInput tranItem" name="unit">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="inventory_link">资产关联字段</label>
+                                {{#if ITEM_INVENTORY_LINK}}
+                                <select class="form-control filterOption inventory_link">
+                                    {{#each ITEM_INVENTORY_LINK}}
+                                    <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                                    {{/each}}
+                                </select>
+                                {{/if}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="description">备注</label>
+                                <textarea class="description" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step2Page disnone">
+                </div>
+                <div class="Step3Page disnone">
+                    <div class="rows">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterHistory">历史数据保存时长(默认：天)</label>
+                                <input type="text" class="filterHistory filterInput tranItem" name="filterHistory" value="90">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterTrend">趋势数据保存时长(默认：天)</label>
+                                <input type="text" class="filterTrend filterInput tranItem" name="filterTrend" value="90">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step4Page disnone">
+                    <div class="rows">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="filterPreprocess" class="col-md-12">预处理<i class="glyphicon glyphicon-plus addFilterPreprocess" style="margin-left: 10px;font-size: 20px"></i></label>
+                            </div>
+                            <div class="col-md-6 tdnoborder kdoGrid">
+                                <div class="kdoGrid addP"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="StepBtns">
+                <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+                <div class="fr">
+                    <div class="btn KdoBtn2 hostPageCancel">取消</div>
+                    <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+/*-------------------role--------------------------*/
+.role-pos {
+  padding: 0 20px 10px 0;
+}
+.role-subgrid {
+  margin: 27px 0 0 -9px;
+  border-top: 1px solid #2dc3e8;
+}
+.role-component-grid {
+  margin-left: -9px;
+}
+.role-manage-page {
+  padding: 8px;
+  overflow: hidden;
+}
+.role-manage-page .ui-jqgrid {
+  border-bottom: 1px solid #e3e3e3;
+}
+.role-manage-page .ui-jqgrid .ui-jqgrid-titlebar,
+.role-manage-page .ui-jqgrid .ui-jqgrid-hdiv,
+.role-manage-page .ui-jqgrid .ui-jqgrid-bdiv,
+.role-manage-page .ui-jqgrid .ui-jqgrid-pager {
+  border-left: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+}
+.role-manage-page .ui-jqgrid .ui-jqgrid-hdiv {
+  border-top: 1px solid #e3e3e3;
+}
+.role-manage-page .ui-jqgrid .ui-jqgrid-titlebar {
+  border-top: 1px solid #e3e3e3;
+  border-bottom: 0;
+}

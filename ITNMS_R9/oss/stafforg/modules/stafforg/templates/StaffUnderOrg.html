@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+	<div class="grid js-staff-grid"></div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h4 class="panel-title">{{COMMON_DETAIL}}</h4>
+	</div>
+	<div class="panel-body">
+		<form class="form-horizontal js-staff-detail-form">
+			<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<div class="form-group required">
+					<label class="col-md-4 col-sm-4 control-label">
+						{{STAFFORG_STAFF_NAME}} </label>
+					<div class="col-md-8 col-sm-8">
+						<input name="staffName" class="form-control"
+								data-rule="{{STAFFORG_STAFF_NAME}}:required;length[1~60]">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="form-group required">
+					<label class="col-md-4 col-sm-4 control-label">
+						{{STAFFORG_STAFF_CODE}} </label>
+					<div class="col-md-8 col-sm-8">
+						 <input name="staffCode" class="form-control js-user-code"
+                                data-rule="{{STAFFORG_STAFF_CODE}}:required;length[1~60, true]"/>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">
+						{{STAFFORG_STAFF_PHONE}} </label>
+					<div class="col-md-8 col-sm-8">
+						<input name="phone" class="form-control" data-rule="length[1~30]" />
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="form-group js-email-div">
+					<label class="col-md-4 col-sm-4 control-label">
+						{{STAFFORG_STAFF_EMAIL}} </label>
+					<div class="col-md-8 col-sm-8">
+						<input name="email" class="form-control js-email" />
+					</div>
+				</div>
+			</div>
+			<div class="staff-attr-list"></div>
+			<div class="col-md-12 col-sm-12">
+				<div class="form-group">
+					<label class="col-md-2 col-sm-2 control-label">
+						{{STAFFORG_STAFF_ADDRESS}} </label>
+					<div class="col-md-10 col-sm-10">
+						<textarea name="address" class="form-control"
+								data-rule="length[0~255]" />
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-md-5 col-md-offset-2 col-sm-5 col-sm-offset-2">
+				<button type="button" class="btn btn-primary btn-min-width js-new">
+					{{COMMON_NEW}}</button>
+				<button type="button" class="btn btn-primary btn-min-width js-edit">
+					{{COMMON_EDIT}}</button>
+				<button type="button" class="btn btn-primary btn-min-width js-ok">
+					{{COMMON_OK}}
+				</button>
+				<button type="button" class="btn btn-default btn-min-width js-cancel">
+					{{COMMON_CANCEL}}
+				</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

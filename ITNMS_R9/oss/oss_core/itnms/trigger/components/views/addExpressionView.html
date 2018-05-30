@@ -1,0 +1,57 @@
+<div class="kdo-dialog ui-dialog dialog-md">
+    <div class="modal-header">
+        <h4 class="modal-title">监控项表达式</h4>
+    </div>
+    <div class="modal-body filterItemBody">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="form-group itemFrom required">
+                    <label for="items">监控项</label>
+                    <div class="selectItems">
+                        <input type="text" class="tranItem" name="" style="width: 87%" disabled>
+                        <span class="smaster_span">选择</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="form-group itemFrom required">
+                    <label for="triggerFunc">运算函数</label>
+                    <input type="text" class="triggerFunc filterInput tranItem" name="triggerFunc" disabled>
+                </div>
+                <div class="ExpFunc clearfix disnone" style="background: #e4e4e4;padding: 15px;">
+                    <div class="paracontemt">
+                    </div>
+                </div>
+            </div>
+            <div class="ExpFuncPara disnone">
+                <div class="col-xs-12">
+                    <div class="form-group itemFrom">
+                        <label>数据选取范围</label>
+                    </div>
+                </div>
+                <div class="col-xs-6 ExpFuncPara1 disnone">
+                    <div class="form-group itemFrom">
+                        <div class="depends">
+                            <span class="mgr4">基于<span style="color: red">*</span></span>
+                            <span class="mgr4"><label for="time"><input type="radio" value="time" id="time" checked name="check_rad">时长</label></span>
+                            <span><label for="count"><input type="radio" id="count" name="check_rad" value="count">数量</label></span>
+                        </div>
+                        <input type="text" class="lastOf filterInput tranItem SEC_OR_NUM" name="lastOf">
+                    </div>
+                </div>
+                <div class="col-xs-6 ExpFuncPara2 disnone" style="margin-top: 3px;">
+                    <div class="form-group itemFrom">
+                        <label>时移</label>
+                        <input type="text" class="timeShift filterInput tranItem TIME_SHIFT" name="timeShift">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn reset">cancel</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor">ok</div>
+            </div>
+        </div>
+    </div>
+</div>

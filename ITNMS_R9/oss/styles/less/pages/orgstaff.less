@@ -1,0 +1,57 @@
+/*------------------staff org----------------------*/
+@import "../classic/var.less";
+.checkbox {
+	position: absolute;
+	top: 9px;
+	right: 15px;
+	margin: 0;
+	text-align: right;
+	.staff-checkbox {
+		line-height: 24px;
+		> input[type="checkbox"]{
+			margin-top: 5px;
+		}
+	}
+	.staff-form-checkbox {
+		margin-bottom: 5px;
+		input[type="checkbox"]{
+			margin-top: 2px;
+		}
+	}
+}
+.grid-bar {
+	padding-left: 15px;
+	li {
+		list-style-type:none;
+	}
+}
+.ui-dialog {
+    .panel-body > .ui-jqgrid {
+        margin: -10px;
+        border-bottom: 0;
+        margin-bottom: 0;
+        .ui-jqgrid-titlebar,
+        .ui-jqgrid-hdiv,
+        .ui-jqgrid-bdiv,
+        .ui-jqgrid-pager {
+            border-left: 0;
+            border-right: 0;
+        }
+        .ui-jqgrid-hdiv {
+            border-top: 0;
+        }
+        .ui-jqgrid-titlebar {
+            border-top: 0;
+            border-bottom: 1px solid @border-default-color;
+        }
+    }
+}
+.slimScrollDiv ~ form {
+	padding-top: 5px;
+}
+.modal-body > .row .panel {
+	margin-bottom: 8px;
+}
+.modal-body .role-manage-page {
+	padding: 0;
+}

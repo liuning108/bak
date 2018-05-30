@@ -1,0 +1,201 @@
+/*----------------------------user------------------------------*/
+@import "../classic/var.less";
+@import "../mixins/mixins.less";
+.mvno-config-nav {
+	position: relative;
+	width: @mvno-config-nav-width;
+	height: @mvno-config-nav-height;
+	margin: @mvno-config-nav-margin;
+	&:before {
+		position: absolute;
+		top: @mvno-config-nav-line-top;
+		display: inline-block;
+		width: @mvno-config-nav-line-width;
+		height: @mvno-config-nav-line-height;
+		background-color: @mvno-config-nav-default-color;
+		content: '';
+	}
+	a {
+		position: absolute;
+		width: @mvno-config-nav-item-width;
+		color: @mvno-config-nav-default-color;
+		border: 0;
+		background: transparent;
+		&:hover,
+		&:focus {
+			background: transparent;
+			.config-nav-status-variant(@mvno-config-nav-hover-color);
+		}
+		&.visited {
+			.config-nav-status-variant(@mvno-config-nav-visited-color);
+		}
+		&.active,
+		&.active:hover,
+		&.active:focus,
+		&:active,
+		&:active:focus {
+			background: transparent;
+			.box-shadow(none);
+			.config-nav-status-variant(@mvno-config-nav-active-color);
+		}
+		&.collapse-first {
+			left: 0;
+		}
+		&.collapse-second {
+			left: @mvno-config-nav-item-width;
+			.mvno-config-nav-icon {
+				padding-top: @mvno-config-second-padding;
+				font-size: @mvno-config-second-font-size;
+			}
+		}
+		&.collapse-third {
+			left: (@mvno-config-nav-item-width * 2);
+		}
+		&.collapse-fourth {
+			left: (@mvno-config-nav-item-width * 3);
+			.mvno-config-nav-icon {
+				padding-top: @mvno-config-fourth-padding;
+				font-size: @mvno-config-fourth-fontsize;
+			}
+		}
+		.step-progress {
+			position: absolute;
+			left: 0;
+			top: @mvno-config-progress-top;
+			display: block;
+			width: @mvno-config-progress-width;
+			height: @mvno-config-progress-height;
+			background-color: @mvno-config-nav-default-color;
+			z-index: 0;
+		}
+		.mvno-config-nav-icon {
+			display: block;
+			width: @mvno-config-nav-icon-width;
+			height: @mvno-config-nav-icon-height;
+			color: @mvno-config-nav-default-color;
+			font-size: @mvno-config-nav-icon-fontsize;
+			line-height: @mvno-config-nav-fonticon-line-height;
+			margin: @mvno-config-nav-icon-margin;
+		}
+		.badge {
+			position: absolute;
+			top: @mvno-config-nav-badge-top;
+			left: @mvno-config-nav-badge-left;
+			display: block;
+			width: @mvno-config-nav-badge-width;
+			height: @mvno-config-nav-badge-height;
+			padding: 0;
+			margin-left: -@mvno-config-nav-badge-width/2;
+			font-size: @mvno-config-nav-badge-fontsize;
+			line-height: @mvno-config-nav-fonticon-line-height;
+			background: transparent;
+		}
+		.badge-circle {
+			color: @mvno-config-nav-default-color;
+			font-size: @mvno-config-nav-badge-fontsize;
+			line-height: @mvno-config-nav-fonticon-line-height;
+		}
+		.badge-num {
+			position: absolute;
+			left: @mvno-config-nav-badge-num-left;
+			top: @mvno-config-nav-badge-num-top;
+			width: @mvno-config-nav-badge-num-width;
+			height: @mvno-config-nav-badge-num-height;
+			line-height: @mvno-config-nav-badge-num-line-height;
+			font-size: @mvno-config-nav-badge-num-fontsize;
+			font-weight: normal;
+			text-align: center;
+		}
+		.badge-success {
+			position: absolute;
+			display: none;
+			left: @mvno-config-nav-badge-success-left;
+			top: @mvno-config-nav-badge-success-top;
+			color: @base-color;
+			font-size: @mvno-config-nav-badge-success-font-size;
+		}
+	}
+}
+.upload-logo {
+	height: @mvno-config-upload-logo-height;
+	padding: @mvno-config-upload-logo-padding;
+	text-align: center;
+	border: 1px solid @border-default-color;
+	border-radius: @border-radius-base;
+	overflow: hidden;
+}
+.fileinput-button.pull-right {
+	margin-left: @form-margin;
+}
+.mvno-config-module-group {
+	width: @mvno-config-module-group-width;
+	margin: 0 auto;
+	padding-top: (@padding-base + 5);
+	overflow: hidden;
+	.mvno-config-module {
+		position: relative;
+		width: @mvno-config-module-item-width;
+		margin-bottom: (@margin-base + 5);
+		color: @mvno-config-module-default-color;
+		text-align: center;
+		background-color: @mvno-config-module-default-bg;
+		border: 1px solid @mvno-config-module-default-border-color;
+		border-radius: (@border-radius-base + 7);
+		&.has-success {
+			.module-status-variant(@mvno-config-module-success-color);
+			.badge-warning {
+				display: none;
+			}
+		}
+		&.has-warning {
+			.module-status-variant(@mvno-config-module-warning-color);
+			.badge-success {
+				display: none;
+			}
+		}
+	}
+	.mvno-config-icon {
+		font-size: @mvno-config-module-icon-fontsize;
+		margin: (@margin-base + 5) auto 0;
+	}
+	.mvno-config-title {
+		font-size: @mvno-config-module-title-fontsize;
+		margin-bottom: (@margin-base + 5);
+	}
+	.badge {
+		position: absolute;
+		top: @mvno-config-module-badge-top;
+		right: @mvno-config-module-badge-right;
+		display: none;
+		width: @mvno-config-module-badge-width;
+		height: @mvno-config-module-badge-height;
+		padding: 0;
+		background: transparent;
+		.badge-circle {
+			position: absolute;
+			top: @mvno-config-module-badge-circle-top;
+			left: @mvno-config-module-badge-circle-left;
+			font-size: @mvno-config-module-badge-circle-fontsize;
+			color: @mvno-config-module-default-color;
+			z-index: 1;
+		}
+		.badge-success {
+			position: absolute;
+			top: @mvno-config-module-badge-success-top;
+			left: @mvno-config-module-badge-success-left;
+			font-size: @mvno-config-module-badge-success-fontsize;
+			z-index: 2;
+		}
+		.badge-warning {
+			position: absolute;
+			top: @mvno-config-module-badge-warning-top;
+			left: @mvno-config-module-badge-warning-left;
+			font-size: @mvno-config-module-badge-warning-fontsize;
+			z-index: 3;
+		}
+	}
+}
+.mvno-config-page-button {
+	padding: @padding-base;
+	text-align: right;
+}

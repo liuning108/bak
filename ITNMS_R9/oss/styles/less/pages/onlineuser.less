@@ -1,0 +1,18 @@
+/*------------------------online user monitor-------------------------*/
+@import "../classic/var.less";
+.user-monitor-page .panel-heading .pull-left {
+	margin-right: 8px;
+}
+.user-monitor-page #chart {
+	width: 100% !important;
+	height: 300px;
+	> div {
+		width: 100% !important;
+		canvas {
+			width: 100% !important;
+		}
+		~ div {
+			width: auto !important;
+		}
+	}
+}

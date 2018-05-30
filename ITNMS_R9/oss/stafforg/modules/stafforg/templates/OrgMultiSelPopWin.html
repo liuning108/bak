@@ -1,0 +1,32 @@
+<div class="ui-dialog dialog-md">
+    <div class="modal-header">
+        <h4 class="modal-title">{{STAFFORG_JOIN_TO_OTHER_ORG}}</h4>
+    </div>
+    <div class="modal-body">
+        <!-- <div class="searchbar-grid">
+            <div class="search-bar">
+                <div class="input-group js-searchbar" data-toggle="searchbar"></div>
+            </div>
+            <div class="grid js-org-grid grid-height-md"></div>
+        </div> -->
+        <div class="grid js-org-grid grid-height-md"></div>
+    </div>
+    <div class="modal-footer">
+        <form class="form-horizontal">
+            <div class="col-md-7 col-sm-7">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label">{{STAFFORG_DEFAULT_ORG}}</label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="orgId" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{STAFFORG_DEFAULT_ORG}}:required">
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary btn-min-width js-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>

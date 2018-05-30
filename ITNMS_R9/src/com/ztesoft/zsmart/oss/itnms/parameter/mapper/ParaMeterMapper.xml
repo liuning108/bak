@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ztesoft.zsmart.oss.itnms.parameter.mapper.ParaMeterMapper">
+
+	<sql id="Para_Meter_Column_List">
+		PARA_ID,PARA_VALUE,PARA_NAME,PARA_F_NAME,PARA_DESC
+	</sql>
+	<select id="selectParaMetersByIds"
+		resultType="com.ztesoft.zsmart.oss.itnms.parameter.dto.ParaMeterDto">
+		SELECT
+		<include refid="Para_Meter_Column_List" />
+		FROM KDO_PARAMETER A WHERE PARA_ID IN 
+		<foreach item="item" index="index" collection="paraIds" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+</mapper>

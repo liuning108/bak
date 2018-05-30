@@ -1,0 +1,34 @@
+<div class="ui-dialog dialog-xs">
+    <div class="modal-header">
+        <h4 class="modal-title">{{SELECT_MENU}}</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-md-2 control-label">{{MENU_ICON_SIZE}}</label>
+                <div class="col-md-10">
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="iconSize" value="big" checked="checked">{{MENU_ICON_BIG}}
+                        </label>
+                        <label>
+                            <input type="radio" name="iconSize" value="mid">{{MENU_ICON_MID}}
+                        </label>
+                        <label>
+                            <input type="radio" name="iconSize" value="small">{{MENU_ICON_SMALL}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item"></div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 text-right">
+                <button type="button" class="btn btn-min-width btn-primary js-ok" autofocus>{{COMMON_OK}}</button>
+                <button type="button" class="btn btn-min-width btn-default js-cancel" data-dismiss>{{COMMON_CANCEL}}</button>
+            </div>
+        </div>
+    </div>
+</div>

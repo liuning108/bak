@@ -1,0 +1,17 @@
+<div class="dropdown-menu">
+<ul class="portal-menu portal-menu_main">
+{{#recursive this}}
+<li class="portal-menu__item">
+    <a type={{type}} {{#ifCond type '===' '1'}} url={{url}} title='{{partyName}}' {{/ifCond}} menuId={{partyId}} privCode='{{privCode}}' menuType={{menuType}}>{{{partyName}}}</a>
+    {{#if children }}
+    <span class="iconfont icon-angle-right portal-menu__item_icon"></span>
+    <ul class="portal-menu_submenu">
+        {{{recursive children}}}
+    </ul>
+    {{/if}}
+</li>
+{{/recursive}}
+</ul>
+</div>
+
+

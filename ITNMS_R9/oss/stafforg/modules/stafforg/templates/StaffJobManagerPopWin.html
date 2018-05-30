@@ -1,0 +1,18 @@
+<div class="ui-dialog dialog-sm">
+    <div class="modal-header">
+        <h4 class="modal-title">{{STAFFORG_STAFF_JOB_MANAGER}}</h4>
+    </div>
+    <div class="modal-body">        
+        <div class="grid js-job-grid {{#if cssprop}}{{cssprop}}{{else}}grid-height-md{{/if}}"></div>
+    </div>
+    <div class="modal-footer">
+        {{#ifCond isEnable '==' 'true'}}
+        <button type="button" class="btn btn-primary btn-min-width js-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+        {{/ifCond}}
+    </div>
+</div>

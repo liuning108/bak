@@ -1,0 +1,59 @@
+<div class="{{#if header}}ui-dialog dialog-lg{{/if}}">
+{{#if header}}
+    <div class="modal-header">
+        <h4 class="modal-title">{{GRANT_HEADER_TITLE}}</h4>
+    </div>
+        <div class="modal-body">
+{{/if}}
+        <div class="role-manage-page">
+            <div class="grid grant-grid-u grid-height-sm"></div>
+            <!-- end of grid -->
+            <div class="js-transfer btn-separate-group">
+                {{#if multisel}}
+                    <button type="button" class="btn js-dd" disabled="disabled">
+                        <span class="iconfont icon-double-angle-down"></span>
+                    </button>
+                {{/if}}
+                    <button type="button" class="btn js-ds" disabled="disabled">
+                        <span class="iconfont icon-angle-down"></span>
+                    </button>
+                    <button type="button" class="btn js-us" disabled="disabled">
+                        <span class="iconfont icon-angle-up"></span>
+                    </button>
+                {{#if multisel}}
+                    <button type="button" class="btn js-ud" disabled="disabled">
+                        <span class="iconfont icon-double-angle-up"></span>
+                    </button>
+                {{/if}}
+            </div>
+    		<div class="js-dlh dispaly-none"></div>
+            <div class="grid grant-grid-d grid-height-sm"></div>
+            <!-- end of grid -->
+            
+            
+            <!-- <form class="form-horizontal">
+                <div class="form-group required">
+                    <label class="col-md-3 col-sm-3 control-label">{{USERMGR_DEFAULT_PORTAL}}</label>
+                    <div class="col-md-7 col-sm-7">
+                        <div class="input-group">
+                            <input name="portalId" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{USERMGR_DEFAULT_PORTAL}}:required">
+                        </div>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+{{#if header}}
+        </div>
+{{/if}}
+{{#if footer}}
+        <div class="modal-footer"></div>
+{{/if}}
+    <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-primary js-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div> -->
+</div>

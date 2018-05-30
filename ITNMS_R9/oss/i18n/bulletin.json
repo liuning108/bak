@@ -1,0 +1,4 @@
+[{
+	"bulletinconfig": "bulletin/modules/bulletinconfig/i18n/bulletinconfig",
+	"bulletinmgr": "bulletin/modules/bulletinmgr/i18n/bulletin"
+}]

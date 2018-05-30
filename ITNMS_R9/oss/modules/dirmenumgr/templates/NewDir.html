@@ -1,0 +1,41 @@
+<div class="ui-dialog dialog-sm">
+    <div class="modal-header">
+        <h4 class="modal-title">{{DIRMENUMGR_NEW_DIR}}</h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal js-dir-detail">
+            <div class="form-group required">
+                <label class="col-md-4 col-sm-4 control-label">
+                    {{DIRMENUMGR_PARENT_DIR_NAME}}
+                </label>
+                <div class="col-md-8 col-sm-8">
+                    <input name="parentDirName" class="form-control js-pdir-name" />
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="col-md-4 col-sm-4 control-label">
+                    {{DIRMENUMGR_DIR_NAME}}
+                </label>
+                <div class="col-md-8 col-sm-8">
+                    <input name="dirName" class="form-control js-dir-name" data-rule="{{DIRMENUMGR_DIR_NAME}}:required;length[1~255]" autocomplete="off"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4 col-sm-4 control-label">
+                    {{DIRMENUMGR_ICON_URL}}
+                </label>
+                <div class="col-md-8 col-sm-8">
+                    <input name="iconURL" class="form-control js-icon-url" />
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary btn-min-width js-ok" autofocus>
+        {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn-default btn-min-width js-cancel" data-dismiss>
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>

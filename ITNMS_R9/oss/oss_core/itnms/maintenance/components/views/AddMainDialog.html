@@ -1,0 +1,31 @@
+<div class="kdo-dialog ui-dialog dialog-md">
+  <div class="modal-header">
+    <h4 class="modal-title">{{EDIT_MAINTENANCE_PERIOD}}</h4>
+  </div>
+  <div class="modal-body filterHostBody">
+
+    <div class="kdoWizardSteps">
+      <div style="width:33.3%" class="active Step1" data-view='.Step1Page'>
+        <span>{{BASE_INFO}}</span><span class="host_red">*</span>
+      </div>
+      <div style="width:33.3%" class=" Step2" data-view='.Step2Page'>
+        <span>{{PERIOD}}</span><span class="host_red">*</span>
+      </div>
+      <div style="width:33.3%" class=" Step3" data-view='.Step3Page'>
+        <span>{{HOSTS_GROUPS}}</span><span class="host_red">*</span>
+      </div>
+    </div>
+    <div class="StepBody">
+       <div class="Step1Page"></div>
+       <div class="Step2Page" style="display:none"></div>
+       <div class="Step3Page" style="display:none"></div>
+    </div>
+    <div class="StepBtns">
+      <div class="btn maintenanceStep stepUp KdoBtn2 Kdo_mainColor hide">{{LAST_STEP}}</div>
+      <div class="RightDiv">
+        <div class="btn KdoBtn2 mainPageCancel">{{CANCEL}}</div>
+        <div class="btn stepNext KdoBtn2 Kdo_mainColor ">{{NEXT_STEP}}</div>
+      </div>
+    </div>
+
+  </div>

@@ -1,0 +1,47 @@
+<form class="form-horizontal js-mvno-assign">
+	<div class="row">
+		<div class="col-md-6 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNO_USER_NAME}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="userName" class="form-control userName">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<div class="form-group required">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNO_USER_CODE}}</label>
+				<div class="col-md-8 col-sm-8">
+					<input name="userCode" class="form-control userCode">
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<div class="form-group">
+				<label class="col-md-4 col-sm-4 control-label">{{MVNO_USER_PRIV}}</label>
+				<div class="col-md-8 col-sm-8">
+					<div class="input-group">
+						<input id="userMenus" name="userMenus" class="form-control userMenus">
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-6 col-md-offset-6 col-sm-6 col-sm-offset-6">
+			<div class="form-group">
+				<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4" style="display:none">
+					<button type="button" class="btn btn-primary btn-min-width js-mvno-edit">{{COMMON_EDIT}}</button>
+				</div>
+				<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm-offset-4" style="display:none">
+					<button type="button" class="btn btn-primary btn-min-width js-mvno-ok">
+						{{COMMON_OK}}
+					</button>
+					<button type="button" class="btn btn-default btn-min-width js-mvno-cancel">
+						{{COMMON_CANCEL}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

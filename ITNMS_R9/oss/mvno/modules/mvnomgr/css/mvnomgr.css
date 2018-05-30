@@ -1,0 +1,250 @@
+/*----------------------------user------------------------------*/
+.mvno-config-nav {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 0px auto 0 auto;
+}
+.mvno-config-nav:before {
+  position: absolute;
+  top: 70px;
+  display: inline-block;
+  width: 50%;
+  height: 5px;
+  background-color: #cccccc;
+  content: '';
+}
+.mvno-config-nav a {
+  position: absolute;
+  width: 25%;
+  color: #cccccc;
+  border: 0;
+  background: transparent;
+}
+.mvno-config-nav a:hover,
+.mvno-config-nav a:focus {
+  background: transparent;
+  color: #96e1f3;
+}
+.mvno-config-nav a:hover .mvno-config-nav-icon,
+.mvno-config-nav a:focus .mvno-config-nav-icon,
+.mvno-config-nav a:hover .badge-circle,
+.mvno-config-nav a:focus .badge-circle {
+  color: #96e1f3;
+}
+.mvno-config-nav a:hover .step-progress,
+.mvno-config-nav a:focus .step-progress {
+  background-color: #96e1f3;
+}
+.mvno-config-nav a.visited {
+  color: #a0daee;
+}
+.mvno-config-nav a.visited .mvno-config-nav-icon,
+.mvno-config-nav a.visited .badge-circle {
+  color: #a0daee;
+}
+.mvno-config-nav a.visited .step-progress {
+  background-color: #a0daee;
+}
+.mvno-config-nav a.active,
+.mvno-config-nav a.active:hover,
+.mvno-config-nav a.active:focus,
+.mvno-config-nav a:active,
+.mvno-config-nav a:active:focus {
+  background: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #2dc3e8;
+}
+.mvno-config-nav a.active .mvno-config-nav-icon,
+.mvno-config-nav a.active:hover .mvno-config-nav-icon,
+.mvno-config-nav a.active:focus .mvno-config-nav-icon,
+.mvno-config-nav a:active .mvno-config-nav-icon,
+.mvno-config-nav a:active:focus .mvno-config-nav-icon,
+.mvno-config-nav a.active .badge-circle,
+.mvno-config-nav a.active:hover .badge-circle,
+.mvno-config-nav a.active:focus .badge-circle,
+.mvno-config-nav a:active .badge-circle,
+.mvno-config-nav a:active:focus .badge-circle {
+  color: #2dc3e8;
+}
+.mvno-config-nav a.active .step-progress,
+.mvno-config-nav a.active:hover .step-progress,
+.mvno-config-nav a.active:focus .step-progress,
+.mvno-config-nav a:active .step-progress,
+.mvno-config-nav a:active:focus .step-progress {
+  background-color: #2dc3e8;
+}
+.mvno-config-nav a.collapse-first {
+  left: 0;
+}
+.mvno-config-nav a.collapse-second {
+  left: 25%;
+}
+.mvno-config-nav a.collapse-second .mvno-config-nav-icon {
+  padding-top: 5px;
+  font-size: 50px;
+}
+.mvno-config-nav a.collapse-third {
+  left: 50%;
+}
+.mvno-config-nav a.collapse-fourth {
+  left: 75%;
+}
+.mvno-config-nav a.collapse-fourth .mvno-config-nav-icon {
+  padding-top: 5px;
+  font-size: 50px;
+}
+.mvno-config-nav a .step-progress {
+  position: absolute;
+  left: 0;
+  top: 70px;
+  display: block;
+  width: 100%;
+  height: 5px;
+  background-color: #cccccc;
+  z-index: 0;
+}
+.mvno-config-nav a .mvno-config-nav-icon {
+  display: block;
+  width: 70px;
+  height: 60px;
+  color: #cccccc;
+  font-size: 60px;
+  line-height: 1;
+  margin: -5px auto 35px auto;
+}
+.mvno-config-nav a .badge {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  display: block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin-left: -12px;
+  font-size: 24px;
+  line-height: 1;
+  background: transparent;
+}
+.mvno-config-nav a .badge-circle {
+  color: #cccccc;
+  font-size: 24px;
+  line-height: 1;
+}
+.mvno-config-nav a .badge-num {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: normal;
+  text-align: center;
+}
+.mvno-config-nav a .badge-success {
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 8px;
+  color: #fff;
+  font-size: 12px;
+}
+.upload-logo {
+  height: 75px;
+  padding: 5px;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.fileinput-button.pull-right {
+  margin-left: 5px;
+}
+.mvno-config-module-group {
+  width: 95%;
+  margin: 0 auto;
+  padding-top: 20px;
+  overflow: hidden;
+}
+.mvno-config-module-group .mvno-config-module {
+  position: relative;
+  width: 88%;
+  margin-bottom: 20px;
+  color: #ccc;
+  text-align: center;
+  background-color: #fafafa;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+}
+.mvno-config-module-group .mvno-config-module.has-success {
+  color: #5cb85c;
+  border: 1px solid #5cb85c;
+}
+.mvno-config-module-group .mvno-config-module.has-success .badge {
+  display: block;
+}
+.mvno-config-module-group .mvno-config-module.has-success .badge-circle {
+  color: #5cb85c;
+}
+.mvno-config-module-group .mvno-config-module.has-success .badge-warning {
+  display: none;
+}
+.mvno-config-module-group .mvno-config-module.has-warning {
+  color: #f0ad4e;
+  border: 1px solid #f0ad4e;
+}
+.mvno-config-module-group .mvno-config-module.has-warning .badge {
+  display: block;
+}
+.mvno-config-module-group .mvno-config-module.has-warning .badge-circle {
+  color: #f0ad4e;
+}
+.mvno-config-module-group .mvno-config-module.has-warning .badge-success {
+  display: none;
+}
+.mvno-config-module-group .mvno-config-icon {
+  font-size: 60px;
+  margin: 20px auto 0;
+}
+.mvno-config-module-group .mvno-config-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.mvno-config-module-group .badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+}
+.mvno-config-module-group .badge .badge-circle {
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  font-size: 28px;
+  color: #ccc;
+  z-index: 1;
+}
+.mvno-config-module-group .badge .badge-success {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  font-size: 14px;
+  z-index: 2;
+}
+.mvno-config-module-group .badge .badge-warning {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 16px;
+  z-index: 3;
+}
+.mvno-config-page-button {
+  padding: 15px;
+  text-align: right;
+}

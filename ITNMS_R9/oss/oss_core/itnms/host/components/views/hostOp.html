@@ -1,0 +1,17 @@
+<div class="hostOp" >
+  <i class="glyphicon glyphicon-pencil hostUpdate"  data-id="{{id}}"></i>
+  <i class="glyphicon glyphicon-list-alt hostItems" data-id="{{id}}"></i>
+  <i class="glyphicon glyphicon-signal  hostGraphs" data-id="{{id}}"></i>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle host-moreIcons" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      <i class="glyphicon glyphicon-option-vertical"></i>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li data-id="{{id}}" class="toApplication"><a href="#">{{i18nData.APPLICATION}}</a></li>
+      <li data-id="{{id}}" class="toTemplate"><a href="#">{{i18nData.TEMPLATES}}</a></li>
+      <li data-id="{{id}}" class="toTrigger" ><a href="#">{{i18nData.TRIGGER}}</a></li>
+      <li data-id="{{id}}" class="toDiscovery"><a href="#">{{i18nData.DISCOVERY}}</a></li>
+      <li data-id="{{id}}" class="hostRemove"><a href="#">{{i18nData.DELETE}}</a></li>
+    </ul>
+  </div>
+</div>

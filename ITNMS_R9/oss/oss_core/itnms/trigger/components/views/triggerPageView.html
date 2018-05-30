@@ -1,0 +1,135 @@
+<div class="container-fluid itemPageContext filterItemBody">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="kdoWizardSteps">
+                <div style="width:33%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:33%" class="Step2" data-view='.Step2Page'><span>标签</span></div>
+                <div style="width:33%" class="Step3" data-view='.Step3Page'><span>依赖</span></div>
+            </div>
+            <div class="StepBody clearfix StepBodyOver">
+                <div class="Step1Page">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterName">Name</label>
+                                <input type="text" class="filterName filterInput tranItem" name="FilterName">
+                            </div>
+                            <div class="form-group itemFrom">
+                                <label for="url">URL</label>
+                                <input type="text" class="url filterInput tranItem" name="url">
+                            </div>
+                            <div class="rows">
+                                <div class="col-md-6 padd0">
+                                    <div class="form-group itemFrom required">
+                                        <label for="priority">告警级别</label>
+                                        <input type="text" class="priority filterInput tranItem" name="priority">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 padd0">
+                                    <div class="form-group itemFrom">
+                                        <label for="correlation_mode">恢复时关闭的告警</label>
+                                        <input type="text" class="correlation_mode filterInput tranItem" name="correlation_mode">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12" style="height: 62px">
+                                <div class="col-md-4">
+                                    <div class="form-group itemFrom">
+                                        <label for="manual_close">是否允许手动关闭</label><br />
+                                        <input type="checkbox" class="switch-btn manual_close" data-on-color="success" data-off-color="danger" value="">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group itemFrom">
+                                        <label for="status">是否启用</label><br />
+                                        <input type="checkbox" class="switch-btn status" data-on-color="success" data-off-color="danger" checked="" value="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group itemFrom">
+                                    <label for="comments">备注</label>
+                                    <textarea class="comments" style="height: 89px;border: 1px solid #cfdadd"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rows">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="type">告警事件生成</label>
+                                <input type="text" class="type filterInput tranItem" name="type">
+                            </div>
+                            <div class="form-group itemFrom ItemOp required">
+                                <label for="expression" style="width: 100%">
+                                告警事件触发条件表达式
+                                <div class="dropdown pull-right">
+                                    <button class="btn btn-default dropdown-toggle item-moreIcons" type="button" id="Itemdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">>></button>
+                                    <ul class="dropdown-menu" aria-labelledby="Itemdropdown">
+                                        <li class="addExpression" data-tag="express"><a href="javascript:;">插入监控项表达式</a></li>
+                                        <li class="addHong" data-tag="express"><a href="javascript:;">插入宏</a></li>
+                                    </ul>
+                                </div>
+                                </label>
+                                <textarea class="expression" style="height: 89px;border: 1px solid #cfdadd"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="recovery_mode">告警恢复依据</label>
+                                <input type="text" class="recovery_mode filterInput tranItem" name="recovery_mode">
+                            </div>
+                            <div class="form-group itemFrom ItemOp">
+                                <label for="recovery_expression">告警恢复条件表达式</label>
+                                <div class="dropdown pull-right recovery_state disnone">
+                                    <button class="btn btn-default dropdown-toggle item-moreIcons" type="button" id="Itemdropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">>></button>
+                                    <ul class="dropdown-menu" aria-labelledby="Itemdropdown">
+                                        <li class="addExpression" data-tag="recovery"><a href="javascript:;">插入监控项表达式</a></li>
+                                        <li class="addHong" data-tag="recovery"><a href="javascript:;">插入宏</a></li>
+                                    </ul>
+                                </div>
+                                <textarea class="recovery_expression" style="height: 89px;border: 1px solid #cfdadd" disabled></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step2Page disnone">
+                    <div class="rows disnone correlationstate">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="correlation_tag">恢复时关闭的告警事件匹配标签</label>
+                                <input type="text" class="correlation_tag filterInput tranItem" name="FilterName">
+                            </div>
+                        </div>
+                    </div>
+                    <div style="width: 650px;">
+                        <div style="padding: 5px;border-bottom: 3px solid #ccc;">
+                            <span><input type="checkbox" name="isNeed" id="isNeed"><label for="isNeed">需要</label></span>
+                            <button type="button" class="btn btn-info btn-xs pull-right Tagbtn addTag" disabled>添加</button>
+                        </div>
+                        <div class="TagListGrid kdoGrid"></div>
+                    </div>
+                </div>
+                <div class="Step3Page disnone">
+                    <div style="width: 650px;">
+                        <div style="padding: 5px;border-bottom: 3px solid #ccc;line-height: 25px">
+                            <span>依赖的触发器</span>
+                            <button type="button" class="btn btn-info btn-xs pull-right Tagbtn addTrigger">添加触发器</button>
+                            <button type="button" class="btn btn-info btn-xs pull-right Tagbtn delTriggers mgr4">批量删除</button>
+                        </div>
+                        <div class="DepListGrid kdoGrid"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="StepBtns">
+                <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+                <div class="fr">
+                    <div class="btn KdoBtn2 hostPageCancel">取消</div>
+                    <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

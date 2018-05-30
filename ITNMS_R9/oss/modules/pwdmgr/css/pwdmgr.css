@@ -1,0 +1,37 @@
+.pwd-security {
+  height: 60px;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 10px 0 0 44px;
+  background-color: #fafafa;
+}
+.pwd-security-error {
+  color: #e64737;
+}
+.pwd-security-warning {
+  color: #f39c12;
+}
+.pwd-security-suc {
+  color: #27ae60;
+}
+.pwd-security-higher {
+  color: #16A085;
+}
+.pwd-progressbar {
+  height: 9px;
+  width: 90%;
+  border-radius: 9px;
+  background-color: #dcdcdc;
+  border: 0;
+}
+.pwd-progressbar.error .ui-progressbar-value {
+  background-color: #e64737;
+}
+.pwd-progressbar.warning .ui-progressbar-value {
+  background-color: #f39c12;
+}
+.pwd-progressbar.success .ui-progressbar-value {
+  background-color: #27ae60;
+}
+.pwd-progressbar.higher .ui-progressbar-value {
+  background-color: #1abc9c;
+}

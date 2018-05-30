@@ -1,0 +1,272 @@
+@import "../classic/var.less";
+@import "var.less";
+@import "../classic/public.less";
+/*common*/
+html,body {
+  height: 100%;
+}
+.display-none {
+  display: none;
+}
+/*portalview*/
+.portal-navbar {
+  background-color: #313949;
+}
+.portal__nav > li:hover,
+.portal__nav > li.mouseenter {
+  background-color: #3c4557;
+}
+.portal-navbar .dropdown-menu {
+  border: 0;
+  box-shadow: none;
+}
+.portal-menu .portal-menu__item > a:hover,
+.portal-menu .portal-menu__item > a.ui-state-focus,
+.portal-menu .portal-menu__item > a.ui-state-active {
+  color: #fff;
+  background-color: #313949;
+}
+.portal-menu hr {
+  background-color: #3c4557;
+  border-color: #293141;
+}
+.portal-menu .portal-menu__item.active a {
+  background-color: #313949;
+}
+.portal-menu-searchbar .form-clear-input,
+.portal-menu-searchbar .form-control {
+  margin-top: 5px;
+}
+.portal__nav > li.portal-menu-searchbar:hover {
+  background: none;
+}
+/*menu*/
+.portal-menu {
+  border: 0;
+  background: #3c4557;
+}
+.portal-menu .portal-menu__item a {
+  padding: 12px 20px;
+  color: #fff;
+}
+.portal-search-menu__list {
+  border: 0;
+  background-color: #3c4557;
+}
+.portal-search-menu__list li {
+  color: #fff;
+}
+.portal-menu_submenu {
+  border: 0;
+  padding-top: 1px;
+}
+.portal-menu_submenu a {
+  background-color: #3c4557;
+}
+
+/*workspace*/
+.grid-stack-item-content > .panel {
+  margin-bottom: 0;
+}
+#tabs-WorkSpace {
+  padding: 8px 10px;
+  background-color: #f3f3f3;
+}
+/*tab*/
+#divContent .ui-tabs-panel {
+  padding: 8px;
+  position: relative;
+}
+#divContent > .portal-tabs-nav {
+  padding: 10px 5px;
+  border-bottom: 1px solid #efefef;
+}
+#divContent > .portal-tabs-nav li:before {
+  content: '';
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  top: 0.5px;
+  left: -3px;
+  background-color: #cecece;
+}
+#divContent > .portal-tabs-nav li:first-child:before {
+  display:none;
+}
+#divContent > .portal-tabs-nav li a {
+  padding: 0 15px 0 14px;
+  font-size: 13px;
+  line-height: 1;
+  height: 14px;
+  border-bottom-width: 0;
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#divContent > .portal-tabs-nav li a .ui-tabs-close {
+  position: absolute;
+  right: 3px;
+  top: -2px;
+  opacity: 0;
+}
+#divContent > .portal-tabs-nav li a:hover .ui-tabs-close {
+  color: #2496f5;
+  opacity: 1;
+}
+#divContent > .portal-tabs-nav li a:hover .ui-tabs-close,
+#divContent > .portal-tabs-nav li a:focus .ui-tabs-close {
+  color: #2496f5;
+}
+#divContent > .portal-tabs-nav li.ui-tabs-active a,
+#divContent > .portal-tabs-nav li.ui-tabs-active a:hover,
+#divContent > .portal-tabs-nav li.ui-tabs-active a:focus {
+  border-bottom: 0;
+}
+#divContent.ui-tabs  > .ui-tabs-panel {
+    position: relative;
+    padding: 7px 10px;
+}
+.ui-tabs.tabs-border > .ui-tabs-panel {
+  padding: 8px;
+}
+.ui-tabs .role-manage-page {
+  padding: 0;
+}
+.ui-tabs.tabs-border > .ui-tabs-panel .ui-jqgrid-view .ui-jqgrid-titlebar {
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border: 0;
+}
+.ui-tabs.tabs-border>.ui-tabs-nav {
+  padding: 0;
+}
+.btn-separate-group {
+  margin: 0;
+  padding: 8px 0;
+  display: block;
+  text-align: center;
+}
+.btn-separate-group > .btn,
+.btn-separate-group-vertical > .btn {
+  float: none;
+  padding: 0 8px;
+  min-width: 28px;
+  color: #fff;
+  background-color: #777;
+  border: 1px solid #e3e3e3;
+}
+.btn-separate-group > .btn:hover,
+.btn-separate-group-vertical > .btn:hover,
+.btn-separate-group > .btn:focus,
+.btn-separate-group-vertical > .btn:focus,
+.btn-separate-group > .btn:active,
+.btn-separate-group-vertical > .btn:active,
+.btn-separate-group > .btn:active:focus,
+.btn-separate-group-vertical > .btn:active:focus {
+  color: #fff;
+  border-color: #d9d9d9;
+  background-color: #656565;
+}
+.btn-separate-group-vertical>.btn[disabled],
+.btn-separate-group>.btn[disabled]{
+  background-color: #fafafa;
+  color: #777;
+  opacity: 1;
+}
+.role-priv-btn-container {
+  padding-top: 129px !important;
+}
+.ui-tabs .role-manage-page .role-subgrid {
+  border-top: 1px solid #efefef;
+  margin-top: 34px;
+  padding-top: 8px;
+}
+.ui-tabs .role-component-grid {
+  margin-left: -10px;
+}
+.ui-dialog .modal-body .role-manage-page .ui-tabs > .ui-tabs-nav,
+.ui-dialog .modal-body .role-subgrid {
+  border-color: #dcdcdc !important;
+}
+/*dialog*/
+.modal-title {
+  font-size: 13px;
+}
+/*panel*/
+.panel {
+  margin-bottom: 0;
+}
+.panel .panel-body > form {
+  margin-bottom: -5px;
+  padding: 0;
+  overflow: hidden;
+}
+.form-group {
+  margin-bottom: 8px;
+}
+.panel .panel-body {
+  padding: 11px 15px;
+}
+/*layout*/
+#divContent {
+  background: transparent;
+}
+/*grid*/
+.ui-nav-btn-group>.ui-nav-button {
+  border-radius: 0;
+}
+.panel-default > .ui-jqgrid {
+  border-bottom: 0;
+}
+.panel-default > .ui-jqgrid .ui-jqgrid-titlebar {
+  border: 0;
+}
+.panel-default > .ui-jqgrid .ui-jqgrid-hdiv,
+.panel-default > .ui-jqgrid .ui-jqgrid-bdiv,
+.panel-default > .ui-jqgrid .ui-jqgrid-pager {
+  border-left: 0;
+  border-right: 0;
+}
+.ui-jqgrid-view .ui-jqgrid-btable .ui-inline-operate > span,
+.icon-group-embed > span {
+  font-size: 13px;
+  line-height: 1;
+  margin-right: 13%;
+}
+.ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow td {
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+/*panel*/
+.user-monitor-page .panel-default > .panel-heading {
+  background-color: #fff;
+}
+.user-monitor-page .ui-jqgrid .ui-jqgrid-hdiv {
+  border-top: 0;
+}
+.ui-tabs.tabs-border.js-app-tab > .ui-tabs-panel {
+  padding: 0;
+}
+.ui-tabs.tabs-border.js-app-tab > .ui-tabs-panel > .comprivroot {
+  padding: 8px;
+}
+/*工作台*/
+.grid-stack-item-content .workspace-list .col-md-3:hover,
+.grid-stack-item-content .workspace-list .col-md-2:hover,
+.grid-stack-item-content .workspace-list .col-md-1:hover {
+  background-color: #2596f5;
+}
+.grid-stack-item .grid-stack-item-content .thumbnail:hover {
+  background-color: #2596f5;
+}
+.grid-stack-item-content .thumbnail a {
+  color: #2596f5;
+}
+.grid-stack-item .grid-stack-item-content .text-info {
+  color: #2596f5;
+}
+.grid-stack-item .grid-stack-item-content .list-group-item:hover {
+  color: #2596f5;
+}

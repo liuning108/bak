@@ -1,0 +1,81 @@
+<div class="ui-dialog dialog-xl">
+	<div class="modal-header">
+		<h4 class="modal-title">{{USERMGR_SEL_USER}}</h4>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal js-user-query">
+			<div class="row">
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_NAME}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="userName" class="form-control">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_USER_CODE}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="userCode" class="form-control">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{USERMGR_DEFAULT_PORTAL}}</label>
+					<div class="col-md-8 col-sm-8">
+						<input name="portalId" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{COMMON_STATE}}</label>
+					<div class="col-md-8 col-sm-8">
+						<select name="state" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="A" selected="selected">{{COMMON_ACTIVE}}</option>
+							<option value="X">{{COMMON_INACTIVE}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<label class="col-md-4 col-sm-4 control-label">{{COMMON_LOCKED}}</label>
+					<div class="col-md-8 col-sm-8">
+						<select name="isLocked" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+							<option value="Y">{{COMMON_YES}}</option>
+							<option value="N">{{COMMON_NO}}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<!-- col-md-4 end -->
+			<div class="col-md-4 col-sm-6">
+				<div class="form-group">
+					<div class="col-md-8 col-md-offset-4 col-sm-8 col-sm--offset-4">
+						<button type="button" class="btn btn-min-width btn-primary js-query">{{COMMON_QUERY}}</button>
+						<button type="reset" class="btn btn-min-width btn-default">{{COMMON_RESET}}</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</form>
+		<div class="grid js-user-grid gridpage-height-md"></div>
+	</div>
+	<div class="modal-footer">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<div class="text-right">
+					<button type="button" class="btn btn-min-width btn-primary js-ok">{{COMMON_OK}}</button>
+					<button type="button" class="btn btn-min-width btn-default js-cancel" data-dismiss>{{COMMON_CANCEL}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

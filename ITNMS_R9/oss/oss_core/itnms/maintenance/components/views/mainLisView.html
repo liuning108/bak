@@ -1,0 +1,60 @@
+<div class="kdo-right-page">
+  <div class="kdo-right-page-header">
+    <div class="title">{{MAINTENANCE_PERIODS}}</div>
+    <div class="kdoTopBtn">
+       <div class="kdoBtn addMainPerio">
+         <i class="glyphicon glyphicon-plus "></i>{{CREATE_MAINTENANCE_PERIOD}}
+       </div>
+    </div>
+  </div>
+
+  <div class="kdo-right-page-cotent">
+
+      <div class="filterArea">
+       <div class="kdoGrupids">
+         <input type="text" name="combobox1" class="form-control comboboxGrupids ">
+       </div>
+
+       <div class="filterComands main-filterCommands">
+          <div class="form-inline">
+             <div class="form-group">
+               <div class="input-group">
+                    <input type="text" class="form-control mainSearchText" placeholder="{{SEARCH}}">
+                    <div class="input-group-addon mainSearch">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                </div>
+             </div>
+             <div class="dropdown maintenanceDropDown">
+               <button class=" btn dropdown-toggle host-moreIcons" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                 <i class="glyphicon glyphicon-filter"></i>
+               </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                 <li data-state="Any" class="mainStateLi">
+
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{ANY}}</a>
+                 </li>
+                 <li data-state="ACTIVE" class="mainStateLi">
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{ACTIVE}}</a>
+                 </li>
+                 <li data-state="APPROACH" class="mainStateLi">
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{APPROACHING}}</a>
+                 </li>
+                 <li data-state="EXPIRED" class="mainStateLi">
+                   <a href="#"><i class="glyphicon glyphicon-ok"></i>{{EXPIRED}}</a>
+                 </li>
+               </ul>
+             </div>
+          </div>
+
+       </div>
+
+      </div>
+      <div class="mainListGrid kdoGrid">
+      </div>
+      <div  class="mainListBtn col-md-12">
+         <button type="button"   class="btn btn-default kdoPageBtn delMain" data-bis="delMain">{{DELETE}}</button>
+      </div>
+  </div>
+
+</div>

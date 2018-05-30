@@ -1,0 +1,193 @@
+<div class="grid js-widget-grid grid-height-xs"></div>    
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">{{COMMON_DETAIL}}</h4>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal js-widget-detail-form">
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label" title="{{PORTLET_NAME}}">
+                        {{PORTLET_NAME}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="portletName" class="form-control" data-rule="{{PORTLET_NAME}}:required;length[1~60]">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTAL_URL}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="url" class="form-control" data-rule="{{PORTAL_URL}}:required;length[1~255]"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_DEFAULT_TITLE}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="defaultTitle" class="form-control" data-rule="{{PORTLET_DEFAULT_TITLE}}:required;length[1~255]"/>
+                    </div>
+                </div>
+            </div>      
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_TITLE}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="showHeader" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>                             
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required stateSel">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_STATE}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="state" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="A">{{COMMON_ACTIVE}}</option>
+                            <option value="X">{{COMMON_INACTIVE}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_TYPE}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="typeId" id="type" class="form-control" type="text" data-rule="required">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group required">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_IS_PUBLIC}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="isPublic" class="form-control" placeholder="{{COMMON_PLS_SEL}}" data-rule="{{PORTLET_IS_PUBLIC}}:required;">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_MAX}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="maxable" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_EXPAND}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="collapsable" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_CLOSE}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="closable" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>            
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_PARAM}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="settable" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ALLOW_REFRESH}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <select name="refreshable" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+                            <option value="Y">{{COMMON_YES}}</option>
+                            <option value="N">{{COMMON_NO}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_DEFAULT_PARAM}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="defaultParam" class="form-control"/>
+                    </div>
+                </div>
+            </div>   
+            <div class="col-md-6 col-sm-6">
+                <div class="form-group">
+                    <label class="col-md-6 col-sm-6 control-label">
+                        {{PORTLET_ICON}}
+                    </label>
+                    <div class="col-md-6 col-sm-6">
+                        <input name="icon" class="form-control"/>
+                    </div>
+                </div>
+            </div>   
+                      
+        </form>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-9">
+                    <button type="button" class="btn btn-primary btn-min-width js-new">
+                        {{COMMON_NEW}}
+                    </button>
+                    <button type="button" class="btn btn-primary btn-min-width js-edit">
+                        {{COMMON_EDIT}}
+                    </button>
+                    <button type="button" class="btn btn-primary btn-min-width js-ok">
+                        {{COMMON_OK}}
+                    </button>
+                    <button type="button" class="btn btn-default btn-min-width js-cancel">
+                        {{COMMON_CANCEL}}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

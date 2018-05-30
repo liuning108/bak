@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+
+	<property name="SQL_LEVEL" value="INFO"/>
+    <property name="SERVICE_LEVEL" value="ERROR"/>
+    <property name="RPC_LEVEL" value="ERROR"/>
+    <property name="BOOT_LEVEL" value="DEBUG"/>
+    <property name="BUF_LEVEL" value="DEBUG"/>
+    <property name="APP_LEVEL" value="DEBUG"/>
+    <property name="OPB_LEVEL" value="DEBUG"/>
+    
+    <property name="SQL_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Sql.log"/>
+    <property name="SERVICE_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Service.log"/>
+    <property name="RPC_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}RPC.log"/>
+    <property name="BOOT_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Boot.log"/>
+    <property name="BUF_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/${z_app}Buf.log"/>
+    <property name="OPB_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/opb.log"/>
+    <property name="APP_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/oss.log"/>
+
+
+	<include resource="log/logback-base-v9c.xml" />
+
+	<property name="ROOT_LEVEL" value="WARN" />
+	
+	<property name="PORTAL_LEVEL" value="INFO" />
+
+	<property name="POT_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/pot.log" />
+
+	<!-- <appender name="HOUND_LOG" class="com.ztesoft.zsmart.hound.client.appender.HoundLogBackAppender">
+        <encoder>
+            <charset>utf-8</charset>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %message%n</pattern>
+        </encoder>
+    </appender> -->
+    
+	<appender name="POT_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${POT_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${POT_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="OPB_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${OPB_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${OPB_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="APP_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${APP_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${APP_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="APP_LOG_ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+		<discardingThreshold>0</discardingThreshold>
+		<queueSize>512</queueSize>
+		<appender-ref ref="POT_LOG" />
+		<includeCallerData>true</includeCallerData>
+	</appender>
+
+	<logger name="com.ztesoft.zsmart.pot" level="${PORTAL_LEVEL}" additivity="false">
+		<appender-ref ref="POT_LOG" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+	
+	<logger name="org.mybatis" level="${PORTAL_LEVEL}" additivity="false">
+		<appender-ref ref="POT_LOG" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+	
+	<logger name="org.springframework" level="${PORTAL_LEVEL}" additivity="false">
+		<appender-ref ref="POT_LOG" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+	
+	<logger name="com.ztesoft.zsmart.oss.opb" level="${OPB_LEVEL}" additivity="false">
+		<appender-ref ref="OPB_LOG" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+	
+	<logger name="com.ztesoft.zsmart.oss" level="${OPB_LEVEL}" additivity="false">
+		<appender-ref ref="APP_LOG" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+	
+	<root level="${ROOT_LEVEL}">
+		<appender-ref ref="POT_LOG" />
+	</root>
+	
+</configuration>
+
+
+
+

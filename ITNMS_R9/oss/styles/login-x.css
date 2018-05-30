@@ -1,0 +1,131 @@
+.login {
+  background: #3e3e49 !important;
+  height: 100%;
+}
+.login-text {
+  float: left;
+  width: 390px;
+  height: 321px;
+  margin: 50px 0px 0px -65px;
+}
+.login-text ul {
+  padding-left: 0;
+  list-style: none;
+}
+.login-text__icon {
+  width: 66px;
+  height: 66px;
+  float: left;
+}
+.login-text__con {
+  width: 324px;
+  min-height: 105px;
+  float: left;
+}
+.login-text__con-head {
+  font-size: 15px;
+  color: #fff;
+}
+.login-text__con-body {
+  font-size: 12px;
+  color: #d9f4fe;
+  padding-top: 15px;
+}
+.texticon-design {
+  background: url("../modules/images/portal-x/texticon-design.png") no-repeat 0 4px;
+}
+.texticon-doing {
+  background: url("../modules/images/portal-x/texticon-doing.png") no-repeat 0 4px;
+}
+.texticon-monitor {
+  background: url("../modules/images/portal-x/texticon-monitor.png") no-repeat 0 4px;
+}
+#loginForm button[type='submit'] {
+  background: #24b66d !important;
+  border: 0 !important;
+}
+#loginForm input {
+  background: #eaeaea !important;  
+}
+.login-box {
+  width: 327px;
+  margin: 50px 0 0 52px;
+  padding: 20px;
+  background-color: #eaeaea;
+  border-radius: 3px;
+  float: left;
+}
+.login-box .login-box__title {
+  position: relative;
+  font-size: 26px;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.login-box .login-box__title .login-language {
+  font-size: 21px;
+  padding-top: 5px;
+}
+.login-box .form-error {
+  font-size: 12px;
+  color: #fb6e52;
+}
+.login-box form {
+  padding: 0;
+  border: 0;
+}
+
+.login-box form .btn {
+  padding: 10px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.login-box form input[type="checkbox"] {
+  margin: -5px 5px 0 0;
+  vertical-align: middle;
+}
+.login-box .form-control {
+  border: 1px solid #ababab;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  padding: 7px 35px;
+  height: 32px;
+  font-size: 15px;
+  border-radius: 0 0 3px 3px ;
+  box-shadow: none;
+}
+.login-box .form-group {
+  position: relative;
+  margin: 14px -4px;
+}
+.login .login__logo {
+  position: absolute;
+  left: 14px;
+  top: 20px;
+  z-index: 1;
+}
+.login .login__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -226.5px 0 0 -368.5px;
+  width: 875px;
+}
+.login .login__footer {
+  position: absolute;
+  bottom: 0;
+  height: 110px;
+  line-height: 130px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  z-index: 3;
+}
+.form-prompt {
+  position: absolute;
+  top: 3px;
+  width: 26px;    
+  line-height: 26px;
+  text-align: center;
+}

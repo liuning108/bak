@@ -1,0 +1,20 @@
+<div class="mvno-config-module-group">
+	{{#each list}}
+	{{#ifCond enable '==' true }}
+	<div class="col-md-2">
+		<div {{#ifCond done '==' true }} class="mvno-config-module js-business-notice has-success" {{else}} class="mvno-config-module js-business-notice has-warning" {{/ifCond}} data-url={{url}}>
+			<div class="mvno-config-icon iconfont icon-authorize"></div>
+			<div class="mvno-config-title">{{appCode}}</div>
+			<div class="badge">
+				<span class="badge-circle iconfont icon-circle"></span>
+				<span class="badge-success iconfont icon-good"></span>
+				<span class="badge-warning iconfont icon-delete"></span>
+			</div>
+		</div>
+	</div>
+	{{/ifCond}}
+	{{/each}}
+</div>
+<!-- <div class="mvno-config-page-button">
+	<button type="button" class="btn btn-primary btn-min-width">{{COMMON_FINISH}}</button>
+</div> -->

@@ -1,0 +1,46 @@
+<div class="ui-dialog">
+	<div class="modal-header">
+		<div>
+			<img src="static/modules/images/LoginLogo.png" class="pull-left">
+		</div>
+		<div class="m-t-md m-r-md text-right">
+			<h3 class="js-title">{{ABOUT_TITLE}} {{masterProd.moduleName}}</h3>
+		</div>
+	</div>
+	
+	<div class="modal-body" style="max-height: 410px">
+		<div class="row">
+			<div class="col-md-12">
+				<h3 class="m-t-sm js-solution">{{masterProd.moduleName}}_{{masterProd.versionNo}} <span class='m-l-md' style='font-size: 12px'>{{masterProd.updateDate}}</span></h3>
+			</div>
+			<div class="col-md-6">
+				<h4 class="text-info">{{INCLUDE_PRODUCT}}:</h4>
+			</div>
+		</div>
+		
+		<div class="wrapper bg-light dark js-product">
+			<div class="row" style="height:100px">
+			{{#each prods}}
+				<div class='col-md-5'><p>{{moduleName}}_{{versionNo}}</p></div>
+				<div class='col-md-7'><p>{{updateDate}}</p></div>
+			{{/each}}
+			</div>
+		</div>
+		<div class="m-t-md">
+			<h4>{{COPYRIGHT}}</h4>
+		</div>
+		<hr>
+		<div class="text">
+			<p class="js-webcome">{{WEBCOME}}</p>
+			<p>{{THANK_USING}}</p>
+		</div>
+	</div>
+	
+	<div class="modal-footer">
+		<div class="panel-body">
+			<div class="col-md-12 text-right">
+				<button type="button" class="btn btn-min-width btn-primary js-ok" title="OK"  data-dismiss>OK</button>
+			</div>
+		</div>
+	</div>
+</div>

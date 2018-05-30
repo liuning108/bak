@@ -1,0 +1,53 @@
+<div class="kdo-right-page">
+    <div class="kdo-right-page-header">
+        <div class="title"><i class="glyphicon glyphicon-arrow-left itemClose" style="cursor: pointer;"></i></span>{{TRIGGER}}</div>
+        <div class="kdoTopBtn">
+            <div class="kdoBtn createTrigger"><i class="glyphicon glyphicon-plus"></i>{{CREATE_TRIGGER}}</div>
+        </div>
+    </div>
+    <div class="kdo-right-page-cotent">
+        <div class="filterArea filterItemArea">
+            <div class="inputBox">
+                <div class="lBox">
+                    <div class="inputLeft">
+                        <input class="form-control disabledInput" id="disabledInput" type="text" placeholder="该输入框禁止输入..." disabled>
+                    </div>
+                    <div class="inputbottom">
+                        <span class="glyphicon glyphicon-triangle-bottom"></span>
+                    </div>
+                    <div class="popSbox">
+                        <ul class="popSboxUl">
+                            <li>
+                                <div class="col-md-4 text-right mt4">{{HOUST_GROUP}}</div>
+                                <div class="col-md-8">
+                                    <input type="text" name="combobox1" class="comboboxGroups">
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-md-4 text-right mt4">{{HOUST}}/{{TEMPLATE}}</div>
+                                <div class="col-md-8">
+                                    <input type="text" name="combobox2" class="comboboxhost">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="rSearch"><i class="glyphicon glyphicon-search" id="rSearch"></i></div>
+            </div>
+            <div class="filterComands filterItem">
+                <i class="glyphicon glyphicon-filter filterItemList"></i>
+            </div>
+        </div>
+        <div class="ItemListGrid kdoGrid">
+        </div>
+        <div class="ItemButtom clearfix">
+            <div id="itemEditBtn" class="col-md-12">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-default" id="items_on" disabled="">{{ENABLE}}</button>
+                    <button type="button" class="btn btn-default" id="items_off" disabled>{{DISABLE}}</button>
+                    <button type="button" class="btn btn-default" id="items_del" disabled>{{DELETE}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

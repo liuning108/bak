@@ -1,0 +1,188 @@
+/*-----------------pagesidebar--------------------------*/
+
+.ui-sidebar-wrapper {
+    position: relative;
+}
+
+.ui-sidebar {
+    background-color: #43454c;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ui-sidebar .ui-sidebar-menu {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.ui-sidebar .ui-sidebar-menu > li > a {
+    padding: 10px 15px 10px 15px;
+}
+.ui-sidebar .ui-sidebar-menu .sub-menu > li > a {
+    padding: 10px 15px 10px 30px;
+}
+.ui-sidebar .ui-sidebar-menu .sub-menu .sub-menu > li > a {
+    padding: 10px 15px 10px 45px;
+}
+.ui-sidebar .ui-sidebar-menu .sub-menu .sub-menu .sub-menu> li > a {
+    padding: 10px 15px 10px 60px;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a {
+    color: #adbece!important;
+    font-size: 12px;
+    border-top: 1px solid transparent;
+    border-color: rgba(255, 255, 255, 0.05);
+    transition: color .3s ease-in-out 0s;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a:hover {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    color: #f4f3f9!important;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a > i.icon {
+    width: 50px!important;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a > span.title {
+    margin-left: -10px;
+    line-height: 20px;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a > .arrow {
+    font-size: 14px!important;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a:hover > .arrow {
+    opacity: 1!important;
+}
+
+
+.ui-sidebar .ui-sidebar-menu  li > a:hover,
+.ui-sidebar .ui-sidebar-menu  li.active > a,
+.ui-sidebar .ui-sidebar-menu  li:hover > a,
+.ui-sidebar .ui-sidebar-menu  li.open > a {
+    background-color: rgba(0, 0, 0, 0.1) !important
+}
+
+.ui-sidebar .ui-sidebar-menu > li:hover a > i > b {
+    position: absolute;
+    left: -41px;
+    width: 43px;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+    -webkit-transition: left .25s;
+    transition: left .25s;
+}
+
+.ui-sidebar .ui-sidebar-menu > li a:hover > i > b {
+    background-color: #78d23c;
+}
+
+.ui-sidebar .ui-sidebar-menu li > a > i.icon {
+    margin: -11px 8px -11px -15px;
+    line-height: 40px;
+    float: left;
+    font-size: 20px;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li {
+    border-left: 0;
+    background-color: #43454c;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li:hover {
+    color: #f4f3f9;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li:hover > a {
+    background-color: rgba(0, 0, 0, 0.1) !important;
+    color: #f4f3f9;
+}
+
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li:hover .sub-menu {
+    background-color: #43454c;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li > a {
+    background-color: transparent;
+    color: #f4f3f9;
+    padding: 0px 0px;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li > a > i {
+    border-right:none;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li > a > span {
+    line-height: 40px;
+}
+
+.ui-sidebar .ui-sidebar-menu.ui-sidebar-menu-closed > li:hover > a .title {
+    padding-left: 10px;
+}
+
+.ui-sidebar-left .page-container-wrapper {
+    margin-left: 230px;
+}
+
+.ui-sidebar-left.ui-sidebar-closed .page-container-wrapper {
+    margin-left: 50px;
+}
+
+.page-container {
+    float: left;
+    width: 100%;
+}
+
+.ui-sidebar .js-menu-right.icon-arrow-right:before {
+    content: "";
+}
+
+.ui-sidebar .js-menu-right.icon-arrow-down:before {
+    content: "";
+}
+
+.ink {
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100%;
+    -ms-transform: scale(0);
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    z-index: 999;
+}
+
+.ink.animate {
+    animation: ripple 0.35s linear;
+}
+
+@keyframes ripple {
+    100% {
+        opacity: 0;
+        -ms-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+}
+
+.navbar_head {
+    background-color: #2e3e4e
+}
+
+.navbar_head .portalMenu > li.active a,
+.navbar_head .portalMenu > li.active a:hover {
+    background-color: #2dc3e8;
+    color: #fff;
+}
+
+.portal__nav_icon {
+    padding: 15px 15px;
+}
+

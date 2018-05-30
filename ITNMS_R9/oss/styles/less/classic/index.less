@@ -1,0 +1,105 @@
+@import "var.less";
+@import "public.less";
+/*grid样式调整,后面迁移到fish的皮肤里*/
+.ui-inline span,
+.icon-group-embed > span {
+  line-height: 1;
+}
+.grid-height-lg {
+  height: 472px;
+}
+.grid-height-md {
+  height: 327px;
+}
+.grid-height-sm {
+  height: 182px;
+}
+.gridpage-height-lg {
+  height: 507px;
+}
+.gridpage-height-md {
+  height: 362px;
+}
+.gridpage-height-sm {
+  height: 217px;
+}
+.ui-dialog .grid-height-lg .ui-jqgrid-bdiv,
+.ui-dialog .gridpage-height-lg .ui-jqgrid-bdiv {
+  height: 435px !important;
+}
+.ui-dialog .grid-height-md .ui-jqgrid-bdiv,
+.ui-dialog .gridpage-height-md .ui-jqgrid-bdiv {
+  height: 290px !important;
+}
+.ui-dialog .grid-height-sm .ui-jqgrid-bdiv,
+.ui-dialog .gridpage-height-sm .ui-jqgrid-bdiv {
+  height: 145px !important;
+}
+/*portalview*/
+.portal__nav > .open,
+.portal__nav > .open:hover {
+  box-shadow: 0 -3px 2px 2px #353535;
+}
+.portal__nav > li:hover,
+.portal__nav > li.mouseenter {
+  background-color: #43454c;
+  box-shadow: 0 -3px 2px 2px #353535;
+}
+.portal__nav > .portal-menu-searchbar:hover {
+  box-shadow: none;
+}
+.portal-menu-searchbar .btn-default,
+.portal-menu-searchbar .form-control,
+.portal-menu-searchbar .btn-default:focus,
+.portal-menu-searchbar .form-control:focus {
+  box-shadow: none;
+}
+.portal-menu-searchbar .form-clear-input {
+  margin-top: -1px;
+}
+/*menu*/
+.portal-menu > .portal-menu__item > a:hover,
+.portal-menu > .portal-menu__item > a:focus {
+  background-color: #f8f8f8;
+  color: #646464;
+}
+.portal-menu__item a {
+  padding: 10px 20px;
+  color: #646464;
+}
+.portal-menu__item.active > a {
+  color: #646464;
+  background-color: #f8f8f8;
+}
+.portal-menu_main > .portal-menu__item > a {
+  border-left: 3px solid transparent;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.portal-menu_main > .portal-menu__item > a:hover,
+.portal-menu_main > .portal-menu__item > a.ui-state-focus,
+.portal-menu_main > .portal-menu__item > a.ui-state-active {
+  background-color: #f8f8f8;
+  border-left: 3px solid #2dc3e8;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  color: #646464;
+}
+.portal-menu_submenu {
+  border: 1px solid #c6c6c6;
+  border-left: 0;
+  font-size: 13px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.175);
+}
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a:hover,
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a.ui-state-active,
+.portal-menu_main .portal-menu_submenu > .portal-menu__item > a.ui-state-focus {
+  background-color: #d1eff6;
+  color: #646464;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.portal-menu_submenu .portal-menu__item > a {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}

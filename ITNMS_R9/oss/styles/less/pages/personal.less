@@ -1,0 +1,73 @@
+/*-----------------personal---------------------*/
+@import "../classic/var.less";
+.personal-avatar{
+	float: left;
+	padding: 10px 12px 0 22px;
+	>img{
+		width: 100px;
+		height: 100px;
+	}
+	a {
+		margin-top: 8px;
+		display:block;
+		text-align: center;
+	}
+}
+.personal-profile{
+	float: right;
+	width: 68%;
+	form.form-horizontal {
+		border: 0;
+	}
+}
+#tabs-log .ui-jqgrid-hdiv {
+	border-top: 0;
+}
+#tabs-log .grid {
+	width: 99.99%;
+}
+.pwd-security{
+	height: 60px;
+	border-bottom: 1px solid @border-default-color;
+	padding: 10px 0 0 44px;
+	background-color: @bg-disabled-color;
+}
+.pwd-security-error{
+	color: @error-color;
+}
+.pwd-security-warning{
+	color: @warning-color;
+}
+.pwd-security-suc{
+	color: @suc-color;
+}
+.pwd-security-higher{
+	color: #16A085;
+}
+.pwd-progressbar{
+	height: 9px;
+	width: 90%;
+	border-radius: 9px;
+	background-color: #dcdcdc;
+	border: 0;
+	&.error{
+		.ui-progressbar-value{
+			background-color: @error-color;
+		}
+	}
+	&.warning{
+		.ui-progressbar-value{
+			background-color: @warning-color;
+		}
+	}
+	&.success{
+		.ui-progressbar-value{
+			background-color: @suc-color;
+		}
+	}
+	&.higher{
+		.ui-progressbar-value{
+			background-color: #1abc9c;
+		}
+	}
+}

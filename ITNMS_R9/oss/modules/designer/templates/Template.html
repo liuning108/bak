@@ -1,0 +1,10 @@
+{{#each list}}
+<li>
+    <a class='panel' default={{isDefault}} {{#ifCond isPublic '==' 'N'}} removeAble="Y" {{else}} removeAble="N" {{/ifCond}}  title="{{title}}" id="{{layoutId}}">
+        <span class='h1 panel-icon'>
+            <i class='iconfont icon-list'></i>
+        </span>
+        <span class='text-ellipsis'>{{title}}</span>
+    </a>
+</li>
+{{/each}}
