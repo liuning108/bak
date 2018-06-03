@@ -10,6 +10,6 @@ public interface ApplicationApiService {
 	public JSONObject addApplication(Map<String, Object> param) throws BaseAppException;
 	public JSONObject updateApplication(Map<String, Object> param) throws BaseAppException;
 	public JSONObject getSubApplicationInfo(Map<String, Object> param) throws BaseAppException;
-	
+	public JSONObject getTemplate(Map<String, Object> param) throws BaseAppException;
 
 }

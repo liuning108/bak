@@ -94,9 +94,25 @@ public class ApplicationApiServiceImpl implements ApplicationApiService {
 		 String id = ""+param.get("id");
 		 ZabbixApi  zabbixApi =getZabbixApi();
 		 Request getRequest = RequestBuilder.newBuilder()
-					.method("template.get")
+					.method("application.update")
 					      .paramEntry("name", name)
 					      .paramEntry("applicationid", id)
+					.build();
+		 JSONObject getResponse = zabbixApi.call(getRequest);
+		 zabbixApi.destroy();
+		 return getResponse;
+	}
+	
+	
+	@Override
+	public JSONObject getTemplate(Map<String, Object> param) throws BaseAppException {
+		 String id = ""+param.get("id");
+		 ZabbixApi  zabbixApi =getZabbixApi();
+		 Request getRequest = RequestBuilder.newBuilder()
+					.method("template.get")
+						  .paramEntry("output", new String[] {"name","templateid"})
+						  .paramEntry("templateids", id)
+						  .paramEntry("selectGroups", true)
 					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);
 		 zabbixApi.destroy();

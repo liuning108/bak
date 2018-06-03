@@ -6,7 +6,7 @@ define([
       this.options= options
       this.doProcess();
       this.$el =$(this.options.el);
-      this.tpl = fish.compile(tpl)
+      this.tpl = fish.compile(tpl);
       console.log("KdoDSelect");
       console.log(this.options);
     }
@@ -92,7 +92,7 @@ define([
               }
         });
     }
-    
+
     return KdoDSelect;
 
 })

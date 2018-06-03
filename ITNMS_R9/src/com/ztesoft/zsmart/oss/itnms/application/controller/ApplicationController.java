@@ -52,6 +52,13 @@ public class ApplicationController {
 	}
    
    
+   @RequestMapping(value = "getTemplate", method = RequestMethod.POST)
+   @PublicServ
+	public JSONObject getTemplate(@RequestBody Map<String,Object> param) throws BaseAppException {
+		return hostApiService.getTemplate(param);
+	}
+   
+   
 	
 	
  	

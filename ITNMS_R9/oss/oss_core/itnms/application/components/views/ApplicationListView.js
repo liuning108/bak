@@ -43,11 +43,16 @@ define([
      if(!fish.isUndefined(this.option.hostid)){
        fun=action.getHostByid(this.option.hostid);
      }
+     if(!fish.isUndefined(this.option.templateid)){
+       fun=action.getTemplate({"id":this.option.templateid+""});
+     }
+     alert(fun)
      //start if
      if(fun!=null){
        fun.then(function(data){
           d.myself={};
-          d.myself.id=data.result[0].hostid;
+          console.log(data.result[0]);
+          d.myself.id=data.result[0].hostid||data.result[0].templateid;
           d.myself.groupid=data.result[0].groups[0].groupid;
          return action.getAllGroup()
        }).then(function(data) {
@@ -188,12 +193,19 @@ define([
            "value":d.groupid,
          }
        })
-       console.log(d);
+       if (groups.length>0){
+         groups.splice(0,0,{
+           name: 'all',
+           value: "myALL"
+         });
+      }
       this.group = this.$el.find('.comboboxGraphsGroup').combobox({
          dataTextField: 'name',
          dataValueField: 'value',
+         editable: false,
          dataSource: groups
       });
+
       this.dd=d;
       this.group.on('combobox:change', function () {
          var g=self.group.combobox('getSelectedItem');
@@ -207,6 +219,7 @@ define([
       this.host = this.$el.find('.comboboxGraphsHost').combobox({
          dataTextField: 'name',
          dataValueField: 'value',
+         editable: false,
          dataSource: [],
       });
 
@@ -221,6 +234,9 @@ define([
 
     },
     ApplicationListView.prototype.changeGropupCombobox=function(groudId,myself){
+      if(groudId=='myALL'){
+        groudId=null;
+      }
       var self =this;
       var d ={};
       action.getTemplateByGroupId(groudId).then(function(data){
@@ -230,7 +246,11 @@ define([
                  'value':d.templateid
                }
           })//end of map
-          return action.getAllHostsByGroupids([groudId+""])
+          var hostDD=[groudId+""];
+          if(groudId==null){
+            hostDD=null
+          }
+          return action.getAllHostsByGroupids(hostDD)
       }).then(function(data){
            d.hosts=fish.map(data.result,function(d){
                 return {
@@ -239,6 +259,13 @@ define([
                 }
            })//end of map
            var allArray =fish.flatten([d.hosts,d.templates])
+           if(allArray.length>1){
+             allArray.splice(0, 0, {
+               name: 'all',
+               value: "myALL"
+             });
+           }
+           self.hostg=allArray;
            self.host.combobox({"dataSource":allArray});
            if(myself){
             var choseData=fish.find(allArray,function(d){return d.value==myself.id})
@@ -304,12 +331,29 @@ define([
     },
     ApplicationListView.prototype.changeHostCombobox=function(id) {
       var self =this;
+      if(id=='myALL'){
+        this.$el.find('.createApplication').hide();
+      }else{
+        this.$el.find('.createApplication').show();
+      }
       self.loadGridData(id);
     }
     ApplicationListView.prototype.loadGridData=function(id){
+      var self =this;
+      var ids =id+"";
+      if(id=='myALL'){
+         var g=self.group.combobox('getSelectedItem');
+         if(g.value=='myALL'){
+            ids =null;
+         }else{
+           ids =fish.map(self.hostg,function(d){
+                return d.value
+            });
+         }
+      }
        var self =this;
         action.getApplication({
-          "hostids":id+"",
+          "hostids":ids,
         }).then(function(data){
           console.log(data);
            var gridData=fish.map(data.result,function(d){

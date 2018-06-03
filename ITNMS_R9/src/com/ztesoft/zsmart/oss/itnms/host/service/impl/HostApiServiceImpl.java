@@ -246,13 +246,17 @@ public class HostApiServiceImpl implements HostApiService{
 
 	@Override
 	public JSONObject getTemplateByGroupId(String id) throws BaseAppException {
+	      String [] groupids = new String[] {id};
+		  if (id==null) {
+			  groupids =null;
+		  }
 		  ZabbixApi  zabbixApi = new DefaultZabbixApi("http://10.45.50.133:7777/zabbix/api_jsonrpc.php");
 		  zabbixApi.init();
 		  zabbixApi.login("Admin", "zabbix");
 		  Request getRequest = RequestBuilder.newBuilder()
 					.method("template.get")
 					                                 .paramEntry("output", new String[] {"templateid","name"})
-					                                 .paramEntry("groupids", new String [] {id})
+					                                 .paramEntry("groupids", groupids)
 					                                 .paramEntry("sortfield", "name")
 					.build();
 		 JSONObject getResponse = zabbixApi.call(getRequest);

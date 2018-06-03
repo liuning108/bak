@@ -1,5 +1,8 @@
 define([], function() {
   return {
+    getTemplate:function(param){
+     return fish.post("application/getTemplate", param);
+    },
     getSubApplicationInfo:function(param){
      return fish.post("application/getSubApplicationInfo", param);
     },

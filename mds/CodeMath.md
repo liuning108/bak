@@ -71,3 +71,35 @@ function draw(){
 	requestAnimationFrame(draw);
 }
 ````
+## 极坐标
+
+
+```` javascript
+// 计算把2PI，平均给每个对象的Rad
+var sliceRad = Math.PI*2/numsObj;
+var offsetRad =0;
+var  R= 100;
+var time =0;
+draw();
+function draw(){
+	ctx.clearRect(0,0,w,h);
+	for (var i = 0 ; i<numsObj;i++){
+		//计算每个对象所有的RAD
+		var rad = i*sliceRad+(offsetRad);
+		//极坐标公式
+		var  x = centerX+(Math.cos(rad)*R)
+		var  y = centerY+(Math.sin(rad)*R)
+
+
+	  ctx.beginPath();
+	  ctx.arc(x,y,5,0,Math.PI*2);
+   	ctx.fill();
+	  //每秒偏移的RAD
+		offsetRad+=0.0005
+
+	}
+````
+##  使用Arctangent 来算 角度
+### 需要得到Mouse 在Canvas位置
+### 画对象
+### Math.atan2(y/x) 公式算角度

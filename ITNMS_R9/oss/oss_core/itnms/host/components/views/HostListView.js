@@ -379,6 +379,7 @@ define([
         self.applicationListView = new ApplicationListView({
            el: $el,
           'hostid':hostId,
+           //'templateid':10251,
            tableH: tableH,
            callback:function() {
              self.render();
