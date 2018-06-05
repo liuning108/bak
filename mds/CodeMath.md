@@ -289,3 +289,19 @@ util.circlePointCollision=function(p,c){
 	return util.distance(p,c.p)<c.r;
 }
 ````
+### Rect/Point
+![6C269CAB-943D-4B39-8BB8-CDDA75DF996A](/assets/6C269CAB-943D-4B39-8BB8-CDDA75DF996A.png)
+
+```` javascript
+util.rectPointCollision=function(p,rect){
+	return  util.inRange(p.x,rect.x,rect.x+rect.w) &&
+		      util.inRange(p.y,rect.y,rect.y+rect.h)
+}
+util.inRange = function(value,min,max){
+	return  value>=Math.min(min,max)
+	        && value<=Math.max(min,max);
+}
+````
+
+### Rect/Rect
+![FFD3AE3D-A3D2-4580-9963-EFF01547936C](/assets/FFD3AE3D-A3D2-4580-9963-EFF01547936C.png)
