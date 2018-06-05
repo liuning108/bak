@@ -317,3 +317,20 @@ util.rectInRange=function(minA,maxA,minB,maxB){
 
 }
 ````
+
+## Spring and Hookes Law
+
+F=K*X
+K=0.2
+X=springFroce.sub(obj); //distance
+
+![70FC52AD-E2F7-44F8-AA98-762356704952](/assets/70FC52AD-E2F7-44F8-AA98-762356704952.png)
+
+```` javascript
+ctx.clearRect(0,0,w,h);
+	var X=springFroce.sub(obj);
+	var F=X.mul(K);
+ 	v = v.add(F);
+ 	v =v.mul(0.9)
+  obj = obj.add(v);
+````
