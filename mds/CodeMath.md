@@ -305,3 +305,15 @@ util.inRange = function(value,min,max){
 
 ### Rect/Rect
 ![FFD3AE3D-A3D2-4580-9963-EFF01547936C](/assets/FFD3AE3D-A3D2-4580-9963-EFF01547936C.png)
+
+```` javascript
+util.rectRectCollision=function(r1,r2){
+return util.rectInRange(r1.x,r1.x+r1.w,r2.x,r2.x+r2.w) &&
+   util.rectInRange(r1.y,r1.y+r1.h,r2.y,r2.y+r2.h)
+}
+util.rectInRange=function(minA,maxA,minB,maxB){
+	return Math.max(minA,maxA)>=Math.min(minB,maxB) &&
+	       Math.min(minA,maxA)<=Math.max(minB,maxB)
+
+}
+````
