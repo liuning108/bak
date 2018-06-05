@@ -237,3 +237,55 @@ Arrow.prototype.checkBound=function(){
 	}
 }
 ````
+
+## Friction 摩擦力
+Friction 摩擦力来改变 对象的Velocity 
+![858EF0B7-DFB0-4068-A581-14DDD42E79C4](/assets/858EF0B7-DFB0-4068-A581-14DDD42E79C4.png)
+通用
+```` javascript
+this.f=0.99;
+Arrow.prototype.update=function(){
+ this.v=this.v.add(this.g);
+ this.v =this.v.mul(this.f);
+ this.p = this.p.add(this.v);
+}
+````
+专业
+```` javascript
+this.f = new Vector(0.15,0);
+
+Arrow.prototype.update=function(){
+ this.v=this.v.add(this.g);
+ this.f.setAngle(this.v.getAngle());
+ if(this.v.getLength()-this.f.getLength()>0){
+	 this.v=this.v.sub(this.f);
+ }else{
+	 this.v.setLength(0);
+ }
+ this.p = this.p.add(this.v);
+````
+
+## Collision Detection 碰撞检测
+常见的四种类型
+![4A6EC056-ED01-48FC-A501-0FFEF9AA02E3](/assets/4A6EC056-ED01-48FC-A501-0FFEF9AA02E3.png)
+
+###Circle/Circle
+![3CBA5E9C-E381-46C5-B68A-37AB865D064F](/assets/3CBA5E9C-E381-46C5-B68A-37AB865D064F.png)
+
+```` javascript
+util.circleCollision=function(c1,c2){
+	return util.distance(c1.p,c2.p)<(c1.r+c2.r);
+}
+util.distance=function(v1,v2){
+	var v3 =v1.sub(v2);
+	return v3.getLength();
+}
+````
+###Circle/Point
+![0A2DC35B-A32F-47C7-B072-9EE4E9F41E80](/assets/0A2DC35B-A32F-47C7-B072-9EE4E9F41E80.png)
+
+```` javascript
+util.circlePointCollision=function(p,c){
+	return util.distance(p,c.p)<c.r;
+}
+````
