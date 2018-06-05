@@ -101,5 +101,139 @@ function draw(){
 ````
 ##  使用Arctangent 来算 角度
 ### 需要得到Mouse 在Canvas位置
+```` javascript
+util.mousePos=function(el){
+	//初始Mouse对象
+	 var mouse = {x: 0, y: 0};
+	//得到mouse的位置
+	el.addEventListener('mousemove',function(event){
+		var x ,y;
+		//整个页面的位置
+		if(event.pageX || event.pageY){
+			x = event.pageX;
+			y= event.pageY;
+		}else{
+			x = event.clientX + document.body.scrollLeft +
+             document.documentElement.scrollLeft;
+			y = event.clientY + document.body.scrollTop +
+             document.documentElement.scrollTop;
+		}
+		//整个页面的位置 减去 元素的偏移位置，得到了Mouse在
+		// 元素中的位置
+		x -= el.offsetLeft;
+    y -= el.offsetTop;
+		mouse.x = x;
+    mouse.y = y;
+	},false)
+	 return mouse;
+
+}
+````
+
 ### 画对象
-### Math.atan2(y/x) 公式算角度
+```` javascript
+ctx.save()  // 保存当前状态
+ //画对象所需要的新状态，
+	ctx.translate(arrorX,arrorY)
+	ctx.rotate(rad);
+	//对象的形
+	ctx.beginPath();
+	ctx.moveTo(0,0);
+	ctx.lineTo(30,0);
+	ctx.moveTo(30,0);
+	ctx.lineTo(20,10)
+	ctx.moveTo(30,0);
+	ctx.lineTo(20,-10)
+	ctx.stroke();
+ctx.restore(); //返回原有的状态
+````
+
+### Math.atan2(y,x) 公式算角度
+```` javascript
+if(mouse){
+		var dx = mouse.x-arrorX;
+		var dy =mouse.y -arrorY;
+		rad = Math.atan2(dy,dx)
+		console.log(rad)
+	}
+````
+
+## 2D向量 （Vector)
+![20420BED-1114-4B8B-8C8F-E7350CEAA0C2](/assets/20420BED-1114-4B8B-8C8F-E7350CEAA0C2.png)
+2D向量 是由X分量与Y 分量构成，用来描述 大小与方向的工具
+
+```` javascript
+function Vector (x,y){
+	  this.x = x;
+	  this.y = y;
+}
+
+Vector.prototype.setAngle =function(rad){
+	 var length = this.getLength();
+	 this.x = Math.cos(rad)*length;
+	 this.y = Math.sin(rad)*length;
+
+}
+Vector.prototype.getAngle = function(){
+	return Math.atan2(this.y,this.x);
+}
+Vector.prototype.getLength=function(){
+	return Math.sqrt(this.x*this.x+this.y*this.y);
+}
+Vector.prototype.setLength=function(length){
+  var angel = this.getAngle();
+	 this.x = Math.cos(angel)*length;
+	 this.y = Math.sin(angel)*length;
+}
+
+Vector.prototype.add =function(v2){
+	return new Vector(this.x+v2.x ,this.y+v2.y);
+}
+
+Vector.prototype.sub =function(v2){
+	return new Vector(this.x-v2.x ,this.y-v2.y);
+}
+Vector.prototype.mul =function(n){
+	return new Vector(this.x*n ,this.y*n);
+}
+
+Vector.prototype.div =function(n){
+	return new Vector(this.x/n ,this.y/n);
+}
+````
+
+##Velocity 速度
+ Velocity 速度来改变 对象的位置
+ ```` javascript
+ Arrow.prototype.update=function(){
+ 	this.p = this.p.add(this.v);
+}
+ctx.translate(this.p.x,this.p.y)
+ctx.rotate(this.v.getAngle());
+ ````
+
+## Acceleration  加速度
+ Acceleration  加速度来改变 对象的Velocity
+ Gravity 也是一种 引力 的加速度
+```` javascript
+Arrow.prototype.update=function(){
+ this.v=this.v.add(this.g);
+ this.p = this.p.add(this.v);
+}
+ this.g = new Vector(0,0.1);
+````
+
+##Edge Handling 边界处理
+![6643ADA3-6FA4-40FA-82D1-99C986B9626E](/assets/6643ADA3-6FA4-40FA-82D1-99C986B9626E.png)
+
+```` javascript
+Arrow.prototype.checkBound=function(){
+	if(this.p.x-this.r<=0 ||this.p.x+this.r>=w){
+		this.v.x=this.v.x*-1;
+	}
+
+	if(this.p.y-this.r<=0 || this.p.y+this.r>=w){
+			this.v.y=this.v.y*-1;
+	}
+}
+````
