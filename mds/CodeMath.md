@@ -334,3 +334,26 @@ ctx.clearRect(0,0,w,h);
  	v =v.mul(0.9)
   obj = obj.add(v);
 ````
+
+
+## Spring2
+### SpringLength 两点的保持距离 
+   F=K*X；
+![852DBE8E-0486-4D42-B526-FD55B8F5BD21](/assets/852DBE8E-0486-4D42-B526-FD55B8F5BD21.png)
+```` javascript
+	 X.setLength(X.getLength()-springLength);
+````
+
+```` javascript
+function spring(p0,p1,length){
+	// F = K*X
+		var K=0.2;
+  	var X =p0.p.sub(p1.p);
+   	X.setLength(X.getLength()-length);
+ 		var F= X.mul(K);
+ // 两个点相互靠近，只到<=length
+	  p1.v = p1.v.add(F);
+	  p0.v = p0.v.sub(F);
+}
+````
+## Line/Point  Collision Detection 
