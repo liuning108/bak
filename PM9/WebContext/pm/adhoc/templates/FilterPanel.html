@@ -1,0 +1,26 @@
+<div id="{{nodeName}}-accordion" class="panel-group" name="{{nodeName}}">
+    <div class="panel">
+        <div class="panel-heading">
+            <div class="ad-data-tag" data-parent="#{{nodeName}}-accordion" data-toggle="collapse" href="#{{nodeName}}" class="collapsed" aria-expanded="false">
+                <span class="filter-tltle">
+                    <span class="name ng-binding">{{tagName}}</span>
+                </span>
+                <i id="ad-data-tag-close" class="fa fa-close ico-triangle-down" style="cursor:pointer"></i>
+            </div>
+            <a id="ad-cfg" class="tag-edit"><i class="fa fa-cog"></i></a>
+        </div>
+        <!--Inside Accordion-->
+        <div id="{{nodeName}}" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
+            <div class="panel slm-accordion">
+                <div id="demo-acc-panel-3" class="panel-collapse collapse in" aria-expanded="false">
+                    <div class="data-city">
+                        <ul id="{{nodeName}}-list">
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/ Inside Accordion End-->
+    </div>
+</div>

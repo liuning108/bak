@@ -1,0 +1,19 @@
+<div class="btn-group ad-tags" name="{{nodeName}}">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+        <span id="ad-ds-as-{{nodeName}}" class="glyphicon glyphicon-sort-by-attributes"></span>
+        <span id="ad-ds-des-{{nodeName}}" class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+        &nbsp;<span>{{tagName}}</span>&nbsp;
+        <span id="ad-dimsort-tag-{{nodeName}}"></span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left">
+        <li><a href="#" id="ad-dim-setup-btn">{{SET_THE_FIELD}}</a></li>
+        <li class="dropdown-submenu">
+            <a>{{SORT}}</a>
+            <ul class="dropdown-menu">
+                <li id="ad-dimsort-asc-li-{{nodeName}}"><a id="ad-dimsort-asc-{{nodeName}}">{{ASC}}</a></li>
+                <li id="ad-dimsort-desc-li-{{nodeName}}"><a id="ad-dimsort-desc-{{nodeName}}">{{DESC}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>

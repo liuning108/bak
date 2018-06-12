@@ -1,0 +1,55 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{KPI_FILTER}}</h4>
+</div>
+<div class="modal-body">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<div class="form-group">
+			</div>
+		</div>
+		<div class="ad-tolbad">
+			<!--条件筛选-->
+			<div class="ad-block" id="ad-dimfilter-condi" style="height: 150px;" class="scrollable">
+					<div  class="m-b-sm">{{FILTER_CONDITION}}</div>
+					<div class="row" style="padding-top: 30px">
+						<form class="form-horizontal clearfix">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="col-md-4 control-label">{{KPI_NAME}}</label>
+									<div class="col-md-3">
+										<select id="ad-indifilter-fmtsel" class="form-control" style="width: 130px">
+											<option value="BT" selected="selected">{{BETWEEN}}</option>
+											<option value="EQ">{{EQUAL_TO}}</option>
+											<option value="NEQ">{{NOT_EQUAL_TO}}</option>
+											<option value="GT">{{GREATER_THAN}}</option>
+											<option value="LW">{{LESS_THAN}}</option>
+											<option value="GE">{{GREATER_THAN_OR_EQUAL_TO}}</option>
+											<option value="LE">{{LESS_THAN_OR_EQUAL_TO}}</option>
+										</select>
+									</div>
+									<div class="col-md-5" id="ad-if-condivalue-container1">
+										<input id="ad-indifilter-condivalue-bt-1" style="width: 70px" type="text" class="form-control col-md-5"/>
+										<div class="col-md-2" style="padding-top: 5px;padding-left: 14px"> ~</div>
+										<input id="ad-indifilter-condivalue-bt-2" style="width: 70px" type="text" class="form-control col-md-5"/>
+									</div>
+									<div class="col-md-3" style="display: none" id="ad-if-condivalue-container2">
+										<input id="ad-indifilter-condivalue" type="text" class="form-control">
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="ad-btn-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="ad-btn-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

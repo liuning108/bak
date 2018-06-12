@@ -1,0 +1,42 @@
+<div class="chart-pd" id="chart-box" name="{{nodeName}}" style="box-shadow: 0 0 0 0">
+    <div class="row">
+        <span class="ad-close"><i class="fa fa-close"></i></span>
+    </div>
+    <div class="wrapper">
+        <div id="ad-chart-container" style="height: 170px">
+            <div class="form-group col-md-12">
+                <h4 id="ad-axiscfg-xy-xs" class="pull-left"><b>{{CHART}}&nbsp</b><h4><b id="ad-axisgroupcfg-groupindex">1.</b></h4></h4>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="control-label pull-left" style="width:60px">{{NAME}}：</label>
+                <div class="col-md-10" >
+                    <input id="ad-axisgroupcfg-name-input" class="form-control" style="width: 340px">
+                </div>
+            </div>
+            <div class="form-group col-md-12 axiscfg-dimselect">
+                <label class="control-label pull-left" style="width:60px">{{DIM}}：</label>
+                <div class="col-md-10">
+                    <select id="ad-axisgroupcfg-dim-sel" class="form-control col-md-12" style="width: 340px"
+                            data-placeholder="Please Select">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-md-12">
+                <label class="control-label pull-left" style="width:60px">{{KPI}}：</label>
+                <div class="col-md-10">
+                    <select id="ad-axisgroupcfg-kpi-sel" class="form-control col-md-12" style="width: 340px"
+                            data-placeholder="Please Select">
+                    </select>
+                </div>
+            </div>
+            <!--饼图样式-->
+            <div id="ad-piechart-type-div" class="form-group col-md-12" style="display: none">
+                <label class="control-label pull-left" style="width:60px">{{PIECHART_TYPE}}：</label>
+                <div class="col-md-10">
+                    <label class="radio-inline"><input type="radio" class="pieChartTypeRadio" name="ad-piechart-type" value="0" checked>{{PIECHART_PIE}}</label>
+                    <label class="radio-inline"><input type="radio" class="pieChartTypeRadio" name="ad-piechart-type" value="1">{{PIECHART_RADIUS}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

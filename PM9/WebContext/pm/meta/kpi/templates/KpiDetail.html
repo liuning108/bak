@@ -1,0 +1,212 @@
+<form class="form-horizontal clearfix js-kpi-detail-form">	
+<!-- 1 -->
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_NAME}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="KPI_NAME" class="form-control" data-rule="{{KPI_NAME}}:required;length[1~256, true]">
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required js-kpi-code-form">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_CODE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div style="width:15%;float:left;" class="js-code-prefix-div">
+				<input name="CODE_PREFIX" class="form-control" style="text-align:center;border-right:0px;" readonly title="{{CODE_PREFIX}}" >
+			</div>
+			<div  style="width:85%;float:right;" class="js-kpi-code-div">
+				<input name="KPI_CODE" class="form-control js-kpi-code" data-rule="{{KPI_CODE}}:required;length[1~30, true]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 2 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EFF_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EFF_TIME" data-rule="{{EFF_DATE}}:required;match[lt, EXP_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EXP_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EXP_TIME" data-rule="{{EXP_DATE}}:match[gt,EFF_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 3 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_TYPE}}</label>
+		</div>
+		<div class="col-md-12 js-kpi-type-div">
+			
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required js-kpi-agg-div">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_AGG}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="KPI_AGG" class="form-control js-kpi-agg" data-rule="{{KPI_AGG}}:required" placeholder="{{COMMON_PLS_SEL}}">
+		</div>
+	</div>
+</div>				
+
+
+<!-- 4 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{DATA_TYPE}}</label>
+		</div>
+		<div class="col-md-12 js-data_type-div">
+
+		</div>
+	</div>
+</div>
+
+
+<div class="col-md-3">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{UNIT}}</label>
+		</div>
+		<div class="col-md-12">
+			<input class="form-control" name="UNIT" data-rule="{{UNIT}}:required" placeholder="{{COMMON_PLS_SEL}}" />
+		</div>
+	</div>
+</div>	
+
+
+
+<div class="col-md-3" style="height:60px">	
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{IS_ANALYSIS}}</label>
+		</div>
+		<div class="col-md-12">
+            <div class="input-group">
+                <input id="IS_ANALYSIS" name="IS_ANALYSIS" class="toggle-switch" type="checkbox" checked="">
+                <label for="IS_ANALYSIS"></label>
+            </div>
+        </div>
+	</div>		
+</div>
+
+
+<!-- 5 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{DIRT}}</label>
+		</div>
+		<div class="col-md-12 js-dirt-div">
+			
+		</div>
+	</div>
+</div>	
+
+<div class="col-md-3">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{DEFAULT_VAL}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="DEF_VALUE" class="form-control js-def-value" data-rule="{{DEFAULT_VAL}}:length[1~20, true];number" data-rule-number="[/^-?\d+\.?\d*$/, '{{INPUT_NUMBER}}']">
+		</div>
+	</div>
+</div>
+
+<div class="col-md-3">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{PREC}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="PREC" class="form-control js-prec" data-rule="{{PREC}}:integer[+0];length[1~10, true]">
+		</div>
+	</div>
+</div>
+
+
+<!-- 6 -->	
+<div class="col-md-12">
+	<div class="form-group ">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_VER_FORM}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="wizard js-kpi-formula">
+                
+            </div>
+		</div>
+		<div class="col-md-12">
+			<div class="col-md-10">
+				{{FOR_EXAMPLE}} : <span class='js-kpi-form-for-example'></sapn>
+			</div>
+			<div class="col-md-2 pull-right text-right">
+				<i class="fa fa-gear js-kpi-mo-config" style='font-size:18px;cursor:pointer;' title='{{CONFIG_MO}}'></i>
+				
+				<i class="fa fa-server js-kpi-form-seling" style='font-size:18px;cursor:pointer;' title='{{SELING_KPI_COUNTER}}'></i>
+				
+				<i class="fa fa-check-square-o js-kpi-form-check" style='font-size:18px;cursor:pointer;' title='{{KPI_FORM_CHECK}}'></i>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 7 -->		
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{KPI_ANAME}}</label>
+		</div>
+		<div class="col-md-12">
+			<textarea name="KPI_ANAME" class="form-control" data-rule="{{KPI_ANAME}}:length[1~256, true]" style="height:50px"></textarea>
+		</div>
+		
+	</div>
+</div>
+	
+<div class="col-md-6">
+	<div class="form-group">
+		<div class="col-md-12">
+			<label class="control-label">{{COMMON_REMARK}}</label>
+		</div>
+		<div class="col-md-12">
+			<textarea name="COMMENTS" class="form-control" data-rule="{{COMMON_REMARK}}:length[1~2000, true]" style="height:50px"></textarea>
+		</div>
+	</div>
+</div>
+
+
+<div class="col-md-12">
+	<div class="form-group">
+	</div>
+</div>
+</form>	

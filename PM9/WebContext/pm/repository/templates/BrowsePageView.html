@@ -1,0 +1,68 @@
+<div class="knowledgeInfo">
+
+   <div class="header">
+     <span class="title">{{title}}</span>
+     <span class="state S{{state}}">{{stateName}}</span>
+     <span class="comebackList" title="关闭">x</span>
+     <span class="attachIcon" data-docid={{id}} title="附件"><i class="glyphicon glyphicon-paperclip"></i></span>
+   </div>
+   <div class="body">
+
+   </div>
+   <div class="solsharediv">
+     <label class="iconBtn VHC" data-id={{id}} data-value="{{VHC}}" data-type="up">
+        <i class="glyphicon glyphicon-thumbs-up"></i>
+        <span>({{VHC}})</span>
+     </label>
+
+     <label class="iconBtn VNC" data-id={{id}} data-value="{{VNC}}" data-type="down">
+        <i class="glyphicon glyphicon-thumbs-down"></i>
+        <span>({{VNC}})</span>
+     </label>
+   </div>
+   <div class="knowledgeInfoComments">
+     <div class="comentsHeader">
+         <i class="glyphicon glyphicon-comment"></i>
+         评论
+         <span class="CNT">(<span class="CNT_SPAN">0</span>)</span>
+     </div>
+     <div class="f12 ptb5">
+        <div class="commentPanel">
+          <div class="inputArea">
+            <div class="txt-sec">
+               <div class="tl">
+                 <div class="userName">
+                   <div class="knowledgeInfo_shortName"></div>
+                 </div>
+               </div>
+               <div class="pl60 mb20">
+                 <div class="mentions-input-box">
+                   <textarea placeholder="在这里添加您的评论..." maxlength="1000" class="messageTextArea"></textarea>
+                 </div>
+               </div>
+            </div>
+            <div class="cmtBtm">
+              <div class="isPublicDIV">
+              <input type="checkbox" class="isPublicCheckBox">
+              <span>私有的  (只有文章作者可以看到)</span>
+              </div>
+
+              <div class="fright">
+                <button class="blue-btn addMessage" data-id={{id}}>评论</button>
+                <button class="btn clearMessage" >清除</button>
+              </div>
+            </div>
+
+          </div>
+          <div class="cmt-container">
+
+
+
+          </div>
+
+        </div>
+     </div>
+
+   </div>
+
+</div>

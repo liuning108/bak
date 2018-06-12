@@ -1,0 +1,30 @@
+<div class="col-md-6">
+    <div class="form-group required">
+        <div class="col-md-12">
+            <label class="control-label">{{SOURCE_DB_NAME}}</label>
+        </div>
+        <div class="col-md-12">
+            <input name="SOURCE_DB_NAME" class="form-control" data-rule="{{SOURCE_DB_NAME}}:required;length[1~256, true]">
+        </div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group required">
+        <div class="col-md-12">
+        <label class="control-label">{{SOURCE_DB_DIALECT}}</label>
+        </div>
+        <div class="col-md-12">
+        <input name="SOURCE_DB_DIALECT" class="form-control" data-rule="{{SOURCE_DB_DIALECT}}:required;length[1~256, true]">
+        </div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="form-group required">
+        <div class="col-md-12">
+            <label class="control-label">{{LOCATION_PATH}}</label>
+        </div>
+        <div class="col-md-12">
+            <input name="LOCATION_PATH" class="form-control" data-rule="{{LOCATION_PATH}}:required;length[1~256, true]" placeholder="/home/">
+        </div>
+    </div>
+</div>

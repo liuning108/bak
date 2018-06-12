@@ -203,7 +203,7 @@ Vector.prototype.div =function(n){
 ````
 
 ##Velocity 速度
- Velocity 速度来改变 对象的位置
+ Velocity 速度来改变 对象的位置 ,称为 位置的变化量
  ```` javascript
  Arrow.prototype.update=function(){
  	this.p = this.p.add(this.v);
@@ -213,7 +213,7 @@ ctx.rotate(this.v.getAngle());
  ````
 
 ## Acceleration  加速度
- Acceleration  加速度来改变 对象的Velocity
+ Acceleration  加速度来改变 对象的Velocity 称为 速度的变化量
  Gravity 也是一种 引力 的加速度
 ```` javascript
 Arrow.prototype.update=function(){
@@ -264,6 +264,10 @@ Arrow.prototype.update=function(){
  }
  this.p = this.p.add(this.v);
 ````
+## Darg Move 	拖动移速
+
+
+
 
 ## Collision Detection 碰撞检测
 常见的四种类型
@@ -356,4 +360,12 @@ function spring(p0,p1,length){
 	  p0.v = p0.v.sub(F);
 }
 ````
-## Line/Point  Collision Detection 
+## Line/Point  Collision Detection
+
+
+## Bitmap Collision Detection
+### 什么是Bitmap
+Its rectangular grid of values that are used to set the colors of pixels in a rectangular portion  of the screen.
+![90BF18859A8F7CCD62AC9B276E206C8B](/assets/90BF18859A8F7CCD62AC9B276E206C8B.jpg)
+### 根据Alpha判断是否Collision
+![8B9AFFBFD367E3131B4A42D6102082A6](/assets/8B9AFFBFD367E3131B4A42D6102082A6.jpg)

@@ -1,0 +1,55 @@
+<li class="tl-item js-alarm-rule-step-div">
+	<form class=" clearfix" step_no='1' step_name='CFG_ALARMRULE'>	
+		<div class="tl-wrap br-light">
+		    <div class="btn btn-default tl-plus js-alarm-step-seq" style="border-radius:50%">1</div>
+		    <div class="tl-content" style="width:98%">
+		        <div class="m-b-sm">{{ALARM_RULE}}<a href="#" class="pull-right" style="margin-top:1px"><i class="fa fa-close js-alarm-del-step"></i> </a></div>
+		        
+		        <div class="panel-body border">
+		        	<div class="row">
+		        		<div class="col-md-6 required">
+							<label class="control-label">{{THRESHOLD_TYPE}}</label>
+						
+							<div class="js-alarm-rule-threshold-type">
+								
+							</div>
+						</div>
+						<div class="col-md-6 required">
+							<label class="control-label">{{BUSYHOUR_TYPE}}</label>
+						
+							<div class="js-alarm-rule-busyhour-type">
+								
+							</div>
+						</div>
+						<div class="col-md-12">
+							<label class="control-label">{{BUSY_HOUR}}</label>
+						
+							<div class="wrapper border ad-group-hack js-alarm-rule-busy-hour" style="position: relative;">
+								
+									<button type='button' class="btn btn-default js-busy-hour-sel-all" style="position: absolute;right: 10px;">{{ALL_SEL}}</button>
+								
+								
+									<button type='button' class="btn btn-default js-busy-hour-clear-all" style="position: absolute;right: 10px;top:40px">{{ALL_CLEAR}}</button>
+						
+							</div>
+						</div>
+		        	</div>
+		        	<div class="border m-t-sm" style="padding-top: 10px;overflow: hidden;padding-bottom: 10px;">
+		        		<div class="col-md-4">
+		                    <div class="clearfix m-block"  style="min-height:140px">
+                                <ul id="sortable" class="pop-sorthack ui-sortable js-alarm-rule-kpi-seling-ul" >
+									
+                                </ul>
+                                <!--<div class="ad-bar"><a href="#" class="js-alarm-rule-kpi-add-all">全部添加</a></div>-->
+                            </div>
+		                </div>
+		                <div class="col-md-8">
+			                <textarea name="ALARM_RULE" rows="6"class="form-control" data-rule="{{ALARM_RULE}}:length[1~10240, true]" ></textarea>
+		                </div>
+			        	
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</form>
+</li>

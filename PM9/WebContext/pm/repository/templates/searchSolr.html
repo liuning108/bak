@@ -1,0 +1,27 @@
+<div class="searchBox">
+  <div class="searchBoxHeader">
+   <i class="glyphicon glyphicon-chevron-left comeback" title="返回"></i>
+   <div class="HeaderInfo">
+     <span>搜索<span class="fontBlack">"{{searchKey}}"</span >相关结果约<span class="fontBlack">{{data.count}}</span>个</span>
+   </div>
+
+  </div>
+  <div class="searchBoxBody">
+    <ul class="solrItemlist">
+       {{#each data.foos}}
+
+       <li class="solrDocItem" >
+         <div class="circleDoc"><i class="glyphicon glyphicon-book"></i></div>
+         <div class="docBody">
+           <div class="docTile2" data-docid="{{id}}">{{{title}}}</div>
+           <div class="docfoot">
+             {{{text}}}
+           </div>
+         </div>
+       </li>
+      {{/each}}
+
+    </ul>
+    <div id="pagination-solrList"></div>
+  </div>
+</div>

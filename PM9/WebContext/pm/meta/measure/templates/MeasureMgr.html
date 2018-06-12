@@ -1,0 +1,59 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="container_left">
+		<div class="js-measure-left-panel">
+			<div class="panel panel_shadow">
+				<div class="panel-heading"><span class="panel-title">{{EMS_TYPE}}>{{EMS}}>{{EMS_VER}}</span></div>
+				<div class="grid js-catalog-tree"></div>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="col-md-9">
+		<div class="container_right">
+		<div class="js-measure-right-panel">
+			<div class="panel panel_shadow">
+				<div class="panel-heading">
+					<span class="panel-title">{{MO}}</span>
+				</div>
+				<div class="grid js-measure-grid"></div>
+			</div>
+		</div>
+		<div class="js-measure-detail-panel"  style="display:none;">
+			<div class="tabs js-measure-detail-tab no-margin">
+				<ul class="tabs__navbar">
+					<li><a href="#tabs-active-measure">{{BASE_INFO}}</a></li>
+					<li><a href="#tabs-inactive-measure">{{FIELD_INFO}}</a></li>
+				</ul>
+				<div id="tabs-active-measure">
+					<div class="panel-body js-measure-base"></div>
+				</div>
+				<div id="tabs-inactive-measure">
+					<div class="js-measure-field"></div>
+				</div>
+			</div>
+			<div class="tabs ui-tabs ui-jqgrid text-right no-margin no-border js-measure-detail-button" >
+				
+	        	<div class="ui-jqgrid-pager"  style="padding:2px;margin:0px;">
+	        		<div class="ui-pg-button js-measure-field-button" style="margin-left:-4px;display:none;">
+	        			<div class="btn-group ui-nav-btn-group">
+	        				<button class="ui-nav-button js-field-add" type="button">{{COMMON_ADD}}</button>
+	        				<button class="ui-nav-button js-field-batch-add" type="button">{{BATCH_ADD}}</button>
+	        				<button class="ui-nav-button js-field-batch-edit" type="button">{{BATCH_EDIT}}</button>
+	        				<button class="ui-nav-button js-field-batch-del" type="button">{{BATCH_DELETE}}</button>
+	        			</div>
+	        		</div>
+		        	<button type="button" class="btn btn_minwidth btn-primary js-measure-ok">
+			            {{COMMON_OK}}
+			        </button>
+		            <button type="button" class="btn btn_minwidth btn-default js-measure-cancel">
+		                {{COMMON_CANCEL}}
+		            </button>
+		        </div>
+	        </div>
+		</div>
+		</div>
+	</div>
+
+</div>

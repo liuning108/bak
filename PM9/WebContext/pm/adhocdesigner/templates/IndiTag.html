@@ -1,0 +1,28 @@
+<div class="btn-group ad-tags" name="{{nodeName}}">
+    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+        &nbsp;<span>{{tagName}}</span>&nbsp;
+        <span id="ad-kpiag-tag-{{nodeName}}"></span>
+        <span id="ad-kpisort-tag-{{nodeName}}"></span>
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-left">
+        <li><a href="#" id="ad-indi-setup-btn">{{SET_THE_FIELD}}</a></li>
+        <li class="dropdown-submenu">
+            <a>{{AGGREGATION}}</a>
+            <ul class="dropdown-menu">
+                <li id="ad-kpiag-Sum-li-{{nodeName}}"><a id="ad-kpiag-sum-{{nodeName}}">{{SUM}}</a></li>
+                <li id="ad-kpiag-Count-li-{{nodeName}}"><a id="ad-kpiag-count-{{nodeName}}">{{COUNT}}</a></li>
+                <li id="ad-kpiag-Avg-li-{{nodeName}}"><a id="ad-kpiag-avg-{{nodeName}}">{{AVG}}</a></li>
+                <li id="ad-kpiag-Max-li-{{nodeName}}"><a id="ad-kpiag-max-{{nodeName}}">{{MAX}}</a></li>
+                <li id="ad-kpiag-Min-li-{{nodeName}}"><a id="ad-kpiag-min-{{nodeName}}">{{MIN}}</a></li>
+            </ul>
+        </li>
+        <li class="dropdown-submenu">
+            <a>{{SORT}}</a>
+            <ul class="dropdown-menu">
+                <li id="ad-kpisort-asc-li-{{nodeName}}"><a id="ad-kpisort-asc-{{nodeName}}">{{ASC}}</a></li>
+                <li id="ad-kpisort-desc-li-{{nodeName}}"><a id="ad-kpisort-desc-{{nodeName}}">{{DESC}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
