@@ -99,6 +99,40 @@ function draw(){
 
 	}
 ````
+
+##波形与轨迹
+  Sin波 与Cos波差90度(Math.PI/2);
+
+![BCA3A0E2-0FDF-4C66-A387-5879DC8B9F52](/assets/BCA3A0E2-0FDF-4C66-A387-5879DC8B9F52.png)
+
+一个周期称为频率(Y=A*Sin(X))，
+最大与最小值称为振幅(Y=Sin(K*X))。
+==> Y = A* Sin(K*X);
+### 波形叠加
+Demo：y=Sin(x)+Sin(2x)+Sin(3x)
+
+![1BE05BCC-291F-4027-AA6D-CDCF61BA17D4](/assets/1BE05BCC-291F-4027-AA6D-CDCF61BA17D4.png)
+杂讯波
+ Y = A*Math.random();
+![9925DAF9-5F36-422B-8FC2-37965E29E886](/assets/9925DAF9-5F36-422B-8FC2-37965E29E886.png)
+```` javascript
+ctx.clearRect(0,0,w,h);
+	ctx.save();
+	ctx.translate(0,centerY)
+	ctx.beginPath();
+	ctx.strokeStyle="#fff";
+	for(var x = 0 ;x<w;x++){
+		//杂波
+		y=parseInt(10*Math.random()+1);
+		//Sin波
+		y2=20* Math.sin(x*(1/5)+t*0.25);
+	//波叠加
+	ctx.lineTo(x,y+y2);
+	}
+	ctx.stroke();
+	ctx.restore();
+````
+##
 ##  使用Arctangent 来算 角度
 ### 需要得到Mouse 在Canvas位置
 ```` javascript
@@ -159,6 +193,9 @@ if(mouse){
 ````
 
 ## 2D向量 （Vector)
+
+
+
 ![20420BED-1114-4B8B-8C8F-E7350CEAA0C2](/assets/20420BED-1114-4B8B-8C8F-E7350CEAA0C2.png)
 2D向量 是由X分量与Y 分量构成，用来描述 大小与方向的工具
 
@@ -199,6 +236,9 @@ Vector.prototype.mul =function(n){
 
 Vector.prototype.div =function(n){
 	return new Vector(this.x/n ,this.y/n);
+}
+Vector.prototype.unit =function(v){
+	return this.mul(1/this.getLength());
 }
 ````
 

@@ -1,4 +1,4 @@
-﻿portal.define([
+define([
 	'text!oss_core/pm/meta/measure/templates/MeasureMgr.html',
 	'text!oss_core/pm/meta/measure/templates/MeasureBase.html',
 	'text!oss_core/pm/meta/measure/templates/MeasureField.html',
@@ -6,7 +6,7 @@
 	'oss_core/pm/meta/measure/actions/MeasureAction',
 	'oss_core/pm/util/views/Util',
 ],function(measureTpl, measureBaseTpl, measureFieldTpl, i18nMeasure, measureAction, pmUtil){
-	return portal.BaseView.extend({
+	return fish.View.extend({
 		tagName: "div",
 		className: "tabs__content",
 		template: fish.compile(measureTpl),
@@ -59,7 +59,7 @@
 				editable: true,
 				formatter: "date",
                 formatoptions: {
-                    newformat: this.dateFormat 
+                    newformat: this.dateFormat
                 }
 			}, {
 				name: "EXP_TIME",
@@ -69,7 +69,7 @@
 				editable: true,
 				formatter: "date",
                 formatoptions: {
-                    newformat: this.dateFormat 
+                    newformat: this.dateFormat
                 }
 			}, {
 				name: "MO_NAME_DESC",
@@ -106,7 +106,7 @@
 				editable: true,
 				formatter: "date",
                 formatoptions: {
-                    newformat: this.dateFormat 
+                    newformat: this.dateFormat
                 },
 				//editrules:"required;",
 				default:pmUtil.sysdate('date'),
@@ -125,8 +125,8 @@
 				width: "12",
 				editable: true,
 				formatter: "select",
-                edittype: "select",
-                editoptions: pmUtil.paraToGridSel(pmUtil.paravalue("DATA_TYPE")), 
+        edittype: "select",
+        editoptions: pmUtil.paraToGridSel(pmUtil.paravalue("DATA_TYPE")),
 				//editrules:"required;",
 				default:"1",
 			}, {
@@ -178,17 +178,17 @@
 			this.procRulePlugin = [];
 			this.paraToRadio(this.$(".js-mo-type-div"),"MO_TYPE");
 			this.$form = this.$(".js-measure-detail-form");
-			
+
 			this.$form.find("[name='EFF_TIME']").datetimepicker({
 				viewType: 'date',
 				format	: this.dateFormat,
 			});
-			
+
 			this.$form.find("[name='EXP_TIME']").datetimepicker({
 				viewType: 'date',
 				format	: this.dateFormat,
 			});
-			
+
 			pmUtil.utilAction.qryPluginSpec({'PLUGIN_TYPE':'03'}, function(data) {
 				if (data && data.pluginList){
 					this.fileNamePlugin = data.pluginList;
@@ -199,7 +199,7 @@
 					});
 				}
 			}.bind(this),true);
-			
+
 			pmUtil.utilAction.qryPluginSpec({'PLUGIN_TYPE':'04'}, function(data) {
 				if (data && data.pluginList){
 					this.procRulePlugin = data.pluginList;
@@ -211,7 +211,7 @@
 				}
 			}.bind(this),true);
 
-			
+
 			this.$(".js-measure-detail-tab").tabs({
 				activate: function(event, ui) {
 					var id = ui.newPanel.attr('id');
@@ -226,7 +226,7 @@
 					}
 				}.bind(this)
 			});
-			
+
 			this.loadParamGrid(this.$(".js-filename-rule-param-grid"));
 			this.loadParamGrid(this.$(".js-proc-rule-param-grid"));
 			this.loadTree();
@@ -236,7 +236,7 @@
 		},
 		loadParamGrid: function($grid){
 			var that = this;
-			
+
 			$grid.jqGrid({
 				colModel: this.paramModel,
 				pagebar: false,
@@ -244,7 +244,7 @@
 				cellEdit: true,
 				rownumbers:true,
 				autowidth:true,
-				
+
 				afterEditCell: function (e,rowid,name,value,iRow,iCol) {
 					return false;
 		        },
@@ -257,7 +257,7 @@
 				}.bind(this)
 			});
 		},
-		
+
 		loadTree: function(){
 			var $tree = this.$(".js-catalog-tree");
 			this.catTree = $tree.jqGrid({
@@ -268,14 +268,14 @@
 				}, {
 					name: "REL_ID",
 					label: "",
-					width: "0",	
-					key: true,			
+					width: "0",
+					key: true,
 					hidden:true
 				}],
-				
+
 				expandColumn: "CAT_NAME",
 				treeGrid: true,
-				colHide: true, 
+				colHide: true,
 				pagebar: true,
 				onSelectRow: function(e, rowid, state) {
 					var selectRow = this.catTree.jqGrid("getRowData", rowid);
@@ -289,7 +289,7 @@
 				}.bind(this)
 			});
 			pmUtil.loadEMSTree(this.catTree);
-			
+
 		},
 		loadMeasureGrid: function(){
 			var $grid = this.$(".js-measure-grid");
@@ -302,7 +302,7 @@
 				}.bind(this),
 				beforeDeleteRow: function(e, rowid, rowdata) {
 					fish.confirm(this.i18nData.MO_DEL_CONFIRM,function(t) {
-						this.delMeasure(rowdata); 
+						this.delMeasure(rowdata);
 					}.bind(this));
 					return false;
 				}.bind(this),
@@ -329,11 +329,11 @@
 				cellEdit: true,
 				multiselect: true,
 				rownumbers:true,
-				
+
 				afterEditCell: function (e,rowid,name,value,iRow,iCol) {
-					
+
 		            if($.inArray(name, ["EFF_TIME","EXP_TIME"])>=0){
-		            	
+
 			            $("#" + rowid+"_" + name, ".js-measure-field-grid").datetimepicker({
 			                buttonIcon: '',
 			                viewType: 'date',
@@ -354,13 +354,13 @@
 			        if(name=="VAFIELD"){
 			        	$("#" + rowid+"_" + name).attr("maxLength","256");
 			        }
-			        
+
 		        }.bind(this),
 				beforeDeleteRow: function(e, rowid, rowdata) {
-					
+
 					that.delField(rowdata);
 					return false;
-					
+
 				}.bind(this),
 				onSelectRow: function(e, rowid, state) {
 					return false;
@@ -373,13 +373,13 @@
 				if (this.$(".js-measure-left-panel").height() >= this.$(".js-measure-right-panel").height()) {
 					portal.utils.gridIncHeight(this.$(".js-catalog-tree"),delta);
 					portal.utils.gridIncHeight(this.$(".js-measure-grid"), this.$(".js-measure-left-panel").height() - this.$(".js-measure-right-panel").height());
-					
+
 				} else {
 					portal.utils.gridIncHeight(this.$(".js-measure-grid"),delta);
 					portal.utils.gridIncHeight(this.$(".js-catalog-tree"), this.$(".js-measure-right-panel").height() - this.$(".js-measure-left-panel").height());
 				}
 			}else if(this.$(".js-measure-detail-panel").is(":visible")){
-				
+
 				if (this.$(".js-measure-left-panel").height() >= this.$(".js-measure-detail-panel").height()) {
 					portal.utils.gridIncHeight(this.$(".js-catalog-tree"),delta);
 					var hDiff = this.$(".js-measure-left-panel").height() - this.$(".js-measure-detail-panel").height() ;
@@ -423,7 +423,7 @@
 			portal.utils.gridIncHeight(this.$(".js-measure-grid"),this.$(".js-measure-left-panel").height()-this.$(".js-measure-right-panel").height());
 		},
 		selMeasure: function(rowid){
-			
+
 		},
 		addMeasure: function(){
 			if(!this.EMS_VER_CODE){
@@ -444,14 +444,14 @@
 			var procRuleSpec = (this.procRulePlugin && this.procRulePlugin.length > 0)?this.procRulePlugin[0]['PLUGIN_SPEC_NO']:'';
 			this.$form.find("[name='FILENAME_RULE_SPEC']").combobox('value', filenameSpec);
 			this.$form.find("[name='PROC_RULE_SPEC']").combobox('value', procRuleSpec);
-			this.$form.find("[name='CODE_PREFIX']").val(this.codePrefix); 
+			this.$form.find("[name='CODE_PREFIX']").val(this.codePrefix);
 			this.$form.find("[name='MO_NAME']").focus();
-			this.fieldGrid.jqGrid("reloadData",[]); 
+			this.fieldGrid.jqGrid("reloadData",[]);
 			this.FILENAME_RULE = "";
 			this.PROC_RULE = "";
 		},
 		addCopyMeasure: function(){
-			var rowdata = this.measureGrid.jqGrid('getSelection'); 
+			var rowdata = this.measureGrid.jqGrid('getSelection');
 			if(!rowdata["MO_CODE"]){//没有选中数据,走普通新建
 				this.addMeasure();
 				return false;
@@ -467,7 +467,7 @@
 			this.btnDisabled(false);
 			this.$(".js-measure-ok").data("type", "add");
 			this.$form.form('clear');
-			
+
 			this.$form.form("value", rowdata);
 			this.$form.find("[name='CODE_PREFIX']").val(this.codePrefix);
 			//this.$form.find("[name='MO_CODE']").val(rowdata['MO_CODE'].replace(this.codePrefix,''));
@@ -494,9 +494,9 @@
 			this.FILENAME_RULE = rowdata["FILENAME_RULE"];
 			this.PROC_RULE = rowdata["PROC_RULE"];
 			this.$(".js-measure-ok").data("type", "edit");
-			this.$form.find(":input[name='MO_CODE']").attr("disabled",true);	
+			this.$form.find(":input[name='MO_CODE']").attr("disabled",true);
 			this.$form.find(":input[name='MO_NAME']").focus();
-			
+
 			//var moCode = this.$form.find(":input[name='MO_CODE']").val();
 			this.loadMeasureField(rowdata["MO_CODE"]);
 			if(rowdata['FILENAME_RULE']){
@@ -517,7 +517,7 @@
 				value["procRulePlugin"] = {"OPER_TYPE":value["OPER_TYPE"],"PLUGIN_TYPE":'04'};
 				value["procRulePlugin"]["PLUGIN_NO"] = value["PROC_RULE"];
 			}
-			measureAction.operMeasure(value, function(data) { 
+			measureAction.operMeasure(value, function(data) {
 				that.measureGrid.jqGrid("delRowData", value);
 				fish.success(that.i18nData.MO_DEL_SUCCESS);
 			}.bind(this));
@@ -530,7 +530,7 @@
 			if(rowsData.length > 0){
 				this.batchField(rowsData);
 			}else{
-				fish.info(this.i18nData.SEL_FIELD_EDIT); 
+				fish.info(this.i18nData.SEL_FIELD_EDIT);
 				return false;
 			}
 		},
@@ -569,7 +569,7 @@
 								}
 							});
 						}
-					}else{//批量新增 
+					}else{//批量新增
 						that.fieldGrid.jqGrid("addRowData", retData, 'last');
 					}
 				}
@@ -598,7 +598,7 @@
 				if(value["OPER_TYPE"] == "add"){
 					value["MO_CODE"] = value["CODE_PREFIX"]+value["MO_CODE"];
 				}
-				
+
 				value["fileNamePlugin"] = {"OPER_TYPE":(this.FILENAME_RULE?'edit':'add'),
 					"CODE_PREFIX":this.codePrefix,"PLUGIN_TYPE":'03',
 					"PLUGIN_SPEC_NO":value["FILENAME_RULE_SPEC"],
@@ -608,10 +608,10 @@
 						value["fileNamePlugin"]["PLUGIN_CLASSPATH"] = plugin['PLUGIN_CLASSPATH'] ;
 						value["fileNamePlugin"]["PLUGIN_NAME"] = plugin['PLUGIN_NAME']
 					}
-				});	
+				});
 				value["fileNamePlugin"]["PLUGIN_NO"] = this.FILENAME_RULE?this.FILENAME_RULE:"";
 				value["fileNamePlugin"]["pluginParam"] = this.$(".js-filename-rule-param-grid").jqGrid("getRowData");
-				 
+
 				value["procRulePlugin"] = {"OPER_TYPE":(this.PROC_RULE?'edit':'add'),
 					"CODE_PREFIX":this.codePrefix,"PLUGIN_TYPE":'04',
 					"PLUGIN_SPEC_NO":value["PROC_RULE_SPEC"],
@@ -621,11 +621,11 @@
 						value["procRulePlugin"]["PLUGIN_CLASSPATH"] = plugin['PLUGIN_CLASSPATH'] ;
 						value["procRulePlugin"]["PLUGIN_NAME"] = plugin['PLUGIN_NAME']
 					}
-				});	
+				});
 				value["procRulePlugin"]["PLUGIN_NO"] = this.PROC_RULE?this.PROC_RULE:"";
-				value["procRulePlugin"]["pluginParam"] = this.$(".js-proc-rule-param-grid").jqGrid("getRowData"); 
-				value["moField"] = this.fieldGrid.jqGrid("getRowData"); 
-				
+				value["procRulePlugin"]["pluginParam"] = this.$(".js-proc-rule-param-grid").jqGrid("getRowData");
+				value["moField"] = this.fieldGrid.jqGrid("getRowData");
+
 				var fieldValid = true;
 				var fieldCodeArr = [];
 				fish.forEach(value["moField"],function(moField,index){
@@ -640,7 +640,7 @@
 						fish.info(this.i18nData.FIELD_CODE_ISNULL);
 						return false;
 					}else{
-						
+
 						if($.inArray(fieldCode, fieldCodeArr)>=0){
 							fieldValid = false;
 							fish.info(this.i18nData.FIELD_CODE_REPEAT);
@@ -651,8 +651,8 @@
 					}
 				}.bind(this));
 				if(!fieldValid) return ;
-				measureAction.operMeasure(value, function(data) { 
-				
+				measureAction.operMeasure(value, function(data) {
+
 					if(that.$(".js-measure-ok").data("type")=="edit"){
 						var	rowdata = this.measureGrid.jqGrid("getSelection");
 						that.measureGrid.jqGrid("setRowData",fish.extend({}, rowdata, data));
@@ -678,13 +678,13 @@
 			if(rowsData.length <= 0){
 				var rowsData = [];
 				var rowid = this.fieldGrid.jqGrid("getGridParam", "selrow");
-				if(rowid){ 
+				if(rowid){
 					rowsData.push(this.fieldGrid.jqGrid("getSelection",rowid));
 				}else{
 					rowsData.push({});
 				}
 			}
-			var that = this; 
+			var that = this;
 			fish.forEach(rowsData, function(row) {
 				var data = {};
 				fish.forEach(that.fieldModel, function(col) {
@@ -696,17 +696,17 @@
 		},
 		delField: function(event){
 			var rowsData = [];
-			if(event && !event.target){ 
+			if(event && !event.target){
 				if(!event["FIELD_CODE"]){
 					//this.fieldGrid.jqGrid("delRowData", event);
 					//return false ;
 				}
 				rowsData.push(event);
 			}else{
-				rowsData = this.fieldGrid.jqGrid("getCheckRows");	
+				rowsData = this.fieldGrid.jqGrid("getCheckRows");
 			}
 			if(rowsData.length > 0){
-				var that = this; 
+				var that = this;
 				fish.confirm(this.i18nData.FIELD_DEL_CONFIRM,function(t) {
 					fish.forEach(rowsData, function(row) {
 						that.fieldGrid.jqGrid("delRowData", row);
@@ -718,11 +718,11 @@
 			}
 		},
 		getMeasureByEMS:function(REL_ID,VER_CODE){
-			if(!this.EMS_TYPE_REL_ID 
-				|| !this.EMS_VER_CODE 
+			if(!this.EMS_TYPE_REL_ID
+				|| !this.EMS_VER_CODE
 				|| this.EMS_TYPE_REL_ID!=REL_ID
 				|| this.EMS_VER_CODE!=VER_CODE){
-				
+
 				this.EMS_TYPE_REL_ID = REL_ID;
 				this.EMS_VER_CODE = VER_CODE;
 				var param = {"EMS_TYPE_REL_ID":REL_ID,"EMS_VER_CODE":VER_CODE} ;
@@ -768,7 +768,7 @@
 		},
 		loadPluginParam: function($grid,param){
 			pmUtil.utilAction.qryPluginParam(param,function(data) {
-				if(data && data.pluginParam){ 
+				if(data && data.pluginParam){
 					$grid.jqGrid("reloadData",data.pluginParam);
 				}
 			},true);
@@ -785,7 +785,7 @@
 			$('.js-filename-rule-param-box').toggleClass('fadeInUp animated block');
 			this.$(".js-filename-rule-param-grid:visible").jqGrid("setGridHeight", 120);
 			this.$(".js-filename-rule-param-grid:visible").jqGrid("setGridWidth", this.$(".js-filename-rule-param-grid").parent().width());
-			
+
 		},
 		showProcRuleBox: function(){
 			$('.js-proc-rule-param-box').toggleClass('fadeInUp animated block');

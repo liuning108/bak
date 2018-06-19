@@ -1,19 +1,34 @@
 define(function() {
 	return {
 		qryEMSInfo:function(success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_EMS",null,success);
-			}else{
-				portal.callService("MPM_UTIL_EMS",null,success);
-			}
-
+			var result ={};
+		  var option={
+				 async:!syn,
+				 data:{},
+				 url:"util/ems",
+				 "success":function(data){
+						 success(data);
+				 }
+			 }
+		 fish.post(option);
 		},
 		qryParavalue:function(success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_PARAVALUE",null,success);
-			}else{
-				portal.callService("MPM_UTIL_PARAVALUE",null,success);
-			}
+			var result ={};
+		  var option={
+				 async:!syn,
+				 data:{},
+				 url:"util/paravalue",
+				 "success":function(d){
+						 result.paraList=d;
+						 success(result);
+				 }
+			 }
+		 fish.post(option);
+			// if(syn){
+			// 	portal.callServiceSyn("MPM_UTIL_PARAVALUE",null,success);
+			// }else{
+			// 	portal.callService("MPM_UTIL_PARAVALUE",null,success);
+			// }
 		},
 		qryParameter:function(success,syn){
        	var result ={};
@@ -29,11 +44,16 @@ define(function() {
 			 fish.post(option);
 		},
 		qryDataSource:function(param,success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_DATA_SOURCE",null,success);
-			}else{
-				portal.callService("MPM_UTIL_DATA_SOURCE",null,success);
-			}
+			var result ={};
+		  var option={
+				 async:!syn,
+				 data:{},
+				 url:"util/datasource",
+				 "success":function(data){
+						 success(data);
+				 }
+			 }
+		 fish.post(option);
 		},
 		qryScriptResult:function(param,success,syn){
 			if(syn){
@@ -43,25 +63,37 @@ define(function() {
 			}
 		},
 		qryPluginSpec:function(param,success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_PLUGIN_SPEC",param,success);
-			}else{
-				portal.callService("MPM_UTIL_PLUGIN_SPEC",param,success);
-			}
+			var result ={};
+			 var option={
+					 async:!syn,
+					 data:param,
+					 url:"util/pluginspec",
+					 "success":function(data){
+							 success(data);
+					 }
+				 }
+			fish.post(option);
 		},
 		qryPluginParam:function(param,success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_PLUGIN_PARAM",param,success);
-			}else{
-				portal.callService("MPM_UTIL_PLUGIN_PARAM",param,success);
-			}
+			///util/pluginparam
+			 var result ={};
+			 var option={
+					 async:!syn,
+					 data:param,
+					 url:"util/pluginparam",
+					 "success":function(data){
+							 success(data);
+					 }
+				 }
+			fish.post(option);
 		},
 		operPluginParam:function(param,success,syn){
-			if(syn){
-				portal.callServiceSyn("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
-			}else{
-				portal.callService("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
-			}
+			//没人使用
+			// if(syn){
+			// 	portal.callServiceSyn("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
+			// }else{
+			// 	portal.callService("MPM_UTIL_PLUGIN_PARAM_OPER",param,success);
+			// }
 		},
 	}
 });

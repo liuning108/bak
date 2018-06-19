@@ -1,7 +1,7 @@
-﻿portal.define([
+﻿define([
 	'text!oss_core/pm/meta/measure/templates/MeasureBatchMgr.html',
 ],function(measureBatchAddTpl){
-	return portal.BaseView.extend({
+	return fish.View.extend({
 		template: fish.compile(measureBatchAddTpl),
 		events: {
 			"click .js-ok": 'ok'
@@ -76,13 +76,13 @@
 				height:335,
 				width:1000,
 				afterEditRow: function (e, rowid, data, option) {
-					
+
 					$("#" + rowid+"_EFF_TIME", ".js-measure-batch-grid").datetimepicker({
 		                buttonIcon: '',
 		                viewType: 'date',
 		                format	: that.dateFormat,
 		            });
-		            
+
 		            /*
 		            $("#" + rowid+"_"+"EXP_TIME", ".js-measure-batch-grid").datetimepicker({
 		                buttonIcon: '',
@@ -98,7 +98,7 @@
 		        	});
 		        },
 			});
-			
+
 			var addRowData = {};
 			if(that.data && that.data.length > 0){
 				fish.forEach(that.data, function(row,index) {
@@ -124,7 +124,7 @@
 			$(".js-measure-batch-form textarea").css("height","300");
 			$(".js-measure-batch-form textarea").attr("wrap","off");
 			$(".js-measure-batch-form textarea").addClass("form-control");
-			
+
 			this.retField = $('#RETRUN_FIELD').multiselect('option',{
 				dataTextField:'label',dataValueField:'name',dataSource:this.batchModel
 			});
@@ -134,7 +134,7 @@
 					that.mulSel.push(col.name);
 				}
 			});
-			
+
 			this.retField.multiselect('value', this.mulSel);
 			this.retField.on('multiselect:change', function(e, params) {
 			    that.returnField();
@@ -160,7 +160,7 @@
 			var rowid = this.batchGrid.jqGrid("getGridParam","selrow");
     		this.batchGrid.jqGrid("saveRow",rowid);
 			var rowdata = this.batchGrid.jqGrid('getSelection');
-					
+
 			var retData = [];
 			fish.forEach(this.batchModel, function(col) {
 				if(col && ($.inArray(col.name, that.retField.multiselect('value'))>=0) && col["edittype"]=="textarea"){
@@ -189,7 +189,7 @@
 					});
 				}
 			});
-			
+
 			//alert(JSON.stringify(retData));
 			this.popup.close(retData);
 		}

@@ -1,4 +1,4 @@
-﻿portal.define([
+﻿define([
 	'text!oss_core/pm/meta/model/phy/templates/ModelPhyMgr.html',
 	'text!oss_core/pm/meta/model/phy/templates/ModelPhyDetail.html',
 	'i18n!oss_core/pm/meta/model/phy/i18n/model.phy',
@@ -8,7 +8,7 @@
 	'oss_core/pm/third-party/codemirror/mode/sql/sql.js',
 	"css!oss_core/pm/third-party/codemirror/lib/codemirror.css",
 ],function(modelTpl, modelDetailTpl, i18nModel, modelAction, pmUtil, codemirror){
-	return portal.BaseView.extend({
+	return fish.View.extend({
 		tagName: "div",
 		className: "tabs__content",
 		template: fish.compile(modelTpl),
@@ -57,7 +57,7 @@
 				sortable: true,
 				formatter: "date",
                 formatoptions: {
-                    newformat: this.dateFormat 
+                    newformat: this.dateFormat
                 }
 			}, {
 				name: "EXP_TIME",
@@ -66,7 +66,7 @@
 				sortable: true,
 				formatter: "date",
                 formatoptions: {
-                    newformat: this.dateFormat 
+                    newformat: this.dateFormat
                 }
 			}, {
 				sortable: false,
@@ -78,8 +78,8 @@
 					delbutton: true
 				}
 			}];
-			
-			
+
+
 		},
 		render: function() {
 			this.$el.html(this.template(this.i18nData));
@@ -89,12 +89,12 @@
 		afterRender: function(){
 			//this.resize();
 			this.$form = this.$(".js-model-phy-detail-form");
-			
+
 			this.$form.find("[name='EFF_TIME']").datetimepicker({
 				viewType: 'date',
 				format	: this.dateFormat,
 			});
-			
+
 			this.$form.find("[name='EXP_TIME']").datetimepicker({
 				viewType: 'date',
 				format	: this.dateFormat,
@@ -116,14 +116,14 @@
 				}, {
 					name: "REL_ID",
 					label: "",
-					width: "0",	
-					key: true,			
+					width: "0",
+					key: true,
 					hidden:true
 				}],
-				
+
 				expandColumn: "CAT_NAME",
 				treeGrid: true,
-				colHide: true, 
+				colHide: true,
 				pagebar: true,
 				onSelectRow: function(e, rowid, state) {
 					var selectRow = this.catTree.jqGrid("getRowData", rowid);
@@ -137,18 +137,18 @@
 						this.EMS_CODE = selectRow.CAT_CODE;
 						this.getModelByEMS(selectRow.REL_ID,'-1');
 					}
-					
+
 				}.bind(this)
 			});
 			pmUtil.loadEMSTree(this.catTree);
-			
+
 		},
-		
+
 		loadDBSource: function(){
 
 			this.dbid = "1000000";
 			pmUtil.utilAction.qryDataSource({},function(data) {
-				if(data){ 
+				if(data){
 					var dataSource = "";
 					fish.forEach(data.sourceList, function(result,index) {
 						if(dataSource){
@@ -186,10 +186,10 @@
 		                edittype: "select",
 		                editoptions: {value:dataSource},
 					}];
-					 
+
 				}
-			}.bind(this));	
-			
+			}.bind(this));
+
 		},
 		loadGrid: function(){
 			var $grid = this.$(".js-model-phy-grid");
@@ -202,7 +202,7 @@
 				}.bind(this),
 				beforeDeleteRow: function(e, rowid, rowdata) {
 					fish.confirm(this.i18nData.MODEL_DEL_CONFIRM,function(t) {
-						this.delModel(rowdata);	
+						this.delModel(rowdata);
 					}.bind(this));
 					return false;
 				}.bind(this),
@@ -225,7 +225,7 @@
                 cssprop: "js-batch-new"
             }**/
             ]);
-			
+
 		},
 		loadGranuGrid: function(){
 			if(!this.granuModel) return false;
@@ -236,10 +236,10 @@
 				pagebar: false,
 				sortable:true,
 				cellEdit: true,
-				multiselect: true,	
-				height:138,		
+				multiselect: true,
+				height:138,
 				afterEditCell: function (e,rowid,name,value,iRow,iCol) {
-			        
+
 		        },
 				onSelectRow: function(e, rowid, state) {
 					return false;
@@ -262,7 +262,7 @@
 				granuList.push({"GRANU":granu[pmUtil.parakey.val],"TABLE_MODE":"None","DATA_SOURCE":(this.dbid?this.dbid:'1000000')});
 			}.bind(this));
 			this.granuGrid.jqGrid("reloadData",granuList);
-			
+
 		},
 		loadScriptTab: function(){
 			this.editors = {};
@@ -277,18 +277,18 @@
         		var scriptText = document.getElementsByName('SCRIPT')[index] ;
         		var editor = codemirror.fromTextArea(scriptText, {
 				    mode: 'text/x-plsql',
-				    indentWithTabs: true,		    
+				    indentWithTabs: true,
 				    smartIndent: true,
 				    lineNumbers: true,
 				    matchBrackets : true,
 				    //autofocus: true,
 				    //scrollbarStyle: 'null',
 				});
-				editor.setSize('height','220px');	
-				editor.on("update",function(self){ 
-					var val = $.trim(self.getValue()); 
+				editor.setSize('height','220px');
+				editor.on("update",function(self){
+					var val = $.trim(self.getValue());
 					this.$tab.checked(index,!!val);
-				}.bind(this));  
+				}.bind(this));
 				this.editors[script_type] = editor ;
         	}.bind(this));
 			this.$tab = pmUtil.tab(this.$('.js-model-phy-script-tab'),{});
@@ -308,26 +308,26 @@
 		},
 		*/
 		resize: function(delta){
-			
+
 			if (this.$(".js-model-phy-left-panel").height() >= this.$(".js-model-phy-right-panel").height()) {
 				portal.utils.gridIncHeight(this.$(".js-catalog-tree"),delta);
 				var hDiff = this.$(".js-model-phy-left-panel").height() - this.$(".js-model-phy-right-panel").height();
 				portal.utils.gridIncHeight(this.$(".js-model-phy-grid:visible"), hDiff);
-				if(this.$(".js-model-phy-detail").is(":visible")){ 
+				if(this.$(".js-model-phy-detail").is(":visible")){
 					portal.utils.incHeight(this.$(".js-model-phy-detail"), hDiff);
 					this.$(".js-model-phy-detail-content").height(this.$(".js-model-phy-detail").height()-this.$(".js-model-phy-detail-button").height());
 					this.$(".js-model-phy-detail-content").parent().height(this.$(".js-model-phy-detail-content").height());
-					this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});	
+					this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});
 					//this.$(".js-model-phy-detail-button").height(this.$(".js-model-phy-detail-button").height());
 				}
-				
+
 			} else {
 				portal.utils.gridIncHeight(this.$(".js-model-phy-grid:visible"),delta);
-				if(this.$(".js-model-phy-detail").is(":visible")){ 
+				if(this.$(".js-model-phy-detail").is(":visible")){
 					portal.utils.incHeight(this.$(".js-model-phy-detail"),delta);
 					this.$(".js-model-phy-detail-content").height(this.$(".js-model-phy-detail").height()-this.$(".js-model-phy-detail-button").height());//
 					this.$(".js-model-phy-detail-content").parent().height(this.$(".js-model-phy-detail-content").height());
-					this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});	
+					this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});
 					//this.$(".js-model-phy-detail-button").height(this.$(".js-model-phy-detail-button").height());
 				}
 				portal.utils.gridIncHeight(this.$(".js-catalog-tree"), this.$(".js-model-phy-right-panel").height() - this.$(".js-model-phy-left-panel").height());
@@ -343,11 +343,11 @@
 			}
 			this.$(".js-model-phy-detail-content").height(h-this.$(".js-model-phy-detail-button").height());
 			this.$(".js-model-phy-detail-content").parent().height(this.$(".js-model-phy-detail-content").height());
-			this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});	
+			this.$(".js-model-phy-detail-content").slimscroll({height:this.$(".js-model-phy-detail-content").height()});
 			this.$(".js-model-phy-detail").height(h);
 			this.$(".js-model-phy-detail-panel").html(this.i18nData.COMMON_DETAIL);
 			this.$form.resetValid();
-			$.each(this.editors, function(script_type, editor) {  
+			$.each(this.editors, function(script_type, editor) {
 				editor.refresh();
 			});
 		},
@@ -359,7 +359,7 @@
 			this.$(".js-model-phy-detail-panel").html(this.i18nData.MODEL_LIST);
 		},
 		selModel: function(rowid){
-			
+
 		},
 		addModel: function(){
 			if(!this.EMS_VER_CODE && !this.EMS_CODE){
@@ -386,14 +386,14 @@
 			this.clearEditors();
 		},
 		clearEditors: function(){
-			$.each(this.editors, function(script_type, editor) {  
+			$.each(this.editors, function(script_type, editor) {
 				editor.setValue("");
 				var index = this.$form.find(":input[name='SCRIPT'][script_type='"+script_type+"']").attr('index');
 				this.$tab.checked(parseInt(index),false);
 			}.bind(this));
 		},
 		addCopyModel: function(){
-			var rowdata = this.modelGrid.jqGrid('getSelection'); 
+			var rowdata = this.modelGrid.jqGrid('getSelection');
 			if(!rowdata["MODEL_PHY_CODE"]){//没有选中数据,走普通新建
 				this.addModel();
 				return false;
@@ -419,17 +419,17 @@
 		editModel: function(rowdata){
 			this.showBlockUI(true);
 			this.showDetailPanel();
-			this.codePrefixShow(false);	
+			this.codePrefixShow(false);
 			this.$form.form('enable');
 			this.btnDisabled(false);
 			this.$form.form('clear');
 			this.clearEditors();
-			
+
 			this.$form.form("value", rowdata);
-			this.$form.find(":input[name='MODEL_PHY_CODE']").attr("disabled",true);		
+			this.$form.find(":input[name='MODEL_PHY_CODE']").attr("disabled",true);
 			this.$form.find(":input[name='MODEL_PHY_NAME']").focus();
 			this.$(".js-model-phy-ok").data("type", "edit");
-			
+
 			this.setScript_Granu(rowdata);
 		},
 		setScript_Granu: function(rowdata){
@@ -438,51 +438,51 @@
 			var modelCode = rowdata['MODEL_PHY_CODE'];
 			modelAction.qryModelScript({"MODEL_PHY_CODE":modelCode}, function(data) {
 				if (data && data.modelScript){
-					fish.forEach(data.modelScript, function(script) { 
-						
-						$.each(this.editors, function(script_type, editor) {  
+					fish.forEach(data.modelScript, function(script) {
+
+						$.each(this.editors, function(script_type, editor) {
 							if(script_type == script["SCRIPT_TYPE"]){
 								var val = editor.getValue();
 								editor.setValue( (val?val:"") + (script["SCRIPT"]?script["SCRIPT"]:"") );
-								
+
 								if($.trim(editor.getValue())){
 									var index = that.$form.find(":input[name='SCRIPT'][script_type='"+script_type+"']").attr('index');
 									that.$tab.checked(parseInt(index),true);
 								}
 							}
 						});
-						
+
 						/*
-						fish.forEach($(":input[name='SCRIPT']"), function(scriptText) { 
+						fish.forEach($(":input[name='SCRIPT']"), function(scriptText) {
 							if($(scriptText).attr("script_type") == script["SCRIPT_TYPE"]){
 								$(scriptText).val( $(scriptText).val() + script["SCRIPT"]);
 							}
 						});
-						*/ 
+						*/
 					}.bind(this));
-				} 
+				}
 			}.bind(this));
-			
-			
+
+
 			var that = this;
 			that.granuGrid.jqGrid("setAllCheckRows",false);
-			fish.forEach($.parseJSON(rowdata["GRANU_MODE"]), function(granuMode) { 
+			fish.forEach($.parseJSON(rowdata["GRANU_MODE"]), function(granuMode) {
 				that.granuGrid.jqGrid("setRowData",granuMode);
 				that.granuGrid.jqGrid("setCheckRows",[granuMode["GRANU"]],true);
 			});
-			
+
 			modelAction.qryModelDataSource({"MODEL_PHY_CODE":modelCode}, function(data) {
 				if (data && data.modelDataSource){
-					fish.forEach(data.modelDataSource, function(dataSource) { 
+					fish.forEach(data.modelDataSource, function(dataSource) {
 						that.granuGrid.jqGrid("setRowData",dataSource);
 					});
-				} 
+				}
 			}.bind(this));
 		},
 		delModel: function(value){
 			var that = this;
 			value["OPER_TYPE"] = "del";
-			modelAction.operModel(value, function(data) { 
+			modelAction.operModel(value, function(data) {
 				that.modelGrid.jqGrid("delRowData", value);
 				fish.success(that.i18nData.MODEL_DEL_SUCCESS);
 			}.bind(this));
@@ -499,7 +499,7 @@
 					//this.userDetail.trigger('change');
 				}.bind(this)
 			});
-			
+
 		},
 		cancel: function() {
 			this.showBlockUI(false);
@@ -532,12 +532,12 @@
 						value["modelDataSource"].push(granu);
 					});
 				}else{
-					fish.info(this.i18nData.SEL_GRANU); 
+					fish.info(this.i18nData.SEL_GRANU);
 					return false;
 				}
-				value["GRANU_MODE"] = JSON.stringify(granuMode); 
+				value["GRANU_MODE"] = JSON.stringify(granuMode);
 				value["modelScript"] = [];
-				$.each(this.editors, function(script_type, editor) {  
+				$.each(this.editors, function(script_type, editor) {
 					if($.trim(editor.getValue())){
 						value["modelScript"].push({
 							"MODEL_PHY_CODE":value["MODEL_PHY_CODE"],
@@ -566,8 +566,8 @@
 					return false;
 				}
 				//alert(JSON.stringify(value));
-				modelAction.operModel(value, function(data) { 
-				
+				modelAction.operModel(value, function(data) {
+
 					if(that.$(".js-model-phy-ok").data("type")=="edit"){
 						var	rowdata = that.modelGrid.jqGrid("getSelection");
 						that.modelGrid.jqGrid("setRowData",fish.extend({}, rowdata, value));
@@ -586,16 +586,16 @@
 			$('.js-model-phy-cancel').attr("disabled",bool);
 		},
 		getModelByEMS: function(REL_ID,VER_CODE){
-			if(!this.EMS_TYPE_REL_ID 
+			if(!this.EMS_TYPE_REL_ID
 				|| !this.EMS_VER_CODE
 				|| this.EMS_TYPE_REL_ID!=REL_ID
 				|| this.EMS_VER_CODE!=VER_CODE){
-				
+
 				this.EMS_TYPE_REL_ID = REL_ID;
 				this.EMS_VER_CODE = VER_CODE;
-				
+
 				this.setModelType();
-				
+
 				var param = {"EMS_TYPE_REL_ID":REL_ID,"EMS_VER_CODE":VER_CODE} ;
 				modelAction.qryModel(param, function(data) {
 					if (data && data.modelList){
@@ -605,7 +605,7 @@
 			}
 		},
 		setModelType: function(){
-			
+
 			if(this.EMS_VER_CODE == '-1'){
 				this.$form.find('input[name="MODEL_TYPE"][value="1"]').prop('checked', 'checked');
 				this.$form.find('input[name="MODEL_TYPE"]').attr("disabled","disabled");
@@ -664,6 +664,6 @@
 				}.bind(this));
 			}
 		},
-		
+
 	});
 });
