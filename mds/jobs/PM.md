@@ -5,13 +5,20 @@
 -------------------
 [TOC]
 
+## 元数据KPI Management
+KPI Management oss_core/pm/meta/kpi/views/KpiMgr
+
+## 元数据Business Model Management
+Business Model Management	oss_core/pm/meta/model/busi/views/ModelBusiMgr
+
+
 
 ## 元数据Physical Model Management
 - [X] 建立菜单
 Metadata Management ->Physical Model Management
-- [ ] 显示页面
-oss_core/pm/meta/model/phy/views/ModelPhyMgr	
-- [ ] 数据服务
+- [X] 显示页面
+oss_core/pm/meta/model/phy/views/ModelPhyMgr
+- [X] 数据服务
     测试服务
 
 

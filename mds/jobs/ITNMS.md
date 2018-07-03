@@ -4,8 +4,10 @@
 
 -------------------
 [TOC]
-
-
+##
+itnms_dashboard 仪表盘主表
+itnms_dashboard_users  仪表盘授权使用表
+itnms_dashboard_serial_info 仪表盘序列化存储表
 ##图形
 ### 表结构
 ITNMS_GRAPHY_LIST
