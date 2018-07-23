@@ -1,0 +1,21 @@
+<div class="ui-dialog dialog-md attachToolStyle">
+  <div class="modal-header">
+    <h4 class="modal-title">附件下载</h4>
+  </div>
+  <div class="modal-body" style="background:#fff">
+    <ul class="attachlist">
+      {{#each data}}
+      <li>
+        <div class="zipIcon"></div>
+        <div class="title">{{ATTACH_NAME}}</div>
+        <div class="download" data-path={{ATTACH_PATH}}>
+          <i class="glyphicon glyphicon-download-alt"></i>
+        </div>
+      </li>
+      {{/each}}
+
+    </ul>
+
+  </div>
+
+</div>

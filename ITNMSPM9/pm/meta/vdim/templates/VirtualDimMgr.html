@@ -1,0 +1,160 @@
+<div>
+    <section class="vbox">
+        <section>
+            <section class="hbox stretch">
+                <aside class="ad-left js-ad-left b-r" style="background-color:#fff;width: 250px !important;">
+                    <div class="ad-title b-b" style="height:50px;padding: 16px 10px">
+                        <h3 class="m-n font-thin"> {{VIRTUAL_DIMENSION}}
+                            <a id="vdim-add-btn" type="button" title="" class="btn btn-link ad-btn pull-right">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                        </h3>
+                    </div>
+                    <!--VdimList-->
+                    <div class="clearfix m-t-sm m-block vdimListDiv">
+                        <div class="list-group m-b-none">
+                            <div class="col-md-10">
+                                <a class="nhc-list-item list-group-item vdim-item clickable">
+                                </a>
+                            </div>
+                            <div class="col-md-1 vdim-item-edit clickable">
+                                <a><i class="fa fa-edit"></i></a>
+                            </div>
+                            <div class="col-md-1 vdim-item-delete clickable">
+                                <a><i class="fa fa-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--VdimList-->
+                </aside>
+                <!--Right-->
+                <section>
+                    <section class="vbox ad-chart-bg" style="background-color:#fff;">
+                        <div class="modal-header" style="height:50px;padding:15px">
+                            <h4 class="modal-title" id="vdim-title"></h4>
+                        </div>
+                        <div class="modal-body" style="padding:40px;background-color:#fff;overflow: hidden">
+                            <div class="ad-modal-box" style="background-color:#fff;height: 430px;width:660px">
+                                <div class="ad-tolbad">
+                                    <div class="ad-block" style="padding-top:25px;height: 425px">
+                                        <form class="form-horizontal clearfix ad-group-hack js-vdim-info-form">
+                                        <!-- -->
+                                            <div id="ad-axiscfg-dim-container" class="form-group col-md-12">
+                                                <label id="ad-axiscfg-dim" class="control-label pull-left">{{FIELD_NAME}}：</label>
+                                                <div class="col-md-10">
+                                                    <input id="vdim-fieldname-input" class="form-control" name="FIELD_NAME" data-rule="{{FIELD_NAME}}:required;length[1~80]" style="margin-left:2px;width:494px">
+                                                </div>
+                                            </div>
+                                            <!-- -->
+                                            <div class="form-group col-md-12">
+                                                <label class="control-label pull-left">{{GROUP_FIELD}}：</label>
+                                                <div class="col-md-3">
+                                                    <select id="vdim-field-select" name="GROUP_FIELD" data-rule="{{GROUP_FIELD}}:required" class="form-control">
+                                                    </select>
+                                                </div>
+                                                <label class="control-label pull-left">{{GROUP_TYPE}}：</label>
+                                                <div class="col-md-4">
+                                                    <select id="vdim-grouptype-sel" name="GROUP_TYPE" data-rule="{{GROUP_TYPE}}:required" class="form-control" style="width:265px">
+                                                        <option value="0">{{ITEMS}}</option>
+                                                        <option value="1">{{EXPRESSION}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <!-- -->
+                                        <div id="ad-axiscfg-multiyaxis-sel">
+                                            <div class="row">
+                                                <div class="col-md-4 b-r">
+                                                    <div class="control-label" style="padding-left:10px">{{GROUP}}<a href="#" id="vdim-addgroup-btn" class="btn pull-right"><i class="fa fa-plus ad-icon"></i></a></div>
+                                                    <div class="clearfix m-t-sm m-block scorllable" style="height:280px">
+                                                        <ul id="sortable" class="selectableGroup">
+                                                            <!-- -->
+                                                            <li id="vdim-nogroup-li" class="vdim-nogroup-li">
+                                                                <span class="selectable" style="left:0px;">
+                                                                   {{OTHERS}}
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <div>
+                                                        <div class="form-group col-md-12">
+                                                            <label class="control-label pull-left">{{GROUP_NAME}}：</label>
+                                                            <div class="col-md-8">
+                                                                <input id="vdim-groupname-input" class="form-control" style="margin-left:3px;width:261px">
+                                                            </div>
+                                                        </div>
+                                                        <!--右边条目选择区域-->
+                                                        <div id="vdim-exact">
+                                                            <div class="row">
+                                                                <div class="col-md-6 b-r">
+                                                                    <div class="input-group search-group" style="width:100%">
+                                                                        <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                                                                        <input type="text" id="vdim-search" class="ad-theme-search form-control">
+                                                                    </div>
+                                                                    <div class="clearfix m-t-sm m-block" style="height: 200px;min-height: 200px">
+                                                                        <ul id="sortable" name="vdim-selectable">
+                                                                        </ul>
+                                                                        <div class="ad-bar">  <a id="vdim-addall" href="#">{{ADD_ALL}}</a></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="input-group search-group" style="width:100%">
+
+                                                                    </div>
+                                                                    <div class="clearfix m-t-sm m-block" style="padding-top:28px;height: 230px;min-height: 230px">
+                                                                        <ul id="sortable" name="vdim-selected">
+                                                                        </ul>
+                                                                        <div class="ad-bar">  <a id="vdim-removeall" href="#">{{CLEAR}}</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- -->
+                                                        <!--右边表达式输入区域-->
+                                                        <div id="vdim-exp-area" style="display: none">
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <div class="clearfix m-t-sm m-block" style="width: 365px;height: 200px;min-height: 200px">
+                                                                        <textarea id="vdim-exp-input" name="remarks" class="form-control" style="height: 150px"></textarea>
+                                                                        <div class="ad-bar"><a id="vdim-check-btn" href="#" class="pull-right" style="margin-top:-65px;margin-right:10px">{{CHECK}}  </a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--未分组的详情div-->
+                                                        <div id="vdim-nogroup-detail" style="display: none;text-align: center; padding-top: 130px;">
+                                                            {{NO_GROUPED_ITEMS}}
+                                                        </div>
+                                                        <!-- -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="vdim-bottom-btngroup" style="position: absolute">
+                            <div class="col-md-12 text-right">
+                                <button type="button" class="btn btn_primary btn_minwidth" id="vdim-ok-btn" autofocus>
+                                    {{COMMON_OK}}
+                                </button>
+                                <button type="button" class="btn btn_cancel btn_minwidth" id="vdim-cancel-btn">
+                                    {{COMMON_CANCEL}}
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!--
+    <a class="go-top show" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    -->
+</div>

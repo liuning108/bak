@@ -1,0 +1,67 @@
+<div class="comprivroot">
+<section class="vbox js-counter-panel">
+    <section>
+        <section class="hbox stretch"> 
+            <!--Right-->
+            <section>
+                <section class="vbox ad-chart-bg">
+                    <header class="wrapper b-b clearfix bg-white js-counter-condition-panel">
+                        <div class="col-md-12">
+							<div class="pull-right text-right">
+	                            <button class="btn btn-primary js-counter-query"><i class="fa fa-search"></i> {{COMMON_QUERY}}</button>                            
+	                        </div>
+	                        <div class="pull-left col-md-11">
+	                        	<form class="form-horizontal clearfix js-counter-qry-form" >
+		                        	<div class="col-md-1">
+		                        		<label class="control-label" style="text-align: left">{{DATE}}</label>
+		                        	</div>
+		                        	<div class="col-md-5 no-padding">	
+			                        	<div class="btn-group timebtn">
+											<a class="btn btn-default tooltip-test a6 js-counter-date-btn" b='-1' e='0' date_type='time' type="button" title="{{LAST_1_HOUR}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+				                            <a class="btn btn-default tooltip-test a7 js-counter-date-btn" b='-24' e='0' date_type='time' type="button" title="{{LAST_24_HOUR}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+				                            <a class="btn btn-default tooltip-test a1 js-counter-date-btn" b='0' e='1' date_type='date' type="button" title="{{TODAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+				                            <a class="btn btn-default tooltip-test a2 js-counter-date-btn" b='-1' e='0' date_type='date' type="button" title="{{YESTERDAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+				                            <div class="col-md-4 no-padding">
+					                        	<input class="form-control" name="B_TIME" data-rule="{{B_DATE}}:required;">
+					                        </div>
+					                        <div class="col-md-4 no-padding">
+					                        	<input class="form-control" name="E_TIME" data-rule="{{E_DATE}}:required;">
+					                        </div>
+				                        </div>
+				                        
+				                    </div>
+			                        <div class="btn-group m-l-sm no-padding">
+			                        	
+			                        	<button class="btn btn-default dropdown-toggle js-counter-setting" type="button">
+		                                	<i class="fa fa-gear"></i> {{COUNTER_SETTING}}
+		                                </button>
+		                                <!--
+		                                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="true">
+		                                	<span class="caret"></span>
+		                                </button>
+		                                <ul class="dropdown-menu dropdown-menu-left">
+		                                    <li><a href="#">{{LOAD_TPL}}</a></li>
+		                                    <li><a href="#">{{SAVE_TPL}}</a></li>
+		                                </ul>
+		                                -->
+			                        </div>
+								</form>
+		                    </div>
+		                </div>
+                    </header>
+                    <div class="wrapper scrollable p-b-none overflow-y-h">
+                        <div class="col-md-12">
+                        	<div class="ui-tabs js-counter-qry-tab">
+		                        <ul class="ui-tabs-nav js-counter-qry-ul">
+		                            
+		                        </ul>
+		                        
+		                    </div>
+		                </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+</div>

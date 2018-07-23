@@ -1,0 +1,60 @@
+	<div class="modal-header">
+		<h4 class="modal-title">{{DATA_FILTER}}</h4>
+	</div>
+	<div class="modal-body">
+		<div class="ad-modal-box">
+		<div class="ad-block">
+
+			<!--Table-->
+			<div class="border wrapper m-t-sm  tab-content" style='width:800px'>
+				<form class="form-horizontal clearfix ad-group-hack js-data-filter-form">
+				    <div class="col-md-12">
+				        
+				        <div class="form-group">
+				        	<div class="col-md-2">
+								<label class="control-label">{{SATISFY_FOLLOW}}</label>
+							</div>
+							<div class="col-md-3">
+								<input class="form-control" name="CONDITION_OPTION" data-rule="{{CONDITION_OPTION}}:required" placeholder="{{COMMON_PLS_SEL}}" />
+							</div>
+				        </div>
+				        <div class='js-data-filter-panel'>
+					        <!-- -->
+					        <div class="form-group" group>
+					        	<div class="col-md-2">
+					                <label class="control-label">&nbsp;</label>
+					            </div>
+					            <div class="col-md-3">
+					                <input class="form-control" name="MODEL_FIELD" data-rule="{{FIELD_INFO}}:required" placeholder="{{COMMON_PLS_SEL}}" />
+					            </div>
+					            <div class="col-md-3">
+					            	<input class="form-control" name="OPERATORS" data-rule="{{OPERATORS}}:required" placeholder="{{COMMON_PLS_SEL}}" />
+					            </div>
+					            <div class="col-md-3">
+					                <input class="form-control" name="VALUE" type="text" data-rule="{{PARAM_VALUE}}:required">
+					            </div>
+					            <div class="col-md-1">
+					                <button type="button" class="btn btn-ico js-data-filter-plus" title="{{COMMON_ADD}}"><i class="fa fa-plus"></i></button>
+					            </div>
+					        </div>
+					    </div>
+				    </div>
+				</form>
+			</div>
+			<!--/ Table-->
+		</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+        <div class="col-md-12 text-right">
+        	<button type="button" class="btn btn_minwidth btn-primary js-ok" autofocus>
+                {{COMMON_OK}}
+            </button>
+            <button type="button" class="btn btn_minwidth btn-default js-reset" data-dismiss>
+                {{COMMON_RESET}}
+            </button>
+            <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+	</div>

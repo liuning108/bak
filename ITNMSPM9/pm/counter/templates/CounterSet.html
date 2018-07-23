@@ -1,0 +1,98 @@
+	<div class="modal-header">
+		<h4 class="modal-title">{{COUNTER_SETTING}}</h4>
+	</div>
+	<div class="modal-body">
+		<div class="ad-modal-box">
+		<div class="ad-block">
+
+			<div class="border wrapper m-t-sm  tab-content" style='width:800px'>
+				<div class="row">
+					<div class="col-md-4 b-r">
+						<div class="ad-title">{{CONDITION_SETTING}}</div>
+						<form class="js-counter-set-form">	
+							<div class="clearfix m-t-sm m-block">
+	                            <div class="form-group required">
+									<div class="col-md-12">
+										<label class="control-label">{{EMS_TYPE}}</label>
+									</div>
+									<div class="col-md-12">
+										<input name="EMS_TYPE" class="form-control" data-rule="{{EMS_TYPE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+									</div>
+								</div>
+								<div class="form-group required">
+									<div class="col-md-12">
+										<label class="control-label">{{EMS}}</label>
+									</div>
+									<div class="col-md-12">
+										<input name="EMS" class="form-control" data-rule="{{EMS}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+									</div>
+								</div>
+								<div class="form-group required">
+									<div class="col-md-12">
+										<label class="control-label">{{EMS_VER}}</label>
+									</div>
+									<div class="col-md-12">
+										<input name="EMS_VER" class="form-control" data-rule="{{EMS_VER}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+									</div>
+								</div>
+								<div class="form-group required">
+									<div class="col-md-12">
+										<label class="control-label">{{MO}}</label>
+									</div>
+									<div class="col-md-12">
+										<input name="MO_CODE" class="form-control" data-rule="{{MO}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-12">
+										<label class="control-label">{{COUNTER}}</label>
+									</div>
+									<div class="col-md-12">
+										<input name="COUNTER_NAME" class="form-control" >
+									</div>
+								</div>
+	                            
+	                            <div class="ad-bar"><a href="#" class="js-counter-search">{{COMMON_QUERY}}</a></div>
+	                        </div>
+	                    </form>
+					</div>
+                    <div class="col-md-4 b-r">
+                        <div class="ad-title">{{SELECT}}</div>
+                        
+                        <div class="clearfix m-t-sm m-block">
+                            <ul id="sortable" class="ui-sortable js-counter-seling-ul" >
+								<!--
+								<li class="ui-sortable-handle">KPI<a href="#" class="js-counter-add" code='' name='KPI'>添加</a></li>
+								-->
+                            </ul>
+                            <div class="ad-bar"><a href="#" class="js-counter-add-all">{{ADD_ALL}}</a></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ad-title">{{ADDED}}</div>
+                        
+                        <div class="clearfix m-t-sm m-block">
+							<ul id="sortable" class="ui-sortable js-counter-seled-ul">
+								<!--
+								<li class="ui-sortable-handle"><span><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span>KPI<a href="#" class="js-counter-del" code='' name='KPI'>删除</a></li>
+								-->
+							</ul>
+							<div class="ad-bar"><a href="#" class="js-counter-del-all">{{COMMON_CLEAR}}</a></div>
+						</div>
+                    </div>
+                </div>
+			</div>
+
+		</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+        <div class="col-md-12 text-right">
+        	<button type="button" class="btn btn_minwidth btn-primary js-ok" autofocus>
+                {{COMMON_OK}}
+            </button>
+            <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+	</div>

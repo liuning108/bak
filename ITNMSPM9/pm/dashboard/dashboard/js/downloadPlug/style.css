@@ -1,0 +1,98 @@
+.emailTipSin {
+  position: relative;
+  top: -5px;
+  left: -5px;
+}
+
+.download_task_search {
+  position: relative;
+}
+
+.download_task_search i {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+}
+
+.download_task_search .serachTaskInput {
+  padding-left: 30px;
+  width: 320px;
+}
+
+.download_task_search .serachTaskBtn {
+  padding: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #02b8ed;
+  border-color: #02b8ed;
+  color: #fff;
+  cursor: pointer;
+}
+
+.selCardUL {
+  padding: 0px;
+  margin: 0px;
+  color: #5c5c5c;
+}
+
+.selCardUL li {
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px;
+  background: #fff;
+  margin-left: 5px;
+  text-align: center;
+  border: 1px solid #e3e3e3;
+  width: 95px;
+}
+
+.selCardUL li .kk {
+  margin-left: 2px;
+  display: none;
+}
+
+.selCardUL li.selLi {
+  background: #029cfd;
+  color: #fff;
+}
+
+.selCardUL li.selRun {
+  background: #029cfd;
+  color: #fff;
+}
+
+.selCardUL li.selRun .kk {
+  display: inline-block;
+}
+
+.selCardUL li:hover {
+  background: #029cfd;
+  color: #fff;
+}
+
+.typeConfigItems {
+  border: 1px solid #dee5e7;
+  padding: 10px;
+  margin-top: -10px;
+  margin-left: 11px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  width: 285px;
+}
+
+.typeConfigItems .plane {
+  display: none;
+}
+
+.typeConfigItems .plane .radio-inline {
+  margin-right: 5px;
+}
+
+.radioGroup {
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.defaultHide {
+  display: none;
+}

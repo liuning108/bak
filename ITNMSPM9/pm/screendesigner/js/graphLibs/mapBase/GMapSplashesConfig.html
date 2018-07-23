@@ -1,0 +1,107 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">Map Type:</label>
+                                        <i class="glyphicon glyphicon-pencil chosiceMapType"></i>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">layer Color:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">Line Color:</label>
+                                        <input type="text" class="mapLineColor" name="mapLineColor">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">graph type:</label>
+                                        <select class="mapGtype">
+                                          <option value="createPoint">circle</option>
+                                          <option value="createlightRing">lightRing</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">point Size:</label>
+                                        <input type="text" class=" MapinputText pointSize" name="pointSize">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">point Color 1:</label>
+                                        <input type="text" class="pc1" name="pc1">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">point Color 2:</label>
+                                        <input type="text" class="pc2" name="pc2">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="checkbox" name="isGlow"  class="isGlow">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">show glow:</label>
+
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                      <input type="checkbox" name="showTitle" value="showTitle" class="showTitle">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">show Label:</label>
+
+                                     </div>
+
+                                     <div class="form-group">
+                                         <input type="checkbox" name="showValue" value="showValue" class="showValue">
+                                         <label for="gtext_num_colorpicker" class="bi-lable">show value:</label>
+                                      </div>
+
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bi-attr-edit-list-div" id="bg_stView">
+                </div>
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a  class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

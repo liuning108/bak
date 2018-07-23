@@ -1,0 +1,91 @@
+<div class="comprivroot">
+<section class="vbox js-collect-log-panel">
+    <section>
+        <section class="hbox stretch"> 
+            <!--Right-->
+            <section>
+                <section class="vbox ad-chart-bg">
+                    <header class="wrapper b-b clearfix bg-white js-collect-log-condition-panel">
+                    	<div class="col-md-12" style="margin-bottom:5px;">
+                    		<div class="pull-right text-right">
+	                            
+	                        </div>
+							<div class="pull-left col-md-11">
+								<div class="col-md-1">
+	                        		<label class="control-label" style="text-align: left">{{DATE}}</label>
+	                        	</div>
+	                        	<div class="col-md-5 no-padding">
+		                        	<div class="btn-group timebtn">
+			                            <a class="btn btn-default tooltip-test a6 js-collect-log-date-btn" b='-1' e='0' date_type='time' type="button" title="{{LAST_1_HOUR}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+			                            <a class="btn btn-default tooltip-test a7 js-collect-log-date-btn" b='-24' e='0' date_type='time' type="button" title="{{LAST_24_HOUR}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+			                            <a class="btn btn-default tooltip-test a1 js-collect-log-date-btn" b='0' e='1' date_type='date' type="button" title="{{TODAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+			                            <a class="btn btn-default tooltip-test a2 js-collect-log-date-btn" b='-1' e='0' date_type='date' type="button" title="{{YESTERDAY}}" data-toggle="tooltip" title="" data-original-title="Layer Control"></a>
+			                            
+			                            <div class="col-md-4 no-padding">
+				                        	<input class="form-control" name="B_TIME" data-rule="{{B_DATE}}:required;match[lt, E_TIME, date]">
+				                        </div>
+				                        <div class="col-md-4 no-padding">
+				                        	<input class="form-control" name="E_TIME" data-rule="{{E_DATE}}:match[gt,B_TIME, date]">
+				                        </div>
+			                        </div>
+		                        </div>
+		                        <div class="col-md-1">
+		                        	<label class="control-label">{{EMS_TYPE}}</label>
+		                        </div>	
+								<div class="col-md-2 no-padding">
+									<input name="EMS_TYPE" class="form-control"  placeholder="{{COMMON_PLS_SEL}}">
+								</div>
+								<div class="col-md-1">
+		                        	<label class="control-label">{{EMS}}</label>
+		                        </div>
+								<div class="col-md-2 no-padding">
+									<input name="EMS" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+								</div>
+		                        
+		                    </div>
+		                </div>
+		                <div class="col-md-12">
+							<div class="pull-right text-right">
+	                            <button class="btn btn-primary js-collect-log-query"><i class="fa fa-search"></i> {{COMMON_QUERY}}</button>                            
+	                        </div>
+	                        <div class="pull-left col-md-11">
+	                        	
+                        		<div class="col-md-1">
+	                        		<label class="control-label" style="text-align: left">{{FILE_NAME}}</label>
+	                        	</div>
+	                        	<div class="col-md-5  no-padding">
+		                            <input class="form-control" name="FILE_NAME" >
+		                        </div>
+		                        
+		                        <div class="col-md-1">
+	                        		<label class="control-label" style="text-align: left">{{MO}}</label>
+	                        	</div>
+	                        	<div class="col-md-2 no-padding">
+		                            <input class="form-control" name="COLLECT_MONAME" >
+		                        </div>
+		                        <div class="col-md-1">
+		                        	<label class="control-label">{{STATE}}</label>
+		                        </div>	
+								<div class="col-md-2 no-padding">
+									<input name="COLLECT_TASK_STATE" class="form-control" placeholder="{{COMMON_PLS_SEL}}">
+								</div>
+
+		                    </div>
+		                </div>
+                    </header>
+                    <div class="wrapper scrollable p-b-none overflow-y-h">
+                        <div class="col-md-12 ">
+                        	<div class="ui-tabs js-collect-log-qry-tab">
+		                        <ul class="ui-tabs-nav js-collect-log-qry-ul">
+		                            
+		                        </ul>
+		                        
+		                    </div>
+		                </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+</div>

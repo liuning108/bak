@@ -1,0 +1,87 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{VALUE_COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="line_colorpicker" class="bi-lable">{{LINE_COLOR}}:</label>
+                                        <input type="text" class="line_colorpicker" name="line_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="dot_colorpicker" class="bi-lable">dot {{COLOR}}:</label>
+                                        <input type="text" class="dot_colorpicker" name="dot_colorpicker">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{LIST_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="label_colorpicker" class="bi-lable">{{LABLE_COLOR}}:</label>
+                                        <input type="text" class="label_colorpicker" name="label_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="label_colorpicker" class="bi-lable">{{DISPLAY}}:</label>
+                                        <select class="labelSelect">
+                                            <option value="1">{{VALUE}}</option>
+                                            <option value="2">{{PERCENT}}</option>
+                                        </select>
+                                    </div>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div" id="bg_stView">
+                </div>
+
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a  class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

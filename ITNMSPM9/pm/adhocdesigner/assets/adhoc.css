@@ -1,0 +1,159 @@
+.js-radio-inline{
+    height: 20px;
+    margin-top: 10px;
+    min-width: 100px
+}
+.js-ad-left{
+    width: 278px !important;
+    background: #f0f3f4;
+}
+.js-chart-args {
+    position: relative;
+    z-index: 100;
+    padding: 8px 16px 0;
+}
+.draging {
+    background-color: #e7ebf7;
+    opacity:0.7;
+    filter:alpha(opacity=70);
+}
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.6
+}
+a.active {
+    color: #039cfd
+}
+#ad-chart-container .ui-jqgrid tr.jqgrow td
+{
+    /* jqGrid cell content wrap  */
+    white-space: normal !important;
+    height :auto;
+}
+
+.ad-grid th.ui-th-column div
+{
+    /* jqGrid columns name wrap  */
+    white-space:normal !important;
+    height:auto !important;
+    padding:0px;
+}
+
+span.selectable
+{
+    padding-left:10px;
+    width: 150px;
+    text-overflow:ellipsis;white-space:nowrap;overflow:hidden;"
+}
+.ad-axiscfg-radio-inline-1
+{
+    left: 170px;
+    padding-top: 6px;
+    position: absolute;
+}
+.ad-axiscfg-radio-inline-2
+{
+    left: 230px;
+    padding-top: 6px;
+    position: absolute;
+}
+.ad-axis-head-label
+{
+    float: left;
+    min-width: 85px;
+    margin-top: 8px;
+    padding: 4px 0px;
+}
+.click-tag
+{
+    cursor: pointer;
+}
+#sortable .active {
+    background-color: rgba(0,0,0,.06);
+}
+#topicTree ul {
+    overflow: hidden;
+}
+.level2 li a{
+    overflow: hidden;white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+    width:180px;
+}
+.level1 li a {
+    width:201px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.level2 a {
+    width:201px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+}
+.movebtn {
+    background-image: url(img/move.svg) !important;
+    background-repeat: no-repeat;
+    height: 14px;
+}
+.ad-design-pivot .pvtTotal,.ad-design-pivot .pvtTotalLabel,.ad-design-pivot .pvtGrandTotal,.ad-design-pivot .pvtAggregator {display: none}
+.cursor-pointer {
+    cursor: pointer;
+}
+.series-color-item {
+    padding: 4px 0;
+}
+.nowrap {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.color-thumb-sm, .color-range-widget-sm .color-thumb {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    height: 14px;
+    width: 14px;
+    margin: -2px 8px 0 0;
+}
+.color-setting-dialog .field-value-item.selected {
+    background-color: rgba(232,235,237,.6);
+    color: rgba(10,18,32,.87);
+}
+.color-setting-dialog .field-value-item {
+    line-height: 32px;
+    padding: 0 16px;
+    cursor: pointer;
+}
+.color-setting-dialog .color-thumb {
+    margin: 13px 16px 0 0;
+    line-height: 32px;
+    text-align: center;
+}
+.color-thumb {
+    display: inline-block;
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+}
+.color-setting-dialog .pane {
+    padding: 3px 0 0 16px;
+}
+.color-thumb.checked {
+    box-shadow: 0 0 0 1px rgba(0,0,0,.06),0 1px 2px 0 rgba(0,0,0,.2),inset 0 0 0 2px rgba(255,255,255,.6);
+}
+.vdim-item{
+    overflow: hidden;white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    width:120px;
+}
+.ad-tree .ztree {
+    overflow-x: hidden;
+}
+.ad-axiscfg-modal-body {
+    overflow: hidden !important;
+}
