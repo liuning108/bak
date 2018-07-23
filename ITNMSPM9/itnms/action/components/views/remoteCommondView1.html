@@ -1,0 +1,97 @@
+<div class="filterItemBody" style="background: #fff;">
+	<div class="modal-header">
+	    <h4 class="modal-title">{{EXECUTE_REMOTE_COMMAND}}</h4>
+	</div>
+	<div class="modal-body triggerList">
+		<div class="rows">
+            <div class="col-md-12">
+            	<div class="form-group itemFrom" style="border-bottom: 1px solid #ccc;">
+            		<label for="defualt_msg">操作对象<input type="checkbox" name="defualt_msg" id="defualt_msg" style="margin-left: 30px" checked>当前主机</label>
+            	</div>
+            </div>
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="form-group itemFrom">
+                        <label for="defualt_msg" class="w100">监控组<span class="smaster_span pull-right lh20 addGroup">添加</span></label>
+                    </div>
+                    <ul class="UlList groupList"></ul>
+                </div>
+            	<div class="col-md-6">
+                    <div class="form-group itemFrom">
+                        <label for="defualt_msg" class="w100">监控点<span class="smaster_span pull-right lh20 addHoust">添加</span></label>
+                    </div>
+                    <ul class="UlList hostList"></ul>
+                </div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+                    <span class="disIblock">命令类型<span class="disIblock mgl15" style="width: 170px"><input type="text" class="type tranItem"></span><span class="aShow aShow2"><span class="mgr4" style="margin-left: 80px"><label><input type="radio" value="0" checked name="check_rad" class="radioItem">SSH密码认证</label></span>
+                    <span><label><input type="radio" name="check_rad" value="1" class="radioItem">公钥认证</label></span></span></span>
+            	</div>
+                <div class="aShow aShow0">
+                    <div class="col-md-12">
+                        <div class="form-group itemFrom">
+                            <label for="username">执行位置</label><br />
+                            <div class="col-md-4 padd0"><input type="text" class="execute_on filterInput tranItem"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aShow aShow2 aShow3">
+                    <div class="col-md-6">
+                        <div class="form-group itemFrom">
+                            <div class="col-md-4">
+                                <label for="username">用户名</label><br />
+                                <input type="text" class="username filterInput tranItem">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="password">密码</label><br />
+                                <input type="text" class="password filterInput tranItem">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="port">端口</label><br />
+                                <input type="text" class="port filterInput tranItem">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 rradio" style="display: none">
+                        <div class="form-group itemFrom">
+                            <div class="col-md-6">
+                                <label for="publickey">公钥文件</label><br />
+                                <input type="text" class="publickey filterInput tranItem">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="privatekey">密钥文件</label><br />
+                                <input type="text" class="privatekey filterInput tranItem">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aShow aShow0 aShow1 aShow2 aShow3">
+                    <div class="col-md-12">
+                        <div class="form-group itemFrom">
+                            <label for="message">命令</label><br />
+                            <textarea class="message" style="width: 100%" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="aShow aShow4">
+                    <div class="col-md-12">
+                        <div class="form-group itemFrom">
+                            <label for="master_itemid">脚本名称</label>
+                            <div class="scriptid" data-itemid="">
+                                <input type="text" class="tranItem" name="scriptid" disabled="">
+                                <span class="smaster_span addScript">选择</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div class="rows mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn cancle">{{CANCLE}}</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor">{{SURE}}</div>
+            </div>
+        </div>
+	</div>
+</div>

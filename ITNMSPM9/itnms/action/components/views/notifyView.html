@@ -1,0 +1,32 @@
+<div class="filterItemBody" style="background: #fff;">
+	<div class="modal-header">
+	    <h4 class="modal-title">{{NOTIFY_ALL_INVOLVED}}</h4>
+	</div>
+	<div class="modal-body triggerList">
+		<div class="rows">
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="defualt_msg"><input type="checkbox" name="defualt_msg" id="defualt_msg" checked>使用默认消息</label>
+            	</div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="subject">标题</label>
+                    <input type="text" class="subject filterInput tranItem" name="subject" value="Problem: {TRIGGER.NAME}" disabled>
+            	</div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="message">消息</label>
+                    <textarea class="message" style="width: 100%" rows="4" disabled>Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}Problem name: {TRIGGER.NAME}Host: {HOST.NAME}Severity: {TRIGGER.SEVERITY}Original problem ID: {EVENT.ID}{TRIGGER.URL}</textarea>
+            	</div>
+            </div>
+		</div>
+        <div class="rows mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn cancle">{{CANCLE}}</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor">{{SURE}}</div>
+            </div>
+        </div>
+	</div>
+</div>

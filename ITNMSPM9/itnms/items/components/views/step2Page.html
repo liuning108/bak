@@ -1,0 +1,1021 @@
+{{#ifCond showTpl "===" '0'}}
+<!-- agent -->
+<div class="row">
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '1'}}
+<!-- SNMPv1 agent -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="snmp_oid">OID</label>
+            <input type="text" class="snmp_oid filterInput tranItem" name="snmp_oid" value="interfaces.ifTable.ifEntry.ifInOctets.1">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterCommunity">团体字</label>
+            <input type="text" class="filterCommunity filterInput tranItem" name="filterCommunity" placeholder="public">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterPort">端口</label>
+            <input type="text" class="filterPort filterInput tranItem" name="filterDelay" value="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '4'}}
+<!-- SNMPv2 agent -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="snmp_oid">OID</label>
+            <input type="text" class="snmp_oid filterInput tranItem" name="snmp_oid" value="interfaces.ifTable.ifEntry.ifInOctets.1">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterCommunity">团体字</label>
+            <input type="text" class="filterCommunity filterInput tranItem" name="filterCommunity" placeholder="public">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterPort">端口</label>
+            <input type="text" class="filterPort filterInput tranItem" name="filterDelay" value="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '6'}}
+<!-- SNMPv3 agent -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="snmp_oid">OID</label>
+            <input type="text" class="snmp_oid filterInput tranItem" name="snmp_oid" value="interfaces.ifTable.ifEntry.ifInOctets.1">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="snmpv3_contextname">上下文名称</label>
+            <input type="text" class="snmpv3_contextname filterInput tranItem" name="snmpv3_contextname" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="snmpv3_securityname">安全名称</label>
+            <input type="text" class="snmpv3_securityname filterInput tranItem" name="snmpv3_securityname" value="">
+        </div>
+    </div>
+    <div class="col-md-4" style="height: 61px">
+        <div class="form-group itemFrom">
+            <label for="snmpv3_securitylevel">安全级别</label>
+            <select class="form-control filterOption snmpv3_securitylevel">
+                {{#if ITEM_SNMP_SECURIYT_LEVEL}}
+                    {{#each ITEM_SNMP_SECURIYT_LEVEL}}
+                    <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="filterPort">端口</label>
+            <input type="text" class="filterPort filterInput tranItem" name="filterPort" value="">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '2'}}
+<!-- trapper -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="trapper_hosts">允许的主机</label>
+            <input type="text" class="trapper_hosts filterInput tranItem" name="trapper_hosts" placeholder="">
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '3'}}
+<!-- simple check -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="username">用户名</label>
+            <input type="text" class="username filterInput tranItem" name="username" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="password">密码</label>
+            <input type="text" class="password filterInput tranItem" name="password" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '5'}}
+<!-- internal -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '7'}}
+<!-- agent (active) -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '8'}}
+<!-- aggregate -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '9'}}
+<!-- web item -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="master_itemid">主监控项</label>
+            <div class="master_itemid" data-itemid="">
+                <input type="text" class="tranItem" name="master_itemid" disabled="">
+                <span class="smaster_span">选择</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '18'}}
+<!-- Dependent item -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="master_itemid">主监控项</label>
+            <div class="master_itemid" data-itemid="">
+                <input type="text" class="tranItem" name="master_itemid" disabled="">
+                <span class="smaster_span">选择</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '10'}}
+<!-- external check -->
+<div class="row">
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '11'}}
+<!-- database monitor -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="username">用户名</label>
+            <input type="text" class="username filterInput tranItem" name="username" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="password">密码</label>
+            <input type="text" class="password filterInput tranItem" name="password" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="params">SQL</label>
+            <textarea rows="3" class="params"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '12'}}
+<!-- IPMI agent -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="ipmi_sensor">传感器</label>
+            <input type="text" class="ipmi_sensor filterInput tranItem" name="ipmi_sensor" value="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '13'}}
+<!-- SSH agent -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="authtype">认证方式</label>
+            <select class="form-control filterOption authtype">
+                {{#if ITEM_SSH_AUTH_TYPE}}
+                    {{#each ITEM_SSH_AUTH_TYPE}}
+                    <option value="{{this.paraValue}}">{{this.paraName}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="username">用户名</label>
+            <input type="text" class="username filterInput tranItem" name="username" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group itemFrom">
+            <label for="password">密码</label>
+            <input type="text" class="password filterInput tranItem" name="password" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="params">执行脚本</label>
+            <textarea rows="2" class="params"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '14'}}
+<!-- TELNET agent -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="username">用户名</label>
+            <input type="text" class="username filterInput tranItem" name="username" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="password">密码</label>
+            <input type="text" class="password filterInput tranItem" name="password" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="params">执行脚本</label>
+            <textarea rows="2" class="params"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '15'}}
+<!-- calculated -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="params">公式</label>
+            <textarea rows="2" class="params"></textarea>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '16'}}
+<!-- JMX agent -->
+<div class="row">
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="username">用户名</label>
+            <input type="text" class="username filterInput tranItem" name="username" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="password">密码</label>
+            <input type="text" class="password filterInput tranItem" name="password" placeholder="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="filterDelay">更新间隔</label>
+            <input type="text" class="filterDelay filterInput tranItem" name="filterDelay" value="5m">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group itemFrom">
+            <label for="jmx_endpoint">JMX 端点</label>
+            <input type="text" class="jmx_endpoint filterInput tranItem" name="jmx_endpoint" value="5m">
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="filterDelay">自定义间隔</label>
+                    <div class="sDelay">
+                        <span><input type="checkbox" class="switch-btn ml15" data-on-color="info" data-off-color="success" checked data-on-text="灵活模式" data-off-text="调度模式" id="" value=""></span>
+                        <span class="dlayJian ml15">间隔<input type="text" class="dlayJian tranItem ml15" name="dlayJian" placeholder="50s" style="width:190px;"></span>
+                        <span class="dlayTIme ml15">时段<input type="text" class="dlayTIme tranItem ml15" name="dlayTIme" placeholder="1-7,00:00-24:00"></span>
+                        <span class="dlayadd ml15"><i class="glyphicon glyphicon-plus addItems"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mgt10" style="max-height: 175px;overflow-y: auto;width: 590px">
+                <table class="table table-striped addDelayItem">
+                    <thead>
+                        <tr>
+                            <th>选择模式</th>
+                            <th>间隔</th>
+                            <th>时段</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{{/ifCond}}
+
+{{#ifCond showTpl "===" '17'}}
+<!-- SNMP trap -->
+<div class="row">
+    {{#if hostids}}
+    <div class="col-md-12">
+        <div class="form-group itemFrom">
+            <label for="filterHostInterface">主机接口</label>
+            <select class="form-control filterOption filterHostInterface">
+                {{#if interfaces}}
+                    {{#each interfaces}}
+                    <option value="{{this.interfaceid}}">{{this.ip}}:{{this.port}}</option>
+                    {{/each}}
+                {{/if}}
+            </select>
+        </div>
+    </div>
+    {{/if}}
+</div>
+{{/ifCond}}

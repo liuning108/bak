@@ -1,0 +1,90 @@
+<div class="white-background" style="padding: 30px 30px 30px 30px">
+	<div class="row">
+		<div class="kdoWizardSteps">
+			<div style="width:33%" class="active Step1" data-view='.Step1Page'><span>{{BASIC_INFORMATION}}</span></div>
+			<div style="width:33%" class=" Step2" data-view='.Step2Page'><span>{{CHECK_SERVICE}}</span></div>
+			<div style="width:34%" class=" Step3" data-view='.Step3Page'><span>{{DEVICE_UNIQUENESS_CRITERIA}}</span></div>
+		</div>
+		<div class="StepBody">
+			<div class="Step1Page " style="padding:20px 3px 0px;padding-bottom:0px">
+				<div class="col-md-6 form-group required" style="padding-top:4px">
+					<label>
+						{{NAME}}
+					</label>
+					<input id="dr-name-input" data-rule="required;length[~30]" class="form-control" autocomplete="off"/>
+				</div>
+				<div class="col-md-6 form-group required">
+					<label>
+						{{INTERVAL}}
+					</label>
+					<button type="button" title="{{INTERVAL_TIP}}" class="btn btn-link nhc-tree-btn">
+						<i class="fa fa-question-circle"></i>
+					</button>
+					<input id="dr-interval-input" data-rule="required;length[~30]" value="1h" class="form-control" autocomplete="off">
+				</div>
+				<!-- -->
+				<div class="col-md-6 form-group required">
+					<label>
+						{{DRULE_CATEGORY}}
+					</label>
+					<input id="dr-category-sel" class="form-control"/>
+				</div>
+				<div class="col-md-6 form-group">
+					<label>
+						{{PROXY}}
+					</label>
+					<input id="dr-proxy-sel" class="form-control"/>
+				</div>
+				<!-- -->
+				<div class="col-md-12 form-group required">
+					<label>
+						{{IP_RANGE}}
+					</label>
+					<button type="button" title="{{IP_RANGE_TIP}}" class="btn btn-link nhc-tree-btn">
+						<i class="fa fa-question-circle"></i>
+					</button>
+					<textarea id="dr-iprange-input" name="remarks" rows=3 class="form-control" data-rule="length[~300]">192.168.0.1-254</textarea>
+				</div>
+				<!-- -->
+				<div class="col-md-12 form-group pull-left">
+					<label class="checkbox-inline" style="font-weight: 700;margin-left:-20px">
+						<input id="dr-drule-enabled-btn" type="checkbox" checked style="margin-left:53px">{{ENABLED}}
+					</label>
+				</div>
+			</div>
+			<!-- -->
+			<div class="Step2Page" style="display:none;padding:20px 3px 0px;padding-bottom:0px">
+				<div class="row" style="padding-bottom:3px">
+					<button id="dr-checkservice-add-btn" type="button" class="pull-right btn btn-primary ">
+						<i class="fa fa-plus"></i> {{ADD}}
+					</button>
+				</div>
+				<div class="row">
+					<div class="col-md-12 dr_check_grid kdoGrid"/>
+				</div>
+			</div>
+			<!-- -->
+			<div class="Step3Page" style="display:none;padding:30px 50px 0px;padding-bottom:30px">
+				<div>
+					<h5>{{DEVICE_UNIQUENESS_CRITERIA}}</h5>
+					<div id="dr-deviceflag-default-container" style="padding-top: 5px;padding-left:30px">
+						<label class="radio-inline">
+							<input type="radio" class="yAxisTypeRadio" name="dr-deviceflag-radio" value="-1" checked="">
+							{{IP_ADDRESS}}
+						</label>
+					</div>
+					<div id="dr-deviceflag-container" style="padding-left:30px">
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="StepBtns">
+			<div class="btn stepUp KdoBtn2 Kdo_mainColor hide pull-left">{{LAST_STEP}}</div>
+			<div class="RightDiv">
+				<div class="btn KdoBtn2 hostPageCancel">{{CANCEL}}</div>
+				<div class="btn stepNext KdoBtn2 Kdo_mainColor ">{{NEXT_STEP}}</div>
+			</div>
+		</div>
+	</div>
+</div>

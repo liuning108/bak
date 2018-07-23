@@ -1,0 +1,74 @@
+<div class="filterItemBody" style="background: #fff;">
+	<div class="modal-header">
+	    <h4 class="modal-title">{{SEND_MESSAGE}}</h4>
+	</div>
+	<div class="modal-body triggerList">
+		<div class="rows">
+			<div class="col-md-12">
+                <div class="col-md-3">
+                	<div class="form-group itemFrom">
+	                    <label for="filterName">起止步号</label>
+	                    <div>
+	                    	<input type="text" class="esc_step_from tranItem" name="esc_step_from" size="4">至<input type="text" class="esc_step_to tranItem" name="esc_step_to" size="4">
+	                    </div>
+	                </div>
+                </div>
+                <div class="col-md-3">
+                	<div class="form-group itemFrom">
+                        <label for="esc_period">步骤间隔(0:使用默认间隔)</label>
+                        <input type="text" class="esc_period filterInput tranItem" name="esc_period">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                	<div class="form-group itemFrom">
+                        <label for="mediatypeid">消息类型</label>
+                        <input type="text" class="mediatypeid filterInput tranItem" name="mediatypeid">
+                    </div>
+                </div>
+                <div class="col-md-3">
+                	<div class="form-group itemFrom">
+                        <label for="opconditions">操作执行条件</label>
+                        <input type="text" class="opconditions filterInput tranItem" name="opconditions">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="defualt_msg"><input type="checkbox" name="defualt_msg" id="defualt_msg" checked>使用默认消息</label>
+            	</div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="subject">标题</label>
+                    <input type="text" class="subject filterInput tranItem" name="subject" value="Problem: {TRIGGER.NAME}" disabled>
+            	</div>
+            </div>
+            <div class="col-md-12">
+            	<div class="form-group itemFrom">
+            		<label for="message">消息</label>
+                    <textarea class="message" style="width: 100%" rows="4" disabled>Problem started at {EVENT.TIME} on {EVENT.DATE}Problem name: {TRIGGER.NAME}Host: {HOST.NAME}Severity: {TRIGGER.SEVERITY}Original problem ID: {EVENT.ID}{TRIGGER.URL}</textarea>
+            	</div>
+            </div>
+            <div class="col-md-12">
+            	<div class="col-md-6">
+            		<div class="form-group itemFrom">
+	            		<label for="opmessage_grp">发送给用户组</label>
+	            	</div>
+	            	<div class="sendGroup"></div>
+            	</div>
+            	<div class="col-md-6">
+            		<div class="form-group itemFrom">
+	            		<label for="opcoopmessage_usr">发送给用户</label>
+	            	</div>
+	            	<div class="opcoopmessage_usr"></div>
+            	</div>
+            </div>
+		</div>
+        <div class="rows mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn cancle">{{CANCLE}}</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor">{{SURE}}</div>
+            </div>
+        </div>
+	</div>
+</div>

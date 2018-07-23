@@ -1,0 +1,32 @@
+<div class="kdoTabs">
+   <div class="kdo-header">
+     {{#each data}}
+     <div class="kdo-tab" data-index="{{@index}}" data-page="{{id}}">{{name}}</div>
+    {{/each}}
+     {{#if isMore}}
+     <div class="kdo-more" data-index="{{@index}}">
+       <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <span class="MoreTitle">{{title}}</span>
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+           {{#each moreData}}
+          <li><a href="#" class="tab-more-tab" data-page="{{id}}">{{name}}</a></li>
+           {{/each}}
+        </ul>
+      </div>
+     </div>
+     {{/if}}
+   </div>
+   <div class="kdo-tabl-context">
+     {{#each data}}
+     <div class="kdoTabPage kdo-tab-{{id}}" style="display:none">
+     </div>
+     {{/each}}
+     {{#each moreData}}
+     <div class="kdoTabPage kdo-tab-{{id}}" style="display:none">
+     </div>
+     {{/each}}
+   </div>
+</div>

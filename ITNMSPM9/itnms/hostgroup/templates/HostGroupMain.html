@@ -1,0 +1,214 @@
+<div class="kdo_container">
+    <div class="kdo_left">
+        <div class="kdoTitle">
+            <div>
+                <h4 class="allHostShow">{{HOST_GROUP}}</h4>
+            </div>
+        </div>
+        <div class="tree-content">
+        </div>
+    </div>
+    <!-- -->
+    <div id="hg-template" class="kdo_cotent" style="display: none">
+
+    </div>
+    <!-- -->
+    <div id="hg-host" class="kdo_cotent" style="display: none">
+
+    </div>
+    <div id="hg-group" class="kdo_cotent">
+        <section>
+            <section class="vbox hg-bg">
+                <div class="panel-body" style="padding: 4px">
+                    <div class="portlet-view comprivroot">
+                        <div class="col-md-12" style="padding-left:10px;padding-right:6px">
+                            <div class="col-md-10">
+                                <div class="pm-portal">
+                                    <h3>{{HOST_GROUP}}</h3>
+                                </div>
+                            </div>
+                            <div class="col-md-2" style="margin-top:22px">
+                                <div class="pull-right m-l-sm">
+                                    <button id="hg-createhostgroup-btn" type="button" class="btn btn-primary ">
+                                        <i class="fa fa-plus"></i> {{CREATE_HOST_GROUP}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -->
+                        <div class="col-md-12" style="margin-top:10px;margin-left:10px;padding-right: 20px">
+                            <div class="hg-hostgroup-grid kdoGrid">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div id="hg-grid-btngroup" class="col-md-12" style="padding-left:18px;display: none">
+                    <button type="button" id="hg-enable-nodes-btn" class="btn btn-default hg-grid-btngroup">{{ENABLE_NODES}}</button>
+                    <button type="button" id="hg-disable-nodes-btn" class="btn btn-default hg-grid-btngroup">{{DISABLE_NODES}}</button>
+                    <button type="button" id="hg-move-btn" class="btn btn-default hg-grid-btngroup">{{MOVE}}</button>
+                    <button type="button" id="hg-delete-btn" class="btn btn-default hg-grid-btngroup">{{DELETE}}</button>
+                </div>
+            </section>
+        </section>
+    </div>
+</div>
+<!--创建页面-->
+<div id="hg-create-container" class="hg-model-body" style="display: none;">
+    <div class="modal-header">
+        <div class="col-md-8">
+            <h4 class="modal-title hg-panel-title" id="hg-create-title"></h4>
+        </div>
+        <div class="col-md-4">
+            <a id="hg-createview-close" class="btn pull-right">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="hg-model-body" style="overflow: hidden;">
+        <div class="ad-modal-box white-background">
+            <form id="hg-group-form">
+                <div class="col-md-12">
+                    <div class="form-group required">
+                        <label>
+                            {{GROUP_NAME}}
+                        </label>
+                        <input id="hg-group-name-input" data-rule="required;length[~30]" class="form-control" autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group required">
+                        <label>
+                            {{GROUP_CATEGORY}}
+                        </label>
+                        <input id="hg-group-category-sel" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            {{FILTER_NODES_TEMPLATES}}
+                        </label>
+                        <input id="hg-filter-sel" class="form-control"/>
+                    </div>
+                </div>
+                <!--
+                <div class="col-md-12" style="height:280px;">
+                    <div class="col-md-5 b-r">
+                        <div class="ad-title">Available Nodes/Templates</div>
+                        <div class="input-group search-group" style="width:100%">
+                            <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                            <input type="text" id="hg-available-search" class="ad-theme-search form-control">
+                        </div>
+                        <div style="padding-top:5px">
+                            <select class="lSelect" autocomplete="off" multiple="multiple" size="8" style="width:100%">
+                                <option value="L1" data-name="L1">
+                                    L1
+                                </option>
+                                <option value="L2" data-name="L2">
+                                    L2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2 hostPageContext" style="padding:80px 5px 0px 0px;">
+                        <div class="kk">
+                            <div class="btn k ROp"><i class="glyphicon glyphicon-triangle-right "></i></div>
+                            <div class="btn k LOp"><i class="glyphicon glyphicon-triangle-left  "></i></div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="ad-title">Selected Nodes/Templates</div>
+                        <div class="input-group search-group" style="width:100%">
+                            <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                            <input type="text" id="hg-selected-search" class="ad-theme-search form-control">
+                        </div>
+                        <div style="padding-top:5px">
+                            <select class="lSelect" autocomplete="off" multiple="multiple" size="8" style="width:100%">
+                                <option value="L1" data-name="L1">
+                                    L1
+                                </option>
+                                <option value="L2" data-name="L2">
+                                    L2
+                                </option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div class="hg-filternode-sel" style="padding:5px">
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <div>
+        <div class="col-md-12 text-right" style="position:absolute;bottom:5px;right:15px">
+            <button type="button" class="btn btn-primary btn-min-width" id="hg-creategroup-ok">
+                {{COMMON_CONFIRM}}
+            </button>
+            <button type="button" class="btn btn-cancel btn-min-width" id="hg-creategroup-cancel">
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+    </div>
+</div>
+<!--移动页面-->
+<div id="hg-move-container" class="hg-model-body" style="display: none;">
+    <div class="modal-header">
+        <div class="col-md-8">
+            <h4 class="modal-title hg-panel-title">{{MOVE}}</h4>
+        </div>
+        <div class="col-md-4">
+            <a id="hg-moveview-close" class="btn pull-right">
+                <i class="fa fa-times"></i>
+            </a>
+        </div>
+    </div>
+    <div class="hg-model-body" style="overflow: hidden;">
+        <div class="ad-modal-box white-background">
+            <form id="hg-group-move-form">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            {{MOVED_GROUP}}
+                        </label>
+                        <input id="hg-moved-group" class="form-control" autocomplete="off" disabled/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label>
+                            {{FROM}}
+                        </label>
+                        <input id="hg-moved-group-from" class="form-control" autocomplete="off" disabled/>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group required">
+                        <label>
+                            {{TO}}
+                        </label>
+                        <input id="hg-moved-group-to-sel" class="form-control"/>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div>
+        <div class="col-md-12 text-right" style="position:absolute;bottom:5px;right:15px">
+            <button type="button" class="btn btn-primary btn-min-width" id="hg-movegroup-ok">
+                {{COMMON_CONFIRM}}
+            </button>
+            <button type="button" class="btn btn-cancel btn-min-width" id="hg-movegroup-cancel">
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+    </div>
+</div>
+<!--遮罩层-->
+<div class="hg-lock">
+</div>

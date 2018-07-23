@@ -1,0 +1,151 @@
+<div class="filterItemBody" style="background: #fff;">
+	<div class="modal-header">
+	    <h4 class="modal-title">条件设置</h4>
+	</div>
+    <div class="cType" style="padding: 8px">条件类型</div>
+	<div class="modal-body actionList">
+		<div class="rows">
+            <div class="col-md-12">
+                <label>
+                    <span style="width: 90px">
+                        <input type="radio" value="Host group" name="checkCon">监控组
+                    </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD0">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <select name="cGroup" class="mulselect cGroup" data-placeholder="select" multiple=""></select>
+                </span>
+                <span class="smaster_span addGroup">选择</span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Host" name="checkCon">主机
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD1">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <select name="cHoust" class="mulselect cHoust" data-placeholder="select" multiple=""></select>
+                </span>
+                <span class="smaster_span addHoust">选择</span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Trigger" name="checkCon">触发器
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD2">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <select name="cTrigger" class="mulselect cTrigger" multiple="" data-placeholder="select">
+                    </select>
+                </span>
+                <span class="smaster_span addTrigger">选择</span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Trigger name" name="checkCon">触发器名称
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD3">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <input type="text" class="eventType tranItem filterInput cIpt2">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Trigger severity" name="checkCon">告警级别
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD4">
+                </span>
+                <span class="comSpan" style="width: 490px;">
+                    <input type="text" class="eventType tranItem filterInput cIpt3" placeholder="select">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Time period" name="checkCon">时间段
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD6">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <input type="text" class="eventType tranItem filterInput cIpt2" value="1-7,00:00-24:00">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                    <span style="width: 90px">
+                        <input type="radio" value="Template" name="checkCon">模板
+                    </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD13">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <select name="cTem" class="mulselect cTem" data-placeholder="select" multiple=""></select>
+                </span>
+                <span class="smaster_span addTem">选择</span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Maintenance status" name="checkCon">维护状态
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD16">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                <span style="width: 90px">
+                    <input type="radio" value="Tag" name="checkCon">标签
+                </span>
+                </label>
+                <span class="comSpan">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD25">
+                </span>
+                <span class="itemFrom" style="width: 490px;">
+                    <input type="text" class="eventType tranItem filterInput cIpt2" placeholder="tag">
+                </span>
+            </div>
+            <div class="col-md-12">
+                <label>
+                    <span style="width: 90px">
+                        <input value="Tag value" type="radio" name="checkCon">标签值
+                    </span>
+                </label>
+                <span style="width: 85px">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" placeholder="tag">
+                </span>
+                <span class="comSpan" style="width: 60px;">
+                    <input type="text" class="eventType filterInput tranItem cIpt1" id="conD26">
+                </span>
+                <span class="itemFrom" style="width: 420px;">
+                    <input type="text" class="eventType tranItem filterInput cIpt2" placeholder="value">
+                </span>
+            </div>
+        </div>
+        <div class="row mgt15">
+            <div class="fr">
+                <div class="KdoBtn2 btn reset">cancle</div>
+                <div class="KdoBtn2 btn OK Kdo_mainColor isSure">sure</div>
+            </div>
+        </div>
+	</div>
+</div>

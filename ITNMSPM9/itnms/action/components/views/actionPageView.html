@@ -1,0 +1,246 @@
+<div class="container-fluid itemPageContext filterItemBody">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="kdoWizardSteps">
+                {{#ifCond cType "===" 0}}
+                <div style="width:25%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:25%" class="Step2" data-view='.Step2Page'><span>操作</span></div>
+                <div style="width:25%" class="Step3" data-view='.Step3Page'><span>恢复操作</span></div>
+                <div style="width:25%" class="Step4" data-view='.Step4Page'><span>确认操作</span></div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 1}}
+                <div style="width:50%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:50%" class="Step2" data-view='.Step2Page'><span>操作</span></div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 2}}
+                <div style="width:50%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:50%" class="Step2" data-view='.Step2Page'><span>操作</span></div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 3}}
+                <div style="width:33%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:33%" class="Step2" data-view='.Step2Page'><span>操作</span></div>
+                <div style="width:33%" class="Step3" data-view='.Step3Page'><span>恢复操作</span></div>
+                {{/ifCond}}
+            </div>
+            <div class="StepBody clearfix StepBodyOver">
+                <div class="Step1Page">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="filterName">Name</label>
+                                <input type="text" class="filterName filterInput tranItem" name="FilterName">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="col-md-12" style="height: 62px">
+                                <div class="form-group itemFrom">
+                                    <label for="status">是否启用</label><br />
+                                    <input type="checkbox" class="switch-btn status" data-on-color="success" data-off-color="danger" checked="" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="eventType">条件关系类型</label>
+                                <input type="text" class="eventType filterInput tranItem">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <input type="text" class="eventCondition filterInput tranItem" disabled value="A and (B or C)" style="height: 25px;margin-top: 24px">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="padding: 5px;border-bottom: 3px solid #ccc;line-height: 25px">
+                                <span>条件集<font color="red">*</font></span>
+                                <button type="button" class="btn btn-info btn-xs pull-right Tagbtn addCondition">添加条件</button>
+                                <button type="button" class="btn btn-info btn-xs pull-right Tagbtn delCondition mgr4">批量删除</button>
+                            </div>
+                            <div class="DepListGrid kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                {{#ifCond cType "===" 0}}
+                <div class="Step2Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_shortdata">默认标题</label>
+                                <input type="text" class="def_shortdata filterInput tranItem" name="def_shortdata" value="Problem: {TRIGGER.NAME}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_longdata">默认消息</label>
+                                <textarea class="def_longdata" style="width: 100%" rows="4">Problem started at {EVENT.TIME} on {EVENT.DATE}Problem name: {TRIGGER.NAME}Host: {HOST.NAME}Severity: {TRIGGER.SEVERITY}Original problem ID: {EVENT.ID}{TRIGGER.URL}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span style="margin-left: 15px;">单步默认间隔时长<input type="text" name="dTrends" id="dTrends" size="2"></span>
+                                <span style="margin-left: 15px;"><input type="checkbox" name="ispause" id="ispause"><label for="ispause">维护期间暂停操作</label></span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="addOpe_0" class="addOpe_0"></span></span>
+                            </div>
+                            <div class="OpeListGrid kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step3Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="r_shortdata">默认标题</label>
+                                <input type="text" class="r_shortdata filterInput tranItem" name="r_shortdata" value="Resolved: {TRIGGER.NAME}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="r_longdata">默认消息</label>
+                                <textarea class="r_longdata" style="width: 100%" rows="4">Problem has been resolved at {EVENT.RECOVERY.TIME} on {EVENT.RECOVERY.DATE}Problem name: {TRIGGER.NAME}Host: {HOST.NAME}Severity: {TRIGGER.SEVERITY}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="addOpe_r" class="addOpe_r"></span></span>
+                            </div>
+                            <div class="OpeListGrid kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step4Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="ack_shortdata">默认标题</label>
+                                <input type="text" class="ack_shortdata filterInput tranItem" name="ack_shortdata" value="Acknowledged: {TRIGGER.NAME}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="ack_longdata">默认消息</label>
+                                <textarea class="ack_longdata" style="width: 100%" rows="4">{USER.FULLNAME} acknowledged problem at {ACK.DATE} {ACK.TIME} with the following message:{ACK.MESSAGE}Current problem status is {EVENT.STATUS}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="addOpe_0_ack" class="addOpe_0_ack"></span></span>
+                            </div>
+                            <div class="OpeListGrid_ack kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 1}}
+                <div class="Step2Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_shortdata">默认标题</label>
+                                <input type="text" class="def_shortdata filterInput tranItem" name="def_shortdata" value="Discovery: {DISCOVERY.DEVICE.STATUS} {DISCOVERY.DEVICE.IPADDRESS}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_longdata">默认消息</label>
+                                <textarea class="def_longdata" style="width: 100%" rows="4">Discovery rule: {DISCOVERY.RULE.NAME}Device IP:{DISCOVERY.DEVICE.IPADDRESS}Device DNS: {DISCOVERY.DEVICE.DNS}Device status: {DISCOVERY.DEVICE.STATUS}Device uptime: {DISCOVERY.DEVICE.UPTIME}Device service name: {DISCOVERY.SERVICE.NAME}Device service port: {DISCOVERY.SERVICE.PORT}Device service status: {DISCOVERY.SERVICE.STATUS}Device service uptime: {DISCOVERY.SERVICE.UPTIME}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="ACTION_OPERATION_TYPE_1" class="ACTION_OPERATION_TYPE_1"></span></span>
+                            </div>
+                            <div class="OpeGridType1 kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 2}}
+                <div class="Step2Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_shortdata">默认标题</label>
+                                <input type="text" class="def_shortdata filterInput tranItem" name="def_shortdata" value="Auto registration: {HOST.HOST}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_longdata">默认消息</label>
+                                <textarea class="def_longdata" style="width: 100%" rows="4">Host name: {HOST.HOST}Host IP: {HOST.IP}Agent port: {HOST.PORT}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="ACTION_OPERATION_TYPE_2" class="ACTION_OPERATION_TYPE_2"></span></span>
+                            </div>
+                            <div class="OpeGridType2 kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/ifCond}}
+                {{#ifCond cType "===" 3}}
+                <div class="Step2Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_shortdata">默认标题</label>
+                                <input type="text" class="def_shortdata filterInput tranItem" name="def_shortdata" value="Problem: {TRIGGER.NAME}">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_longdata">默认消息</label>
+                                <textarea class="def_longdata" style="width: 100%" rows="4">Problem started at {EVENT.TIME} on {EVENT.DATE}Problem name: {TRIGGER.NAME}Host: {HOST.NAME}Severity: {TRIGGER.SEVERITY}Original problem ID: {EVENT.ID}{TRIGGER.URL}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span style="margin-left: 15px;">单步默认间隔时长<input type="text" name="dTrends" id="dTrends" size="2"></span>
+                                <span style="margin-left: 15px;"><input type="checkbox" name="ispause" id="ispause"><label for="ispause">维护期间暂停操作</label></span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="ACTION_OPERATION_TYPE_3" class="ACTION_OPERATION_TYPE_3"></span></span>
+                            </div>
+                            <div class="OpeListGrid kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step3Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_shortdata">默认标题</label>
+                                <input type="text" class="def_shortdata filterInput tranItem" name="def_shortdata" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="def_longdata">默认消息</label>
+                                <textarea class="def_longdata" style="width: 100%" rows="4"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="actionExpre">
+                                <span>操作集</span>
+                                <span class="pull-right"><span>添加操作</span><span style="display: inline-block;position: relative;top: 5px;"><input type="text" name="ACTION_OPERATION_TYPE_3_r" class="ACTION_OPERATION_TYPE_3_r"></span></span>
+                            </div>
+                            <div class="OpeGridType2 kdoGrid"></div>
+                        </div>
+                    </div>
+                </div>
+                {{/ifCond}}
+            </div>
+            <div class="StepBtns">
+                <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+                <div class="fr">
+                    <div class="btn KdoBtn2 hostPageCancel">取消</div>
+                    <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

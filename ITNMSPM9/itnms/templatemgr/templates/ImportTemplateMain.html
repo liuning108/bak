@@ -1,0 +1,62 @@
+<div>
+	<section>
+		<section class="vbox hg-bg">
+			<div id="tm-importtemplate-container" class="panel-body" style="overflow-y:auto;overflow-x:hidden;">
+				<div class="portlet-view comprivroot">
+					<div class="col-md-12" style="padding-left:10px;padding-right:6px">
+						<div class="col-md-8">
+							<div class="pm-portal">
+								<h3 id="tm-import-title">{{IMPORT}}</h3>
+							</div>
+						</div>
+					</div>
+					<!-- -->
+					<div class="col-md-12" style="margin-top:10px;margin-left:10px;padding-right: 20px">
+						<div class="kdo-right-page-cotent">
+							<form class="js-form">
+								<div class="form-group required">
+									<label class="control-label">{{IMPORT}}</label>
+									<div class="input-group col-md-5">
+										<input id="js-input-file" class="form-control" readonly="readonly" name="FILE_PATH">
+										<span class="input-group-addon fileinput-button">
+											{{BROWSE_FILE}}
+											<input type="file" name="file" style="width:100px" class="fileinput-input js-fileupload"/>
+										</span>
+									</div>
+								</div>
+								<!-- -->
+								<div class="form-group required">
+									<label class="control-label">{{RULE}}</label>
+									<div class="input-group col-md-5">
+										<div class="table-forms-td-right">
+											<div style="padding-left: 6px">
+												<table id="tm-rule-table">
+													<tr style="line-height:30px">
+														<td style="text-align: left;width:300px;"></td>
+														<td style="text-align: center;width:200px;">Update existing</td>
+														<td style="text-align: center;width:200px;">Create new</td>
+														<td style="text-align: center;width:200px;">Delete missing</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+</div>
+<div>
+	<div class="col-md-12 text-left" style="position:absolute;bottom:10px;left:25px">
+		<button type="button" class="btn btn-primary btn-min-width" id="tm-import-ok-btn">
+			{{IMPORT}}
+		</button>
+		<button type="button" class="btn btn-cancel btn-min-width" id="tm-import-cancel-btn">
+			{{COMMON_CANCEL}}
+		</button>
+	</div>
+</div>
