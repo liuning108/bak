@@ -38,6 +38,15 @@ define([
   },
   CreateGraphsView.prototype.afterRender = function() {
     this.initPage();
+    this.initDatas();
+  },
+  CreateGraphsView.prototype.initDatas=function() {
+     var d =this.option.data;
+     this.$el.find('.graphsName').val(d.title);
+     this.$el.find('.graphsDesc').val(d.desc);
+     this.titlePosition.combobox('value',d.position);
+     // this.titlePosition.combobox('value',d.position);
+
 
   },
   CreateGraphsView.prototype.initPage = function() {
@@ -48,18 +57,17 @@ define([
       dataSource: [
         {
           name: '偏左',
-          value: '1'
+          value: 'L'
         }, {
           name: '居中',
-          value: '2'
+          value: 'C'
         }, {
           name: '偏右',
-          value: '3'
+          value: 'R'
         }
       ]
     });
-    this.titlePosition.combobox('value', "1");
-
+    this.titlePosition.combobox('value', "L");
     this.classesName = this.$el.find('.classesName').combobox({
       editable: false,
       dataTextField: 'name',

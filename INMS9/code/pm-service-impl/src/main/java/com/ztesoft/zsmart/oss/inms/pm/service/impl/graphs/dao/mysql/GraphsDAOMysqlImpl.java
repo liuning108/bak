@@ -31,7 +31,7 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
     public JSONObject getTemplateCatagorys(JSONObject dict) throws BaseAppException {
         // TODO Auto-generated method stub
         JSONObject result = new JSONObject();
-        String sql = "select para_value value ,para_name name from pm_paravalue  where para_id='TEMPLATE_CATAGORY' order by para_order asc";
+        String sql = "select para_value VALUE ,para_name NAME from pm_paravalue  where para_id='TEMPLATE_CATAGORY' order by para_order asc";
         result.put("result", this.queryForMapList(sql));
         return result;
     }
@@ -49,7 +49,7 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
     public JSONObject getTemplateById(JSONObject dict) throws BaseAppException {
         // TODO Auto-generated method stub
         JSONObject result = new JSONObject();
-        String sql = "select template_id id, template_name name,catagory  from pm_templates  where template_id=?";
+        String sql = "select template_id ID, template_name NAME,catagory CATAGORY from pm_templates  where template_id=?";
         String id = dict.getString("id");
         result.put("result", this.queryForMapList(sql, id));
         return result;
@@ -67,9 +67,51 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
     @Override
     public JSONObject getTemplatesByCatagroyId(JSONObject dict) throws BaseAppException {
         JSONObject result = new JSONObject();
-        String sql = "select template_id id, template_name name,catagory  from pm_templates  where catagory=?";
+        String sql = "select template_id ID, template_name NAME,catagory  CATAGORY from pm_templates  where catagory=?";
         String id = dict.getString("id");
         result.put("result", this.queryForMapList(sql, id));
+        return result;
+    }
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getItemsByTemplateId(JSONObject dict) throws BaseAppException {
+        JSONObject result = new JSONObject();
+        String sql = "select item_id as ID ,item_name  as NAME from pm_items where  template_id = ?";
+        String id = dict.getString("id");
+        result.put("result", this.queryForMapList(sql, id));
+        return result;
+    }
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getGraphsTags(JSONObject dict) throws BaseAppException {
+        JSONObject result = new JSONObject();
+        String sql = ""
+            + "select graphclass NAME ,count(1) CNT "
+            + "from pm_graphy_list "
+            + "where graphclass is not null  and graphclass <>'' "
+            + "group by graphclass "
+            + "order by CNT desc "
+            + "LIMIT ?";
+        String num = dict.getString("num");
+        result.put("result", this.queryForMapList(sql, num));
         return result;
     }
 

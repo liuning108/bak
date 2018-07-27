@@ -19,7 +19,7 @@ define([
       var tableH = (docH - 48 - 35 - 30-200);
       this.graphsListView = new GraphsListView({
            el: self.$el.find('.kdo_cotent'),
-          'id':"T00003",
+          'id':"T00001",
            tableH: tableH,
            callback:function() {
              self.render();

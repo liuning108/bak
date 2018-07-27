@@ -28,6 +28,40 @@ public abstract class GraphsDAO extends GeneralDAO {
      * @throws BaseAppException <br>
      */
     public abstract JSONObject getTemplateCatagorys(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject getTemplateById(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject getTemplatesByCatagroyId(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject getItemsByTemplateId(JSONObject dict) throws BaseAppException;
+   
     /**
      * 
      * Description: <br> 
@@ -38,17 +72,6 @@ public abstract class GraphsDAO extends GeneralDAO {
      * @return
      * @throws BaseAppException <br>
      */
-    public abstract  JSONObject getTemplateById(JSONObject dict) throws BaseAppException;
-    /**
-     * 
-     * Description: <br> 
-     *  
-     * @author XXX<br>
-     * @taskId <br>
-     * @param dict
-     * @return
-     * @throws BaseAppException <br>
-     */
-    public  abstract JSONObject getTemplatesByCatagroyId(JSONObject dict) throws BaseAppException;
+    public  abstract JSONObject getGraphsTags(JSONObject dict)   throws BaseAppException;
 
 }

@@ -47,4 +47,27 @@ public interface GraphService {
      */
     JSONObject getTemplatesByCatagroyId(JSONObject dict) throws BaseAppException;
 
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getItemsByTemplateId(JSONObject dict)  throws BaseAppException;
+ 
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getGraphsTags(JSONObject dict)  throws BaseAppException;
+
 }

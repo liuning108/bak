@@ -64,6 +64,38 @@ public class GraphServiceImpl implements GraphService {
         // TODO Auto-generated method stub
         return getDAO().getTemplatesByCatagroyId(dict);
     }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getItemsByTemplateId(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().getItemsByTemplateId(dict);
+    }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getGraphsTags(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().getGraphsTags(dict);
+    }
 
     /**
      * Description: <br>
@@ -76,6 +108,8 @@ public class GraphServiceImpl implements GraphService {
         GraphsDAO dao = (GraphsDAO) GeneralDAOFactory.create(GraphsDAO.class, JdbcUtil.OSS_PM);
         return dao;
     }
+   
+    
    
 
 }

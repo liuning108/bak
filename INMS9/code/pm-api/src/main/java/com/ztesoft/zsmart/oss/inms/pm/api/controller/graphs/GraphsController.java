@@ -73,6 +73,38 @@ public class GraphsController {
         return graphService.getTemplatesByCatagroyId(dict);
     }
     
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getItemsByTemplateId", method = RequestMethod.POST)
+    public JSONObject getItemsByTemplateId(@RequestBody JSONObject dict) throws BaseAppException {
+        return graphService.getItemsByTemplateId(dict);
+    }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getGraphsTags", method = RequestMethod.POST)
+    public JSONObject getGraphsTags(@RequestBody JSONObject dict) throws BaseAppException {
+        return graphService.getGraphsTags(dict);
+    }
+    
     
 
 }

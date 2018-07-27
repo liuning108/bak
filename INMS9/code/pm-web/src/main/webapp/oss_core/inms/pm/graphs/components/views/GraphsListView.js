@@ -51,6 +51,7 @@ define([
       d.templateObj = data.result[0];
       return action.getAllGroup()
     }).then(function(data) {
+      console.log("getAllGroup",data.result);
       d.allGroup.result = data.result;
       console.log("enter GraphsListView init Data :", d);
       callback(d);
@@ -161,16 +162,16 @@ define([
     var self = this;
     self.templateObj = d.templateObj;
     var groups = d.allGroup.result;
-    this.group = this.$el.find('.comboboxGraphsGroup').combobox({dataTextField: 'name', dataValueField: 'value', dataSource: groups});
+    this.group = this.$el.find('.comboboxGraphsGroup').combobox({dataTextField: 'NAME', dataValueField: 'VALUE', dataSource: groups});
 
     this.group.on('combobox:change', function() {
       var g = self.group.combobox('getSelectedItem');
       self.changeGropupCombobox(g);
     });
-    this.group.combobox('value', "" + self.templateObj.catagory);
+    this.group.combobox('value', "" + self.templateObj.CATAGORY);
     this.tmpCombox = this.$el.find('.comboboxGraphsHost').combobox({dataTextField: 'name', dataValueField: 'value', dataSource: []});
     this.tmpCombox.on('combobox:change', function() {
-      var g = self.group.combobox('getSelectedItem');
+      var g = self.tmpCombox.combobox('getSelectedItem');
       self.changetmpComboxCombobox(g);
     });
   },
@@ -180,13 +181,13 @@ define([
   }
   GraphsListView.prototype.changeGropupCombobox = function(g) {
     var self = this;
-    action.getTemplatesByCatagroyId(g.value).then(function(data) {
+    action.getTemplatesByCatagroyId(g.VALUE).then(function(data) {
       var tmpDataSource = fish.map(data.result, function(d) {
-        return {name: d.name, value: d.id}
+        return {name: d.NAME, value: d.ID}
       });
       self.tmpCombox.combobox({"dataSource": tmpDataSource})
       var tmp = fish.find(tmpDataSource, function(d) {
-        return "" + d.value == "" + self.templateObj.id
+        return "" + d.value == "" + self.templateObj.ID
       })
       if (tmp) {
         self.tmpCombox.combobox({
@@ -203,9 +204,29 @@ define([
     })
   }
   GraphsListView.prototype.createGraphs = function() {
+      var self =this;
+      var g = self.tmpCombox.combobox('getSelectedItem');
+      action.getItemsByTemplateId(g.value).then(function(data){
+       var flag = data.result.length>0;
+       if(flag){
+         self.enterCreateGraphs({
+            templateId:g.value,
+            gid:"NONE",
+            title:g.name,
+            position:"C",
+            desc:"just test",
+            gtype:1,
+         })
+       }else{
+         fish.toast('warn', g.name+'没有配监控项');
+       }
+      })
+  },
+  GraphsListView.prototype.enterCreateGraphs =function(data) {
     var self = this;
     this.createGraphsView = new CreateGraphsView({
       'el': this.$el,
+      'data':data,
       'cancel': function() {
         self.render();
       },
