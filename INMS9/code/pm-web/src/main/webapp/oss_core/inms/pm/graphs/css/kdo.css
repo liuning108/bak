@@ -1,0 +1,932 @@
+.kdo_container {
+  width: 100%;
+  height: 100%;
+  color: #000000;
+}
+
+.kdo_container .kdo_left {
+  float: left;
+  width: 212px;
+  height: 100%;
+}
+
+.kdo_container .kdo_left .kdoTitle {
+  background: #e9e9eb;
+  height: 66px;
+  font: 18px LatoBold;
+  padding: 10px 20px;
+  width: 100%;
+  display: table;
+}
+
+.kdo_container .kdo_left .kdoTitle div {
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.kdo_container .kdo_left .kdoTitle div h4 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.kdo_container .kdo_cotent {
+  width: calc(100% - 212px);
+  overflow: hidden;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+}
+
+.kdo_container .kdo_cotent.fullfluid {
+  width: 100%;
+}
+
+.kdo-tree {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  font-size: 14px;
+}
+
+.kdo-tree .kdo-checked {
+  color: black;
+}
+
+.kdo-tree li {
+  width: 90%;
+  margin-bottom: 30px;
+}
+
+.kdo-tree .sub-tree {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  color: gray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.kdo-tree .sub-tree li {
+  margin-bottom: 10px;
+}
+
+.kdo-tree .kdo-tree-head {
+  cursor: pointer;
+  position: relative;
+}
+
+.kdo-tree .kdo-tree-head:hover {
+  color: #00a3fe;
+}
+
+.kdo-tree .kdo-tree-head i {
+  right: 2px;
+  top: 2px;
+  position: absolute;
+}
+
+.kdo-right-page {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  padding-top: 20px;
+  position: relative;
+}
+
+.kdo-right-page .kdo-right-page-header {
+  border-bottom: 1px solid #efefef;
+  position: relative;
+}
+
+.kdo-right-page .kdo-right-page-header .title {
+  font: 20px BitterRegular;
+  padding: 0 0 10px;
+}
+
+.kdo-right-page .kdo-right-page-header .kdoTopBtn {
+  position: absolute;
+  top: -5px;
+  right: 30px;
+  z-index: 1;
+}
+
+.kdoTabs {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.kdoTabs .kdo-tabs-active {
+  background: #f2f2f2;
+  border-bottom: 3px solid #2ec4e8;
+}
+
+.kdoTabs .kdo-header {
+  background: #fafafa;
+  height: 50px;
+}
+
+.kdoTabs .kdo-header .kdo-more {
+  position: relative;
+  float: left;
+  width: 160px;
+  height: 100%;
+  font-size: 14px;
+  border-right: 1px solid #ececec;
+  display: table;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.kdoTabs .kdo-header .kdo-tab {
+  float: left;
+  width: 160px;
+  height: 100%;
+  font-size: 14px;
+  border-right: 1px solid #ececec;
+  display: table;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+.kdoTabs .kdo-header .kdo-tab:hover {
+  background: #f2f2f2;
+  border-bottom: 3px solid #2ec4e8;
+}
+
+.kdoGrid .ui-jqgrid-pager {
+  border: none;
+  border-top: 1px solid #e3e3e3;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow td {
+  height: 35px;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-hdiv .ui-jqgrid-htable th.ui-th-column {
+  background: #fff;
+  color: #4e4e4e;
+  height: 37px;
+  text-align: center;
+  font-size: 14px;
+  border-right: none;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-hdiv {
+  border: none;
+  border-bottom: 1px solid #efefef;
+  border-top: 1px solid #efefef;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-bdiv {
+  border: none;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.jqgrow:hover {
+  background: #f7f8f9;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-bdiv .ui-jqgrid-btable tr.jqgrow.ui-state-highlight {
+  background-color: #f7f8f9;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.ui-state-highlight:hover {
+  background: #f7f8f9 !important;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.ui-state-highlight a {
+  color: black;
+}
+
+.kdoGrid .ui-jqgrid-view .ui-jqgrid-btable tr.ui-state-highlight a:hover {
+  color: #fff;
+}
+
+.kdo-dialog {
+  transition: left 0.3s;
+  position: absolute;
+  left: 100%;
+}
+
+.kdo-dialog .modal-header {
+  background-color: #ffffff;
+  color: #333131;
+  border-bottom: 0;
+}
+
+.kdo-dialog .modal-header .close {
+  color: gray;
+  font-size: 20px;
+}
+
+.kdo-dialog .modal-header .modal-title {
+  font-size: 16px;
+}
+
+.kdo-pickcolor-dialog {
+  position: absolute;
+  left: 100%;
+  background: #F0F2F3;
+}
+
+.kdo-pickcolor-dialog .modal-header {
+  background-color: #F0F2F3;
+  color: #333131;
+  border-bottom: 0;
+}
+
+.kdo-pickcolor-dialog .modal-header .close {
+  color: gray;
+  font-size: 20px;
+}
+
+.kdo-pickcolor-dialog .modal-header .modal-title {
+  font-size: 14px;
+}
+
+.kdo-on-off-icon {
+  position: relative;
+}
+
+.kdo-on-off-icon img {
+  position: relative;
+  top: -2px;
+  right: 4px;
+}
+
+.kdoWizardSteps {
+  background: #f3f3f5;
+  height: 50px;
+  width: 100%;
+}
+
+.kdoWizardSteps div {
+  float: left;
+  height: 100%;
+  line-height: 40px;
+  text-align: center;
+  color: #a3a3a3;
+  position: relative;
+}
+
+.kdoWizardSteps div:before {
+  content: '';
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  background-color: #a4a4a4;
+  left: 0;
+}
+
+.kdoWizardSteps div.active:after {
+  content: '';
+  width: 50%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  background-color: #2ec4e8;
+  left: 0;
+}
+
+.kdoWizardSteps div.complete:after {
+  content: '';
+  width: 100%;
+  height: 4px;
+  position: absolute;
+  bottom: 0;
+  left: -50%;
+  background-color: #2ec4e8;
+  left: 0;
+}
+
+.kdoWizardSteps div.complete {
+  color: black !important;
+}
+
+.kdoWizardSteps div.active {
+  color: black !important;
+}
+
+.kdoWizardSteps div.complete span:before {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2ec4e8;
+  bottom: -10px;
+}
+
+.kdoWizardSteps div.active span:before {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+  bottom: -10px;
+}
+
+.kdoWizardSteps div.complete span:after {
+  border-color: #2ec4e8;
+}
+
+.kdoWizardSteps div.active span:after {
+  background: #2ec4e8;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  top: 44px;
+  left: 0;
+  transform: none;
+}
+
+.kdoWizardSteps div span:before {
+  background: #ffffff;
+  width: 16px;
+  height: 16px;
+  content: '';
+  margin: auto;
+  border: 4px solid #a4a4a4;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  z-index: 1;
+}
+
+.kdoWizardSteps div span:after {
+  width: 4px;
+  height: 9px;
+  content: '';
+  margin: auto;
+  border: 2px solid transparent;
+  border-bottom: 0;
+  border-left: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  left: -6px;
+  transform: scaleX(-1) rotate(135deg);
+  transform-origin: left top;
+  z-index: 1;
+}
+
+.KdoBtn2 {
+  transition: background 0.5s;
+  background: #bdbdbd;
+  min-width: 74px;
+  width: auto;
+  height: auto;
+  font: 12px LatoRegular;
+  color: #fff;
+  text-align: center;
+  margin: 3px;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.KdoBtn2:hover {
+  color: #fff;
+}
+
+.KdoBtn2:hover {
+  background: #17a9cc;
+}
+
+.Kdo_mainColor {
+  background: #2ec4e8;
+  color: #fff;
+}
+
+.kdoBtn {
+  transition: background 0.5s;
+  background: #2ec4e8;
+  min-width: 120px;
+  width: auto;
+  height: auto;
+  font: 14px LatoRegular;
+  color: #fff;
+  text-align: center;
+  padding: 7px 20px;
+  margin: 3px;
+  border: 0;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.kdoBtn i {
+  margin-right: 5px;
+}
+
+.kdoBtn:hover {
+  background: #17a9cc;
+}
+
+.kdoPageBtn:hover, .kdoPageBtn:active, .kdoPageBtn:focus {
+  border-color: #d9dbdc;
+  background: #f3f4f4;
+  color: #717171;
+}
+
+.kdoDSelect .multiSelBoxHolder {
+  background: #f9f9fb;
+  height: 100px;
+  border: 1px solid #cfdadd;
+  position: relative;
+}
+
+.kdoDSelect .multiSelBoxLeft {
+  float: left;
+  padding: 0 15px 0 0;
+  width: 50%;
+  height: 100%;
+}
+
+.kdoDSelect .multiSelBoxRight {
+  float: right;
+  padding: 0 0 0 15px;
+  width: 50%;
+  height: 100%;
+}
+
+.kdoDSelect select {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  position: relative;
+  overflow: auto;
+}
+
+.kdoDSelect select option {
+  padding: 5px;
+}
+
+.kdoDSelect .multiSelBoxBtn {
+  width: 30px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.kdoDSelect .k {
+  width: 100%;
+  height: 50%;
+  background: #efefef;
+  display: block !important;
+  position: relative;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+
+.kdoDSelect .k i {
+  position: absolute;
+  left: 28%;
+  top: 33%;
+}
+
+.kdoDSelect .kdoDSelectSearch {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+
+.kdoDSelect .kdoDSelectSearchInput {
+  padding-left: 25px !important;
+}
+
+.kdoDSelect .kdoDSelectSearchInput:focus, .kdoDSelect .kdoDSelectSearchInput:hover {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.host-from-group, .kdo-from-group {
+  padding: 5px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.host-from-group input[type='text'], .kdo-from-group input[type='text'] {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.host-from-group input[type='text']:hover, .kdo-from-group input[type='text']:hover {
+  border: 1px solid #2ec4e8;
+}
+
+.host-from-group input[type='text']:focus, .kdo-from-group input[type='text']:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.host-from-group input[type='text'].disabled, .kdo-from-group input[type='text'].disabled {
+  background: #eee;
+}
+
+.host-from-group textarea, .kdo-from-group textarea {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+}
+
+.host-from-group textarea:hover, .kdo-from-group textarea:hover {
+  border: 1px solid #2ec4e8;
+}
+
+.host-from-group textarea:focus, .kdo-from-group textarea:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.host-from-group textarea.disabled, .kdo-from-group textarea.disabled {
+  background: #eee;
+}
+
+.kdo2-from-group {
+  padding: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.kdo2-from-group input[type='text'] {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+  height: 28px;
+}
+
+.kdo2-from-group input[type='text']:hover {
+  border: 1px solid #2ec4e8;
+}
+
+.kdo2-from-group input[type='text']:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.kdo2-from-group input[type='text'].disabled {
+  background: #eee;
+}
+
+.kdo2-from-group textarea {
+  transition: 0.5s;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  border: 1px solid #cfdadd;
+  box-shadow: none;
+}
+
+.kdo2-from-group textarea:hover {
+  border: 1px solid #2ec4e8;
+}
+
+.kdo2-from-group textarea:focus {
+  outline: none !important;
+  box-shadow: none;
+  border: 1px solid #2ec4e8;
+}
+
+.kdo2-from-group textarea.disabled {
+  background: #eee;
+}
+
+.kdo-status {
+  padding: 2px 3px 1px 3px;
+  font-size: 0.917em;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: .7em;
+  line-height: 1em;
+  display: inline-block;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  color: #acbbc2;
+  background-color: #ebebeb;
+  border: 1px solid #ccd5d9;
+  cursor: pointer;
+}
+
+.kdo-status-red {
+  color: #fff;
+  border: 1px solid #d23d3d;
+  background-color: #d64e4e;
+}
+
+.kdo-callback {
+  position: relative;
+  left: -10px;
+  top: 3px;
+  cursor: pointer;
+}
+
+.kdo-floatDiv {
+  width: 200px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.kdoBtnIco:hover {
+  color: #2ec4e8 !important;
+}
+
+.kdo-input-style {
+  padding: 0px;
+  margin: 0px;
+  border-bottom: 1px solid #cfdadd;
+  width: 90%;
+}
+
+.kdo-input-style:hover {
+  border-bottom: 1px solid #2ec4e8;
+}
+
+.kdo-input-style:focus {
+  outline: none !important;
+  box-shadow: none;
+  border-bottom: 1px solid #2ec4e8;
+}
+
+.kdo-input-style.disabled {
+  background: #eee;
+}
+
+.kdo-input-style .kdo-combobox-style {
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+  width: 150px;
+}
+
+.kdo-input-style .kdo-combobox-style .combobox-readonly {
+  border: none;
+  box-shadow: none;
+}
+
+.kdo-input-style .tag {
+  display: inline-block;
+  padding: 2px;
+  padding-bottom: 4px;
+  border-bottom: 2px #f27b77 solid;
+}
+
+.kdo-input-style input {
+  border: none;
+  padding-left: 20px;
+  width: 70%;
+  padding-bottom: 4px;
+}
+
+.kdo-Tm20 {
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+.kdo-header-title {
+  font-size: 16px;
+  display: inline-block;
+  color: #333 !important;
+}
+
+.kdo-dash-container {
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.kdo-dash-container .kdo-dashChartTitle {
+  width: 100px;
+  max-width: 100px;
+  margin-top: 5px !important;
+  color: #555;
+  font-size: .857rem;
+}
+
+.kdo-dash-container .kdo-dashboardicon {
+  border: 1px solid #efefef;
+  background-color: #f7f7f7;
+  width: 70px;
+  height: 65px;
+  padding: 16px 18px;
+  border-radius: 2px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+.kdo-dash-container.kdo-chart-sel .kdo-dashboardicon {
+  border: 1px solid #2ec4e8 !important;
+  background-color: #fff;
+}
+
+.kdo-dash-container:hover .kdo-dashboardicon {
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.kdo-chart {
+  width: 32px;
+  height: 31px;
+  margin: auto;
+  background: url(../images/dashboardicon.svg) no-repeat;
+}
+
+.kdo-line {
+  background-position: -144px -73px;
+}
+
+.kdo-chart-sel .kdo-line {
+  background-position: -144px -108px;
+}
+
+.kdo-donut {
+  background-position: 1px 1px;
+}
+
+.kdo-chart-sel .kdo-donut {
+  background-position: 1px -36px;
+}
+
+.kdo-pie {
+  background-position: -33px 1px;
+}
+
+.kdo-chart-sel .kdo-pie {
+  background-position: -33px -35px;
+}
+
+.kdo-area {
+  background-position: -106px -73px;
+}
+
+.kdo-chart-sel .kdo-area {
+  background-position: -106px -108px;
+}
+
+.kdo-horizontal {
+  background-position: -70px 1px;
+}
+
+.kdo-chart-sel .kdo-horizontal {
+  background-position: -70px -36px;
+}
+
+.kdo-vertical {
+  background-position: -179px 1px;
+}
+
+.kdo-chart-sel .kdo-vertical {
+  background-position: -179px -35px;
+}
+
+.kdo-funnel {
+  background-position: -68px -76px;
+}
+
+.kdo-chart-sel .kdo-funnel {
+  background-position: -68px -111px;
+}
+
+.kdo-table {
+  background-position: -144px -143px;
+}
+
+.kdo-chart-sel .kdo-table {
+  background-position: -144px -177px;
+}
+
+.kdo-switch {
+  cursor: pointer;
+  position: relative;
+}
+
+.kdo-switch input {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.kdo-switch span {
+  position: relative;
+  width: 42px;
+  height: 20px;
+  border-radius: 999em;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-color: rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+}
+
+.kdo-switch input:checked + span {
+  background: #36b0c8;
+}
+
+.kdo-switch span:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  width: 26px;
+  top: 0;
+  bottom: 0;
+  border-radius: 30px;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: left 0.2s;
+  transition: left 0.2s;
+}
+
+.kdo-switch input:checked + span:after {
+  left: 16px;
+}
+
+.kdo-color-gray {
+  border-bottom: 1px solid #cfdadd !important;
+}
+
+.kdo-pick-block {
+  padding: 10px;
+  box-shadow: 0px 1px 3px 0px #ccc;
+  background: #fff;
+}
+
+.kdo-colorpanel {
+  padding: 3px 0 0 16px;
+  margin-top: 0;
+  margin-bottom: 9px;
+}
+
+.kdo-colorpanel .color-thumb {
+  margin: 13px 16px 0 0;
+  cursor: pointer;
+  line-height: 32px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  vertical-align: middle;
+}
+
+.kdo-colorpanel .color-thumb.checked {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 2px white;
+}
+
+.kdoItemCircle {
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 1px 2px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 2px white;
+}
+
+.inmsblueBtn {
+  background-color: #2351C5;
+}
+
+.inmsblueBtn:hover {
+  background-color: #2678d2;
+}
+
+.inmsBtnIcom:hover {
+  color: #2678d2 !important;
+}
+
+.inmsBtnh_hover:hover {
+  background-color: #2678d2 !important;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+        <artifactId>pm-parent</artifactId>
+        <groupId>com.ztesoft.zsmart.oss.inms.pm</groupId>
+        <version>9.0.1-SNAPSHOT</version>
+   </parent>
+  <groupId>com.ztesoft.zsmart.oss.inms.pm.web</groupId>
+  <artifactId>pm-web</artifactId>
+  <packaging>war</packaging>
+
+  <name>pm-web Maven Webapp</name>
+  <!-- FIXME change it to the project's website -->
+  <url>http://www.example.com</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	  <dependency>
+	      <groupId>com.ztesoft.zsmart.oss.opb</groupId>
+	      <artifactId>opb-web</artifactId>
+	      <type>war</type>
+	      <version>${opb.version}</version>
+	  </dependency>
+	  <dependency>
+	      <groupId>com.ztesoft.zsmart.oss.inms.pm.api</groupId>
+	      <artifactId>pm-api</artifactId>
+	      <version>${project.parent.version}</version>
+	  </dependency>
+	  <dependency>
+	      <groupId>com.ztesoft.zsmart.oss.inms.pm.service.impl</groupId>
+	      <artifactId>pm-service-impl</artifactId>
+	      <version>${project.parent.version}</version>
+      </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>pm-web</finalName>
+  </build>
+</project>
