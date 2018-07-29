@@ -1,2 +1,124 @@
 //bootstrap 4
-@import "~bootstrap/scss/bootstrap"
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900')
+@mixin size($w,$h:$w)
+  width: $w
+  height: $h
+@mixin flexCenter
+  display: flex
+  justify-content: center
+  align-items: center
+@mixin bxshadow
+  box-shadow: 0px 5px 25px 5px rgba(black,0.2)
+@mixin fixedPos($l,$t)
+  position: fixed
+  left:  $l
+  top: $t
+*
+  vertical-align: middle
+  outline: none
+  font-family: 'Roboto',sans-serif
+html,body
+    height: 100%
+    margin: 0
+#root
+  height: 100%
+#app
+  +size(100%)
+  background-color: #111
+  display: flex
+.apptitle
+  +fixedPos(30px,30px)
+  color: white
+  font-size: 30px
+  font-weight: bold
+.cardList
+  flex: 1
+.cards
+  +flexCenter
+  height: 100%
+  justify-content: left
+  margin-left: 20vw
+  margin-right: 20vw
+  position: relative
+  transition: 0.5s ,left 0s
+  left: 0px
+
+
+
+.card
+  margin: 60px
+  +size(460px,auto)
+  background-color: rgba(white,0.9)
+  flex-shrink: 0
+  display: inline-flex
+  transition: 0.5s
+  border-radius: 5px
+  color: #888
+  padding: 20px
+  +bxshadow
+  &:hover
+    transform: translateY(-10px)
+    .left .cover
+      transform: translateY(-10px)
+  .left
+    flex: 1
+    transition: 0.5s
+
+    .cover
+      +size(180px,240px)
+      border-radius: 5px
+      +bxshadow
+      position: relative
+      top: -50px
+  .right
+    flex: 2
+    padding: 20px
+    padding-top: 10px
+    margin-bottom: -15px
+    h2
+      margin: 0
+      font-weight: bold
+      font-size: 24px
+      color: #444
+    h4
+      margin-top: 10px
+      margin-bottom: 10px
+      opacity: 0.8
+      font-weight: normal
+    p
+      font-size: 14px
+      line-height: 1.3
+      text-align: justify
+      opacity: 0.8
+      min-height: 5em
+    button
+      float: right
+      padding: 5px 10px
+      background-color: #bbb
+      color: rgba(white,0.9)
+      border-radius: 50px
+      cursor: pointer
+      transition: 0.5s
+      &:hover
+        color: white
+        background-color: #f95e5e
+.control
+  +size(100%)
+  +fixedPos(0,0)
+  color: #eee
+  background-image: linear-gradient(to bottom,#111 20%,transparent 100%)
+  padding: 2vw
+  box-sizing: border-box
+  .panel
+    +size(100%)
+    .title
+      float: left
+    .close
+      float: right
+      cursor: pointer
+      &:hover
+        color: red
+    .panel-body
+      +size(100%)
+      clear: both

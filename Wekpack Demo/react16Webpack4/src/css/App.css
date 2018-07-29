@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+* {
+  vertical-align: middle;
+  outline: none;
+  font-family: 'Roboto',sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  height: 100%;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+  background-color: #111;
+  display: flex;
+}
+
+.apptitle {
+  position: fixed;
+  left: 30px;
+  top: 30px;
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.cardList {
+  flex: 1;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  justify-content: left;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  position: relative;
+  transition: 0.5s ,left 0s;
+  left: 0px;
+}
+
+.card {
+  margin: 60px;
+  width: 460px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  flex-shrink: 0;
+  display: inline-flex;
+  transition: 0.5s;
+  border-radius: 5px;
+  color: #888;
+  padding: 20px;
+  box-shadow: 0px 5px 25px 5px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card:hover .left .cover {
+  transform: translateY(-10px);
+}
+
+.card .left {
+  flex: 1;
+  transition: 0.5s;
+}
+
+.card .left .cover {
+  width: 180px;
+  height: 240px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 25px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: -50px;
+}
+
+.card .right {
+  flex: 2;
+  padding: 20px;
+  padding-top: 10px;
+  margin-bottom: -15px;
+}
+
+.card .right h2 {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  color: #444;
+}
+
+.card .right h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+.card .right p {
+  font-size: 14px;
+  line-height: 1.3;
+  text-align: justify;
+  opacity: 0.8;
+  min-height: 5em;
+}
+
+.card .right button {
+  float: right;
+  padding: 5px 10px;
+  background-color: #bbb;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.card .right button:hover {
+  color: white;
+  background-color: #f95e5e;
+}
+
+.control {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #eee;
+  background-image: linear-gradient(to bottom, #111 20%, transparent 100%);
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.control .panel {
+  width: 100%;
+  height: 100%;
+}
+
+.control .panel .title {
+  float: left;
+}
+
+.control .panel .close {
+  float: right;
+  cursor: pointer;
+}
+
+.control .panel .close:hover {
+  color: red;
+}
+
+.control .panel .panel-body {
+  width: 100%;
+  height: 100%;
+  clear: both;
+}

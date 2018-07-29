@@ -13,6 +13,9 @@ module.exports ={
       path :path.join(__dirname,"dist"),
       filename:"index_bundle.js"
    },
+   devServer: {
+     historyApiFallback: true,
+   },
    plugins:[
       new CleanWebpackPlugin(pathsToClean),
       new HtmlWebpackPlugin({
@@ -44,7 +47,7 @@ module.exports ={
             use: [
                 MiniCssExtractPlugin.loader,
                 "css-loader", // translates CSS into CommonJS
-                "sass-loader" // compiles Sass to CSS
+                "sass-loader", // compiles Sass to CSS
             ]
         },
         {
