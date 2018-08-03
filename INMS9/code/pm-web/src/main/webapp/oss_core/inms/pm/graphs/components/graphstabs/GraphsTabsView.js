@@ -2,7 +2,7 @@ define([
   "oss_core/inms/pm/graphs/components/views/RootView.js", "oss_core/inms/pm/graphs/utils/util.js",
   "text!oss_core/inms/pm/graphs/components/graphstabs/GraphsTabsView.html",
   "oss_core/inms/pm/graphs/components/graphstabs/HostPageView.js",
-  "oss_core/inms/pm/graphs/components/graphstabs/ShowPageView.js",
+     "oss_core/inms/pm/graphs/components/graphstabs/ShowPageView.js",
   "oss_core/inms/pm/graphs/components/graphstabs/AixsPageView.js",
   "oss_core/inms/pm/graphs/components/graphstabs/PropPageView.js"
 ], function(RootView, util,tpl,HostPageView,ShowPageView,AixsPageView,PropPageView) {

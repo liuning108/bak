@@ -60,25 +60,25 @@ define([
   GraphsListView.prototype.initGraphasGrid = function() {
     var self = this;
     var mydata = [
-      {
-        catagory: '设备建康',
-        name: "Graphs-A",
-        "type": "Line",
-        "desc": "",
-        "gid": 1
-      }, {
-        catagory: '设备建康',
-        name: "Graphs-B",
-        "type": "Line",
-        "desc": "",
-        "gid": 2
-      }, {
-        catagory: '设备建康',
-        name: "Graphs-C",
-        "type": "Line",
-        "desc": "",
-        "gid": 3
-      }
+      // {
+      //   catagory: '设备建康',
+      //   name: "Graphs-A",
+      //   "type": "Line",
+      //   "desc": "",
+      //   "gid": 1
+      // }, {
+      //   catagory: '设备建康',
+      //   name: "Graphs-B",
+      //   "type": "Line",
+      //   "desc": "",
+      //   "gid": 2
+      // }, {
+      //   catagory: '设备建康',
+      //   name: "Graphs-C",
+      //   "type": "Line",
+      //   "desc": "",
+      //   "gid": 3
+      // }
     ];
     var opt = {
       data: mydata,
@@ -99,7 +99,7 @@ define([
           label: '类型',
           align: 'center',
           formatter: function(cellval, opts, rwdat, _act) {
-            return "<div class='kdo-on-off-icon'><img width='18' height='18' src='static/oss_core/inms/pm/graphs/images/line-chart.png'></img></div>"
+             return "<div class='kdo-on-off-icon'><img width='18' height='18' src='static/oss_core/inms/pm/graphs/images/"+cellval+".png'></img></div>"
           }
         }, {
           name: 'desc',
@@ -123,7 +123,7 @@ define([
     })
     this.$gird.on('click', '.updateGraph', function() {
       var selrow = self.$gird.grid("getSelection");
-      self.createGraphs();
+      self.updateGraphs(selrow);
     })
     this.$gird.on('change', '[type="checkbox"]', function() {
       var selrow = self.$gird.grid("getCheckRows");
@@ -153,9 +153,17 @@ define([
   GraphsListView.prototype.delGraphsAction = function(selrows) {
     var self = this;
     fish.confirm("Delete selected graphs?").result.then(function() {
-      fish.each(selrows, function(d) {
-        self.$gird.grid("delRowData", d);
-      });
+      ids =fish.map(selrows,function(d){
+        return d.gid
+      })
+      console.log("ids",ids);
+      action.delGraphs({"ids":ids}).then(function(){
+        var g = self.tmpCombox.combobox('getSelectedItem');
+        self.changetmpComboxCombobox(g);
+      })
+      // fish.each(selrows, function(d) {
+      //   self.$gird.grid("delRowData", d);
+      // });
     });
   },
   GraphsListView.prototype.groupAndHost = function(d) {
@@ -176,8 +184,28 @@ define([
     });
   },
   GraphsListView.prototype.changetmpComboxCombobox = function(g) {
-    console.log(g);
+    if(g){
+      var param={
+        tId:g.value
+      }
+      this.loadGridDatas(param);
+    }
 
+  }
+  GraphsListView.prototype.loadGridDatas=function(param){
+      var self =this;
+      action.getGraphsByUserID(param).then(function(data){
+         var datas=fish.map(data.result,function(d){
+              return {
+                catagory: d.GCLASS,
+                name: d.NAME,
+                "type": d.GTYPE,
+                "desc": d.DESCR,
+                "gid": d.GID
+              }
+         })
+        self.$gird.grid("reloadData",datas)
+      })
   }
   GraphsListView.prototype.changeGropupCombobox = function(g) {
     var self = this;
@@ -203,6 +231,15 @@ define([
       }
     })
   }
+  GraphsListView.prototype.updateGraphs = function(selrow){
+    var self =this;
+     var gid =selrow.gid;
+     action.getGraphsById(gid).then(function(data){
+      if(data.result){
+        self.enterCreateGraphs(data.result)
+      }
+     });
+  }
   GraphsListView.prototype.createGraphs = function() {
       var self =this;
       var g = self.tmpCombox.combobox('getSelectedItem');
@@ -212,10 +249,11 @@ define([
          self.enterCreateGraphs({
             templateId:g.value,
             gid:"NONE",
-            title:g.name,
-            position:"C",
-            desc:"just test",
+            title:"",
+            position:"L",
+            desc:"",
             gtype:1,
+            gclass:"",
          })
        }else{
          fish.toast('warn', g.name+'没有配监控项');
@@ -227,11 +265,15 @@ define([
     this.createGraphsView = new CreateGraphsView({
       'el': this.$el,
       'data':data,
-      'cancel': function() {
+      'cancel': function(tid) {
+        self.option.id =tid;
         self.render();
       },
-      'ok': function() {
+      'ok': function(tid) {
+        fish.toast('success', '保存成功')
+        self.option.id =tid;
         self.render();
+
       }
     })
     this.createGraphsView.render();

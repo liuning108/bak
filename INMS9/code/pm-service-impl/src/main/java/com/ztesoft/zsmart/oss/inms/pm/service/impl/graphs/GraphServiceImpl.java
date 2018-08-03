@@ -96,6 +96,91 @@ public class GraphServiceImpl implements GraphService {
         // TODO Auto-generated method stub
         return getDAO().getGraphsTags(dict);
     }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject saveOrUpdateGraphs(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().saveOrUpdateGraphs(dict);
+    }
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getGraphsByUserID(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().getGraphsByUserID(dict);
+    }
+    
+
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject delGraphs(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return  getDAO().delGraphs(dict);
+    }
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getGraphsById(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().getGraphsById(dict);
+    }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @Override
+    public JSONObject getItemsByTId(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return  getDAO().getItemsByTId(dict);
+    }
+    
+    
+    
+    
+    
+   
 
     /**
      * Description: <br>
@@ -108,6 +193,11 @@ public class GraphServiceImpl implements GraphService {
         GraphsDAO dao = (GraphsDAO) GeneralDAOFactory.create(GraphsDAO.class, JdbcUtil.OSS_PM);
         return dao;
     }
+   
+    
+    
+
+   
    
     
    

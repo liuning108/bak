@@ -61,17 +61,71 @@ public abstract class GraphsDAO extends GeneralDAO {
      * @throws BaseAppException <br>
      */
     public abstract JSONObject getItemsByTemplateId(JSONObject dict) throws BaseAppException;
-   
+
     /**
+     * Description: <br>
      * 
-     * Description: <br> 
-     *  
      * @author XXX<br>
      * @taskId <br>
      * @param dict
      * @return
      * @throws BaseAppException <br>
      */
-    public  abstract JSONObject getGraphsTags(JSONObject dict)   throws BaseAppException;
+    public abstract JSONObject getGraphsTags(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject saveOrUpdateGraphs(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject getGraphsByUserID(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject delGraphs(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public abstract JSONObject getGraphsById(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    public  abstract JSONObject getItemsByTId(JSONObject dict)   throws BaseAppException;
 
 }

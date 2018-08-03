@@ -1,4 +1,4 @@
-define([
+                    define([
   "oss_core/inms/pm/graphs/components/kdoPickColor/PickColorViewDialog.js",
   "oss_core/inms/pm/graphs/components/views/RootView.js", "oss_core/inms/pm/graphs/utils/util.js",
   "text!oss_core/inms/pm/graphs/components/graphstabs/ShowPageItemView.html",
@@ -13,7 +13,7 @@ define([
   ShowPageItem.prototype.initProp= function() {
       this.tpl = fish.compile(tpl);
       this.evetMap = evetMap;
-
+  
     },
   ShowPageItem.prototype.removeItem=function(){
       this.item.remove();

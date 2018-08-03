@@ -56,18 +56,72 @@ public interface GraphService {
      * @return
      * @throws BaseAppException <br>
      */
-    JSONObject getItemsByTemplateId(JSONObject dict)  throws BaseAppException;
- 
+    JSONObject getItemsByTemplateId(JSONObject dict) throws BaseAppException;
+
     /**
+     * Description: <br>
      * 
-     * Description: <br> 
-     *  
      * @author XXX<br>
      * @taskId <br>
      * @param dict
      * @return
      * @throws BaseAppException <br>
      */
-    JSONObject getGraphsTags(JSONObject dict)  throws BaseAppException;
+    JSONObject getGraphsTags(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject saveOrUpdateGraphs(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getGraphsByUserID(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject delGraphs(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getGraphsById(JSONObject dict) throws BaseAppException;
+
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getItemsByTId(JSONObject dict) throws BaseAppException;
 
 }

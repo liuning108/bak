@@ -104,6 +104,101 @@ public class GraphsController {
     public JSONObject getGraphsTags(@RequestBody JSONObject dict) throws BaseAppException {
         return graphService.getGraphsTags(dict);
     }
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "saveOrUpdateGraphs", method = RequestMethod.POST)
+    public JSONObject saveOrUpdateGraphs(@RequestBody JSONObject dict) throws BaseAppException {
+       Long userId = PrincipalUtil.getPrincipal().getUserId();
+       dict.put("userId", ""+userId);
+        return graphService.saveOrUpdateGraphs(dict);
+    }
+    
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getGraphsByUserID", method = RequestMethod.POST)
+    public JSONObject getGraphsByUserID(@RequestBody JSONObject dict) throws BaseAppException {
+       Long userId = PrincipalUtil.getPrincipal().getUserId();
+       dict.put("userId", ""+userId);
+        return graphService.getGraphsByUserID(dict);
+    }
+    
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "delGraphs", method = RequestMethod.POST)
+    public JSONObject delGraphs(@RequestBody JSONObject dict) throws BaseAppException {
+       Long userId = PrincipalUtil.getPrincipal().getUserId();
+       dict.put("userId", ""+userId);
+        return graphService.delGraphs(dict);
+    }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getGraphsById", method = RequestMethod.POST)
+    public JSONObject getGraphsById(@RequestBody JSONObject dict) throws BaseAppException {
+       Long userId = PrincipalUtil.getPrincipal().getUserId();
+       dict.put("userId", ""+userId);
+        return graphService.getGraphsById(dict);
+    }
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getItemsByTId", method = RequestMethod.POST)
+    public JSONObject getItemsByTId(@RequestBody JSONObject dict) throws BaseAppException {
+       Long userId = PrincipalUtil.getPrincipal().getUserId();
+       dict.put("userId", ""+userId);
+        return graphService.getItemsByTId(dict);
+    }
+   
+   
+    
+   
     
     
 

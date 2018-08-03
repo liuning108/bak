@@ -1,5 +1,20 @@
 define([], function() {
   return {
+    getGraphsTags:function(){
+      return fish.post("inms/graphs/getGraphsTags", {'num':50});
+    },
+    getGraphsById:function(id){
+      return fish.post("inms/graphs/getGraphsById", {'id':id});
+    },
+    delGraphs:function(param){
+      return fish.post("inms/graphs/delGraphs", param);
+    },
+    getGraphsByUserID:function(param){
+      return fish.post("inms/graphs/getGraphsByUserID", param);
+    },
+    saveOrUpdateGraphs: function(data){
+    return fish.post("inms/graphs/saveOrUpdateGraphs", data);
+    },
     getItemsByTemplateId:function(id){
      return fish.post("inms/graphs/getItemsByTemplateId", {"id":""+id});
     },
