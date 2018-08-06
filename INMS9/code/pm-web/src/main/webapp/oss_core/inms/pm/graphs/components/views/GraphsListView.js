@@ -135,7 +135,8 @@ define([
     })
 
     this.$gird.on('click', '.previewGraph', function() {
-      self.perviewGraph();
+      var selrow = self.$gird.grid("getSelection");
+      self.perviewGraph(selrow.gid);
     })
 
     this.$gird.grid("setLabel", "catagory", "归类", {
@@ -281,15 +282,21 @@ define([
   GraphsListView.prototype.callback = function() {
     util.doNotNull(this.option.callback);
   },
-  GraphsListView.prototype.perviewGraph = function() {
+  GraphsListView.prototype.perviewGraph = function(gid) {
     var self = this;
-    this.perviewGrpahView = new PerviewGrpahView({
-      el: self.$el,
-      callback: function() {
-        self.render();
-      }
+    action.getGraphsById(gid).then(function(data){
+     if(data.result){
+       self.perviewGrpahView = new PerviewGrpahView({
+         el: self.$el,
+         "config":data.result,
+         callback: function() {
+           self.render();
+         }
+       });
+       self.perviewGrpahView.render();
+     }
     });
-    this.perviewGrpahView.render();
+
   }
   return GraphsListView;
 });

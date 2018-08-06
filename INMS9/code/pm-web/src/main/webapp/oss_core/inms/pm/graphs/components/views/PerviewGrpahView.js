@@ -1,6 +1,9 @@
 define([
-  "oss_core/inms/pm/graphs/utils/echarts.js", "oss_core/inms/pm/graphs/components/views/RootView.js", "oss_core/inms/pm/graphs/utils/util.js", "text!oss_core/inms/pm/graphs/components/views/PerviewGrpahView.html"
-], function(echarts, RootView, util, tpl) {
+  "oss_core/inms/pm/graphs/utils/echarts.js", "oss_core/inms/pm/graphs/components/views/RootView.js",
+  "oss_core/inms/pm/graphs/components/gLibs/GCharts.js", "oss_core/inms/pm/graphs/utils/util.js",
+  "oss_core/inms/pm/graphs/utils/DBUtil.js",
+   "text!oss_core/inms/pm/graphs/components/views/PerviewGrpahView.html"
+], function(echarts, RootView,GCharts, util,DBUtil, tpl) {
   var evetMap = [
     {
       'el': '.callback',
@@ -20,114 +23,20 @@ define([
   PerviewGrpahView.prototype.loadPage = function() {
     this.$el.html(this.tpl());
   },
+  PerviewGrpahView.prototype.initTitle=function(){
+    var $title = this.$el.find('.graphs-title');
+    var config = this.option.config;
+    if(!config)return;
+    $title.text(config.title);
+    $title.css('text-align',util.titlePos(config.position));
+  }
   PerviewGrpahView.prototype.afterRender = function() {
-    var myChart = echarts.init(this.$el.find('.graphsShow')[0]);
-    var tom = new Date();
-    tom.setTime(tom.getTime() + 24 * 60 * 60 * 1000);
-    var active_since = (new Date().getTime() / 1000);
-    var active_till = (tom.getTime() / 1000);
-    var spaceTime = (active_till - active_since) / 15
-    option = {
-      title: {
-        text: '双数值轴折线',
-        subtext: '纯属虚构'
-      },
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          show: true,
-          type: 'cross',
-          lineStyle: {
-            type: 'dashed',
-            width: 1
-          }
-        },
-        // formatter : function (params) {
-        //     return params.seriesName + ' : [ '
-        //           + params.value[0] + ', '
-        //           + params.value[1] + ' ]';
-        // }
-      },
-      legend: {
-        data: ['数据1', '数据2']
-      },
-      toolbox: {
-        show: true,
-        feature: {
-
-          dataZoom: {
-            show: true
-          },
-          restore: {
-            show: true
-          },
-          saveAsImage: {
-            show: true
-          }
-        }
-      },
-      calculable: true,
-      xAxis: [
-        {
-          type: 'value',
-          min: active_since,
-          max: active_till,
-          splitNumber: 15,
-          grid:{
-             y2:140
-          },
-          axisLabel: {
-            fontSize:10,
-            interval:0,
-            lineHeight:300,
-            margin:10,
-            rotate: -30,
-            formatter: function(params) {
-              return util.timetrans(Number(params));
-            }
-          }
-        }
-      ],
-      yAxis: [
-        {
-          type: 'value',
-          axisLine: {
-
-          }
-        }
-      ],
-      series: [
-        {
-          name: '数据1',
-          type: 'line',
-          data: [
-            [
-              active_since, 2
-            ],
-            [
-              active_till, 8
-            ]
-          ],
-
-        }, {
-          name: '数据2',
-          type: 'line',
-          data: [
-            [
-              active_since, 2
-            ],
-
-            [
-              active_till, 10
-            ]
-          ]
-        }
-      ]
-    };
-
-    myChart.setOption(option);
-
-  },
+     var config = DBUtil.getFakeDatas(this.option.config);
+     this.initTitle()
+      var el  =this.$el.find('.graphsShow');
+      var g  =  GCharts.init(el,config);
+      g.render();
+  }
   PerviewGrpahView.prototype.callback = function() {
     util.doNotNull(this.option.callback);
   }

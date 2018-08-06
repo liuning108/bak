@@ -669,7 +669,7 @@
 }
 
 .kdo-input-style.errorInput {
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #f27b77;
 }
 
 .kdo-input-style.errorInput:hover {

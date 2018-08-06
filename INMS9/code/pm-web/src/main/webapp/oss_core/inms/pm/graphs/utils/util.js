@@ -53,6 +53,18 @@ define([],function(){
         el.off('click').on('click',function() {
            $(this).find(".textInput").focus();
         })
+      },
+      titlePos:function(value){
+         switch (value) {
+           case "L":
+             return "left"
+           case "R":
+             return "right"
+           case "C":
+             return "center"
+           default:
+             return "left"
+         }
       }
     };
     return util;

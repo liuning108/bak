@@ -1,5 +1,9 @@
 define([], function() {
   return {
+
+    getItemsByTId:function(tid){
+      return fish.post("inms/graphs/getItemsByTId", {'tid':tid});
+    },
     getGraphsTags:function(){
       return fish.post("inms/graphs/getGraphsTags", {'num':50});
     },

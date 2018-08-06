@@ -21,29 +21,42 @@ define([
   GraphsTabsView.prototype.constructor = GraphsTabsView;
   GraphsTabsView.prototype.initProp=function() {
        this.tpl=fish.compile(tpl);
-      this.evetMap = evetMap;
+       this.evetMap = evetMap;
+       this.state = {
+         "items":this.option.items,
+         "config":this.option.config
+       }
+       this.pages={};
     };
   GraphsTabsView.prototype.loadPage=function() {
       this.$el.html(this.tpl());
     };
   GraphsTabsView.prototype.afterRender=function() {
       this.tabs=this.$el.find('.gtabs').tabs();
-
       this.addTabs("HostPage","监控项",true);
       this.addTabs("PropPage","显示属性");
       this.addTabs("AixsPage","坐标轴");
   };
   GraphsTabsView.prototype.addTabs=function(page,label,active){
       var ViewPage = pageMap[page]
+      var state = this.state;
       if(!ViewPage)return;
       var id = "kdo-g-tabs-"+page;
       this.tabs.tabs("add",{id:id,"active":active,'label':label});
       var el=$("<div class='"+id+"-page'></div>")
              .appendTo(this.$el.find("#"+id));
+      console.log("GraphsTabsView State",state);
       var viewPage =new ViewPage({
         'el':el,
+        'state':state,
       });
       viewPage.render();
+      this.pages[page]=viewPage;
+    }
+    GraphsTabsView.prototype.getJSON=function(){
+         var json = {};
+         json.hostPage=this.pages["HostPage"].getJson();
+         return json;
     }
   return GraphsTabsView;
 });
