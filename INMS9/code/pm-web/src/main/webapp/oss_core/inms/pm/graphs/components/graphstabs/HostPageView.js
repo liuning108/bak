@@ -35,7 +35,7 @@ define([
       value: 'P'
     },
     {
-      "name": '指标',
+      "name": '指标名',
       value: 'C'
     }
   ]

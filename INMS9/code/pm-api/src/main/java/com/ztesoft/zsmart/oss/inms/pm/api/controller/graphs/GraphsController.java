@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.inms.pm.api.service.graphs.GraphService;
+import com.ztesoft.zsmart.pot.annotation.IgnoreSession;
 import com.ztesoft.zsmart.pot.annotation.PublicServ;
 import com.ztesoft.zsmart.pot.session.PrincipalUtil;
 

@@ -158,7 +158,7 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
             + "?, "
             + "?);";
         String jsonStr = dict.toJSONString();
-        List<String> attrs_parts =splitByNumbers(jsonStr,5);
+        List<String> attrs_parts =splitByNumbers(jsonStr,1024);
         for(int i = 0; i < attrs_parts.size(); i++) {
             String attr = attrs_parts.get(i);
             this.insert(sql, new Object[] {gid,i,attr});
@@ -183,7 +183,7 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
     public static List<String> splitByNumbers(String text, int number) {
         List<String> strings = new ArrayList<String>();
         int index = 0;
-        while (index < text.trim().length()) {
+        while (index < text.length()) {
             strings.add(text.substring(index, Math.min(index + number, text.length())));
             index += number;
         }

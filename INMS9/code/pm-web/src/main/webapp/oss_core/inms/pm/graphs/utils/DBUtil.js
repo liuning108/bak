@@ -22,7 +22,7 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
        var xAxisFlag =  hostPage.xAxis||"T";
       //生成维度数据(根据这个分割数据)
        var curDate =new Date();
-       var xAxis  = fish.map(fish.range(10),function(i){
+       var xAxis  = fish.map(fish.range(5),function(i){
           var d  =fish.dateutil.addHours(curDate,i);
           return d.getTime();
        })
@@ -77,9 +77,10 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
       })
       var cData =fish.map(yAxis_notALl,function(d){
             var item ={};
-            item.xName = d.name;
+            item.xName = d.name+"("+d.type+")";
             item.id=d.value;
             item[d.type]=fish.random(40,93);
+            item.type=""+d.type;
             return item;
       })
       result.C.xAxis=xAxis_C;
