@@ -1,7 +1,7 @@
 define([],function(){
     var util={
       timetrans: function(tt) {
-        var date = new Date(tt * 1000); //php time为10位需要乘1000
+        var date = new Date(tt); //php time为10位需要乘1000
         var Y ='';
         var M = (
           date.getMonth() + 1 < 10

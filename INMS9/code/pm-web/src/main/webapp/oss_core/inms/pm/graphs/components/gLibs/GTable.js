@@ -33,7 +33,6 @@ define([
       result.colModel = header.concat(colModel);
       result.datas = config.data;
     } else {
-      console.log("CCCCC", config)
       var colModel = [
         {
           'name': "name",
@@ -68,6 +67,8 @@ define([
       return d.type != 'all'
     })
     var datas = fish.map(config.data, function(d) {
+
+      d.xName =  util.timetrans(Number(d.xName));
       fish.each(aggItems, function(dd) {
         d[dd.value + "_" + dd.type] = config.aggr[dd.value][dd.type];
       })

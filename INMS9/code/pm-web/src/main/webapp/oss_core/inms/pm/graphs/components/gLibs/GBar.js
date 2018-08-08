@@ -39,13 +39,13 @@ define([
         })
     }else{
       result.yAxisData=[""]
-      result.series = fish.map(selItems, function(d,i) {
+      result.series = fish.map(config.data, function(d,i) {
          var result = {
-           name: d.name + "(" + d.type + ")",
+           name: d.xName,
            type: 'bar',
            data: []
          }
-          result.data=[fish.random(10,20)];
+          result.data=[d[d.type]];
          return result
        })
 
