@@ -7,9 +7,10 @@ define([
     "oss_core/inms/pm/graphs/components/gLibs/GBar2.js",
     "oss_core/inms/pm/graphs/components/gLibs/GScatter.js",
     "oss_core/inms/pm/graphs/components/gLibs/GGauge.js",
+    "oss_core/inms/pm/graphs/components/gLibs/GDAxis.js",
     "oss_core/inms/pm/graphs/components/gLibs/GTable.js",
     "oss_core/inms/pm/graphs/components/gLibs/GError.js",
-], function(GLine,GArea,GPie,GPie2,GBar,GBar2,GScatter,GGauge,GTable,GError) {
+], function(GLine,GArea,GPie,GPie2,GBar,GBar2,GScatter,GGauge,GDAxis,GTable,GError) {
   var typeMap={
     "1":GLine,
     "2":GPie,
@@ -18,6 +19,7 @@ define([
     "5":GBar,
     "6":GBar2,
     "7":GScatter,
+    "8":GDAxis,
     "9":GGauge,
     "10":GTable,
   }
@@ -30,7 +32,6 @@ define([
        })
    }
   GCharts.type=function(type){
-    console.log("GCharts.type",typeMap,type);
      return typeMap[""+type]||GError
   }
   return GCharts;

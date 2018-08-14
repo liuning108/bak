@@ -13,52 +13,96 @@ define([
     this.$el.html("");
   }
   GScatter.prototype.getNotTimeResult = function(config) {
+    var self = this;
     var result = {}
     var selItems = fish.filter(config.selItems, function(d) {
       return d.type != 'all';
     });
     if (config.xAxisFlag == 'P') {
-      var colModel = fish.map(selItems, function(d) {
-        var name = d.type;
-        var lable = d.name + "(" + d.type + ")"
-        return {'name': name, 'label': lable, sortable: false}
-      })
-      var header = [
-        {
-          'name': 'xName',
-          'label': '临测点',
-          sortable: false
-        }
-      ]
-      result.colModel = header.concat(colModel);
-      result.datas = config.data;
-    } else {
-      var colModel = [
-        {
-          'name': "name",
-          'label': "Name",
-          sortable: false
-        }, {
-          'name': "value",
-          'label': "value",
-          sortable: false
-        }
-      ]
+      var datas = config.data;
+      result.legendDatas = fish.pluck(datas, "xName");
+      result.series = fish.map(datas, function(d) {
+        console.log("999999999", selItems, datas)
+        var f = selItems[0];
+        var s = selItems[1];
+        var f_id = self.getItemId(f);
+        console.log(f_id, d)
+        var f_value = d[f_id];
+        var s_value = f_value
+        if (s) {
 
-      result.colModel = colModel;
-      result.datas = fish.map(config.data, function(d) {
-        return {
-          'name': d.xName,
-          'value': d[d.type]
+          var s_id = self.getItemId(s);
+
+          s_value = d[s_id];
+
         }
-      })
+        return {
+          symbolSize: 10,
+          type: 'scatter',
+          name: d.xName,
+          data: [
+            [f_value, s_value]
+          ]
+        }
+      });
+
+    } else {
+      var datas = config.data;
+      result.legendDatas = fish.pluck(datas, "xName");
+      result.series = fish.map(datas, function(d) {
+
+        var value = d[d.type];
+        return {
+          symbolSize: 10,
+          type: 'scatter',
+          name: d.xName,
+          data: [
+            [value, value]
+          ]
+        }
+      });
     }
 
     console.log("find result", result);
     return result;
   }
+  GScatter.prototype.getMaxMin = function(config) {
+    console.log("getMaxMin", config);
+    var MaxMin = {
+      name: '',
+      min: function(value) {
+        if (value.min == 0) {
+          return 0;
+        }
+        var min = parseInt(value.min - (value.min * 0.1));
+        if (min > 0 || min == 0) {
+          return min;
+        } else {
+          return value.min;
+        }
+      },
+      max: null
+    }
+    var axisPage = config.axisPage || {};
+    var y1 = axisPage.y1 || 'c';
+    var y1Name = axisPage.y1Name || '';
+    var y1Min = axisPage.y1Min || 'a';
+    var y1Max = axisPage.y1Max || 'a';
+    if (y1 == 'o') {
+      MaxMin.name = y1Name;
+      var min = Number(y1Min);
+      var max = Number(y1Max);
+      if (!fish.isNaN(min)) {
+        MaxMin.min = min;
+      }
+      if (!fish.isNaN(max)) {
+        MaxMin.max = max;
+      }
+    }
+    return MaxMin;
+  }
   GScatter.prototype.createResult = function(config) {
-    var self =this;
+    var self = this;
     var result = {};
     if (config.xAxisFlag != "T") {
       return this.getNotTimeResult(config);
@@ -74,37 +118,39 @@ define([
       })
       return d;
     })
-    console.log("createResultcreateResult",datas);
-    result.legendDatas  = fish.pluck(datas,"xName");
-    console.log("result.legendDatas",result.legendDatas);
-    console.log('Top selItems',selItems)
-    result.series =fish.map(datas,function(d){
-          var f=selItems[0];
-          var s=selItems[1];
+    console.log("createResultcreateResult", datas);
+    result.legendDatas = fish.pluck(datas, "xName");
+    console.log("result.legendDatas", result.legendDatas);
+    console.log('Top selItems', selItems)
+    result.series = fish.map(datas, function(d) {
+      var f = selItems[0];
+      var s = selItems[1];
 
-          var f_id = self.getItemId(f);
-            console.log(f_id,d)
-          var f_value=d[f_id];
-          var s_value=f_value
-          if(s){
-            var s_id = self.getItemId(f);
-            s_value=d[s_id];
-          }
+      var f_id = self.getItemId(f);
+      console.log(f_id, d)
+      var f_value = d[f_id];
+      var s_value = f_value
+      if (s) {
+        var s_id = self.getItemId(f);
+        s_value = d[s_id];
+      }
 
-          return {
-            symbolSize: 10,
-            type: 'scatter',
-            name: d.xName,
-            data:[[f_value,s_value]],
-          }
+      return {
+        symbolSize: 10,
+        type: 'scatter',
+        name: d.xName,
+        data: [
+          [f_value, s_value]
+        ]
+      }
     });
-  console.log('Top series',result.series )
+    console.log('Top series', result.series)
     return result;
   }
-  GScatter.prototype.getItemId=function(f){
+  GScatter.prototype.getItemId = function(f) {
     var id = f.value;
-    if(f.type!='all'){
-      id = id+"_"+f.type
+    if (f.type != 'all') {
+      id = id + "_" + f.type
     }
     return id;
   }
@@ -112,25 +158,53 @@ define([
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    var MaxMin = this.getMaxMin(config);
+    var lengedConfig = config.lengedPage || {};
+    var legnedConfig = util.getLegned(lengedConfig);
+    if (legnedConfig.open) {
+      legnedConfig.data = result.legendDatas
+    } else {
+      legnedConfig = null;
+    }
+    var propPageConfig = config.propPage || {};
+    propPageConfig = util.getPropPage(propPageConfig)
+
+    seriersResult = result.series
+    if (propPageConfig.showlable == 'o') {
+      var seriersResult = fish.map(result.series, function(d) {
+        d.itemStyle = {
+          normal: {
+            label: {
+              show: true
+            }
+          }
+        };
+        return d;
+      });
+    }
+
     var option = {
-      tooltip : {
-                    trigger: 'axis',
-                    showDelay : 0,
-                    axisPointer:{
-                        show: true,
-                        type : 'cross',
-                        lineStyle: {
-                            type : 'dashed',
-                            width : 1
-                        }
-                    }
-                },
-      xAxis: {},
-      yAxis: {},
-      legend: {
-        data: result.legendDatas
+      dataZoom: propPageConfig.dataZoom,
+      tooltip: {
+        trigger: 'axis',
+        showDelay: 0,
+        axisPointer: {
+          show: true,
+          type: 'cross',
+          lineStyle: {
+            type: 'dashed',
+            width: 1
+          }
+        }
       },
-      series: result.series
+      xAxis: {},
+      yAxis: {
+        name: MaxMin.name,
+        min: MaxMin.min,
+        max: MaxMin.max
+      },
+      legend: legnedConfig,
+      series: seriersResult
     };
 
     myChart.setOption(option);

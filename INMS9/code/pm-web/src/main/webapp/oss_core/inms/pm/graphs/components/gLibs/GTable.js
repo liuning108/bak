@@ -19,7 +19,7 @@ define([
     });
     if (config.xAxisFlag == 'P') {
       var colModel = fish.map(selItems, function(d) {
-        var name = d.type;
+        var name = d.value+"_"+d.type;
         var lable = d.name + "(" + d.type + ")"
         return {'name': name, 'label': lable, sortable: false}
       })
@@ -31,6 +31,7 @@ define([
         }
       ]
       result.colModel = header.concat(colModel);
+      console.log("table P -->",config.data);
       result.datas = config.data;
     } else {
       var colModel = [
@@ -46,6 +47,7 @@ define([
       ]
 
       result.colModel = colModel;
+      console.log("table C -->",config.data);
       result.datas = fish.map(config.data,function(d){
          return {
             'name':d.xName,
@@ -101,17 +103,7 @@ define([
     var config = this.option.config;
     var result = this.createResult(config);
     this.$el.append("<div class='gtable_gird'></div>");
-    // Set data
-    var mydata = [
-      {
-        id: "0.1",
-        invdate: "2010-05-24",
-        name: "test",
-        note: "note",
-        tax: "10.00",
-        total: "2111.00"
-      }
-    ];
+
     var colModel = result.colModel;
     var $gird = this.$el.find('.gtable_gird').grid({
       data: result.datas,
@@ -123,13 +115,16 @@ define([
       ],
       pager: true
     });
-
-    fish.each(colModel, function(d) {
-      $gird.grid("setLabel", d.name, d.label, {
+      $gird.find('thead').css({
         "background-color": "#2351C5",
         "color": "#fff"
-      });
-    })
+      })
+    // fish.each(colModel, function(d) {
+    //   $gird.grid("setLabel", d.name, d.label, {
+    //     "background-color": "#2351C5",
+    //     "color": "#fff"
+    //   });
+    // })
 
   }
   return GTable

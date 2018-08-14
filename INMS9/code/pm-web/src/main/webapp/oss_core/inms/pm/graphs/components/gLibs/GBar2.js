@@ -27,31 +27,31 @@ define([
       }
     })
     result.yAxisData = config.xAxis
-    if(config.xAxisFlag=='P'){
-       result.series = fish.map(selItems, function(d) {
-          var result = {
-            name: d.name + "(" + d.type + ")",
-            type: 'bar',
-            data: []
-          }
-          result.data = fish.pluck(config.data, d.type);
-          return result
-        })
-    }else{
-      result.yAxisData=[""]
-      result.series = fish.map(selItems, function(d,i) {
-         var result = {
-           name: d.name + "(" + d.type + ")",
-           type: 'bar',
-           data: []
-         }
-          result.data=[fish.random(10,20)];
-         return result
-       })
+    if (config.xAxisFlag == 'P') {
+      result.series = fish.map(selItems, function(d) {
+        var result = {
+          name: d.name + "(" + d.type + ")",
+          type: 'bar',
+          data: []
+        }
+        result.data = fish.pluck(config.data, d.value + "_" + d.type);
+        return result
+      })
+    } else {
+      result.yAxisData = [""]
+      result.series = fish.map(selItems, function(d, i) {
+        var result = {
+          name: d.name + "(" + d.type + ")",
+          type: 'bar',
+          data: []
+        }
+        result.data = [fish.random(10, 20)];
+        return result
+      })
 
     }
 
-     console.log("find result",result);
+    console.log("find result", result);
     return result;
   }
   GLine.prototype.createResult = function(config) {
@@ -69,10 +69,10 @@ define([
         }
       }
     })
-    result.yAxisData = fish.map(fish.pluck(config.data,"xName"),function(d){
-       return util.timetrans(Number(d));
+    result.yAxisData = fish.map(fish.pluck(config.data, "xName"), function(d) {
+      return util.timetrans(Number(d));
     });
-    var yAxisData=result.yAxisData;
+    var yAxisData = result.yAxisData;
     result.series = fish.map(selItems, function(d) {
       var result = {
         name: d.name + "(" + d.type + ")",
@@ -86,8 +86,8 @@ define([
         })
       } else {
         var value = config.aggr[d.value][d.type];
-        result.data =fish.map(yAxisData,function(){
-           return value
+        result.data = fish.map(yAxisData, function() {
+          return value
         })
       }
       result.color = d.color
@@ -95,20 +95,79 @@ define([
     })
     return result;
   }
+  GLine.prototype.getMaxMin = function(config) {
+    console.log("getMaxMin", config);
+    var MaxMin = {
+      name: '',
+      min: function(value) {
+        if (value.min == 0) {
+          return 0;
+        }
+        var min = parseInt(value.min - (value.min * 0.1));
+        if (min > 0 || min == 0) {
+          return min;
+        } else {
+          return value.min;
+        }
+      },
+      max: null
+    }
+    var axisPage = config.axisPage || {};
+    var y1 = axisPage.y1 || 'c';
+    var y1Name = axisPage.y1Name || '';
+    var y1Min = axisPage.y1Min || 'a';
+    var y1Max = axisPage.y1Max || 'a';
+    if (y1 == 'o') {
+      MaxMin.name = y1Name;
+      var min = Number(y1Min);
+      var max = Number(y1Max);
+      if (!fish.isNaN(min)) {
+        MaxMin.min = min;
+      }
+      if (!fish.isNaN(max)) {
+        MaxMin.max = max;
+      }
+    }
+    return MaxMin;
+  }
   GLine.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    var MaxMin = this.getMaxMin(config);
+    var lengedConfig = config.lengedPage || {};
+    var legnedConfig = util.getLegned(lengedConfig);
+    if (legnedConfig.open) {
+      legnedConfig.data = result.legend
+    } else {
+      legnedConfig = null;
+    }
+
+    var propPageConfig = config.propPage || {};
+    propPageConfig = util.getPropPage(propPageConfig)
+
+    seriersResult = result.series
+    if (propPageConfig.showlable == 'o') {
+      var seriersResult = fish.map(result.series, function(d) {
+        d.itemStyle = {
+          normal: {
+            label: {
+              show: true
+            }
+          }
+        };
+        return d;
+      });
+    }
     var option = {
+      dataZoom: propPageConfig.dataZoom,
       tooltip: {
         trigger: 'axis',
         axisPointer: {
           type: 'shadow'
         }
       },
-      legend: {
-        data: result.legend
-      },
+      legend: legnedConfig,
       grid: {
         left: '3%',
         right: '4%',
@@ -116,13 +175,16 @@ define([
         containLabel: true
       },
       yAxis: {
-        type: 'value'
+        type: 'value',
+        name: MaxMin.name,
+        min: MaxMin.min,
+        max: MaxMin.max
       },
       xAxis: {
         type: 'category',
         data: result.yAxisData
       },
-      series: result.series
+      series: seriersResult
     };
 
     myChart.setOption(option);

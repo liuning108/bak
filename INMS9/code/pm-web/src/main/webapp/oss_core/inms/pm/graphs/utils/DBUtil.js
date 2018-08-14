@@ -22,7 +22,7 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
        var xAxisFlag =  hostPage.xAxis||"T";
       //生成维度数据(根据这个分割数据)
        var curDate =new Date();
-       var xAxis  = fish.map(fish.range(5),function(i){
+       var xAxis  = fish.map(fish.range(10),function(i){
           var d  =fish.dateutil.addHours(curDate,i);
           return d.getTime();
        })
@@ -55,14 +55,22 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
       var xAxis_checkpoit = fish.map(fish.range(4),function(i){
            return 'checkPoint'+i;
       })
+      var yAxis_notALl = fish.filter(yAxis,function(d){
+         return  d.type != 'all'
+      });
       var pointData =fish.map(xAxis_checkpoit,function(d){
             var item ={};
             item.xName = d;
-            item.min= fish.random(40,93);
-            item.max= fish.random(item.min,93);
-            item.avg = fish.random(item.min,item.max);
-            item.sum =item.avg*4;
-            item.last=fish.random(40,93);
+            var temp={};
+            temp.min= fish.random(40,50);
+            temp.max= fish.random(temp.min,60);
+            temp.avg = fish.random(temp.min,temp.max);
+            temp.sum =temp.avg*4;
+            temp.last=fish.random(40,83);
+            fish.each(yAxis_notALl,function(dd){
+               var id = dd.value+"_"+dd.type;
+               item[id]=temp[dd.type] + fish.random(5,10);
+            })
             return item;
       })
       result.P.xAxis=xAxis_checkpoit;
@@ -80,7 +88,7 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
             item.xName = d.name+"("+d.type+")";
             item.id=d.value;
             item[d.type]=fish.random(40,93);
-            item.type=""+d.type;
+            item.type=d.type;
             return item;
       })
       result.C.xAxis=xAxis_C;
@@ -89,6 +97,10 @@ define(["oss_core/inms/pm/graphs/utils/util.js"],function(util){
       result.selItems=yAxis
       result.xAxisFlag=xAxisFlag;
       result.gtype=config.gtype
+      result.axisPage =config.tabsConfig.aixsPage;
+      result.lengedPage = config.tabsConfig.lengedPage;
+      result.propPage =  config.tabsConfig.propPage;
+      
       return result;
   }
   return DBUtil;

@@ -24,7 +24,7 @@ define([
       result.datas = fish.map(config.data, function(d) {
         return {
           name: d.xName || "",
-          value: d[firstItem.type] || "",
+          value: d[firstItem.value+"_"+firstItem.type] || "",
         }
       })
     } else {
@@ -80,22 +80,23 @@ define([
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    var lengedConfig =config.lengedPage||{};
+    var legnedConfig  = util.getLegned(lengedConfig);
+    if(legnedConfig.open){
+      legnedConfig.data=result.legend
+    }else{
+      legnedConfig=null;
+    }
     var option = {
       tooltip: {
         trigger: 'item'
       },
-      legend: {
-        // orient: 'vertical',
-        // top: 'middle',
-        bottom: 10,
-        left: 'center',
-        data: result.legend
-      },
+      legend: legnedConfig,
       series: [
         {
           color:result.color,
           type: 'pie',
-          radius: "55%",
+          radius: '70%',
           center: [
             '50%', '50%'
           ],

@@ -68,11 +68,11 @@ define([
     console.log("itemsDatas",this.itemsDatas);
     var alignDataSource = [
       {
-        "name": 'Left',
-        value: 1
+        "name": "Y轴1",
+        value: 0
       }, {
-        "name": 'right',
-        value: 2
+        "name": 'Y轴2',
+        value: 1
       }
     ]
     this.funCombox = util.combobox(this.item.find('.itemFun'), funDataSource);
@@ -80,7 +80,7 @@ define([
     this.topCombox = util.combobox(this.item.find('.topComBox'), topDataSource);
     this.topCombox.combobox('value', this.itemsDatas[0].value);
     this.alignCombox = util.combobox(this.item.find('.alignCombox'), alignDataSource);
-    this.alignCombox.combobox('value', 1);
+    this.alignCombox.combobox('value', 0);
     this.item.find('.itemColor').css('backgroundColor',"red");
     this.item.find('.itemColor').off('click').on('click',function() {
        self.pickColor($(this));
@@ -88,6 +88,8 @@ define([
     if(d){
       this.topCombox.combobox('value',d.value);
       this.funCombox.combobox('value',d.type);
+      var yType =d.yType||0;
+      this.alignCombox.combobox('value', yType);
       var color =d.color||"red"
       this.item.find('.itemColor').css('backgroundColor',color);
       self.color = color;
@@ -101,6 +103,7 @@ define([
      var self = this;
      var value=this.topCombox.combobox('value');
      var type = this.funCombox.combobox('value');
+     var yType = this.alignCombox.combobox('value');
      var item =fish.find(this.itemsDatas,function(d){
         return ""+d.value == ""+value;
      });
@@ -110,6 +113,7 @@ define([
               "unit":item.unit,
               "type":type,
               'color':self.color,
+              'yType':yType
             }
      return json;
   }

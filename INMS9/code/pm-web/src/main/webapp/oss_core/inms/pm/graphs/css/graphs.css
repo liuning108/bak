@@ -541,3 +541,58 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
   color: #7b7b7b;
   font-size: 15px;
 }
+
+.graphsPd {
+  word-wrap: break-word;
+  display: inline-block;
+}
+
+.graphsPd ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.graphsPd ul li {
+  float: left;
+  margin: 0 5px 5px 0;
+}
+
+.graphsPd ul li a {
+  display: block;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background: url(../images/adhocbg.png) no-repeat;
+}
+
+.graphsPd ul li a.active {
+  background-color: #FFF;
+  margin: 0px;
+  border: 2px solid #039cfd;
+}
+
+.graphsPd ul li a.a22 {
+  background-position: -2px -1333px;
+}
+
+.graphsPd ul li a.a23 {
+  background-position: -2px -1394px;
+}
+
+.graphsPd ul li a.a24 {
+  background-position: -2px -1454px;
+}
+
+.graphsPd ul li a.a25 {
+  background-position: -2px -1514px;
+}
+
+.settingSubline {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.settingSubline:hover {
+  color: #039CFD;
+}

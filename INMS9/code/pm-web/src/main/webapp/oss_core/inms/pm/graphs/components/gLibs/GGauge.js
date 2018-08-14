@@ -80,6 +80,7 @@ define([
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+
     var option = {
       tooltip: {
         formatter: "{a} <br/>{b} : {c}"

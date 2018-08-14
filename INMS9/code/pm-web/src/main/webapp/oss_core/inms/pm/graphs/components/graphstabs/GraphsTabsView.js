@@ -2,15 +2,16 @@ define([
   "oss_core/inms/pm/graphs/components/views/RootView.js", "oss_core/inms/pm/graphs/utils/util.js",
   "text!oss_core/inms/pm/graphs/components/graphstabs/GraphsTabsView.html",
   "oss_core/inms/pm/graphs/components/graphstabs/HostPageView.js",
-     "oss_core/inms/pm/graphs/components/graphstabs/ShowPageView.js",
+  "oss_core/inms/pm/graphs/components/graphstabs/ShowPageView.js",
   "oss_core/inms/pm/graphs/components/graphstabs/AixsPageView.js",
-  "oss_core/inms/pm/graphs/components/graphstabs/PropPageView.js"
-], function(RootView, util,tpl,HostPageView,ShowPageView,AixsPageView,PropPageView) {
+  "oss_core/inms/pm/graphs/components/graphstabs/PropPageView.js",
+  "oss_core/inms/pm/graphs/components/graphstabs/LengedPageView.js"
+], function(RootView, util,tpl,HostPageView,ShowPageView,AixsPageView,PropPageView,LengedPageView) {
   var evetMap = [
   ]
   var pageMap ={
     "HostPage":HostPageView,
-    "ShowPage":ShowPageView,
+    "LengedPage":LengedPageView,
     "AixsPage":AixsPageView,
     "PropPage":PropPageView,
   }
@@ -36,6 +37,8 @@ define([
       this.addTabs("HostPage","监控项",true);
       this.addTabs("PropPage","显示属性");
       this.addTabs("AixsPage","坐标轴");
+      this.addTabs("LengedPage","图例");
+
   };
   GraphsTabsView.prototype.addTabs=function(page,label,active){
       var ViewPage = pageMap[page]
@@ -56,6 +59,10 @@ define([
     GraphsTabsView.prototype.getJSON=function(){
          var json = {};
          json.hostPage=this.pages["HostPage"].getJson();
+         json.aixsPage=this.pages["AixsPage"].getJSON();
+         json.lengedPage=this.pages["LengedPage"].getJSON();
+         json.propPage=this.pages["PropPage"].getJSON();
+         
          return json;
     }
   return GraphsTabsView;
