@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent> 
+    <groupId>com.ztesoft.zsmart.oss.opb</groupId> 
+    <artifactId>opb-parent</artifactId> 
+    <version>9.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.ztesoft.zsmart.oss.inms.pm</groupId>
+  <artifactId>pm-parent</artifactId>
+  <version>9.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>pm-parent</name>
+  <description>pm-parent</description>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <opb.version>9.0.1-SNAPSHOT</opb.version>
+  </properties>
+  <modules>
+  	<module>pm-common</module>
+    <module>pm-api</module>
+  	<module>pm-service-impl</module>
+    <module>pm-web</module>
+  </modules>
+ 
+</project>

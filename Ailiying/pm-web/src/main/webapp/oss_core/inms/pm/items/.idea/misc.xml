@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EclipseCodeFormatter">
+    <option name="defaultSettings" value="true" />
+    <option name="formatter" value="ECLIPSE" />
+    <option name="id" value="1469610903621" />
+    <option name="importOrderConfigFilePath" value="D:/0NGWEB/后台培训/编程规范/Code Template &amp; Formatter/ZSmart-Dev11-Java-CodeFormatter.xml" />
+    <option name="importOrderFromFile" value="true" />
+    <option name="name" value="default" />
+    <option name="pathToConfigFileJava" value="D:/0NGWEB/后台培训/编程规范/Code Template &amp; Formatter/ZSmart-Dev11-Java-CodeFormatter.xml" />
+    <option name="selectedJavaProfile" value="ZTEsoft" />
+  </component>
+  <component name="IdProvider" IDEtalkID="BBD85AD21A4970D8EA6D749B828D62F1" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" />
+</project>

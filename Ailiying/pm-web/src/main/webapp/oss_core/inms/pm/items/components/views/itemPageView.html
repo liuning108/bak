@@ -1,0 +1,100 @@
+<div class="container-fluid itemPageContext filterItemBody">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="kdoWizardSteps">
+                <div style="width:33.3%" class="Step1 active" data-view='.Step1Page'><span>基本设置</span></div>
+                <div style="width:33.3%" class="Step2" data-view='.Step2Page'><span>监测点选择</span></div>
+                <div style="width:33.3%" class="Step3" data-view='.Step3Page'><span>预处理</span></div>
+            </div>
+            <div class="StepBody clearfix StepBodyOver">
+                <div class="Step1Page">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom required">
+                                <label for="item_name">名称</label>
+                                <input type="text" class="item_name filterInput tranItem" name="item_name">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom" style="height: 60px;">
+                                <label for="item_type_id">类型</label>
+                                <input type="text" class="item_type_id filterInput tranItem" name="item_type_id">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="value_type">值类型</label>
+                                <input type="text" class="value_type filterInput tranItem" name="value_type">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group itemFrom">
+                                <label for="unit">单位</label>
+                                <input type="text" class="unit filterInput tranItem" name="unit">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group itemFrom">
+                                <label for="value_map_rule">值映射</label>
+                                <input type="text" class="value_map_rule filterInput tranItem" name="value_map_rule">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group itemFrom">
+                                <label for="direction">方向</label>
+                                <input type="text" class="direction filterInput tranItem" name="direction">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group itemFrom">
+                                <label for="metric_interval">采集周期(秒)</label>
+                                <input type="text" class="metric_interval filterInput tranItem" name="metric_interval">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <div class="addExpression">
+                                    <label for="expression">计算表达式</label>
+                                    <button class="btn btn-info btn-xs pull-right Tagbtn hostOrMetric addmetric">插入metric键</button>
+                                    <label class="pull-right mgr4 addhostMetric"><input type="checkbox" name="">使用监控项</label>
+                                </div>
+                                <textarea rows="4" class="expression" style="border: 1px solid #cfdadd"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label for="comments">备注</label>
+                                <textarea rows="2" class="comments" style="border: 1px solid #cfdadd"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step2Page disnone">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group itemFrom">
+                                <label class="ismaop"><input type="checkbox" name="" class="me_as_cp">管理对象</label>
+                                <input type="text" class="pm_checkpoint filterInput tranItem" name="pm_checkpoint">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Step3Page disnone">
+                    <div style="padding: 5px;border-bottom: 3px solid #ccc;line-height: 25px">
+                        <span class="isNeedPro"><label><input type="checkbox" name="">需要</label></span>
+                        <button type="button" class="btn btn-info btn-xs pull-right Tagbtn addFilterPreprocess" disabled>添加步骤</button>
+                    </div>
+                    <div class="DepListGrid kdoGrid addP">
+                    </div>
+                </div>
+            </div>
+            <div class="StepBtns">
+                <div class="btn stepUp KdoBtn2 Kdo_mainColor hide">上一步</div>
+                <div class="fr">
+                    <div class="btn KdoBtn2 hostPageCancel">取消</div>
+                    <div class="btn stepNext KdoBtn2 Kdo_mainColor ">下一步</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

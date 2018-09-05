@@ -1,0 +1,40 @@
+<div class="kdo-right-page">
+    <div class="kdo-right-page-header">
+        <div class="title"><i class="glyphicon glyphicon-menu-left temcallback kdo-callback" style="cursor: pointer;"></i>{{ITEMS}}</div>
+        <div class="kdoTopBtn">
+            <div class="kdoBtn createItem"><i class="glyphicon glyphicon-plus"></i>{{CREATE_ITEMS}}</div>
+        </div>
+    </div>
+    <div class="kdo-right-page-cotent">
+        <div class="filterArea filterItemArea">
+            <div class="col-md-6">
+                <div class="form-group inputBox col-md-5">
+                    <label for="templateType" class="col-xs-3 control-label">{{TEMPLATE_TYPE}}</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="tranItem templateType " name="templateType">
+                    </div>
+                </div>
+                <div class="form-group inputBox col-md-5">
+                    <label for="tempalte" class="col-xs-3 control-label">{{TEMPLATE}}</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="tranItem tempalte" name="tempalte">
+                    </div>
+                </div>
+            </div>
+            <div class="filterComands filterItem">
+                <i class="glyphicon glyphicon-filter filterItemList"></i>
+            </div>
+        </div>
+        <div class="ItemListGrid kdoGrid">
+        </div>
+        <div class="ItemButtom clearfix">
+            <div id="itemEditBtn" class="col-md-12">
+                <div class="btn-group btn-group-sm">
+                    <button type="button" class="btn btn-default" id="items_on" disabled="">{{ENABLE}}</button>
+                    <button type="button" class="btn btn-default" id="items_off" disabled>{{DISABLE}}</button>
+                    <!-- <button type="button" class="btn btn-default" id="items_del" disabled>{{DELETE}}</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
