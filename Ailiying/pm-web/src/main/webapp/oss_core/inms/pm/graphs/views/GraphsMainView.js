@@ -7,7 +7,7 @@ define([
   return portal.BaseView.extend({
     template: fish.compile(tpl),
     render: function() {
-      this.$el.html(this.template());
+     this.$el.html(this.template());
     },
     initCss: function() {
       //oss_core/inms/pm/adhocdesigner/views/AdhocDesignerMain
@@ -19,9 +19,9 @@ define([
       var docH = $(document).height();
       var tableH = (docH - 48 - 35 - 30-20);
       this.graphsListView = new GraphsListView({
-           el: self.$el.find('.kdo_cotent'),
-          'id':"T00001",
-          'code':'PMPS_ERICA2PBM',
+           el: self.$el,
+          'id':   'T00001',   //"PMS_20180906204217_TP00002846",
+          'code': 'PMPS_ERICA2PBM', //'PMPS_ERICA2PBM',
            tableH: tableH,
            callback:function() {
              self.render();

@@ -540,6 +540,24 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 .netPanel2 h4 {
   color: #7b7b7b;
   font-size: 15px;
+  width: 90%;
+}
+
+.netPanel2 .graphs-tools {
+  float: right;
+  position: relative;
+  cursor: pointer;
+}
+
+.netPanel2 .graphs-tools i {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.netPanel2 .graphs-tools .timeRangeTxt {
+  position: relative;
+  top: -4px;
+  cursor: pointer !important;
 }
 
 .graphsPd {
@@ -697,4 +715,73 @@ ul.iterfaceUL .interfaceItem .item .inputTxt {
 
 .graphscallback:hover {
   color: #565555;
+}
+
+.timeRangeUL {
+  list-style: none;
+  float: left;
+  margin: 0 30px 10px 0;
+}
+
+.timeRangeUL .btnli {
+  cursor: pointer;
+}
+
+.timeRangeUL .btnli i {
+  display: none;
+  margin-left: 5px;
+}
+
+.timeRangeUL .btnli:hover {
+  color: #2496f5;
+}
+
+.timeRangeUL .btnli.active {
+  color: #2496f5;
+}
+
+.timeRangeUL .btnli.active i {
+  display: inline-block;
+}
+
+.gTimePopover {
+  max-width: 2000px;
+  width: 800px;
+}
+
+.granTitlelBlue {
+  color: #2496f5;
+}
+
+.timeGranUL {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.timeGranUL li {
+  width: 60px;
+  background: #fff;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #e6e4e4;
+  cursor: pointer;
+  border-radius: 6px;
+  height: 25px;
+  line-height: 25px;
+  margin-left: 5px;
+}
+
+.timeGranUL li.active {
+  background: #2496f5 !important;
+  color: #fff !important;
+}
+
+.timeGranUL li.active i {
+  display: inline-block;
+}
+
+.timeGranUL li i {
+  margin-right: 5px;
+  display: none;
 }

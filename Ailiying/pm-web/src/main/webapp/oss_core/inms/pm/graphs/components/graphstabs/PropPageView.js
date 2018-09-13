@@ -10,7 +10,7 @@ define([
    };
    PropPageView.prototype = Object.create(RootView.prototype);
    PropPageView.prototype.constructor = PropPageView;
-    PropPageView.prototype.initProp= function() {
+   PropPageView.prototype.initProp= function() {
       this.tpl = fish.compile(tpl);
       this.evetMap = evetMap;
     },

@@ -277,8 +277,11 @@ define([
   },
   GraphsListView.prototype.perviewGraph = function(gid) {
     var self = this;
+    var code = self.option.code;
     action.getGraphsById(gid).then(function(data) {
       if (data.result) {
+        console.log("perviewGraph 333", data.result)
+        // data.result.code=code;
         self.perviewGrpahView = new PerviewGrpahView({
           el: self.$el,
           "config": data.result,

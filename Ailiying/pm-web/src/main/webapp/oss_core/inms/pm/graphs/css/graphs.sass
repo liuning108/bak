@@ -385,6 +385,19 @@ ul.iterfaceUL
   h4
     color: #7b7b7b
     font-size: 15px
+    width: 90%
+  .graphs-tools
+    float: right
+    position: relative
+    cursor: pointer
+    i
+      font-size: 18px;
+      cursor: pointer;
+    .timeRangeTxt
+      position: relative
+      top: -4px
+      cursor: pointer !important
+
 .graphsPd
   word-wrap: break-word
   display: inline-block
@@ -491,3 +504,49 @@ ul.iterfaceUL
   font-size: 15px
   &:hover
     color: #565555
+.timeRangeUL
+  list-style: none;
+  float: left;
+  margin: 0 30px 10px 0;
+  .btnli
+    cursor: pointer
+    i
+      display: none
+      margin-left: 5px
+    &:hover
+      color: #2496f5
+    &.active
+      color: #2496f5
+      i
+       display: inline-block
+
+.gTimePopover
+  max-width: 2000px
+  width: 800px
+.granTitlelBlue
+  color:  #2496f5
+
+
+.timeGranUL
+  list-style: none
+  padding: 0px
+  margin: 0px
+  li
+    width: 60px
+    background: #fff
+    display: inline-block
+    text-align: center
+    border: 1px solid #e6e4e4
+    cursor: pointer
+    border-radius: 6px
+    height: 25px
+    line-height: 25px
+    margin-left: 5px
+    &.active
+      background: #2496f5 !important
+      color: #fff !important
+      i
+        display: inline-block
+    i
+      margin-right: 5px
+      display: none

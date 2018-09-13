@@ -68,7 +68,8 @@ define([
       var dims =fish.map(dimKpiArr[0],function(d){
          return {
             "value":d.FIELD_CODE,
-            "name":d.FIELD_NAME
+            "name":d.FIELD_NAME,
+            'dataType':d.DATA_TYPE
          }
       })
       console.log('getItemsByTId2',dimKpiArr);
@@ -203,7 +204,7 @@ define([
       'templateId': d.templateId,
       'gid': d.gid,
       'code':code,
-      gtype: type,
+       gtype: type,
       'tableName': self.tableName,
       gclass: this.classesName.combobox('value'),
       position: this.titlePosition.combobox('value'),

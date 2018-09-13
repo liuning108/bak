@@ -29,7 +29,6 @@ define([
           self.callback(name)
           self.$popup.hide();
         }
-
       });
 
     }

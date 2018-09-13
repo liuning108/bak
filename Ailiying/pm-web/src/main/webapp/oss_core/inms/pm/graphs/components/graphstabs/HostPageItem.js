@@ -34,27 +34,29 @@ define([
     var d=this.option.d;
     this.item.find('.glyphicon-minus').off('click').on('click', function() {
       self.removeItem();
+     
     })
+
     var funDataSource = [
       {
-        "name": 'all',
-        value: "all"
+        "name":util.prop.NONE,
+        value: util.prop.NONE
       },
       {
-        "name": 'last',
-        value: "last"
+        "name": util.prop.MIN,
+         value: util.prop.MIN
       },
        {
-        "name": 'min',
-        value: "min"
+        "name": util.prop.MAX,
+        value: util.prop.MAX
       },
       {
-        "name": 'max',
-        value: "max"
+        "name": util.prop.AVG,
+        value: util.prop.AVG
       },
       {
-        "name": 'avg',
-        value: "avg"
+        "name": util.prop.SUM,
+        value: util.prop.SUM,
       },
     ]
     this.itemsDatas = fish.map(this.option.items,function(d){
@@ -91,7 +93,11 @@ define([
     })
     if(d){
       this.topCombox.combobox('value',d.value);
-      this.funCombox.combobox('value',d.type);
+      var type = d.type||'';
+      if(type.length<=0){
+        type =funDataSource[0].value;
+      }
+      this.funCombox.combobox('value',type);
       var yType =d.yType||0;
       this.alignCombox.combobox('value', yType);
       var color =d.color||"red"
@@ -115,7 +121,7 @@ define([
      json =  { value: item.value,
               "name":item.name,
               "unit":"",
-              "type":"",
+              "type":type,
               'color':self.color,
               'yType':yType
             }

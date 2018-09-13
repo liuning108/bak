@@ -26,13 +26,29 @@ define([
   },
   HostPageView.prototype.initPage = function() {
     var self = this;
+
     var dims = this.option.state.dims;
     console.log("HostPageView DIM ", dims);
-    //  this.add()
+    console.log('HostPageView state',this.option.state);
+    var timeConfig =this.option.state.granusConfig.timeConfig;
+    var xAxisFromatDataSource = util.getDateFromatList(timeConfig)
+    console.log('xAxisFromatDataSource',xAxisFromatDataSource)
     var xAxisDataSource = dims;
-    this.xAxis = util.combobox(this.$el.find('.xAxis'), xAxisDataSource);
+    this.xAxis = util.combobox(this.$el.find('.xAxis'), xAxisDataSource)
+    util.comboboxChange(this.xAxis,function(item){
+        if(item.dataType==2){
+          self.$el.find('.xAxisFromatGrop').show();
+        }else{
+          self.$el.find('.xAxisFromatGrop').hide();
+        }
+    })
+    var $xAxisFromat=this.$el.find('.xAxisFromat')
+    this.xAxisFromat=util.combobox($xAxisFromat,xAxisFromatDataSource)
+
     this.xAxis.combobox('value', xAxisDataSource[0].value)
+    this.xAxisFromat.combobox('value', xAxisFromatDataSource[0].value)
     this.xAxis.combobox('option', 'equalWidth', true);
+    this.xAxisFromat.combobox('option', 'equalWidth', true);
 
     var order1Source = [
       {
@@ -122,7 +138,9 @@ define([
       if (hostPageConfig.topNum) {
         this.$el.find('.topNum').val(hostPageConfig.topNum)
       }
-
+      if(hostPageConfig.xAxisFromat){
+         this.xAxisFromat.combobox('value',hostPageConfig.xAxisFromat)
+      }
       if (hostPageConfig.order1) {
         this.order1.combobox('value', hostPageConfig.order1);
       }
@@ -144,6 +162,8 @@ define([
     var xAxisData= this.xAxis.combobox("getSelectedItem")
     json.xAxis = this.xAxis.combobox('value');
     json.xAxisName=xAxisData.name;
+    json.xAxisData=xAxisData;
+    json.xAxisFromat=this.xAxisFromat.combobox('value');
     json.topNum = this.$el.find('.topNum').val();
     json.order1 = this.order1.combobox('value');
     json.order2 = this.order2Value;

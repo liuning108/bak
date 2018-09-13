@@ -1,5 +1,35 @@
 <div class="tabTimePage">
   <div class="row">
+    <div class="col-md-6" style="margin-top:10px">
+      <div class="form-inline">
+        <div class="form-group">
+          <label>按粒度分表查询</label>
+          <label class="kdo-switch" style="position:relative;top:5px;left:10px">
+              <input type="checkbox" class="timeSwitch searchByTable"  data-el=".timeSwitch-context">
+              <span></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row timeSwitch-context">
+     <div class="col-md-12">
+         <div class="form-group">
+           <label for="exampleInputName2">可选粒度</label>
+           <div style="width:90%">
+             <ul class="timeGranUL">
+               <!-- <li><i class="glyphicon glyphicon-ok"></i>15分</li>
+               <li><i class="glyphicon glyphicon-ok"></i>小时</li>
+               <li><i class="glyphicon glyphicon-ok"></i>天</li>
+               <li><i class="glyphicon glyphicon-ok"></i>周</li>
+               <li><i class="glyphicon glyphicon-ok"></i>月</li> -->
+             </ul>
+           </div>
+         </div>
+
+     </div>
+  </div>
+  <div class="row timeSwitch-context">
      <div class="col-md-12">
          <div class="form-group">
            <label for="exampleInputName2">默认选择粒度</label>
@@ -10,7 +40,7 @@
 
      </div>
    </div>
-   <div class="row" style="margin-top:3px">
+   <div class="row timeSwitch-context" style="margin-top:3px">
      <div class="col-md-12">
          <div class="form-group">
            <label for="exampleInputName2">默认查询时间范围</label>

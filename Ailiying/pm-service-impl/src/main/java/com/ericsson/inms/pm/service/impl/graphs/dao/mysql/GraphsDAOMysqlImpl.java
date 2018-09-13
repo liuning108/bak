@@ -330,7 +330,7 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
 	public JSONObject getTimeConfig(JSONObject dict) throws BaseAppException {
 		JSONObject result = new JSONObject();
 		String sql = ""
-				+ "select para_id ID , para_value VALUE, para_name NAME ,para_name_cn NAME_CN,para_order pOrder from pm_paravalue where  (para_id  ='GRANU' or  para_id like 'TGRANU%') "
+				+ "select para_id ID , para_value VALUE, para_name NAME ,para_name_cn NAME_CN,para_order pOrder from pm_paravalue where  (para_id  ='GRANU' or  para_id like 'TGRANU%' or para_id='GRANU_FORMAT' or para_id='GRANU_FORMAT2') "
 				+ "order by para_id,para_order asc";
 		 List<Map<String,String>> datas =this.queryForMapList(sql);
 		 result .put("result", datas);

@@ -26,6 +26,7 @@ define([
   var GCharts = {}
   GCharts.init =function(el,config){
        var G = GCharts.type(config.gtype);
+       $(el).removeAttr('_echarts_instance_');
        return new G({
           el: el,
           "config":config

@@ -4,6 +4,7 @@ define([
   var evetMap = []
   var timeMap={
     '_15':"15分钟",
+    '_30':"30分钟",
     '_H':"小时",
     '_D':"天",
     '_W':"周",
@@ -29,17 +30,53 @@ define([
      var json = {}
      json.granus = this.timeCom.combobox('value');
      json.timeRange = this.timeRangeCom.combobox('value');
+     json.isSwitch = this.$el.find('.searchByTable').is(':checked')?"o":"c"
+     json.useRange = this.useRange
      return json
+  }
+  TimePageView.prototype.useRangeEvent  =function(data){
+    var self =this;
+    this.useRange = data;
+      console.log('useRange',data);
+      self.timeCom.combobox({
+        'dataSource': this.useRange
+      })
+      if(self.curGranus){
+       var useVals =fish.pluck(this.useRange,'value');
+       var flag=fish.contains(useVals,self.curGranus);
+       if(flag){
+         self.timeCom.combobox('value',this.curGranus);
+       }else{
+         if(this.useRange.length>0){
+           self.timeCom.combobox('value',this.useRange[0].value);
+         }
+       }
+     }else {
+       if(this.useRange.length>0){
+         self.timeCom.combobox('value',this.useRange[0].value);
+       }
+     }
+
   }
   TimePageView.prototype.initPage = function() {
     var self =this;
+    var config  = this.option.state.config||{}
     var timeSource=this.getTimeSource();
+    util.switchChecked(this.$el.find('.timeSwitch'),this.$el);
+
+    var timePage =config.timePage||{};
+    var useRange =timePage.useRange||timeSource;
+    util.mulChose(this.$el.find('.timeGranUL'),timeSource,function(data){
+     self.useRangeEvent(data);
+    },useRange);
+
     console.log("timeSource",timeSource);
     this.timeRangeCom = util.combobox(this.$el.find('.timeRangeCom'), []);
-    this.timeCom = util.combobox(this.$el.find('.timeSource'), timeSource);
+    this.timeCom = util.combobox(this.$el.find('.timeSource'), useRange);
     this.timeCom.on('combobox:change', function () {
         var val = self.timeCom.combobox('value');
         if(!val)return;
+        this.curGranus=val;
         var timeRange =self.getTimeRange(val)
         self.timeRangeCom.combobox({
           'dataSource':timeRange
@@ -57,11 +94,16 @@ define([
 
     });
     this.timeCom.combobox('value',timeSource[0].value);
-    var config  = this.option.state.config||{}
     if(config.timePage){
        var granus = config.timePage.granus||timeSource[0].value;
+       this.curGranus =granus;
        this.timeCom.combobox('value',granus);
-
+       var isSwitch =config.timePage.isSwitch||'c';
+       if(isSwitch=='c'){
+         this.$el.find('.searchByTable').attr('checked',true);
+       }else{
+         this.$el.find('.searchByTable').attr('checked',false);
+       }
     }
 
 

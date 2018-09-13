@@ -39,7 +39,10 @@ define([
       this.$el.html(this.tpl());
     };
   GraphsTabsView.prototype.afterRender=function() {
-      this.tabs=this.$el.find('.gtabs').tabs();
+      this.tabs=this.$el.find('.gtabs').tabs({
+         paging: {"selectOnAdd":true}//,"cycle":true
+        }
+      );
       this.addTabs("HostPage","监控项",true);
       this.addTabs("TimePage","时间范围");
       this.addTabs("PropPage","显示属性");

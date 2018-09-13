@@ -3,12 +3,19 @@ define([
   "oss_core/inms/pm/graphs/utils/util.js"
 ],function(action,util){
   var DBUtil={};
-  DBUtil.getLoadDatas=function(config,callback){
+  DBUtil.getbusField =function(code){
+
+     return action.getbusField(code);
+  }
+  DBUtil.getTimeConfig=function(){
+    return action.getTimeConfig();
+  }
+  DBUtil.getLoadDatas=function(config,timeRangeObj,callback){
     if(!config)return null;
     var result ={};
-    DBUtil.loadConfig(config,callback);
+    DBUtil.loadConfig(config,timeRangeObj,callback);
   }
-  DBUtil.loadConfig=function(config,callback){
+  DBUtil.loadConfig=function(config,timeRangeObj,callback){
     console.log('createConfig',config);
     var hostPage = config.tabsConfig.hostPage;
 //  var tableName= config.tableName+timePage.granus;
@@ -20,13 +27,13 @@ define([
     action.getKpiInfo(kpiCodes).then(function(result){
        console.log('dataConfig getKpiInfo',result)
          config.kpiInfo=result.kpiFormular
-         DBUtil.createGConfig(config,callback)
+         DBUtil.createGConfig(config,timeRangeObj,callback)
     })
 
   }
-  DBUtil.createGConfig =function(config,callback){
+  DBUtil.createGConfig =function(config,timeRangeObj,callback){
     console.log('dataConfig createGConfig',config);
-    var sql = this.createSql(config);
+    var sql = this.createSql(config,timeRangeObj);
     action.loadKpiData({"sql":sql}).then(function(data){
       if(data.error){
          callback(data);
@@ -36,19 +43,26 @@ define([
       }
     })
   }
-  DBUtil.createSql =function(config){
+  DBUtil.createSql =function(config,timeRangeObj){
     var timePage =config.tabsConfig.timePage
     var hostPage = config.tabsConfig.hostPage;
-    var tableName =config.tableName+timePage.granus;
+    var granus =timeRangeObj.g||timePage.granus;
+    var tableName =config.tableName+granus;
     console.log('createSql tableName',tableName);
     var cols =fish.map(config.kpiInfo,function(d){
-      return d.KPI_FORM +" as "+d.KPI_CODE+" "
+      if(d.KPI_TYPE=='1'){
+        return d.KPI_AGG.trim()+"("+ d.KPI_CODE + ") as " +d.KPI_CODE+" "
+      }else{
+        return d.KPI_FORM +" as "+d.KPI_CODE+" "
+      }
+
     })
     console.log('createSql tableName',cols);
     var dim = hostPage.xAxis;
     var topNum=hostPage.topNum||"";
     var orderStr=DBUtil.getOrder(hostPage);
     var sql ="select "+dim+" as "+dim+" , "+cols.join(',') +" from "+tableName
+            +" where STTIME >= '" + timeRangeObj.s + "' and  STTIME < '" +  timeRangeObj.e +"' "
             +" group by  "+ dim
      if(orderStr.length>0){
        sql+=orderStr
