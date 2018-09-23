@@ -31,13 +31,14 @@ define([
      json.granus = this.timeCom.combobox('value');
      json.timeRange = this.timeRangeCom.combobox('value');
      json.isSwitch = this.$el.find('.searchByTable').is(':checked')?"o":"c"
+
      json.useRange = this.useRange
+
      return json
   }
   TimePageView.prototype.useRangeEvent  =function(data){
     var self =this;
     this.useRange = data;
-      console.log('useRange',data);
       self.timeCom.combobox({
         'dataSource': this.useRange
       })
@@ -66,13 +67,14 @@ define([
 
     var timePage =config.timePage||{};
     var useRange =timePage.useRange||timeSource;
-    util.mulChose(this.$el.find('.timeGranUL'),timeSource,function(data){
-     self.useRangeEvent(data);
-    },useRange);
+    this.useRange = useRange;
+
 
     console.log("timeSource",timeSource);
     this.timeRangeCom = util.combobox(this.$el.find('.timeRangeCom'), []);
     this.timeCom = util.combobox(this.$el.find('.timeSource'), useRange);
+    console.log('useRange',useRange);
+
     this.timeCom.on('combobox:change', function () {
         var val = self.timeCom.combobox('value');
         if(!val)return;
@@ -94,16 +96,26 @@ define([
 
     });
     this.timeCom.combobox('value',timeSource[0].value);
+    util.mulChose(this.$el.find('.timeGranUL'),timeSource,function(data){
+     self.useRangeEvent(data);
+    },useRange);
     if(config.timePage){
        var granus = config.timePage.granus||timeSource[0].value;
        this.curGranus =granus;
        this.timeCom.combobox('value',granus);
        var isSwitch =config.timePage.isSwitch||'c';
+       var isSwitchEL=this.$el.find('.searchByTable');
        if(isSwitch=='c'){
-         this.$el.find('.searchByTable').attr('checked',true);
+         isSwitchEL.attr('checked',false);
+         this.switchGrid(isSwitchEL)
        }else{
-         this.$el.find('.searchByTable').attr('checked',false);
+         isSwitchEL.attr('checked',true);
+         this.switchGrid(isSwitchEL)
        }
+    }else{
+      var isSwitchEL=this.$el.find('.searchByTable');
+      isSwitchEL.attr('checked',false);
+      this.switchGrid(isSwitchEL)
     }
 
 

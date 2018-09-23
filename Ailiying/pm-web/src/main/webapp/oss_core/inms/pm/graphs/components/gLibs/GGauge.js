@@ -12,6 +12,8 @@ define([
   GGauge.prototype.remove = function() {
     this.$el.html("");
   }
+
+
   GGauge.prototype.createResult = function(config) {
     var result = {};
     var selItems = config.tabsConfig.hostPage.selItems
@@ -36,10 +38,14 @@ define([
     }
     return result;
   }
+  GGauge.prototype.resize=function(){
+    this.myChart.resize();
+  }
   GGauge.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    this.myChart=myChart;
 
     var option = {
       tooltip: {

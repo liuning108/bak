@@ -4,6 +4,19 @@ define([],function(){
      this.engine =engine;
    }
    Widget.prototype={
+     refresh:function(){
+       var self = this;
+       if(self.view){
+         if(self.view.refresh){
+           self.view.refresh();
+         }else{
+            console.log('Widget View refresh NONE');
+         }
+       }else{
+         console.log('Widget refresh');
+       }
+
+     },
      init:function(config){
        this.config=config;
        this.initEvent(this.$el)
@@ -31,13 +44,12 @@ define([],function(){
        var self =this;
        if(this.config.url){
          require([this.config.url], function(Widget) {
-          
              var $el =self.$el.find('.content')
              var w=self.$el.innerWidth();
              var h=self.$el.innerHeight()-(self.$el.find('.header').innerHeight()*1.1);
-             var view =new Widget({el:$el,'w':w,'h':h}).render();
+             var data = self.config.data;
+             var view =new Widget({el:$el,'w':w,'h':h,'data':data}).render();
              self.view= view;
-
          })
 
        }

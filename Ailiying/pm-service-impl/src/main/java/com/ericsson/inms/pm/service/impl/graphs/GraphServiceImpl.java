@@ -190,7 +190,17 @@ public class GraphServiceImpl implements GraphService {
 	}
     
     
+    @Override
+	public JSONObject saveOrUpdateDash(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		return getDAO().saveOrUpdateDash(dict);
+	}
     
+    @Override
+	public JSONObject getDash(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+    	   return getDAO().getDash(dict);
+	}
     
     
    
@@ -211,6 +221,8 @@ public class GraphServiceImpl implements GraphService {
 	    		return null;
 	    	}
     }
+	
+	
 	
 	
    

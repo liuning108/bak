@@ -48,7 +48,7 @@ define([
       }
       result.color = d.color
       result.areaStyle={normal: {}}
-      
+
       return result
     })
     return result;
@@ -89,13 +89,14 @@ define([
     }
     return MaxMin;
   }
+  GLine.prototype.resize=function(){
+      this.myChart.resize();
+  }
   GLine.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
-
-
-
+    this.myChart =myChart;
     seriersResult=result.series
     var propPageConfig = config.tabsConfig.propPage || {};
     propPageConfig = util.getPropPage(propPageConfig)

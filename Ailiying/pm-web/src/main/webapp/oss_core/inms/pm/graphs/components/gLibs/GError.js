@@ -12,6 +12,9 @@ define([
   GError.prototype.remove = function() {
     this.$el.html("");
   }
+  GError.prototype.resize=function(){
+
+  }
 
   GError.prototype.afterRender = function() {
     var config = this.option.config;

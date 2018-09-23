@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.alibaba.fastjson.JSONObject;
 import com.ericsson.inms.pm.api.service.graphs.GraphService;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
+import com.ztesoft.zsmart.pot.annotation.IgnoreSession;
 import com.ztesoft.zsmart.pot.annotation.PublicServ;
 import com.ztesoft.zsmart.pot.session.PrincipalUtil;
 
@@ -156,6 +157,16 @@ public class GraphsController {
     }
     
     
+    
+    
+    @PublicServ
+    @IgnoreSession
+    @RequestMapping(value = "updateDash", method = RequestMethod.POST)
+    public JSONObject updateDash(@RequestBody JSONObject dict) throws BaseAppException {
+    		return graphService.saveOrUpdateDash(dict);
+    }
+    
+    
     /**
      * 
      * Description: <br> 
@@ -174,6 +185,23 @@ public class GraphsController {
         return graphService.getGraphsByUserID(dict);
     }
     
+    
+    
+    /**
+     * 
+     * Description: <br> 
+     *  
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    @PublicServ
+    @RequestMapping(value = "getDash", method = RequestMethod.POST)
+    public JSONObject getDash(@RequestBody JSONObject dict) throws BaseAppException {
+        return graphService.getDash(dict);
+    }
     
     /**
      * 

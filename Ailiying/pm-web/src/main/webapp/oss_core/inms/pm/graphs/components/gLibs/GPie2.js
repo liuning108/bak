@@ -12,6 +12,7 @@ define([
   GLine.prototype.remove = function() {
     this.$el.html("");
   }
+
   GLine.prototype.createResult = function(config) {
     console.log("GPIE",config);
     var result = {
@@ -58,10 +59,14 @@ define([
 
 
   }
+  GLine.prototype.resize=function(){
+      this.myChart.resize();
+  }
   GLine.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    this.myChart=myChart;
     var lengedConfig =config.tabsConfig.lengedPage||{};
     var legnedConfig  = util.getLegned(lengedConfig);
     if(legnedConfig.open){

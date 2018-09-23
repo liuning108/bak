@@ -1,0 +1,39 @@
+{{#each uls}}
+<ul class="zdash-time-ul">
+<li class="title" data-granu="{{granu}}">{{title}}</li>
+{{#each items}}
+<li class="btnli {{VALUE}}{{../granu}} item{{../granu}} item"
+    data-id="{{VALUE}}{{../granu}}"  data-name="{{NAME}}"  >{{NAME}}</li>
+{{/each}}
+</ul>
+{{/each}}
+<ul class="zdash-time-ul">
+  <li class="title" data-granu="C">自定义</li>
+  <li class="citem item" style="height: 100%;">
+    <div style="padding:5px;padding-right: 15px;">
+      <div class="row">
+        <div class="form-group">
+             <div>开始时间</div>
+             <div class="input-group">
+               <input class="form-control s_datetime" type="text">
+             </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group">
+             <div>结束时间</div>
+             <div class="input-group">
+               <input class="form-control e_datetime" type="text">
+             </div>
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <div class="btn KdoBtn2  graphsOK inmsblueBtn gTimeOK">确定</div>
+          <div class="btn KdoBtn2 graphsCancel inmsBtnh_hover gTimeCancel">取消</div>
+        </div>
+      </div>
+
+    </div>
+  </li>
+</ul>

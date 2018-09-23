@@ -143,10 +143,14 @@ define([
     var id = f.value;
     return id;
   }
+  GScatter.prototype.resize=function(){
+      this.myChart.resize();
+  }
   GScatter.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
+    this.myChart=myChart;
     var MaxMin = this.getMaxMin(config.tabsConfig);
     var lengedConfig = config.tabsConfig.lengedPage || {};
     var legnedConfig = util.getLegned(lengedConfig);

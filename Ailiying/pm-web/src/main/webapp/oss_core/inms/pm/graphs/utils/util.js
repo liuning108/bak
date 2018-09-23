@@ -16,6 +16,7 @@ define([], function() {
       fish.each(useRange,function(d){
         el.find('li[data-value="'+d.value+'"]').addClass('active');
       })
+      callback(useRange);
       el.find('li').off('click').on('click',function(){
           var target = $(this);
           if(target.hasClass('active')){

@@ -350,4 +350,56 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
 		return result;	
 	}
 
+	@Override
+	public JSONObject saveOrUpdateDash(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		JSONObject result = new JSONObject();
+		String tid =dict.getString("tid");
+        deleteDash(tid);
+        String sql = ""
+            + "INSERT INTO  pm_screen_detail "
+            + "( tid, "
+            + "attrseq, "
+            + "attr) "
+            + "VALUES "
+            + "( ?, "
+            + "  ?, "
+            + " ?);";
+       
+        String jsonStr = dict.toJSONString();
+        List<String> attrs_parts =splitByNumbers(jsonStr,1024);
+        for(int i = 0; i < attrs_parts.size(); i++) {
+        	try {
+            String attr = attrs_parts.get(i);
+            this.insert(sql, new Object[] {tid,i,attr});
+        	}catch(Exception e) {
+        		 e.printStackTrace();
+        	}
+        }
+        result.put("result", "ok");
+        return result;
+	}
+
+	private void deleteDash(String tid) {
+		// TODO Auto-generated method stub
+	    String sql ="delete from pm_screen_detail where tid=?";
+	   this.delete(sql,new Object[] {tid});  
+		
+	}
+
+	@Override
+	public JSONObject getDash(JSONObject dict) throws BaseAppException {
+		    JSONObject result = new JSONObject();
+	        String id = dict.getString("id");
+	        String sql ="select attrseq,attr ATTR from pm_screen_detail where tid= ? order by attrseq";
+	        List<Map<String,String>> partList =this.queryForMapList(sql, new Object[] {id});
+	        StringBuffer sb = new StringBuffer();
+	        for (Map<String,String> part : partList) {
+	             sb.append(part.get("ATTR"));
+	        }
+	        JSONObject json =JSONObject.parseObject(sb.toString());
+	        result.put("result", json);
+	        return result;
+	}
+
 }

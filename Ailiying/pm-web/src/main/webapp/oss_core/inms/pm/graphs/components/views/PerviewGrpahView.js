@@ -39,39 +39,34 @@ define([
   PerviewGrpahView.prototype.afterRender = function() {
     var self = this;
     this.initTitle()
-    try {
-      DBUtil.getTimeConfig().then(function(data) {
-        DBUtil.getbusField(self.option.config.code).then(function(fielData) {
-          console.log('initTimeCompenont data', fielData)
-          var GRANU_MODE = JSON.parse(fielData.modelField[0].GRANU_MODE);
-          console.log('initTimeCompenont GRANU_MODE', GRANU_MODE)
-          self.initTimeCompenont(self.option.config, data.result, GRANU_MODE);
-        })
-      })
-    } catch (e) {}
     this.loadDatas();
 
   }
   PerviewGrpahView.prototype.loadDatas = function(timeRangeObj) {
+    var self =this;
     var el = this.$el.find('.graphsShow');
-    if(!timeRangeObj){
-      var timePage = this.option.config.tabsConfig.timePage;
-      var timeRange =timePage.timeRange + timePage.granus;
-      timeRangeObj =util.getTimeRange(timeRange);
-    }
     console.log("noDataConfig", this.option.config,timeRangeObj);
     DBUtil.getLoadDatas(this.option.config,timeRangeObj, function(config) {
+
       console.log("getLoadDatas", config);
       if (config.error) {
         el.text(config.error)
       } else {
+        self.initTimeCompenont(
+               config,
+               config.paramvalues.result,
+               config.USE_GRANU_MODES
+         );
         var g = GCharts.init(el, config);
         g.render();
+
       }
     });
   }
   PerviewGrpahView.prototype.initTimeCompenont = function(config, timeParams, GRANU_MODE) {
     var self = this;
+    if(self.initTimeFlag)return;
+    self.initTimeFlag=true;
     console.log('initTimeCompenont', config);
     var $timePop = null;
     var timePage = config.tabsConfig.timePage;

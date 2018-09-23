@@ -162,4 +162,28 @@ public abstract class GraphsDAO extends GeneralDAO {
 	 */
 	public abstract JSONObject loadKpiData(JSONObject dict) throws BaseAppException;
 
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	public abstract JSONObject saveOrUpdateDash(JSONObject dict) throws BaseAppException;
+
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	public abstract JSONObject getDash(JSONObject dict)   throws BaseAppException;
+
 }

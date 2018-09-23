@@ -20,8 +20,8 @@ define([
       var tableH = (docH - 48 - 35 - 30-20);
       this.graphsListView = new GraphsListView({
            el: self.$el,
-          'id':   'T00001',   //"PMS_20180906204217_TP00002846",
-          'code': 'PMPS_ERICA2PBM', //'PMPS_ERICA2PBM',
+          'id': "T00001",//'T00001',   //"PMS_20180906204217_TP00002846",
+          'code': 'PMPS_PIMSERVER_BM', //'PMPS_ERICA2PBM',
            tableH: tableH,
            callback:function() {
              self.render();

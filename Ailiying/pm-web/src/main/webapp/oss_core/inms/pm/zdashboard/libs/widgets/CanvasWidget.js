@@ -140,8 +140,8 @@ define(["text!oss_core/inms/pm/zdashboard/libs/widgets/CanvasWidget.html"], func
     widgetResize: function(w, h) {
       this.w=w;
       this.h=h;
-      this.c.width=w-5;
-      this.c.height=h-10;
+      this.c.width=w-10;
+      this.c.height=h-15;
       var center={
           x: this.c.width/2,
           y: this.c.height/2

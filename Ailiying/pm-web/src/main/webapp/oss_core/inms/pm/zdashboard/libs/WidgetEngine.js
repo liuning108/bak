@@ -5,7 +5,6 @@ define([
 ],function(tpl,Widget) {
   	var WidgetEngine = function (context) {
           this.opt = {
-              always_show_resize_handle: true,
               cellHeight: 60,
               vertical_margin: 5,
               horizontal_margin: 5,
@@ -23,6 +22,8 @@ define([
            var self =this;
           this.context.gridstack(this.opt);
           this.grid = this.context.data('gridstack');
+          // this.grid.enableMove(false, true);
+          // this.grid.enableResize(false, true);
           this.initMonitor();
           if(!opt){
             return;
@@ -31,6 +32,7 @@ define([
               fish.each(opt.datas,function(data) {
                 self.loadWidget({
                     url:data.url,
+                    'data':data.data,
                     x:data.x,
                     y:data.y,
                     w:data.w,
@@ -58,10 +60,13 @@ define([
        },
        addWidget:function(config){
           var el =$(this.template());
-          this.grid.addWidget(el, 0, 0, 3, 4, true);
+          this.grid.addWidget(el, 0, 0, 6, 5, true);
           var widget =new Widget(el,this);
           var uuid =widget.init(config);
           this.items[uuid]=widget;
+       },
+       getItems:function(){
+          return this.items;
        },
        loadWidget:function(config){
           var el =$(this.template());
@@ -91,7 +96,8 @@ define([
                             y: node.y,
                             w: node.width,
                             h: node.height,
-                            url:widget.config.url
+                            url:widget.config.url,
+                            data:widget.config.data
                         };
          });
          json.datas=datas

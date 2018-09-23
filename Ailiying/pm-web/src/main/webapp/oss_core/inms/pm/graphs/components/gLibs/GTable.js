@@ -33,6 +33,10 @@ define([
 
     return result;
   }
+  GTable.prototype.resize=function(w,h){
+    this.$gird.jqGrid('setGridWidth',w-50);
+    this.$gird.jqGrid('setGridHeight',h-20);
+  }
   GTable.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
@@ -41,14 +45,14 @@ define([
     var colModel = result.colModel;
     var $gird = this.$el.find('.gtable_gird').grid({
       data: result.datas,
-      height: 'auto',
-      "colModel": result.colModel,
+     "colModel": result.colModel,
       rowNum: 20,
       rowList: [
         10, 20, 30
       ],
       pager: true
     });
+    this.$gird=$gird;
       $gird.find('thead').css({
         "background-color": "#2351C5",
         "color": "#fff"

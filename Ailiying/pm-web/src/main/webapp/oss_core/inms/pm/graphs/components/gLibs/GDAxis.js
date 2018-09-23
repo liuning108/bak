@@ -129,11 +129,14 @@ define([
     }
     return MaxMin;
   }
+  GLine.prototype.resize=function(){
+      this.myChart.resize();
+  }
   GLine.prototype.afterRender = function() {
     var config = this.option.config;
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
-
+    this.myChart = myChart;
 
 
     seriersResult=result.series
