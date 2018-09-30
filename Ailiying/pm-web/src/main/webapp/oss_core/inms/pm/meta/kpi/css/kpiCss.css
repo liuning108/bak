@@ -1,0 +1,21 @@
+.kpiClass{
+	list-style:none;padding: 0;margin: 0
+}
+.kpiClass li{
+	border: 1px solid #ccc;border-radius: 15px;padding: 3px 8px;display: inline-block;margin-right: 2px;
+}
+.kpiClass li span{
+	display: inline-block;max-width: 80px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;vertical-align:middle;
+}
+.kpiClass li .kpiClassRemove{
+	margin-top: -3px;margin-left: 2px;cursor: pointer;
+}
+.kpiClassMenu{
+	max-height: 220px;overflow-y: auto;
+}
+.kpiClassMenu li.kParent{
+	color: #3333336b;padding: 5px 15px;
+}
+.kpiClassMenu li.kSon{
+	color: #333;padding: 5px 25px;cursor: pointer;
+}

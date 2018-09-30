@@ -1,0 +1,55 @@
+<div id="demo-tabs-box-{{alarm-level}}" class="js-tplmgr-alarm-level_container" tabs>
+	<div class="row">
+	<div class="col-md-12">
+        <div class="wizard">
+            {{ALARM_RULE_SET}}
+            <input id="ALARM_RULE_SET_{{alarm-level}}" name='ALARM_LEVEL' text='{{alarm-level-name}}' class="toggle-switch js-alarm-rule-set" type="checkbox">
+            <label for="ALARM_RULE_SET_{{alarm-level}}"></label>
+        </div>
+    </div>
+	<div class="js-alarm-rule-div hide">
+    	<div class="col-md-12 no-padding">
+
+            <form class="form-horizontal">
+                <div class="wizard">
+                    观察窗口
+                    <input id="TIME_WINDOW_GENERATE_{{alarm-level}}" name='TIME_WINDOW' text='{{alarm-level-name}}' class="toggle-switch js-alarm-timewindow" type="checkbox">
+                    <label for="TIME_WINDOW_GENERATE_{{alarm-level}}"></label>
+                    <div class="js-alarm-generate-windowvalue form-group" name="TIME_WINDOW_VALUE_GENERATE_DIV_{{alarm-level}}"
+                         style="display:none;width:200px;position:absolute;left:120px;top:0px">
+                        <label class="col-md-4 col-sm-4 control-label">窗口值</label>
+                        <div class="col-md-8 col-sm-8">
+                            <input name="TIME_WINDOW_VALUE_GENERATE_{{alarm-level}}" class="form-control" style="width: 75px">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label class="col-md-2 control-label" style="margin-top:3px;margin-left:-8px">条件：</label>
+                    <div class="col-md-10">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="CONDI_TYPE_GENERATE_{{alarm-level}}" value="AND" checked>同时满足
+                            </label>
+                            <label>
+                                <input type="radio" name="CONDI_TYPE_GENERATE_{{alarm-level}}" value="OR">任一满足
+                            </label>
+                        </div>
+                    </div>
+                    <hr style="width:100%">
+                    <!-- -->
+                    <div>
+                        <div id="alarm_rule_generate_item_{{alarm-level}}" class="wrapper scrollable p-b-none">
+
+                        </div>
+                        <button type="button" id="alarm_rule_generate_add_{{alarm-level}}" class="btn btn-ico"
+                                style="position:absolute;right:-4px;top:30px">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                    <!-- -->
+                </div>
+            </form>
+	    </div>
+	</div>
+	</div>
+</div>

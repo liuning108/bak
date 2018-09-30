@@ -8,6 +8,9 @@ define([], function() {
     },
     getDash:function(id){
      return fish.post("inms/graphs/getDash", {'id':id});
+    },
+    getConfigById:function(id){
+      return fish.post("inms/graphs/getConfigById", {'id':id});
     }
 
 

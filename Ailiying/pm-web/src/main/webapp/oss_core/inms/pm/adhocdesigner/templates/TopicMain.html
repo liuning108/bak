@@ -1,0 +1,465 @@
+<section class="vbox">
+    <section>
+        <section id="ad-topic-container" class="hbox stretch">
+            <aside class="ad-left js-ad-left b-r">
+                <div class="ad-title b-b">
+                    <h3 class="m-n font-thin" style="font-size: 16px"><a id="ad-backtolist-btn" type="button" class="btn btn-default ad-btn m-r-sm">
+                        <i class="fa fa-long-arrow-left"></i>
+                    </a>{{EDIT_DIAGRAMS}}
+                        <a id="ad-topic-save" type="button" class="btn btn-default ad-btn pull-right">
+                            <i class="fa fa-floppy-o"></i>
+                        </a>
+                        <a id="ad-topic-preview-btn" type="button" title="{{PREVIEW}}" class="btn btn-link ad-btn pull-right">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                    </h3>
+                </div>
+                <!--Form List-->
+                <div class="wrapper p-b-none">
+                    <form>
+                        <div class="form-group">
+                            <label>{{TOPIC_NAME}}</label>
+                            <input id="ad-topicname-input" type="text" class="input-sm form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label>{{DIMENSIONANDKPI}}</label>
+                            <a type="button" class="btn btn-ico btn-link pull-right" id="ad-vdim-plus" style="padding-top:0px">
+                                <i class="fa fa-plus"></i>
+                            </a>
+                            <div class="input-group search-group" style="width:100%" >
+                                <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                                <input id="ad-dim-indi-search"  type="text" class="ad-theme-search form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!--Form List End-->
+
+                <!--Tree-->
+                <div id="ad-dim-indi-tree" class="ad-tree scrollable m-l-sm">
+
+                </div>
+                <!--Tree End-->
+            </aside>
+                <!--Right-->
+            <section>
+                    <section class="vbox">
+                        <section>
+                            <section class="hbox stretch">
+                                <section class="vbox ad-chart-bg" style="box-shadow: 0 0 0 0">
+                                    <!--Chart Args-->
+                                    <div class="chart-args js-chart-args">
+                                        <div class="row " id="ad-dimtag-container" style="padding-bottom: 6px;">
+                                            <span class="fl ad-axis-head-label">
+                                                <span class="axis-head-name ng-binding" style="padding-left: 20px">{{DIMENSION}}</span>
+                                            </span>
+                                        </div>
+                                        <div class="row " id="ad-inditag-container">
+                                            <span class="fl ad-axis-head-label">
+                                                <i id="ad-addindi-batch" class="fa fa-pencil ad-icon"></i>
+                                                <span class="axis-head-name ng-binding">{{KPI}}</span>
+                                            </span>
+                                        </div>
+                                        <div class="row ">
+                                            <span class="fl ad-axis-head-label">
+                                                 <a href="#" id="ad-editmodel-btn"> <i class="fa fa-pencil ad-icon"></i></a>
+
+                                                <div class="ad-sort" style="left: -58px;top: 20px;float: none;">
+                                                    <div id="ad-editmodel-container" class="popover ">
+                                                        <div class="arrow"></div>
+                                                        <!--强制选择模型界面-->
+                                                        <select id="ad-model-select" class="form-control" style="width: 150px">
+                                                            <!--<option value="" selected="selected">Model default</option>
+                                                            <option value="AL">Model xxx</option>
+                                                            <option value="AK">Model yyy</option>-->
+                                                        </select>
+                                                        <span id="ad-granu-container">
+                                                            <!--<div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" title="Hour" name="ad-granularity" value="_60"> Hour
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" title="Day" name="ad-granularity" value="_1440"> Day
+                                                                </label>
+                                                            </div>
+                                                            <div class="checkbox">
+                                                                <label>
+                                                                    <input type="checkbox" title="Month" name="ad-granularity" value="_Mon"> Month
+                                                                </label>
+                                                            </div>-->
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <span class="axis-head-name ng-binding">{{GRANULARITY}}</span>
+                                            </span>
+                                            <span id="ad-granutag-container">
+                                                <!--
+                                                <div class="btn-group ad-tags">
+                                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+                                                        Hour
+                                                    </button>
+                                                </div>
+                                                <div class="btn-group ad-tags">
+                                                    <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
+                                                        Day
+                                                    </button>
+                                                </div>-->
+                                            </span>
+                                            <span class="ad-axis-head-label pull-right"><a href="#" class="ad-link" id="ad-drillcfg-btn" style="display: none"><i class="fa fa-cog"></i> 钻取配置</a></span>
+                                        </div>
+                                    </div>
+                                    <!--Chart Args End-->
+                                    <div class="row" style="margin-left: 10px">
+                                        <div class="chart-left-side b-r" id="ad-filter-div" style="top:134px">
+                                            <!--过滤器容器-->
+                                            <div class="filter-layer" id="ad-filter-container" style="position:absolute;bottom:130px;top:0px;overflow: auto">
+                                                <div class="m-b-sm">
+                                                    <b>{{FILTER}}</b>
+                                                    <a type="button" class="btn btn-ico btn-link pull-right" id="ad-filter-plugin-plus" style="display:none;padding-top:0px">
+                                                        <i class="fa fa-plus"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <!--颜色配置容器-->
+                                            <div id="ad-axiscolor-container" style="padding-left:12px;position:absolute;bottom:0px;width:170px;height:120px">
+                                                <hr>
+                                                <div class="m-b-sm"><b>{{COLOR}}</b></div>
+                                                <div id="ad-axiscolor-list-container" class="cursor-pointer" style="margin-left: -40px">
+                                                    <ul id="ad-axiscolor-list">
+
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div id="ad-mapcolor-container" style="display:none;padding-left:12px;position:absolute;bottom:0px;width:170px;height:120px">
+                                                <hr>
+                                                <div class="m-b-sm"><b>{{COLOR}}</b></div>
+                                                <div id="ad-mapcolor-list-container" class="cursor-pointer" style="margin-left: -40px;display: none">
+                                                    <ul id="ad-mapcolor-list">
+                                                        <li class="series-color-item nowrap">
+                                                            <span id="ad-map-color-title" title=""></span>
+                                                        </li>
+                                                        <svg id height="30" version="1.1" width="150" xmlns="http://www.w3.org/2000/svg"
+                                                             style="overflow: hidden; position: relative;">
+                                                            <defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                                                <linearGradient id="ad-mapcolor-lineargradient" x1="0" y1="0" x2="1" y2="0" gradientTransform="matrix(1,0,0,1,0,0)"
+                                                                                style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+                                                                    <stop id="ad-mapcolor-lineargradient_1" offset="0%" stop-color="#f9f9f9" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+                                                                    <stop id="ad-mapcolor-lineargradient_2" offset="12%" stop-color="#f9f9f9" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+                                                                    <stop id="ad-mapcolor-lineargradient_3" offset="100%" stop-color="#f9f9f9" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+                                                                </linearGradient>
+                                                            </defs>
+                                                            <rect x="0" y="0" width="148" height="16" r="0" rx="0" ry="0"
+                                                                  fill="url(#ad-mapcolor-lineargradient)" stroke="#ffffff" stroke-width="0.1" opacity="1" fill-opacity="1"
+                                                                  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; fill-opacity: 1;"></rect>
+                                                        </svg>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Chart-->
+                                        <div class="chartBox" id="ad-chartbox-div" style="top:134px">
+                                            <div class="charttop">
+                                                <div class="pull-left" style="display: none">
+                                                    <div class="input-group combobox" style="width:150px">
+                                                        <input type="text" class="form-control" placeholder="定位名称"><span style="cursor: pointer; display: none; pointer-events: auto;" class="form-control-feedback form-clear-input">×</span>
+                                                    <span class="input-group-addon">
+                                                        <span class="glyphicon glyphicon-triangle-bottom"></span>
+                                                    </span>
+                                                    </div>
+                                                </div>
+                                                <div class=" pull-right">
+                                                    <a type="button" class="btn btn-ico btn-link" id="ad-chart-plus" disabled>
+                                                        <i class="fa fa-plus"></i> {{ADD_CHART}}
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="chartlist" id="ad-chartlist-container" style="margin-top: 49px">
+                                                <div id="chart-img" class="chart-pd text-center" style="padding:69px 0">
+                                                    <img src="static/oss_core/inms/pm/adhocdesigner/assets/img/bigdata.png">
+                                                    <p class="h4 m-t-sm">{{NO_CHART}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--Chart End-->
+                                    </div>
+                                </section>
+                                <section class="vbox scrollable ad-left b-l">
+                                    <section class="hbox ">
+                                        <!--Form List-->
+                                        <div class="wrapper p-b-none">
+                                            <form>
+                                                <div class="form-group">
+                                                    <label>{{TITLE}}</label>
+                                                    <input type="text" id="ad-chart-title-input" placeholder="" class="input-sm form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>{{SUBTITLE}}</label>
+                                                    <input type="text" id="ad-chart-subtitle-input" placeholder="" class="input-sm form-control">
+                                                </div>
+                                            </form>
+                                            <!--标题对齐方式-->
+                                            <div class="m-b-xs">{{TITLE_LOCATION}}</div>
+                                            <div class="btn-group  btn-group-title m-b-md">
+                                                <button type="button" name="ad-titlealign" id="ad-titlealign-left" class="btn btn-default">
+                                                    <i class="fa fa-align-left"></i>
+                                                </button>
+                                                <button type="button" name="ad-titlealign" id="ad-titlealign-center" class="btn btn-default active">
+                                                    <i class="fa fa-align-center"></i>
+                                                </button>
+                                                <button type="button" name="ad-titlealign" id="ad-titlealign-right" class="btn btn-default">
+                                                    <i class="fa fa-align-right"></i>
+                                                </button>
+                                            </div>
+                                            <!-- -->
+                                            <div class="m-b-sm"><b>{{CHART_TYPE}}</b></div>
+                                            <div class="pd">
+                                                <ul>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a1 active" title="{{GRID}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a2" title="{{PIE_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a3" title="{{LINE_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a12" title="{{COLUMN_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a5" title="{{AREA_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a6" title="{{BAR_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a7" title="{{RADAR_CHART}}"></a></li>
+                                                    <!--<li><a href="#" name="ad-charttype-btn" class="a8" title="树图"></a></li>-->
+                                                    <li><a href="#" name="ad-charttype-btn" class="a9" title="{{STACKED_BAR_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a10" title="{{SCOTTER_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a11" title="{{DOUBLE_AXIS_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a4" title="{{STACKED_COLUMN_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a13" title="{{STACKED_AREA_CHART}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a14" title="{{PIVOT_TABLE}}"></a></li>
+                                                    <li><a href="#" name="ad-charttype-btn" class="a15" title="{{KPI_CARD}}"></a></li>
+                                                    <li style="display: block"><a href="#" name="ad-charttype-btn" class="a16" title="{{MAP}}"></a></li>
+                                                    <li style="display: block"><a href="#" name="ad-charttype-btn" class="a17" title="{{SCATTER_MAP}}"></a></li>
+                                                </ul>
+                                            </div>
+                                            <form class="form-horizontal clearfix ad-group-hack">
+                                                <div class="form-group pull-left">
+                                                    <label class="col-md-4 col-sm-4 control-label">{{HEIGHT}}</label>
+                                                    <div class="col-md-8 col-sm-8">
+                                                        <input id="ad-chart-height" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div id="ad-piechart-type-div" class="form-group pull-left" style="display: none">
+                                                    <label class="col-md-5 control-label" style="width:68px">{{PIECHART_TYPE}}</label>
+                                                    <div class="col-md-7">
+                                                        <label class="radio-inline"><input type="radio" class="pieChartTypeRadio" name="ad-piechart-type" value="0" checked>{{PIECHART_PIE}}</label>
+                                                        <label class="radio-inline"><input type="radio" class="pieChartTypeRadio" name="ad-piechart-type" value="1">{{PIECHART_RADIUS}}</label>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <hr/>
+                                            <!--图表配置区域开始-->
+                                            <span id="ad-chartcfg-element"  style="display: none">
+                                                <div class="m-b-sm"><b>{{AXIS_CONFIG}}</b><a href="#" id="ad-axiscfg-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <div id="ad-marklinecfg-container" class="m-b-sm"><b>{{MARKLINE}}</b><a href="#" id="ad-marklinecfg-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <div id="ad-marklinecfg-axis2-container" class="m-b-sm" style="display: none"><b>Markline(Secondary Axis)</b><a href="#" id="ad-marklinecfg-axis2-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <hr/>
+                                                <div class="m-b-sm" style="display: none"><b>图内筛选器</b><a href="#" id="ad-filterinchart-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+
+                                                <div class="m-b-sm ad-group-hack">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline"><input id="ad-chartlabel-btn" type="checkbox" checked>{{LABEL}}</label>
+                                                    </div>
+                                                    <div class="form-group" id="ad-zoomaxis-container">
+                                                        <label class="checkbox-inline"><input id="ad-zoomaxis-btn" type="checkbox">{{ZOOM}}</label>
+                                                    </div>
+                                                    <div ></div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-group">
+                                                            <label class="checkbox-inline"><input id="ad-legend-btn" type="checkbox" checked>{{LEGEND}}</label>
+                                                        </div>
+                                                        <div class="col-md-12 form-group">
+                                                            <div class="pd" style="margin: 0px 0px -15px">
+                                                                <ul>
+                                                                    <li><a href="#" name="ad-legend-direction-btn" class="a22 active" title="{{LEFT_LEGEND}}"></a></li>
+                                                                    <li><a href="#" name="ad-legend-direction-btn" class="a23" title="{{RIGHT_LEGEND}}"></a></li>
+                                                                    <li><a href="#" name="ad-legend-direction-btn" class="a24" title="{{TOP_LEGEND}}"></a></li>
+                                                                    <li><a href="#" name="ad-legend-direction-btn" class="a25" title="{{BOTTOM_LEGEND}}"></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <!-- 主坐标轴 -->
+                                                <div id="ad-axis-label" class="m-b-sm"><b>{{AXIS}}</b></div>
+                                                <div id="ad-xaxis-label" class="m-b-sm" style="display: none"><b>{{X_AXIS}}</b></div>
+                                                <form class="form-horizontal clearfix ad-group-hack">
+                                                    <div class="form-group" id="ad-xaxis-container">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{X_AXIS}}</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <select id="ad-xaxis-select" class="form-control" style="width: 100px">
+                                                                <!--<option value="" selected="selected">Model default</option>
+                                                                <option value="AL">Model xxx</option>
+                                                                <option value="AK">Model yyy</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-yaxis-container">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{Y_AXIS}}</label>
+                                                        <div class="col-md-6 col-sm-6">
+                                                            <select id="ad-yaxis-select" class="form-control" style="width: 100px">
+                                                                <!--<option value="" selected="selected">Model default</option>
+                                                                <option value="AL">Model xxx</option>
+                                                                <option value="AK">Model yyy</option>-->
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-axistitle-container">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{TITLE}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis-title" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-axismax-container">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{MAXIMUM}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis-max" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-axismin-container">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{MINIMUM}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis-min" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <!-- 次坐标轴 -->
+                                                <form id="ad-axis-container2" class="form-horizontal clearfix ad-group-hack" style="display: none">
+                                                    <div id="ad-axis2-label" class="m-b-sm"><b>Secondary Axis</b></div>
+                                                    <div id="ad-yaxis-label" class="m-b-sm" style="display: none"><b>Y Axis</b></div>
+                                                    <div class="form-group" id="ad-axistitle-container2">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{TITLE}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis2-title" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-axismax-container2">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{MAXIMUM}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis2-max" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" id="ad-axismin-container2">
+                                                        <label class="col-md-4 col-sm-4 control-label">{{MINIMUM}}</label>
+                                                        <div class="col-md-8 col-sm-8">
+                                                            <input id="ad-yaxis2-min" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </span>
+                                            <!--图表配置区域结束-->
+                                            <!--表格配置区域开始-->
+                                            <span id="ad-gridcfg-element" style="display: block">
+                                                <div class="m-b-sm"><b>{{COLUMN_CONFIG}}</b><a href="#" id="ad-colcfg-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <hr/>
+                                                <div class="m-b-sm ad-group-hack">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline"><input id="ad-grid-pager-btn" type="checkbox" checked>{{DATA_PAGING}}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="m-b-sm ad-group-hack">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline"><input id="ad-grid-mergecell-btn" type="checkbox">{{MERGE_CELL}}</label>
+                                                    </div>
+                                                </div>
+                                                <hr/>
+                                                <div class="m-b-sm"><b>{{CONDITION_FORMAT}}</b><a href="#" id="ad-condifmt-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                            </span>
+                                            <!--表格区域结束-->
+                                            <!--对比分析-->
+                                            <div id="ad-compareanalysis" class="m-b-sm ad-group-hack" style="display: none">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline"><input id="ad-compareanalysis-btn" type="checkbox">{{COMPARATIVE_ANALYSIS}}</label>
+                                                </div>
+                                            </div>
+                                            <!--扩展分析-->
+                                            <div id="ad-extendedanalysis" class="m-b-sm ad-group-hack">
+                                                <div class="form-group">
+                                                    <label class="checkbox-inline"><input id="ad-extendedanalysis-btn" type="checkbox">{{EXTENDED_ANALYSIS}}</label>
+                                                </div>
+                                            </div>
+                                            <!--pivottable设置-->
+                                            <span id="ad-pivottablecfg-element" style="display: none">
+                                                <div class="m-b-sm ad-group-hack">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline"><input id="ad-pivottable-itemcount-btn" type="checkbox">{{THE_NUMBER_OF_ITEMS}}</label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-4 col-sm-4" style="padding-left:0px">
+                                                        <select id="ad-pivottablecfg-sortfield" name="ad-fmtsel" class="form-control" style="width: 74px">
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4" style="padding-left:10px">
+                                                        <select id="ad-pivottablecfg-sorttype" name="ad-fmtsel" class="form-control" style="width: 75px">
+                                                            <option value="asc">{{ASC}}</option>
+                                                            <option value="desc">{{DESC}}</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4 col-sm-4" style="padding-left:20px">
+                                                        <input id="ad-pivottablecfg-topn" value="100" name="spinner" class="form-control" style="width: 50px">
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <!-- -->
+                                            <!--指标卡组件设置-->
+                                            <span id="ad-kpicardcfg-element" style="display: none">
+                                                <div class="m-b-sm"><b>{{KPI_CONFIG}}</b><a href="#" id="ad-kpicardcfg-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                            </span>
+                                            <!-- -->
+                                            <!--地图组件设置-->
+                                            <span id="ad-mapcfg-element" style="display: none">
+                                                <div class="m-b-sm"><b>{{MAP_TYPE}}</b><a href="#" id="ad-maptype-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <div class="m-b-sm"><b>{{FIELD_CHOOSE}}</b><a href="#" id="ad-mapfieldchoose-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a></div>
+                                                <div class="form-group">
+                                                     <label class="checkbox-inline"><input id="ad-maplabel-btn" type="checkbox" checked>{{LABEL}}</label>
+                                                </div>
+                                                <div class="form-group">
+                                                     <label class="checkbox-inline"><input id="ad-areaname-btn" type="checkbox">{{AREA_NAME}}</label>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 form-group">
+                                                        <label class="checkbox-inline"><input id="ad-maplegend-btn" type="checkbox" checked>{{LEGEND}}</label>
+                                                    </div>
+                                                    <div class="col-md-12 form-group">
+                                                        <div class="pd" style="margin: 0px 0px -15px">
+                                                            <ul>
+                                                                <li><a href="#" name="ad-maplegend-direction-btn" class="a22 active" title="{{LEFT_LEGEND}}"></a></li>
+                                                                <li><a href="#" name="ad-maplegend-direction-btn" class="a23" title="{{RIGHT_LEGEND}}"></a></li>
+                                                                <li><a href="#" name="ad-maplegend-direction-btn" class="a24" title="{{TOP_LEGEND}}"></a></li>
+                                                                <li><a href="#" name="ad-maplegend-direction-btn" class="a25" title="{{BOTTOM_LEGEND}}"></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="ad-mapcfg-labelsymbol" class="m-b-sm" style="display:none"><b>{{LABEL_SYMBOL}}</b>
+                                                    <div class="pd">
+                                                        <ul>
+                                                            <li><a href="#" name="ad-labelsymbol" class="a18 active"></a></li>
+                                                            <li><a href="#" name="ad-labelsymbol" class="a19"></a></li>
+                                                            <li><a href="#" name="ad-labelsymbol" class="a20"></a></li>
+                                                            <li><a href="#" name="ad-labelsymbol" class="a21"></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </span>
+                                            <!-- -->
+                                        </div>
+                                        <!--Form List End-->
+                                    </section>
+                                </section>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <!-- -->
+        <section id="ad-topic-preview" class="hbox stretch" style="display: none">
+        </section>
+    </section>
+</section>

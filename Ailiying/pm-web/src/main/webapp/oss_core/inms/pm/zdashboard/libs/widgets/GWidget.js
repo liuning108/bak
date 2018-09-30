@@ -171,7 +171,9 @@ define([
        this.h=h;
        var el = this.$el.find('.graphsShow');
        el.height(this.h-20);
-       this.g.resize(w,h);
+       if(this.g){
+         this.g.resize(w,h);
+       }
     }
   });
 })

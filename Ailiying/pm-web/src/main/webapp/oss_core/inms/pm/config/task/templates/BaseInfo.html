@@ -1,0 +1,47 @@
+<form class="form-horizontal clearfix js-task-detail-form">	
+    
+        <div class="col-md-5">
+            <div class="form-group required">
+                <div class="col-md-12">
+                    <label class="control-label">{{TASK_NAME}}</label>
+                </div>
+                <div class="col-md-12">
+                    <input name="TASK_NAME" class="form-control" data-rule="{{TASK_NAME}}:required;length[1~256, true]">
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-5">
+            <div class="form-group required">
+                <div class="col-md-12">
+                    <label class="control-label">{{TASK_TYPE}}</label>
+                </div>
+                <div class="col-md-12">
+                    <input name="TASK_TYPE" class="form-control" data-rule="{{TASK_TYPE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <div class="col-md-12">
+                    <label class="control-label">{{IS_ENABLED}}</label>
+                </div>
+                <div class="col-md-12">
+	                <div class="input-group">
+	                    <input id="IS_STATE" name="IS_STATE" class="toggle-switch" type="checkbox" checked="">
+	                    <label for="IS_STATE"></label>
+	                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="col-md-12">
+                <label class="control-label">{{COMMON_REMARK}}</label>
+                <textarea name="TASK_DESC" rows="6"class="form-control" data-rule="{{COMMON_REMARK}}:length[1~1024, true]" ></textarea>
+                <div class="col-md-12">
+            </div>
+        </div>
+        
+</form>

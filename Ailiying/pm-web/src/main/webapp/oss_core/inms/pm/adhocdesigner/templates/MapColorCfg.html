@@ -1,0 +1,58 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{COLOR_SETTINGS}}</h4>
+</div>
+<div class="modal-body" class="ad-axiscfg-modal-body">
+	<div class="ad-modal-box" style="height: 120px">
+		<div class="ad-tolbad">
+			<div class="ad-block" style="height:100px">
+				<!-- -->
+				<div class="form-group col-md-12">
+					<label class="col-md-3 control-label pull-left">{{COLOR_SCHEME}}：</label>
+					<div class="col-md-9">
+						<select id="ad-mapcolorcfg-color-select" class="form-control col-md-12" style="width: 231px"
+								data-placeholder="{{PLEASE_SELECT}}">
+						</select>
+					</div>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-3 control-label pull-left"></label>
+					<div class="col-md-9">
+						<div class="col-md-4" style="margin-left:-10px">
+							<input id="ad-mapcolorcfg-color-from" style="width: 70px"/>
+						</div>
+						<div class="col-md-4" style="margin-left:-37px">
+							<svg id height="40" version="1.1" width="120" xmlns="http://www.w3.org/2000/svg"
+								 style="overflow: hidden; position: relative;">
+								<defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+									<linearGradient id="ad-mapcolorcfg-lg" x1="0" y1="0" x2="1" y2="0" gradientTransform="matrix(1,0,0,1,0,0)"
+													style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+										<stop id="ad-mapcolorcfg_1" offset="0%" stop-color="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+										<stop id="ad-mapcolorcfg_2" offset="12%" stop-color="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+										<stop id="ad-mapcolorcfg_3" offset="100%" stop-color="#ffffff" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></stop>
+									</linearGradient>
+								</defs>
+								<rect x="0" y="0" width="148" height="30" r="0" rx="0" ry="0"
+									  fill="url(#ad-mapcolorcfg-lg)" stroke="#ffffff" stroke-width="0.1" opacity="1" fill-opacity="1"
+									  style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); opacity: 1; fill-opacity: 1;"></rect>
+							</svg>
+						</div>
+						<div class="col-md-4" style="margin-left:31px">
+							<input id="ad-mapcolorcfg-color-to" style="width: 70px"/>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="ad-mapcolorcfg-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="ad-mapcolorcfg-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

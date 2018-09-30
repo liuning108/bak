@@ -1,0 +1,30 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{BATCH_ADD}}</h4>
+</div>
+<div class="modal-body">
+	<div class="row" style="text-align:center">
+		<!--
+        <div class="col-md-12">
+        	<label class="control-label">{{DIM_SCRIPT}}</label>
+		</div>
+		-->
+		<textarea id="batch-script-text" name="COMMON_REMARK" class="form-control" style="margin-top:2px;" data-rule="{{DIM_SCRIPT}}:length[1~1048, true]" placeholder="{{DIM_SCRIPT}}"></textarea>
+		<button type="button" class="btn btn-primary js-ok">
+            {{COMMON_OK}}
+        </button>
+		<textarea id="log-text"  name="COMMON_REMARK" class="form-control" data-rule="{{DIM_SCRIPT}}:length[1~1048, true]" placeholder="{{DIM_SCRIPT}}"></textarea>
+    </div>
+
+</div>
+<!--
+<div class="modal-footer">
+    <div class="row">
+        <div class="col-md-12 text-right">
+        	
+            <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+    </div>
+</div>
+-->

@@ -1,0 +1,71 @@
+<div class="comprivroot" >
+<section class="vbox js-templatemgr-panel">
+    <section>
+        <section class="hbox stretch">
+            <aside class="ad-left-md b-r" style="width: 241px">
+                <div class="ad-title b-b js-templatemgr-panel-h3" style="padding: 17px 15px">
+                    <h3 class="m-n font-thin" style="font-size:14px"><a href="#">{{EMS_TYPE}}>{{EMS}}>{{EMS_VER}}</a></h3>
+				</div>
+                <!--Tree-->
+                <div class="ad-tree">
+                    <div class="grid comprivroot js-catalog-tree"></div>
+                </div>
+                <!--Tree End-->
+            </aside>
+            <!--Right-->
+            <div id="js-tpl-list-container">
+                <section class="vbox js-adapter-right-panel">
+                    <header class="wrapper b-b clearfix">
+                        <div class="ad-title pull-left ">
+                            <h4>{{TEMPLATE_LIST}}</h4>
+                        </div>
+                        <div class=" pull-right text-right">
+                            <button class="btn btn-primary dropdown-toggle js-template-add" type="button" disabled>
+                            	<i class="fa fa-plus"></i> {{COMMON_NEW}}
+                            </button>
+                        </div>
+                        <div class="col-md-4 pull-right">
+                            <div class="input-group search-group pull-right">
+                               <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                                <input type="text" class="js-tpl-search form-control js-tpl-search-input" placeholder="请输入搜索内容...">
+                                <!--<span class="input-group-btn">
+                                    <a href="#" class="btn js-adapter-search" title="{{SEARCH}}">{{SEARCH}}</a>
+                                </span>
+                                <span class="input-group-btn">
+                                    <a href="#" class="btn js-adapter-reset" title="{{COMMON_RESET}}">{{COMMON_RESET}}</a>
+                                </span>-->
+                            </div>
+                        </div>
+                    </header>
+                    <div>
+                        <div id="js-tpl-list-grid" class="col-md-12" style="padding-top: 11px">
+                            <div class="grid comprivroot js-tpllist-grid"></div>
+                        </div>
+                        <section id="tplmgr-search-container" class="wrapper scrollable p-b-none" style="display: none;">
+                            <div class="m-b-sm overflow-y-h" style="margin-top:-5px;margin-left:-5px">
+                                <div class="pull-left m-r-sm">
+                                    <button id="tplmgr-exit-search-btn" type="button" class="btn btn-link" style="text-decoration: underline">返回列表</button>
+                                </div>
+                            </div>
+                            <div id="tplmgr-searchcont-container" class="tplmgr-seacrh-box">
+                                <!--
+                                <div>
+                                    <a href="#" class="h5"> 模板名称</a>
+                                    <p>设备类型：
+                                        <span></span>
+                                        备注：
+                                        <span></span>
+                                    </p>
+                                </div>
+                                -->
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+            <div id="js-tpl-graph-container" style="display: none;">
+            </div>
+        </section>
+    </section>
+</section>
+</div>

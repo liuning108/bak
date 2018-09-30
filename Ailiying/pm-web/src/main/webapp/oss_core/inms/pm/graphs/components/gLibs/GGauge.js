@@ -18,6 +18,21 @@ define([
     var result = {};
     var selItems = config.tabsConfig.hostPage.selItems
     var kpiDatas =config.kpiDatas.result;
+    var lengedPage=config.tabsConfig.lengedPage;
+    var lengedConfig = lengedPage||{};
+    var lengedConfig = util.getLegned(lengedConfig);
+    if (lengedConfig.open) {
+      result.legend = fish.map(selItems,function(d){
+           return {
+             'name':d.name
+           }
+      });
+      lengedConfig.data=result.legend;
+    } else {
+      lengedConfig = null;
+    }
+    result.lengedConfig=lengedConfig;
+
 
 
     if(selItems.length>0){
@@ -46,7 +61,8 @@ define([
     var result = this.createResult(config);
     var myChart = echarts.init(this.$el[0]);
     this.myChart=myChart;
-
+    console.log("result.lengedConfig222",result.lengedConfig)
+    var offsetPos = util.ganugePos(result.lengedConfig);
     var option = {
       tooltip: {
         formatter: "{a} <br/>{b} : {c}"
@@ -56,9 +72,21 @@ define([
           name: '',
           type: 'gauge',
           detail: {
-            formatter: '{value}'
+            formatter: '{value}',
+            fontWeight: 'bolder',
+            offsetCenter: [0, '50%'],
+            fontSize: 18,
           },
-          data: result.data
+          data: result.data,
+          title : {
+               offsetCenter: offsetPos,
+               textStyle: {       // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+                   fontWeight: 'bolder',
+                   fontSize: 14,
+               }
+           },
+
+
         }
       ]
     };

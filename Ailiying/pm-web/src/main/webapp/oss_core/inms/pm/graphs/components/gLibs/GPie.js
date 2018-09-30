@@ -82,6 +82,12 @@ define([
         {
           color:result.color,
           type: 'pie',
+          label: {
+                    normal: {
+                        show: false,
+                    },
+
+                },
           radius: [
             '50%', '70%'
           ],

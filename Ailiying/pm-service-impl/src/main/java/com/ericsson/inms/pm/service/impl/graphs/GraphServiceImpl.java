@@ -202,6 +202,12 @@ public class GraphServiceImpl implements GraphService {
     	   return getDAO().getDash(dict);
 	}
     
+    @Override
+	public JSONObject getConfigById(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+    	   return getDAO().getConfigById(dict);
+	}
+    
     
    
 
@@ -221,6 +227,7 @@ public class GraphServiceImpl implements GraphService {
 	    		return null;
 	    	}
     }
+	
 	
 	
 	

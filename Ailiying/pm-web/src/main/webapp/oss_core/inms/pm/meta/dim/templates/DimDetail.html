@@ -1,0 +1,65 @@
+
+<form class="form-horizontal clearfix js-dim-detail-form">
+			
+	<div class="col-md-6">
+		<div class="form-group required">
+			<div class="col-md-12">
+				<label class="control-label">{{DIM_NAME}}</label>
+			</div>
+			<div class="col-md-12">
+				<input name="DIM_NAME" class="form-control"  data-rule="{{DIM_NAME}}:required;length[1~64, true]">
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-6">
+		<div class="form-group required">
+			<div class="col-md-12">
+				<label class="control-label">{{DIM_CODE}}</label>
+			</div>
+			<div class="col-md-12">
+				<div style="width:15%;float:left;" class="js-code-prefix-div">
+					<input name="CODE_PREFIX" class="form-control" style="text-align:center;border-right:0px;" readonly title="{{CODE_PREFIX}}" >
+				</div>
+				<div  style="width:85%;float:right;" class="js-dim-code-div">
+					<input name="DIM_CODE" class="form-control js-dim-code" data-rule="{{DIM_CODE}}:required;length[1~30, true]">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="form-group">
+			<div class="col-md-12">
+				<label class="control-label">{{DIM_SCRIPT}}</label>
+			</div>
+			<div class="col-md-12">
+				<textarea id="script-text" name="DIM_SCRIPT" class="form-control" data-rule="{{DIM_SCRIPT}}:length[1~10240, true]" ></textarea>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12">
+		<div class="form-group">
+			<div class="col-md-12">
+				<label class="control-label">{{COMMON_REMARK}}</label>
+			</div>
+			<div class="col-md-12">
+				<textarea id="remark-text"  name="DIM_DESC" class="form-control" data-rule="{{COMMON_REMARK}}:length[1~128, true]"></textarea>
+			</div>
+		</div>
+	</div>
+	
+	<div class="col-md-12">
+		<div class="form-group">
+			<div class="col-md-12 text-right">
+				<button type="button" class="btn btn_minwidth btn-primary js-dim-ok">
+					{{COMMON_OK}}
+				</button>
+				<button type="button" class="btn btn_minwidth btn-default js-dim-cancel">
+					{{COMMON_CANCEL}}
+				</button>
+			</div>
+		</div>
+	</div>
+</form>	

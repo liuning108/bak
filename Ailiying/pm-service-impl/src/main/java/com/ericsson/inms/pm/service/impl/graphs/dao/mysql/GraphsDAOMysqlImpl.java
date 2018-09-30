@@ -402,4 +402,15 @@ public class GraphsDAOMysqlImpl extends GraphsDAO {
 	        return result;
 	}
 
+	@Override
+	public JSONObject getConfigById(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		String id =dict.getString("id");
+		String sql ="select para_value VALUE, para_name NAME,para_name_cn NAMECN from pm_paravalue where para_id= ? order by para_order asc";
+        List<Map<String,String>> values =this.queryForMapList(sql, new Object[] {id});
+        JSONObject result =new JSONObject();
+        result.put("result", values);
+		return result;
+	}
+
 }

@@ -1,0 +1,351 @@
+<div class="modal-header">
+	<h4 class="modal-title js-tplmgr-detail-title"></h4>
+</div>
+<div class="modal-body">
+<div class="ad-modal-box"  style="display: block;">
+	<div class="ad-block tab-wizard" style="width:800px;background:#fff;">
+	    <ul class="nav nav-tabs nav-justified nav-pills">
+	        <li class="active" >
+	            <a href="#" class="js-nav-tabs" tab-content="js-tplmgr-wizard-tab1" data-toggle="tab" aria-expanded="true">模板概况<span class="badge badge-default pull-right wizard-step">1</span></a>
+	        </li>
+	        <li>
+	            <a href="#" class="js-nav-tabs" tab-content="js-tplmgr-wizard-tab2" data-toggle="tab">关联指标<span class="badge badge-default pull-right wizard-step">2</span></a>
+	        </li>
+            <li>
+                <a href="#" class="js-nav-tabs" tab-content="js-tplmgr-wizard-tab3" data-toggle="tab">告警规则<span class="badge badge-default pull-right wizard-step">3</span></a>
+            </li>
+	    </ul>
+	    <div class="tab-content panel-body border n-scroll-y n-scroll-x" style="padding-left: 0px!important;">
+            <!--模板概况tab-->
+            <div id="js-tplmgr-wizard-tab1" class="fadeInUp animated tab-pane active" style="padding-left:10px;height:320px;">
+                <form class="form-horizontal clearfix js-tplmgr-detail-form">
+                    <div class="col-md-7">
+                        <div class="form-group required">
+                            <div class="col-md-12">
+                                <label class="control-label">设备类型</label>
+                            </div>
+                            <div class="col-md-12">
+                                <input name="NE_TYPE" class="form-control" data-rule="{{NE_TYPE}}:required;" placeholder="{{COMMON_PLS_SEL}}">
+                            </div>
+                        </div>
+                    </div>
+                    <!--图标选择-->
+                    <div class="col-md-5 js-tplmgr-device-img lIconShadow" style="padding-top: 15px">
+                        <div id="tplmgr_ne_icon">
+                            <!--
+                            <div class="well"><img class="slick-img" src="static/oss_core/inms/pm/templateManage/images/accessPoint3Com.png" >
+                            </div>
+                            -->
+                        </div>
+                        <div id="tplmgr_ne_icon_all" class="scrollable" style="display:none;height:170px">
+                        </div>
+                        <button id="tplmgr-allicon-btn" type="button" style="position: absolute;right: 3px;bottom: 3px" title="全部" class="btn tplmgr-link-btn">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <button id="tplmgr-allicon-hide-btn" type="button" style="display:none;position: absolute;right: 8px;bottom: 4px" title="收起" class="btn tplmgr-link-btn">
+                            <i class="fa fa-caret-up"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-7" style="margin-top:-160px">
+                        <div class="form-group required">
+                            <div class="col-md-12">
+                                <label class="control-label">模板名称</label>
+                            </div>
+                            <div class="col-md-12">
+                                <input name="TEMPLATE_NAME" class="form-control" data-rule="{{TEMPLATE_NAME}}:required;length[1~64]">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5" style="height:69px;margin-top:-90px">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="control-label">{{IS_ENABLED}}</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input id="IS_STATE" name="IS_STATE" class="toggle-switch" type="checkbox" checked="">
+                                    <label for="IS_STATE"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12" style="margin-top:-10px">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="control-label">备注</label>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <textarea name="TEMPLATE_DESC" rows="3"
+                                              style="height:60px;width: 740px" class="form-control" data-rule="length[0~128]"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            	</form>
+            </div>
+            <!--关联指标tab-->
+            <div id="js-tplmgr-wizard-tab2" class="fadeInUp animated tab-pane" style="padding-left:10px;height:320px;">
+                <form class="form-horizontal clearfix js-tplmgr-relativekpi-form">
+                    <div class="col-md-6">
+                        <div class="form-group required">
+                            <div class="col-md-12">
+                                <label class="control-label">物理模型</label>
+                            </div>
+                            <div class="col-md-12">
+                                <input name="MODEL_PHY_CODE" class="form-control" data-rule="{{MODEL_PHY_CODE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group required">
+                            <div class="col-md-12">
+                                <label class="control-label">监测对象</label>
+                            </div>
+                            <div class="col-md-12">
+                                <input name="FIELD_CODE" class="form-control" data-rule="{{FIELD_CODE}}:required;"  placeholder="{{COMMON_PLS_SEL}}">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- -->
+                <div class="js-tplmgr-kpisel-div">
+                    <div class="row">
+                        <div class="col-md-6 b-r" style="height:242px">
+
+                            <div class="form-group required" style="margin-top:-5px">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label class="control-label">可选指标</label>
+                                        <button type="button" id="tplmgr-search-btn" class="btn btn-link">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                        <input type="text" id="tplmgr-selectablekpi-search"
+                                               style="border: 0px;border-bottom: solid 1px #aaa;display: none">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix m-t-sm m-block" >
+                                <ul id="sortable" name="tplmgr-kpi-selectable" class="scrollable" style="height:180px">
+
+                                </ul>
+                                <div class="ad-bar"><a id="tplmgr-kpi-addall" href="#">全部添加</a></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="height:242px">
+                            <div class="ad-title">已选指标<a class="pull-right"></a></div>
+
+                            <div class="clearfix m-t-sm m-block">
+                                <ul id="sortable" name="tplmgr-kpi-selected" class="scrollable" style="height:180px;margin-top:10px">
+                                </ul>
+                                <div class="ad-bar"><a id="tplmgr-kpi-removeall" href="#">清空</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--告警规则-->
+            <div id="js-tplmgr-wizard-tab3" class="fadeInUp animated tab-pane scrollable" style="height:320px;">
+                <div class="col-md-3" style="margin-left: -10px">
+                    <a class="js-tplmgr-alarmrule-add" href="#"><i class="fa fa-plus"></i></a>
+                    <!-- -->
+                    <div class="js-tplmgr-alarmrule-grid">
+
+
+                    </div>
+                </div>
+                <form class="col-md-9 form-horizontal clearfix js-tplmgr-alarm-form" >
+                    <div class="js-tplmgr-alarm-detail" style="display: none">
+                        <div class="col-md-6">
+                            <div class="form-group required">
+                                <div class="col-md-12">
+                                    <label class="control-label">告警规则名称</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <input name="RULE_NAME" class="form-control" data-rule="{{RULE_NAME}}:required;length[1~64]">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group required">
+                                <div class="col-md-12">
+                                    <label class="control-label">{{ALARM_CODE}}</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <input name="ALARM_CODE" class="form-control" data-rule="{{ALARM_CODE}}:required;length[1~64]" placeholder="{{FOR_EXAMPLE}}：XXX-XXXX">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group required">
+                                <div class="col-md-12">
+                                    <label class="control-label">告警标题</label>
+                                    <button type="button" class="btn btn-link" style="display:none;margin-top:-20px">
+                                        <i class="fa fa-question-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-12">
+                                    <input name="ALARM_TITLE" class="form-control" data-rule="{{ALARM_TITLE}}:required;length[1~128]"
+                                           value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group required">
+                                <div class="col-md-12">
+                                    <label class="control-label">告警正文</label>
+                                    <button type="button" class="btn btn-link" style="display:none;margin-top:-20px">
+                                        <i class="fa fa-question-circle"></i>
+                                    </button>
+                                </div>
+                                <div class="col-md-12">
+                                    <input name="ALARM_BODY" class="form-control" data-rule="{{ALARM_BODY}}:required;length[1~128]"
+                                           value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="m-b-sm">
+                                <div class="wizard">
+                                    是否启用
+                                    <input id="RULE_STATE" name="RULE_STATE" value='' class="toggle-switch js-alarm-rule-switch" type="checkbox" checked>
+                                    <label for="RULE_STATE"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <hr style="width: 100%">
+                        <!-- -->
+                        <div class="col-md-12">
+                            <div class="m-b-sm">
+                                <div class="wizard">
+                                    告警动作
+                                    <input id="ENABLE_ACTION" name="ENABLE_ACTION" value='' class="toggle-switch js-alarm-action-switch" type="checkbox">
+                                    <label for="ENABLE_ACTION"></label>
+                                </div>
+                                <div class="js-alarm-action-cfg-div" style="display: none;padding-top: 5px">
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <input name="TRIGGER_DATE" class="form-control" title='{{TRIGGER_DATE}}' placeholder="{{COMMON_PLS_SEL}}">
+                                        </div>
+                                        <div class="col-md-3" style="text-align:center">
+                                            <label class="control-label">，当告警产生时，</label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input name="TRIGGER_TIME" class="form-control" title='{{TRIGGER_TIME}}'  placeholder="{{COMMON_PLS_SEL}}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input name="PLUGIN_TYPE" class="form-control" title='{{PLUGIN_TYPE}}'  placeholder="{{COMMON_PLS_SEL}}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+
+                                        <div class="col-md-12">
+                                            <div class="input-group" style='width:100%'>
+                                                <input name="PLUGIN_NO" class="form-control" title='{{PLUGIN_NO}}' placeholder="">
+                                                <span class="input-group-addon hide tplmgr-notify-obj-btn"><i class="fa fa-cog"></i></span>
+                                            </div>
+                                            <div class="wrapper bg-light hide js-notify-obj-param-box">
+                                                <div class="m-b-sm overflow-y-h">
+                                                    <b>{{PLUGIN_SERV_PARAM_CFG}}</b>
+                                                    <a href="#" class="ad-link pull-right tplmgr-notify-obj-param-btn"  grid='tplmgr-notify-obj-param-grid'><i class="fa fa-plus"></i> {{COMMON_ADD}}</a>
+                                                </div>
+                                                <div class="table-responsive ad-table  m-b-none tplmgr-notify-obj-param-grid">
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -->
+                        <div class="col-md-12">
+                            <div id="alarm_rule_tabs" class="tabs-pill ui-tabs" style="position:absolute;left:-5px;right:-15px">
+                                <ul class="ui-tabs-nav">
+                                    <li><a href="#alarm_rule_generate">告警生成规则</a></li>
+                                    <li><a href="#alarm_rule_clear">告警消除规则</a></li>
+                                </ul>
+                                <!--告警生成规则tab-->
+                                <div id="alarm_rule_generate" style="margin-top: -15px;">
+                                    <div class="col-md-12 required">
+                                        <div class="m-b-sm">告警级别</div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="wizard js-tplmgr-alarmlevel-div">
+                                            <div class="tabs-pill ui-tabs js-alarm-level-tab">
+                                                <ul class="ui-tabs-nav js-alarm-level-ul">
+
+                                                </ul>
+                                                <div class=" m-t-sm tab-content js-alarm-level-content">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--告警消除规则tab-->
+                                <div id="alarm_rule_clear">
+                                    <div class="row">
+                                        <div class="js-alarm-rule-div">
+                                            <div class="col-md-12 no-padding">
+                                                <form class="form-horizontal">
+                                                    <div class="wizard">
+                                                        观察窗口
+                                                        <input id="time_window_clear" name='TIME_WINDOW' text='{{alarm-level-name}}' class="toggle-switch js-alarm-timewindow" type="checkbox">
+                                                        <label for="time_window_clear"></label>
+                                                        <div class="js-alarm-clear-windowvalue form-group" name="TIME_WINDOW_VALUE_CLEAR_DIV"
+                                                             style="display:none;width:200px;position:absolute;left:120px;top:0px">
+                                                            <label class="col-md-4 col-sm-4 control-label">窗口值</label>
+                                                            <div class="col-md-8 col-sm-8">
+                                                                <input name="TIME_WINDOW_VALUE_CLEAR" class="form-control" style="width: 75px">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="padding-left:26px;padding-right:26px;margin-top:10px">
+                                                        <label class="col-md-2 control-label" style="margin-top:3px;margin-left:-8px">条件：</label>
+                                                        <div class="col-md-10">
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="radio" name="CONDI_TYPE_CLEAR" value="AND" checked>同时满足
+                                                                </label>
+                                                                <label>
+                                                                    <input type="radio" name="CONDI_TYPE_CLEAR" value="OR">任一满足
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <hr style="width:100%">
+                                                        <!-- -->
+                                                        <div>
+                                                            <div id="alarm_rule_clear_item" class="wrapper scrollable p-b-none">
+
+                                                            </div>
+                                                            <button type="button" id="alarm_rule_clear_add" class="btn btn-ico"
+                                                                    style="position:absolute;right:21px;top:30px">
+                                                                <i class="fa fa-plus"></i>
+                                                            </button>
+                                                        </div>
+                                                        <!-- -->
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+	</div>
+</div>
+</div>
+
+<div class="modal-footer">
+	<div class="col-md-12">
+    <button class="btn btn-default pull-left js-adapter-previous-btn" data-toggle="tab">{{PREVIOUS}}</button>
+    <button class="btn btn-success js-adapter-next-btn"  data-toggle="tab">{{NEXT}}</button>
+    </div>
+</div>

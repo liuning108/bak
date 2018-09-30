@@ -1,0 +1,63 @@
+<div class="row">
+	<div class="col-md-12 js-agg-detail-div">
+		<li class="tl-item js-agg-step-li-item">
+
+			<div class="border wrapper" step_no='1' step_name='CFG_AGG'>
+				<div class="row">
+					<div class="col-md-5 b-r">
+						<div class="ad-title">{{SELECT}}</div>
+						<div class=" search-group" style="width:100%; position: relative;">
+							<i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+							<input type="text" class="ad-theme-search form-control js-agg-model-seling-search" data-rule=''>
+						</div>
+
+						<div class="clearfix m-t-sm m-block">
+							<ul id="sortable" class="ui-sortable js-agg-model-seling-ul" style="hight:200px">
+
+							</ul>
+							<div class="ad-bar"><a href="#" class="js-agg-model-add-all">{{ADD_ALL}}</a></div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="ad-title">{{ADDED}}</div>
+						<div class="input-group search-group" style="width:100%">
+							<i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+							<input type="text" class="ad-theme-search form-control js-agg-model-seled-search" data-rule=''>
+						</div>
+						<div class="clearfix m-t-sm m-block">
+							<form class="clearfix">
+								<ul id="sortable" class="ui-sortable js-agg-model-seled-ul" style="hight:200px;">
+
+								</ul>
+								<div class="ad-bar"><a href="#" class="js-agg-model-del-all">{{COMMON_CLEAR}}</a></div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</li>
+	</div>
+</div>
+<style>
+	.form-control-feedback {
+		position: absolute;
+		top: 0;
+		display: block;
+		width: 26px;
+		height: 26px;
+		line-height: 26px;
+		text-align: center;
+	}
+
+	.input-group-addon {
+		position: inherit !important;
+		left: 0 !important;
+	}
+
+	.glyphicon {
+		position: relative !important;
+		top: 1px !important;
+		left: 0 !important;
+	}
+</style>

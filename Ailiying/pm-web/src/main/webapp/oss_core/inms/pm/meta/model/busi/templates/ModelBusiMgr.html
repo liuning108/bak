@@ -1,0 +1,73 @@
+<div class="row">
+	<div class="col-md-3">
+	<div class="container_left">
+		<div class="js-model-busi-left-panel">
+			<div class="panel panel_shadow">
+				<div class="panel-heading">
+					<span class="panel-title">{{EMS_TYPE}}>{{EMS}}>{{EMS_VER}}</span>
+				</div>
+				<div class="grid js-catalog-tree"></div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-md-9">
+		<div class="container_right">
+		<div class="js-model-busi-right-panel">
+			<div class="panel panel_shadow">
+				<div class="panel-heading">
+					<span class="panel-title">{{MODEL_BUSI}}</span>
+					<div class="pull-right text-right">
+	                   <div class="input-group search-group pull-left js-kpi-search-div" style="margin-top:-4px;">
+	                       <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+	                        <input type="text" class="ad-theme-search form-control js-busy-search-input" placeholder="{{MODEL_INPUT}}" >
+	                        <span class="input-group-btn">
+	                            <a href="#" class="btn js-busy-search" title="{{SEARCH}}">{{SEARCH}}</a>
+	                        </span>
+	                        <span class="input-group-btn">
+	                            <a href="#" class="btn js-busy-reset" title="{{COMMON_RESET}}">{{COMMON_RESET}}</a>
+	                        </span>
+	                    </div>
+		            </div>
+				</div>
+				<div class="grid js-model-busi-grid"></div>
+			</div>
+		</div>
+		<div class="js-model-busi-detail-panel"  style="display:none;">
+			<div class="tabs js-model-busi-detail-tab">
+				<ul class="tabs__navbar">
+					<li><a href="#tabs-active-model">{{BASE_INFO}}</a></li>
+					<li><a href="#tabs-inactive-model">{{FIELD_INFO}}</a></li>
+				</ul>
+				<div id="tabs-active-model">
+					<div class="panel-body js-model-busi-base"></div>
+				</div>
+				<div id="tabs-inactive-model">
+					<div class="js-model-busi-field"></div>
+				</div>
+			</div>
+			<div class="tabs ui-tabs ui-jqgrid text-right js-model-busi-detail-button" >
+				
+	        	<div class="ui-jqgrid-pager"  style="padding:2px;margin:0px;">
+	        		<div class="ui-pg-button js-model-busi-field-button" style="margin-left:-4px;display:none;">
+	        			<div class="btn-group ui-nav-btn-group">
+	        				<button class="ui-nav-button js-field-add" type="button">{{COMMON_ADD}}</button>
+	        				<button class="ui-nav-button js-field-batch-add" type="button">{{BATCH_ADD}}</button>
+	        				<button class="ui-nav-button js-field-batch-edit" type="button">{{BATCH_EDIT}}</button>
+	        				<button class="ui-nav-button js-field-batch-del" type="button">{{BATCH_DELETE}}</button>
+	        			</div>
+	        		</div>
+		        	<button type="button" class="btn btn_minwidth btn-primary js-model-busi-ok">
+			            {{MODEL_OK}}
+			        </button>
+		            <button type="button" class="btn btn_minwidth btn-default js-model-busi-cancel">
+		                {{COMMON_CANCEL}}
+		            </button>
+		        </div>
+	        </div>
+		</div>
+		</div>
+	</div>
+
+</div>

@@ -100,10 +100,39 @@ define([
       if (data.error) {
         callback(data);
       } else {
-        config.kpiDatas = data;
+        var precData =DBUtil.getPrecData(config.kpiInfo,data)
+        config.kpiDatas = precData;
         callback(config);
       }
     })
+  }
+  DBUtil.getPrecData = function(kpiInfo,data){
+     console.log('getPrecData',kpiInfo,data);
+     fish.each(kpiInfo,function(info){
+         var key = info.KPI_CODE;
+         var precNum = info.PREC
+
+         if(!precNum){
+            console.log("getPrecData isEmpty",key,precNum)
+           if(precNum===0){
+             precNum =0;
+           }else{
+             precNum=2;
+           }
+
+         }
+         fish.each(data.result,function(d){
+           console.log("getPrecData",key,precNum)
+              var value = Number(d[key]);
+              if(fish.isNumber(value)){
+                var percNum = Number(precNum);
+                if(fish.isNaN(percNum))percNum=2;
+                d[key] = value.toFixed(precNum);
+              }
+         });
+
+     })
+     return data;
   }
   DBUtil.createGraunsSql = function(config, timeRangeObj) {
     console.log('createMinGraunsSql', config);

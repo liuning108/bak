@@ -1,0 +1,116 @@
+<form class="form-horizontal clearfix js-model-phy-detail-form">	
+<!-- 1 -->
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_PHY_NAME}}</label>
+		</div>
+		<div class="col-md-12">
+			<input name="MODEL_PHY_NAME" class="form-control" data-rule="{{MODEL_PHY_NAME}}:required;length[1~64, true]">
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_PHY_CODE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div style="width:15%;float:left;" class="js-code-prefix-div">
+				<input name="CODE_PREFIX" class="form-control" style="text-align:center;border-right:0px;" readonly title="{{CODE_PREFIX}}" >
+			</div>
+			<div  style="width:85%;float:right;" class="js-model-phy-code-div">
+				<input name="MODEL_PHY_CODE" class="form-control js-model-phy-code" data-rule="{{MODEL_PHY_CODE}}:required;length[1~30, true]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 2 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EFF_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EFF_TIME" data-rule="{{EFF_DATE}}:required;match[lt, EXP_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{EXP_DATE}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="input-group">
+				<input class="form-control" name="EXP_TIME" data-rule="{{EXP_DATE}}:match[gt,EFF_DATE, date]">
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 3 -->	
+<div class="col-md-6">
+	<div class="form-group required">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_TYPE}}</label>
+		</div>
+		<div class="col-md-12 pm-checkbox js-model-type-div">
+			
+		</div>
+	</div>
+	<div class="form-group">	
+		<div class="col-md-12">
+			<label class="control-label">{{COMMON_REMARK}}</label>
+		</div>
+		<div class="col-md-12">
+			<textarea name="COMMENTS" class="form-control" data-rule="{{COMMON_REMARK}}:length[1~256, true]" style="height:47px"></textarea>
+		</div>
+		
+	</div>
+</div>
+	
+<div class="col-md-6">	
+	<div class="form-group required">
+		<!--
+		<div class="col-md-12">
+			<label class="control-label">{{GRANU}}</label>
+		</div>
+		-->
+		<div class="col-md-12">
+			<div class="grid js-granu-grid border"></div>
+		</div>
+	</div>	
+</div>
+
+
+<!-- 4 -->
+<div class="col-md-12">
+	<div class="form-group ">
+		<div class="col-md-12">
+			<label class="control-label">{{MODEL_SCRIPT}}</label>
+		</div>
+		<div class="col-md-12">
+			<div class="wizard">
+                <div class="tabs-pill ui-tabs js-model-phy-script-tab">
+                    <ul class="ui-tabs-nav js-model-phy-script-ul">
+                        
+                    </ul>
+                    <div class="m-t-sm tab-content js-model-phy-script-content">
+                        
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+<div class="col-md-12">
+	<div class="form-group">
+	</div>
+</div>
+</form>	

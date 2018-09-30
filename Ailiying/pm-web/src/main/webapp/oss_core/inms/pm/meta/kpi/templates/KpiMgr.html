@@ -1,0 +1,77 @@
+<div class="row">
+	<div class="col-md-3 js-kpi-left-panel">
+		<div class="container_left">
+		<div class="panel panel_shadow">
+			<div class="panel-heading"><span class="panel-title">{{EMS_TYPE}}>{{EMS}}</span></div>
+			<div class="grid js-catalog-tree"></div>
+		</div>
+		</div>
+	</div>
+
+	<div class="col-md-9 js-kpi-right-panel" style='padding-left:1px;overflow:hidden;'>
+        <!--
+        <button type="button" class="btn btn-ico pm-kpi-filter-switch-on"
+                style="position:absolute;right:20px;top:15px;display: none">
+            <i class="fa fa-caret-up"></i>
+        </button>
+        <button type="button" class="btn btn-ico pm-kpi-filter-switch-off"
+                style="position:absolute;right:20px;top:15px;display: none">
+            <i class="fa fa-caret-down"></i>
+        </button>
+        -->
+        <!-- -->
+		<div class="container_right">
+            <div class="panel panel_shadow">
+                <div class="panel-heading">
+                    <span class="panel-title js-kpi-detail-panel">{{KPI_LIST}}</span>
+                    <div class="pull-right text-right">
+                       <div class="input-group search-group pull-left js-kpi-search-div" style="margin-top:-4px;">
+                           <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+                            <input type="text" class="ad-theme-search form-control js-kpi-search-input" placeholder="{{KPI_INPUT}}" >
+                            <span class="input-group-btn">
+                                <a href="#" class="btn js-kpi-search" title="{{SEARCH}}">{{SEARCH}}</a>
+                            </span>
+                            <span class="input-group-btn">
+                                <a href="#" class="btn js-kpi-reset" title="{{COMMON_RESET}}">{{COMMON_RESET}}</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <hr style="margin-top:0px;width: 100%">
+                <!-- -->
+                <div class="pm_filter_box container_right" style="padding-bottom: 0px">
+                    <!-- -->
+                    <div class="pm_filter_container" style="margin-top:-20px">
+
+                    </div>
+                    <!-- -->
+                    <div class="pm_filter_list pm_filter_select" style="display: none">
+                        <div class="pm_filer_title col-md-2"><span>已选条件：</span></div>
+                        <div class="pm_filer_term col-md-10" style="padding-left:16px">
+                            <ul id="pm_filer_selected_term_ul">
+                                <!--<li>类型1<i class="fa fa-close"></i></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- -->
+                <div class="grid js-kpi-grid"></div>
+                <div class="js-kpi-detail" style="display:none;">
+                    <div  class="panel-body js-kpi-detail-content">
+
+
+                    </div>
+                    <div class="ui-jqgrid-pager text-right js-kpi-detail-button" style="padding: 2px;border-left:0;border-right:0;">
+                            <button type="button" class="btn btn_minwidth btn-primary js-kpi-ok">
+                                {{KPI_OK}}
+                            </button>
+                            <button type="button" class="btn btn_minwidth btn-default js-kpi-cancel">
+                                {{COMMON_CANCEL}}
+                            </button>
+                    </div>
+
+                </div>
+            </div>
+		</div>
+	</div>
+</div>

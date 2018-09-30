@@ -1,0 +1,20 @@
+﻿define({
+    TEMPLATE_NEW:"新建模板",
+    SUBTEMPLATE_NEW:"新建子模板",
+    TEMPLATE_EDIT:"修改模板",
+    SUBTEMPLATE_EDIT:"编辑子模板",
+    TEMPLATE_INPUT:"请输入模板名称...",
+	ADAPTER_SERV:"Adapter Component",
+	ADAPTER_NEW_SUCCESS: "Create Adapter successfully.",
+	ADAPTER_EDIT_SUCCESS: "Modify Adapter successfully.",
+	ADAPTER_DEL_SUCCESS: "Delete Adapter successfully.",
+	ADAPTER_DEL_CONFIRM: "Are you sure to delete the Adapter?",
+	INPUT_BASE_INFO:"Input basic information",
+	INPUT_MAPPING_INFO:"Input Mapping Information",
+	ADAPTER_SERV_PARAM_CFG:"Adapter Component Parameter Configuration",
+	PLEASE_SEL_MO:"Please select a Measure Object",
+	DATA_MAP_SQL:"RuleScript",
+	MO_RELA_MODEL_ISNULL:"Measure Object[$1]Physical Model/Granularity information is not completed.",
+	DATA_MAP_SQL_ISNULL:"Measure Object [$1] should at least include one type RuleScript.",
+    TEMPLATE_LIST: "模板列表"
+});

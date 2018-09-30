@@ -1,0 +1,48 @@
+<div class="row">
+	<div class="col-md-3 js-model-phy-left-panel">
+	<div class="container_left">
+		<div class="panel panel_shadow">
+			<div class="panel-heading">
+				<span class="panel-title">{{EMS_TYPE}}>{{EMS}}>{{EMS_VER}}</span>
+			</div>
+			<div class="grid js-catalog-tree"></div>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-md-9 js-model-phy-right-panel">
+	<div class="container_right">
+		<div class="panel panel_shadow">
+			<div class="panel-heading">
+				<span class="panel-title js-model-phy-detail-panel">{{MODEL_PHY_LIST}}</span>
+				<div class="pull-right text-right">
+	                   <div class="input-group search-group pull-left js-kpi-search-div" style="margin-top:-4px;">
+	                       <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+	                        <input type="text" class="ad-theme-search form-control js-phy-search-input" placeholder="{{MODEL_INPUT}}" >
+	                        <span class="input-group-btn">
+	                            <a href="#" class="btn js-phy-search" title="{{SEARCH}}">{{SEARCH}}</a>
+	                        </span>
+	                        <span class="input-group-btn">
+	                            <a href="#" class="btn js-phy-reset" title="{{COMMON_RESET}}">{{COMMON_RESET}}</a>
+	                        </span>
+	                    </div>
+		            </div>
+			</div>
+			<div class="grid js-model-phy-grid"></div>
+			<div class="js-model-phy-detail" style="display:none;">
+				<div  class="panel-body js-model-phy-detail-content">
+				</div>
+				<div class="ui-jqgrid-pager text-right js-model-phy-detail-button" style="padding: 2px;border-left:0;border-right:0;">
+		        	<button type="button" class="btn btn_minwidth btn-primary js-model-phy-ok">
+				            {{MODEL_OK}}
+				        </button>
+			            <button type="button" class="btn btn_minwidth btn-default js-model-phy-cancel">
+			                {{COMMON_CANCEL}}
+			            </button>
+	        	</div>
+		        
+			</div>
+		</div>
+	</div>
+	</div>
+</div>

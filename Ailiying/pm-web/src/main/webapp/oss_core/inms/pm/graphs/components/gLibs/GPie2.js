@@ -81,6 +81,13 @@ define([
       legend: legnedConfig,
       series: [
         {
+          label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+
+          },
           color:result.color,
           type: 'pie',
           radius: '70%',

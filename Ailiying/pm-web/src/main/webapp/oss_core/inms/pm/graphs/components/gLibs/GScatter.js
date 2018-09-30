@@ -175,8 +175,10 @@ define([
         return d;
       });
     }
-
     var option = {
+      grid:{
+        y: 10
+      },
       dataZoom: propPageConfig.dataZoom,
       tooltip: {
         trigger: 'axis',

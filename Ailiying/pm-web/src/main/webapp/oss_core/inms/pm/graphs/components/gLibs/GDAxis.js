@@ -155,11 +155,17 @@ define([
       });
     }
     var axisLabel = util.getAxisLabel(config.tabsConfig);
+    var grid_y =util.getGridY(result.lengedConfig);
     var gridConfig =null;
     if(axisLabel.h){
        gridConfig={
+          y:grid_y,
           y2:axisLabel.h
        }
+    }else{
+      gridConfig={
+         y:grid_y
+      }
     }
     result.xAxis[0].axisLabel= {
       fontSize: 10,

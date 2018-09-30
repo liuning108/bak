@@ -1,0 +1,39 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{TOPIC_SHARE}}</h4>
+</div>
+<div class="modal-body" style="overflow: hidden; ">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<div class="ad-tolbad">
+				<div class="form-group">
+					<label style="margin-left: 5px">{{SET_TOPIC_SHARE}}</label>
+					<div class="row" style="padding-left:15px">
+						<label class="checkbox-inline"><input name="ad-sharetopic-sharetype-chx" id="ad-sharetopic-sharetype-no-btn" type="checkbox" checked>{{NOT_SHARED}}</label>
+						<label class="checkbox-inline"><input name="ad-sharetopic-sharetype-chx" id="ad-sharetopic-sharetype-all-btn" type="checkbox">{{SHARED_WITH_EVERYONE}}</label>
+						<label class="checkbox-inline"><input name="ad-sharetopic-sharetype-chx" id="ad-sharetopic-sharetype-some-btn" type="checkbox">{{SHARED_TO_THE_SPECIFIED_USER}}</label>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group">
+					<label style="margin-left: 5px">{{SELECT_SPECIFIED_USER}}</label>
+					<div class="row" style="padding-left:6px">
+						<select id="ad-sharetopic-user-input" name="multiselect" style="width: 420px"
+								class="chosen-select" data-placeholder="{{CHOOSE_USERS}}..." multiple="" data-rule="required">
+							<!-- option -->
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right" style="margin-top:-5px;padding-right:14px;">
+		<button type="button" class="btn btn_primary btn_minwidth" id="btn-slm-slimgr-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="btn-slm-slimgr-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

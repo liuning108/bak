@@ -182,5 +182,16 @@ public interface GraphService {
 	 *             <br>
 	 */
 	JSONObject getDash(JSONObject dict) throws BaseAppException;
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	JSONObject getConfigById(JSONObject dict) throws BaseAppException;
 
 }

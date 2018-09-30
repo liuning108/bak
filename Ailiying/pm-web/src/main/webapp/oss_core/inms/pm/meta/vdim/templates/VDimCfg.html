@@ -1,0 +1,105 @@
+<div class="modal-header">
+	<h4 class="modal-title">Virtual Field Settings</h4>
+</div>
+<div class="modal-body" style="overflow: hidden">
+	<div class="ad-modal-box" style="height: 150px">
+		<div class="ad-tolbad">
+			<div class="ad-block" style="height: 400px">
+				<!-- -->
+				<div id="ad-axiscfg-dim-container" class="form-group col-md-12">
+					<label id="ad-axiscfg-dim" class="control-label pull-left">Field Name：</label>
+					<div class="col-md-10">
+						<input id="ad-vdim-name-input" class="form-control">
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group col-md-12">
+					<label class="control-label pull-left">Group Field：</label>
+					<div class="col-md-3">
+						<select id="ad-vdim-field-select" class="form-control">
+						</select>
+					</div>
+					<label class="control-label pull-left">Group Type：</label>
+					<div class="col-md-4">
+						<select id="ad-vdim-grouptype-sel" class="form-control" style="width:265px">
+							<option value="0">Items</option>
+							<!--<option value="0">按条目</option>-->
+							<!--<option value="1">表达式</option>-->
+						</select>
+					</div>
+				</div>
+				<!-- -->
+				<div id="ad-axiscfg-multiyaxis-sel">
+					<div class="row">
+						<div class="col-md-4 b-r">
+							<div class="control-label" style="padding-left:10px">Group<a href="#" id="ad-vdim-addgroup-btn" class="btn pull-right"><i class="fa fa-plus ad-icon"></i></a></div>
+							<div class="clearfix m-t-sm m-block" >
+								<ul id="sortable" class="selectableGroup">
+									<!-- -->
+									<li id="ad-vdim-nogroup-li">
+										<span class="selectable" style="left:0px;">
+											Others
+                                		</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-7">
+							<div>
+								<div class="form-group col-md-12">
+									<label class="control-label pull-left">Group Name：</label>
+									<div class="col-md-8">
+										<input id="ad-vdim-groupname-input" class="form-control" style="width:270px">
+									</div>
+								</div>
+								<!--右边条目选择区域-->
+								<div id="ad-vdim-exact">
+									<div class="row">
+										<div class="col-md-6 b-r">
+											<div class="input-group search-group" style="width:100%">
+												<i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+												<input type="text" id="ad-vdim-search" class="ad-theme-search form-control">
+											</div>
+											<div class="clearfix m-t-sm m-block" style="height: 200px;min-height: 200px">
+												<ul id="sortable" name="ad-vdim-selectable">
+												</ul>
+												<div class="ad-bar">  <a id="ad-vdim-addall" href="#">Add All</a></div>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="input-group search-group" style="width:100%">
+
+											</div>
+											<div class="clearfix m-t-sm m-block" style="padding-top:28px;height: 230px;min-height: 230px">
+												<ul id="sortable" name="ad-vdim-selected">
+												</ul>
+												<div class="ad-bar">  <a id="ad-vdim-removeall" href="#">Clear</a></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- -->
+								<!--未分组的详情div-->
+								<div id="ad-vdim-nogroup-detail" style="display: none;text-align: center; padding-top: 130px;">
+									No grouped items
+								</div>
+								<!-- -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- -->
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right">
+		<button type="button" class="btn btn_primary btn_minwidth" id="btn-slm-slimgr-ok" autofocus>
+			{{SLA_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="btn-slm-slimgr-cancel">
+			{{SLA_CANCEL}}
+		</button>
+	</div>
+</div>

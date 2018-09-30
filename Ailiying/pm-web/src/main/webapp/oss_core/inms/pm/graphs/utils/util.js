@@ -442,6 +442,24 @@ define([], function() {
       result.showlable = showlable;
       return result;
     },
+    ganugePos:function(c){
+       pos = [0, '-120%'];
+       if(c.y=='bottom'){
+        pos = [0, '100%'];
+       }
+      return pos
+    },
+    getGridY:function(c){
+      var y = 10 ;
+      if(c.y=='top' && c.orient=='horizontal'){
+         y = 35;
+      }
+      if(c.y=='top' && c.x=='center'){
+         y = 35;
+      }
+
+      return y;
+    },
     getLegned: function(c) {
       var config = c || {};
       var result = {};

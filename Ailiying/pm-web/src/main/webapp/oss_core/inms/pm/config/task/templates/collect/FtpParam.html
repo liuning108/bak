@@ -1,0 +1,30 @@
+<div class="col-md-6">
+    <div class="form-group required">
+        <div class="col-md-12">
+        <label class="control-label">{{FTP_IP_PORT}}</label>
+        </div>
+        <div class="col-md-12">
+            <div style="width:60%;float:left;" class="js-code-prefix-div">
+				<input name="FTP_IP" class="form-control" data-rule="{{FTP_IP}}:required;length[1~64, true];ip;"  placeholder="127.0.0.1">
+			</div>
+			<div  style="width:40%;float:right;" class="js-kpi-code-div">
+				<input name="FTP_PORT" class="form-control" data-rule="{{FTP_PORT}}:required;length[1~8, true];integer[+];" style="border-left:0px;" placeholder="22">
+			</div>
+		</div>
+    </div>
+</div>
+<div class="col-md-6">
+    <div class="form-group required">
+        <div class="col-md-12">
+        <label class="control-label">{{FTP_USER_PWD}}</label>
+        </div>
+        <div class="col-md-12">
+            <div style="width:60%;float:left;" class="js-code-prefix-div">
+				<input name="FTP_USER" class="form-control" data-rule="{{FTP_USER}}:required;length[1~64, true]" placeholder="Admin">
+			</div>
+			<div  style="width:40%;float:right;" class="js-kpi-code-div">
+				<input name="FTP_PWD" type="password" class="form-control" data-rule="{{FTP_PWD}}:required;length[1~64, true]" style="border-left:0px;" placeholder="Password">
+			</div>
+		</div>
+    </div>
+</div>

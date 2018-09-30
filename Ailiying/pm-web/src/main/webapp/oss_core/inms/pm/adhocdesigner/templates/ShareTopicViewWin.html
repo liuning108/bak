@@ -1,0 +1,55 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{TOPIC_SHARE}}</h4>
+</div>
+<!--设置字段数值显示格式-->
+<div class="modal-body" style="overflow: hidden; ">
+	<div class="ad-modal-box">
+		<div class="ad-tolbad">
+			<div class="ad-tolbad">
+				<!-- -->
+				<div class="form-group">
+					<label style="margin-left: 5px">{{SELECT_SAVE_TYPE}}</label>
+					<div class="ad-tab-hd">
+						<a id="ad-sharetopicview-default" class="sharetopicview-pd ad-tab-hd-item first ng-binding active">
+							<i id="ad-sharetopicview-default-selected-icon" class="ico-sheet-active"></i>
+							<i class="ad-hd-ico ico-normal-chart-active"></i>{{SAVE_THE_LINK}}
+						</a>
+						<a id="ad-sharetopicview-simple" class="sharetopicview-pd ad-tab-hd-item ng-binding">
+							<i id="ad-sharetopicview-simple-selected-icon" class="ico-sheet-active ng-hide"></i>
+							<i class="ad-hd-ico ico-gis-chart"></i>{{SAVE_AS}}
+						</a>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group">
+					<label style="margin-left: 5px">{{SELECT_TOPIC_CATALOG}}</label>
+					<div class="row" style="padding-left:15px">
+						<select id="ad-sharetopicview-catalog-select" class="form-control col-md-12" style="width: 298px"
+								data-placeholder="{{PLEASE_SELECT}}">
+						</select>
+					</div>
+				</div>
+				<!-- -->
+				<div class="form-group">
+					<label style="margin-left: 5px">{{SELECT_TOPIC}}</label>
+					<div class="row" style="padding-left:15px">
+						<div class="input-group search-group" style="width: 298px" data-toggle="searchbar"></div>
+						<div id="ad-sharetopicview-grid">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="col-md-12 text-right" style="margin-top:-5px;padding-right:14px;">
+		<button type="button" class="btn btn_primary btn_minwidth" id="btn-slm-slimgr-ok" autofocus>
+			{{ADHOC_OK}}
+		</button>
+		<button type="button" class="btn btn_cancel btn_minwidth" id="btn-slm-slimgr-cancel">
+			{{ADHOC_CANCEL}}
+		</button>
+	</div>
+</div>

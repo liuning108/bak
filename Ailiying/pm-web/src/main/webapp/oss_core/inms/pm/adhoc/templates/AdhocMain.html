@@ -1,0 +1,76 @@
+<div class="comprivroot">
+    <section class="vbox">
+        <section>
+            <section class="hbox stretch">
+                <!--Center-->
+                <section>
+                    <section class="vbox ad-chart-bg" style="background:transparent;box-shadow: 0px 0px">
+                        <header id="ad-adhocHeader" class="wrapper b-b clearfix ad-header">
+                            <form class="form-horizontal clearfix ad-group-hack">
+                                <div class="col-md-12">
+                                    <div class="pull-left">
+                                        <div class="form-group m-n">
+                                            <label class="pull-left control-label" style="text-align: left">{{GRANULARITY}}</label>
+                                            <div class="pull-left  m-l-md">
+                                                <div class="btn-group" id="ad-dategranu-select">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="pull-left m-l-md">
+                                        <div class="form-group m-n">
+                                            <label class="pull-left control-label">{{Date}}</label>
+                                            <div class="pull-left m-l-md">
+                                                <div class="btn-group timebtn" id="ad-datetype-select">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--基础筛选栏-->
+                                    <div id="ad-normalfilter-container" class="col-md-1" style="width: 0px">
+                                    </div>
+                                    <div class="col-md-2" style="width:80px">
+                                        <div class="m-l-sm">
+                                            <button id="ad-query-btn" class="btn btn-default"
+                                                    type="button">{{QUERY}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pull-right">
+                                        <div class="m-l-sm">
+                                            <button id="ad-backtodesigner-btn" class="btn btn-link"
+                                                    type="button" style="display: none">{{CLOSE_PREVIEW}}
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pull-right" style="padding-right:190px">
+                                        <div class="m-l-sm">
+                                            <button id="ad-highlevelfilter-btn" style="display: none;" class="btn btn-link"
+                                                    type="button">
+                                                <i id="ad-highlevelfilter-downbtn" class="fa fa-chevron-down"></i>
+                                                <i id="ad-highlevelfilter-upbtn" class="fa fa-chevron-up" style="display: none"></i>
+                                                Advanced filtering
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--高级筛选栏-->
+                                <div class="col-md-12" id="ad-highlevelfilter-container" style="display: none">
+                                    <span><i class="fa fa-filter"></i></span>
+                                </div>
+                            </form>
+                        </header>
+                        <div id="ad-chart-container-section" class="wrapper scrollable p-b-none ad-chart-container">
+                            <div class="col-md-12">
+                                <div class="ad-box-pd-noshadow" id="ad-chart-container">
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                <!--/ Center End-->
+            </section>
+        </section>
+    </section>
+</div>

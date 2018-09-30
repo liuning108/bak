@@ -257,6 +257,12 @@ public class GraphsController {
         return graphService.getItemsByTId(dict);
     }
    
+    
+    @PublicServ
+    @RequestMapping(value = "getConfigById", method = RequestMethod.POST)
+    public JSONObject getConfigById(@RequestBody JSONObject dict) throws BaseAppException {
+        return graphService.getConfigById(dict);
+    }
    
     
    

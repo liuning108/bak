@@ -1,0 +1,54 @@
+<div class="modal-header">
+   <h4 class="modal-title" id="dlt-parampopwin-title">Add</h4>
+</div>
+<div class="modal-body n-p">
+	<div class="panel-body clearfix">
+	    <form id="form-dlt-popup-form">
+			<div class="col-md-12">
+				<div class="form-group required">
+					<label>
+						Data Type
+					</label>
+					<input id="dlt-datatype-select" class="form-control" data-rule="required"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group required">
+					<label>
+						Granularity
+					</label>
+					<input id="dlt-granu-select" class="form-control" data-rule="required"/>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group required">
+					<label>
+						Life Time
+					</label>
+					<div class="input-group">
+						<input id="dlt-lifetime-txt" class="form-control" data-rule="required;integer;"/>
+						<span class="input-group-addon">Day</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="form-group">
+					<label>
+						Description
+					</label>
+					<textarea id="dlt-desc-txt" rows="3" class="form-control" data-rule="length[1~4000]"/>
+				</div>
+			</div>
+	    </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="text-right" style="padding-right: 9px">
+        <button type="button" class="btn btn_primary" id="dlt-parampopwin-ok">
+            {{COMMON_OK}}
+        </button>
+        <button type="button" class="btn btn_cancel" id="dlt-parampopwin-cancel">
+            {{COMMON_CANCEL}}
+        </button>
+    </div>
+</div>

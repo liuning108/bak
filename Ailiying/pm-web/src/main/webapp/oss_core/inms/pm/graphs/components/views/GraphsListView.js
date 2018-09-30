@@ -154,7 +154,7 @@ define([
   },
   GraphsListView.prototype.delGraphsAction = function(selrows) {
     var self = this;
-    fish.confirm("Delete selected graphs?").result.then(function() {
+    fish.confirm("您确定删除所选图形?").result.then(function() {
       ids = fish.map(selrows, function(d) {
         return d.gid
       })

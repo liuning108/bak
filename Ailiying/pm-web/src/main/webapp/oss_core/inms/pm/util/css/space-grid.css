@@ -1,0 +1,10 @@
+/*2017-4-19*/
+
+/*------Portal Hack-----*/
+.space-grid th.ui-th-column div
+{
+    /* jqGrid columns name wrap  */
+    white-space:normal !important;
+    height:auto !important;
+    padding:0px;
+}
