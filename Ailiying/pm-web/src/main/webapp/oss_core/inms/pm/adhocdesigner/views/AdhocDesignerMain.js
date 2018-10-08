@@ -1471,7 +1471,7 @@ define([
 
         showDownloadListWin: function() {
             var self = this;
-            require(["oss_core/inms/pm/dashboard/js/downloadPlug/downloadPlug"],function(downloadPlug){
+            require(["oss_core/inms/pm/taskprocess/js/downloadPlug/downloadPlug"],function(downloadPlug){
                 downloadPlug.downloadList()
             })
         },

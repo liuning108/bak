@@ -1,9 +1,11 @@
 package com.ericsson.inms.pm.service.impl.taskprocess;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -56,6 +58,52 @@ public class TaskProcessServiceImpl implements TaskProcessService{
 	}
 	
 	
+	@Override
+	public JSONObject moveFTPFile(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		JSONObject result = new JSONObject();
+		
+	       String filepath = dict.getString("filepath");
+	        File target = new File(filepath);
+	        if(target.exists()) {
+	           //move  file to web upload
+	            String fileDirectory =CommonHelper.getProperty("file.download.directory")+"/expTemp";
+	            System.out.println(fileDirectory);
+	            File webPathDir =new File(fileDirectory);
+	            webPathDir.mkdirs();
+	            try {
+	                FileUtils.copyFileToDirectory(target, webPathDir);
+	            }
+	            catch (Exception e) {
+	                dict.put("filename","");
+	                dict.put("moveFTPFile error",e.getMessage());
+	                return dict;
+	            }
+	            String filename ="expTemp/"+target.getName();
+	            dict.put("filename",filename);
+	        }else {
+//	            File file    =DashBoardFTPUtil.downlaodFtpFile(target);
+//	            if(file==null) {
+//	                file =DashBoardFTPUtil.downlaodSFtpFile(target);
+//	            }
+//	            dict.add("filename", file.getName());
+	        }
+	        return result;
+	}
+	
+	@Override
+	public JSONObject exportTasklist(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		return getDAO().exportTasklist(dict);
+	}
+	
+	@Override
+	public JSONObject addExportTask(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		return getDAO().addExportTask(dict);
+	}
+	
+	
 	 /**
      * Description: <br>
      * 
@@ -72,6 +120,13 @@ public class TaskProcessServiceImpl implements TaskProcessService{
 	    		return null;
 	    	}
     }
+
+	
+
+	
+
+
+	
 	
 
 }

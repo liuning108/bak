@@ -26,6 +26,43 @@ public interface TaskProcessService {
 	 *             <br>
 	 */
 	JSONObject onceDownloadFile(JSONObject dict) throws BaseAppException;
+
+	
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	JSONObject addExportTask(JSONObject dict) throws BaseAppException;
+
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	JSONObject exportTasklist(JSONObject dict) throws BaseAppException;
+
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	JSONObject moveFTPFile(JSONObject dict) throws BaseAppException;
 	
 
 }
