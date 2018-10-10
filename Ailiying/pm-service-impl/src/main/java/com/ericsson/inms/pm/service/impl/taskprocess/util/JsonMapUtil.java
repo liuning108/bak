@@ -33,8 +33,13 @@ public class JsonMapUtil {
 		return date;
 	}
 	
+	public static String parseStr(String format,Date d) {
+		DateFormat sdf = new SimpleDateFormat(format); 
+		return sdf.format(d);
+	}
+	
 	public static Timestamp parse(String format,Date d) throws BaseAppException {
-		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");   
+		DateFormat sdf = new SimpleDateFormat(format);   
 		try {
 			String dateStr =sdf.format(d);   
 			Timestamp ts= Timestamp.valueOf(dateStr);

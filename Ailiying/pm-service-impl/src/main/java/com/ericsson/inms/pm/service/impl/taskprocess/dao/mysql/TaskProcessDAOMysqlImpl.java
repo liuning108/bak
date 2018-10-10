@@ -111,8 +111,9 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 		String fileName = str + File.separator + randomFileName + "-" + rannum + ".xlsx";
 		OutputStream stream;
 		String filePath = fileDirectory + fileName;
+		File destFile = new File(filePath);
 		try {
-			File destFile = new File(filePath);
+			
 
 			if (!destFile.getParentFile().exists()) {
 				// 目标文件所在目录不存在
@@ -128,7 +129,7 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 		} catch (IOException e) {
 			LOG.error(e);
 		}
-		return fileName;
+		return destFile.getAbsolutePath();
 	}
 
 	@Override
@@ -233,7 +234,9 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 		JSONObject result = new JSONObject();
 		ITaskOneExecService taskOneExecService =(ITaskOneExecService) SpringContext.getBean(TaskOneExecService.class);
 		Map<String,Object> mapParam = new HashMap<String,Object>();
-	    mapParam.put("EXEC_TIME","2019-10-6 19:12:12");
+		Date exportDate =dict.getDate("exec_date");
+		String exportDateStr=JsonMapUtil.parseStr("yyyy-MM-dd HH:mm:ss", exportDate);
+		mapParam.put("EXEC_TIME",exportDateStr);
 	    mapParam.put("CLASS_PATH","com.ericsson.inms.pm.service.impl.taskprocess.tasks.DownloadPlug");
 	    mapParam.put("PARAM","{}"); 
 		String TASK_ID=taskOneExecService.insertInst(mapParam);
@@ -267,6 +270,24 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
         pa.set("", userId);
         result.put("taskList", this.queryList(sql, pa));
         return result;
+	}
+
+	@Override
+	public JSONObject getDataExpParam(JSONObject dict) throws BaseAppException {
+		try {
+	        String id = dict.getString("id");
+	        String sql ="select PARAM_SEQ PARAM_SEQ,TASK_PARAM ATTR from pm_dataexp_log_param where TASK_ID= ? order by PARAM_SEQ";
+	        List<Map<String,String>> partList =this.queryForMapList(sql, new Object[] {id});
+	        StringBuffer sb = new StringBuffer();
+	        for (Map<String,String> part : partList) {
+	             sb.append(part.get("ATTR"));
+	        }
+	        JSONObject json =JSONObject.parseObject(sb.toString());
+	        return json;
+		}catch(Exception e) {
+			e.printStackTrace();
+			throw new BaseAppException(e.getMessage());
+		}
 	}
 
 }

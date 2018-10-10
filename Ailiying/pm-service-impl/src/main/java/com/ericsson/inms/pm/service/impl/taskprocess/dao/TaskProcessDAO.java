@@ -13,5 +13,6 @@ public abstract class TaskProcessDAO extends GeneralDAO {
 	public abstract String exportExcel(List<Map<String, Object>> colModel, String runSql, ParamArray params) throws BaseAppException ;
 	public abstract JSONObject addExportTask(JSONObject dict) throws BaseAppException;
 	public abstract JSONObject exportTasklist(JSONObject dict)  throws BaseAppException;
+	public abstract JSONObject getDataExpParam(JSONObject dict) throws BaseAppException;
 	
 }

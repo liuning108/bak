@@ -23,14 +23,12 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.ParamArray;
 @Service("taskProcessServiceImpl")
 public class TaskProcessServiceImpl implements TaskProcessService{
 
+	
 	@Override
 	public JSONObject onceDownloadFile(JSONObject dict) throws BaseAppException {
 		// TODO Auto-generated method stub
 	 	JSONObject result =new JSONObject();
-	    String downloadDir=CommonHelper.getProperty("file.download.directory");
-	    result.put("downloadDir", downloadDir);
-	    JSONObject param =dict.getJSONObject("param");
-	   
+	    JSONObject param =dict.getJSONObject("param");	   
 	    Map<String, Object> params  = JsonMapUtil.Json2Map(param);
 	    AdhocSrv adhocSrv = (AdhocSrv)SpringContext.getBean(AdhocSrv.class);
 	    System.out.println(params);
@@ -50,6 +48,7 @@ public class TaskProcessServiceImpl implements TaskProcessService{
 	    ParamArray pa = new ParamArray();
 	    String filePathExcel = getDAO().exportExcel(dictColModel, sql, pa);
 	    System.err.println(filePathExcel);
+	    result.put("filePath",filePathExcel);
 	    }catch(Exception e) {
 	       	e.printStackTrace();
 	    	  System.out.println(e);
@@ -103,6 +102,13 @@ public class TaskProcessServiceImpl implements TaskProcessService{
 		return getDAO().addExportTask(dict);
 	}
 	
+	@Override
+	public JSONObject getDataExpParam(JSONObject dict) throws BaseAppException {
+		// TODO Auto-generated method stub
+		
+		return getDAO().getDataExpParam(dict);
+	}
+	
 	
 	 /**
      * Description: <br>
@@ -120,6 +126,9 @@ public class TaskProcessServiceImpl implements TaskProcessService{
 	    		return null;
 	    	}
     }
+
+
+	
 
 	
 

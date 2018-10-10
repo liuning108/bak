@@ -9,7 +9,7 @@ import com.ztesoft.zsmart.oss.opb.base.constant.Const;
 @SpringBootApplication
 public class TestExecuTaskByTaskID {
     public static void main(String args[]) {
-        String taskID = (args.length == 0) ? "PMI-2019100619-TA00000232" + 
+        String taskID = (args.length == 0) ? "PMI-2018101016-TA00000267" + 
         		"" : args[0];
         System.out.println(taskID);
         String srvRunPath = "pm";

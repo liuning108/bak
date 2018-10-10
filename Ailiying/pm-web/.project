@@ -3,6 +3,7 @@
 	<name>pm-web</name>
 	<comment></comment>
 	<projects>
+		<project>pm-service-impl</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

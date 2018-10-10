@@ -63,6 +63,16 @@ public interface TaskProcessService {
 	 *             <br>
 	 */
 	JSONObject moveFTPFile(JSONObject dict) throws BaseAppException;
-	
-
+    
+	/**
+	 * Description: <br>
+	 * 
+	 * @author XXX<br>
+	 * @taskId <br>
+	 * @param dict
+	 * @return
+	 * @throws BaseAppException
+	 *             <br>
+	 */
+	JSONObject getDataExpParam(JSONObject dict) throws BaseAppException;
 }
