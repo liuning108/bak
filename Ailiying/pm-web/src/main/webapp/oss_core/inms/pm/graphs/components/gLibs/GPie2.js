@@ -106,7 +106,7 @@ define([
         }
       ]
     };
-
+    console.log('Pie3',option)
     myChart.setOption(option);
   }
   return GLine

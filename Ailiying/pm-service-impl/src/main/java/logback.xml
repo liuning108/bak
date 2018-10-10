@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<configuration scan="true" scanPeriod="30 seconds">
+	<property name="z_app" value="inms_pm" />
+	<property name="PM_OSS_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/oss.log" />
+	<property name="PM_DATALOAD_LOG_FILE" value="${ZSMART_HOME}/logs/${z_app}/dataload.log" />
+	
+	<!-- 根节点日志等级设置 -->
+	<property name="ROOT_LEVEL" value="ERROR" />
+
+	<!-- POT门户日志等级设置 -->
+	<property name="POT_LEVEL" value="INFO" />
+	<property name="SQL_LEVEL" value="DEBUG" />
+	<property name="BOOT_LEVEL" value="DEBUG" />
+	<property name="PORTAL_LEVEL" value="${POT_LEVEL}" />
+
+	<!-- OPB模块日志等级设置 -->
+	<property name="OPB_LEVEL" value="DEBUG" />
+
+	<!-- 应用模块日志等级示例设置 -->
+	<property name="APPLICATION_LEVEL" value="DEBUG" />
+	<property name="MESSAGE_LEVEL" value="DEBUG" />
+	<property name="ALARM_LEVEL" value="DEBUG" />
+
+	<!-- POT门户日志文件输出设置 -->
+	<property name="SQL_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potSql.log" />
+	<property name="SERVICE_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potService.log" />
+	<property name="RPC_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potRPC.log" />
+	<property name="BOOT_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potBoot.log" />
+	<property name="BUF_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potBuf.log" />
+	<property name="POT_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/pot.log" />
+	<property name="TRACE_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/potTrace.log" />
+
+	<!-- 引入门户基础日志配置 -->
+	<include resource="log/logback-base-v9c.xml" />
+
+	<!-- OPB模块日志文件输出设置 -->
+	<property name="OPB_LOG_FILE"
+		value="${LOG_PATH:-.}/opb/opb.log" />
+
+	<!-- OPB模块的Job日志文件输出设置 -->
+	<property name="OPB_JOBLOG_FILE"
+		value="${LOG_PATH:-.}/opb/opbJob.log" />
+
+
+	<appender name="POT_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L]
+				%message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${POT_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${POT_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="OPB_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+			<encoder
+			class="com.ztesoft.zsmart.oss.opb.log.pattern.OpbPatternLayoutEncoder">
+			<charset>utf-8</charset>
+			<pattern>%X{logType}|%X{logLevel}|%X{appName}|%X{pid}|%d{yyyy-MM-dd
+				HH:mm:ss.SSSSSS}|%X{operId}|%X{logModule}|%F:%L|%M|%X{errorCode}|%threadId|%X{messegeCode}|%X{transactionId}|%message%n
+			</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${OPB_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${OPB_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>50MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>750MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="OPB_JOB_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L]
+				%message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${OPB_JOBLOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${OPB_JOBLOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	<logger name="com.ztesoft.zsmart.pot" level="${PORTAL_LEVEL}"
+		additivity="false">
+		<appender-ref ref="POT_LOG" />
+	</logger>
+
+	<logger name="org.mybatis" level="${PORTAL_LEVEL}"
+		additivity="false">
+		<appender-ref ref="POT_LOG" />
+	</logger>
+
+	<logger name="org.springframework" level="${PORTAL_LEVEL}"
+		additivity="false">
+		<appender-ref ref="POT_LOG" />
+	</logger>
+
+	<logger name="org.apache.ignite" level="${OPB_LEVEL}"
+		additivity="false">
+		<appender-ref ref="OPB_LOG" />
+	</logger>
+
+	<logger name="com.ztesoft.zsmart.oss.opb.message.dispatch"
+		level="${OPB_LEVEL}" additivity="false">
+		<appender-ref ref="OPB_JOB_LOG" />
+	</logger>
+
+	<logger name="com.ztesoft.zsmart.oss.opb" level="${OPB_LEVEL}"
+		additivity="false">
+		<appender-ref ref="OPB_LOG" />
+	</logger>
+
+	<root level="${ROOT_LEVEL}">
+		<appender-ref ref="POT_LOG" />
+	</root>
+
+	<property name="TEST_LOG_FILE"
+		value="${ZSMART_HOME}/logs/test.log" />
+
+	<appender name="TEST_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L]
+				%message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${TEST_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${TEST_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+
+	
+	<logger name="TESTLOG" level="${OPB_LEVEL}" additivity="false">
+		<appender-ref ref="TEST_LOG" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	
+	<appender name="PM_OSS_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${PM_OSS_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${PM_OSS_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>
+	<appender name="PM_DATALOAD_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+			<charset>utf-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%F:%L] %message%n</pattern>
+		</encoder>
+		<prudent>false</prudent>
+		<append>true</append>
+		<file>${PM_DATALOAD_LOG_FILE}</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${PM_DATALOAD_LOG_FILE}.%d{yyyy-MM-dd}-%i.gz
+			</fileNamePattern>
+			<maxFileSize>10MB</maxFileSize>
+			<maxHistory>15</maxHistory>
+			<totalSizeCap>200MB</totalSizeCap>
+		</rollingPolicy>
+	</appender>	
+	<logger name="com.ericsson.inms.pm" level="${OPB_LEVEL}"
+		additivity="false">
+		<appender-ref ref="PM_OSS_LOG" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+
+	<logger name="com.ericsson.inms.pm.dataload" level="${OPB_LEVEL}"
+		additivity="false">
+		<appender-ref ref="PM_DATALOAD_LOG" />
+		<appender-ref ref="CONSOLE" />
+		<!-- <appender-ref ref="HOUND_LOG" /> -->
+	</logger>
+</configuration>
+
+
+
+

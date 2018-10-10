@@ -1,0 +1,832 @@
+2018-10-10 15:44:47.302 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24: startup date [Wed Oct 10 15:44:47 CST 2018]; root of context hierarchy
+2018-10-10 15:44:47.635 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:44:47.674 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:48.206 [main] INFO  [ConfigServicePropertySourceLocator.java:82]
+				Fetching config from server at: http://localhost:8888
+2018-10-10 15:44:48.326 [main] WARN  [ConfigServicePropertySourceLocator.java:136]
+				Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/oss-default/default": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+2018-10-10 15:44:48.343 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:44:48 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:44:50.090 [main] INFO  [RepositoryConfigurationDelegate.java:165]
+				Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-10-10 15:44:50.122 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'propertySourcesPlaceholderConfigurer' with a different definition: replacing [Root bean: class [org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/context/PropertyPlaceholderAutoConfiguration.class]] with [Root bean: class [org.springframework.boot.autoconfigure.session.RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/session/RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration.class]]
+2018-10-10 15:44:50.185 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'transactionManager' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/core/boot/autoconfigure/transaction/TransactionAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=messageAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/message/config/MessageAutoConfiguration.class]]
+2018-10-10 15:44:50.188 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'nodeInfoGenerator' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=true; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=igniteAutoConfiguration; factoryMethodName=igniteNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/ignite/config/IgniteAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=ossCacheConfiguration; factoryMethodName=redisNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/cache/config/OssCacheConfiguration.class]]
+2018-10-10 15:44:50.586 [main] INFO  [GenericScope.java:263]
+				BeanFactory id=eac4944e-5209-3859-bd80-3283f34f1aa1
+2018-10-10 15:44:50.616 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:44:50.672 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4bb7800f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:50.685 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration$$EnhancerBySpringCGLIB$$a98145e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:50.848 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$3a0117db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.016 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.018 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3faa55' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.023 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$5ed5ba8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.036 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.052 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$c39b121f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.101 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$ea6585bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.141 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a1534fa1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.245 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.transaction-com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties$$EnhancerBySpringCGLIB$$99aab2ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.256 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration$$EnhancerBySpringCGLIB$$b4dd2de2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.269 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionAttributeSource' of type [org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.270 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionInterceptor' of type [org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.275 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.279 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.323 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.serviceLog-com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties$$EnhancerBySpringCGLIB$$5a6bdb6f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.334 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration$$EnhancerBySpringCGLIB$$f0b553d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.343 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogging' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.344 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.345 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.357 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration' of type [org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration$$EnhancerBySpringCGLIB$$d37ff5e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.381 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:44:51.848 [main] INFO  [TomcatEmbeddedServletContainer.java:92]
+				Tomcat initialized with port(s): 9091 (http)
+2018-10-10 15:44:52.051 [localhost-startStop-1] INFO  [EmbeddedWebApplicationContext.java:276]
+				Root WebApplicationContext: initialization completed in 3708 ms
+2018-10-10 15:44:53.376 [localhost-startStop-1] ERROR [LogManager.java:1650]
+				Failed to resolve default logging config file: config/java.util.logging.properties
+2018-10-10 15:44:56.361 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'metricsFilter' to: [/*]
+2018-10-10 15:44:56.361 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-10 15:44:56.361 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2018-10-10 15:44:56.361 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-10 15:44:56.362 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-10 15:44:56.362 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:271]
+				Mapping filter: 'restfulDownLoadFilter' to urls: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'portalVerificationCodeFilter' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'magicCodeFilter' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'applicationContextIdFilter' to: [/*]
+2018-10-10 15:44:56.363 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-10-10 15:44:56.365 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-10-10 15:44:56.365 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'com.ztesoft.zsmart.pot.servlet.MainServlet' to [/mainServlet/*]
+2018-10-10 15:44:58.762 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2018-10-10 15:44:58.762 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics || /management/metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.763 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2018-10-10 15:44:58.763 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env || /management/env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.763 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/resume || /management/resume.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:44:58.764 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/auditevents || /management/auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2018-10-10 15:44:58.764 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/restart || /management/restart.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.restart.RestartMvcEndpoint.invoke()
+2018-10-10 15:44:58.765 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/trace || /management/trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.765 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/refresh || /management/refresh.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:44:58.766 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers || /management/loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.invoke()
+2018-10-10 15:44:58.766 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:44:58.766 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/resetLoggers]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.reset()
+2018-10-10 15:44:58.766 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/batch/configure],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.setInBatch(com.ztesoft.zsmart.core.log.actuate.ConfigLevel[])
+2018-10-10 15:44:58.766 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2018-10-10 15:44:58.767 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/mappings || /management/mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.768 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/heapdump || /management/heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2018-10-10 15:44:58.768 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.value(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:44:58.768 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/reset],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.reset()
+2018-10-10 15:44:58.769 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/features || /management/features.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.769 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/info || /management/info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.770 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/archaius || /management/archaius.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.770 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/autoconfig || /management/autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.771 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/configprops || /management/configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.771 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/health || /management/health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2018-10-10 15:44:58.772 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/beans || /management/beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:58.772 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/pause || /management/pause.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:44:58.773 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/dump || /management/dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:44:59.964 [main] INFO  [RequestMappingHandlerAdapter.java:534]
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:44:48 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:44:59.972 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in portalResponseEntityExceptionHandler
+2018-10-10 15:44:59.972 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in nbrTracerResponseBodyAdvice
+2018-10-10 15:44:59.972 [main] INFO  [RequestMappingHandlerAdapter.java:560]
+				Detected RequestBodyAdvice bean in nbrTraceRequestBodyAdvice
+2018-10-10 15:45:00.030 [main] INFO  [AbstractUrlHandlerMapping.java:349]
+				Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-10-10 15:45:00.064 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:00.064 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:00.064 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:00.064 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:00.069 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-10-10 15:45:00.095 [main] INFO  [ExceptionHandlerExceptionResolver.java:274]
+				Detected @ExceptionHandler methods in portalResponseEntityExceptionHandler
+2018-10-10 15:45:00.095 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in portalResponseEntityExceptionHandler
+2018-10-10 15:45:00.096 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in nbrTracerResponseBodyAdvice
+2018-10-10 15:45:00.138 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:00.993 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/main.html']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@7127f04b, com.ztesoft.zsmart.pot.security.access.PortalMagicCodeFilter@17922e3e, org.springframework.web.filter.CorsFilter@7314f4cb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8616368, org.springframework.security.web.access.ExceptionTranslationFilter@7cd6b76a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@10bae3c0]
+2018-10-10 15:45:00.993 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/static/**'], Ant [pattern='/modules/**'], Ant [pattern='/frm/**'], Ant [pattern='/i18n/**'], Ant [pattern='/styles/**'], Ant [pattern='/favicon.ico'], Ant [pattern='/**/*.html'], Ant [pattern='/**/*.js'], Ant [pattern='/**/*.css'], Ant [pattern='/**/*.hbs']]], [org.springframework.web.filter.CorsFilter@2c8469fe]
+2018-10-10 15:45:01.065 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/management/**'], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@b8e6981, org.springframework.security.web.context.SecurityContextPersistenceFilter@632a7680, org.springframework.security.web.header.HeaderWriterFilter@c925ae1, org.springframework.web.filter.CorsFilter@1e40edb7, org.springframework.security.web.authentication.logout.LogoutFilter@6894d28d, org.springframework.boot.actuate.autoconfigure.RemoteIpFilter@27381497, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4b708c16, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@66e5441e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77c41838, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@282c0891, org.springframework.security.web.session.SessionManagementFilter@2f271ae2, org.springframework.security.web.access.ExceptionTranslationFilter@566dc0c3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5f72aaed]
+2018-10-10 15:45:01.113 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/login'], Ant [pattern='/logout'], Ant [pattern='/']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@ece7204, org.springframework.web.filter.CorsFilter@1e1f467f, org.springframework.security.web.authentication.logout.LogoutFilter@62672ad5, com.ztesoft.zsmart.pot.security.access.PortalVerificationCodeFilter@6837be5d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@22c4151b, org.springframework.security.web.session.ConcurrentSessionFilter@38503309, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@22dddb13, org.springframework.security.web.session.SessionManagementFilter@45ed58b, org.springframework.security.web.access.ExceptionTranslationFilter@7f478529, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3d5009c0]
+2018-10-10 15:45:01.117 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/magiccode'], [org.springframework.web.filter.CorsFilter@724e82d9, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4708acc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@750448fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70a26eca, org.springframework.security.web.access.ExceptionTranslationFilter@59cc46a4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@d41518b]
+2018-10-10 15:45:01.133 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@47483211, org.springframework.security.web.header.HeaderWriterFilter@828e2d8, org.springframework.web.filter.CorsFilter@5fb392e, org.springframework.security.web.csrf.CsrfFilter@2b14628b, org.springframework.security.web.session.ConcurrentSessionFilter@5eba0cc5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@17616c07, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@19e67cc2, org.springframework.security.web.session.SessionManagementFilter@58e46572, org.springframework.security.web.access.ExceptionTranslationFilter@8ba7408]
+2018-10-10 15:45:01.841 [main] INFO  [SpringTemplateLoader.java:61]
+				SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:44:48 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24] and template loader path [classpath:/templates/]
+2018-10-10 15:45:01.842 [main] INFO  [FreeMarkerConfigurer.java:127]
+				ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-10-10 15:45:01.878 [main] WARN  [FreeMarkerAutoConfiguration.java:93]
+				Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-10-10 15:45:02.847 [main] INFO  [MBeanExporter.java:431]
+				Registering beans for JMX exposure on startup
+2018-10-10 15:45:02.859 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-10-10 15:45:02.863 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-10-10 15:45:02.864 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:45:02.864 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'restartEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:45:02.865 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-10-10 15:45:02.869 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-10-10 15:45:02.881 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'restartEndpoint': registering with JMX server as MBean [org.springframework.cloud.context.restart:name=restartEndpoint,type=RestartEndpoint]
+2018-10-10 15:45:02.892 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-10-10 15:45:02.902 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=231baf51,type=ConfigurationPropertiesRebinder]
+2018-10-10 15:45:02.907 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshEndpoint': registering with JMX server as MBean [org.springframework.cloud.endpoint:name=refreshEndpoint,type=RefreshEndpoint]
+2018-10-10 15:45:03.575 [main] INFO  [DefaultLifecycleProcessor.java:341]
+				Starting beans in phase 2147483647
+2018-10-10 15:45:05.483 [main] INFO  [ScheduledAnnotationBeanPostProcessor.java:268]
+				No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-10-10 15:45:05.542 [main] INFO  [TomcatEmbeddedServletContainer.java:216]
+				Tomcat started on port(s): 9091 (http)
+2018-10-10 15:45:05.775 [Thread-16] INFO  [AbstractApplicationContext.java:984]
+				Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:44:48 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:45:05.780 [Thread-16] INFO  [DefaultLifecycleProcessor.java:356]
+				Stopping beans in phase 2147483647
+2018-10-10 15:45:05.785 [Thread-16] INFO  [MBeanExporter.java:449]
+				Unregistering JMX-exposed beans on shutdown
+2018-10-10 15:45:05.785 [Thread-16] INFO  [MBeanRegistrationSupport.java:241]
+				Unregistering JMX-exposed beans
+2018-10-10 15:45:16.702 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24: startup date [Wed Oct 10 15:45:16 CST 2018]; root of context hierarchy
+2018-10-10 15:45:17.020 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:45:17.056 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:17.620 [main] INFO  [ConfigServicePropertySourceLocator.java:82]
+				Fetching config from server at: http://localhost:8888
+2018-10-10 15:45:17.757 [main] WARN  [ConfigServicePropertySourceLocator.java:136]
+				Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/oss-default/default": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+2018-10-10 15:45:17.782 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:45:17 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:45:20.049 [main] INFO  [RepositoryConfigurationDelegate.java:165]
+				Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-10-10 15:45:20.098 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'propertySourcesPlaceholderConfigurer' with a different definition: replacing [Root bean: class [org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/context/PropertyPlaceholderAutoConfiguration.class]] with [Root bean: class [org.springframework.boot.autoconfigure.session.RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/session/RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration.class]]
+2018-10-10 15:45:20.192 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'transactionManager' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/core/boot/autoconfigure/transaction/TransactionAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=messageAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/message/config/MessageAutoConfiguration.class]]
+2018-10-10 15:45:20.195 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'nodeInfoGenerator' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=true; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=igniteAutoConfiguration; factoryMethodName=igniteNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/ignite/config/IgniteAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=ossCacheConfiguration; factoryMethodName=redisNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/cache/config/OssCacheConfiguration.class]]
+2018-10-10 15:45:20.681 [main] INFO  [GenericScope.java:263]
+				BeanFactory id=eac4944e-5209-3859-bd80-3283f34f1aa1
+2018-10-10 15:45:20.715 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:45:20.776 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4bb7800f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:20.791 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration$$EnhancerBySpringCGLIB$$a98145e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:20.959 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$3a0117db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.143 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.145 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@73dd0f23' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.157 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$5ed5ba8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.171 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.185 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$c39b121f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.241 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$ea6585bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.286 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a1534fa1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.409 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.transaction-com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties$$EnhancerBySpringCGLIB$$99aab2ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.420 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration$$EnhancerBySpringCGLIB$$b4dd2de2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.435 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionAttributeSource' of type [org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.437 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionInterceptor' of type [org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.443 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.448 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.468 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.serviceLog-com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties$$EnhancerBySpringCGLIB$$5a6bdb6f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.479 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration$$EnhancerBySpringCGLIB$$f0b553d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.492 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogging' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.492 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.493 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.506 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration' of type [org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration$$EnhancerBySpringCGLIB$$d37ff5e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.534 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:21.969 [main] INFO  [TomcatEmbeddedServletContainer.java:92]
+				Tomcat initialized with port(s): 9091 (http)
+2018-10-10 15:45:22.270 [localhost-startStop-1] INFO  [EmbeddedWebApplicationContext.java:276]
+				Root WebApplicationContext: initialization completed in 4488 ms
+2018-10-10 15:45:23.537 [localhost-startStop-1] ERROR [LogManager.java:1650]
+				Failed to resolve default logging config file: config/java.util.logging.properties
+2018-10-10 15:45:26.756 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'metricsFilter' to: [/*]
+2018-10-10 15:45:26.757 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-10 15:45:26.757 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2018-10-10 15:45:26.757 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-10 15:45:26.757 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-10 15:45:26.758 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:271]
+				Mapping filter: 'restfulDownLoadFilter' to urls: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'portalVerificationCodeFilter' to: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'magicCodeFilter' to: [/*]
+2018-10-10 15:45:26.760 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'applicationContextIdFilter' to: [/*]
+2018-10-10 15:45:26.761 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-10-10 15:45:26.762 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-10-10 15:45:26.762 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'com.ztesoft.zsmart.pot.servlet.MainServlet' to [/mainServlet/*]
+2018-10-10 15:45:39.485 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24: startup date [Wed Oct 10 15:45:39 CST 2018]; root of context hierarchy
+2018-10-10 15:45:39.758 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:45:39.792 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:40.282 [main] INFO  [ConfigServicePropertySourceLocator.java:82]
+				Fetching config from server at: http://localhost:8888
+2018-10-10 15:45:40.395 [main] WARN  [ConfigServicePropertySourceLocator.java:136]
+				Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/oss-default/default": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+2018-10-10 15:45:40.414 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:45:40 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:45:42.207 [main] INFO  [RepositoryConfigurationDelegate.java:165]
+				Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-10-10 15:45:42.243 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'propertySourcesPlaceholderConfigurer' with a different definition: replacing [Root bean: class [org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/context/PropertyPlaceholderAutoConfiguration.class]] with [Root bean: class [org.springframework.boot.autoconfigure.session.RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/session/RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration.class]]
+2018-10-10 15:45:42.306 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'transactionManager' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/core/boot/autoconfigure/transaction/TransactionAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=messageAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/message/config/MessageAutoConfiguration.class]]
+2018-10-10 15:45:42.309 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'nodeInfoGenerator' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=true; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=igniteAutoConfiguration; factoryMethodName=igniteNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/ignite/config/IgniteAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=ossCacheConfiguration; factoryMethodName=redisNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/cache/config/OssCacheConfiguration.class]]
+2018-10-10 15:45:42.687 [main] INFO  [GenericScope.java:263]
+				BeanFactory id=eac4944e-5209-3859-bd80-3283f34f1aa1
+2018-10-10 15:45:42.714 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:45:42.770 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4bb7800f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:42.783 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration$$EnhancerBySpringCGLIB$$a98145e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:42.940 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$3a0117db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.112 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.114 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@73dd0f23' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.126 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$5ed5ba8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.140 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.156 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$c39b121f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.209 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$ea6585bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.246 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a1534fa1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.374 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.transaction-com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties$$EnhancerBySpringCGLIB$$99aab2ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.389 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration$$EnhancerBySpringCGLIB$$b4dd2de2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.406 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionAttributeSource' of type [org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.408 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionInterceptor' of type [org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.415 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.420 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.481 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.serviceLog-com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties$$EnhancerBySpringCGLIB$$5a6bdb6f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.492 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration$$EnhancerBySpringCGLIB$$f0b553d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.503 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogging' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.504 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.504 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.518 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration' of type [org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration$$EnhancerBySpringCGLIB$$d37ff5e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:43.547 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:45:44.108 [main] INFO  [TomcatEmbeddedServletContainer.java:92]
+				Tomcat initialized with port(s): 9091 (http)
+2018-10-10 15:45:44.344 [localhost-startStop-1] INFO  [EmbeddedWebApplicationContext.java:276]
+				Root WebApplicationContext: initialization completed in 3930 ms
+2018-10-10 15:45:45.772 [localhost-startStop-1] ERROR [LogManager.java:1650]
+				Failed to resolve default logging config file: config/java.util.logging.properties
+2018-10-10 15:45:49.029 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'metricsFilter' to: [/*]
+2018-10-10 15:45:49.040 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-10 15:45:49.040 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2018-10-10 15:45:49.040 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-10 15:45:49.040 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-10 15:45:49.041 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-10 15:45:49.042 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-10-10 15:45:49.042 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2018-10-10 15:45:49.042 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:271]
+				Mapping filter: 'restfulDownLoadFilter' to urls: [/*]
+2018-10-10 15:45:49.043 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'portalVerificationCodeFilter' to: [/*]
+2018-10-10 15:45:49.043 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'magicCodeFilter' to: [/*]
+2018-10-10 15:45:49.043 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'applicationContextIdFilter' to: [/*]
+2018-10-10 15:45:49.043 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-10-10 15:45:49.045 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-10-10 15:45:49.045 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'com.ztesoft.zsmart.pot.servlet.MainServlet' to [/mainServlet/*]
+2018-10-10 15:45:51.805 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/restart || /management/restart.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.restart.RestartMvcEndpoint.invoke()
+2018-10-10 15:45:51.806 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/trace || /management/trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.806 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers || /management/loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.invoke()
+2018-10-10 15:45:51.807 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:45:51.807 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/resetLoggers]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.reset()
+2018-10-10 15:45:51.807 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/batch/configure],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.setInBatch(com.ztesoft.zsmart.core.log.actuate.ConfigLevel[])
+2018-10-10 15:45:51.807 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2018-10-10 15:45:51.807 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/pause || /management/pause.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:45:51.808 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/resume || /management/resume.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:45:51.808 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/autoconfig || /management/autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.809 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.value(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:45:51.809 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/reset],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.reset()
+2018-10-10 15:45:51.809 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/features || /management/features.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.810 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/mappings || /management/mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.811 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/beans || /management/beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.812 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/info || /management/info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.812 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/health || /management/health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2018-10-10 15:45:51.812 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/refresh || /management/refresh.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:45:51.813 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/configprops || /management/configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.814 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/heapdump || /management/heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2018-10-10 15:45:51.814 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/dump || /management/dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.814 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/auditevents || /management/auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2018-10-10 15:45:51.815 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2018-10-10 15:45:51.815 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env || /management/env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.816 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2018-10-10 15:45:51.816 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics || /management/metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:51.816 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/archaius || /management/archaius.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:45:53.026 [main] INFO  [RequestMappingHandlerAdapter.java:534]
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:45:40 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:45:53.035 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in portalResponseEntityExceptionHandler
+2018-10-10 15:45:53.035 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in nbrTracerResponseBodyAdvice
+2018-10-10 15:45:53.036 [main] INFO  [RequestMappingHandlerAdapter.java:560]
+				Detected RequestBodyAdvice bean in nbrTraceRequestBodyAdvice
+2018-10-10 15:45:53.093 [main] INFO  [AbstractUrlHandlerMapping.java:349]
+				Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-10-10 15:45:53.128 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:53.128 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:53.128 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:53.128 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:53.133 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-10-10 15:45:53.159 [main] INFO  [ExceptionHandlerExceptionResolver.java:274]
+				Detected @ExceptionHandler methods in portalResponseEntityExceptionHandler
+2018-10-10 15:45:53.159 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in portalResponseEntityExceptionHandler
+2018-10-10 15:45:53.159 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in nbrTracerResponseBodyAdvice
+2018-10-10 15:45:53.202 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:45:53.908 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/main.html']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@6a16ee0d, com.ztesoft.zsmart.pot.security.access.PortalMagicCodeFilter@1f2a7267, org.springframework.web.filter.CorsFilter@c42ee90, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70c2a046, org.springframework.security.web.access.ExceptionTranslationFilter@2c8469fe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@503b5337]
+2018-10-10 15:45:53.908 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/static/**'], Ant [pattern='/modules/**'], Ant [pattern='/frm/**'], Ant [pattern='/i18n/**'], Ant [pattern='/styles/**'], Ant [pattern='/favicon.ico'], Ant [pattern='/**/*.html'], Ant [pattern='/**/*.js'], Ant [pattern='/**/*.css'], Ant [pattern='/**/*.hbs']]], [org.springframework.web.filter.CorsFilter@22858c21]
+2018-10-10 15:45:53.959 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/management/**'], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1c65740a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4163f505, org.springframework.security.web.header.HeaderWriterFilter@5f59b6c5, org.springframework.web.filter.CorsFilter@6cb59aa, org.springframework.security.web.authentication.logout.LogoutFilter@6def1699, org.springframework.boot.actuate.autoconfigure.RemoteIpFilter@224f90eb, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5ce045e3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@19cad9f0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21139739, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@54464330, org.springframework.security.web.session.SessionManagementFilter@628f642d, org.springframework.security.web.access.ExceptionTranslationFilter@79122f5f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@66790851]
+2018-10-10 15:45:53.987 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/login'], Ant [pattern='/logout'], Ant [pattern='/']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@33c91567, org.springframework.web.filter.CorsFilter@750448fb, org.springframework.security.web.authentication.logout.LogoutFilter@4ad04b05, com.ztesoft.zsmart.pot.security.access.PortalVerificationCodeFilter@7f588e38, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@17baaf07, org.springframework.security.web.session.ConcurrentSessionFilter@41dbf02b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@724e82d9, org.springframework.security.web.session.SessionManagementFilter@3793896e, org.springframework.security.web.access.ExceptionTranslationFilter@3eed0375, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72a45b71]
+2018-10-10 15:45:53.989 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/magiccode'], [org.springframework.web.filter.CorsFilter@47483211, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@64657b13, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4fc00158, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8ba7408, org.springframework.security.web.access.ExceptionTranslationFilter@686ee555, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2b14628b]
+2018-10-10 15:45:53.998 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@7aac6d13, org.springframework.security.web.header.HeaderWriterFilter@62525579, org.springframework.web.filter.CorsFilter@75381b61, org.springframework.security.web.csrf.CsrfFilter@1a44ad96, org.springframework.security.web.session.ConcurrentSessionFilter@2cf6dd4d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a8eed58, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2801ccb3, org.springframework.security.web.session.SessionManagementFilter@352bea0e, org.springframework.security.web.access.ExceptionTranslationFilter@7e34e466]
+2018-10-10 15:45:54.687 [main] INFO  [SpringTemplateLoader.java:61]
+				SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:45:40 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24] and template loader path [classpath:/templates/]
+2018-10-10 15:45:54.688 [main] INFO  [FreeMarkerConfigurer.java:127]
+				ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-10-10 15:45:54.738 [main] WARN  [FreeMarkerAutoConfiguration.java:93]
+				Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-10-10 15:45:55.679 [main] INFO  [MBeanExporter.java:431]
+				Registering beans for JMX exposure on startup
+2018-10-10 15:45:55.693 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-10-10 15:45:55.697 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-10-10 15:45:55.698 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:45:55.698 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'restartEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:45:55.699 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-10-10 15:45:55.702 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-10-10 15:45:55.715 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'restartEndpoint': registering with JMX server as MBean [org.springframework.cloud.context.restart:name=restartEndpoint,type=RestartEndpoint]
+2018-10-10 15:45:55.725 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-10-10 15:45:55.737 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=231baf51,type=ConfigurationPropertiesRebinder]
+2018-10-10 15:45:55.744 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshEndpoint': registering with JMX server as MBean [org.springframework.cloud.endpoint:name=refreshEndpoint,type=RefreshEndpoint]
+2018-10-10 15:45:56.354 [main] INFO  [DefaultLifecycleProcessor.java:341]
+				Starting beans in phase 2147483647
+2018-10-10 15:45:58.240 [main] INFO  [ScheduledAnnotationBeanPostProcessor.java:268]
+				No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-10-10 15:45:58.293 [main] INFO  [TomcatEmbeddedServletContainer.java:216]
+				Tomcat started on port(s): 9091 (http)
+2018-10-10 15:50:47.910 [Thread-16] INFO  [AbstractApplicationContext.java:984]
+				Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:45:40 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:50:47.915 [Thread-16] INFO  [DefaultLifecycleProcessor.java:356]
+				Stopping beans in phase 2147483647
+2018-10-10 15:50:47.922 [Thread-16] INFO  [MBeanExporter.java:449]
+				Unregistering JMX-exposed beans on shutdown
+2018-10-10 15:50:47.922 [Thread-16] INFO  [MBeanRegistrationSupport.java:241]
+				Unregistering JMX-exposed beans
+2018-10-10 15:50:53.415 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24: startup date [Wed Oct 10 15:50:53 CST 2018]; root of context hierarchy
+2018-10-10 15:50:53.677 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:50:53.712 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:54.197 [main] INFO  [ConfigServicePropertySourceLocator.java:82]
+				Fetching config from server at: http://localhost:8888
+2018-10-10 15:50:54.291 [main] WARN  [ConfigServicePropertySourceLocator.java:136]
+				Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/oss-default/default": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+2018-10-10 15:50:54.307 [main] INFO  [AbstractApplicationContext.java:583]
+				Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:50:54 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:50:56.047 [main] INFO  [RepositoryConfigurationDelegate.java:165]
+				Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-10-10 15:50:56.079 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'propertySourcesPlaceholderConfigurer' with a different definition: replacing [Root bean: class [org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/context/PropertyPlaceholderAutoConfiguration.class]] with [Root bean: class [org.springframework.boot.autoconfigure.session.RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=null; factoryMethodName=propertySourcesPlaceholderConfigurer; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/boot/autoconfigure/session/RedisSessionConfiguration$SpringBootRedisHttpSessionConfiguration.class]]
+2018-10-10 15:50:56.146 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'transactionManager' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/core/boot/autoconfigure/transaction/TransactionAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=true; factoryBeanName=messageAutoConfiguration; factoryMethodName=transactionManager; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/message/config/MessageAutoConfiguration.class]]
+2018-10-10 15:50:56.148 [main] INFO  [DefaultListableBeanFactory.java:828]
+				Overriding bean definition for bean 'nodeInfoGenerator' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=true; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=igniteAutoConfiguration; factoryMethodName=igniteNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/ignite/config/IgniteAutoConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=ossCacheConfiguration; factoryMethodName=redisNodeInfoGenerator; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [com/ztesoft/zsmart/oss/opb/cache/config/OssCacheConfiguration.class]]
+2018-10-10 15:50:56.545 [main] INFO  [GenericScope.java:263]
+				BeanFactory id=eac4944e-5209-3859-bd80-3283f34f1aa1
+2018-10-10 15:50:56.577 [main] INFO  [AutowiredAnnotationBeanPostProcessor.java:155]
+				JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-10-10 15:50:56.637 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.druid.DruidDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$4bb7800f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:56.650 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.jdbc.monitor.DataSourceMonitorAutoConfiguration$$EnhancerBySpringCGLIB$$a98145e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:56.822 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$3a0117db] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.004 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.006 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@73dd0f23' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.018 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$5ed5ba8d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.032 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.046 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.jcache.config.ProxyJCacheConfiguration' of type [org.springframework.cache.jcache.config.ProxyJCacheConfiguration$$EnhancerBySpringCGLIB$$c39b121f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.100 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cache.annotation.ProxyCachingConfiguration' of type [org.springframework.cache.annotation.ProxyCachingConfiguration$$EnhancerBySpringCGLIB$$ea6585bf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.139 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a1534fa1] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.256 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.transaction-com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionProperties$$EnhancerBySpringCGLIB$$99aab2ca] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.267 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.transaction.TransactionAutoConfiguration$AspectJTransactionConfiguration$$EnhancerBySpringCGLIB$$b4dd2de2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.280 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionAttributeSource' of type [org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.282 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionInterceptor' of type [org.springframework.transaction.interceptor.TransactionInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.288 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.292 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJTransactionBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.316 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'ftf.serviceLog-com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogProperties$$EnhancerBySpringCGLIB$$5a6bdb6f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.328 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogAutoConfiguration$$EnhancerBySpringCGLIB$$f0b553d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.341 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogging' of type [com.ztesoft.zsmart.core.boot.autoconfigure.log.ServiceLogInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.342 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogExpressionPointcut' of type [org.springframework.aop.aspectj.AspectJExpressionPointcut] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.342 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'aspectJLogBeanFactoryPointcutAdvisor' of type [org.springframework.aop.support.DefaultBeanFactoryPointcutAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.355 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration' of type [org.springframework.cloud.netflix.metrics.MetricsInterceptorConfiguration$MetricsRestTemplateConfiguration$$EnhancerBySpringCGLIB$$d37ff5e2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.382 [main] INFO  [PostProcessorRegistrationDelegate.java:327]
+				Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bd6d529e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-10-10 15:50:57.859 [main] INFO  [TomcatEmbeddedServletContainer.java:92]
+				Tomcat initialized with port(s): 9091 (http)
+2018-10-10 15:50:58.068 [localhost-startStop-1] INFO  [EmbeddedWebApplicationContext.java:276]
+				Root WebApplicationContext: initialization completed in 3761 ms
+2018-10-10 15:50:59.367 [localhost-startStop-1] ERROR [LogManager.java:1650]
+				Failed to resolve default logging config file: config/java.util.logging.properties
+2018-10-10 15:51:02.206 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'metricsFilter' to: [/*]
+2018-10-10 15:51:02.207 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-10-10 15:51:02.207 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSessionRepositoryFilter' to: [/*]
+2018-10-10 15:51:02.207 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-10-10 15:51:02.207 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-10-10 15:51:02.207 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'requestContextFilter' to: [/*]
+2018-10-10 15:51:02.208 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'springSecurityFilterChain' to: [/*]
+2018-10-10 15:51:02.208 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2018-10-10 15:51:02.209 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:271]
+				Mapping filter: 'restfulDownLoadFilter' to urls: [/*]
+2018-10-10 15:51:02.209 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'portalVerificationCodeFilter' to: [/*]
+2018-10-10 15:51:02.209 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'magicCodeFilter' to: [/*]
+2018-10-10 15:51:02.209 [localhost-startStop-1] INFO  [AbstractFilterRegistrationBean.java:258]
+				Mapping filter: 'applicationContextIdFilter' to: [/*]
+2018-10-10 15:51:02.209 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'dispatcherServlet' to [/]
+2018-10-10 15:51:02.210 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-10-10 15:51:02.211 [localhost-startStop-1] INFO  [ServletRegistrationBean.java:190]
+				Mapping servlet: 'com.ztesoft.zsmart.pot.servlet.MainServlet' to [/mainServlet/*]
+2018-10-10 15:51:04.599 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2018-10-10 15:51:04.599 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/metrics || /management/metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.599 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/refresh || /management/refresh.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:51:04.600 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/heapdump || /management/heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2018-10-10 15:51:04.601 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/auditevents || /management/auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2018-10-10 15:51:04.602 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.value(java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:51:04.602 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/reset],methods=[POST]}" onto public java.util.Map<java.lang.String, java.lang.Object> org.springframework.cloud.context.environment.EnvironmentManagerMvcEndpoint.reset()
+2018-10-10 15:51:04.603 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/pause || /management/pause.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:51:04.603 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/resume || /management/resume.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.endpoint.GenericPostableMvcEndpoint.invoke()
+2018-10-10 15:51:04.603 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/autoconfig || /management/autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.604 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/configprops || /management/configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.604 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/mappings || /management/mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.605 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/info || /management/info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.605 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/archaius || /management/archaius.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.606 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/features || /management/features.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.607 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers || /management/loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.invoke()
+2018-10-10 15:51:04.607 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2018-10-10 15:51:04.608 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/resetLoggers]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.reset()
+2018-10-10 15:51:04.608 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/batch/configure],methods=[POST]}" onto public java.lang.Object com.ztesoft.zsmart.core.log.actuate.LogbackLoggersMvcEndpoint.setInBatch(com.ztesoft.zsmart.core.log.actuate.ConfigLevel[])
+2018-10-10 15:51:04.608 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2018-10-10 15:51:04.609 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/trace || /management/trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.609 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/beans || /management/beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.610 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2018-10-10 15:51:04.610 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/env || /management/env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.610 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/dump || /management/dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2018-10-10 15:51:04.611 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/health || /management/health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2018-10-10 15:51:04.611 [main] INFO  [AbstractHandlerMethodMapping.java:543]
+				Mapped "{[/management/restart || /management/restart.json],methods=[POST]}" onto public java.lang.Object org.springframework.cloud.context.restart.RestartMvcEndpoint.invoke()
+2018-10-10 15:51:05.779 [main] INFO  [RequestMappingHandlerAdapter.java:534]
+				Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:50:54 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:51:05.786 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in portalResponseEntityExceptionHandler
+2018-10-10 15:51:05.786 [main] INFO  [RequestMappingHandlerAdapter.java:566]
+				Detected ResponseBodyAdvice bean in nbrTracerResponseBodyAdvice
+2018-10-10 15:51:05.787 [main] INFO  [RequestMappingHandlerAdapter.java:560]
+				Detected RequestBodyAdvice bean in nbrTraceRequestBodyAdvice
+2018-10-10 15:51:05.846 [main] INFO  [AbstractUrlHandlerMapping.java:349]
+				Root mapping to handler of type [class org.springframework.web.servlet.mvc.ParameterizableViewController]
+2018-10-10 15:51:05.877 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/swagger-ui.html] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:51:05.877 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:51:05.878 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:51:05.878 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/static/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:51:05.883 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler]
+2018-10-10 15:51:05.907 [main] INFO  [ExceptionHandlerExceptionResolver.java:274]
+				Detected @ExceptionHandler methods in portalResponseEntityExceptionHandler
+2018-10-10 15:51:05.907 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in portalResponseEntityExceptionHandler
+2018-10-10 15:51:05.908 [main] INFO  [ExceptionHandlerExceptionResolver.java:280]
+				Detected ResponseBodyAdvice implementation in nbrTracerResponseBodyAdvice
+2018-10-10 15:51:05.948 [main] INFO  [AbstractUrlHandlerMapping.java:362]
+				Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-10-10 15:51:06.611 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/main.html']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@23ba2c1e, com.ztesoft.zsmart.pot.security.access.PortalMagicCodeFilter@72018878, org.springframework.web.filter.CorsFilter@653fbbfc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7e6025c9, org.springframework.security.web.access.ExceptionTranslationFilter@c42ee90, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7cd6b76a]
+2018-10-10 15:51:06.611 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/static/**'], Ant [pattern='/modules/**'], Ant [pattern='/frm/**'], Ant [pattern='/i18n/**'], Ant [pattern='/styles/**'], Ant [pattern='/favicon.ico'], Ant [pattern='/**/*.html'], Ant [pattern='/**/*.js'], Ant [pattern='/**/*.css'], Ant [pattern='/**/*.hbs']]], [org.springframework.web.filter.CorsFilter@6f5df147]
+2018-10-10 15:51:06.665 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/management/**'], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@219c10c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f55aef7, org.springframework.security.web.header.HeaderWriterFilter@3681c285, org.springframework.web.filter.CorsFilter@5e352e3a, org.springframework.security.web.authentication.logout.LogoutFilter@3796ff4, org.springframework.boot.actuate.autoconfigure.RemoteIpFilter@1b26f006, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6178ac9d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@69c7fe78, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6def1699, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@38a6ca39, org.springframework.security.web.session.SessionManagementFilter@21139739, org.springframework.security.web.access.ExceptionTranslationFilter@4cce421e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@63b4a896]
+2018-10-10 15:51:06.692 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/login'], Ant [pattern='/logout'], Ant [pattern='/']]], [org.springframework.security.web.context.SecurityContextPersistenceFilter@565fa7d2, org.springframework.web.filter.CorsFilter@2b14628b, org.springframework.security.web.authentication.logout.LogoutFilter@47541b42, com.ztesoft.zsmart.pot.security.access.PortalVerificationCodeFilter@60eb8ca7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e1f467f, org.springframework.security.web.session.ConcurrentSessionFilter@791dcda7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64657b13, org.springframework.security.web.session.SessionManagementFilter@4b60ff1c, org.springframework.security.web.access.ExceptionTranslationFilter@70a26eca, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@724e82d9]
+2018-10-10 15:51:06.695 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: Ant [pattern='/magiccode'], [org.springframework.web.filter.CorsFilter@6acdca3a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6c80b1d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1a44ad96, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@32ae890, org.springframework.security.web.access.ExceptionTranslationFilter@30eed725, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@62525579]
+2018-10-10 15:51:06.705 [main] INFO  [DefaultSecurityFilterChain.java:43]
+				Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.security.web.context.SecurityContextPersistenceFilter@89017e5, org.springframework.security.web.header.HeaderWriterFilter@2cf6dd4d, org.springframework.web.filter.CorsFilter@a8177f6, org.springframework.security.web.csrf.CsrfFilter@42102827, org.springframework.security.web.session.ConcurrentSessionFilter@5b9ed77b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a9f7cf8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b88a2e2, org.springframework.security.web.session.SessionManagementFilter@5339cdc6, org.springframework.security.web.access.ExceptionTranslationFilter@6426ad0b]
+2018-10-10 15:51:07.429 [main] INFO  [SpringTemplateLoader.java:61]
+				SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:50:54 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24] and template loader path [classpath:/templates/]
+2018-10-10 15:51:07.430 [main] INFO  [FreeMarkerConfigurer.java:127]
+				ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-10-10 15:51:07.467 [main] WARN  [FreeMarkerAutoConfiguration.java:93]
+				Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.checkTemplateLocation=false)
+2018-10-10 15:51:08.343 [main] INFO  [MBeanExporter.java:431]
+				Registering beans for JMX exposure on startup
+2018-10-10 15:51:08.355 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'environmentManager' has been autodetected for JMX exposure
+2018-10-10 15:51:08.358 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure
+2018-10-10 15:51:08.359 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:51:08.359 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'restartEndpoint' has been autodetected for JMX exposure
+2018-10-10 15:51:08.360 [main] INFO  [MBeanExporter.java:918]
+				Bean with name 'refreshScope' has been autodetected for JMX exposure
+2018-10-10 15:51:08.363 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager]
+2018-10-10 15:51:08.375 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'restartEndpoint': registering with JMX server as MBean [org.springframework.cloud.context.restart:name=restartEndpoint,type=RestartEndpoint]
+2018-10-10 15:51:08.386 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope]
+2018-10-10 15:51:08.396 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=231baf51,type=ConfigurationPropertiesRebinder]
+2018-10-10 15:51:08.402 [main] INFO  [MBeanExporter.java:679]
+				Located managed bean 'refreshEndpoint': registering with JMX server as MBean [org.springframework.cloud.endpoint:name=refreshEndpoint,type=RefreshEndpoint]
+2018-10-10 15:51:09.002 [main] INFO  [DefaultLifecycleProcessor.java:341]
+				Starting beans in phase 2147483647
+2018-10-10 15:51:10.700 [main] INFO  [ScheduledAnnotationBeanPostProcessor.java:268]
+				No TaskScheduler/ScheduledExecutorService bean found for scheduled processing
+2018-10-10 15:51:10.753 [main] INFO  [TomcatEmbeddedServletContainer.java:216]
+				Tomcat started on port(s): 9091 (http)
+2018-10-10 15:51:25.428 [Thread-16] INFO  [AbstractApplicationContext.java:984]
+				Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@231baf51: startup date [Wed Oct 10 15:50:54 CST 2018]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@59f63e24
+2018-10-10 15:51:25.433 [Thread-16] INFO  [DefaultLifecycleProcessor.java:356]
+				Stopping beans in phase 2147483647
+2018-10-10 15:51:25.440 [Thread-16] INFO  [MBeanExporter.java:449]
+				Unregistering JMX-exposed beans on shutdown
+2018-10-10 15:51:25.440 [Thread-16] INFO  [MBeanRegistrationSupport.java:241]
+				Unregistering JMX-exposed beans

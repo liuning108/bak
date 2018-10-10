@@ -9,14 +9,14 @@
         <dependent-module archiveName="pm-common-9.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pm-common/pm-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="pm-service-impl-9.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pm-service-impl/pm-service-impl">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/var/M2_REPO/com/ztesoft/zsmart/oss/opb/opb-web/9.0.1-SNAPSHOT/opb-web-9.0.1-SNAPSHOT.war?unpackFolder=target/m2e-wtp/overlays&amp;includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
         </dependent-module>
         <dependent-module deploy-path="/" handle="module:/overlay/slf/?includes=**/**&amp;excludes=META-INF/MANIFEST.MF">
             <dependency-type>consumes</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="pm-service-impl.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/pm-service-impl/pm-service-impl">
+            <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="pm-web"/>
         <property name="java-output-path" value="/pm-web/target/classes"/>

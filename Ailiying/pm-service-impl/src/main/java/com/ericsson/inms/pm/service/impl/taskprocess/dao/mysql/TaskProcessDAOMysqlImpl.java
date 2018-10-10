@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -18,10 +19,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ericsson.inms.pm.api.service.taskoneexec.ITaskOneExecService;
 import com.ericsson.inms.pm.service.impl.taskprocess.dao.TaskProcessDAO;
 import com.ericsson.inms.pm.service.impl.taskprocess.util.JsonMapUtil;
+import com.ericsson.inms.pm.taskoneexec.service.TaskOneExecService;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
+import com.ztesoft.zsmart.core.spring.SpringContext;
 import com.ztesoft.zsmart.oss.opb.base.jdbc.ParamArray;
 import com.ztesoft.zsmart.oss.opb.base.util.CommonHelper;
 import com.ztesoft.zsmart.oss.opb.component.sequence.util.SeqUtils;
@@ -227,7 +231,13 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 	private JSONObject addTask(JSONObject dict) {
 		// TODO Auto-generated method stub
 		JSONObject result = new JSONObject();
-		result.put("TASK_ID", SeqUtils.getSeq("TASK", "PM_T"));
+		ITaskOneExecService taskOneExecService =(ITaskOneExecService) SpringContext.getBean(TaskOneExecService.class);
+		Map<String,Object> mapParam = new HashMap<String,Object>();
+	    mapParam.put("EXEC_TIME","2019-10-6 19:12:12");
+	    mapParam.put("CLASS_PATH","com.ericsson.inms.pm.service.impl.taskprocess.tasks.DownloadPlug");
+	    mapParam.put("PARAM","{}"); 
+		String TASK_ID=taskOneExecService.insertInst(mapParam);
+		result.put("TASK_ID", TASK_ID);
 		return result;
 	}
 

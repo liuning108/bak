@@ -127,7 +127,7 @@ define([
               if(fish.isNumber(value)){
                 var percNum = Number(precNum);
                 if(fish.isNaN(percNum))percNum=2;
-                d[key] = value.toFixed(precNum);
+                d[key] = Number(value.toFixed(precNum));
               }
          });
 

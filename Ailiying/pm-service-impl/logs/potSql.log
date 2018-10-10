@@ -1,0 +1,704 @@
+2018-10-10 14:53:02.714 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:02	[CostLevel]:3	[Cost]:572ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:53:03.336 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:03	[CostLevel]:3	[Cost]:506ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:53:03.409 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 14:53:03.409 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 14:53:03.895 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:03	[CostLevel]:1	[Cost]:4ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:03.898 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:03	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:53:06.737 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 14:53:06	[CostLevel]:3	[Cost]:345ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:53:07.401 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:07	[CostLevel]:3	[Cost]:536ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:53:07.521 [main] {dataSource-2,oss_opb} inited
+2018-10-10 14:53:07.521 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 14:53:07.521 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:07	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:07.522 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:07	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:53:17.830 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:17	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:17.885 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:17	[CostLevel]:2	[Cost]:50ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 14:53:17.911 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:17	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:17.912 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:53:17	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:53:18.122 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:18.164 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:42ms	[DB_USER]:eri_pm_dev	
+SELECT JOB_TASK_TYPE, JOB_CLASS_PATH FROM PM_JOB_REGISTER_INFO
+
+2018-10-10 14:53:18.165 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:18.166 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:53:18.166 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:18.245 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:79ms	[DB_USER]:eri_pm_dev	
+select PARAM_TYPE,TASK_NO,TASK_NO_VER,PARAM_SEQ,TASK_PARAM,RECTIME,CYCLE_SCHDULE_TYPE from PM_TASK_PARAM_VER where param_type <> 'L' order by TASK_NO,PARAM_SEQ ASC
+
+2018-10-10 14:53:18.249 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:18.249 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:53:18.262 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:53:18.298 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:34ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> false
+
+2018-10-10 14:53:18.336 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:37ms	[DB_USER]:eri_pm_dev	
+SELECT date_format(BTIME,'%Y-%m-%d %H:%i:%S') BTIME, date_format(ETIME,'%Y-%m-%d %H:%i:%S') ETIME, TASK_NO, TASK_ID, TASK_NAME, TASK_TYPE, TASK_SERV_IP, TASK_SERV_USER, TASK_STATE, DELAY_TIME, date_format(TASK_CREATE_DATE,'%Y-%m-%d %H:%i:%S') TASK_CREATE_DATE, date_format(TASK_EXEC_DATE,'%Y-%m-%d %H:%i:%S') TASK_EXEC_DATE, date_format(TASK_FINISH_DATE,'%Y-%m-%d %H:%i:%S') TASK_FINISH_DATE, TASK_EXEC_DURATION, TASK_EXEC_TIMES, TASK_EXCEPT_INFO, TASK_NO_VER, CYCLE_SCHDULE_TYPE, MACHINE_NO, EXT_PARAMFLAG, PIECE_SEQ, date_format(TASK_ASSIGN_DATE,'%Y-%m-%d %H:%i:%S') TASK_ASSIGN_DATE FROM PM_TASK_INST WHERE TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 14:53:18.337 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:18.412 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:75ms	[DB_USER]:eri_pm_dev	
+SELECT TASK_ID,PARAM_SEQ,TASK_PARAM  FROM PM_TASK_INST_EXT_PARAM WHERE PARAM_FLAG = 0 AND TASK_ID in ('PMI-2019101019-TA00000203') ORDER BY TASK_ID,PARAM_SEQ ASC
+
+2018-10-10 14:53:18.413 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:18.470 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:40ms	[DB_USER]:eri_pm_dev	
+UPDATE PM_TASK_INST set TASK_STATE='2', MACHINE_NO='10.45.48.69' where TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 14:53:18.472 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:53:18.513 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:40ms	[DB_USER]:eri_pm_dev	
+connection committed.
+
+2018-10-10 14:53:18.554 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:2	[Cost]:40ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> true
+
+2018-10-10 14:53:18.590 [main] ===sql===[Session]:1014531800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:53:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:57:56.439 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 14:57:56	[CostLevel]:1	[Cost]:4ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 14:57:56.441 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:57:56	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 14:57:56.442 [Thread-8] {dataSource-2} closed
+2018-10-10 14:57:56.443 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 14:57:56.478 [Thread-16] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 14:57:56	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 14:57:56.479 [Thread-16] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:57:56	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 14:57:56.479 [Thread-16] {dataSource-1} closed
+2018-10-10 14:57:56.479 [Thread-16] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 14:58:19.326 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:19	[CostLevel]:3	[Cost]:418ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:58:19.576 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:19	[CostLevel]:3	[Cost]:160ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:58:19.647 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 14:58:19.647 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 14:58:20.024 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:20	[CostLevel]:1	[Cost]:3ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:20.025 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:20	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:58:22.453 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 14:58:22	[CostLevel]:3	[Cost]:240ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:58:22.753 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:22	[CostLevel]:3	[Cost]:212ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 14:58:22.848 [main] {dataSource-2,oss_opb} inited
+2018-10-10 14:58:22.848 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 14:58:22.849 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:22	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:22.849 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:22	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:58:32.031 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:32.072 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:37ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 14:58:32.093 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.094 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:58:32.282 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:32.314 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:32ms	[DB_USER]:eri_pm_dev	
+SELECT JOB_TASK_TYPE, JOB_CLASS_PATH FROM PM_JOB_REGISTER_INFO
+
+2018-10-10 14:58:32.315 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.315 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:58:32.316 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:32.351 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:35ms	[DB_USER]:eri_pm_dev	
+select PARAM_TYPE,TASK_NO,TASK_NO_VER,PARAM_SEQ,TASK_PARAM,RECTIME,CYCLE_SCHDULE_TYPE from PM_TASK_PARAM_VER where param_type <> 'L' order by TASK_NO,PARAM_SEQ ASC
+
+2018-10-10 14:58:32.355 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.355 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 14:58:32.367 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 14:58:32.401 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:32ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> false
+
+2018-10-10 14:58:32.438 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:37ms	[DB_USER]:eri_pm_dev	
+SELECT date_format(BTIME,'%Y-%m-%d %H:%i:%S') BTIME, date_format(ETIME,'%Y-%m-%d %H:%i:%S') ETIME, TASK_NO, TASK_ID, TASK_NAME, TASK_TYPE, TASK_SERV_IP, TASK_SERV_USER, TASK_STATE, DELAY_TIME, date_format(TASK_CREATE_DATE,'%Y-%m-%d %H:%i:%S') TASK_CREATE_DATE, date_format(TASK_EXEC_DATE,'%Y-%m-%d %H:%i:%S') TASK_EXEC_DATE, date_format(TASK_FINISH_DATE,'%Y-%m-%d %H:%i:%S') TASK_FINISH_DATE, TASK_EXEC_DURATION, TASK_EXEC_TIMES, TASK_EXCEPT_INFO, TASK_NO_VER, CYCLE_SCHDULE_TYPE, MACHINE_NO, EXT_PARAMFLAG, PIECE_SEQ, date_format(TASK_ASSIGN_DATE,'%Y-%m-%d %H:%i:%S') TASK_ASSIGN_DATE FROM PM_TASK_INST WHERE TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 14:58:32.438 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.508 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:69ms	[DB_USER]:eri_pm_dev	
+SELECT TASK_ID,PARAM_SEQ,TASK_PARAM  FROM PM_TASK_INST_EXT_PARAM WHERE PARAM_FLAG = 0 AND TASK_ID in ('PMI-2019101019-TA00000203') ORDER BY TASK_ID,PARAM_SEQ ASC
+
+2018-10-10 14:58:32.509 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.560 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:32ms	[DB_USER]:eri_pm_dev	
+UPDATE PM_TASK_INST set TASK_STATE='2', MACHINE_NO='10.211.55.2' where TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 14:58:32.562 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 14:58:32.598 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:35ms	[DB_USER]:eri_pm_dev	
+connection committed.
+
+2018-10-10 14:58:32.633 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:2	[Cost]:34ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> true
+
+2018-10-10 14:58:32.668 [main] ===sql===[Session]:1014583200011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 14:58:32	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:02:24.219 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:02:24	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:02:24.220 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:02:24	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:02:24.221 [Thread-8] {dataSource-2} closed
+2018-10-10 15:02:24.221 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:02:24.242 [Thread-16] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:02:24	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:02:24.243 [Thread-16] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:02:24	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:02:24.243 [Thread-16] {dataSource-1} closed
+2018-10-10 15:02:24.243 [Thread-16] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:06:43.619 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:43	[CostLevel]:3	[Cost]:395ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:06:43.857 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:43	[CostLevel]:3	[Cost]:166ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:06:43.928 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:06:43.929 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:06:44.212 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:44	[CostLevel]:1	[Cost]:4ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:44.213 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:44	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:06:46.425 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:06:46	[CostLevel]:3	[Cost]:162ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:06:46.655 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:46	[CostLevel]:3	[Cost]:163ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:06:46.724 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:06:46.725 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:06:46.725 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:46	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:46.725 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:46	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:06:55.032 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:55.064 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:29ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:06:55.089 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.089 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:06:55.263 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:55.287 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+SELECT JOB_TASK_TYPE, JOB_CLASS_PATH FROM PM_JOB_REGISTER_INFO
+
+2018-10-10 15:06:55.288 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.288 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:06:55.288 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:55.314 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:26ms	[DB_USER]:eri_pm_dev	
+select PARAM_TYPE,TASK_NO,TASK_NO_VER,PARAM_SEQ,TASK_PARAM,RECTIME,CYCLE_SCHDULE_TYPE from PM_TASK_PARAM_VER where param_type <> 'L' order by TASK_NO,PARAM_SEQ ASC
+
+2018-10-10 15:06:55.317 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.317 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:06:55.328 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:06:55.351 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:22ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> false
+
+2018-10-10 15:06:55.379 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:26ms	[DB_USER]:eri_pm_dev	
+SELECT date_format(BTIME,'%Y-%m-%d %H:%i:%S') BTIME, date_format(ETIME,'%Y-%m-%d %H:%i:%S') ETIME, TASK_NO, TASK_ID, TASK_NAME, TASK_TYPE, TASK_SERV_IP, TASK_SERV_USER, TASK_STATE, DELAY_TIME, date_format(TASK_CREATE_DATE,'%Y-%m-%d %H:%i:%S') TASK_CREATE_DATE, date_format(TASK_EXEC_DATE,'%Y-%m-%d %H:%i:%S') TASK_EXEC_DATE, date_format(TASK_FINISH_DATE,'%Y-%m-%d %H:%i:%S') TASK_FINISH_DATE, TASK_EXEC_DURATION, TASK_EXEC_TIMES, TASK_EXCEPT_INFO, TASK_NO_VER, CYCLE_SCHDULE_TYPE, MACHINE_NO, EXT_PARAMFLAG, PIECE_SEQ, date_format(TASK_ASSIGN_DATE,'%Y-%m-%d %H:%i:%S') TASK_ASSIGN_DATE FROM PM_TASK_INST WHERE TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 15:06:55.380 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.441 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:61ms	[DB_USER]:eri_pm_dev	
+SELECT TASK_ID,PARAM_SEQ,TASK_PARAM  FROM PM_TASK_INST_EXT_PARAM WHERE PARAM_FLAG = 0 AND TASK_ID in ('PMI-2019101019-TA00000203') ORDER BY TASK_ID,PARAM_SEQ ASC
+
+2018-10-10 15:06:55.441 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.484 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:26ms	[DB_USER]:eri_pm_dev	
+UPDATE PM_TASK_INST set TASK_STATE='2', MACHINE_NO='10.211.55.2' where TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 15:06:55.487 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:06:55.512 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+connection committed.
+
+2018-10-10 15:06:55.537 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> true
+
+2018-10-10 15:06:55.561 [main] ===sql===[Session]:1015065500011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:06:55	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:07:38.001 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:07:38	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:07:38.002 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:07:38	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:07:38.003 [Thread-8] {dataSource-2} closed
+2018-10-10 15:07:38.004 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:07:38.027 [Thread-16] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:07:38	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:07:38.027 [Thread-16] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:07:38	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:07:38.027 [Thread-16] {dataSource-1} closed
+2018-10-10 15:07:38.027 [Thread-16] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:09:46.698 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:46	[CostLevel]:3	[Cost]:399ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:09:46.932 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:46	[CostLevel]:3	[Cost]:164ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:09:47.006 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:09:47.006 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:09:47.288 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:47	[CostLevel]:1	[Cost]:4ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:47.289 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:47	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:09:49.602 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:09:49	[CostLevel]:3	[Cost]:164ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:09:49.833 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:49	[CostLevel]:3	[Cost]:164ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:09:49.902 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:09:49.902 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:09:49.903 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:49	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:49.903 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:49	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:09:58.320 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:58.354 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:31ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:09:58.378 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.378 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:09:58.552 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:58.576 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+SELECT JOB_TASK_TYPE, JOB_CLASS_PATH FROM PM_JOB_REGISTER_INFO
+
+2018-10-10 15:09:58.577 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120000	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.577 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:09:58.577 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:58.603 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:26ms	[DB_USER]:eri_pm_dev	
+select PARAM_TYPE,TASK_NO,TASK_NO_VER,PARAM_SEQ,TASK_PARAM,RECTIME,CYCLE_SCHDULE_TYPE from PM_TASK_PARAM_VER where param_type <> 'L' order by TASK_NO,PARAM_SEQ ASC
+
+2018-10-10 15:09:58.607 [main] ===sql===[Session]:0	[ConnId]:110002	[StmtId]:stmt-120001	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.607 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:09:58.617 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:09:58.641 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:23ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> false
+
+2018-10-10 15:09:58.669 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:26ms	[DB_USER]:eri_pm_dev	
+SELECT date_format(BTIME,'%Y-%m-%d %H:%i:%S') BTIME, date_format(ETIME,'%Y-%m-%d %H:%i:%S') ETIME, TASK_NO, TASK_ID, TASK_NAME, TASK_TYPE, TASK_SERV_IP, TASK_SERV_USER, TASK_STATE, DELAY_TIME, date_format(TASK_CREATE_DATE,'%Y-%m-%d %H:%i:%S') TASK_CREATE_DATE, date_format(TASK_EXEC_DATE,'%Y-%m-%d %H:%i:%S') TASK_EXEC_DATE, date_format(TASK_FINISH_DATE,'%Y-%m-%d %H:%i:%S') TASK_FINISH_DATE, TASK_EXEC_DURATION, TASK_EXEC_TIMES, TASK_EXCEPT_INFO, TASK_NO_VER, CYCLE_SCHDULE_TYPE, MACHINE_NO, EXT_PARAMFLAG, PIECE_SEQ, date_format(TASK_ASSIGN_DATE,'%Y-%m-%d %H:%i:%S') TASK_ASSIGN_DATE FROM PM_TASK_INST WHERE TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 15:09:58.670 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.731 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:59ms	[DB_USER]:eri_pm_dev	
+SELECT TASK_ID,PARAM_SEQ,TASK_PARAM  FROM PM_TASK_INST_EXT_PARAM WHERE PARAM_FLAG = 0 AND TASK_ID in ('PMI-2019101019-TA00000203') ORDER BY TASK_ID,PARAM_SEQ ASC
+
+2018-10-10 15:09:58.731 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:stmt-120003	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.772 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+UPDATE PM_TASK_INST set TASK_STATE='2', MACHINE_NO='10.211.55.2' where TASK_ID = 'PMI-2019101019-TA00000203'
+
+2018-10-10 15:09:58.775 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[StmtId]:pstmt-120004	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:09:58.799 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:24ms	[DB_USER]:eri_pm_dev	
+connection committed.
+
+2018-10-10 15:09:58.823 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:2	[Cost]:23ms	[DB_USER]:eri_pm_dev	
+setAutoCommit -> true
+
+2018-10-10 15:09:58.846 [main] ===sql===[Session]:1015095800011000000000000000	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:09:58	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:22:17.854 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:17	[CostLevel]:3	[Cost]:393ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:22:18.091 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:18	[CostLevel]:3	[Cost]:166ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:22:18.163 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:22:18.164 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:22:18.475 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:18	[CostLevel]:1	[Cost]:3ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:22:18.477 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:18	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:22:21.132 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:22:21	[CostLevel]:3	[Cost]:167ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:22:21.365 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:22:21	[CostLevel]:3	[Cost]:163ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:22:21.435 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:22:21.436 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:22:21.436 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:22:21	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:22:21.436 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:22:21	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:22:30.176 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:22:30.209 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:2	[Cost]:30ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:22:30.233 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:22:30.234 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:22:30.415 [main] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:22:30.425 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:22:30	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:22:30.426 [main] {dataSource-1} closed
+2018-10-10 15:22:30.426 [main] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:23:03.922 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:23:03	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:23:03.924 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:23:03	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:23:03.924 [Thread-8] {dataSource-2} closed
+2018-10-10 15:23:03.924 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:29:59.269 [Thread-13] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:29:59	[CostLevel]:2	[Cost]:35ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:29:59.293 [Thread-13] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:29:59	[CostLevel]:2	[Cost]:23ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:29:59.294 [Thread-13] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:29:59	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:29:59.295 [Thread-13] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:29:59	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:37:05.353 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:05	[CostLevel]:3	[Cost]:417ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:37:05.591 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:05	[CostLevel]:3	[Cost]:166ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:37:05.664 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:37:05.677 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:37:06.044 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:06	[CostLevel]:1	[Cost]:5ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:37:06.046 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:06	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:37:08.978 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:37:08	[CostLevel]:3	[Cost]:170ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:37:09.227 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:37:09	[CostLevel]:3	[Cost]:167ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:37:09.297 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:37:09.298 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:37:09.299 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:37:09	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:37:09.300 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:37:09	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:37:20.578 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:37:20.614 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:2	[Cost]:32ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:37:20.647 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:37:20.648 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:37:20.922 [main] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:37:20.923 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:37:20	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:37:20.923 [main] {dataSource-1} closed
+2018-10-10 15:37:20.923 [main] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:37:57.356 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:37:57	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:37:57.357 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:37:57	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:37:57.357 [Thread-8] {dataSource-2} closed
+2018-10-10 15:37:57.357 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:38:09.742 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:09	[CostLevel]:3	[Cost]:408ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:38:09.982 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:09	[CostLevel]:3	[Cost]:165ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:38:10.054 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:38:10.054 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:38:10.394 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:10	[CostLevel]:1	[Cost]:3ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:38:10.396 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:10	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:38:13.149 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:38:13	[CostLevel]:3	[Cost]:161ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:38:13.383 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:38:13	[CostLevel]:3	[Cost]:164ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:38:13.452 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:38:13.453 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:38:13.453 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:38:13	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:38:13.453 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:38:13	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:38:24.089 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:38:24.123 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:2	[Cost]:31ms	[DB_USER]:eri_pm_dev	
+SELECT CURRENT_TIMESTAMP
+
+2018-10-10 15:38:24.147 [main] ===sql===[Session]:0	[ConnId]:10002	[StmtId]:stmt-20000	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+statement closed.
+
+2018-10-10 15:38:24.147 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:38:24.353 [main] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:38:24.353 [main] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:38:24	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:38:24.354 [main] {dataSource-1} closed
+2018-10-10 15:38:24.354 [main] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:39:16.891 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:39:16	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:39:16.892 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:39:16	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:39:16.892 [Thread-8] {dataSource-2} closed
+2018-10-10 15:39:16.892 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:40:07.649 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:40:07	[CostLevel]:1	[Cost]:9ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:07.660 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:40:07	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:07.664 [Thread-8] {dataSource-2} closed
+2018-10-10 15:40:07.664 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:40:07.753 [Thread-16] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:07	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:07.754 [Thread-16] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:07	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:07.754 [Thread-16] {dataSource-1} closed
+2018-10-10 15:40:07.754 [Thread-16] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:40:25.270 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:25	[CostLevel]:3	[Cost]:403ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:40:25.517 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:25	[CostLevel]:3	[Cost]:168ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:40:25.595 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:40:25.596 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:40:25.902 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:25	[CostLevel]:1	[Cost]:3ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:40:25.903 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:40:25	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:40:28.500 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:40:28	[CostLevel]:3	[Cost]:163ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:40:28.741 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:40:28	[CostLevel]:3	[Cost]:170ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:40:28.808 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:40:28.808 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:40:28.809 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:40:28	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:40:28.809 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:40:28	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:40:32.945 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:40:32	[CostLevel]:1	[Cost]:2ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:32.946 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:40:32	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:40:32.947 [Thread-8] {dataSource-2} closed
+2018-10-10 15:40:32.947 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
+2018-10-10 15:41:00.938 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10001	[DbName]:defaultDataSource	[Time]:2018-10-10 15:41:00	[CostLevel]:3	[Cost]:373ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:41:01.174 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:41:01	[CostLevel]:3	[Cost]:164ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:41:01.248 [localhost-startStop-1] {dataSource-1,defaultDataSource} inited
+2018-10-10 15:41:01.248 [localhost-startStop-1] {id:1, ds:defaultDataSource, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:41:01.558 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:41:01	[CostLevel]:1	[Cost]:4ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:41:01.559 [localhost-startStop-1] ===sql===[Session]:0	[ConnId]:10002	[DbName]:defaultDataSource	[Time]:2018-10-10 15:41:01	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:41:03.835 [main] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:41:03	[CostLevel]:3	[Cost]:163ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:41:04.071 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:41:04	[CostLevel]:3	[Cost]:166ms	[DB_USER]:eri_pm_dev	
+create new connection.
+
+2018-10-10 15:41:04.142 [main] {dataSource-2,oss_opb} inited
+2018-10-10 15:41:04.142 [main] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource initialized.
+2018-10-10 15:41:04.143 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:41:04	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+get pool connection
+
+2018-10-10 15:41:04.143 [main] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:41:04	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+return connection
+
+2018-10-10 15:41:11.522 [Thread-8] ===sql===[Session]:0	[ConnId]:110001	[DbName]:oss_opb	[Time]:2018-10-10 15:41:11	[CostLevel]:1	[Cost]:1ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:41:11.522 [Thread-8] ===sql===[Session]:0	[ConnId]:110002	[DbName]:oss_opb	[Time]:2018-10-10 15:41:11	[CostLevel]:1	[Cost]:0ms	[DB_USER]:eri_pm_dev	
+connection closed.
+
+2018-10-10 15:41:11.523 [Thread-8] {dataSource-2} closed
+2018-10-10 15:41:11.523 [Thread-8] {id:2, ds:oss_opb, user:eri_pm_dev, url:jdbc:mysql://10.45.59.187:3306/eripmdev?useUnicode=true&characterEncoding=utf-8&tcpRcvBuf=1024000&useOldAliasMetadataBehavior=true&useSSL=true&rewriteBatchedStatements=true} datasource closed.
