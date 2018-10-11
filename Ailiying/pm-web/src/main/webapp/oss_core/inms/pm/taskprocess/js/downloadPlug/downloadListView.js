@@ -65,8 +65,11 @@ define([
         var taskId = $(this).data('taskid');
         var state = $(this).data('state');
         var file = $(this).data('file');
+
+        alert(file);
         if (state == 'DONE') {
           action.moveFTPFile(file).then(function(data){
+             console.log('moveFTPFile',data);
              var fileName = data.filename;
              var url ="download?delete=true&fileName="+fileName;
              self.download(url);

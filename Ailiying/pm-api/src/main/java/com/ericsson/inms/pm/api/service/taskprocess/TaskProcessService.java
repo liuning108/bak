@@ -75,4 +75,13 @@ public interface TaskProcessService {
 	 *             <br>
 	 */
 	JSONObject getDataExpParam(JSONObject dict) throws BaseAppException;
+
+	
+	void savefilePath(JSONObject dict) throws BaseAppException;
+
+
+	JSONObject getConfigFTP() throws BaseAppException;
+
+
+	JSONObject uploadFTP(JSONObject dict) throws BaseAppException;
 }

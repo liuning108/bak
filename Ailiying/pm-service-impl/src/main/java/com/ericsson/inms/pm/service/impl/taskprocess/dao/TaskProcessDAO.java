@@ -14,5 +14,6 @@ public abstract class TaskProcessDAO extends GeneralDAO {
 	public abstract JSONObject addExportTask(JSONObject dict) throws BaseAppException;
 	public abstract JSONObject exportTasklist(JSONObject dict)  throws BaseAppException;
 	public abstract JSONObject getDataExpParam(JSONObject dict) throws BaseAppException;
-	
+	public abstract void savefilePath(JSONObject dict) throws BaseAppException;
+	public abstract String getParamter(String key) throws BaseAppException;
 }
