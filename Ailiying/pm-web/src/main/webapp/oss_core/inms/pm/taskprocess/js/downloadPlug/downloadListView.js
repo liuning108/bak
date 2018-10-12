@@ -30,7 +30,6 @@ define([
     },
     download: function(url) {
       var elemIF = document.createElement("iframe");
-      alert(url)
       elemIF.src =  url
       elemIF.style.display = "none";
       document.body.appendChild(elemIF);
@@ -66,7 +65,6 @@ define([
         var state = $(this).data('state');
         var file = $(this).data('file');
 
-        alert(file);
         if (state == 'DONE') {
           action.moveFTPFile(file).then(function(data){
              console.log('moveFTPFile',data);

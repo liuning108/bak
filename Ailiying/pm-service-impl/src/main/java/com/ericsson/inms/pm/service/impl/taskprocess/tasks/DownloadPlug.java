@@ -47,6 +47,8 @@ public class DownloadPlug implements IOnecExecInst {
 			// 没有配FTP,保存本地的路径
 			result = this.savefilePath(id, filePath, JsonMapUtil.DOWANLOAD_STATE_DONE);
 		}
+		logger.info("Donwload Result:"+result.getState()+":"+result.getCause());
+		
 		return result;
 
 	}
@@ -81,13 +83,13 @@ public class DownloadPlug implements IOnecExecInst {
 			dict.put("filePath", filePath);
 			dict.put("state", state);
 			getService().savefilePath(dict);
-			result.setCause("3");
-			result.setCause("test Download");
+			result.setState("0");
+			result.setCause("");
 		} catch (Exception e) {
 			result.setCause("3");
 			result.setCause(e.getMessage());
 		}
-		return null;
+		return result;
 	}
 
 	private String getDownloadFile(JSONObject info) {

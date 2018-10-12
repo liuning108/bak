@@ -9,6 +9,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
@@ -86,7 +87,7 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 			File file = this.downlaodSFtpFile(target);
 
 			if (file == null) {
-				file = this.downlaodSFtpFile(target);
+				file = this.downlaodFtpFile(target);
 			}
 			String filename="";
 			if(file!=null) {
@@ -95,6 +96,33 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		   result.put("filename",filename);
 		}
 		return result;
+	}
+
+	private File downlaodFtpFile(File source) {
+		  try {
+	           System.err.println("downlaodFtpFile");
+	           JSONObject ftpInfo = this.getConfigFTP();
+	            FTPClient client = TaskFtpUtil.getClient(ftpInfo);
+	            if (client == null) {
+	                System.err.println("Client is null");
+	            } 
+	            String fileDirectory = CommonHelper.getProperty("file.download.directory");
+	            String webPathDirStr=TaskFtpUtil.getFilePath(fileDirectory,"expTemp");
+	            File webPathDir = new File(webPathDirStr);
+				webPathDir.mkdirs();
+				String fileName =source.getName();
+	            String ftpFile=source.getAbsolutePath();
+	            String locaFile =TaskFtpUtil.getFilePath(webPathDir.getAbsolutePath(),fileName);
+	            System.err.println("fileName:"+fileName);
+	            System.err.println("ftpFile:"+ftpFile);
+	            System.err.println("locaFile:"+locaFile);
+	            File target= TaskFtpUtil.getFTPFile(client, ftpFile,locaFile);
+	            System.out.println(target);
+	            return target;
+	        } catch (Exception e) {
+	           // logger.info("saveFTP:"+e.getMessage());
+	            return null;
+	        }
 	}
 
 	private File downlaodSFtpFile(File source) {
@@ -196,6 +224,7 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		// TODO Auto-generated method stub
 		JSONObject result = new JSONObject();
 		String ftpPath = TaskFtpUtil.saveSFTP(dict);
+		
 		if (ftpPath == null) {
 			ftpPath = TaskFtpUtil.saveFTP(dict);
 		}

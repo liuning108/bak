@@ -1,9 +1,14 @@
 package com.ericsson.inms.pm.service.impl.taskprocess.util;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.Properties;
+
+import org.apache.commons.net.ftp.FTP;
+import org.apache.commons.net.ftp.FTPClient;
 
 import com.alibaba.fastjson.JSONObject;
 import com.jcraft.jsch.Channel;
@@ -14,10 +19,44 @@ import com.jcraft.jsch.Session;
 public class TaskFtpUtil {
 
 	public static String saveFTP(JSONObject dict) {
-		return null;
+		System.err.println("USE FTP");
+		try {
+			String filePath = dict.getString("filePath");
+			File sourceFile = new File(filePath);
+			JSONObject ftpInfo = dict.getJSONObject("ftpInfo");
+			System.err.println("saveSFTP ftpInfo:" + ftpInfo);
+			System.err.println("saveSFTP sourceFile:" + sourceFile);
+			FTPClient client = TaskFtpUtil.getClient(ftpInfo);
+			System.err.println("saveFTP client Obj:" + client);
+			if (client == null) {
+				System.err.println("saveFTP Client is null");
+				return null;
+			}
+			String filepath = TaskFtpUtil.sendFTP(client, sourceFile, ftpInfo);
+			return filepath;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	public static FTPClient getClient(JSONObject ftpInfo) {
+		try {
+			FTPClient client = new FTPClient();
+			client.connect(ftpInfo.getString("ip"), Integer.parseInt(ftpInfo.getString("port")));
+			Boolean isLogin = client.login(ftpInfo.getString("user"), ftpInfo.getString("pass"));
+			if (isLogin) {
+				return client;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 	public static String saveSFTP(JSONObject dict) {
+		System.err.println("USE SFTP");
 		try {
 			String filePath = dict.getString("filePath");
 			File sourceFile = new File(filePath);
@@ -32,6 +71,33 @@ public class TaskFtpUtil {
 			String filepath = TaskFtpUtil.sendSFTP(client, sourceFile, ftpInfo);
 			System.err.println("saveSFTP filepath:" + filepath);
 			return filepath;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	private static String sendFTP(FTPClient client, File sourceFile, JSONObject ftpInfo) {
+		try {
+			String name = sourceFile.getName();
+			String FtpDir = "pm_expdata_ftp";
+			boolean makdirFlag = client.makeDirectory(FtpDir);
+			Boolean flag = client.changeWorkingDirectory(FtpDir);
+			String path = client.printWorkingDirectory();
+			client.enterLocalPassiveMode();
+			client.setFileType(FTP.BINARY_FILE_TYPE);
+			InputStream instream = new BufferedInputStream(new FileInputStream(sourceFile));
+			boolean result = client.storeFile(name, instream);
+
+			if (result) {
+				if (lastString(path, "/")) {
+					return path.substring(0, path.length() - 1) + "/" + name;
+				} else {
+					return path + "/" + name;
+				}
+
+			} else {
+				return null;
+			}
 		} catch (Exception e) {
 			return null;
 		}
@@ -93,7 +159,6 @@ public class TaskFtpUtil {
 			sftp = (ChannelSftp) channel;
 			return sftp;
 		} catch (Exception e) {
-			e.printStackTrace();
 			return null;
 		}
 	}
@@ -112,11 +177,38 @@ public class TaskFtpUtil {
 		try {
 			client.cd(remote.getParent());
 			client.get(remote.getName(), new FileOutputStream(target));
+			return target;
 		} catch (Exception e) {
-			e.printStackTrace();
+			return null;
 		}
 
-		return target;
+		
+	}
+
+	public static File getFTPFile(FTPClient client, String remoteFile, String tagetFile) {
+		// TODO Auto-generated method stub
+		try {
+			File target = new File(tagetFile);
+			FileOutputStream fos = new FileOutputStream(target);
+			String FtpDir = "pm_expdata_ftp";
+			boolean makdirFlag = client.makeDirectory(FtpDir);
+			Boolean changeFlag = client.changeWorkingDirectory(FtpDir);
+			String path = client.printWorkingDirectory();
+			client.enterLocalPassiveMode();
+			client.setBufferSize(1024);
+			client.setFileType(FTPClient.BINARY_FILE_TYPE);
+			boolean flag = client.retrieveFile(remoteFile, fos);
+			
+			System.err.println("getFTPFile"+flag);
+			if (flag) {
+				return target;
+			} else {
+				return null;
+			}
+		} catch (Exception e) {
+			return null;
+		}
+
 	}
 
 }
