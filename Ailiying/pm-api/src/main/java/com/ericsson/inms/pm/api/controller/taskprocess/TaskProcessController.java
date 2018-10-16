@@ -51,6 +51,12 @@ public class TaskProcessController {
 		return taskProcessService.moveFTPFile(dict);
 	}
 	
+	@PublicServ
+	@RequestMapping(value = "clearTempFile", method = RequestMethod.POST)
+	public void clearTempFile() throws BaseAppException { 
+	    taskProcessService.clearTempFile();
+	}
+	
  
 	
 }

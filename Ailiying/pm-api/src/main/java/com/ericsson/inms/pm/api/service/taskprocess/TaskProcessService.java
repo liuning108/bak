@@ -84,4 +84,17 @@ public interface TaskProcessService {
 
 
 	JSONObject uploadFTP(JSONObject dict) throws BaseAppException;
+
+
+	String getIntervalDelFile() throws BaseAppException;
+
+
+	JSONObject getDelList(String day) throws BaseAppException;
+
+
+	boolean delDataExpLogById(String id) throws BaseAppException;
+
+
+	void  clearTempFile()  throws BaseAppException;
+	
 }

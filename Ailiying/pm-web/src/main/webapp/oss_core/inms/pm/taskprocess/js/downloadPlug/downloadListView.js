@@ -35,6 +35,7 @@ define([
       document.body.appendChild(elemIF);
     },
     afterRender: function() {
+      action.clearTempFile();
       var self = this;
       var opt = {
         colModel: [

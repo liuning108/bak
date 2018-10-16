@@ -5,6 +5,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.ericsson.inms.pm.schedule.jobsys.jobsysimpl.JobExecuteTaskInst;
+import com.ericsson.inms.pm.service.impl.taskprocess.tasks.CleanFilePlug;
 import com.ztesoft.zsmart.oss.opb.base.constant.Const;
 @SpringBootApplication
 public class TestExecuTaskByTaskID {
@@ -19,10 +20,12 @@ public class TestExecuTaskByTaskID {
         ConfigurableApplicationContext appContext = new SpringApplicationBuilder(TestExecuTaskByTaskID.class)
                 .run(new String[] {});
         appContext.registerShutdownHook();
-        
-        System.err.println("------------");
-        JobExecuteTaskInst xx = new JobExecuteTaskInst();
-        xx.executeTaskID(taskID);
-        System.err.println("---end--------");
+        CleanFilePlug c  =new CleanFilePlug();
+        c.process();
+//        
+//        System.err.println("------------");
+//        JobExecuteTaskInst xx = new JobExecuteTaskInst();
+//        xx.executeTaskID(taskID);
+//        System.err.println("---end--------");
     }
 }

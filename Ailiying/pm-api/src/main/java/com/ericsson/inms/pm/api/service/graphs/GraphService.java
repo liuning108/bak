@@ -11,7 +11,6 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年7月26日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.inms.pm.api.service.graphs <br>
  */
 public interface GraphService {
 	/**

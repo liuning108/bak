@@ -21,25 +21,56 @@ import com.alibaba.fastjson.JSONObject;
 public class DownloadPlug implements IOnecExecInst {
 
 	private OpbLogger logger = OpbLogger.getLogger(ScheduleServer.class, "PM");
+	
+	private Boolean check(Object target,String id) {
+		if(target==null) {
+			this.savefilePath(id, "", JsonMapUtil.DOWANLOAD_STATE_ERROR);
+			return false ;
+		}else {
+			return true;
+		}
+	}
 
 	@Override
 	public JobResult executeInst(TaskParamVer taskParamVer, TaskInst taskInst, OnceExecArg onceExecArg) {
 		JobResult result = new JobResult();
+		
 		String id = taskInst.getTaskID();
-		logger.info("DownloadPlug Begin:" + id);
+		logger.info("=============DownloadPlug Begin:" + id+"=============");
 		JSONObject info = getDataExpParam(id);
 		logger.info("DownloadPlug Info:" + info);
+		if(!this.check(info, id)) {
+			result.setState("3");
+			result.setCause("info is null");
+			return result;
+		}
 		String filePath = getDownloadFile(info);
 		logger.info("DownloadPlug Local filePath:" + filePath);
+		if(!this.check(filePath, id)) {
+			result.setState("3");
+			result.setCause("filePath is null");
+			return result;
+		}
 		JSONObject ftpInfo = this.getConfigFTP();
 		logger.info("DownloadPlug ftpInfo:" + ftpInfo);
+		if(!this.check(ftpInfo, id)) {
+			result.setState("3");
+			result.setCause("ftpInfo is null");
+			return result;
+		}
 		if (ftpInfo != null) {
 			// 配有FTP，得到上传后的FTP
 			String ftpFilePath = this.uploadFTP(ftpInfo, filePath);
 			if(ftpFilePath==null) {
 				logger.info("DownloadPlug FTP Upload Error ftpFilePath is NULL,ftpInfo:" + ftpInfo);
+				
 			}else {
 				filePath =ftpFilePath;   //保存上传好的文件
+			}
+			if(!this.check(ftpFilePath, id)) {
+				result.setState("3");
+				result.setCause("ftpFilePath is null");
+				return result;
 			}
 			logger.info("DownloadPlug FTP File:" + filePath);
 			result = this.savefilePath(id, filePath, JsonMapUtil.DOWANLOAD_STATE_DONE);
@@ -47,8 +78,7 @@ public class DownloadPlug implements IOnecExecInst {
 			// 没有配FTP,保存本地的路径
 			result = this.savefilePath(id, filePath, JsonMapUtil.DOWANLOAD_STATE_DONE);
 		}
-		logger.info("Donwload Result:"+result.getState()+":"+result.getCause());
-		
+		logger.info("=============DownloadPlug End:"+result.getState()+":"+result.getCause()+"=============");
 		return result;
 
 	}

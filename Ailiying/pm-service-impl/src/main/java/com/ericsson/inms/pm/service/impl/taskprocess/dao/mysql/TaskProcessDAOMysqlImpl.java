@@ -17,9 +17,11 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.codehaus.jettison.json.JSONArray;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ericsson.inms.pm.api.service.taskoneexec.ITaskOneExecService;
+import com.ericsson.inms.pm.schedule.ScheduleServer;
 import com.ericsson.inms.pm.service.impl.taskprocess.dao.TaskProcessDAO;
 import com.ericsson.inms.pm.service.impl.taskprocess.util.JsonMapUtil;
 import com.ericsson.inms.pm.taskoneexec.service.TaskOneExecService;
@@ -29,11 +31,12 @@ import com.ztesoft.zsmart.core.spring.SpringContext;
 import com.ztesoft.zsmart.oss.opb.base.jdbc.ParamArray;
 import com.ztesoft.zsmart.oss.opb.base.util.CommonHelper;
 import com.ztesoft.zsmart.oss.opb.component.sequence.util.SeqUtils;
+import com.ztesoft.zsmart.oss.opb.log.OpbLogger;
 import com.ztesoft.zsmart.core.util.DateUtil;
 
 public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 	private static final long serialVersionUID = 1L;
-	private static final ZSmartLogger LOG = ZSmartLogger.getLogger(TaskProcessDAOMysqlImpl.class);
+	private OpbLogger logger = OpbLogger.getLogger(TaskProcessDAOMysqlImpl.class, "PM");
 
 	@Override
 	public String exportExcel(List<Map<String, Object>> colModel, String runSql, ParamArray params)
@@ -76,8 +79,6 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 
 			param.set("", startNum);
 			param.set("", rowNum);
-			System.err.println(startNum + "--" + rowNum);
-
 			// logger.info("param.getCount()="+param.getCount());
 			List<Map<String, String>> dataList = queryList(eSql, param);
 
@@ -118,16 +119,14 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 			if (!destFile.getParentFile().exists()) {
 				// 目标文件所在目录不存在
 				if (!destFile.getParentFile().mkdirs()) {
-					LOG.error("mkdir error[" + destFile.getParentFile() + "] ");
+					logger.info("mkdir error[" + destFile.getParentFile() + "] ");
 				}
 			}
 			stream = new FileOutputStream(filePath);
 			wb.write(stream);
 			stream.close();
-		} catch (FileNotFoundException e) {
-			LOG.error(e);
-		} catch (IOException e) {
-			LOG.error(e);
+		} catch (Exception e) {
+			logger.info("exportExcel Error" + e.getMessage());
 		}
 		return destFile.getAbsolutePath();
 	}
@@ -138,12 +137,6 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 		// TODO Auto-generated method stub
 		String type = dict.getString("type");
 		String classPath = "";
-		if ("02".equalsIgnoreCase(type)) {
-			classPath = "com.ztesoft.zsmart.oss.core.pm.plugin.email.SendEmailOncePlug";
-		}
-		if ("01".equalsIgnoreCase(type)) {
-			classPath = "com.ztesoft.zsmart.oss.core.pm.plugin.email.DownloadPlug";
-		}
 		dict.put("class_path", classPath);
 		String exportDateStr = "" + dict.getString("exportDate");
 		Date exportDate = null;
@@ -179,6 +172,7 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 					JsonMapUtil.DOWANLOAD_STATE_TODO, userId });
 		} catch (Exception e) {
 			e.printStackTrace();
+			logger.info("addExportTask Error" + e.getMessage());
 		}
 		String jsonParam = dict.getString("jsonParam");
 		this.addTaskParam(taskId, jsonParam);
@@ -187,19 +181,24 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 	}
 
 	private void addTaskParam(String taskId, String jsonParam) {
-		String sql = "" + "INSERT INTO pm_dataexp_log_param ( " + "    task_id, " + "    task_param, "
-				+ "    param_seq " + ") VALUES ( " + "    ?, " + "    ?, " + "    ? " + ")";
+		try {
+			String sql = "" + "INSERT INTO pm_dataexp_log_param ( " + "    task_id, " + "    task_param, "
+					+ "    param_seq " + ") VALUES ( " + "    ?, " + "    ?, " + "    ? " + ")";
 
-		List<String> attrs_parts = JsonMapUtil.splitByNumbers(jsonParam, 1024);
-		int count = 0;
-		for (String part : attrs_parts) {
-			System.err.println(count + "==>" + part);
-			ParamArray pa = new ParamArray();
-			pa.set("", taskId);
-			pa.set("", part);
-			pa.set("", count);
-			this.executeUpdate(sql, pa);
-			count++;
+			List<String> attrs_parts = JsonMapUtil.splitByNumbers(jsonParam, 1024);
+			int count = 0;
+			for (String part : attrs_parts) {
+				System.err.println(count + "==>" + part);
+				ParamArray pa = new ParamArray();
+				pa.set("", taskId);
+				pa.set("", part);
+				pa.set("", count);
+				this.executeUpdate(sql, pa);
+				count++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.info("addTaskParam Error" + e.getMessage());
 		}
 
 	}
@@ -248,7 +247,7 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 			JSONObject json = JSONObject.parseObject(sb.toString());
 			return json;
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("getDataExpParam Error" + e.getMessage());
 			throw new BaseAppException(e.getMessage());
 		}
 	}
@@ -279,6 +278,35 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 			return this.queryString(sql, pa);
 		} catch (Exception e) {
 			return "";
+		}
+	}
+
+	@Override
+	public JSONObject getDelList(String day) throws BaseAppException {
+		// TODO Auto-generated method stub
+		JSONObject result = new JSONObject();
+		String sql = "select t.task_id ID ,t.export_path PATH,T.STATE STATE ,t.export_type ETYPE,SPEC_EXPORT_DATE EDATE from PM_DATAEXP_LOG T  where TO_DAYS(NOW())-TO_DAYS(T.SPEC_EXPORT_DATE) >= ?";
+		try {
+			result.put("datas", this.queryForMapList(sql, new Object[] { day }));
+		} catch (Exception e) {
+			logger.info("getDelList Error" + e.getMessage());
+			result.put("datas", new JSONArray());
+		}
+		return result;
+	}
+
+	@Override
+	public boolean delDataExpLogById(String id) throws BaseAppException {
+		// TODO Auto-generated method stub
+		String sql = "delete from  pm_dataexp_log_param where task_id= ?";
+		String sql2 = "delete from PM_DATAEXP_LOG where task_id= ?";
+		try {
+			this.delete(sql, new Object[] { id });
+			this.delete(sql2, new Object[] { id });
+			return true;
+		} catch (Exception e) {
+			logger.info("delDataExpLogById Error:" + e.getMessage());
+			return false;
 		}
 	}
 

@@ -2,6 +2,8 @@ package com.ericsson.inms.pm.service.impl.taskprocess;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.ericsson.inms.pm.api.service.taskprocess.TaskProcessService;
+import com.ericsson.inms.pm.schedule.ScheduleServer;
 import com.ericsson.inms.pm.service.impl.adhoc.AdhocSrv;
 import com.ericsson.inms.pm.service.impl.taskprocess.dao.TaskProcessDAO;
 import com.ericsson.inms.pm.service.impl.taskprocess.util.JsonMapUtil;
@@ -24,10 +27,13 @@ import com.ztesoft.zsmart.core.spring.SpringContext;
 import com.ztesoft.zsmart.oss.opb.base.jdbc.GeneralDAOFactory;
 import com.ztesoft.zsmart.oss.opb.base.jdbc.JdbcUtil;
 import com.ztesoft.zsmart.oss.opb.base.util.CommonHelper;
+import com.ztesoft.zsmart.oss.opb.log.OpbLogger;
 import com.ztesoft.zsmart.oss.opb.base.jdbc.ParamArray;
 
 @Service("taskProcessServiceImpl")
 public class TaskProcessServiceImpl implements TaskProcessService {
+	
+	private OpbLogger logger = OpbLogger.getLogger(TaskProcessServiceImpl.class, "PM");
 
 	@Override
 	public JSONObject onceDownloadFile(JSONObject dict) throws BaseAppException {
@@ -48,15 +54,15 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 				dictColModel.add(dcol);
 			}
 			String sql = String.valueOf(loadDataRs.get("sql"));
-			System.err.println(sql);
-			System.err.println(dictColModel);
+			logger.info("onceDownloadFile sql==>"+sql);
+			logger.info("onceDownloadFile dictColModel==>"+dictColModel);
 			ParamArray pa = new ParamArray();
 			String filePathExcel = getDAO().exportExcel(dictColModel, sql, pa);
-			System.err.println(filePathExcel);
+			logger.info(filePathExcel);
 			result.put("filePath", filePathExcel);
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(e);
+			logger.info("onceDownloadFile Error"+e.getMessage());
 		}
 		return result;
 	}
@@ -71,7 +77,6 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		if (target.exists()) {
 			// move file to web upload
 			String fileDirectory = CommonHelper.getProperty("file.download.directory") + "/expTemp";
-			System.out.println(fileDirectory);
 			File webPathDir = new File(fileDirectory);
 			webPathDir.mkdirs();
 			try {
@@ -100,7 +105,7 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 
 	private File downlaodFtpFile(File source) {
 		  try {
-	           System.err.println("downlaodFtpFile");
+			   logger.info("downlaodFtpFile");
 	           JSONObject ftpInfo = this.getConfigFTP();
 	            FTPClient client = TaskFtpUtil.getClient(ftpInfo);
 	            if (client == null) {
@@ -113,26 +118,30 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 				String fileName =source.getName();
 	            String ftpFile=source.getAbsolutePath();
 	            String locaFile =TaskFtpUtil.getFilePath(webPathDir.getAbsolutePath(),fileName);
-	            System.err.println("fileName:"+fileName);
-	            System.err.println("ftpFile:"+ftpFile);
-	            System.err.println("locaFile:"+locaFile);
+	            logger.info("fileName:"+fileName);
+	            logger.info("ftpFile:"+ftpFile);
+	            logger.info("locaFile:"+locaFile);
 	            File target= TaskFtpUtil.getFTPFile(client, ftpFile,locaFile);
 	            System.out.println(target);
+	            client.logout();
 	            return target;
 	        } catch (Exception e) {
-	           // logger.info("saveFTP:"+e.getMessage());
+	           logger.info("downlaodFtpFile:"+e.getMessage());
 	            return null;
 	        }
 	}
 
 	private File downlaodSFtpFile(File source) {
 		try {
+			logger.info("downlaodSFtpFile");
             JSONObject ftpInfo =this.getConfigFTP();
             ChannelSftp client = TaskFtpUtil.getSFTPClient(ftpInfo);
             if (client == null) {
-                System.err.println("Client is null");
+            	logger.info("Client is null");
+            	return null;
             } 
-            System.err.println(client);
+            logger.info("Client is :"+client);
+            
             String fileDirectory = CommonHelper.getProperty("file.download.directory");
             String webPathDirStr=TaskFtpUtil.getFilePath(fileDirectory,"expTemp");
             File webPathDir = new File(webPathDirStr);
@@ -140,16 +149,17 @@ public class TaskProcessServiceImpl implements TaskProcessService {
             String fileName =source.getName();
             String ftpFile= source.getAbsolutePath();
             String locaFile =TaskFtpUtil.getFilePath(webPathDir.getAbsolutePath(),fileName);
-            System.err.println("fileName:"+fileName);
-            System.err.println("ftpFile:"+ftpFile);
-            System.err.println("locaFile:"+locaFile);
+            logger.info("fileName:"+fileName);
+            logger.info("ftpFile:"+ftpFile);
+            logger.info("locaFile:"+locaFile);
        
             File target= TaskFtpUtil.getSFTPFile(client, ftpFile,locaFile);
             System.err.println(target);
+            client.exit();
             return target;
         } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        	  logger.info("downlaodSFtpFile is :"+e.getMessage());
+          return null;
         }
 		
 	}
@@ -200,6 +210,8 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		// TODO Auto-generated method stub
 		JSONObject ftpInfo = new JSONObject();
 		String ftpUrl = getParamter("ftpUrl");
+		if(ftpUrl==null)return null;
+		if(ftpUrl.length()<=5)return null;
 		// String path =getParamter("ftpDir");
 		Pattern p = Pattern.compile("&(\\b\\w+)=(.*?(?=\\s\\w+=|&(\\b\\w+)=|$))");
 		Matcher m = p.matcher("&" + ftpUrl);
@@ -209,12 +221,21 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		ftpInfo.put("path", "pm_taskexpftp");
 		return ftpInfo;
 	}
+	@Override
+	public String getIntervalDelFile() throws BaseAppException {
+		 String day = this.getParamter("intervalDelFile");
+         if(day==null) return "7";
+         if(day=="") return "7";
+         return day;
+          
+	}
 
 	private String getParamter(String key) {
 		// TODO Auto-generated method stub
 		try {
 			return getDAO().getParamter(key);
 		} catch (BaseAppException e) {
+			logger.info("getParamter Error :"+e.getMessage());
 			return null;
 		}
 	}
@@ -222,6 +243,7 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 	@Override
 	public JSONObject uploadFTP(JSONObject dict) throws BaseAppException {
 		// TODO Auto-generated method stub
+		logger.info("uploadFTP Begin");
 		JSONObject result = new JSONObject();
 		String ftpPath = TaskFtpUtil.saveSFTP(dict);
 		
@@ -231,7 +253,43 @@ public class TaskProcessServiceImpl implements TaskProcessService {
 		if (ftpPath == null)
 			return null;
 		result.put("ftpPath", ftpPath);
+		logger.info("uploadFTP Result"+result);
 		return result;
 	}
+
+	@Override
+	public JSONObject getDelList(String day) throws BaseAppException {
+		return getDAO().getDelList(day);
+	}
+
+	@Override
+	public boolean delDataExpLogById(String id) throws BaseAppException {
+		// TODO Auto-generated method stub
+		return getDAO().delDataExpLogById(id);
+	}
+
+	@Override
+	public void clearTempFile() throws BaseAppException {
+		// TODO Auto-generated method stub
+		  String fileDirectory = CommonHelper.getProperty("file.download.directory");
+          String webPathDirStr=TaskFtpUtil.getFilePath(fileDirectory,"expTemp");
+          Calendar calendar = Calendar.getInstance();
+          calendar.setTime(new Date());
+          calendar.add(Calendar.DATE, -1);
+          
+          File webPathDir = new File(webPathDirStr);
+		  if(webPathDir.exists()) {
+			 for (File file :  webPathDir.listFiles()) {
+				 long time = file.lastModified();
+				 long pastTime =calendar.getTime().getTime();
+				 if(pastTime>time) {
+					 boolean flag = file.delete();
+					 logger.info(file.getAbsolutePath()+":"+flag); 	 
+				 }
+			 }
+		  }
+	}
+
+	
 
 }

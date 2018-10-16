@@ -21,9 +21,8 @@ import com.ztesoft.zsmart.pot.session.PrincipalUtil;
  * @taskId <br>
  * @CreateDate 2018年7月26日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.inms.pm.api.controller.graphs <br>
+ * 
  */
-
 @RestController
 @RequestMapping("inms/graphs")
 public class GraphsController {
