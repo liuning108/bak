@@ -528,15 +528,23 @@ $inmsbtnColor: #2678d2
       -moz-box-sizing: border-box
       -webkit-box-sizing: border-box
       -ms-box-sizing: border-box
+      &.ff
+       padding: 0px
+       text-align: center
+       line-height: 5
 .kdo-dash-container
   &.kdo-chart-sel
     .kdo-dashboardicon
       border: 1px solid $btnColor!important;
       background-color: #fff;
+      &.ff
+       color: $btnColor
   &:hover
     .kdo-dashboardicon
       border: 1px solid #ddd;
       background-color: #fff;
+      &.ff
+       color: $btnColor
 .kdo-chart
   width: 32px
   height: 31px

@@ -1,3 +1,4 @@
+
 define([
   "oss_core/inms/pm/graphs/utils/echarts.js", "oss_core/inms/pm/graphs/utils/util.js", "oss_core/inms/pm/graphs/utils/DBUtil.js"
 ], function(echarts, util, DBUtil) {

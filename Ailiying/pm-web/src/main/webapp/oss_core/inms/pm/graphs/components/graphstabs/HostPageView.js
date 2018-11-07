@@ -22,6 +22,12 @@ define([
     this.$el.html(this.tpl());
   },
   HostPageView.prototype.afterRender = function() {
+    var type = ""+this.option.type||'-1';
+    if(type=="11"){
+       this.$el.find('.cg_address_div').show();
+    }else{
+      this.$el.find('.cg_address_div').hide();
+    }
     this.initPage();
   },
   HostPageView.prototype.initPage = function() {
@@ -150,7 +156,8 @@ define([
       if (hostPageConfig.order2) {
         this.order2.combobox('value', hostPageConfig.order2);
       }
-
+       var url =hostPageConfig.url || '';
+       this.$el.find('.cg_address').val(url);
     }
   }
   HostPageView.prototype.getJson = function() {
@@ -168,6 +175,7 @@ define([
     json.order1 = this.order1.combobox('value');
     json.order2 = this.order2Value;
     json.order3 = this.order3.combobox('value');
+    json.url =this.$el.find('.cg_address').val()
 
     return json;
   }
@@ -190,7 +198,6 @@ define([
     console.log("ITEMS ITEMS:", this.items)
     this.order2Top();
   }
-
   HostPageView.prototype.itemChange = function(id) {
     this.order2Top();
   }

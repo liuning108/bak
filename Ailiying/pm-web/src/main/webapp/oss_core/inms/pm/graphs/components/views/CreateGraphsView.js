@@ -236,12 +236,11 @@ define([
   },
   CreateGraphsView.prototype.changeGTabs = function(num) {
     var d = this.option.data;
-
-    console.log('changeGTabs',d);
+    console.log('changeGTabs',d,num);
     this.graphsTabsView = new GraphsTabsView(
        {
          el: this.$el.find('.graphs-tabs'),
-          type: num,
+         type: num,
          "items": d.items,
          "dims":d.dims,
          "granusConfig":d.granusConfig,

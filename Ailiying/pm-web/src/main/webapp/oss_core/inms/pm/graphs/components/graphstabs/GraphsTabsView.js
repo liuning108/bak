@@ -6,9 +6,9 @@ define([
   "oss_core/inms/pm/graphs/components/graphstabs/AixsPageView.js",
   "oss_core/inms/pm/graphs/components/graphstabs/PropPageView.js",
   "oss_core/inms/pm/graphs/components/graphstabs/LengedPageView.js",
-  "oss_core/inms/pm/graphs/components/graphstabs/TimePageView.js"
-
-], function(RootView, util,tpl,HostPageView,ShowPageView,AixsPageView,PropPageView,LengedPageView,TimePageView) {
+  "oss_core/inms/pm/graphs/components/graphstabs/TimePageView.js",
+  "oss_core/inms/pm/graphs/components/graphstabs/CGPageView.js"
+], function(RootView, util,tpl,HostPageView,ShowPageView,AixsPageView,PropPageView,LengedPageView,TimePageView,CGPageView) {
   var evetMap = [
   ]
   var pageMap ={
@@ -18,6 +18,7 @@ define([
     "PropPage":PropPageView,
     "ShowPage":ShowPageView,
     "TimePage":TimePageView,
+    "CustomG":CGPageView,
   }
   var GraphsTabsView = function(option){
     RootView.call(this, option)
@@ -43,13 +44,23 @@ define([
          paging: {"selectOnAdd":true}//,"cycle":true
         }
       );
-      this.addTabs("HostPage","监控项",true);
+      var name ='监控项';
+      if(""+this.option.type=="11"){
+          name ='基本属性';
+      }
+
+      this.addTabs("HostPage",name,true);
       this.addTabs("TimePage","时间范围");
       this.addTabs("PropPage","显示属性");
       this.addTabs("AixsPage","坐标轴");
       this.addTabs("LengedPage","图例");
       this.addTabs("ShowPage","辅助线");
-
+      if(""+this.option.type=="11"){
+            this.tabs.tabs("hideTab",2);
+            this.tabs.tabs("hideTab",3);
+            this.tabs.tabs("hideTab",4);
+            this.tabs.tabs("hideTab",5);
+      }
   };
   GraphsTabsView.prototype.addTabs=function(page,label,active){
       var ViewPage = pageMap[page]
@@ -63,6 +74,7 @@ define([
       var viewPage =new ViewPage({
         'el':el,
         'state':state,
+        'type':this.option.type
       });
       viewPage.render();
       this.pages[page]=viewPage;

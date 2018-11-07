@@ -762,14 +762,28 @@
   -ms-box-sizing: border-box;
 }
 
+.kdo-dash-container .kdo-dashboardicon.ff {
+  padding: 0px;
+  text-align: center;
+  line-height: 5;
+}
+
 .kdo-dash-container.kdo-chart-sel .kdo-dashboardicon {
   border: 1px solid #2ec4e8 !important;
   background-color: #fff;
 }
 
+.kdo-dash-container.kdo-chart-sel .kdo-dashboardicon.ff {
+  color: #2ec4e8;
+}
+
 .kdo-dash-container:hover .kdo-dashboardicon {
   border: 1px solid #ddd;
   background-color: #fff;
+}
+
+.kdo-dash-container:hover .kdo-dashboardicon.ff {
+  color: #2ec4e8;
 }
 
 .kdo-chart {

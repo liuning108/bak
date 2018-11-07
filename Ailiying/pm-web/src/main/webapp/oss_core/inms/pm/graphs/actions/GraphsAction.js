@@ -10,6 +10,7 @@ define([], function() {
      return fish.post("inms/graphs/getTimeConfig",{});
     },
     getbusField:function(CODE){
+
      return fish.post("busimodel/field",{"MODE":'ALL',"MODEL_BUSI_CODE":CODE});
     },
     getGraphsByCondition:function(param){

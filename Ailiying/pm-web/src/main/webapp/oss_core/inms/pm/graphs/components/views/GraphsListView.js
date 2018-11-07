@@ -38,6 +38,8 @@ define([
   GraphsListView.prototype.initProp = function() {
     this.tpl = fish.compile(tpl);
     this.graphsOp = fish.compile(graphsOp);
+    this.option.code =this.option.code||"PMPS_PIMSERVER_BM"
+    console.log("GraphsListView option",this.option);
     this.evetMap = evetMap;
   },
   GraphsListView.prototype.loadPage = function() {
@@ -101,6 +103,9 @@ define([
           label: '类型',
 
           formatter: function(cellval, opts, rwdat, _act) {
+            // if((""+cellval)=='11'){
+            //    return "自定义"
+            // }
             return "<div class='kdo-on-off-icon'><img width='18' height='18' src='static/oss_core/inms/pm/graphs/images/" + cellval + ".png'></img></div>"
           }
         }, {

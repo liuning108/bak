@@ -10,7 +10,9 @@ define([
     "oss_core/inms/pm/graphs/components/gLibs/GDAxis.js",
     "oss_core/inms/pm/graphs/components/gLibs/GTable.js",
     "oss_core/inms/pm/graphs/components/gLibs/GError.js",
-], function(GLine,GArea,GPie,GPie2,GBar,GBar2,GScatter,GGauge,GDAxis,GTable,GError) {
+    "oss_core/inms/pm/graphs/components/gLibs/GCustom.js",
+
+], function(GLine,GArea,GPie,GPie2,GBar,GBar2,GScatter,GGauge,GDAxis,GTable,GError,GCustom) {
   var typeMap={
     "1":GLine,
     "2":GPie,
@@ -22,6 +24,7 @@ define([
     "8":GDAxis,
     "9":GGauge,
     "10":GTable,
+    "11":GCustom,
   }
   var GCharts = {}
   GCharts.init =function(el,config){
