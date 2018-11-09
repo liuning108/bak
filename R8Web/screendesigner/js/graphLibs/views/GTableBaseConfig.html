@@ -1,0 +1,114 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">
+                                          {{HEADER}}{{COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{DIVIDE}}{{COLOR}}:</label>
+                                        <input type="text" class="divide_colorpicker" name="divide_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="value_colorpicker" class="bi-lable">{{VALUE_COLOR}}:</label>
+                                        <input type="text" class="value_colorpicker" name="value_colorpicker">
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{SEQ_SETTING}}</h4>
+                    <!-- TODO: 显示 / 隐藏(done) -->
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">{{SHOW_HIDE}}:</lable>
+                            </div>
+                            <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                                <label class="switch">
+                                    <input type="checkbox" checked="true" class='seq_switch'>
+                                    <span style=""></span>
+                                 </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="bi-attr-edit-list-div-rengs seq_config_palne" >
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="seqName" class="bi-lable">{{TITLE}}:</label>
+                                        <input type="text" class="seqName" name="seqName">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{POSITION}}:</label>
+                                        <select class="seq_select">
+                                            <option value="1" selected="true">{{FIRST}}</option>
+                                            <option value="2">{{TAIL}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="seq_colorpicker" class="bi-lable">{{COLOR}}:</label>
+                                        <input type="text" class="seq_colorpicker" name="seq_colorpicker">
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div">
+                    <div class="m-b-sm">
+                        <b>{{CONDITION_FORMAT}}</b>
+                        <a  id="dashboard-condifmt-btn" class="btn pull-right"><i class="fa fa-pencil ad-icon"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bi-attr-edit-list-div" id="bg_stView">
+                </div>
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a  class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

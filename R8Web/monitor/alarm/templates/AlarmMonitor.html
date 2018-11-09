@@ -1,0 +1,77 @@
+<div class="alramMontior">
+    <div class="PageSideBar">
+      <div class="AlrmHeader">
+          <i class="glyphicon glyphicon-time" id="alrmSortTime" style="font-size:21px;top:-2px;left:-5px;cursor:pointer"></i>
+      </div>
+      <div class="AlrmChartsContext">
+          <div class="AlarmCharts">
+              <div class="BigCircle" id="alram_bigCircle"></div>
+              <div class="fourCircle">
+                  <div class="circle" id="alram_critical"></div>
+                  <div class="circle" id="alram_Trouble"></div>
+                  <div class="circle" id="alram_Attention"></div>
+                  <div class="circle" id="alram_ServiceDown"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="PageContent">
+        <div class="AlrmGrid">
+            <div class="AlrmHeader">
+                <div class="AlrmInfo">
+                    <span class="AlrmInfo_title"> {{Alarms}} (<span id="alramQueryCount">5</span>) </span><span class="AlrmInfo_time">- <span id="alramQueryTime"></span></span>
+                </div>
+            </div>
+            <div class="alrmCusGrid">
+                <div class="girdData" id="grid01_alram"></div>
+                <div id="AlrmPager" ></div>
+            </div>
+        </div>
+    </div>
+    <div id="alermSortByTime" class='alermSortByTime' style="display: none">
+        <div class="alermPopoverHeader">
+            {{SortByTime}}
+            <i class="glyphicon glyphicon-remove alramRemove"></i>
+        </div>
+        <ul>
+            <li data-value="1">{{Last1Hour}}</li>
+            <li data-value="2">{{Last2Hour}}</li>
+            <li data-value="4">{{Last4Hour}}</li>
+            <li data-value="6">{{Last6Hour}}</li>
+            <li data-value="8">{{Last8Hour}}</li>
+            <li data-value="12">{{Last12Hour}}</li>
+            <li data-value="24">{{Last24Hour}}</li>
+            <li data-value="today">{{TODAY}}</li>
+            <li data-value="yday">{{Yesterday}}</li>
+            <li data-value="7d">{{V7Days}}</li>
+            <li data-value="30d">{{V30Days}}</li>
+            <li data-value="90d">{{V90Days}}</li>
+            <li data-value="week">{{Week}}</li>
+            <li data-value="month">{{Month}}</li>
+            <li data-value="custom">{{Custom}}</li>
+        </ul>
+        <div class="setAlramTimeCustom">
+          <form action="#" method="post" autocomplete="off">
+            <div class="TimeCustomBody">
+            <span class="TimeCustomBodyMessage" style="color:red"></span>
+            <div class="form-group">
+                    <label for="datetimepicker" class="col-md-4 control-label">{{ST}}</label>
+                    <div class="input-group col-md-8">
+                        <input type="text" class="form-control"  data-rule="required" name="alram_start_datetimepicker" id="alram_start_datetimepicker">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="datetimepicker" class="col-md-4 control-label">{{ET}}</label>
+                    <div class="input-group col-md-8">
+                        <input type="text" class="form-control"  data-rule="required"  name="alram_end_datetimepicker" id="alram_end_datetimepicker">
+                    </div>
+                </div>
+            </div>
+            <div class="TimeCustomBtns">
+                <a href="#"  class="OkBtn btn" >{{OK}}</a>
+                <a href="#"  class="CancelBtn btn">{{Cancel}}</a>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>

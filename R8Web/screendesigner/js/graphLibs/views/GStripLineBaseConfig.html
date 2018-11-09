@@ -1,0 +1,152 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{TEXT_COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label for="axis_colorpicker" class="bi-lable">{{AXIS_COLOR}}:</label>
+                                        <input type="text" class="axis_colorpicker" name="axis_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="line_colorpicker" class="bi-lable">{{LINE_COLOR}}:</label>
+                                        <input type="text" class="line_colorpicker" name="line_colorpicker">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="dot_colorpicker" class="bi-lable">dot {{COLOR}}:</label>
+                                        <input type="text" class="dot_colorpicker" name="dot_colorpicker">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="area_colorpicker" class="bi-lable">Area {{COLOR}}:</label>
+                                        <input type="text" class="area_colorpicker" name="area_colorpicker">
+                                    </div>
+
+                                     -->
+                                     <div class="form-group">
+                                         <label for="unitInput" class="bi-lable">
+                                           {{Y_AXIS_UNIT}}:
+                                         </label>
+                                         <input type="text" class="unitInput" name="unitInput" style="width:100px">
+                                     </div>
+                                    <div class="form-group">
+                                        <label for="unitInput" class="bi-lable">
+                                          {{X_AXIS_UNIT}}:
+                                        </label>
+                                        <input type="text" class="unitInputx" name="unitInputx" style="width:100px">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="roateInput" class="bi-lable">{{ROTATE}}:</label>
+                                        <input type="text" class="roateInput" name="roateInput" style="width:100px">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="g_titile" class="bi-lable">{{DISPLAY}}:</label>
+                                        <select class="labelSelect">
+                                            <option value="1">{{VALUE}}</option>
+                                            <option value="2">{{NONE}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="label2_colorpicker" class="bi-lable">
+                                          {{DISPLAY_LABELS}}:
+                                        </label>
+                                        <select class="label2Select">
+                                            <option value="1">{{LABLE}}</option>
+                                            <option value="2">{{NONE}}</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gStripColorsInput" class="bi-lable">{{COLOR}}:</label>
+                                        <input type="text" class="gStripColorsInput" name="gStripColorsInput" style="width:100px">
+                                    </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{SETTING_AUXILIARY_LINE}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                      <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">
+                                  {{ONOFF}}:</lable>
+                            </div>
+                            <div class="col-md-4 col-sm-4  col-md-offset-4 .col-sm-offset-4">
+                                <label class="switch">
+                                    <input type="checkbox" class="AuxiliaryOffonCheckbox">
+                                    <span style=""></span>
+                                </label>
+                            </div>
+                       </div>
+                    </div>
+
+                    <div class="bi-attr-edit-list-div-rengs AuxiliaryOffonPlane">
+                      <div class="row">
+                            <div class="col-md-4 col-sm-4">
+                                <lable class="bi-lable" style="margin-right:0px;margin-left:10px">
+                                  {{VALUE}} :</lable>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                             <input type="text" class="AuxiliaryValue" value="0" style="width:100px">
+                            </div>
+                       </div>
+                    </div>
+                    <div class="bi-attr-edit-list-div-rengs AuxiliaryOffonPlane">
+                      <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                              <div class="form-group">
+                                  <label for="AuxiliaryColor" class="bi-lable">{{COLOR}}:</label>
+                                  <input type="text" class="AuxiliaryColor" name="AuxiliaryColor">
+                              </div>
+                            </div>
+                       </div>
+                    </div>
+                </div>
+
+                <div class="bi-attr-edit-list-div" id="bg_stView">
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a  class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

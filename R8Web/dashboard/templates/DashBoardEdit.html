@@ -1,0 +1,104 @@
+<div class="container-fluid editBody">
+
+  <div class="row col_title">
+    <div class="col-md-5">
+      <!-- TODO: 菜单栏(tag) -->
+      <ul id="mega-menu-dash" class="mega-menu">
+        <li style="margin-left: 10px">
+          <a href="#" class="addAdHoc">
+                        <i class="icon-uniE60A i"></i>
+                        <p class="p">{{CHARTS}}</p>
+                    </a>
+        </li>
+
+
+        <li>
+            <a href="#" class="addText">
+                    <i class="icon-uniE611 i"></i>
+                    <p class="p">文字</p>
+                </a>
+
+        </li>
+          <li class="dashBoardAddImage">
+              <a href="#">
+                      <i class="icon-uniE60E i"></i>
+                      <p class="p">{{GRAPHS}}</p>
+                  </a>
+
+          </li>
+
+          <li class="">
+              <a href="#">
+                      <i class="icon-uniE613 i"></i>
+                      <p class="p">筛选器</p>
+                  </a>
+
+          </li>
+
+
+
+
+
+      </ul>
+
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-3">
+      <ul class="exportMenu">
+        <li>
+          <a id="saveButton" class="btn btn-gray btn-sm btn-save">{{SAVE}}</a>
+        </li>
+        <li>
+          <a id="perviewButton" class="btn btn-gray btn-sm btn-save">{{PREVIEW}}</a>
+        </li>
+        <li>
+          <a id="showListButton" class="btn btn-gray btn-sm btn-save">{{LIST}}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row	bContext">
+  {{#if isFullScreen}}
+      <div  class="normalScreen editModel"><i class="glyphicon glyphicon-resize-small"></i></div>
+      <div  class="DashboardAttrsPanle"><i class="glyphicon glyphicon-th-large"></i></div>
+
+      <div class="col-md-9 col-lg-12" style="padding: 0px; ">
+        <div class="mainContent2">
+
+          <div id="dashboardCanvasEdit" class="dashboardCanvas" style="width: 90%">
+
+          </div>
+          <canvas id="dashBoardGirdCanvas" ></canvas>
+
+        </div>
+      </div>
+      <div class="fullPanel">
+          <div class="dashBoardConfigPanel "></div>
+          <div class="hiddenButton">X</div>
+      </div>
+
+      <!-- <div class="col-md-3 col-lg-2 " style="padding: 0px;margin:0px">
+        <div class="dashBoardConfigPanel"></div>
+      </div> -->
+  {{else}}
+      <button type="button" name="button" class="fullScreen editModel"><i class="glyphicon glyphicon-resize-full"></i></button>
+      <div class="col-md-9 col-lg-10" style="padding: 0px; ">
+        <div class="mainContent2">
+
+          <div id="dashboardCanvasEdit" class="dashboardCanvas" style="width: 80%">
+
+          </div>
+          <canvas id="dashBoardGirdCanvas" ></canvas>
+
+        </div>
+      </div>
+      <div class="col-md-3 col-lg-2 " style="padding: 0px;margin:0px">
+        <div class="dashBoardConfigPanel"></div>
+      </div>
+
+  {{/if}}
+
+  </div>
+</div>

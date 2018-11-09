@@ -1,0 +1,121 @@
+<div class="sdesigner">
+    <div id="tabs" class="ui-tabs">
+        <ul class="ui-tabs-nav">
+            <li>
+                <a href="#tabs-setting">{{SETTING}}</a>
+            </li>
+            <li>
+                <a href="#tabs-other-setting">{{DATA_SOURCE}}</a>
+            </li>
+            <!-- <li>
+                <a href="#tabs-json-editor">JSON</a>
+            </li> -->
+        </ul>
+        <div id="tabs-setting" class="ui-tabs-panel">
+            <div class="m_u_box">
+                <div class="bi-attr-edit-list-div">
+                    <h4>{{BASIC_SETTING}}</h4>
+                    <div class="bi-attr-edit-list-div-rengs">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="from-inline">
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{MAP_TYPE}}:</label>
+                                        <i class="glyphicon glyphicon-pencil chosiceMapType"></i>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{POSITION}}:</label>
+                                        <select class="TipPosition">
+                                          <option value="left">{{LEFT}}</option>
+                                          <option value="right">{{RIGHT}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mapOffSetX" class="bi-lable">{{OFFSETX}}:</label>
+                                        <input type="text" class="mapOffSetX MapinputText" name="mapOffSetX">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="mapOffSetX" class="bi-lable">{{OFFSETH}}:</label>
+                                        <input type="text" class="mapOffSetH MapinputText" name="mapOffSetX">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{ORIENTATION}}:</label>
+                                        <select class="TipOrientation">
+                                          <option value="0">{{PORTRAIT}}</option>
+                                          <option value="90">{{LANDSCAPE}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{MAX_VALUE}}:</label>
+                                        <input type="text" class="gtext_title MapinputText" name="gtext_title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_title" class="bi-lable">{{MIN_VALUE}}:</label>
+                                        <input type="text" class="MinValue MapinputText" name="MinValue">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="gtext_colorpicker" class="bi-lable">{{COLOR}}:</label>
+                                        <input type="text" class="gtext_colorpicker" name="gtext_colorpicker">
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">{{LINE_COLOR}}:</label>
+                                        <input type="text" class="mapLineColor" name="mapLineColor">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="checkbox" name="isGlow"  class="isGlow">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">{{SHOW_GLOW}}:</label>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="checkbox" name="colorReversal"  class="colorReversal">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">{{COLOR_REVERSAL}}:</label>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                      <input type="checkbox" name="showTitle" value="showTitle" class="showTitle">
+                                        <label for="gtext_num_colorpicker" class="bi-lable">{{SHOW_LABEL}}:</label>
+
+                                     </div>
+
+                                     <div class="form-group">
+                                         <input type="checkbox" name="showValue" value="showValue" class="showValue">
+                                         <label for="gtext_num_colorpicker" class="bi-lable">{{SHOW_VALUE}}:</label>
+                                      </div>
+
+                                      <div class="form-group">
+                                          <input type="checkbox" name="showGradient" class="showGradient">
+                                          <label for="gtext_num_colorpicker" class="bi-lable">{{GRADIENT}}:</label>
+                                          <input type="text"  class="showGradientValue MapinputText" name="showGradientValue" value="5" >
+                                       </div>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="bi-attr-edit-list-div" id="bg_stView">
+                </div>
+
+            </div>
+        </div>
+        <div id="tabs-other-setting" class="ui-tabs-panel">
+          <div class="dbCofnfigTree"></div>
+        </div>
+        <!-- <div id="tabs-json-editor" class="ui-tabs-panel">
+             <div class="json-menu">
+                <a  class="btn btn-blue btn-sm btn-sure" style="float:right">确定</a>
+              </div>
+             <div id="json-editor"></div>
+        </div> -->
+
+    </div>
+</div>

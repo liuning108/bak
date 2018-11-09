@@ -1,0 +1,39 @@
+	<div class="modal-header">
+		<h4 class="modal-title">{{SETTING}}</h4>
+	</div>
+	<div class="modal-body">
+		<div class="ad-modal-box">
+		<div class="ad-block">
+
+			<!--Table-->
+			<div class="border wrapper m-t-sm  tab-content" style='width:300px'>
+				<form class="form-horizontal clearfix ad-group-hack js-date-input-form">
+				    
+				        <div class="form-group required">
+							<div class="col-md-12">
+								<label class="control-label">{{RE_EXCE_TIME}}</label>
+							</div>
+							<div class="col-md-12">
+								<div class="input-group">
+									<input class="form-control" name="TASK_EXEC_DATE" data-rule="RE_EXCE_TIME:required;match[lt, EXP_DATE, date]">
+								</div>
+							</div>
+						</div>
+				        
+				    
+				</form>
+			</div>
+			<!--/ Table-->
+		</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+        <div class="col-md-12 text-right">
+        	<button type="button" class="btn btn_minwidth btn-primary js-ok" autofocus>
+                {{COMMON_OK}}
+            </button>
+            <button type="button" class="btn btn_minwidth btn-default js-cancel" data-dismiss>
+                {{COMMON_CANCEL}}
+            </button>
+        </div>
+	</div>
