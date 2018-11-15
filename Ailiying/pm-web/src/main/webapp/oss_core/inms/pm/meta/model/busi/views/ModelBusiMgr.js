@@ -15,8 +15,8 @@
 		fieldTpl: fish.compile(modelFieldTpl),
 		i18nData: fish.extend({}, pmUtil.i18nCommon, pmUtil.i18nPMCommon, i18nModel),
 		events: {
-			"click .js-model-busi-grid .js-new": 'addModel',
-			"click .js-model-busi-grid .js-copy-new": 'addCopyModel',
+			"click .js-model-add-copy .js-new": 'addModel',
+			"click .js-model-add-copy .js-copy-new": 'addCopyModel',
 			"click .js-field-add": 'addField',
 			"click .js-model-busi-ok": 'ok',
 			"click .js-model-busi-cancel": 'cancel',
@@ -146,6 +146,9 @@
 					delbutton: true
 				}
 			}];
+			if (options.iframeHeight) {
+                this.tableH = options.iframeHeight ? options.iframeHeight : $(".ui-tabs-panel").height();
+            }
 		},
 		render: function() {
 			this.$el.html(this.template(this.i18nData));
@@ -198,7 +201,7 @@
 					key: true,
 					hidden:true
 				}],
-
+				height: this.tableH,
 				expandColumn: "CAT_NAME",
 				treeGrid: true,
 				colHide: true,
@@ -264,13 +267,15 @@
 					this.selModel(rowid);
 				}.bind(this)
 			});
-			$grid.grid("navButtonAdd",[{
-		        caption: this.i18nData.COMMON_NEW,
-		        cssprop: "js-new"
-            },{
-                caption: this.i18nData.COPY_NEW,
-                cssprop: "js-copy-new"
-            }]);
+			$grid.grid("navButtonAdd",[
+			// {
+		 //        caption: this.i18nData.COMMON_NEW,
+		 //        cssprop: "js-new"
+   //          },{
+   //              caption: this.i18nData.COPY_NEW,
+   //              cssprop: "js-copy-new"
+   //          }
+            ]);
 		},
 		loadFieldGrid: function(){
 			var that = this;

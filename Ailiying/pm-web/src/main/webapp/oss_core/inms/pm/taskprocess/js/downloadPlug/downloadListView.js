@@ -19,12 +19,19 @@ define([
         '02': 'ERROR',
         '03': 'Downloaded'
       }
+
       action.exportTasklist(filter).then(function(data) {
         console.log('exportTasklist', data);
         var datas = fish.map(data.taskList, function(data) {
           data.STATE = STATES[data.STATE];
           return data;
         })
+        if(filter.length>0){
+          datas =fish.filter(datas,function(d){
+             var  name =""+d.EXPORT_FILENAME;
+             return name.indexOf(filter)!=-1;
+          })
+        }
         self.$grid.grid("reloadData", datas);
       });
     },
@@ -85,6 +92,8 @@ define([
         var filter = self.$el.find('.serachTaskInput').val();
         self.search(filter)
       })
+
+
 
     }
   })

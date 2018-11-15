@@ -52,6 +52,8 @@ define([
             this.EMS_VER_CODE = options.EMS_VER_CODE;
             this.TEMPLATE_ID = options.TEMPLATE_ID;
             this.UP_TEMPLATE_ID = options.UP_TEMPLATE_ID;
+            this.PMAlarmTitle = this.pmUtil.parameter("PMAlarmTitle");
+            this.PMAlarmBody = this.pmUtil.parameter("PMAlarmBody");
             this.paramModel = [{
                 name: "PARAM_CODE",
                 label: this.i18nData.PARAM_CODE,
@@ -137,6 +139,109 @@ define([
                 }
                 this.loadTpl();
             };
+            //
+            this.initAlarmTitleBodyTip();
+        },
+
+        initAlarmTitleBodyTip: function() {
+            var self = this;
+            this.alarmTitleFieldList = this.pmUtil.paravalue("PM_ALARM_TITLE_FIELD");
+            this.alarmBodyFieldList = this.pmUtil.paravalue("PM_ALARM_BODY_FIELD");
+            this.tipCheckRows = [];
+            this.$("#js-tplmgr-alarmtitle-tipgrid").grid({
+                data: this.alarmTitleFieldList,
+                height: 242,
+                colModel:[
+                    {name:self.pmUtil.parakey.name, label:'名称'},
+                    {name:self.pmUtil.parakey.val, label:'编码',key:true}
+                ],
+                multiselectWidth: 30,
+                multiselect: true
+            });
+            this.$('#jqgh_js-tplmgr-alarmtitle-tipgrid_cb').hide();
+            this.$("#js-tplmgr-alarmbody-tipgrid").grid({
+                data: this.alarmBodyFieldList,
+                height: 242,
+                colModel:[
+                    {name:self.pmUtil.parakey.name, label:'名称'},
+                    {name:self.pmUtil.parakey.val, label:'编码',key:true}
+                ],
+                multiselectWidth: 30,
+                multiselect: true
+            });
+            this.$('#jqgh_js-tplmgr-alarmbody-tipgrid_cb').hide();
+            //
+            this.$('#js-tplmgr-alarmtitle-tip').popover({
+                placement: 'right',
+                content: this.$('#js-tplmgr-alarmtitle-tipcontent').html(),
+                beforeHide: function () {
+                    self.setAlarmTitle();
+                    return true;
+                }
+            }).on("popover:show",function(){
+                $(".jqgrid-cbox .cbox",".popover").on("change",function(e){
+                    var cboxid = e.currentTarget.id;
+                    var isExist = false;
+                    for(var i=0;i<self.tipCheckRows.length;i++){
+                        var dataId = self.tipCheckRows[i];
+                        if(dataId == cboxid){
+                            isExist = true;
+                            self.tipCheckRows.splice(i,1);
+                        }
+                    };
+                    if(!isExist){
+                        self.tipCheckRows[self.tipCheckRows.length] = cboxid;
+                    }
+                });
+            });
+            this.$('#js-tplmgr-alarmbody-tip').popover({
+                placement: 'right',
+                content: this.$('#js-tplmgr-alarmbody-tipcontent').html(),
+                beforeHide: function () {
+                    self.setAlarmBody();
+                    return true;
+                }
+            }).on("popover:show",function(){
+                $(".jqgrid-cbox .cbox",".popover").on("change",function(e){
+                    var cboxid = e.currentTarget.id;
+                    var isExist = false;
+                    for(var i=0;i<self.tipCheckRows.length;i++){
+                        var dataId = self.tipCheckRows[i];
+                        if(dataId == cboxid){
+                            isExist = true;
+                            self.tipCheckRows.splice(i,1);
+                        }
+                    };
+                    if(!isExist){
+                        self.tipCheckRows[self.tipCheckRows.length] = cboxid;
+                    }
+                });
+            });
+        },
+
+        setAlarmTitle: function() {
+            var self = this;
+            var alarmTitle = '';
+            //jqg_js-tplmgr-alarmtitlebody-tipgrid_
+            fish.forEach(self.tipCheckRows, function(rowData){
+                alarmTitle += '{' + rowData.substring(rowData.indexOf('tipgrid') + 8) + '}';
+            });
+            if(self.tipCheckRows.length>0) {
+                self.$('[name=ALARM_TITLE]').val(alarmTitle);
+            }
+            self.tipCheckRows = [];
+        },
+
+        setAlarmBody: function() {
+            var self = this;
+            var alarmTitle = '';
+            fish.forEach(self.tipCheckRows, function(rowData){
+                alarmTitle += '{' + rowData.substring(rowData.indexOf('tipgrid') + 8) + '}';
+            });
+            if(self.tipCheckRows.length>0){
+                self.$('[name=ALARM_BODY]').val(alarmTitle);
+            }
+            self.tipCheckRows = [];
         },
 
         loadTpl: function(tplData) {
@@ -327,8 +432,8 @@ define([
             self.$('[name=RULE_NAME]').val(rule.RULE_NAME);
             self.$('[name=RULE_NAME]').focus();
             self.$('[name=ALARM_CODE]').val(rule.ALARM_CODE);
-            self.$('[name=ALARM_TITLE]').val(rule.ALARM_TITLE?rule.ALARM_TITLE:"{测量对象类型}{指标名称}违反{告警级别门限}({告警门限})");
-            self.$('[name=ALARM_BODY]').val(rule.ALARM_BODY?rule.ALARM_BODY:"{测量对象}{指标名称}：{指标值}");
+            self.$('[name=ALARM_TITLE]').val(rule.ALARM_TITLE?rule.ALARM_TITLE:self.PMAlarmTitle[self.pmUtil.parakey.val]);
+            self.$('[name=ALARM_BODY]').val(rule.ALARM_BODY?rule.ALARM_BODY:self.PMAlarmBody[self.pmUtil.parakey.val]);
             // 规则状态
             if (!rule.STATE || rule.STATE == "1") {
                 self.$('#RULE_STATE').prop("checked", "checked");

@@ -16,12 +16,24 @@
 		<div class="container_right">
 		<div class="js-model-busi-right-panel">
 			<div class="panel panel_shadow">
-				<div class="panel-heading">
+				<div class="panel-heading clearfix">
 					<span class="panel-title">{{MODEL_BUSI}}</span>
+					<div class="pull-right text-right js-model-add-copy">
+	                	<div class="m-l-sm dis-in-block">
+	                		<div class="btn-group">
+	                			<button class="btn btn-primary dropdown-toggle js-new" type="button" aria-expanded="true" title="新建">
+	                            	<i class="fa fa-plus">&nbsp;</i>{{COMMON_NEW}}
+	                            </button>
+	                		</div>
+	                	</div>
+	                	<button class="btn btn-primary dropdown-toggle js-copy-new" type="button" title="复制新建">
+	                    	<i class="fa fa-plus"></i> {{COPY_NEW}}
+	                    </button>
+	                </div>
 					<div class="pull-right text-right">
-	                   <div class="input-group search-group pull-left js-kpi-search-div" style="margin-top:-4px;">
+	                   <div class="input-group search-group pull-left js-kpi-search-div">
 	                       <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
-	                        <input type="text" class="ad-theme-search form-control js-busy-search-input" placeholder="{{MODEL_INPUT}}" >
+	                        <input type="text" class="ad-theme-search form-control js-busy-search-input" placeholder="{{MODEL_INPUT}}" maxlength="15">
 	                        <span class="input-group-btn">
 	                            <a href="#" class="btn js-busy-search" title="{{SEARCH}}">{{SEARCH}}</a>
 	                        </span>

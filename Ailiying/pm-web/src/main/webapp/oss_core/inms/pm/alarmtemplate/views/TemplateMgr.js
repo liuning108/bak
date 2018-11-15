@@ -278,7 +278,8 @@ define([
             require([
                     'oss_core/inms/pm/zdashboard/views/DashBoard'
                 ], function (dashBoard) {
-								  self.dashBoardView = new dashBoard({
+
+                self.dashBoardView = new dashBoard({
                     el: self.$('#js-tpl-graph-container'),
                     'id': template_id,
                     'code':model_code,
@@ -287,7 +288,6 @@ define([
                         self.showTplListView();
                         //self.dashBoardView.remove();
                         self.dashBoardView = null;
-
                     }
                 });
                 self.$('#js-tpl-list-container').slideUp(500);

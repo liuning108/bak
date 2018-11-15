@@ -188,7 +188,6 @@ public class TaskProcessDAOMysqlImpl extends TaskProcessDAO {
 			List<String> attrs_parts = JsonMapUtil.splitByNumbers(jsonParam, 1024);
 			int count = 0;
 			for (String part : attrs_parts) {
-				System.err.println(count + "==>" + part);
 				ParamArray pa = new ParamArray();
 				pa.set("", taskId);
 				pa.set("", part);

@@ -22,7 +22,7 @@ import com.ztesoft.zsmart.pot.annotation.PublicServ;
  * @taskId <br>
  * @CreateDate 2018年6月14日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.busi.controller <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.busi.controller <br>
  */
 @RestController
 @RequestMapping("busimodel")

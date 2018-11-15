@@ -1,9 +1,3 @@
-/**************************************************************************************** 
- Copyright © 2003-2012 ZTEsoft Corporation. All rights reserved. Reproduction or       <br>
- transmission in whole or in part, in any form or by any means, electronic, mechanical <br>
- or otherwise, is prohibited without the prior written consent of the copyright owner. <br>
- ****************************************************************************************/
-
 package com.ericsson.inms.pm.service.impl.meta.vdim;
 
 import java.util.Map;
@@ -24,7 +18,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.JdbcUtil;
  * @taskId <br>
  * @CreateDate 2018年4月16日 <br>
  * @since V7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.vdim.service.impl <br>
+ * @see com.ericsson.inms.pm.service.impl.meta.vdim <br>
  */
 @Service("vdim")
 public class VdimSrv implements IVdimSrv {

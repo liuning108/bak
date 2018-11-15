@@ -1,9 +1,3 @@
-/**************************************************************************************** 
- Copyright © 2003-2012 ZTEsoft Corporation. All rights reserved. Reproduction or       <br>
- transmission in whole or in part, in any form or by any means, electronic, mechanical <br>
- or otherwise, is prohibited without the prior written consent of the copyright owner. <br>
- ****************************************************************************************/
-
 package com.ericsson.inms.pm.service.impl.meta.vdim.dao.mysql;
 
 import java.text.SimpleDateFormat;
@@ -25,7 +19,7 @@ import com.ztesoft.zsmart.pot.session.PrincipalUtil;
  * @taskId <br>
  * @CreateDate 2018年4月16日 <br>
  * @since V7.0<br>
- * @see com.ztesoft.zsmart.oss.itnms.templatemgr.dao.mysql <br>
+ * @see com.ericsson.inms.pm.service.impl.meta.vdim.dao.mysql <br>
  */
 public class VdimDAOMysqlImpl extends VdimDAO {
     

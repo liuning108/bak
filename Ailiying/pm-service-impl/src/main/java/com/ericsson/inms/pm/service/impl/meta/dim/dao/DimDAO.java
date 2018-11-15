@@ -15,7 +15,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.GeneralDAO;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.dim.dao <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.dim.dao <br>
  */
 public abstract class DimDAO extends GeneralDAO<Map<String, String>> {
 

@@ -15,7 +15,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.parammgr.dao.mysql <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.parammgr.dao.mysql <br>
  */
 public class ParamMgrDAOMysqlImpl extends ParamMgrDAO {
 

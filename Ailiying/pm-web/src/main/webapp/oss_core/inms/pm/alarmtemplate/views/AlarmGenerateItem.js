@@ -95,8 +95,11 @@ define([
         },
 
         changeOperType: function(oper_type) {
-            if(oper_type=="04"){// 当条件为振幅时 阈值类型自动切换为动态
+            if(oper_type=="04"){// 当条件为振幅(基线)时 阈值类型自动切换为动态
                 $("[name=THRESHOLD_TYPE_" + this.rule_dt_id + "]").combobox('value', '01');
+                $("[name=THRESHOLD_TYPE_" + this.rule_dt_id + "]").combobox('disable');
+            }else{
+                $("[name=THRESHOLD_TYPE_" + this.rule_dt_id + "]").combobox('enable');
             }
         },
 

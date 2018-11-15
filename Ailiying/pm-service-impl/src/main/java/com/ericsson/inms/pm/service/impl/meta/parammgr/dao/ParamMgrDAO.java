@@ -13,7 +13,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.GeneralDAO;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.parammgr.dao <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.parammgr.dao <br>
  */
 public abstract class ParamMgrDAO extends GeneralDAO<Map<String, String>> {
 

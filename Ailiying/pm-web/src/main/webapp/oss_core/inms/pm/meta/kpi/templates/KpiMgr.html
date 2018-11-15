@@ -24,10 +24,22 @@
             <div class="panel panel_shadow">
                 <div class="panel-heading">
                     <span class="panel-title js-kpi-detail-panel">{{KPI_LIST}}</span>
-                    <div class="pull-right text-right">
-                       <div class="input-group search-group pull-left js-kpi-search-div" style="margin-top:-4px;">
+                    <div class="pull-right text-right js-kpi-add-copy">
+                    	<div class="m-l-sm dis-in-block">
+                    		<div class="btn-group">
+                    			<button class="btn btn-primary dropdown-toggle js-new" type="button" aria-expanded="true" title="新建">
+                                	<i class="fa fa-plus">&nbsp;</i>{{COMMON_NEW}}
+                                </button>
+                    		</div>
+                    	</div>
+                    	<button class="btn btn-primary dropdown-toggle js-copy-new" type="button" title="复制新建">
+                        	<i class="fa fa-plus"></i> {{COPY_NEW}}
+                        </button>
+                    </div>
+                    <div class="col-md-4 pull-right">
+                       <div class="input-group search-group pull-left js-kpi-search-div">
                            <i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
-                            <input type="text" class="ad-theme-search form-control js-kpi-search-input" placeholder="{{KPI_INPUT}}" >
+                            <input type="text" class="ad-theme-search form-control js-kpi-search-input" placeholder="{{KPI_INPUT}}" maxlength="15">
                             <span class="input-group-btn">
                                 <a href="#" class="btn js-kpi-search" title="{{SEARCH}}">{{SEARCH}}</a>
                             </span>
@@ -47,7 +59,7 @@
                     <!-- -->
                     <div class="pm_filter_list pm_filter_select" style="display: none">
                         <div class="pm_filer_title col-md-2"><span>已选条件：</span></div>
-                        <div class="pm_filer_term col-md-10" style="padding-left:16px">
+                        <div class="pm_filer_term col-md-10" style="padding-left:10px">
                             <ul id="pm_filer_selected_term_ul">
                                 <!--<li>类型1<i class="fa fa-close"></i></li>-->
                             </ul>
@@ -55,7 +67,7 @@
                     </div>
                 </div>
                 <!-- -->
-                <div class="grid js-kpi-grid"></div>
+                <div class="grid js-kpi-grid-style js-kpi-grid"></div>
                 <div class="js-kpi-detail" style="display:none;">
                     <div  class="panel-body js-kpi-detail-content">
 

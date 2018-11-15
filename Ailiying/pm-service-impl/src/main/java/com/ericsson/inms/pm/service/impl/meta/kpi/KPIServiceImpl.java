@@ -15,7 +15,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @version V8.0.1<br>
  * @CreateDate 2017-4-5 <br>
  * @since JDK7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.kpi.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.kpi.service <br>
  */
 @Service("kpiServ")
 public class KPIServiceImpl implements KPIService {

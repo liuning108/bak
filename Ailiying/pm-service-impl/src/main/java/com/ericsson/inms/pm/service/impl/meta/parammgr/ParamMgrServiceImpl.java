@@ -1,5 +1,5 @@
 /***************************************************************************************** 
- * Copyright © 2003-2020 ZTEsoft Corporation. All rights reserved. Reproduction or       *
+ * Copyright © 2003-2020 ericsson Corporation. All rights reserved. Reproduction or       *
  * transmission in whole or in part, in any form or by any means, electronic, mechanical *
  * or otherwise, is prohibited without the prior written consent of the copyright owner. *
  ****************************************************************************************/
@@ -25,7 +25,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.parammgr.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.parammgr.service <br>
  */
 @Service("paramMgrServ")
 public class ParamMgrServiceImpl implements ParamMgrService {

@@ -16,7 +16,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年6月14日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.busi.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.busi.service <br>
  */
 @Service("modelBusiServ")
 public class ModelBusiServiceImpl implements ModelBusiService {

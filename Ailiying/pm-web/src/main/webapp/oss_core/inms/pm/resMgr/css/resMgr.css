@@ -1,0 +1,12 @@
+.rescircle {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: #15cc18;
+}
+
+.rescircle.error {
+  background: red;
+}

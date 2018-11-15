@@ -6,14 +6,16 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ericsson.inms.pm.api.service.taskprocess.TaskProcessService;
 import com.ericsson.inms.pm.schedule.ScheduleServer;
+import com.ericsson.inms.pm.schedule.jobsys.model.JobResult;
 import com.ericsson.inms.pm.service.impl.taskprocess.TaskProcessServiceImpl;
 import com.ericsson.inms.pm.service.impl.taskprocess.util.TaskFtpUtil;
 import com.jcraft.jsch.ChannelSftp;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.core.spring.SpringContext;
 import com.ztesoft.zsmart.oss.opb.log.OpbLogger;
-
-public class CleanFilePlug {
+import com.ericsson.inms.pm.taskarchive.model.PluginObject;
+import com.ericsson.inms.pm.taskarchive.plugin.ArchivePluginBase;
+public class CleanFilePlug  extends ArchivePluginBase {
 	private OpbLogger logger = OpbLogger.getLogger(ScheduleServer.class, "PM");
 
 	public void process() {
@@ -166,5 +168,14 @@ public class CleanFilePlug {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public JobResult invokePlugin(String taskNo, String taskID, String btime, String etime, String param,
+			PluginObject pObj) {
+		JobResult result =new JobResult();
+		result.setState("0");
+		this.process();
+		return result;
 	}
 }

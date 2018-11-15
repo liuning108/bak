@@ -28,7 +28,7 @@ import com.ztesoft.zsmart.core.log.ZSmartLogger;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.dim.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.dim.service <br>
  */
 @Service("dimServ")
 public class DimServiceImpl implements DimService {

@@ -16,7 +16,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年6月13日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.phy.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.phy.service <br>
  */
 @Service("modelPhyServ")
 public class ModelPhyServiceImpl implements ModelPhyService {

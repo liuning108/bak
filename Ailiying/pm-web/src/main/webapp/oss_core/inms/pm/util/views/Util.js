@@ -111,8 +111,11 @@ define([
 			return ret;
 		},
 		loadEMSTree:function($tree,noVer){
+			alert(2)
 			if(!$tree) return false;
 			utilAction.qryEMSInfo(function(data) {
+
+				console.log('utilAction',data);
 				var treeData = [];
 				if (data){//emsList中将ems_type_code和ems_code放在一行中返回
 
@@ -152,7 +155,7 @@ define([
                         }
                     }.bind(this));
 				}
-
+			  console.log("reloadData",treeData);
 				$tree.jqGrid("reloadData", treeData);
 				$tree.jqGrid("setSelection", (treeData.length>0)?treeData[0]:null);
 			});

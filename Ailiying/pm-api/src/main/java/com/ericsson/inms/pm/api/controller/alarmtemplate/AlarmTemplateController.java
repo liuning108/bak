@@ -1,8 +1,3 @@
-/***************************************************************************************** 
- * Copyright © 2003-2020 ZTEsoft Corporation. All rights reserved. Reproduction or       *
- * transmission in whole or in part, in any form or by any means, electronic, mechanical *
- * or otherwise, is prohibited without the prior written consent of the copyright owner. *
- ****************************************************************************************/
 package com.ericsson.inms.pm.api.controller.alarmtemplate;
 
 import java.util.List;

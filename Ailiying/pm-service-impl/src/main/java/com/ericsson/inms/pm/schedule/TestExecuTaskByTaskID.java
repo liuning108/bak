@@ -5,12 +5,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.ericsson.inms.pm.schedule.jobsys.jobsysimpl.JobExecuteTaskInst;
+import com.ericsson.inms.pm.service.impl.resmgr.ResMgrServiceImpl;
 import com.ericsson.inms.pm.service.impl.taskprocess.tasks.CleanFilePlug;
+import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.opb.base.constant.Const;
 @SpringBootApplication
 public class TestExecuTaskByTaskID {
-    public static void main(String args[]) {
-        String taskID = (args.length == 0) ? "PMI-2018101109-TA00000292" + 
+    public static void main(String args[]) throws BaseAppException {
+        String taskID = (args.length == 0) ? "PMI-2018101910-TA00000074" + 
         		"" : args[0];
         System.out.println(taskID);
         String srvRunPath = "pm";
@@ -20,12 +22,12 @@ public class TestExecuTaskByTaskID {
         ConfigurableApplicationContext appContext = new SpringApplicationBuilder(TestExecuTaskByTaskID.class)
                 .run(new String[] {});
         appContext.registerShutdownHook();
-        CleanFilePlug c  =new CleanFilePlug();
-        c.process();
+//        CleanFilePlug c  =new CleanFilePlug();
+//        c.process();
 //        
-//        System.err.println("------------");
-//        JobExecuteTaskInst xx = new JobExecuteTaskInst();
-//        xx.executeTaskID(taskID);
-//        System.err.println("---end--------");
+        System.err.println("------------");
+        ResMgrServiceImpl xx = new ResMgrServiceImpl();
+         System.err.println(xx.loadTree(null));
+        System.err.println("---end--------");
     }
 }

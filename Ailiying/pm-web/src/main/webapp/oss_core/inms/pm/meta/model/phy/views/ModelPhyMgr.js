@@ -15,8 +15,8 @@
 		detailTpl: fish.compile(modelDetailTpl),
 		i18nData: fish.extend({}, pmUtil.i18nCommon, pmUtil.i18nPMCommon, i18nModel),
 		events: {
-			"click .js-model-phy-grid .js-new": 'addModel',
-			"click .js-model-phy-grid .js-copy-new": 'addCopyModel',
+			"click .js-model-add-copy .js-new": 'addModel',
+			"click .js-model-add-copy .js-copy-new": 'addCopyModel',
 			"click .js-model-phy-grid .js-batch-new": 'addBatchModel',
 			"keyup .js-model-phy-code":'codeToUpper',
 			"blur  .js-model-phy-code":'codeToUpper',
@@ -80,7 +80,9 @@
 					delbutton: true
 				}
 			}];
-
+			if (options.iframeHeight) {
+                this.tableH = options.iframeHeight ? options.iframeHeight : $(".ui-tabs-panel").height();
+            }
 
 		},
 		render: function() {
@@ -122,7 +124,7 @@
 					key: true,
 					hidden:true
 				}],
-
+				height: this.tableH,
 				expandColumn: "CAT_NAME",
 				treeGrid: true,
 				colHide: true,
@@ -212,15 +214,16 @@
 					this.selModel(rowid);
 				}.bind(this)
 			});
-			$grid.grid("navButtonAdd",[{
-                //title: this.i18nData.COMMON_ADD,
-		        //buttonicon: 'fa fa-download',
-		        caption: this.i18nData.COMMON_NEW,
-		        cssprop: "js-new"
-            },{
-                caption: this.i18nData.COPY_NEW,
-                cssprop: "js-copy-new"
-            }
+			$grid.grid("navButtonAdd",[
+			// {
+   //              //title: this.i18nData.COMMON_ADD,
+		 //        //buttonicon: 'fa fa-download',
+		 //        caption: this.i18nData.COMMON_NEW,
+		 //        cssprop: "js-new"
+   //          },{
+   //              caption: this.i18nData.COPY_NEW,
+   //              cssprop: "js-copy-new"
+   //          }
             /**
             ,{
                 caption: this.i18nData.BATCH_NEW,

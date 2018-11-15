@@ -19,7 +19,7 @@
                          style="display:none;width:200px;position:absolute;left:120px;top:0px">
                         <label class="col-md-4 col-sm-4 control-label">窗口值</label>
                         <div class="col-md-8 col-sm-8">
-                            <input name="TIME_WINDOW_VALUE_GENERATE_{{alarm-level}}" class="form-control" style="width: 75px">
+                            <input name="TIME_WINDOW_VALUE_GENERATE_{{alarm-level}}" class="form-control" style="width: 75px" maxlength="10" oninput="value=value.replace(/[^\d]/g,'')">
                         </div>
                     </div>
                 </div>

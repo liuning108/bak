@@ -14,7 +14,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.GeneralDAO;
  * @taskId <br>
  * @CreateDate 2018年6月14日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.busi.dao <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.busi.dao <br>
  */
 public abstract class ModelBusiDAO extends GeneralDAO {
 

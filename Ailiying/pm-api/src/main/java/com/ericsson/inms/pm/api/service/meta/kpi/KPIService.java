@@ -12,7 +12,7 @@ import com.ztesoft.zsmart.core.exception.BaseAppException;
  * @taskId <br>
  * @CreateDate 2018年6月19日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.kpi.service <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.kpi.service <br>
  */
 public interface KPIService {
     /**

@@ -22,7 +22,7 @@ import com.ztesoft.zsmart.pot.annotation.PublicServ;
  * @taskId <br>
  * @CreateDate 2018年6月19日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.kpi.controller <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.kpi.controller <br>
  */
 @RestController
 @RequestMapping("kpi")

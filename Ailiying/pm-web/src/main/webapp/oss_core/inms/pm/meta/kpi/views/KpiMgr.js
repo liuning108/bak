@@ -17,8 +17,8 @@ define([
 		detailTpl: fish.compile(kpiDetailTpl),
 		i18nData: fish.extend({}, pmUtil.i18nCommon, pmUtil.i18nPMCommon, i18nKpi),
 		events: {
-			"click .js-kpi-grid .js-new": 'addKpi',
-			"click .js-kpi-grid .js-copy-new": 'addCopyKpi',
+			"click .js-kpi-add-copy .js-new": 'addKpi',
+			"click .js-kpi-add-copy .js-copy-new": 'addCopyKpi',
 			"click .js-kpi-grid .js-batch-new": 'addBatchKpi',
 			"keyup .js-kpi-code": 'codeToUpper',
 			"blur  .js-kpi-code": 'codeToUpper',
@@ -125,6 +125,9 @@ define([
 					delbutton: true
 				}
 			}];
+			if (options.iframeHeight) {
+                this.tableH = options.iframeHeight ? options.iframeHeight : $(".ui-tabs-panel").height();
+            }
 		},
 		render: function() {
 			this.$el.html(this.template(this.i18nData));
@@ -215,6 +218,7 @@ define([
 			//console.log($(event.target).parent().remove())
 		},
 		loadTree: function() {
+			console.log(this.tableH,11)
 			var $tree = this.$(".js-catalog-tree");
 			this.catTree = $tree.jqGrid({
 				colModel: [{
@@ -228,7 +232,7 @@ define([
 					key: true,
 					hidden: true
 				}],
-
+				height: this.tableH,
 				expandColumn: "CAT_NAME",
 				treeGrid: true,
 				colHide: true,
@@ -281,18 +285,25 @@ define([
 				}.bind(this),
 				onSelectRow: function(e, rowid, state) {
 					this.selKpi(rowid);
-				}.bind(this)
+				}.bind(this),
+				pager: true
 			});
-			$grid.grid("navButtonAdd", [{
-				//title: this.i18nData.COMMON_ADD,
-				//buttonicon: 'fa fa-download',
-				caption: this.i18nData.COMMON_NEW,
-				cssprop: "js-new"
-			}, {
-				caption: this.i18nData.COPY_NEW,
-				cssprop: "js-copy-new"
-			}]);
-
+			$grid.grid("navButtonAdd", [
+			// {
+			// 	//title: this.i18nData.COMMON_ADD,
+			// 	//buttonicon: 'fa fa-download',
+			// 	caption: this.i18nData.COMMON_NEW,
+			// 	cssprop: "js-new"
+			// }, {
+			// 	caption: this.i18nData.COPY_NEW,
+			// 	cssprop: "js-copy-new"
+			// },
+			// {
+			// 	caption: '',
+			// 	id:"kpi-pages",
+			// 	cssprop: {"float":"right"}
+			// }
+			]);
 		},
 		loadFormulaTabs: function() {
 
@@ -421,6 +432,7 @@ define([
 				fish.info(this.i18nData.SEL_EMS);
 				return false;
 			}
+			this.$(".pm_filter_box").fadeOut();
 			console.log(this.EMS_TYPE_PARENT)
 			this.$(".js-kpi-ok").data("type", "add");
 			this.showBlockUI(false);
@@ -464,6 +476,7 @@ define([
 				return false;
 			}
 			this.$(".js-kpi-ok").data("type", "add");
+			this.$(".pm_filter_box").fadeOut();
 			this.showBlockUI(false);
 			this.showDetailPanel();
 			this.codePrefixShow(true);
@@ -483,6 +496,7 @@ define([
 		},
 		editKpi: function(rowdata) {
 			this.$(".js-kpi-ok").data("type", "edit");
+			this.$(".pm_filter_box").fadeOut();
 			this.showBlockUI(true);
 			this.showDetailPanel();
 			this.codePrefixShow(false);
@@ -524,6 +538,7 @@ define([
 
 		},
 		cancel: function() {
+			this.$(".pm_filter_box").fadeIn();
 			this.showBlockUI(false);
 			this.hideDetailPanel();
 			this.codePrefixShow(false);
@@ -543,6 +558,7 @@ define([
 				}
 				//alert(JSON.stringify(value));
 				if (this.setCounterMo(value["kpiFormular"])) {
+					this.$(".pm_filter_box").fadeIn();
 					kpiAction.operKPI(value, function(data) {
 
 						if (that.$(".js-kpi-ok").data("type") == "edit") {
@@ -697,11 +713,34 @@ define([
 			}
 		},
 		getKpiList: function(param) {
+			var that = this;
+			that.$('#kpi-pages').pagination('destroy');
+			alert(2222)
 			kpiAction.qryKPI(param, function(data) {
+					 console.log("getKpiList",data)
 				if (data && data.kpiList) {
+
 					this.kpiGrid.jqGrid("reloadData", data.kpiList);
+					/*that.$('#kpi-pages').pagination({
+					    records: data.kpiList.length,
+					    visiblePages: 5,
+					    rowNum:30,
+					    rowNumList:[30,50,100],
+					    onPageClick: function (e, eventData) {
+					      	that.kpiPageClick(eventData.page,data.kpiList);
+					    },
+					    create:function(){
+					      	that.kpiPageClick(1,data.kpiList);
+					    }
+					});*/
 				}
 			}.bind(this));
+		},
+		kpiPageClick: function(page,mydata){
+			rowNum = $('#kpi-pages').pagination("option","rowNum");
+    		var start = (page-1)*rowNum,end = page*rowNum;
+    		var perData = $.extend(true, [], mydata.slice(start,end));
+    		this.kpiGrid.jqGrid("reloadData",perData);
 		},
 		codePrefixShow: function(flag) {
 			if (flag) {

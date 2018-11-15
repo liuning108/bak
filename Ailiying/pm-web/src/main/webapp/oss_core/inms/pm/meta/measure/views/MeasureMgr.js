@@ -14,8 +14,8 @@ define([
 		fieldTpl: fish.compile(measureFieldTpl),
 		i18nData: fish.extend({}, pmUtil.i18nCommon, pmUtil.i18nPMCommon, i18nMeasure),
 		events: {
-			"click .js-measure-grid .js-new": 'addMeasure',
-			"click .js-measure-grid .js-copy-new": 'addCopyMeasure',
+			"click .js-measure-add-copy .js-new": 'addMeasure',
+			"click .js-measure-add-copy .js-copy-new": 'addCopyMeasure',
 			"click .js-field-add": 'addField',
 			"click .js-measure-ok": 'ok',
 			"click .js-measure-cancel": 'cancel',
@@ -310,14 +310,16 @@ define([
 					this.selMeasure(rowid);
 				}.bind(this)
 			});
-			$grid.grid("navButtonAdd",[{
+			$grid.grid("navButtonAdd",[
+			/*{
 		        caption: this.i18nData.COMMON_NEW,
 		        cssprop: "js-new"
             },
             {
                 caption: this.i18nData.COPY_NEW,
                 cssprop: "js-copy-new"
-            }]);
+            }*/
+            ]);
 		},
 		loadFieldGrid: function(){
 			var that = this;

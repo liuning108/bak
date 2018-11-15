@@ -1,8 +1,3 @@
-/***************************************************************************************** 
- * Copyright © 2003-2020 ZTEsoft Corporation. All rights reserved. Reproduction or       *
- * transmission in whole or in part, in any form or by any means, electronic, mechanical *
- * or otherwise, is prohibited without the prior written consent of the copyright owner. *
- ****************************************************************************************/
 package com.ericsson.inms.pm.api.controller.meta.vdim;
 
 import java.util.Map;
@@ -25,7 +20,7 @@ import com.ztesoft.zsmart.pot.annotation.PublicServ;
  * @taskId <br>
  * @CreateDate 2016-8-5 <br>
  * @since V7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.adhoc.service <br>
+ * @see com.ericsson.inms.pm.api.controller.meta.vdim <br>
  */
 @RestController
 //@IgnoreSession

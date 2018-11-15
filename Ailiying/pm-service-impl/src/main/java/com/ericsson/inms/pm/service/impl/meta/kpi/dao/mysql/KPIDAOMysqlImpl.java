@@ -30,7 +30,7 @@ import com.ztesoft.zsmart.core.util.DateUtil;
  * @taskId <br>
  * @CreateDate 2018年6月19日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.kpi.dao.mysql <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.kpi.dao.mysql <br>
  */
 public class KPIDAOMysqlImpl extends KPIDAO {
 
@@ -66,16 +66,26 @@ public class KPIDAOMysqlImpl extends KPIDAO {
 
         String tagFilterSql = "";
         if (null != tagList) {
-            tagFilterSql += " AND KPI_CODE IN (SELECT KPI_CODE FROM PM_KPI_CLASS_TAG_RELA WHERE (CLASS_ID,TAG_ID) IN (";
+            HashMap<String, String> tagClassMap = new HashMap<String, String>();
             for(int i = 0; i < tagList.size(); i++) {
                 HashMap tag = tagList.get(i);
                 String class_id = (String) tag.get("CLASS_ID");
                 String tag_id = (String) tag.get("TAG_ID");
-                tagFilterSql += "('" + class_id + "', '" + tag_id + "'), ";
-                
+                if (!tagClassMap.containsKey(class_id)) {
+                    String classFilterSql = " AND KPI_CODE IN (SELECT KPI_CODE FROM PM_KPI_CLASS_TAG_RELA WHERE (CLASS_ID,TAG_ID) IN (";
+                    classFilterSql += "('" + class_id + "', '" + tag_id + "'), ";
+                    tagClassMap.put(class_id, classFilterSql);
+                } else {
+                    String classFilterSql = tagClassMap.get(class_id);
+                    classFilterSql += "('" + class_id + "', '" + tag_id + "'), ";
+                    tagClassMap.put(class_id, classFilterSql);
+                }
             }
-            tagFilterSql = tagFilterSql.substring(0, tagFilterSql.length()-2);
-            tagFilterSql += ")) ";
+            for (String classFilterSql : tagClassMap.values()) { 
+                classFilterSql = classFilterSql.substring(0, classFilterSql.length()-2);
+                classFilterSql += ")) ";
+                tagFilterSql += classFilterSql;
+            }
         }
         
         if (!("".equals(kpiCodes))) {
@@ -98,7 +108,6 @@ public class KPIDAOMysqlImpl extends KPIDAO {
                 " AND UPPER(a.kpi_name) LIKE UPPER(concat_ws('','%',?,'%'))   \n")
             + tagFilterSql
             + " ORDER BY a.KPI_NAME, a.KPI_CODE    \n";
-
         List<String> paramList = new ArrayList<String>();
 
         if (!("".equals(emsRela))) {
@@ -183,7 +192,9 @@ public class KPIDAOMysqlImpl extends KPIDAO {
 
         JSONObject result = new JSONObject();
         result.put("kpiFormular", queryForMapList(sql, paramList.toArray()));
-        result.put("kpiClassList", queryForMapList(sqlKpiClass, paramKpiClassList.toArray()));
+        if (kpiCode!=null && !("".equalsIgnoreCase(kpiCode))) {
+        	result.put("kpiClassList", queryForMapList(sqlKpiClass, paramKpiClassList.toArray()));
+        }
 
         if ("1".equals(isCounterMoRela)) {
             sql = "SELECT KPI_CODE,       \n" + "       EMS_VER_CODE,   \n" + "       EMS_CODE,       \n"

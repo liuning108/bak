@@ -24,7 +24,7 @@ import com.ztesoft.zsmart.core.exception.ExceptionHandler;
  * @taskId <br>
  * @CreateDate 2018年6月14日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.busi.dao.mysql <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.busi.dao.mysql <br>
  */
 public class ModelBusiDAOMysqlImpl extends ModelBusiDAO {
 
@@ -37,6 +37,7 @@ public class ModelBusiDAOMysqlImpl extends ModelBusiDAO {
         String modelCode = CommonUtil.getStrFromMap(dict, "MODEL_BUSI_CODE", "");
         String modelPhyCode = CommonUtil.getStrFromMap(dict, "MODEL_PHY_CODE", "");
         String modelCodes = CommonUtil.getStrFromMap(dict, "MODEL_BUSI_CODE_S", "");
+        String modelName = CommonUtil.getStrFromMap(dict, "MODEL_BUSI_NAME", "");
         if (!("".equals(modelCodes))) {
             modelCodes = "'" + modelCodes.replaceAll("[',']", "','") + "'";
         }
@@ -55,6 +56,8 @@ public class ModelBusiDAOMysqlImpl extends ModelBusiDAO {
             + PMTool.ternaryExpression("".equals(modelCode), "", " AND PMB.MODEL_BUSI_CODE = ?   \n")
             + PMTool.ternaryExpression("".equals(modelPhyCode), "", " AND PMB.MODEL_PHY_CODE = ?   \n")
             + PMTool.ternaryExpression("".equals(modelCodes), "", " AND PMB.MODEL_BUSI_CODE IN (" + modelCodes + ")  \n")
+            + PMTool.ternaryExpression("".equals(modelName), "",
+                    " AND UPPER(PMB.MODEL_BUSI_NAME) LIKE UPPER(concat_ws('','%',?,'%'))   \n")
             + " ORDER BY PMB.MODEL_BUSI_NAME, PMB.MODEL_BUSI_CODE    \n";
 
         List<String> paramsList = new ArrayList<String>();
@@ -72,6 +75,9 @@ public class ModelBusiDAOMysqlImpl extends ModelBusiDAO {
         }
         if (!("".equals(modelPhyCode))) {
             paramsList.add(modelPhyCode);
+        }
+        if (!("".equals(modelName))) {
+        	paramsList.add(modelName);
         }
 
         JSONObject result = new JSONObject();

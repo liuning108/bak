@@ -13,7 +13,7 @@ define([], function() {
       return fish.post("pm/api/taskprocessweb/onceDownloadFile", param);
     },
     clearTempFile :function(){
-     return fish.post("pm/api/taskprocessweb/clearTempFile");
+     return fish.post("pm/api/taskprocessweb/clearTempFile",{});
     }
   }
 })

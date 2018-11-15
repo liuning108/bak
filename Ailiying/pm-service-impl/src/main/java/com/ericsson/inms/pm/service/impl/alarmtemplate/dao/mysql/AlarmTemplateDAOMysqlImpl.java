@@ -1,9 +1,3 @@
-/**************************************************************************************** 
- Copyright © 2003-2012 ZTEsoft Corporation. All rights reserved. Reproduction or       <br>
- transmission in whole or in part, in any form or by any means, electronic, mechanical <br>
- or otherwise, is prohibited without the prior written consent of the copyright owner. <br>
- ****************************************************************************************/
-
 package com.ericsson.inms.pm.service.impl.alarmtemplate.dao.mysql;
 
 import java.util.ArrayList;
@@ -13,11 +7,13 @@ import java.util.List;
 import java.util.Map;
 
 import com.alibaba.fastjson.JSONObject;
+import com.ericsson.inms.pm.service.impl.adhoc.dao.mysql.AdhocDAOMysqlImpl;
 import com.ericsson.inms.pm.service.impl.alarmtemplate.dao.AlarmTemplateDAO;
 import com.ericsson.inms.pm.service.impl.util.tool.CommonUtil;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
-import com.ztesoft.zsmart.core.log.ZSmartLogger;
 import com.ztesoft.zsmart.core.util.DateUtil;
+import com.ztesoft.zsmart.core.util.DateUtil.DateConstants;
+import com.ztesoft.zsmart.oss.opb.log.OpbLogger;
 import com.ztesoft.zsmart.pot.session.PrincipalUtil;
 
 /** 
@@ -35,7 +31,7 @@ public class AlarmTemplateDAOMysqlImpl extends AlarmTemplateDAO {
     /**
      * logger <br>
      */
-    private static final ZSmartLogger LOG = ZSmartLogger.getLogger(AlarmTemplateDAOMysqlImpl.class);
+    private static final OpbLogger LOG = OpbLogger.getLogger(AdhocDAOMysqlImpl.class, "PM");    
     
     @Override
     public List<Map<String, Object>> qryNeIconList(Map<String, Object> params) throws BaseAppException {
@@ -256,7 +252,7 @@ public class AlarmTemplateDAOMysqlImpl extends AlarmTemplateDAO {
                 seq.insert(0, "0");
             }
             template_id = codePrefix + "_"
-                + DateUtil.formatString(new Date(), com.ztesoft.zsmart.core.util.DateUtil.DateConstants.DATETIME_FORMAT_2)
+                + DateUtil.formatString(new Date(), DateConstants.DATETIME_FORMAT_2)
                 + "_TP" + seq;
         }
         String ems_type_rel_id = CommonUtil.getStrFromMap(params, "EMS_TYPE_REL_ID", "");
@@ -339,7 +335,7 @@ public class AlarmTemplateDAOMysqlImpl extends AlarmTemplateDAO {
                 seq.insert(0, "0");
             }
             rule_id = codePrefix + "_"
-                + DateUtil.formatString(new Date(), com.ztesoft.zsmart.core.util.DateUtil.DateConstants.DATETIME_FORMAT_2)
+                + DateUtil.formatString(new Date(), DateConstants.DATETIME_FORMAT_2)
                 + "_RL" + seq;
             params.put("RULE_ID", rule_id);
         }

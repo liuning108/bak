@@ -8,7 +8,7 @@ package com.ericsson.inms.pm.service.impl.meta.constant;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.constant <br>
+ * @see com.ericsson.inms.pm.service.impl.meta.constant <br>
  */
 public final class Constant {
     /**
@@ -30,9 +30,9 @@ public final class Constant {
      * @author 0027010454<br>
      * @version 8.0<br>
      * @taskId <br>
-     * @CreateDate 2018年6月12日 <br>
+     * @CreateDate 2018年6月12日<br>
      * @since V8<br>
-     * @see com.ztesoft.zsmart.oss.core.pm.meta.constant <br>
+     * @see com.ericsson.inms.pm.service.impl.meta.constant <br>
      */
     public interface Return {
         /**
@@ -52,9 +52,9 @@ public final class Constant {
      * @author 0027010454<br>
      * @version 8.0<br>
      * @taskId <br>
-     * @CreateDate 2018年6月12日 <br>
+     * @CreateDate 2018年6月12日<br>
      * @since V8<br>
-     * @see com.ztesoft.zsmart.oss.core.pm.meta.constant <br>
+     * @see com.ericsson.inms.pm.service.impl.meta.constant <br>
      */
     public interface ReturnCode {
         /**

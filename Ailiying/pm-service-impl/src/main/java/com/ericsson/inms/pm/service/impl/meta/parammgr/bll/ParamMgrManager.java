@@ -21,7 +21,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.JdbcUtil;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.parammgr.bll <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.parammgr.bll <br>
  */
 @Component
 public class ParamMgrManager {

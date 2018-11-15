@@ -24,7 +24,7 @@ import com.ztesoft.zsmart.core.exception.ExceptionHandler;
  * @taskId <br>
  * @CreateDate 2018年6月12日 <br>
  * @since V8<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.dim.dao.mysql <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.dim.dao.mysql <br>
  */
 public class DimDAOMysqlImpl extends DimDAO {
 

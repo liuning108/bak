@@ -19,7 +19,7 @@ import com.ztesoft.zsmart.core.exception.ExceptionHandler;
  * @version V8.0.1<br>
  * @CreateDate 2017-4-10 <br>
  * @since JDK7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.phy.dao.mysql <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.phy.dao.mysql <br>
  */
 public class ModelPhyDAOMysqlImpl extends ModelPhyDAO {
 
@@ -31,6 +31,7 @@ public class ModelPhyDAOMysqlImpl extends ModelPhyDAO {
         String modelCode = CommonUtil.getStrFromMap(dict, "MODEL_PHY_CODE", "");
         String modelType = CommonUtil.getStrFromMap(dict, "MODEL_TYPE", "");
         String modelCodes = CommonUtil.getStrFromMap(dict, "MODEL_PHY_CODE_S", "");
+        String modelName = CommonUtil.getStrFromMap(dict, "MODEL_PHY_NAME", "");
         if (!("".equals(modelCodes))) {
             modelCodes = "'" + modelCodes.replaceAll("[',']", "','") + "'";
         }
@@ -48,6 +49,8 @@ public class ModelPhyDAOMysqlImpl extends ModelPhyDAO {
             + PMTool.ternaryExpression("".equals(modelType), "", " AND PMP.MODEL_TYPE = ?   \n")
             + PMTool.ternaryExpression("".equals(modelCodes), "",
                 " AND PMP.MODEL_PHY_CODE in (" + modelCodes + ")   \n")
+            + PMTool.ternaryExpression("".equals(modelName), "",
+                    " AND UPPER(PMP.MODEL_PHY_NAME) LIKE UPPER(concat_ws('','%',?,'%'))   \n")
             + " ORDER BY PMP.MODEL_PHY_NAME, PMP.MODEL_PHY_CODE    \n";
 
         List<Object> paramList = new ArrayList<Object>();
@@ -63,6 +66,9 @@ public class ModelPhyDAOMysqlImpl extends ModelPhyDAO {
         }
         if (!("".equals(modelType))) {
             paramList.add(modelType);
+        }
+        if (!("".equals(modelName))) {
+            paramList.add(modelName);
         }
 
         JSONObject result = new JSONObject();

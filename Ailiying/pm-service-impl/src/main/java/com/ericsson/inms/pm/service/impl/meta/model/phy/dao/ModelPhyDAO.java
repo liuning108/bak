@@ -12,7 +12,7 @@ import com.ztesoft.zsmart.oss.opb.base.jdbc.GeneralDAO;
  * @version V8.0.1<br>
  * @CreateDate 2017-4-10 <br>
  * @since JDK7.0<br>
- * @see com.ztesoft.zsmart.oss.core.pm.meta.model.phy.dao <br>
+ * @see com.ericsson.zsmart.oss.core.pm.meta.model.phy.dao <br>
  */
 public abstract class ModelPhyDAO extends GeneralDAO {
 

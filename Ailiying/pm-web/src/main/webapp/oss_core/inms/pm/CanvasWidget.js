@@ -1,3 +1,4 @@
+
 define(["text!oss_core/inms/pm/zdashboard/libs/widgets/CanvasWidget.html"], function(tpl) {
   return portal.BaseView.extend({
     template:fish.compile(tpl),
