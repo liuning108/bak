@@ -34,7 +34,7 @@ public interface ResMgrService {
      * @throws BaseAppException <br>
      */
     JSONObject qurRes(JSONObject dict) throws BaseAppException;
-    
+
     /**
      * Description: <br>
      * 
@@ -46,5 +46,15 @@ public interface ResMgrService {
      */
     JSONObject qurTmpInfo(JSONObject dict) throws BaseAppException;
 
+    /**
+     * Description: <br>
+     * 
+     * @author XXX<br>
+     * @taskId <br>
+     * @param dict
+     * @return
+     * @throws BaseAppException <br>
+     */
+    JSONObject getSubTreeData(JSONObject dict) throws BaseAppException;
 
 }
