@@ -3,7 +3,7 @@ define([
    "oss_core/inms/pm/zdashboard/libs/Widget"
 
 ],function(tpl,Widget) {
-  	var WidgetEngine = function (context) {
+  	var WidgetEngine = function (context,rmUID) {
           this.opt = {
               cellHeight: 60,
               vertical_margin: 5,
@@ -16,6 +16,7 @@ define([
          this.items={};
          this.template=fish.compile(tpl);
          this.context=context;
+         this.rmUID=rmUID;
     }
     WidgetEngine.prototype={
        load:function(opt){
@@ -30,6 +31,7 @@ define([
           }else{
             if(opt.datas){
               fish.each(opt.datas,function(data) {
+                console.log("loadWidget",opt.datas)
                 self.loadWidget({
                     url:data.url,
                     'data':data.data,
@@ -62,7 +64,7 @@ define([
           var el =$(this.template());
           this.grid.addWidget(el, 0, 0, 6, 5, true);
           var widget =new Widget(el,this);
-          var uuid =widget.init(config);
+          var uuid =widget.init(config,this.rmUID);
           this.items[uuid]=widget;
        },
        getItems:function(){
@@ -72,7 +74,7 @@ define([
           var el =$(this.template());
           this.grid.addWidget(el, config.x, config.y, config.w, config.h);
           var widget =new Widget(el,this);
-          var uuid =widget.init(config);
+          var uuid =widget.init(config,this.rmUID);
           this.items[uuid]=widget;
        },
        removeWidget:function(el,uuid) {

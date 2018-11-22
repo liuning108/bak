@@ -4,8 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
+import com.alibaba.fastjson.JSONObject;
 import com.ericsson.inms.pm.schedule.jobsys.jobsysimpl.JobExecuteTaskInst;
 import com.ericsson.inms.pm.service.impl.resmgr.ResMgrServiceImpl;
+import com.ericsson.inms.pm.service.impl.resourceinfo.ResourceInfoServiceImpl;
+import com.ericsson.inms.pm.service.impl.resourceinfo.bll.ResourceInfoManager;
 import com.ericsson.inms.pm.service.impl.taskprocess.tasks.CleanFilePlug;
 import com.ztesoft.zsmart.core.exception.BaseAppException;
 import com.ztesoft.zsmart.oss.opb.base.constant.Const;
@@ -26,8 +29,11 @@ public class TestExecuTaskByTaskID {
 //        c.process();
 //        
         System.err.println("------------");
-        ResMgrServiceImpl xx = new ResMgrServiceImpl();
-         System.err.println(xx.loadTree(null));
+        ResourceInfoManager xx = new ResourceInfoManager();
+        JSONObject dict =new JSONObject();
+        dict.put("userId", 1);       
+        JSONObject result =xx.getResourceInfo(dict);
+        System.err.println(result);
         System.err.println("---end--------");
     }
 }

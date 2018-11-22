@@ -40,4 +40,10 @@ public class ResMgrServiceImpl implements ResMgrService {
         return getDAO().qurTmpInfo(dict);
     }
 
+    @Override
+    public JSONObject getSubTreeData(JSONObject dict) throws BaseAppException {
+        // TODO Auto-generated method stub
+        return getDAO().getSubTreeData(dict);
+    }
+
 }

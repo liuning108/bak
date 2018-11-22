@@ -18,6 +18,7 @@ define([
       this.w=opt.w;
       this.h=opt.h;
       this.props=opt;
+
     },
     render: function() {
       this.$el.html(this.template());
@@ -47,7 +48,7 @@ define([
       var self =this;
       var el = this.$el.find('.graphsShow');
       self.timeRangeObj=timeRangeObj;
-      DBUtil.getLoadDatas(this.option.config,timeRangeObj, function(config) {
+      DBUtil.getLoadDatas(this.option.config,timeRangeObj,this.props.rmUID, function(config) {
         if (config.error) {
           el.text(config.error)
         } else {

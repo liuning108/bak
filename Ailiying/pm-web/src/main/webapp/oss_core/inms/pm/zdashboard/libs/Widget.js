@@ -17,12 +17,12 @@ define([],function(){
        }
 
      },
-     init:function(config){
+     init:function(config,rmUID){
        this.config=config;
        this.initEvent(this.$el)
        this.uuid= fish.uniqueId("widget_")
        this.$el.attr('id',this.uuid);
-       this.load();
+       this.load(rmUID);
        return this.uuid;
      },
      initEvent:function(){
@@ -40,7 +40,7 @@ define([],function(){
        }
 
      },
-     load:function(){
+     load:function(rmUID){
        var self =this;
        if(this.config.url){
          require([this.config.url], function(Widget) {
@@ -48,7 +48,7 @@ define([],function(){
              var w=self.$el.innerWidth();
              var h=self.$el.innerHeight()-(self.$el.find('.header').innerHeight()*1.1);
              var data = self.config.data;
-             var view =new Widget({el:$el,'w':w,'h':h,'data':data}).render();
+             var view =new Widget({el:$el,'w':w,'h':h,'data':data,'rmUID':rmUID}).render();
              self.view= view;
          })
 

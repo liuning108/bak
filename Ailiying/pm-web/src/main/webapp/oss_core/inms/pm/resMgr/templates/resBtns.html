@@ -1,0 +1,22 @@
+<div style="float:right;margin-top:2px;margin-right:10px;" class="btn-group" role="group" aria-label="...">
+  {{#if upItem}}
+  <button data-tname="{{upItem.tname}}" data-code="{{upItem.code}}" data-subids="{{upItem.subIds}}" data-name="{{upItem.name}}" data-id="{{upItem.id}}" type="button" class="btn btn-default res-btn  res-up-action">上一层</button>
+  {{/if}}
+
+  {{#each  items}}
+  <button data-tname="{{tname}}" data-code="{{code}}" data-subids="{{subIds}}" data-name="{{name}}" data-id="{{id}}" type="button" class="btn btn-default disabled res-btn  res-action ">{{name}}</button>
+  {{/each}}
+  {{#if isMore}}
+  <div class="btn-group disabled res-btn" role="group">
+      <button type="button" class="btn btn-default dropdown-toggle disabled res-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  更多
+  <span class="caret"></span>
+  </button>
+      <ul class="dropdown-menu res-dropdown-menu disabled res-btn" style="left:-100px">
+        {{#each lastItems}}
+        <li data-tname="{{tname}}"  data-code="{{code}}" data-subids="{{subIds}}" data-name="{{name}}" data-id="{{id}}" class="disabled res-btn  res-action"><a href="#" >{{name}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    {{/if}}
+</div>

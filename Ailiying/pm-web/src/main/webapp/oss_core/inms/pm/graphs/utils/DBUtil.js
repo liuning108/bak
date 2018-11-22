@@ -12,7 +12,7 @@ define([
   DBUtil.deepCopy = function(sourceObj) {
     return JSON.parse(JSON.stringify(sourceObj))
   }
-  DBUtil.getLoadDatas = function(config, timeRangeObj, callback) {
+  DBUtil.getLoadDatas = function(config, timeRangeObj,rmUID, callback) {
     if (!config)
       return null;
     var result = {};
@@ -24,12 +24,12 @@ define([
         if (GRANU_MODE.length > 0) {
           config.minGranu = [GRANU_MODE[0]]
         }
-        DBUtil.loadConfig(DBUtil.deepCopy(config), timeRangeObj, callback);
+        DBUtil.loadConfig(DBUtil.deepCopy(config), timeRangeObj,rmUID, callback);
       })
     })
 
   }
-  DBUtil.loadConfig = function(config, timeRangeObj, callback) {
+  DBUtil.loadConfig = function(config, timeRangeObj,rmUID, callback) {
     console.log('createConfig', config);
     var hostPage = config.tabsConfig.hostPage;
     //  var tableName= config.tableName+timePage.granus;
@@ -42,11 +42,11 @@ define([
     action.getKpiInfo(kpiCodes).then(function(result) {
       console.log('dataConfig getKpiInfo', result)
       config.kpiInfo = result.kpiFormular
-      DBUtil.createGConfig(config, timeRangeObj, callback)
+      DBUtil.createGConfig(config, timeRangeObj,rmUID, callback)
     })
 
   }
-  DBUtil.createGConfig = function(config, timeRangeObj, callback) {
+  DBUtil.createGConfig = function(config, timeRangeObj,rmUID, callback) {
     console.log('dataConfig createGConfig', config);
     var timePage = config.tabsConfig.timePage
     var hostPage = config.tabsConfig.hostPage;
@@ -89,9 +89,9 @@ define([
     var minG = config.minGranu[0].GRANU;
     var tempGranus = timeRangeObj.g || timePage.granus;
     if (tempGranus == minG) {
-      sql = this.createMinGraunsSql(config, timeRangeObj); //最小粒度SQL
+      sql = this.createMinGraunsSql(config,rmUID, timeRangeObj); //最小粒度SQL
     } else {
-      sql = this.createGraunsSql(config, timeRangeObj); //最小粒度SQL
+      sql = this.createGraunsSql(config,rmUID, timeRangeObj); //最小粒度SQL
     }
     if (sql == null) {
       return;
@@ -134,8 +134,7 @@ define([
      })
      return data;
   }
-  DBUtil.createGraunsSql = function(config, timeRangeObj) {
-    console.log('createMinGraunsSql', config);
+  DBUtil.createGraunsSql = function(config,rmUID,timeRangeObj) {
     var timePage = config.tabsConfig.timePage
     var hostPage = config.tabsConfig.hostPage;
     var tempGranus = timeRangeObj.g || timePage.granus;
@@ -191,7 +190,11 @@ define([
     }
     var topNum = hostPage.topNum || "";
     var orderStr = DBUtil.getOrder(hostPage);
+
     var sql = "select " + dim + " as " + asDimName + " , " + cols.join(',') + " from " + tableName + " where STTIME >= '" + timeRangeObj.s + "' and  STTIME < '" + timeRangeObj.e + "' " + " group by  " + dim
+    if(rmUID){
+      var sql = "select " + dim + " as " + asDimName + " , " + cols.join(',') + " from " + tableName + " where MO_GID= '"+ rmUID +"' and  STTIME >= '" + timeRangeObj.s + "' and  STTIME < '" + timeRangeObj.e + "' " + " group by  " + dim
+    }
     if (orderStr.length > 0) {
       sql += orderStr
     }
@@ -202,8 +205,7 @@ define([
     return sql
 
   }
-  DBUtil.createMinGraunsSql = function(config, timeRangeObj) {
-    console.log('createMinGraunsSql', config);
+  DBUtil.createMinGraunsSql = function(config,rmUID,timeRangeObj) {
     var timePage = config.tabsConfig.timePage
     var hostPage = config.tabsConfig.hostPage;
     var tempGranus = timeRangeObj.g || timePage.granus;
@@ -259,6 +261,9 @@ define([
     var topNum = hostPage.topNum || "";
     var orderStr = DBUtil.getOrder(hostPage);
     var sql = "select " + dim + " as " + asDimName + " , " + cols.join(',') + " from " + tableName + " where STTIME >= '" + timeRangeObj.s + "' and  STTIME < '" + timeRangeObj.e + "' " + " group by  " + dim
+    if(rmUID){
+      var sql = "select " + dim + " as " + asDimName + " , " + cols.join(',') + " from " + tableName + " where MO_GID= '"+rmUID+"' and STTIME >= '" + timeRangeObj.s + "' and  STTIME < '" + timeRangeObj.e + "' " + " group by  " + dim
+    }
     if (orderStr.length > 0) {
       sql += orderStr
     }

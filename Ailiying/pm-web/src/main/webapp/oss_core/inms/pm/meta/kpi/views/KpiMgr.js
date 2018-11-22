@@ -240,7 +240,7 @@ define([
 				onSelectRow: function(e, rowid, state) {
 					var selectRow = this.catTree.jqGrid("getRowData", rowid);
 					console.log(selectRow)
-					this.loadKpiClassInfo(selectRow.parent);
+					//this.loadKpiClassInfo(selectRow.parent);
 					var type = selectRow.type;
 					if (type == "EMS") {
                         var node = this.catTree.jqGrid("getNodeParent", selectRow);
@@ -1042,6 +1042,7 @@ define([
             this.$('.pm_filter_select').hide();
             this.tagList = undefined;
             kpiAction.qryKPIClassinfo({"EMS_TYPE": this.EMS_TYPE_CODE}, function(data) {
+							console.log('qryKPIClassinfo',data);
                 var kpiClassList = data.kpiClassList;
                 var kpiClassTagList = data.kpiClassTagList;
                 fish.forEach(kpiClassList, function(kpiClass){

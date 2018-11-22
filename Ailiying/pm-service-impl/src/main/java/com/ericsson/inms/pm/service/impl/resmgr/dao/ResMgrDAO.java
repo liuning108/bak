@@ -8,4 +8,5 @@ public abstract class ResMgrDAO extends GeneralDAO {
     public abstract JSONObject loadTree(JSONObject dict) throws BaseAppException;
     public abstract JSONObject qurRes(JSONObject dict) throws BaseAppException;
     public abstract JSONObject qurTmpInfo(JSONObject dict) throws BaseAppException;
+    public abstract JSONObject getSubTreeData(JSONObject dict) throws BaseAppException;
 }

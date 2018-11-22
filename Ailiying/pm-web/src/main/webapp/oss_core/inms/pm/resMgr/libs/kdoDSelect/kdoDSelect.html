@@ -1,0 +1,37 @@
+<div class="ad-block">
+				<div class="row">
+					<div class="col-md-6 b-r">
+						<div class="ad-title">选择<a class="pull-right"></a></div>
+						<div class="input-group search-group" style="width:100%">
+							<i class="fa fa-search" style="position: absolute;top: 7px;left: 10px;z-index:11"></i>
+							<input type="text" class="ad-theme-search form-control kdo-search-input">
+						</div>
+						<div class="clearfix m-t-sm m-block">
+							<ul id="sortable"  class="scrollable addItemUL" style="height:240px">
+							{{#each L}}
+							<li ><span><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span>{{name}}<a data-value="{{value}}"
+								data-name="{{name}}" class="kdo-addItem" href="#"><i class="fa fa-plus"></i></a></li>
+						  {{/each}}
+
+						</div>
+						<div class="ad-bar"><a class="kdo-addall" href="#">全部添加</a></div>
+					</div>
+					<div class="col-md-6">
+						<div class="ad-title">已选<a class="pull-right"></a></div>
+						<div class="input-group search-group" style="width:100%">
+							<select id="ad-dimfilter-subtype" class="form-control">
+								<option value="INCLUDE" selected="selected">包含</option>
+								<!--<option value="EXCLUDE">Not Contain</option>-->
+							</select>
+						</div>
+						<div class="clearfix m-t-sm m-block">
+							<ul id="sortable"  class="scrollable selectedUI" style="height:240px">
+								{{#each R}}
+                <li>{{name}}<a data-name="{{name}}" data-value="{{value}}" class="kdo-removeItem" href="#"><i class="fa fa-trash"></i></a></li>
+								{{/each}}
+							</ul>
+							<div class="ad-bar">  <a class="kdo-removeall" href="#">清空</a></div>
+						</div>
+					</div>
+				</div>
+			</div>

@@ -15,6 +15,7 @@ define([
     this.template = fish.compile(tpl),
     this.callback = option.callback || function() {};
     this.tid = option.id || 'T00001'
+    this.rmUID=option.rmUID;
     this.timeCode = -1;
   }
   DashBoard.prototype = {
@@ -24,7 +25,7 @@ define([
       var val = Number(val);
       if (val <= 0) {
         if (!tipFlag) {
-          fish.toast('success', '取消自动刷新');
+          //fish.toast('success', '取消自动刷新');
         }
         return;
       }
@@ -38,7 +39,7 @@ define([
         self.zrefresh();
       }, timeInterval)
       if (!tipFlag) {
-        fish.toast('success', '刷新时间设置成功');
+        //fish.toast('success', '刷新时间设置成功');
       }
     },
     render: function() {
@@ -122,7 +123,7 @@ define([
         }
       });
       self.timeCombox = timeCombox;
-      this.engine = new WidgetEngine(this.$el.find('.grid-stack'));
+      this.engine = new WidgetEngine(this.$el.find('.grid-stack'),self.rmUID);
       action.getDash(self.tid).then(function(data) {
         if (data.result) {
           if (data.result.timeCode) {
