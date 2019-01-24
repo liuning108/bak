@@ -1,0 +1,64 @@
+.main
+  width:  100%
+  height: 100%
+  .mainBody
+    display: flex
+    width: 100%
+    padding: 0px
+  .mainHeader
+    background-color: #343d50
+    height: 52px !important
+    display: flex
+    color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px
+    /* height: 52px; */
+    z-index: 9;
+    .logo
+      flex: 150px
+      flex-grow: 0
+      flex-shrink: 0
+      display: flex
+      cursor: pointer
+      align-items: center;
+      img
+        width: 20px;
+        height: 20px;
+        margin-left: 12px;
+        margin-right: 12px;
+      .title
+        font-size: 14px;
+        margin-right: 10px;
+  .menu
+    flex:  5
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    .item
+      margin-right: 20px
+      padding: 8px 12px;
+      cursor: pointer
+      display: flex
+      flex-direction: column
+      align-content:  center
+      justify-content: center
+      text-align: center
+      color: rgb(140, 160, 179)
+      &:hover
+        color: #4ae2bc
+      &.active
+        color: #4ae2bc
+      i
+        font-size: 18px
+        margin-bottom: 5px
+      .mtitle
+        font-size: 10px
+
+      
+        
+  .userinfo 
+    display: flex
+    flex: 1

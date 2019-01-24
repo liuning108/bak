@@ -1,0 +1,11 @@
+.el-breadcrumb__inner a,
+.el-breadcrumb__inner.is-link {
+  color: #4a90e2
+}
+
+.el-breadcrumb__inner a:hover,
+.el-breadcrumb__inner.is-link:hover {
+  color: #57a4ff;
+  cursor: pointer;
+  text-decoration: underline;
+}

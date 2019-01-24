@@ -1,0 +1,60 @@
+.GConfig
+  width: 100%
+  height: 100%
+  display: flex
+  flex-direction: column
+  .GTypes
+    width: 100%
+    height: 267px
+    flex-flow: 0
+    flex-grow: 0
+    .title
+      margin-left: 10px
+      font-weight: 600
+      font-size: 12px
+      color: #8ca0b3
+    .typesOper
+      margin: 12px 10px 6px
+  .GProps
+    width: 100%
+    flex: 1
+    padding: 10px
+    overflow-y: auto
+    .title
+      font-weight: 600
+      font-size: 12px
+      color: #8ca0b3
+
+.dash-divider-horizontal
+    display: block
+    height: 1px
+    width: 100%
+    clear: both
+    font-size: 0
+    background-color: #dbdfe7
+.graphs
+  width: 100%
+  height: 190px
+  overflow-y: auto
+  display: block
+  .graphs-row
+    width: 100%
+    margin-top: 10px
+    height: 40px
+    display: flex
+    flex-direction: row
+    align-content: center
+    .g-card
+      width: 50px
+      height: 40px
+      cursor: pointer
+      margin-left: 6px
+      display: flex
+      justify-content: center 
+      align-items: center
+      align-content: center
+      border-radius: 2px
+      background-color: #fff
+      border: 1px solid rgb(236, 239, 245)
+      &:hover
+        box-shadow: 0 0 1px 1px rgba(79,146,202,.4)

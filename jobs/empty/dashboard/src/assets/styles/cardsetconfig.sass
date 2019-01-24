@@ -1,0 +1,87 @@
+.config-block
+  padding: 0 7px 6px
+  display: flex
+  flex-direction: column
+  .header
+    height: 30px
+    line-height: 30px
+    .des
+      color: #8ca0b3
+      font-size: 12px
+      font-weight: 600
+  .dash_zone
+    margin-top: 10px  
+    border-radius: 2px
+    padding: 0px
+    padding-left: 8px
+    padding-right: 8px
+    padding-bottom: 8px
+    
+    background-color: #fff
+    border: 1px dashed #dbdfe7
+    .header
+      display: flex
+      flex-direction: row
+      .des
+        color: #8ca0b3
+        font-weight: 400
+        font-size: 12px
+    .card-space
+      min-height: 26px
+      margin-top: 4px
+      position: relative
+      .ghit
+        color: #c8ced9
+        font-weight: 400
+        font-size: 12px
+        text-align: center
+        margin-top: 10px
+.item
+      height: 26px
+      overflow: hidden
+      padding: 4px 6px
+      border-radius: 2px
+      cursor: pointer
+      box-sizing: border-box
+      display: flex
+      flex-direction: row
+      padding-top: 8px
+      margin-top: 2px;
+      i
+        display: inline-block
+        line-height: 1
+        cursor: pointer
+        font-size: 14px
+      .item-des
+        padding: 0 6px
+        width: calc(100% - 2em);
+        overflow: hidden
+        text-overflow: ellipsis;
+        white-space: pre
+        font-size: 12px
+      .el-icon-close
+        display: none
+      &:hover
+        .el-icon-close
+          display: inline
+          &:hover
+            font-weight: 600
+          
+
+.axisColor
+  background: #dbe9f9
+  color: #306db6
+.numColor
+  background: #dff3ca
+  color: #3c6b07
+
+.popover-cardedit
+  cursor: pointer
+  li
+    height: 32px
+    font-size: 12px
+    padding: 0 10px 0 14px
+    line-height: 32px
+    border-bottom:  1px dashed #dbdfe7
+    &:hover
+      background-color: #f2f2f2;
