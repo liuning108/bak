@@ -1,0 +1,73 @@
+@import './colors_mixin.sass'
+//dash-divider-horizontal start
+.dash-divider-horizontal
+    display: block
+    height: 1px
+    width: 100%
+    clear: both
+    font-size: 0
+    background-color: #dbdfe7
+// dash-divider-horizontal end 
+//----------------------------
+// dash-aside start    
+.dash-aside
+  height: 95%
+  .dash-header
+    +mp0
+    color: #8ca0b3
+    .node-container
+      height: 100%
+      cursor: pointer
+      display: flex
+      flex-direction: row
+      align-items: center
+      .node-container-name
+        flex: 1
+        margin-left: 15px
+        padding: 10px 0px
+        font-size: 12px
+        font-weight: 600
+      .node-container-option
+        flex-shrink: 0;
+        flex-grow: 0
+        +size(32px)
+        margin-top: 4px
+        margin-right: 20px
+        text-align: center
+        line-height: 32px
+        font-size: 16px
+        font-weight: 500
+        
+      &:hover
+        color: #343D52
+
+  .dash-main
+    +mp0
+// dash-aside end
+
+//dash-tree start
+.dash-tree
+  margin-top: 5px
+  background: none
+  color: #617282
+  font-size: 12px
+  .el-tree-node__expand-icon
+    display: none
+  .custom-tree-node
+    height: 32px !important
+    width: 100%
+    height: 100%
+    display: flex
+    align-items: center
+    &:hover
+      background-color: #f2f2f2;
+      color: #343d50;
+    &.leaf-active
+      background-color: #e3f2ff;
+      color: #4a90e2;
+    i
+      margin-right: 5px
+   
+  .leaf-node
+    padding-left: 17px
+//dash-tree end 

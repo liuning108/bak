@@ -2,11 +2,9 @@
   <el-container class="dashboard">
     <el-aside class="aside">
       <div class="dashTabs">
-        
        <div v-for="item in tabs" :key="item.id" :class="{'active':item.isActive}" class="item" @click="switchTab(item.component)" >
            <i :class="item.icon"></i>
         </div>
-       
       </div>
       <component v-bind:is="currentTabComponent"></component>
     </el-aside>
@@ -29,10 +27,10 @@ import FavoriteList from '../components/FavoriteList'
       FavoriteList
     },
      data(){
+       //            {component:"FavoriteList",icon:"el-icon-star-off",isActive:false},
         return {
           currentTabComponent: null,
           tabs:[
-            {component:"FavoriteList",icon:"el-icon-star-off",isActive:false},
             {component:"DashList",icon:"el-icon-share",isActive:true}
           ]
         }
