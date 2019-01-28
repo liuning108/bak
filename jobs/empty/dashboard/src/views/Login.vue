@@ -43,10 +43,18 @@
 </template>
 
 <script>
+import axios from 'axios';
+axios.defaults.withCredentials=true;
 import { createNamespacedHelpers} from 'vuex'
 const { mapActions,mapGetters  } = createNamespacedHelpers('user')
 
   export default {
+     mounted(){
+      axios.get('http://127.0.0.1:8080/hello')
+      .then(response => {
+        console.log(response)
+      })
+    },
     data(){
         return {
           region:'xingsheng',

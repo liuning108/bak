@@ -14,11 +14,18 @@
                :expand-on-click-node="true"
                icon-class="''"
                class="dash-tree"
+               draggable
+               node-key="label"
+
+               :allow-drag="isDrag"
+               :allow-drop="allowDrop"
+               @node-drop="dropEnd"
+               @node-drag-start="handleDragStart"
                :indent="0"
                @node-click="handleNodeClick">
 
-              <span class="custom-tree-node"  :class="{'leaf-node':data.isLeaf,'leaf-active':data.isActive}" slot-scope="{ node, data }">
-                <i  v-if="!data.isLeaf" :class="data.isOpen ? 'el-icon-caret-bottom' : 'el-icon-caret-right' "></i>
+              <span class="custom-tree-node"  :class="{'leaf-node':data.isPage,'leaf-active':data.isActive}" slot-scope="{ node, data }">
+                <i  v-if="!data.isPage" :class="data.isOpen ? 'el-icon-dash-icon-folder-6' : 'el-icon-dash-icon-Folder-close' "></i>
                 <span :style="{'padding-left':(10*(node.level-1))+'px'}">{{data.label}}</span>
               </span>
 
@@ -49,16 +56,16 @@ export default {
         {
           label: "连锁零售",
           children:[
-            {label: "活动分析",isLeaf:true,isActive:false}
+            {label: "活动分析2",isPage:true,isActive:false}
           ],
-          isLeaf:false,
+          isPage:false,
           icon:"el-icon-arrow-right",
           isOpen:false,
         },
         {
           label: "活动分析",
           id:1,
-          isLeaf:true,
+          isPage:true,
           isActive:false,
         },
       ],
@@ -68,7 +75,7 @@ export default {
   methods: {
     allNodesAciveFalse(array){
       array.forEach(el => {
-         if(el.isLeaf===true){
+         if(el.isPage===true){
            el.isActive = false
          }else{
           this.allNodesAciveFalse(el.children)
@@ -76,13 +83,38 @@ export default {
       });
     },
     handleNodeClick(node) {
+      console.log(node)
       node.isOpen = !node.isOpen
-      if(node.isLeaf){
+      if(node.isPage){
         this.allNodesAciveFalse(this.data);
         node.isActive = !node.isActive
       }
       
     },
+    handleDragStart(node){
+       this.bakData =JSON.stringify(this.data);
+    },
+    isDrag(node){
+      console.log('isDarg', node)
+        return node.data.isPage
+    },
+    allowDrop(draggingNode, dropNode, type){
+       return  !dropNode.data.isPage
+    },
+    dropEnd(draggingNode, dropNode, dropType, ev){
+      if(dropType!='inner' && draggingNode.level==1)return
+      this.$confirm('这否放入该目录下', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+      }).then(()=>{
+          //save Menu
+      }).catch(()=>{
+        this.data =JSON.parse(this.bakData)
+      })
+
+      return false;
+    }
 
    
   }

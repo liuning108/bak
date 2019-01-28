@@ -26,7 +26,7 @@
             <div class="f-li">
               <draggable v-model="list" :options="dragOptions">
                 <div class="item axisColor" v-for="element in list" :key="element.id">
-                  <i class="el-icon-edit"></i>
+                  <i class="el-icon-dash-icon-zifuxiao"></i>
                   <div class="item-des">
                     <div class="ellipsis">{{element.name}}</div>
                   </div>
@@ -54,7 +54,7 @@
               </div>-->
               <draggable v-model="ylist" :options="dragYOptions">
                 <div class="item numColor" v-for="element in ylist" :key="element.id">
-                  <i class="el-icon-edit"></i>
+                  <i class="el-icon-dash-icon-chart1"></i>
                   <div class="item-des">
                     <div class="ellipsis">{{element.name}}</div>
                   </div>

@@ -1,6 +1,9 @@
 <template>
   <div class="boardcharts">
     <Loading v-if="isLoding"></Loading>
+    <div v-if="nodes.length<=0 && !isLoding">
+      <Empty msg="当前页面无卡片，您可点击右侧［新建卡片］添加"></Empty>
+    </div>
      <grid-layout
             :layout.sync="nodes"
             :col-num="12"
@@ -58,13 +61,15 @@
 <script>
 import Loading from './Loading'
 import VueGridLayout from 'vue-grid-layout';
+import Empty from './Empty'
 import {debounce} from "lodash"
-
+import dashApi from '../api/dashboard.js'
   export default {
     components:{
       Loading,
       GridLayout: VueGridLayout.GridLayout,
       GridItem: VueGridLayout.GridItem,
+      Empty
     },
     props: {
       id: {
@@ -74,9 +79,8 @@ import {debounce} from "lodash"
     created(){
     },
     mounted(){
-      setTimeout(()=>{
-        this.isLoding=false;
-       },1000);
+      this.getBoardNodes();
+      
     },
     data(){
        return {
@@ -95,8 +99,15 @@ import {debounce} from "lodash"
       }
     },
     methods: {
+     async getBoardNodes(){
+        console.log("得到ID下所有的节点",this.id)
+        var nodes = await dashApi.getBoardNodes(this.id)
+        this.nodes=nodes;
+        this.isLoding =false;
+      },
       saveNodes:debounce(function(){
         console.log('saveNode',this.nodes)
+        dashApi.saveNodes(this.id,this.nodes);
       },1000),
       resizeEvent(i, newH, newW, newHPx, newWPx){
         const {gNode} =  this.$refs;

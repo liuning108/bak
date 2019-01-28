@@ -11,7 +11,7 @@
         <div class="card-space">
           <draggable v-model="xlist" :options="dragXOptions">
             <div class="item axisColor" v-for="(element,index) in resultXList" :key="index">
-              <i class="el-icon-edit"></i>
+              <i class="el-icon-dash-icon-zifuxiao"></i>
               <div class="item-des">
                 <div class="ellipsis">{{element.name}}</div>
               </div>
@@ -48,7 +48,7 @@
                 </el-popover>
               </ul>
               <div class="item numColor" slot="reference">
-                <i class="el-icon-edit"></i>
+                <i class="el-icon-dash-icon-chart1"></i>
                 <div class="item-des">
                   <div class="ellipsis">{{element.yname}}</div>
                 </div>

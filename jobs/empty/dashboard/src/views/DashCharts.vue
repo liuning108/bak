@@ -2,7 +2,7 @@
   <el-container class="dash">
   <el-header class="dashHeader">
      <div class="title">
-       <span>DashBoard Name</span>
+       <span>活动分析</span>
      </div>
      <div class="dashOper">
        <el-button type="primary"  class="newPlus" icon="el-icon-plus" size="small" @click="addCard">新建卡片</el-button>
@@ -11,7 +11,6 @@
         <i class="el-icon-more opersMore" slot="reference"></i>
       </span>
       <el-dropdown-menu slot="dropdown" class="dashOperDropDown">
-        <el-dropdown-item><i class="el-icon-star-off"></i>收藏页面</el-dropdown-item>
         <el-dropdown-item :command="{type:'screenfull',data:{}}"><i class="el-icon-rank"></i>投屏</el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -19,7 +18,7 @@
   </el-header>
   <el-main class="dashMain" >
     <div ref="boardPage" class="boardPage">
-    <BoardCharts ref="boardcharts" :id="this.$route.params.id" ></BoardCharts>
+     <BoardCharts ref="boardcharts" :id="this.$route.params.id" ></BoardCharts>
     </div>
   </el-main>
   </el-container>

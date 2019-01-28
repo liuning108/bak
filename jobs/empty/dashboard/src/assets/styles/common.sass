@@ -1,4 +1,7 @@
 @import './colors_mixin.sass'
+.full-container
+  width: 100%
+  
 //dash-divider-horizontal start
 .dash-divider-horizontal
     display: block
@@ -44,13 +47,15 @@
   .dash-main
     +mp0
 // dash-aside end
-
 //dash-tree start
 .dash-tree
+  margin-left: 10px
   margin-top: 5px
   background: none
   color: #617282
   font-size: 12px
+  .el-tree-node 
+    margin-top: 5px
   .el-tree-node__expand-icon
     display: none
   .custom-tree-node
@@ -67,7 +72,27 @@
       color: #4a90e2;
     i
       margin-right: 5px
+      font-size: 13px
+      font-weight: 500
    
   .leaf-node
     padding-left: 17px
 //dash-tree end 
+
+//empty-aside start
+.EmptyList
+  width: 100%
+  height: 120px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  color: #8ca0b3
+  i
+    margin-bottom: 10px
+    font-size: 23px    
+  span
+    font-size: 14px
+    font-weight: 400
+
+//empty-aside end

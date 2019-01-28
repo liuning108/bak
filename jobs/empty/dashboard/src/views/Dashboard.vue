@@ -17,7 +17,6 @@
 <script>
 import DashList from '../components/DashList.vue'
 import FavoriteList from '../components/FavoriteList'
-
   export default {
     mounted(){
       this.switchTab('DashList')

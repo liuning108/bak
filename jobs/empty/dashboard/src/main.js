@@ -9,6 +9,7 @@ import './assets/styles/element.css';
 import './assets/styles/sprite.sass'
 import './assets/loginfont/iconfont.css'
 import './assets/menufont/iconfont.css'
+import './assets/dashfont/iconfont.css'
 import './assets/styles/loading.css'
 import './assets/styles/vue-grid-layout.css'
 import  './assets/styles/common.sass'
