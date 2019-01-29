@@ -1,5 +1,5 @@
 <template>
-  <div class="gCanvas" ref="gcanvas" >
+  <div class="gCanvas" ref="gcanvas">
   </div>
 </template>
 
@@ -13,19 +13,23 @@ import util from '../../utils/util.js'
       }
     },
      mounted(){
-       this.$nextTick(()=>{
-          this.darwG()
-       })
+         this.$nextTick(()=>{
+                this.darwG();     
+         })
      
      },
      methods: {
        resize(){
-          this.myChart.resize() 
+           if(this.myChart){
+               
+                this.myChart.resize() 
+           }
        },
        darwG() {
-      
-         var canvas = this.$refs.gcanvas
-      var  option = {
+         var canvas =this.$refs.gcanvas
+
+          
+         var  option = {
             tooltip : {
                 trigger: 'axis',
                 axisPointer: {
@@ -95,7 +99,7 @@ import util from '../../utils/util.js'
                 }
             ]
         };
-         this.myChart = this.$echarts.init(canvas);
+         this.myChart= this.$echarts.init(canvas);
          this.myChart.setOption(option)
        },
      },

@@ -4,48 +4,15 @@
     <div class="GTypes">
       <div class="title">可视化</div>
       <div class="typesOper">
-        <SelectIcon :options="options" @selected="typechange"/>
+        <SelectIcon :options="options" @selected="handelTypeChange"/>
       </div>
       <div class="graphs">
-        <div class="graphs-row">
-          <div class="g-card">
-            <div class="chart-types-small-sprite vertical-bar-single-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite horizontal-bar-single-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite line-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite pie-small"></div>
+        <div class="graphs-row" v-for="(menus,index) in groupMenus" :key="index">
+          <div class="g-card" v-for="(menu,index) in menus" :key="index" @click="handelNodechange(menu)">
+            <div class="chart-types-small-sprite" :class="menu.icon"></div>
           </div>
         </div>
-        <div class="graphs-row">
-          <div class="g-card">
-            <div class="chart-types-small-sprite vertical-bar-grouped-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite vertical-bar-grouped-plus-line-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite vertical-bar-stacked-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite vertical-bar-waterfall-small"></div>
-          </div>
-        </div>
-        <div class="graphs-row">
-          <div class="g-card">
-            <div class="chart-types-small-sprite radar-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite bubble-small"></div>
-          </div>
-          <div class="g-card">
-            <div class="chart-types-small-sprite table-small"></div>
-          </div>
-        </div>
+        
       </div>
     </div>
     <div class="dash-divider-horizontal"></div>
@@ -59,16 +26,35 @@
 <script>
 import SelectIcon from "../base/selecticon/SelectIcon.vue";
 import GProps from './GProps.vue'
+import constant from '../../constants/constant.js'
+import {chunk} from 'lodash'
+import { createNamespacedHelpers } from "vuex";
+const { mapState,mapActions } = createNamespacedHelpers("cardedit");
+
 export default {
   components: {
     SelectIcon,
     GProps
   },
   methods: {
-    typechange(option) {}
+    ...mapActions(['changeNodeType']),
+    handelTypeChange(option){
+
+    },
+    handelNodechange(option) {
+      this.changeNodeType(option.type);
+    }
+  
+  
+  },
+  computed: {
+    groupMenus() {
+      return chunk(this.menus,4)
+    }
   },
   data() {
     return {
+      menus: constant.card_edit_menus,
       options: [
         {
           value: "type1",

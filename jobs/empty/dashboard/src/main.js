@@ -25,6 +25,7 @@ Vue.use(ElementUI, {
 Vue.config.productionTip = false
 
 Vue.component('Node1', () => import('./components/graphs/Node1.vue'))
+Vue.component('Node2', () => import('./components/graphs/Node2.vue'))
 
 new Vue({
   router,

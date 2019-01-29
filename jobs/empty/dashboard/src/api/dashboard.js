@@ -1,7 +1,9 @@
 import promise from './mock_db/mockpromise'
 export default {
+
   /**
-   * 通过仪表盘ID, 找出所有图表节点信息
+   * 
+   *   通过仪表盘ID, 找出所有图表节点信息
    * @param {*} id   仪表盘ID
    */
   getBoardNodes(id) {
@@ -13,6 +15,12 @@ export default {
            resolve(JSON.parse(nodes));
     })
   },
+
+  /**
+   *  保存仪表盘下所有节点信息
+   * @param {*} id   仪表盘ID 
+   * @param {*} nodes  节点的集合
+   */
   saveNodes(id,nodes){
     return promise((resolve, reject) => {
       localStorage.setItem(id, JSON.stringify(nodes))

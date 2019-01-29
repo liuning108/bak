@@ -1,4 +1,4 @@
-import userApi from '../../../api/dashboard'
+import cardeditApi from '../../../api/cardedit'
 import router from '../../../router'
 
 export default {
@@ -11,29 +11,42 @@ export default {
   mutations: {
     getNodeById(state, data) {
       state.card = data.card;
+      state.bid = data.bid
      
     },
-    isLoading(store,data){
-      store.isLoading=data;
-    }
+    isLoading(state,data){
+      state.isLoading = data;
+    },
+    changeNodeType(state, data) {
+      state.card.type = data;
+    },
   },
   actions: {
-    getNodeById(store,data) {
-       console.log('store', store)
-       console.log('data', data)
+    
+    async getNodeById(store,data) {
        const {bid,cid} = data;
        store.commit("isLoading",true);
-       setTimeout(()=>{
-         store.commit("getNodeById", {
-           card: {
-             name: "name" + cid,
-             id: cid
-           }
-         });
-         store.commit("isLoading", false);
-       },1000)
-        
-       
+       var data = await cardeditApi.getNodeById({bid,cid})
+       store.commit("getNodeById", data)
+       store.commit("isLoading", false);
+    },
+    /**
+     *改变节点的类型
+     *
+     */
+    changeNodeType(store,data){
+      store.commit("changeNodeType", data);
+    },
+    /**
+     * 保存节点
+     * 
+     */
+    async saveNode(store) {
+      console.log(store.state.card)
+      const {bid,card} = store.state
+      const result = cardeditApi.saveNode(bid,card)
+      console.log(result)
+      router.push("/main/dashboard/w3de974eb2538444ba519729")
     }
   },
   getters: {

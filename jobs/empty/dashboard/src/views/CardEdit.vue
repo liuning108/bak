@@ -1,7 +1,7 @@
 <template>
  <div class="full-container">
   <Loading v-if="isLoading"></Loading>
-  <el-container  v-if="!isLoading" class="cardContainer">
+  <el-container  v-show="!isLoading" class="cardContainer">
     <el-header    class="cardHeader">
       <div>
         <el-breadcrumb separator-class="el-icon-arrow-right" class="cardBread">
@@ -11,7 +11,7 @@
       </div>
       <div>
         <span class="cancelBtn">取消编辑</span>
-        <el-button type="primary"  class="savebtn"  size="small">保存</el-button>
+        <el-button type="primary"  class="savebtn"  size="small" @click="saveNode()">保存</el-button>
       </div>
     </el-header>
     <el-main class="cardMain">
@@ -68,7 +68,9 @@
       console.log("Edit",this.$route.params) 
     },
     methods: {
-      ...mapActions(['getNodeById'])
+      ...mapActions(['getNodeById']),
+      ...mapActions(['saveNode']),
+      
     },
     
   }
