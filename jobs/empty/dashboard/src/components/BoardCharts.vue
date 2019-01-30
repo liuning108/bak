@@ -45,7 +45,7 @@
           <div class="no-drag">
             <div class="graph-container">
               <div class="header">
-                <div class="title">未命名的卡片</div>
+                <div class="title">{{item.name}}</div>
               </div>
               <div class="main">
                 <component ref="gNode" :is="item.type" :id="item.i" :key="item.i"></component>
@@ -119,7 +119,6 @@ import dashApi from '../api/dashboard.js'
       },
       addNode(node) {
         if(this.isLoding)return;
-        node.type="Node1";
         this.nodes.push(node)
       },
       handleCommand(command){

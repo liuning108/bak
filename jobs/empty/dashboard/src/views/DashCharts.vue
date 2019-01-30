@@ -26,7 +26,7 @@
 
 <script>
  import BoardCharts from '../components/BoardCharts.vue'
- import util from '../utils/util.js'
+ import createCard from '../api/mock_db/card.js'
  import screenfull from 'screenfull'
  export default {
       data(){
@@ -40,7 +40,7 @@
       methods: {
         addCard() {
             const {boardcharts}  = this.$refs
-            boardcharts.addNode({"x":0,"y":0,"w":4,"h":7,"i":util.uuidv4()})
+            boardcharts.addNode(createCard())
         },
         handelCommand(command){
           this[command.type](command.data)          

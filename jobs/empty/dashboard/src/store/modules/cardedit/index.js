@@ -6,6 +6,7 @@ export default {
   state: {
      card: {},
      isLoading:true,
+     cardset:{}
 
   },
   mutations: {
@@ -20,6 +21,14 @@ export default {
     changeNodeType(state, data) {
       state.card.type = data;
     },
+    getNodeDSInfo(state,data){
+      state.cardset = data;
+    },
+    exit(state) {
+      state.card={};
+       state.isLoading = false;
+       state.cardset={};
+    }
   },
   actions: {
     
@@ -29,6 +38,8 @@ export default {
        var data = await cardeditApi.getNodeById({bid,cid})
        store.commit("getNodeById", data)
        store.commit("isLoading", false);
+       //初始CardSet
+       store.dispatch("getNodeDSInfo")
     },
     /**
      *改变节点的类型
@@ -42,12 +53,26 @@ export default {
      * 
      */
     async saveNode(store) {
-      console.log(store.state.card)
       const {bid,card} = store.state
-      const result = cardeditApi.saveNode(bid,card)
-      console.log(result)
+      const result = await cardeditApi.saveNode(bid,card)
+      store.dispatch("exit")
+    },
+    exit(store){
+      store.commit("exit")
       router.push("/main/dashboard/w3de974eb2538444ba519729")
+    },
+    /**
+     * 读取节点数据源信息
+     */
+    async getNodeDSInfo(store) {
+      console.log('getNodeDSInfo', store.state.card)
+      const {dsConfig} =store.state.card
+      const cardset = await cardeditApi.getNodeDSInfo(dsConfig.id);
+      console.log('getNodeDSInfo', cardset)
+      store.commit("getNodeDSInfo", cardset);
+
     }
+
   },
   getters: {
 
