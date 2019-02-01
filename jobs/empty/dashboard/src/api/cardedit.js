@@ -8,12 +8,10 @@ export default {
    getNodeById({bid,cid}) {
      return promise((resolve, reject) => {
           var nodes = JSON.parse(localStorage.getItem(bid))
-          console.log(nodes);
           var item =nodes.find(element=>{
              return element.i == cid;
            })
         
-           console.log(item)
          resolve({card:item,bid});
      })
    },
@@ -38,8 +36,8 @@ export default {
                   id:ds.id,
                   name:ds.name,
                   updateDate:ds.updateDate,
-                  xlist: [{id:1,name:1},{id:2,name:2}],
-                  ylist: [{id:3,name:3},{id:4,name:4}],
+                  xlist: [],
+                  ylist: [],
          }
          var group_arr=groupBy(ds.meta.cols,'type')
          var xlist = flatten([group_arr['date'], group_arr['string']])

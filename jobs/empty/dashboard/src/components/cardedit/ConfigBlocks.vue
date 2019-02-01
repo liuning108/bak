@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="config-block">
+    <div  class="config-block" >
       <div class="header">
         <div class="des">绘制</div>
       </div>
@@ -9,13 +9,13 @@
           <div class="des">维度</div>
         </div>
         <div class="card-space">
-          <draggable v-model="xlist" :options="dragXOptions">
+          <draggable v-model="resultXList" :options="dragXOptions">
             <div class="item axisColor" v-for="(element,index) in resultXList" :key="index">
               <i class="el-icon-dash-icon-zifuxiao"></i>
               <div class="item-des">
                 <div class="ellipsis">{{element.name}}</div>
               </div>
-              <i class="el-icon-close" @click="del()"></i>
+              <i class="el-icon-close" @click="del('xList',element)"></i>
             </div>
             <div slot="footer" class="ghit">拖到这里</div>
           </draggable>
@@ -26,17 +26,17 @@
           <div class="des">数值</div>
         </div>
         <div class="card-space">
-          <draggable v-model="yList" :options="dragYOptions">
+          <draggable v-model="resultYList" :options="dragYOptions">
             <el-popover
               v-for="(element,index) in resultYList"
               :key="index"
               placement="bottom"
               trigger="click"
               :visible-arrow="false"
-              v-model="element.visible"
+              v-model="yvsible[element.id]"
             >
               <ul class="popover-cardedit">
-                <el-popover placement="right" trigger="click" v-model="element.aggrpop">
+                <el-popover placement="right" trigger="click" v-model="yaggpop[element.id]">
                   <ul class="popover-cardedit">
                     <li @click="aggrOper(element,'sum')">求和(Sum)</li>
                     <li @click="aggrOper(element,'min')">最小值(Min)</li>
@@ -52,7 +52,7 @@
                 <div class="item-des">
                   <div class="ellipsis">{{element.yname}}</div>
                 </div>
-                <i class="el-icon-close" @click="del()"></i>
+                <i class="el-icon-close" @click="del('yList',element)"></i>
               </div>
             </el-popover>
 
@@ -63,18 +63,48 @@
     </div>
   </div>
 </template>
-
 <script>
 import draggable from "vuedraggable";
+import { createNamespacedHelpers } from "vuex";
+import Loading from '../Loading.vue'
+import {
+  uniqBy,
+  remove
+} from 'lodash'
+
+const { mapState,mapActions } = createNamespacedHelpers("cardedit");
+
 
 export default {
-  data() {
-    return {
-      xlist: [],
-      yList: []
-    };
+  mounted(){
+   const { dsConfig } = this.card
+     if(!dsConfig)return
+    this.xList = [...dsConfig.xList]
+    this.yList = [...dsConfig.yList]
+  },
+  data(){
+      return {
+        xList:[],
+        yList:[],
+        yvsible:{},
+        yaggpop:{}
+      }
+  },
+  watch: {
+    resultXList(newValue, oldValue) {
+      this.updateList({"type":'xList',"list":newValue})
+    },
+    resultYList:{
+       deep: true,
+       handler(newValue){
+         //console.log(1111)
+          this.updateList({"type":'yList',"list":newValue})
+       }
+    }
+
   },
   computed: {
+    ...mapState(['card']),
     dragXOptions() {
       return {
         animation: 0,
@@ -91,34 +121,41 @@ export default {
         sort: false
       };
     },
-    resultXList() {
-      let obj = {};
-      let array = this.xlist.reduce((cur, next) => {
-        obj[next.id] ? "" : (obj[next.id] = true && cur.push(next));
-        return cur;
-      }, []);
-
-      return array;
+  
+    resultXList:{
+      set(newValue){
+        this.xList=uniqBy(newValue,'id')
+      },
+      get() {
+        return this.xList;
+     }
     },
-    resultYList() {
-      let obj = {};
-      let array = this.yList.reduce((cur, next) => {
-        obj[next.id] ? "" : (obj[next.id] = true && cur.push(next));
-        return cur;
-      }, []);
-      array.forEach(element => {
-        element.yname = `${element.name}(${element.aggr})`;
-      });
-      return array;
+    resultYList:{
+     set(newValue){
+       this.yList = uniqBy(newValue,'id');
+     },
+     get(){
+        let array =this.yList.map(element => {
+            element.yname = `${element.name}(${element.aggr})`;
+            return element;
+        });
+        return array;
+     }
     }
   },
   components: {
-    draggable
+    draggable,
+    Loading
   },
-
+ 
   methods: {
-    del() {
-      alert("删除");
+    ...mapActions(['updateList']),
+    del(name,element) {
+      var arry = [...this[name]]
+      remove(arry, (el) => {
+        return el.id == element.id
+      })
+      this[name] = arry;
     },
     aggrOper(element, aggrType) {
       element.visible = false;

@@ -12,8 +12,8 @@ export default ()=>{
     "type":"Node1",
     "dsConfig":{
        "id":"1",
-       "x_config":[],
-       "y_config":[],
+       "xList":[],
+       "yList": [],
     }
   } 
 }

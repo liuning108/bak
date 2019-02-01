@@ -1,7 +1,7 @@
 <template>
  <div class="full-container">
   <Loading v-if="isLoading"></Loading>
-  <el-container  v-show="!isLoading" class="cardContainer">
+  <el-container  v-if="!isLoading" class="cardContainer">
     <el-header    class="cardHeader">
       <div>
         <el-breadcrumb separator-class="el-icon-arrow-right" class="cardBread">

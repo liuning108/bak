@@ -67,12 +67,10 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState,mapActions } = createNamespacedHelpers("cardedit");
 
 export default {
+ 
   components: {
     draggable,
     Loading
-  },
-  methods: {
-    
   },
   computed: {
     ...mapState(['cardset']),

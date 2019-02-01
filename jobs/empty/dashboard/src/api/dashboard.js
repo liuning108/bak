@@ -24,7 +24,6 @@ export default {
   saveNodes(id,nodes){
     return promise((resolve, reject) => {
       localStorage.setItem(id, JSON.stringify(nodes))
-      console.log(id, nodes);
       resolve({
         "code":0
       })

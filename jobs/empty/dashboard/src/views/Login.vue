@@ -50,7 +50,7 @@ const { mapActions,mapGetters  } = createNamespacedHelpers('user')
 
   export default {
      mounted(){
-      axios.get('http://127.0.0.1:8080/hello')
+      axios.get('http://127.0.0.1:8081/login')
       .then(response => {
         console.log(response)
       })

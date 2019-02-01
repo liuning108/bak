@@ -1,6 +1,6 @@
 <template>
   <div class="EmptyList">
-     <i class="el-icon-dash-icon-empty"></i>
+     <i :class="icon"></i>
      <span>{{msg}}</span>
   </div>
 </template>
@@ -11,6 +11,10 @@
       msg: {
         type: String,
         default: ''
+      },
+      icon: {
+        type: String,
+        default: 'el-icon-dash-icon-empty'
       },
     },
   }

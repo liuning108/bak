@@ -1,11 +1,19 @@
 <template>
   <el-container class="perviewContainer">
   <el-header class="perviewHeader">
-    {{card.type}}{{item.type}}
+    <div class="title">图形</div>
   </el-header>
   <el-main class="perviewMain">
+    <div class="perviewCard">
+    <div class="perviewTitle">
+      <span v-show="!isEdit">{{card.name}}</span>
+      <i v-show="!isEdit" class="el-icon-edit" @click="isEdit=!isEdit"></i>
+      <input type="text" v-model="card.name" v-show="isEdit" @blur="isEdit=false">
+      
+    </div>
     <div class="perviewCanvas">
-      <component  ref="gNode" :is="item.type" :id="item.i" ></component>
+      <component  ref="gNode" :is="cardType" :ds-config="card.dsConfig"   :id="cardId"  ></component>
+    </div>
     </div>
   </el-main>
   </el-container>
@@ -16,40 +24,24 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState,mapActions } = createNamespacedHelpers("cardedit");
 
   export default {
+    mounted(){
+    },
     computed: {
       ...mapState(['card']),
-      ...mapState(['isLoading'])
-    },
-    watch:{
-      card: {
-        deep: true,
-        handler(val,oldValue) {
-          console.log(oldValue.type)
-          console.log(val.type != oldValue.type)
-           this.item.type=val.type
-          if (val.type != oldValue.type){
-           
-          }
-           
-        }
+      ...mapState(['isLoading']),
+      cardType(){
+        return this.card.type
+      },
+      cardId(){
+        return this.card.id
+      },
+      dsConfig(){
+        return  this.card.dsConfig
       }
     },
-
-    mounted(){
-      setTimeout(()=>{
-        this.item.type=this.card.type
-        this.item.i=this.card.i
-      },1200)
-        
-    
-      
-    },
-     data() {
+    data() {
        return {
-         item: {
-           type:null,
-           i:null,
-         }
+         isEdit:false
        }
      },
   }

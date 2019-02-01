@@ -5,13 +5,49 @@
   .perviewHeader
     padding: 0px
     margin: 0px
-    height: 48px
+    height: 30px !important
+    .title
+      color: #8ca0b3
+      font-size: 12px
+      font-weight: 600
+      padding-left: 15px
+      padding-top: 10px
   .perviewMain
     height: 100%
-    padding: 0px
+    width: 100%
+    padding: 10px
     margin: 0px
-    background: blue
-    .perviewCanvas
-      width: 100%
+    .perviewCard
       height: 100%
-      background: #fff
+      width: 100%
+      display: flex
+      flex-direction: column
+      box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24)
+                  transition: all 0.3s cubic-bezier(.25,.3,.25,1)
+      .perviewTitle
+        height: 35px
+        line-height: 35px
+        padding-left: 15px
+        flex-grow: 0
+        flex-shrink: 0
+        color: #617282
+        font-weight: 600
+        background: #fff
+        input
+          color: #617282
+          font-weight: 600
+          border:  1px solid #46a0fc
+          height: 25px
+          line-height: 25px
+          padding-left: 15px
+        i
+          margin-left: 10px
+          cursor: pointer
+          font-size: 14px
+          &:hover
+            color: #57a4ff
+      .perviewCanvas
+        width: 100%
+        flex: 1
+        background: #fff
+      

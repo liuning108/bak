@@ -1,107 +1,121 @@
 <template>
-  <div class="gCanvas" ref="gcanvas">
+  <div class="gCanvas">
+    <div v-show="isError">
+      <Empty :msg="msg" icon="el-icon-menu-shujuyuan"></Empty>
+    </div>
+    <div  v-show="!isError" class="canvas2" ref="gcanvas">
+      
+    </div>
   </div>
 </template>
 
 <script>
-import util from '../../utils/util.js'
+import Empty from '../Empty'
+import dbUtil from './dbutils/dbUtil.js'
   export default {
-    props:['id'],
+    props:['id','dsConfig'],
+    components:{
+      Empty
+    },
     data(){
       return {
          myChart:null,
+         msg:"",
+         isError:false,
+         info:{
+            xNum:1,
+            yNum:1,
+         }
       }
     },
-     mounted(){
-         this.$nextTick(()=>{
-                this.darwG();     
-         })
-     
+    watch: {
+      dsConfig:{
+         deep:true,
+         handler(newValue, oldValue){
+           this.process()
+         }
+      },
+    },
+    mounted(){
+         this.process();    
      },
-     methods: {
+   methods: {
+       async process(){
+          const result = this.checkDsConfig();
+          if(result!=0) return;
+          var dsDatas =await dbUtil.getDsDatas(this.dsConfig,this.info);
+          this.render(dsDatas)
+             
+       },
+       render(dsDatas){
+        this.$nextTick(()=>{
+                    try {
+                        this.darwG(dsDatas);
+                    }catch(e){}
+         })  
+       },
+       checkDsConfig(){
+         console.log("checkDsConfig",this.dsConfig)
+         if(!this.dsConfig){
+            this.msg="没有配置相关数据源"
+            this.isError = true;
+            return 1;
+         } 
+         if(this.dsConfig.xList.length<=0 ||this.dsConfig.yList.length<=0){
+           var yNumstr= this.info.yNum>=10?"多":this.info.yNum
+          this.msg="图表需要 "+this.info.xNum+" 个维度和 "+yNumstr+" 个指标 "
+          this.isError = true;
+           return 1;
+         };
+         this.isError = false;
+          return 0;
+
+       },
        resize(){
            if(this.myChart){
-               
-                this.myChart.resize() 
+             this.myChart.resize() 
            }
        },
-       darwG() {
-         var canvas =this.$refs.gcanvas
+       darwG(dsDatas) {
+         if(this.myChart==null){
+            let canvas =this.$refs.gcanvas
+            this.myChart= this.$echarts.init(canvas);
+          }
 
+          var option = {
+                xAxis: this.option_xAxis(dsDatas),
+                yAxis: {
+                    type: 'value'
+                },
+                series:this.option_series(dsDatas)
+            };
           
-         var  option = {
-            tooltip : {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#6a7985'
-                    }
-                }
-            },
-            legend: {
-                data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
-            },
-            grid: {y: '25%', y2:'20%',x:'15%',x2:'15%'},
-            xAxis : [
-                {
-                    type : 'category',
-                    boundaryGap : false,
-                    data : ['周一','周二','周三','周四','周五','周六','周日']
-                }
-            ],
-            yAxis : [
-                {
-                    type : 'value'
-                }
-            ],
-            series : [
-                {
-                    name:'邮件营销',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[120, 132, 101, 134, 90, 230, 210]
-                },
-                {
-                    name:'联盟广告',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[220, 182, 191, 234, 290, 330, 310]
-                },
-                {
-                    name:'视频广告',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {},
-                    data:[150, 232, 201, 154, 190, 330, 410]
-                },
-                {
-                    name:'直接访问',
-                    type:'line',
-                    stack: '总量',
-                    areaStyle: {normal: {}},
-                    data:[320, 332, 301, 334, 390, 330, 320]
-                },
-                {
-                    name:'搜索引擎',
-                    type:'line',
-                    stack: '总量',
-                    label: {
-                        normal: {
-                            show: true,
-                            position: 'top'
-                        }
-                    },
-                    areaStyle: {normal: {}},
-                    data:[820, 932, 901, 934, 1290, 1330, 1320]
-                }
-            ]
-        };
-         this.myChart= this.$echarts.init(canvas);
+         
          this.myChart.setOption(option)
        },
+
+       option_xAxis(dsDatas){
+         return {
+                    type: 'category',
+                    data: dsDatas.xInfo[0].datas,
+                    axisLabel: {  
+                      interval:0,  
+                      rotate:80  
+                    }  
+                }
+       },
+       option_series(dsDatas){
+          
+        return dsDatas.yInfo.map(el=>{
+            return {
+                type:'bar',
+                data: el.datas
+            }
+          })
+       }
+
+        
+
      },
   }
 </script>

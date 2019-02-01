@@ -83,7 +83,6 @@ export default {
       });
     },
     handleNodeClick(node) {
-      console.log(node)
       node.isOpen = !node.isOpen
       if(node.isPage){
         this.allNodesAciveFalse(this.data);
@@ -95,7 +94,6 @@ export default {
        this.bakData =JSON.stringify(this.data);
     },
     isDrag(node){
-      console.log('isDarg', node)
         return node.data.isPage
     },
     allowDrop(draggingNode, dropNode, type){

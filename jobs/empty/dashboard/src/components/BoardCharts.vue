@@ -48,7 +48,7 @@
                 <div class="title">{{item.name}}</div>
               </div>
               <div class="main">
-                <component ref="gNode" :is="item.type" :id="item.i" :key="item.i"></component>
+                <component ref="gNode" :is="item.type"  :ds-config="item.dsConfig"   :id="item.i" :key="item.i"></component>
               </div>
             </div>
           </div>
@@ -92,21 +92,17 @@ import dashApi from '../api/dashboard.js'
       nodes: {
         deep: true,
         handler(val,oldValue) {
-           console.log('watch--')
-           this.saveNodes()
-           
+           this.saveNodes()           
         }
       }
     },
     methods: {
      async getBoardNodes(){
-        console.log("得到ID下所有的节点",this.id)
         var nodes = await dashApi.getBoardNodes(this.id)
         this.nodes=nodes;
         this.isLoding =false;
       },
       saveNodes:debounce(function(){
-        console.log('saveNode',this.nodes)
         dashApi.saveNodes(this.id,this.nodes);
       },1000),
       resizeEvent(i, newH, newW, newHPx, newWPx){
@@ -128,7 +124,6 @@ import dashApi from '../api/dashboard.js'
       removeNode(item){
          const {i} = item; 
          this.nodes=this.nodes.filter(n=>n.i!=i);
-         console.log(this.nodes.length)
       },
       editNode(item){
         let url = '/main/card/'+ this.id+'/'+item.i;

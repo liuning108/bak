@@ -1,5 +1,8 @@
 import cardeditApi from '../../../api/cardedit'
 import router from '../../../router'
+import {
+  remove
+} from 'lodash'
 
 export default {
   namespaced: true,
@@ -28,6 +31,16 @@ export default {
       state.card={};
        state.isLoading = false;
        state.cardset={};
+    },
+    updateList(state,{type,list}) {
+      state.card.dsConfig[type] =list ;
+    },  
+    delDimList(state,{name, element}) {
+      var arry = [...state.card.dsConfig[name]]
+      remove(arry, (el) => {
+        return el.id == element.id
+      })
+      state.card.dsConfig[name] = arry;
     }
   },
   actions: {
@@ -40,6 +53,9 @@ export default {
        store.commit("isLoading", false);
        //初始CardSet
        store.dispatch("getNodeDSInfo")
+     
+       
+
     },
     /**
      *改变节点的类型
@@ -71,6 +87,13 @@ export default {
       console.log('getNodeDSInfo', cardset)
       store.commit("getNodeDSInfo", cardset);
 
+    },
+    delDimList(store, data) {
+      store.commit("delDimList",data)
+    },
+
+    updateList(store,data){
+      store.commit("updateList", data)
     }
 
   },

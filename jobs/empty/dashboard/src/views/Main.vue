@@ -29,7 +29,6 @@ import userApi from '../api/user.js'
     mounted(){
       userApi.getDataSource().then(
         (datasource)=>{
-          console.log(datasource)
          this.$router.push("/main/dashboard/w3de974eb2538444ba519729");
         }
       )

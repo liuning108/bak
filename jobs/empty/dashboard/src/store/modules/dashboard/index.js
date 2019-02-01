@@ -13,7 +13,6 @@ export default {
   },
   actions: {
     getDashListByUserId(store, userId) {
-      console.log(userId);
     }
   },
   getters: {
