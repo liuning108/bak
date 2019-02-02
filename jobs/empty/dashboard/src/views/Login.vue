@@ -8,13 +8,6 @@
         <span>{{loginError}}</span>
       </div>
       <div class="loginFrom">
-        <el-input
-              class="loginInput"
-              placeholder="公司域"
-              prefix-icon="el-icon-login-home"
-              v-model="region"
-              >
-              </el-input>
             <el-input
               class="loginInput"
               placeholder="邮箱地扯"

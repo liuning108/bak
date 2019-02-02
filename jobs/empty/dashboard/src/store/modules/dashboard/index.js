@@ -5,8 +5,8 @@ export default {
   namespaced: true,
   state: {
     dashList:[],
-    curDashBoard:{}
-    
+    curDashBoard:{},
+    data:[],
   },
   mutations: {
    
